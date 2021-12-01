@@ -1,0 +1,83 @@
+;camping
+[logic@val_smart_terrain_10_1_trans_1]
+active = animpoint@val_smart_terrain_10_1_trans_1
+suitable = {=check_npc_name(monolith)} true
+prior = 30
+
+[animpoint@val_smart_terrain_10_1_trans_1]
+cover_name = val_smart_terrain_10_1_animpoint_trans_1
+avail_animations = trans_0, trans_1
+; reach_movement = walk_noweap
+use_camp = false
+meet = meet@trans
+combat_ignore_cond = {!pure_enemy_dist_le(10)} true, false
+; reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@val_smart_terrain_10_1_trans_2]
+active = animpoint@val_smart_terrain_10_1_trans_2
+suitable = {=check_npc_name(monolith)} true
+prior = 30
+
+[animpoint@val_smart_terrain_10_1_trans_2]
+cover_name = val_smart_terrain_10_1_animpoint_trans_2
+avail_animations = trans_0, trans_1
+; reach_movement = walk_noweap
+use_camp = false
+meet = meet@trans
+combat_ignore_cond = {!pure_enemy_dist_le(10)} true, false
+; reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@val_smart_terrain_10_1_trans_3]
+active = animpoint@val_smart_terrain_10_1_trans_3
+suitable = {=check_npc_name(monolith)} true
+prior = 30
+
+[animpoint@val_smart_terrain_10_1_trans_3]
+cover_name = val_smart_terrain_10_1_animpoint_trans_3
+avail_animations = trans_0, trans_1
+; reach_movement = walk_noweap
+use_camp = false
+meet = meet@trans
+combat_ignore_cond = {!pure_enemy_dist_le(10)} true, false
+; reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@val_smart_terrain_10_1_trans_4]
+active = animpoint@val_smart_terrain_10_1_trans_4
+suitable = {=check_npc_name(monolith)} true
+prior = 30
+
+[animpoint@val_smart_terrain_10_1_trans_4]
+cover_name = val_smart_terrain_10_1_animpoint_trans_4
+avail_animations = trans_0, trans_1
+; reach_movement = walk_noweap
+use_camp = false
+meet = meet@trans
+combat_ignore_cond = {!pure_enemy_dist_le(10)} true, false
+; reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet@trans]
+close_snd_hello = nil
+close_snd_bye = nil
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 7
+abuse           = false
+use = false
+allow_break = false
+meet_on_talking = false

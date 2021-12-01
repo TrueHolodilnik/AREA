@@ -1,0 +1,1414 @@
+;------------------------------------------------------------------------------------------------------
+;		A.R.E.A. Tasks, created by Holodilnik		
+;------------------------------------------------------------------------------------------------------
+
+;------------------------------------------------------------------------------------------------------
+;		Fanat fuel tasks
+;------------------------------------------------------------------------------------------------------
+
+[esc_2_12_stalker_fanat_task_4]
+icon = ui_icons_holodilnik_fuel_quest
+prior = 10
+repeat_timeout = 0 ;259200
+storyline = false
+title = esc_2_12_stalker_fanat_task_4_name
+title_functor = general_fetch_task
+descr = esc_2_12_stalker_fanat_task_4_text
+descr_functor = general_fetch_task
+job_descr = esc_2_12_stalker_fanat_task_4_about
+fetch_descr = esc_2_12_stalker_fanat_task_4_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_2_12_stalker_fanat_task_4_fetch:1:jerrycan_fuel)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_2_12_stalker_fanat_task_4_fetch_finish
+on_complete = %=reward_random_money(5400:6800:roubles) =reward_stash(true) +esc_2_12_stalker_fanat_task_4_done =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_2_12_stalker_fanat_task_4_fetch) =inc_task_stage(esc_2_12_stalker_fanat_task_4) =pstor_reset(esc_2_12_stalker_fanat_task_4_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_4) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_4)%
+on_fail = %=fail_task_dec_goodwill(50:stalker) =pstor_reset(esc_2_12_stalker_fanat_task_4_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_4) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_4)%
+on_cancel = %=fail_task_dec_goodwill(15:stalker) =pstor_reset(esc_2_12_stalker_fanat_task_4_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_4) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_4)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_fanat_task_4_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_4) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_4)%
+precondition = true
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_fanat)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+[esc_2_12_stalker_fanat_task_5]
+icon = ui_icons_holodilnik_fuel_quest
+prior = 10
+repeat_timeout = 0 ;259200
+storyline = false
+title = esc_2_12_stalker_fanat_task_5_name
+title_functor = general_fetch_task
+descr = esc_2_12_stalker_fanat_task_5_text
+descr_functor = general_fetch_task
+job_descr = esc_2_12_stalker_fanat_task_5_about
+fetch_descr = esc_2_12_stalker_fanat_task_5_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_2_12_stalker_fanat_task_5_fetch:1:kerosene)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_2_12_stalker_fanat_task_5_fetch_finish
+on_complete = %=reward_random_money(4600:5600:roubles) =reward_stash(true) +esc_2_12_stalker_fanat_task_5_done =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_2_12_stalker_fanat_task_5_fetch) =inc_task_stage(esc_2_12_stalker_fanat_task_5) =pstor_reset(esc_2_12_stalker_fanat_task_5_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_5) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_5)%
+on_fail = %=fail_task_dec_goodwill(50:stalker) =pstor_reset(esc_2_12_stalker_fanat_task_5_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_5) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_5)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(esc_2_12_stalker_fanat_task_5_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_5) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_5)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_fanat_task_5_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_5) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_5)%
+precondition = true
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_fanat)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+;------------------------------------------------------------------------------------------------------
+; Polimer (Loner Mechanic) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_tech_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_dasc_tech_mlr_default_task_name
+descr = drx_sl_dasc_tech_mlr_default_task_text
+job_descr = drx_sl_dasc_tech_mlr_default_task_about
+task_complete_descr = drx_sl_dasc_tech_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_dasc_tech_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Polimer (Loner Mechanic) Find Replacement Weapon Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_tech_mlr_task_1]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = true
+prior = 118
+repeat_timeout = 0 ;0
+precondition = true
+
+title = drx_sl_dasc_tech_mlr_task_1_name
+title_functor = general_fetch_task
+descr = drx_sl_dasc_tech_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_dasc_tech_mlr_task_1_about
+fetch_descr = drx_sl_dasc_tech_mlr_task_1_fetch_about
+task_complete_descr = drx_sl_dasc_tech_mlr_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_dasc_tech_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(drx_sl_dasc_tech_mlr_task_1_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_dasc_tech_mlr_task_1_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_dasc_tech_mlr_task_1) =pstor_reset(drx_sl_dasc_tech_mlr_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_1)%
+
+quest_timeout = 518400
+;------------------------------------------------------------------------------------------------------
+; Polimer (Loner Mechanic) Clear Out Mutants Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_tech_mlr_task_2]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = true
+prior = 142
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = drx_sl_dasc_tech_mlr_task_2_name
+descr = drx_sl_dasc_tech_mlr_task_2_text
+job_descr = drx_sl_dasc_tech_mlr_task_2_about
+task_complete_descr = drx_sl_dasc_tech_mlr_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(drx_sl_dasc_tech_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(drx_sl_dasc_tech_mlr_task_2_id)%
+on_complete = %=reward_random_money(13000:13800:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_dasc_tech_mlr_task_2) =pstor_reset(drx_sl_dasc_tech_mlr_task_2_id) =pstor_reset(drx_sl_dasc_tech_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_2_id) =pstor_reset(drx_sl_dasc_tech_mlr_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_2_id) =pstor_reset(drx_sl_dasc_tech_mlr_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_tech_mlr_task_2_id) =pstor_reset(drx_sl_dasc_tech_mlr_task_2_target_id)=drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_2)%
+
+quest_timeout = 86400
+
+;------------------------------------------------------------------------------------------------------
+; Polimer (Loner Mechanic) Package for stalker Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_tech_mlr_task_3]
+
+icon = ui_icons_find_case3
+storyline = true
+prior = 45
+repeat_timeout = 0
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = drx_sl_dasc_tech_mlr_task_3_name
+descr = drx_sl_dasc_tech_mlr_task_3_text
+job_descr = drx_sl_dasc_tech_mlr_task_3_about
+task_complete_descr = drx_sl_dasc_tech_mlr_task_3_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+condlist_1 = {!task_target_alive(drx_sl_dasc_tech_mlr_task_3)} reversed
+
+on_init = %=setup_debt_task(drx_sl_dasc_tech_mlr_task_3) =give_package(drx_sl_dasc_tech_mlr_task_3)%
+on_complete = %=take_package_money(drx_sl_dasc_tech_mlr_task_3:false:0.9) =reset_package_vars(drx_sl_dasc_tech_mlr_task_3) =reward_random_item(kolbasa:sausage) =inc_task_stage(drx_sl_dasc_tech_mlr_task_3) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_3)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_tech_mlr_task_3) =fail_task_dec_goodwill(300:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_3)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_tech_mlr_task_3) =fail_task_dec_goodwill(75:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_3)%
+on_reversed = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_tech_mlr_task_3) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_3)%
+
+quest_timeout = 86400
+
+;------------------------------------------------------------------------------------------------------
+; Polimer (Loner Mechanic) Debt Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_tech_mlr_task_4]
+
+icon = ui_icons_more_money1
+storyline = true
+prior = 45
+repeat_timeout = 0
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = drx_sl_dasc_tech_mlr_task_4_name
+descr = drx_sl_dasc_tech_mlr_task_4_text
+job_descr = drx_sl_dasc_tech_mlr_task_4_about
+task_complete_descr = drx_sl_dasc_tech_mlr_task_4_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_debt_task(drx_sl_dasc_tech_mlr_task_4)%
+on_complete = %=reward_debt_money(drx_sl_dasc_tech_mlr_task_4:false:0.4) =take_debt_money(drx_sl_dasc_tech_mlr_task_4) =reset_debt_vars(drx_sl_dasc_tech_mlr_task_4) =inc_task_stage(drx_sl_dasc_tech_mlr_task_4) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_4)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_dasc_tech_mlr_task_4) =fail_task_dec_goodwill(150:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_4)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_dasc_tech_mlr_task_4) =fail_task_dec_goodwill(30:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_tech_mlr_task_4)%
+
+quest_timeout = 86400
+
+
+;------------------------------------------------------------------------------------------------------
+; Drovosek (Loner Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_trade_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_dasc_trade_mlr_default_task_name
+descr = drx_sl_dasc_trade_mlr_default_task_text
+job_descr = drx_sl_dasc_trade_mlr_default_task_about
+task_complete_descr = drx_sl_dasc_trade_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_dasc_trade_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Drovosek (Loner Trader) Find PDA Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_trade_mlr_task_1]
+icon = ui_inGame2_PD_Torgovets_informatsiey
+storyline = true
+prior = 39
+repeat_timeout = 0
+precondition = { -drx_sl_quest_item_task_1_started} true, false
+
+title = drx_sl_dasc_trade_mlr_task_1_name
+descr = drx_sl_dasc_trade_mlr_task_1_text
+job_descr = drx_sl_dasc_trade_mlr_task_1_about
+task_complete_descr = drx_sl_dasc_trade_mlr_task_1_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_1_target
+status_functor = drx_sl_quest_item_task_1_status
+condlist_0 = {!task_giver_alive(drx_sl_dasc_trade_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_create_quest_stash_1() +drx_sl_quest_item_task_1_started%
+on_complete = %=reward_random_money(5400:6000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_item(drx_sl_quest_item_1) =inc_task_stage(drx_sl_dasc_trade_mlr_task_1) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_1)%
+
+quest_timeout = 172800
+
+;------------------------------------------------------------------------------------------------------
+; Drovosek (Loner Trader) Hunt for Food Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_trade_mlr_task_2]
+
+icon = ui_inGame2_PD_Ohotnik_na_mutantov
+storyline = true
+prior = 145
+repeat_timeout = 0
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = drx_sl_dasc_trade_mlr_task_2_name
+descr = drx_sl_dasc_trade_mlr_task_2_text
+job_descr = drx_sl_dasc_trade_mlr_task_2_about
+task_complete_descr = drx_sl_dasc_trade_mlr_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(drx_sl_dasc_trade_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(drx_sl_dasc_trade_mlr_task_2_id)%
+on_complete = %=reward_random_money(10000:11000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_dasc_trade_mlr_task_2) =pstor_reset(drx_sl_dasc_trade_mlr_task_2_id) =pstor_reset(drx_sl_dasc_trade_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_trade_mlr_task_2_id) =pstor_reset(drx_sl_dasc_trade_mlr_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(6:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_trade_mlr_task_2_id) =pstor_reset(drx_sl_dasc_trade_mlr_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_dasc_trade_mlr_task_2_id) =pstor_reset(drx_sl_dasc_trade_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_2)%
+
+quest_timeout = 172800
+
+;------------------------------------------------------------------------------------------------------
+; Package stalker Simulation Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_trade_mlr_task_3]
+
+icon = ui_icons_find_case3
+storyline = true
+prior = 45
+repeat_timeout = 0
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = drx_sl_dasc_trade_mlr_task_3_name
+descr = drx_sl_dasc_trade_mlr_task_3_text
+job_descr = drx_sl_dasc_trade_mlr_task_3_about
+task_complete_descr = drx_sl_dasc_trade_mlr_task_3_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+condlist_1 = {!task_target_alive(drx_sl_dasc_trade_mlr_task_3)} reversed
+
+on_init = %=setup_debt_task(drx_sl_dasc_trade_mlr_task_3) =give_package(drx_sl_dasc_trade_mlr_task_3)%
+on_complete = %=take_package_money(drx_sl_dasc_trade_mlr_task_3) =reset_package_vars(drx_sl_dasc_trade_mlr_task_3) =reward_random_item(chili:conserva:bullheads:beans:beef) =inc_task_stage(drx_sl_dasc_trade_mlr_task_3) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_3)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_trade_mlr_task_3) =fail_task_dec_goodwill(300:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_3)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_trade_mlr_task_3) =fail_task_dec_goodwill(35:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_3)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_dasc_trade_mlr_task_3) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_3)%
+
+quest_timeout = 86400
+
+;------------------------------------------------------------------------------------------------------
+; Debt Simulation Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_dasc_trade_mlr_task_4]
+
+icon = ui_icons_more_money1
+storyline = true
+prior = 45
+repeat_timeout = 0
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = drx_sl_dasc_trade_mlr_task_4_name
+descr = drx_sl_dasc_trade_mlr_task_4_text
+job_descr = drx_sl_dasc_trade_mlr_task_4_about
+task_complete_descr = drx_sl_dasc_trade_mlr_task_4_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_debt_task(drx_sl_dasc_trade_mlr_task_4)%
+on_complete = %=reward_debt_money(drx_sl_dasc_trade_mlr_task_4:false:0.35) =take_debt_money(drx_sl_dasc_trade_mlr_task_4) =reset_debt_vars(drx_sl_dasc_trade_mlr_task_4) =reward_random_item(money_hrivni_200:money_roubles_1000) =inc_task_stage(drx_sl_dasc_trade_mlr_task_4) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_4)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_dasc_trade_mlr_task_4) =fail_task_dec_goodwill(150:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_4)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_dasc_trade_mlr_task_4) =fail_task_dec_goodwill(50:stalker) =drx_sl_unregister_task_giver(drx_sl_dasc_trade_mlr_task_4)%
+
+quest_timeout = 86400
+
+;------------------------------------------------------------------------------------------------------
+; Barman (Loner Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_bar_visitors_barman_stalker_trader_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_bar_visitors_barman_stalker_trader_default_task_name
+descr = drx_sl_bar_visitors_barman_stalker_trader_default_task_text
+job_descr = drx_sl_bar_visitors_barman_stalker_trader_default_task_about
+task_complete_descr = drx_sl_bar_visitors_barman_stalker_trader_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_bar_visitors_barman_stalker_trader_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Barman (Loner Trader) Mutant Hunt Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_bar_visitors_barman_stalker_trader_task_1]
+
+icon = ui_inGame2_PD_Ohotnik_na_mutantov
+storyline = true
+prior = 58
+repeat_timeout = 0 ;259200
+precondition = { =drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = drx_sl_bar_visitors_barman_stalker_trader_task_1_name
+descr = drx_sl_bar_visitors_barman_stalker_trader_task_1_text
+job_descr = drx_sl_bar_visitors_barman_stalker_trader_task_1_about
+task_complete_descr = drx_sl_bar_visitors_barman_stalker_trader_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(drx_sl_bar_visitors_barman_stalker_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(bar_visitors_barman_stalker_trader_task_1_id)%
+on_complete = %=reward_random_money(10000:11000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_bar_visitors_barman_stalker_trader_task_1) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(bar_visitors_barman_stalker_trader_task_1_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(bar_visitors_barman_stalker_trader_task_1_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(bar_visitors_barman_stalker_trader_task_1_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_1)%
+
+;------------------------------------------------------------------------------------------------------
+; Barman (Loner Trader) Raid Bandit Camp Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_bar_visitors_barman_stalker_trader_task_2]
+
+icon = ui_inGame2_PD_Lider
+storyline = true
+prior = 85
+repeat_timeout = 0 ;259200
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:bandit)} true, false
+type = assault
+
+title = drx_sl_bar_visitors_barman_stalker_trader_task_2_name
+descr = drx_sl_bar_visitors_barman_stalker_trader_task_2_text
+job_descr = drx_sl_bar_visitors_barman_stalker_trader_task_2_about
+task_complete_descr = drx_sl_bar_visitors_barman_stalker_trader_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = bandit
+condlist_0 = {!task_giver_alive(drx_sl_bar_visitors_barman_stalker_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=find_smart_under_faction_control(bar_visitors_barman_stalker_trader_task_2_id:bandit)%
+on_complete = %=reward_random_money(13000:14000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_bar_visitors_barman_stalker_trader_task_2) =pstor_reset(bar_visitors_barman_stalker_trader_task_2_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(bar_visitors_barman_stalker_trader_task_2_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(bar_visitors_barman_stalker_trader_task_2_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(bar_visitors_barman_stalker_trader_task_2_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_2)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Barman (Loner Trader) Find Mutant Meat Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_bar_visitors_barman_stalker_trader_task_3]
+
+icon = ui_inGame2_Pripasi
+storyline = true
+prior = 30
+repeat_timeout = 0 ;259200
+precondition = true
+
+title = drx_sl_bar_visitors_barman_stalker_trader_task_3_name
+title_functor = general_fetch_task
+descr = drx_sl_bar_visitors_barman_stalker_trader_task_3_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_bar_visitors_barman_stalker_trader_task_3_about
+fetch_descr = drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch_about
+task_complete_descr = drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_bar_visitors_barman_stalker_trader_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch:3:6)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch:1.1) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_bar_visitors_barman_stalker_trader_task_3) =pstor_reset(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_3)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch) =drx_sl_unregister_task_giver(drx_sl_bar_visitors_barman_stalker_trader_task_3)%
+
+quest_timeout = 259200
+;------------------------------------------------------------------------------------------------------
+; Baraholka Trader (Loner Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_baraholka_trader_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_baraholka_trader_default_task_name
+descr = drx_sl_baraholka_trader_default_task_text
+job_descr = drx_sl_baraholka_trader_default_task_about
+task_complete_descr = drx_sl_baraholka_trader_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_baraholka_trader_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Baraholka Trader (Loner Trader) Find Weapon Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_baraholka_trader_task_1]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = true
+prior = 118
+repeat_timeout = 0 ;0
+precondition = true
+
+title = drx_sl_baraholka_trader_task_1_name
+title_functor = general_fetch_task
+descr = drx_sl_baraholka_trader_task_1_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_baraholka_trader_task_1_about
+fetch_descr = drx_sl_baraholka_trader_task_1_fetch_about
+task_complete_descr = drx_sl_baraholka_trader_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_baraholka_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(drx_sl_baraholka_trader_task_1_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_baraholka_trader_task_1_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_baraholka_trader_task_1) =pstor_reset(drx_sl_baraholka_trader_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_baraholka_trader_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_baraholka_trader_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_baraholka_trader_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_1)%
+
+;------------------------------------------------------------------------------------------------------
+; Baraholka Trader (Loner Trader) Procure Supplies Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_baraholka_trader_task_2]
+
+icon = ui_inGame2_D_Sisshik
+storyline = true
+prior = 112
+repeat_timeout = 0 ;0
+precondition = true
+
+title = drx_sl_baraholka_trader_task_2_name
+title_functor = general_fetch_task
+descr = drx_sl_baraholka_trader_task_2_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_baraholka_trader_task_2_about
+fetch_descr = drx_sl_baraholka_trader_task_2_fetch_about
+task_complete_descr = drx_sl_baraholka_trader_task_2_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_baraholka_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(drx_sl_baraholka_trader_task_2_fetch:12:16)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_baraholka_trader_task_2_fetch:1.5) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_baraholka_trader_task_2) =pstor_reset(drx_sl_baraholka_trader_task_2_fetch) =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_baraholka_trader_task_2_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_baraholka_trader_task_2_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_baraholka_trader_task_2_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_baraholka_trader_task_2)%
+
+quest_timeout = 259200
+;------------------------------------------------------------------------------------------------------
+; Tihiy (Loner Special Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_pri_special_trader_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_pri_special_trader_mlr_default_task_name
+descr = drx_sl_pri_special_trader_mlr_default_task_text
+job_descr = drx_sl_pri_special_trader_mlr_default_task_about
+task_complete_descr = drx_sl_pri_special_trader_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_pri_special_trader_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Tihiy (Loner Special Trader) Assassination Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_pri_special_trader_mlr_stalker_task_1]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = true
+prior = 45
+repeat_timeout = 0 ;259200
+precondition = {=check_available_targets(stalker)} true, false
+type = bounty
+
+title = drx_sl_pri_special_trader_mlr_stalker_task_1_name
+descr = drx_sl_pri_special_trader_mlr_stalker_task_1_text
+job_descr = drx_sl_pri_special_trader_mlr_stalker_task_1_about
+task_complete_descr = drx_sl_pri_special_trader_mlr_stalker_task_1_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(drx_sl_pri_special_trader_mlr_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=on_init_bounty_hunt(drx_sl_pri_special_trader_mlr_stalker_task_1:killer:monolith)%
+on_complete = %=reward_random_money(13500:14000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_pri_special_trader_mlr_stalker_task_1) =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_stalker_task_1) drx_sl_decrease_sl_tasks_count()%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_stalker_task_1) drx_sl_decrease_sl_tasks_count()%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_stalker_task_1) drx_sl_decrease_sl_tasks_count()%
+on_reversed = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_pri_special_trader_mlr_stalker_task_1)%
+
+quest_timeout = 172800
+;------------------------------------------------------------------------------------------------------
+; Chemodan (Merc Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_a18_mech_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_merc_pri_a18_mech_mlr_default_task_name
+descr = drx_sl_merc_pri_a18_mech_mlr_default_task_text
+job_descr = drx_sl_merc_pri_a18_mech_mlr_default_task_about
+task_complete_descr = drx_sl_merc_pri_a18_mech_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_merc_pri_a18_mech_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(killer)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Chemodan (Merc Trader) Assassination Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_a18_mech_mlr_task_1]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = true
+prior = 45
+repeat_timeout = 0 ;259200
+precondition = {=check_available_targets(killer)} true, false
+type = assault
+
+title = drx_sl_merc_pri_a18_mech_mlr_task_1_name
+descr = drx_sl_merc_pri_a18_mech_mlr_task_1_text
+job_descr = drx_sl_merc_pri_a18_mech_mlr_task_1_about
+task_complete_descr = drx_sl_merc_pri_a18_mech_mlr_task_1_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(drx_sl_merc_pri_a18_mech_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=on_init_bounty_hunt(drx_sl_merc_pri_a18_mech_mlr_task_1:monolith:army:dolg)%
+on_complete = %=reward_random_money(12000:13000:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_merc_pri_a18_mech_mlr_task_1) =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_1) drx_sl_decrease_sl_tasks_count()%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_1)%
+
+quest_timeout = 172800
+;------------------------------------------------------------------------------------------------------
+; Chemodan (Merc Trader) X8 Documents Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_a18_mech_mlr_task_2]
+
+icon = ui_inGame2_Laboratoriya_X8
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = { -main_5_search_labx8_task_done} true, false
+
+title = drx_sl_merc_pri_a18_mech_mlr_task_2_name
+descr = drx_sl_merc_pri_a18_mech_mlr_task_2_text
+job_descr = drx_sl_merc_pri_a18_mech_mlr_task_2_about
+task_complete_descr = drx_sl_merc_pri_a18_mech_mlr_task_2_finish
+
+stage_complete = 1
+target = {!actor_has_item(main_story_5_lab_x8_documents)} pri_space_restrictor_to_labx8, {=actor_has_item(main_story_5_lab_x8_documents)} merc_pri_a18_mech_mlr
+status_functor = drx_sl_retrieve_item_task_status
+status_functor_params = main_story_5_lab_x8_documents
+condlist_0 = {!task_giver_alive(drx_sl_merc_pri_a18_mech_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_complete = %+main_5_search_labx8_task_done =reward_random_money(30000:35000:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_merc_pri_a18_mech_mlr_task_2) =remove_item(main_story_5_lab_x8_documents) =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_a18_mech_mlr_task_2)%
+
+;------------------------------------------------------------------------------------------------------
+; Tesak (Merc Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_grifon_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_merc_pri_grifon_mlr_default_task_name
+descr = drx_sl_merc_pri_grifon_mlr_default_task_text
+job_descr = drx_sl_merc_pri_grifon_mlr_default_task_about
+task_complete_descr = drx_sl_merc_pri_grifon_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_merc_pri_grifon_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(killer)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Tesak (Merc Trader) Battle Plans Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_grifon_mlr_task_1]
+
+icon = ui_inGame2_Poslednie_razrabotki
+storyline = true
+prior = 129
+repeat_timeout = 0
+precondition = { -drx_sl_quest_item_task_1_started} true, false
+
+title = drx_sl_merc_pri_grifon_mlr_task_1_name
+descr = drx_sl_merc_pri_grifon_mlr_task_1_text
+job_descr = drx_sl_merc_pri_grifon_mlr_task_1_about
+task_complete_descr = drx_sl_merc_pri_grifon_mlr_task_1_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_1_target
+status_functor = drx_sl_quest_item_task_1_status
+condlist_0 = {!task_giver_alive(drx_sl_merc_pri_grifon_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_create_quest_stash_1() +drx_sl_quest_item_task_1_started%
+on_complete = %=reward_random_money(3600:5000:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =remove_item(drx_sl_quest_item_1) =inc_task_stage(drx_sl_merc_pri_grifon_mlr_task_1) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_1)%
+on_fail = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(5:killer) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_1)%
+
+quest_timeout = 43200
+;------------------------------------------------------------------------------------------------------
+; Tesak (Merc Trader) Assault Enemy Camp Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_merc_pri_grifon_mlr_task_2]
+icon = ui_inGame2_PD_Lider
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_remote_task(1:nil:false:killer)} true, false
+type = assault
+
+title = drx_sl_merc_pri_grifon_mlr_task_2_name
+descr = drx_sl_merc_pri_grifon_mlr_task_2_text
+job_descr = drx_sl_merc_pri_grifon_mlr_task_2_about
+task_complete_descr = drx_sl_merc_pri_grifon_mlr_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, monolith, army, dolg
+condlist_0 = {!task_giver_alive(drx_sl_merc_pri_grifon_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(drx_sl_merc_pri_grifon_mlr_task_2_id:killer)%
+on_complete = %=reward_random_money(14000:15500:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_merc_pri_grifon_mlr_task_2) =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_id) =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_id) =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_id) =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_id) =pstor_reset(drx_sl_merc_pri_grifon_mlr_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_merc_pri_grifon_mlr_task_2)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Max (Freedom Honcho) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_border_freedom_keeper_max_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_border_freedom_keeper_max_default_task_name
+descr = drx_sl_border_freedom_keeper_max_default_task_text
+job_descr = drx_sl_border_freedom_keeper_max_default_task_about
+task_complete_descr = drx_sl_border_freedom_keeper_max_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_border_freedom_keeper_max_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(freedom)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Max (Freedom Honcho) Patrol Local Area Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_border_freedom_keeper_max_task_1]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = true
+prior = 175
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_local_task(1:nil:false:freedom)} true, false
+type = assault
+
+title = drx_sl_border_freedom_keeper_max_task_1_name
+descr = drx_sl_border_freedom_keeper_max_task_1_text
+job_descr = drx_sl_border_freedom_keeper_max_task_1_about
+task_complete_descr = drx_sl_border_freedom_keeper_max_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monolith, army, dolg
+condlist_0 = {!task_giver_alive(drx_sl_border_freedom_keeper_max_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=drx_sl_setup_assault_local(drx_sl_border_freedom_keeper_max_task_1_id:freedom)%
+on_complete = %=reward_random_money(7000:8000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(drx_sl_border_freedom_keeper_max_task_1) =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_1)%
+
+;------------------------------------------------------------------------------------------------------
+; Max (Freedom Honcho) Defend Base Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_border_freedom_keeper_max_task_2]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_local_task(1:nil:false:freedom)} true, false
+type = assault
+
+title = drx_sl_border_freedom_keeper_max_task_2_name
+descr = drx_sl_border_freedom_keeper_max_task_2_text
+job_descr = drx_sl_border_freedom_keeper_max_task_2_about
+task_complete_descr = drx_sl_border_freedom_keeper_max_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monolith, army, dolg
+condlist_0 = {!task_giver_alive(drx_sl_border_freedom_keeper_max_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=drx_sl_setup_assault_local(drx_sl_border_freedom_keeper_max_task_2_id:freedom)%
+on_complete = %=reward_random_money(9000:9900:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(drx_sl_border_freedom_keeper_max_task_2) =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_2) drx_sl_decrease_sl_tasks_count()%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_id) =pstor_reset(drx_sl_border_freedom_keeper_max_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_border_freedom_keeper_max_task_2)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Privratnik (Merc Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_killer_bridge_trader_mlr_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_killer_bridge_trader_mlr_default_task_name
+descr = drx_sl_killer_bridge_trader_mlr_default_task_text
+job_descr = drx_sl_killer_bridge_trader_mlr_default_task_about
+task_complete_descr = drx_sl_killer_bridge_trader_mlr_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_killer_bridge_trader_mlr_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(killer)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Privratnik (Merc Trader) Assault on Monolith Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_killer_bridge_trader_mlr_task_1]
+
+icon = ui_inGame2_PD_Lider
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:monolith)} true, false
+type = assault
+
+title = drx_sl_killer_bridge_trader_mlr_task_1_name
+descr = drx_sl_killer_bridge_trader_mlr_task_1_text
+job_descr = drx_sl_killer_bridge_trader_mlr_task_1_about
+task_complete_descr = drx_sl_killer_bridge_trader_mlr_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monolith
+condlist_0 = {!task_giver_alive(drx_sl_killer_bridge_trader_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=find_smart_under_faction_control_ex(drx_sl_killer_bridge_trader_mlr_task_1_id:monolith)%
+on_complete = %=reward_random_money(13500:14000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_killer_bridge_trader_mlr_task_1) =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_id) =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_id) =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_id) =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_target_id)) =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_id) =pstor_reset(drx_sl_killer_bridge_trader_mlr_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_1)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Privratnik (Merc Trader) Sniper Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_killer_bridge_trader_mlr_task_2]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = true
+prior = 135
+repeat_timeout = 0 ;0
+precondition = {=check_available_targets(killer)} true, false
+type = bounty
+
+title = drx_sl_killer_bridge_trader_mlr_task_2_name
+descr = drx_sl_killer_bridge_trader_mlr_task_2_text
+job_descr = drx_sl_killer_bridge_trader_mlr_task_2_about
+task_complete_descr = drx_sl_killer_bridge_trader_mlr_task_2_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(drx_sl_killer_bridge_trader_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(drx_sl_killer_bridge_trader_mlr_task_2:killer)%
+on_complete = %=reward_random_money(11000:13000:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_killer_bridge_trader_mlr_task_2) =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_2)%
+on_reversed = % =drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_killer_bridge_trader_mlr_task_2)%
+
+quest_timeout = 172800
+;------------------------------------------------------------------------------------------------------
+; Zhurov (Army Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_esc_3_16_military_trader_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_esc_3_16_military_trader_default_task_name
+descr = drx_sl_esc_3_16_military_trader_default_task_text
+job_descr = drx_sl_esc_3_16_military_trader_default_task_about
+task_complete_descr = drx_sl_esc_3_16_military_trader_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_esc_3_16_military_trader_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(army)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Zhurov (Army Trader) Capture Territory Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_esc_3_16_military_trader_task_1]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = true
+prior = 65
+repeat_timeout = 0 ;259200
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:stalker)} true, false
+type = assault
+
+title = drx_sl_esc_3_16_military_trader_task_1_name
+descr = drx_sl_esc_3_16_military_trader_task_1_text
+job_descr = drx_sl_esc_3_16_military_trader_task_1_about
+task_complete_descr = drx_sl_esc_3_16_military_trader_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker
+condlist_0 = {!task_giver_alive(drx_sl_esc_3_16_military_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=find_smart_under_faction_control_ex(drx_sl_esc_3_16_military_trader_task_1_id:stalker)%
+on_complete = %=reward_random_money(13000:14000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(drx_sl_esc_3_16_military_trader_task_1) =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_id) =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_id) =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_id) =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_id) =pstor_reset(drx_sl_esc_3_16_military_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_3_16_military_trader_task_1)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Random Name (Bandit Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trucks_cemetery_bandit_trader_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_trucks_cemetery_bandit_trader_default_task_name
+descr = drx_sl_trucks_cemetery_bandit_trader_default_task_text
+job_descr = drx_sl_trucks_cemetery_bandit_trader_default_task_about
+task_complete_descr = drx_sl_trucks_cemetery_bandit_trader_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_trucks_cemetery_bandit_trader_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(bandit)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Bandit Trader) Clear Out Mutants Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trucks_cemetery_bandit_trader_task_1]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = true
+prior = 142
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = drx_sl_trucks_cemetery_bandit_trader_task_1_name
+descr = drx_sl_trucks_cemetery_bandit_trader_task_1_text
+job_descr = drx_sl_trucks_cemetery_bandit_trader_task_1_about
+task_complete_descr = drx_sl_trucks_cemetery_bandit_trader_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(drx_sl_trucks_cemetery_bandit_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(drx_sl_trucks_cemetery_bandit_trader_task_1_id)%
+on_complete = %=reward_random_money(9800:11000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(drx_sl_trucks_cemetery_bandit_trader_task_1) =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_id) =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_id) =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_id) =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_id) =pstor_reset(drx_sl_trucks_cemetery_bandit_trader_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_trucks_cemetery_bandit_trader_task_1)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Monolith Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trader_monolith_jup_depo_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_trader_monolith_jup_depo_default_task_name
+descr = drx_sl_trader_monolith_jup_depo_default_task_text
+job_descr = drx_sl_trader_monolith_jup_depo_default_task_about
+task_complete_descr = drx_sl_trader_monolith_jup_depo_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_trader_monolith_jup_depo_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(monolith)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Monolith Trader) Search Lab X-19 (Radar) Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trader_monolith_jup_depo_task_1]
+
+icon = ui_inGame2_Laboratoriya_X8
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = { -main_4_search_labx10_task_done} true, false
+
+title = drx_sl_trader_monolith_jup_depo_task_1_name
+descr = drx_sl_trader_monolith_jup_depo_task_1_text
+job_descr = drx_sl_trader_monolith_jup_depo_task_1_about
+task_complete_descr = drx_sl_trader_monolith_jup_depo_task_1_finish
+
+stage_complete = 1
+target = {!actor_has_item(main_story_4_lab_x10_documents)} rad_space_restrictor_to_bunker, {=actor_has_item(main_story_4_lab_x10_documents)} trader_monolith_jup_depo
+status_functor = drx_sl_retrieve_item_task_status
+status_functor_params = main_story_4_lab_x10_documents
+condlist_0 = {!task_giver_alive(drx_sl_trader_monolith_jup_depo_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_complete = %+main_4_search_labx10_task_done =reward_random_money(25000:30500:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(drx_sl_trader_monolith_jup_depo_task_1) =remove_item(main_story_4_lab_x10_documents) =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_jup_depo_task_1)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Monolith Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trader_monolith_kbo_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_trader_monolith_kbo_default_task_name
+descr = drx_sl_trader_monolith_kbo_default_task_text
+job_descr = drx_sl_trader_monolith_kbo_default_task_about
+task_complete_descr = drx_sl_trader_monolith_kbo_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_trader_monolith_kbo_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(monolith)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Monolith Trader) Raid Enemy Camp Storyline Task-
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_trader_monolith_kbo_task_1]
+
+icon = ui_inGame2_PD_Lider
+storyline = true
+prior = 165
+repeat_timeout = 0 ;0
+precondition = { =drx_sl_validate_assault_remote_task(1:nil:false:monolith)} true, false
+type = assault
+
+title = drx_sl_trader_monolith_kbo_task_1_name
+descr = drx_sl_trader_monolith_kbo_task_1_text
+job_descr = drx_sl_trader_monolith_kbo_task_1_about
+task_complete_descr = drx_sl_trader_monolith_kbo_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, army, dolg, ecolog
+condlist_0 = {!task_giver_alive(drx_sl_trader_monolith_kbo_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(drx_sl_trader_monolith_kbo_task_1_id:monolith)%
+on_complete = %=reward_random_money(12000:13500:dollars) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(drx_sl_trader_monolith_kbo_task_1) =pstor_reset(drx_sl_trader_monolith_kbo_task_1_id) =pstor_reset(drx_sl_trader_monolith_kbo_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trader_monolith_kbo_task_1_id) =pstor_reset(drx_sl_trader_monolith_kbo_task_1_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trader_monolith_kbo_task_1_id) =pstor_reset(drx_sl_trader_monolith_kbo_task_1_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_trader_monolith_kbo_task_1_id) =pstor_reset(drx_sl_trader_monolith_kbo_task_1_target_id) =drx_sl_unregister_task_giver(drx_sl_trader_monolith_kbo_task_1)%
+
+quest_timeout = 86400
+;------------------------------------------------------------------------------------------------------
+; Mertviy (Merc Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_zat_stancia_trader_merc_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_zat_stancia_trader_merc_default_task_name
+descr = drx_sl_zat_stancia_trader_merc_default_task_text
+job_descr = drx_sl_zat_stancia_trader_merc_default_task_about
+task_complete_descr = drx_sl_zat_stancia_trader_merc_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_zat_stancia_trader_merc_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(killer)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Mertviy (Merc Trader) Search Artefact Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_zat_stancia_trader_merc_task_1]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = true
+prior = 115
+repeat_timeout = 0 ;0
+precondition = true
+
+title = drx_sl_zat_stancia_trader_merc_task_1_name
+title_functor = general_fetch_task
+descr = drx_sl_zat_stancia_trader_merc_task_1_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_zat_stancia_trader_merc_task_1_about
+fetch_descr = drx_sl_zat_stancia_trader_merc_task_1_fetch_about
+task_complete_descr = drx_sl_zat_stancia_trader_merc_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_zat_stancia_trader_merc_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(drx_sl_zat_stancia_trader_merc_task_1_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_zat_stancia_trader_merc_task_1_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(drx_sl_zat_stancia_trader_merc_task_1) =pstor_reset(drx_sl_zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_zat_stancia_trader_merc_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_zat_stancia_trader_merc_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_zat_stancia_trader_merc_task_1)%
+
+quest_timeout = 518400
+;------------------------------------------------------------------------------------------------------
+; Random Name (Bandit Trader) Default Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_jup_cont_trader_bandit_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_jup_cont_trader_bandit_default_task_name
+descr = drx_sl_jup_cont_trader_bandit_default_task_text
+job_descr = drx_sl_jup_cont_trader_bandit_default_task_about
+task_complete_descr = drx_sl_jup_cont_trader_bandit_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_jup_cont_trader_bandit_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(bandit)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_default_task)%
+
+;------------------------------------------------------------------------------------------------------
+; Random Name (Bandit Trader) Find Weapon Storyline Task
+;------------------------------------------------------------------------------------------------------
+
+[drx_sl_jup_cont_trader_bandit_task_1]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = true
+prior = 118
+repeat_timeout = 0 ;0
+precondition = true
+
+title = drx_sl_jup_cont_trader_bandit_task_1_name
+title_functor = general_fetch_task
+descr = drx_sl_jup_cont_trader_bandit_task_1_text
+descr_functor = general_fetch_task
+job_descr = drx_sl_jup_cont_trader_bandit_task_1_about
+fetch_descr = drx_sl_jup_cont_trader_bandit_task_1_fetch_about
+task_complete_descr = drx_sl_jup_cont_trader_bandit_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(drx_sl_jup_cont_trader_bandit_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(drx_sl_jup_cont_trader_bandit_task_1_fetch:3:4)%
+on_complete = %=drx_sl_fetch_reward_money(drx_sl_jup_cont_trader_bandit_task_1_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(drx_sl_jup_cont_trader_bandit_task_1) =pstor_reset(drx_sl_jup_cont_trader_bandit_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_jup_cont_trader_bandit_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_jup_cont_trader_bandit_task_1_fetch) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_jup_cont_trader_bandit_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_jup_cont_trader_bandit_task_1)%
+
+quest_timeout = 518400
+
+;------------------------------------------------------------------------------------------------------
+; Zhenya "Hatchet" (Merc Trader) Find Weapon Task
+;------------------------------------------------------------------------------------------------------
+
+[cit_killers_merc_barman_stalker_task_1]
+
+icon = ui_icons_kill_stalker6
+storyline = false
+prior = 35
+repeat_timeout = 259200
+precondition = {=check_available_targets(killer)} true, false
+type = bounty
+
+title = cit_killers_merc_barman_stalker_task_1_name
+descr = cit_killers_merc_barman_stalker_task_1_text
+job_descr = cit_killers_merc_barman_stalker_task_1_about
+task_complete_descr = cit_killers_merc_barman_stalker_task_1_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(cit_killers_merc_barman_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(cit_killers_merc_barman_stalker_task_1:killer)%
+on_complete = %=reward_random_money(11000:12000:roubles) =reward_stash(true) =inc_task_stage(cit_killers_merc_barman_stalker_task_1) =complete_task_inc_goodwill(50:killer) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_1) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_1) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_1) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_1) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_1)%
+
+quest_timeout = 172800
+
+;------------------------------------------------------------------------------------------------------
+; Zhenya "Hatchet" (Merc Trader) Collect Patches Task
+;------------------------------------------------------------------------------------------------------
+
+[cit_killers_merc_barman_stalker_task_2]
+
+icon = ui_icons_find_item35
+storyline = false
+prior = 90
+repeat_timeout = 259200
+precondition = true
+
+title = cit_killers_merc_barman_stalker_task_2_name
+title_functor = general_fetch_task
+descr = cit_killers_merc_barman_stalker_task_2_text
+descr_functor = general_fetch_task
+job_descr = cit_killers_merc_barman_stalker_task_2_about
+fetch_descr = cit_killers_merc_barman_stalker_task_2_fetch_about
+task_complete_descr = cit_killers_merc_barman_stalker_task_2_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(cit_killers_merc_barman_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=setup_supplies_fetch_task_patch(cit_killers_merc_barman_stalker_task_2_fetch)%
+on_complete = %=complete_task_inc_goodwill(50:killer) =reward_stash(true) =drx_sl_fetch_reward_money(cit_killers_merc_barman_stalker_task_2_fetch:2) =inc_task_stage(cit_killers_merc_barman_stalker_task_2) =pstor_reset(cit_killers_merc_barman_stalker_task_2_fetch) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_2) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_2)%
+on_fail = %=fail_task_dec_goodwill(50:killer) =pstor_reset(cit_killers_merc_barman_stalker_task_2_fetch) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_2) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_2)%
+on_cancel = %=fail_task_dec_goodwill(15:killer) =pstor_reset(cit_killers_merc_barman_stalker_task_2_fetch) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_2) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_2)%
+on_reversed = %=pstor_reset(cit_killers_merc_barman_stalker_task_2_fetch) =drx_sl_unregister_task_giver(cit_killers_merc_barman_stalker_task_2) =drx_sl_reset_stored_task(cit_killers_merc_barman_stalker_task_2)%
+
+;--------------------------------------------------------------------------------------------------
+;	Las Quests
+;--------------------------------------------------------------------------------------------------
+
+;--------------------------------------------------------------------------------------------------
+;	Vikarii (Merc Medic) Quest book 1
+;--------------------------------------------------------------------------------------------------
+
+[vikarii_book1_quest] 
+icon = ui_inGame2_Nedostupniy_taynik
+prior = 2 
+storyline = false 
+title = {=actor_has_item(quest_book_01)} vikarii_book1_quest_title_1, vikarii_book1_quest_title_0      
+descr = {=actor_has_item(quest_book_01)} vikarii_book1_quest_text_1, vikarii_book1_quest_text_0 
+target = {=actor_has_item(quest_book_01)} ds_killer_medic_mlr, nil 
+condlist_0 = {+vikarii_quest_book_end} complete
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+[vikarii_quest_medpreparat] 
+icon = ui_inGame2_Nedostupniy_taynik
+prior = 2 
+storyline = false 
+title = {=actor_has_item(mutant_part_tushkano_head)} vikarii_medpreparat_quest_title_1, vikarii_medpreparat_quest_title_0      
+descr = {=actor_has_item(mutant_part_tushkano_head)} vikarii_medpreparat_quest_text_1, vikarii_medpreparat_quest_text_0 
+target = {=actor_has_item(mutant_part_tushkano_head)} ds_killer_medic_mlr, nil 
+condlist_0 = {+vikarii_quest_medpreparat_end} complete
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+[vikarii_quest_medpreparat_time] 
+icon = ui_inGame2_Nedostupniy_taynik
+prior = 2 
+storyline = false 
+title = {+vikarii_quest_medpreparat_time} vikarii_medpreparat_time_end_title_1, vikarii_medpreparat_time_end_title_0      
+descr = {+vikarii_quest_medpreparat_time} vikarii_medpreparat_time_end_text_1, vikarii_medpreparat_time_end_text_0 
+target = {+vikarii_quest_medpreparat_time} ds_killer_medic_mlr, nil 
+condlist_0 = {+ds_killer_mlr_medpreparat_time_end} complete
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+;--------------------------------------------------------------------------------------------------
+;	Fox and Las tasks
+;--------------------------------------------------------------------------------------------------
+
+;--------------------------------------------------------------------------------------------------
+;	Fanat Drugs for Greatest Good!
+;--------------------------------------------------------------------------------------------------
+[fanat_drugs_tm] 
+icon = ui_inGame2_Osobiy_zakaz
+icon = ui_inGame2_Osobiy_zakaz
+prior = 35
+storyline = false
+title = fanat_drugs_DPA_title_01
+descr = {=actor_has_item(item_drug_bag)} fanat_drugs_DPA_descr_02, fanat_drugs_DPA_descr_01 
+target = {=actor_has_item(item_drug_bag)} esc_2_12_stalker_fanat
+condlist_0 = {+Find_me_drugs_end} complete
+condlist_1 = {+Find_me_drugs_cancel} cancel
+condlist_2 = {+esc_2_12_stalker_fanat_death} reversed
+condlist_3 = {=is_squad_enemy_to_actor(esc_2_12_stalker_fanat_squad)} cancel
+
+on_complete = %=pstor_reset(fanat_drugs_tm) =drx_sl_unregister_task_giver(fanat_drugs_tm) =drug_timer_repeat_01 =reward_random_money(9000:12000:roubles) =remove_item(item_drug_bag) =complete_task_inc_goodwill(25:stalker)%
+on_fail = %=pstor_reset(fanat_drugs_tm) =drx_sl_unregister_task_giver(fanat_drugs_tm) =drug_timer_repeat_01 =fail_task_dec_goodwill(50:stalker)%
+on_cancel = %=pstor_reset(fanat_drugs_tm) =drx_sl_unregister_task_giver(fanat_drugs_tm) =drug_timer_repeat_01 =fail_task_dec_goodwill(15:stalker)%
+on_reversed = %=pstor_reset(fanat_drugs_tm) =drx_sl_unregister_task_giver(fanat_drugs_tm) =drug_timer_repeat_01%
+
+quest_timeout = 86400
+;--------------------------------------------------------------------------------------------------
+;	Georgy. U wanna kill someone?
+;--------------------------------------------------------------------------------------------------
+[georgii_kill_tm_01] 
+icon = ui_inGame2_Odin_vistrel
+prior = 35
+storyline = false
+title = georgii_DPA_title_01
+descr = {+georgii_kltsk_target_dead} georgii_kltsk_DPA_descr_02, georgii_kltsk_DPA_descr_01 
+target = {+georgii_kltsk_target_dead} esc_2_12_stalker_georgii
+condlist_0 = {+georgii_kltsk_complete} complete
+condlist_1 = {+georgii_kltsk_fail} fail 
+condlist_2 = {+georgii_dead} reversed
+
+on_complete = %=pstor_reset(georgii_kill_tm_01) =drx_sl_unregister_task_giver(georgii_kill_tm_01)%
+on_fail = %=pstor_reset(georgii_kill_tm_01) =drx_sl_unregister_task_giver(georgii_kill_tm_01)%
+on_cancel = %=pstor_reset(georgii_kill_tm_01) =drx_sl_unregister_task_giver(georgii_kill_tm_01)%
+on_reversed = %=pstor_reset(georgii_kill_tm_01) =drx_sl_unregister_task_giver(georgii_kill_tm_01)%

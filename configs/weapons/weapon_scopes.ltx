@@ -1,0 +1,572 @@
+;-----------------------------------------------------------------------------------------------------------------------------------
+; A.R.E.A. Advanced sights system. NV types: scope_contrast, scope_green_1, scope_green_2, scope_blue_1, scope_blue_2, scope_thermal
+;-----------------------------------------------------------------------------------------------------------------------------------
+[scope_detector]
+vis_frame_speed			= 10
+vis_frame_color			= 0.7,0.7,0.7,1.0
+found_snd				= detectors\DA-2_beep1
+catch_snd				= detectors\DA-2_beep1
+
+[scope_nightvision]
+snd_night_vision_on		= weapons\nv_start
+snd_night_vision_off	= weapons\nv_off
+snd_night_vision_idle	= weapons\nv_loop
+snd_night_vision_broken	= weapons\nv_off
+pp_eff_name 			= nightvision_2.ppe
+pp_eff_cyclic 			= 1
+pp_eff_overlap 			= false
+
+[scope_nightvision_2gen]:scope_nightvision
+pp_eff_name 			= nightvision_3.ppe
+
+[scope_binocular]:scope_nightvision
+pp_eff_name 			= nightvision_good_02.ppe
+
+[scope_contrast]
+pp_eff_name 			= contrast.ppe
+pp_eff_cyclic 			= 1
+pp_eff_overlap			= true
+
+[scope_green_1]
+pp_eff_name 			= nightvision_2.ppe
+pp_eff_cyclic 			= 1
+pp_eff_overlap			= true
+
+[scope_green_2]
+pp_eff_name 			= nightvision_3.ppe
+pp_eff_cyclic 			= 1
+pp_eff_overlap			= true
+
+[scope_brighten]
+pp_eff_name 			= brighten.ppe
+pp_eff_cyclic 			= 1
+pp_eff_overlap 			= true
+
+;-------------------------------------------------------------------------------
+[scope]:base_section
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope.ogf
+$spawn					= "weapons\addons\scope"
+inv_name				= st_addon_scope_acog
+inv_name_short			= st_addon_scope_acog
+description				= st_addon_scope_acog_descr
+pickup_color			= 255, 100, 0, 255	; Orange
+class					= WP_SCOPE
+addon_bone				= wpn_scope
+slot					= -1
+inv_grid_x         		= 9
+inv_grid_y         		= 29
+inv_weight				= 0.350
+inv_volume				= 0.6
+scope_zoom_hud_fov		= 0.15	; default is ~.45 lower values move eye closer to weapon.
+scope_zoom_factor		= 1.0
+scope_lense_factor		= 0.0
+scope_inertion_factor	= 0.05
+scope_control_factor 	= 0.1
+battery_decay_rate		= 0.01
+holder_range_modifier	= 1.0
+holder_fov_modifier		= 1.0
+repair_type 			= scope
+scope_texture 			= none
+;-------------------------------------------------------------------------------
+[wpn_addon_scope]:scope
+$spawn					= "weapons\addons\scope"
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope.ogf
+inv_name				= st_addon_scope_pso
+inv_name_short			= st_addon_scope_pso
+description				= st_addon_scope_descr
+inv_grid_width			= 2
+inv_grid_x				= 0
+inv_grid_y				= 29
+inv_weight				= 0.62
+inv_volume				= 0.6
+cost					= 1860
+scope_texture			= wpn_crosshair_pso1
+scope_zoom_factor		= 4.0
+;-------------------------------------------------------------------------------
+[wpn_addon_scope_susat]:scope
+$spawn					= "weapons\addons\scope_susat"
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_susat.ogf
+inv_name				= st_addon_scope_susat
+inv_name_short			= st_addon_scope_susat
+description				= st_addon_scope_susat_descr
+cost					= 1930
+inv_weight				= 0.417
+inv_volume				= 0.6
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 1
+inv_grid_y				= 6
+scope_texture			= wpn_crosshair_susat
+scope_zoom_factor		= 2.7
+;scope_nightvision		= scope_brighten
+
+[wpn_addon_scope_susat_x1.6]:wpn_addon_scope_susat
+description				= st_addon_scope_susat_x1.6_descr
+inv_name				= st_addon_scope_susat_x1.6
+inv_name_short			= st_addon_scope_susat_x1.6
+
+[wpn_addon_scope_susat_custom]:wpn_addon_scope_susat
+description				= st_addon_scope_susat_custom_descr
+inv_name				= st_addon_scope_susat_custom
+inv_name_short			= st_addon_scope_susat_custom
+;-------------------------------------------------------------------------------
+; Alternative Scope System
+;-------------------------------------------------------------------------------
+[1p29]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_1p29.ogf
+$spawn					= "weapons\addons\1p29"
+cost					= 1980
+inv_name				= st_addon_scope_1p29
+inv_name_short			= st_addon_scope_1p29
+description				= st_addon_scope_1p29_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 15
+inv_grid_y         		= 29
+inv_weight				= 0.800
+inv_volume				= 0.6
+scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_texture			= wpn_crosshair_1p29
+;scope_nightvision 		= scope_thermal_2
+;-------------------------------------------------------------------------------
+[1p78]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_1p78.ogf
+$spawn					= "weapons\addons\1p78"
+cost					= 3500
+inv_name				= st_addon_scope_1p78
+inv_name_short			= st_addon_scope_1p78
+description				= st_addon_scope_1p78_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 12
+inv_grid_y         		= 27
+inv_weight				= 0.700
+inv_volume				= 0.6
+scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_texture			= wpn_crosshair_1p78
+;-------------------------------------------------------------------------------
+[1pn34]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_1pn34.ogf
+$spawn					= "weapons\addons\1pn34"
+cost					= 2700
+inv_name				= st_addon_scope_1pn34
+inv_name_short			= st_addon_scope_1pn34
+description				= st_addon_scope_1pn34_descr
+inv_grid_width			= 3
+inv_grid_height			= 1
+inv_grid_x				= 4
+inv_grid_y				= 29
+inv_weight				= 2.2
+inv_volume				= 0.8
+cost					= 10000
+ignore_size				= true
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+;scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 8.0
+scope_lense_factor		= 8.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_nspu
+scope_nightvision 		= scope_green_1
+;-------------------------------------------------------------------------------
+[1pn93]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_1pn93.ogf
+$spawn					= "weapons\addons\1pn93"
+inv_name				= st_addon_scope_1pn93
+inv_name_short			= st_addon_scope_1pn93
+description				= st_addon_scope_1pn93_descr
+inv_grid_x				= 18
+inv_grid_y				= 11
+inv_weight				= 2.2
+inv_volume				= 1.2
+cost					= 12000
+;scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 8.0
+scope_lense_factor		= 8.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_nspu
+scope_nightvision 		= scope_green_2
+;-------------------------------------------------------------------------------
+[ac10632]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_ac10632.ogf
+$spawn					= "weapons\addons\ac10632"
+cost					= 2190
+inv_name				= st_addon_scope_ac10632
+inv_name_short			= st_addon_scope_ac10632
+description				= st_addon_scope_ac10632_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 8
+inv_grid_y         		= 29
+inv_weight				= 0.115
+inv_volume				= 0.3
+;-------------------------------------------------------------------------------
+[ac11090]:scope
+visual                  = dynamics\weapons\wpn_upgrade\wpn_scope_ac11090.ogf
+$spawn					= "weapons\addons\ac11090"
+cost                    = 4500
+inv_name                = st_addon_scope_ac11090
+inv_name_short          = st_addon_scope_ac11090
+description             = st_addon_scope_ac11090_descr
+inv_grid_height         = 1
+inv_grid_width          = 1
+inv_grid_x              = 8
+inv_grid_y              = 30
+inv_weight              = 0.250
+inv_volume				= 0.5
+;-------------------------------------------------------------------------------
+[acog]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_acog.ogf
+$spawn					= "weapons\addons\acog"
+inv_name				= st_addon_scope_acog
+inv_name_short			= st_addon_scope_acog
+description				= st_addon_scope_acog_descr
+cost					= 6000
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 9
+inv_grid_y         		= 29
+inv_weight				= 0.350
+inv_volume				= 0.6
+scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_acog
+;-------------------------------------------------------------------------------
+[aimpoint]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_aimpoint.ogf
+$spawn					= "weapons\addons\aimpoint"
+cost					= 3000
+inv_name				= st_addon_scope_aimpoint
+inv_name_short			= st_addon_scope_aimpoint
+description				= st_addon_scope_aimpoint_descr
+inv_grid_height			= 1
+inv_grid_width			= 1
+inv_grid_x				= 17
+inv_grid_y				= 30
+inv_weight				= 0.220
+inv_volume				= 0.5
+;-------------------------------------------------------------------------------
+[c-more]:scope
+visual                  = dynamics\weapons\wpn_upgrade\wpn_scope_c-more.ogf
+$spawn					= "weapons\addons\c-more"
+cost                    = 2500
+inv_name                = st_addon_scope_c_more
+inv_name_short          = st_addon_scope_c_more
+description             = st_addon_scope_c_more_descr
+inv_grid_height         = 1
+inv_grid_width          = 1
+inv_grid_x              = 7
+inv_grid_y              = 30
+inv_weight              = 0.184
+inv_volume				= 0.3
+;-------------------------------------------------------------------------------
+[coyote]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_coyote.ogf
+$spawn					= "weapons\addons\coyote"
+cost					= 2100
+inv_name				= st_addon_scope_coyote
+inv_name_short			= st_addon_scope_coyote
+description				= st_addon_scope_coyote_descr
+inv_grid_height			= 1
+inv_grid_width			= 1
+inv_grid_x				= 13
+inv_grid_y				= 28
+inv_weight				= 0.115
+inv_volume				= 0.3
+;-------------------------------------------------------------------------------
+[delta]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_delta.ogf
+$spawn					= "weapons\addons\delta"
+cost					= 5000
+inv_name				= st_addon_scope_delta
+inv_name_short			= st_addon_scope_delta
+description				= st_addon_scope_delta_descr
+inv_grid_height			= 1
+inv_grid_width			= 1
+inv_grid_x				= 12
+inv_grid_y				= 28
+inv_weight				= 0.025
+inv_volume				= 0.15
+;-------------------------------------------------------------------------------
+[ekp]:scope ;x1.6
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_ekp.ogf
+$spawn					= "weapons\addons\ekp"
+cost					= 2750
+inv_name				= st_addon_scope_ekp_8_02
+inv_name_short			= st_addon_scope_ekp_8_02
+description				= st_addon_scope_ekp_8_02_descr
+inv_grid_height			= 1
+inv_grid_width			= 1
+inv_grid_x				= 13
+inv_grid_y				= 29
+inv_weight				= 0.4
+inv_volume				= 0.6
+;-------------------------------------------------------------------------------
+[eot]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_eotech.ogf
+$spawn					= "weapons\addons\eot"
+cost                	= 2650
+inv_name        		= st_addon_scope_eotech
+inv_name_short  		= st_addon_scope_eotech
+description    			= st_addon_scope_eotech_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 7
+inv_grid_y         		= 29
+inv_weight        		= 0.300
+inv_volume				= 0.4
+;-------------------------------------------------------------------------------
+[kobra]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_kobra.ogf
+$spawn					= "weapons\addons\kobra"
+cost                	= 1900
+inv_name        		= st_addon_scope_kobra
+inv_name_short  		= st_addon_scope_kobra
+description    			= st_addon_scope_kobra_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 6
+inv_grid_y         		= 30
+inv_weight        		= 0.400
+inv_volume				= 0.5
+;-------------------------------------------------------------------------------
+[okp]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_okp.ogf
+$spawn					= "weapons\addons\okp"
+cost					= 3200
+inv_name        		= st_addon_scope_okp-7
+inv_name_short  		= st_addon_scope_okp-7
+description    			= st_addon_scope_okp-7_descr
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x         		= 13
+inv_grid_y         		= 27
+inv_weight        		= 0.255
+inv_volume				= 0.5
+;-------------------------------------------------------------------------------
+[pka]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_pka.ogf
+$spawn					= "weapons\addons\pka"
+cost					= 2500
+inv_name				= st_addon_scope_pk-a
+inv_name_short			= st_addon_scope_pk-a
+description				= st_addon_scope_pk-a_descr
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 9
+inv_grid_y				= 30
+inv_weight				= 0.420
+inv_volume				= 0.6
+;-------------------------------------------------------------------------------
+[pks]:scope ;x8
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_pks.ogf
+$spawn					= "weapons\addons\pks"
+cost					= 8000
+inv_name				= st_addon_scope_pks
+inv_name_short			= st_addon_scope_pks
+description				= st_addon_scope_pks_descr
+inv_grid_height			= 1
+inv_grid_width			= 2
+inv_grid_x				= 14
+inv_grid_y				= 27
+inv_weight				= 0.88
+inv_volume				= 0.7
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+scope_texture			= wpn_crosshair_pks07
+;-------------------------------------------------------------------------------
+[pgo7v]:scope ;x4
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_pgo7v.ogf
+$spawn					= "weapons\addons\pgo7v"
+cost					= 4000
+inv_name				= st_addon_scope_pgo7b
+inv_name_short			= st_addon_scope_pgo7b
+description				= st_addon_scope_pgo7b_descr
+inv_grid_height			= 1
+inv_grid_width			= 1
+inv_grid_x				= 14
+inv_grid_y				= 29
+inv_weight				= 0.6
+inv_volume				= 0.7
+scope_zoom_factor		= 2.7
+scope_dynamic_zoom		= on
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+scope_texture			= wpn_crosshair_pgo7v
+;-------------------------------------------------------------------------------
+[pso]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_pso1.ogf
+$spawn					= "weapons\addons\pso"
+cost					= 5000
+inv_name				= st_addon_scope_pso
+inv_name_short			= st_addon_scope_pso
+description				= st_addon_scope_pso_descr
+inv_grid_width     		= 2
+inv_grid_height    		= 1
+inv_grid_x         		= 0
+inv_grid_y         		= 29
+inv_weight				= 0.625
+inv_volume				= 0.8
+ignore_size				= true
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+;scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_dynamic_zoom		= off
+scope_texture			= wpn_crosshair_pso1
+;-------------------------------------------------------------------------------
+[pso1m21]:pso
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_pso1m2-01.ogf
+$spawn					= "weapons\addons\pso1m21"
+cost					= 5200
+inv_name				= st_addon_scope_pso-1m2-01
+inv_name_short			= st_addon_scope_pso-1m2-01
+description				= st_addon_scope_pso-1m2-01_descr
+inv_grid_x         		= 2
+inv_grid_y         		= 29
+inv_weight				= 0.620
+inv_volume				= 0.8
+scope_texture			= wpn_crosshair_pso1m21
+;-------------------------------------------------------------------------------
+[po4x34]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_po4x34.ogf
+$spawn					= "weapons\addons\po4x34"
+cost					= 7000
+inv_name				= st_addon_scope_po4x34
+inv_name_short			= st_addon_scope_po4x34
+description				= st_addon_scope_po4x34_descr
+inv_grid_width			= 2
+inv_grid_height			= 1
+inv_grid_x				= 14
+inv_grid_y				= 30
+inv_weight				= 0.580
+inv_volume				= 0.8
+scope_zoom_factor		= 4.0
+scope_zoom_factor		= 8.0
+scope_lense_factor		= 8.0
+scope_texture			= wpn_crosshair_po4x34
+;-------------------------------------------------------------------------------
+[pn23]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_pn23.ogf
+$spawn					= "weapons\addons\pn23"
+inv_name				= st_addon_scope_pn23
+inv_name_short			= st_addon_scope_pn23
+description				= st_addon_scope_pn23_descr
+cost					= 8000
+inv_weight				= 0.670
+inv_volume				= 0.6
+inv_grid_x				= 18
+;scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_rakurs_pm
+scope_nightvision 		= scope_green_2
+;-------------------------------------------------------------------------------
+[pu]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_pu.ogf
+$spawn					= "weapons\addons\pu"
+cost					= 4000
+inv_name				= st_addon_scope_pu
+inv_name_short			= st_addon_scope_pu
+description				= st_addon_scope_pu_descr
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 12
+inv_grid_y				= 30
+inv_weight				= 0.6
+inv_volume				= 0.6
+scope_zoom_factor		= 4.0
+scope_zoom_factor		= 8.0
+scope_lense_factor		= 8.0
+scope_texture			= wpn_crosshair_pu
+;-------------------------------------------------------------------------------
+[rakurs]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_rakurs.ogf
+$spawn					= "weapons\addons\rakurs"
+cost					= 2500
+inv_name				= st_addon_scope_rakurs
+inv_name_short			= st_addon_scope_rakurs
+description				= st_addon_scope_rakurs_descr
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 11
+inv_grid_y				= 30
+inv_weight				= 0.410
+inv_volume				= 0.6
+;-------------------------------------------------------------------------------
+[specter]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_specter.ogf
+$spawn					= "weapons\addons\specter"
+cost					= 7000
+inv_name        		= st_addon_scope_specterDR
+inv_name_short  		= st_addon_scope_specterDR
+description    			= st_addon_scope_specterDR_descr
+inv_grid_x				= 19
+inv_weight				= 0.660
+inv_volume				= 0.6
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_elcan
+;-------------------------------------------------------------------------------
+[tars101]:scope
+visual					= dynamics\weapons\wpn_upgrade\wpn_scope_tars101.ogf
+$spawn					= "weapons\addons\tars101"
+cost					= 8000
+inv_name				= st_addon_scope_tars101
+inv_name_short			= st_addon_scope_tars101
+description				= st_addon_scope_tars101_descr
+inv_grid_height			= 1
+inv_grid_width			= 2
+inv_grid_x				= 14
+inv_grid_y				= 28
+inv_weight				= 1.33
+inv_volume				= 0.8
+ignore_size				= true
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+scope_zoom_factor		= 8.0
+scope_lense_factor		= 8.0
+scope_dynamic_zoom		= on
+scope_texture			= wpn_crosshair_tars101
+;-------------------------------------------------------------------------------
+[zf4]:scope
+visual          		= dynamics\weapons\wpn_upgrade\wpn_scope_zf4.ogf
+$spawn					= "weapons\addons\zf4"
+inv_name				= st_addon_scope_zf4
+inv_name_short			= st_addon_scope_zf4
+description				= st_addon_scope_zf4_descr
+cost					= 1590
+inv_weight				= 0.4
+inv_volume				= 0.5
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 16
+inv_grid_y				= 30
+scope_zoom_hud_fov		= 0.15
+scope_zoom_factor		= 4.0
+scope_lense_factor		= 4.0
+scope_texture			= wpn_crosshair_zf4
+;-------------------------------------------------------------------------------

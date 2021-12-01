@@ -1,0 +1,546 @@
+;----------------------------------------------------------------------------------------
+; AN-92 Abakan from STCOP 2.9, remade by Surs for A.R.E.A. (18.07.2018)
+;----------------------------------------------------------------------------------------
+[wpn_abakan]:default_weapon_params
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan.ogf
+$spawn							= "weapons\abakan"		; name and section in level editor
+$npc							= on
+class							= WP_AK74
+inv_name						= st_wpn_abakan
+inv_name_short					= st_wpn_abakan
+description						= st_wpn_abakan_descr
+heating_rates					= ak3
+parent_section					= wpn_abakan
+ef_main_weapon_type				= 2
+ef_weapon_type					= 7
+default_to_ruck					= false
+sprint_allowed					= true
+repair_type 					= rifle_5.45
+cost							= 38000
+inv_weight						= 3.85
+inv_volume						= 5
+ph_mass							= 4
+weapon_class					= assault_rifle
+;--Модернизация-----------------------------------------------------------------
+upgrades						= up_gr_firstab_abakan, up_gr_seconab_abakan, up_gr_thirdab_abakan, up_gr_fourtab_abakan, up_gr_fifthab_abakan
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_abakan
+;--ТТХ--------------------------------------------------------------------------
+hit_power						= 0.585, 0.585, 0.585, 0.585
+hit_impulse						= 28					; size of physic impulse by bullet
+hit_type						= fire_wound			; [] type of the wound
+fire_distance					= 1000					; maximum fire distance that bullet can fly
+bullet_speed					= 890					; starting bullet speed
+rpm								= 600					; max round per minute
+rpm_mode_2						= 900					; max round per minute
+rpm_empty_click					= 200
+cycle_down						= true					; Cycle down RPM after first 2 shots
+time_to_aim						= 0
+base_dispersioned_bullets_count	= 2						; количество пуль, выстреленных с базовой дисперсией без отдачи
+base_dispersioned_bullets_speed	= 900					; начальная скорость пуль, выстреленных с базовой дисперсией без отдачи
+hud								= wpn_abakan_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.83
+misfire_end_condition			= 0.05
+misfire_start_prob				= 0.007
+misfire_end_prob 				= 0.11
+condition_shot_dec				= 0.0008
+condition_queue_shot_dec		= 0.0008
+
+ammo_elapsed					= 30
+ammo_mag_size					= 30
+extra_round						= true
+fire_modes						= -1, 1, 2
+magazine_sect					= mag_545_30_abakan, mag_545_30_2_abakan, mag_545_45_abakan, mag_545_45_2_abakan, mag_545_60_abakan
+ammo_class						= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+grenade_class					= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot							= 2
+animation_slot					= 2
+; 1-pistol,2-rifle,3-bm,4-rpg,5-knife,6-grenade,7-bolt,8-submgn,9-shotgun,10-rg6/protecta,11-arts,12-actions,13-bino,14-empty,15-M134,16-bullpup,17-submgn,18-AR,19-Mgn
+;------------------------------------------------------------------------------------
+zoom_dof						= 0.5, 1.0, 150
+reload_dof						= 0.0, 0.5, 5, 3.4
+reload_empty_dof				= 0.0, 0.5, 5, 4.6
+;--Дисперсия-------------------------------------------------------------------------
+fire_dispersion_base			= 0.265
+control_inertion_factor			= 1.4f
+crosshair_inertion				= 6.8
+inertion_origin_offset			= -0.045				; Фактор влияния инерции на положение ствола (чем меньше, тем маштабней инерция)
+inertion_origin_aim_offset		= -0.017				; (Для прицеливания)
+inertion_tendto_speed			= 5.5
+inertion_tendto_aim_speed		= 11.5
+
+;отдача
+cam_return						= 0
+cam_relax_speed					= 10					;скорость возврата в исходное положение
+cam_relax_speed_ai				= 360
+cam_dispersion					= 1.05
+cam_dispersion_inc				= 0.65
+cam_dispersion_frac				= 1.1					;ствол будет подvматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0					;максимальнvй угол отдачи
+cam_max_angle_horz				= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.1					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 1.2
+PDM_disp_vel_factor				= 2.75
+PDM_disp_accel_factor			= 2.75
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 10					; scope & ironsight
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 0.95
+zoom_cam_dispersion_inc			= 0.65
+zoom_cam_dispersion_frac		= 1.0
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 0.95
+
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 25
+inv_grid_y						= 0
+
+upgr_icon_x						= 0
+upgr_icon_y						= 0
+upgr_icon_width					= 300
+upgr_icon_height				= 100
+
+kill_msg_x						= 119
+kill_msg_y						= 199
+kill_msg_width					= 93
+kill_msg_height					= 32
+;-------------------------------------------------------------------------------
+position						= -0.042, -0.182, 0.01
+orientation						= 0,0,8
+fire_point						= 0,0.24,0.713
+fire_point2						= 0,0.153,0.608
+flame_particles					= weapons\new_effects\ak74
+smoke_particles					= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles			= weapons\new_effects\glauncher
+shell_point		 				= -0.04,0.22,0.16
+shell_dir						= 0, 0, 0.4
+shell_particles					= weapons\545x39
+
+light_disabled					= false
+light_color						= 0.6, 0.5, 0.3
+light_range						= 5
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time						= 0.2
+
+scope_status					= 2		; 0 - no addon
+silencer_status					= 0		; 1 - permanent
+grenade_launcher_status			= 0		; 2 - attachable
+
+scopes							= 1p29, 1p78, ekp, kobra, okp, pso 
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+scope_zoom_factor				= 1.03
+scope_zoom_hud_fov				= 0.36
+
+grenade_launcher_name			= wpn_addon_grenade_launcher
+grenade_launcher_x				= 118
+grenade_launcher_y				= 24
+
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time				= 0.2
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster						= weapons\abakan\abakan_holster
+snd_draw						= weapons\abakan\abakan_draw
+snd_empty						= weapons\abakan\abakan_empty
+snd_reload						= weapons\abakan\abakan_reload
+snd_reload_empty				= weapons\abakan\abakan_reload_empty
+snd_reload_misfire				= weapons\abakan\abakan_reload_empty,1,0,2.4
+snd_reload_detached				= weapons\abakan\abakan_reload,1,0,1.1
+snd_reload_detached_empty		= weapons\abakan\abakan_reload_empty,1,0,1.1
+snd_magazine_detach				= weapons\abakan\abakan_magazine_detach
+snd_check_magazine              = weapons\abakan\abakan_reload
+snd_shoot_grenade				= weapons\abakan\abakan_grenshoot
+snd_reload_grenade				= weapons\abakan\abakan_grenload
+snd_shoot						= weapons\abakan\abakan_shoot_null
+snd_silencer_shot				= weapons\abakan\abakan_shot_sil_null
+snd_bore						= $no_sound
+snd_switch						= $no_sound
+;--Магазины---------------------------------------------------------------------
+[mag_545_30_abakan]
+magazine_name					= magazine_545_cnt_30
+magazine_x						= 82
+magazine_y						= 43
+custom_icon 					= 10,0,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_545_30_2_abakan]
+magazine_name					= magazine_545_cnt_30_2
+magazine_x						= 89
+magazine_y						= 33
+magazine_width					= 1.0
+magazine_height					= 1.1
+magazine_rotation				= 21
+;-------------------------------------------------------------------------------
+[mag_545_45_abakan]
+magazine_name					= magazine_545_cnt_45
+magazine_x						= 73
+magazine_y						= 30
+magazine_width					= 1.3
+magazine_height					= 1.2
+magazine_rotation				= 21
+;-------------------------------------------------------------------------------
+[mag_545_45_2_abakan]
+magazine_name					= magazine_545_cnt_45_2
+magazine_x						= 74
+magazine_y						= 29
+magazine_width					= 1.3
+magazine_height					= 1.2
+magazine_rotation				= 21
+;-------------------------------------------------------------------------------
+[mag_545_60_abakan]
+magazine_name					= magazine_545_cnt_60
+magazine_x						= 70
+magazine_y						= 31
+magazine_width					= 1.3
+magazine_height					= 1.1
+magazine_rotation				= 18
+;-------------------------------------------------------------------------------
+[wpn_abakan_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= -0.000505,0,-0.163115
+shell_dir						= 0,1,0
+shell_bone						= gilza
+fire_point						= -0.016,0,0
+fire_bone						= muzzle
+fire_point2						= 0,0,0
+fire_bone2						= muzzle_gl
+
+hands_position					= -0.16969,-0.118594,-0.119201
+hands_position_16x9				= -0.16969,-0.118594,-0.119201
+hands_orientation				= 1.399432,0.989954,0
+hands_orientation_16x9			= 1.399432,0.989954,0
+
+aim_hud_offset_pos				= -0.047755,0.01436,-0.08659
+aim_hud_offset_pos_16x9			= -0.047755,0.01436,-0.08659
+aim_hud_offset_rot				= 0.015997,0.023670,0.000375
+aim_hud_offset_rot_16x9			= 0.015997,0.023670,0.000375
+
+aim_hud_offset_pos_alt			= -0.03356,-0.014235,0
+aim_hud_offset_pos_alt_16x9		= -0.03356,-0.014235,0
+aim_hud_offset_rot_alt			= 0.008789,0.005818,0.298488
+aim_hud_offset_rot_alt_16x9		= 0.008789,0.005818,0.298488
+
+gl_hud_offset_pos				= -0.009065,-0.013355,-0.134589
+gl_hud_offset_pos_16x9			= -0.009065,-0.013355,-0.134589
+gl_hud_offset_rot				= -0.142246,0.006508,0
+gl_hud_offset_rot_16x9			= -0.142246,0.006508,0
+
+anm_show						= abakan_draw
+anm_hide						= abakan_holster
+anm_idle						= abakan_idle
+anm_idle_sprint					= abakan_idle_sprint
+anm_idle_moving					= abakan_idle_moving
+anm_idle_moving_crouch			= abakan_idle_crouch
+anm_shots						= abakan_shoot
+anm_shots_empty					= abakan_idle
+anm_reload						= abakan_reload
+anm_reload_empty				= abakan_reload_empty
+anm_reload_detached				= abakan_reload, , , 1.1
+anm_reload_detached_empty		= abakan_reload_empty, , , 1.1
+anm_reload_misfire				= abakan_misfire, misfire
+anm_idle_aim					= abakan_idle_aim
+anm_switch						= abakan_idle_aim_w_gl
+anm_switch_g					= abakan_idle_aim_w_gl
+anm_bore						= abakan_idle_aim
+anm_hide_w_gl					= abakan_holster_w_gl
+anm_show_w_gl					= abakan_draw_w_gl
+anm_idle_w_gl					= abakan_idle_w_gl
+anm_shots_w_gl					= abakan_shoot_w_gl
+anm_shots_w_gl_empty			= abakan_idle_w_gl
+anm_reload_w_gl					= abakan_reload_w_gl
+anm_reload_empty_w_gl			= abakan_reload_empty_w_gl
+anm_reload_detached_w_gl		= abakan_reload_w_gl, , , 1.1
+anm_reload_detached_empty_w_gl	= abakan_reload_empty_w_gl, , , 1.1
+anm_reload_misfire_w_gl			= abakan_misfire_w_gl, misfire_w_gl
+anm_idle_w_gl_aim				= abakan_idle_aim_w_gl
+anm_idle_sprint_w_gl			= abakan_idle_sprint_w_gl
+anm_idle_moving_w_gl			= abakan_idle_moving_w_gl
+anm_idle_moving_crouch_w_gl		= abakan_idle_crouch_w_gl
+anm_bore_w_gl					= abakan_idle_aim_w_gl
+anm_show_g						= abakan_draw_w_gl
+anm_hide_g						= abakan_holster_w_gl
+anm_idle_g						= abakan_idle_w_gl
+anm_reload_g					= abakan_reload_grenade
+anm_idle_g_aim					= abakan_idle_aim_w_gl
+anm_shots_g						= abakan_shoot_grenade
+anm_idle_sprint_g				= abakan_idle_sprint_w_gl
+anm_idle_moving_g				= abakan_idle_moving_w_gl
+anm_idle_moving_crouch_g		= abakan_idle_crouch_w_gl
+anm_bore_g						= abakan_idle_aim_w_gl
+anm_check_magazine              = abakan_reload
+anm_check_magazine_w_g          = abakan_reload_w_gl
+anm_use_start                   = abakan_holster, ,0.4
+anm_use_end                     = abakan_draw, ,0.66
+anm_use_g_start                 = abakan_holster_w_gl, ,0.4
+anm_use_g_end                   = abakan_draw_w_gl, ,0.7
+anm_jump                        = abakan_draw, ,1.4
+anm_jump_g                      = abakan_draw_w_gl, ,1.4
+;-------------------------------------------------------------------------------
+;	Scopes
+;-------------------------------------------------------------------------------
+[wpn_abakan_1p29]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p29.ogf
+scope_name						= 1p29
+scope_x							= 57
+scope_y							= 0
+hud								= wpn_abakan_1p29_hud
+
+[wpn_abakan_1p29_hud]:wpn_abakan_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p29_hud.ogf
+hands_position					= -0.157736,-0.119649,-0.119201
+hands_position_16x9				= -0.157736,-0.119649,-0.119201
+aim_hud_offset_pos				= -0.056875,-0.02345,-0.05761
+aim_hud_offset_pos_16x9			= -0.056875,-0.02345,-0.05761
+;-------------------------------------------------------------------------------
+[wpn_abakan_1p78]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p78.ogf
+scope_name						= 1p78
+scope_x							= 58
+scope_y							= -5
+hud								= wpn_abakan_1p78_hud
+
+[wpn_abakan_1p78_hud]:wpn_abakan_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p78_hud.ogf
+hands_position					= -0.157736,-0.119649,-0.119201
+hands_position_16x9				= -0.157736,-0.119649,-0.119201
+aim_hud_offset_pos				= -0.053090,-0.017065,-0.053409
+aim_hud_offset_pos_16x9			= -0.053090,-0.017065,-0.053409
+;-------------------------------------------------------------------------------
+[wpn_abakan_ekp]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_ekp.ogf
+scope_name						= ekp
+scope_x							= 74
+scope_y							= 1
+hud								= wpn_abakan_ekp_hud
+
+[wpn_abakan_ekp_hud]:wpn_abakan_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_ekp_hud.ogf
+hands_position					= -0.157406,-0.124789,-0.119201
+hands_position_16x9				= -0.157406,-0.124789,-0.119201
+aim_hud_offset_pos				= -0.053635,-0.024700,-0.075670
+aim_hud_offset_pos_16x9			= -0.053635,-0.024700,-0.075670
+;-------------------------------------------------------------------------------
+[wpn_abakan_kobra]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_kobra.ogf
+scope_name						= kobra
+scope_x							= 68
+scope_y							= 4
+hud								= wpn_abakan_kobra_hud
+
+[wpn_abakan_kobra_hud]:wpn_abakan_1p29_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_kobra_hud.ogf
+hands_position					= -0.157616,-0.124159,-0.120041
+hands_position_16x9				= -0.157616,-0.124159,-0.120041
+aim_hud_offset_pos				= -0.052165,-0.013325,-0.086590
+aim_hud_offset_pos_16x9			= -0.052165,-0.013325,-0.086590
+;-------------------------------------------------------------------------------
+[wpn_abakan_okp]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_okp.ogf
+scope_name						= okp
+scope_x							= 75
+scope_y							= 2
+hud								= wpn_abakan_okp_hud
+
+[wpn_abakan_okp_hud]:wpn_abakan_1p78_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_okp_hud.ogf
+hands_position					= -0.157616,-0.121324,-0.119201
+hands_position_16x9				= -0.157616,-0.121324,-0.119201
+aim_hud_offset_pos				= -0.049015,-0.008740,-0.073465
+aim_hud_offset_pos_16x9			= -0.049015,-0.008740,-0.073465
+;-------------------------------------------------------------------------------
+[wpn_abakan_pso]:wpn_abakan
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan.ogf
+scope_name						= pso
+scope_x							= 40
+scope_y							= 3
+hud								= wpn_abakan_pso1_hud
+
+[wpn_abakan_pso1_hud]:wpn_abakan_hud
+hands_position					= -0.157736,-0.119649,-0.119201
+hands_position_16x9				= -0.157736,-0.119649,-0.119201
+aim_hud_offset_pos				= -0.051600,-0.003800,-0.022905
+aim_hud_offset_pos_16x9			= -0.051600,-0.003800,-0.022905
+;-----------------------------------------------------------------------------
+[wpn_abakan_camo]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_sk1.ogf
+parent_section					= wpn_abakan_camo
+installed_upgrades				= up_firsta_abakan, up_fiftha_abakan
+inv_name						= st_wpn_abakan_camo
+inv_name_short					= st_wpn_abakan_camo
+description						= st_wpn_abakan_camo_descr
+cost							= 40860
+hit_power						= 0.56, 0.56, 0.56, 0.56
+bullet_speed					= 908
+rpm								= 615
+rpm_mode_2						= 915
+hud								= wpn_abakan_sk1_hud
+condition_shot_dec				= 0.00083
+condition_queue_shot_dec		= 0.00083
+fire_dispersion_base			= 0.24
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 25
+inv_grid_y						= 2
+
+[wpn_abakan_sk1_hud]:wpn_abakan_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_1p29]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p29_sk1.ogf
+scope_name						= 1p29
+scope_x							= 57
+scope_y							= 0
+hud								= wpn_abakan_1p29_sk1_hud
+
+[wpn_abakan_1p29_sk1_hud]:wpn_abakan_1p29_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p29_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_1p78]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p78_sk1.ogf
+scope_name						= 1p78
+scope_x							= 58
+scope_y							= -5
+hud								= wpn_abakan_1p78_sk1_hud
+
+[wpn_abakan_1p78_sk1_hud]:wpn_abakan_1p78_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p78_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_ekp]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_ekp_sk1.ogf
+scope_name						= ekp
+scope_x							= 74
+scope_y							= 1
+hud								= wpn_abakan_ekp_sk1_hud
+
+[wpn_abakan_ekp_sk1_hud]:wpn_abakan_ekp_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_ekp_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_kobra]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_kobra_sk1.ogf
+scope_name						= kobra
+scope_x							= 68
+scope_y							= 4
+hud								= wpn_abakan_kobra_sk1_hud
+
+[wpn_abakan_kobra_sk1_hud]:wpn_abakan_kobra_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_kobra_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_okp]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_okp_sk1.ogf
+scope_name						= okp
+scope_x							= 75
+scope_y							= 2
+hud								= wpn_abakan_okp_sk1_hud
+
+[wpn_abakan_okp_sk1_hud]:wpn_abakan_okp_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_okp_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_camo_pso]:wpn_abakan_camo
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_sk1.ogf
+scope_name						= pso
+scope_x							= 40
+scope_y							= 3
+hud								= wpn_abakan_pso1_sk1_hud
+
+[wpn_abakan_pso1_sk1_hud]:wpn_abakan_pso1_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_abakan_worn]:wpn_abakan
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_sk2.ogf
+parent_section					= wpn_abakan_worn
+upgrades						= up_gr_firstab_abakan_worn, up_gr_seconab_abakan_worn, up_gr_thirdab_abakan_worn, up_gr_fourtab_abakan_worn, up_gr_fifthab_abakan_worn
+inv_name						= st_wpn_abakan_worn
+inv_name_short					= st_wpn_abakan_worn
+cost							= 30000
+hit_power						= 0.485, 0.485, 0.485, 0.485
+bullet_speed					= 820
+rpm								= 590
+rpm_mode_2						= 890
+hud								= wpn_abakan_sk2_hud
+misfire_start_condition			= 0.88
+misfire_end_condition			= 0.1
+condition_shot_dec				= 0.0009
+condition_queue_shot_dec		= 0.0009
+fire_dispersion_base			= 0.305
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 25
+inv_grid_y						= 4
+
+[wpn_abakan_sk2_hud]:wpn_abakan_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_1p29]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p29_sk2.ogf
+scope_name						= 1p29
+scope_x							= 57
+scope_y							= 0
+hud								= wpn_abakan_1p29_sk2_hud
+
+[wpn_abakan_1p29_sk2_hud]:wpn_abakan_1p29_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p29_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_1p78]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_1p78_sk1.ogf
+scope_name						= 1p78
+scope_x							= 58
+scope_y							= -5
+hud								= wpn_abakan_1p78_sk2_hud
+
+[wpn_abakan_1p78_sk2_hud]:wpn_abakan_1p78_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_1p78_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_ekp]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_ekp_sk2.ogf
+scope_name						= ekp
+scope_x							= 74
+scope_y							= 1
+hud								= wpn_abakan_ekp_sk2_hud
+
+[wpn_abakan_ekp_sk2_hud]:wpn_abakan_ekp_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_ekp_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_kobra]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_kobra_sk2.ogf
+scope_name						= kobra
+scope_x							= 68
+scope_y							= 4
+hud								= wpn_abakan_kobra_sk2_hud
+
+[wpn_abakan_kobra_sk2_hud]:wpn_abakan_kobra_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_kobra_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_okp]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_okp_sk2.ogf
+scope_name						= okp
+scope_x							= 75
+scope_y							= 2
+hud								= wpn_abakan_okp_sk2_hud
+
+[wpn_abakan_okp_sk2_hud]:wpn_abakan_okp_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_okp_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_abakan_worn_pso]:wpn_abakan_worn
+visual							= dynamics\weapons\wpn_abakan\wpn_abakan_sk2.ogf
+scope_name						= pso
+scope_x							= 40
+scope_y							= 3
+hud								= wpn_abakan_pso1_sk2_hud
+
+[wpn_abakan_pso1_sk2_hud]:wpn_abakan_pso1_hud
+item_visual						= dynamics\weapons\wpn_abakan\wpn_abakan_sk2_hud.ogf
+;-------------------------------------------------------------------------------

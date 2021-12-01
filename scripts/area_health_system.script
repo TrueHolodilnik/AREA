@@ -1,0 +1,725 @@
+-- A.R.E.A. Actor enhanced health system
+-- Made by Holodilnik and Surs
+-- Reworked by Nuor
+
+local show_log = true
+OverWeight = 0
+-- local trait_applied
+curr_time_factor = 1
+-- Effectors
+-- local vulnerable_bone = {}
+local parts = {"head","body","left_arm","right_arm","left_leg","right_leg"}
+-- local PartVulnerability = 0.05 -- extra damage for vulnerable body parts
+-- local bones_list = {arms = {21,22,23,24,25,26,27,28,29,30,31,32,33, 34,35,36,37,38,39,40,41,42,43,44,45,46,47},
+-- 					legs = {4,5,6,7, 8,9,10,11},
+-- 					body = {0,1,2,3, 12,13,14,15},
+-- 					head = {16,17,18,19,20}
+-- }
+
+cond_info_table = {}
+
+local current_actor_effects = {
+	["head_fatal"] = false,
+	["head_heavy"] = false,
+	["head_medium"] = false,
+	["head_light"] = false,
+	["body_fatal"] = false,
+	["body_heavy"] = false,
+	["body_medium"] = false,
+	["body_light"] = false,
+	["left_arm_fatal"] = false,
+	["left_arm_heavy"] = false,
+	["left_arm_medium"] = false,
+	["left_arm_light"] = false,
+	["right_arm_fatal"] = false,
+	["right_arm_heavy"] = false,
+	["right_arm_medium"] = false,
+	["right_arm_light"] = false,
+	["left_leg_fatal"] = false,
+	["left_leg_heavy"] = false,
+	["left_leg_medium"] = false,
+	["left_leg_light"] = false,
+	["right_leg_fatal"] = false,
+	["right_leg_heavy"] = false,
+	["right_leg_medium"] = false,
+	["right_leg_light"] = false
+}
+
+local last_hit_info = {}
+local upd_time = 0
+local hstats = {}
+local craft_coeff = 0
+--Entity condition
+local sys = system_ini()
+local max_weight = sys:r_float_ex("inventory", "max_weight", 20.0)
+local default_run_coeff = sys:r_float_ex("actor", "run_coef", 2.0)
+local default_walk_coeff = sys:r_float_ex("actor", "walk_accel", 18)
+local default_sprint_coeff = sys:r_float_ex("actor", "sprint_koef", 4.4)
+--local temp_restore_coeff = sys:r_float_ex("actor", "temperature_coef", 0.1)
+local recovery_coeff = sys:r_float_ex("actor", "movement_recovery_coef", 0.5) -- movement recovery rate after leg damage
+--local start_drop = 50
+local tox_influence = 0.025
+local default_pain_restore = 0.90
+local default_max_toxicity = 1.0
+
+----------- Winter
+local delta_temperature = 0
+local def_plus = 33
+local def_minus = 16
+
+
+local d_sprint_coeff, d_run_coeff, d_runback_coeff, d_jump_speed
+local runback_coef, jump_speed
+--Misc
+local actor_pulse
+
+function activate_feature()
+	d_sprint_coeff, d_run_coeff, d_runback_coeff, d_jump_speed = -0.01, -0.01, -0.01, -0.01 -- weight effect on movement
+	runback_coef, jump_speed = sys:r_float_ex("actor","run_back_coef"), sys:r_float_ex("actor","jump_speed") -- default coef
+	RegisterScriptCallback("actor_on_item_drop",check_weight)
+	RegisterScriptCallback("actor_on_item_take",check_weight)
+	RegisterScriptCallback("actor_item_to_slot",on_move)
+    RegisterScriptCallback("actor_item_to_ruck",on_move)
+	check_weight()
+end
+--[[
+function deactivate_feature()
+	UnregisterScriptCallback("actor_on_item_drop",check_weight)
+	UnregisterScriptCallback("actor_on_item_take",check_weight)
+	UnregisterScriptCallback("actor_item_to_slot",on_move)
+	UnregisterScriptCallback("actor_item_to_ruck",on_move)
+	runback_coef, jump_speed = nil,nil
+	d_sprint_koeff, d_run_coeff, d_runback_coeff, d_jump_speed = nil,nil,nil,nil
+	actor_pulse = nil
+ end
+
+local function opt_menu_on_init(menu)
+	-- weight speed
+	menu.gameplay_options["weight_speed"] = {default=false, debug_only=false, typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			if (ctrl:GetCheck()) then
+				activate_feature()
+			else
+				deactivate_feature()
+			end
+		end
+	}
+end
+--]]
+function on_game_start()
+	--RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+end
+
+function actor_on_first_update()
+	hstats = {1,1,1,1,1,1,0,sys:r_float_ex("actor", "temperature_normal", 0.5),0,1,1,1,1,1}
+	RegisterScriptCallback("actor_on_hit_callback", actor_on_hit_callback)
+	RegisterScriptCallback("actor_on_update", actor_on_update)
+	RegisterScriptCallback("actor_on_before_hit", actor_on_before_hit)
+	RegisterScriptCallback("actor_on_item_use", check_weight) --actor_on_item_use)
+	--if (axr_main.config:r_value("mm_options","enable_weight_speed",1,false) == true) then
+		activate_feature()
+	--end
+	check_traits()
+	apply_traits()
+	if not actor_effects then return end
+	for eff,b in pairs(current_actor_effects) do
+		if (b == true) then
+			actor_effects.use_item(eff)
+		end
+	end
+end
+
+function on_move(obj)
+	if IsOutfit(obj) or obj:clsid() == clsid.equ_backpack then
+		check_weight()
+	end
+end
+
+function actor_on_before_hit(hit, bone_id, flags)
+	if show_log then
+		printf("Health::Before Hit::Type:%s Bone:%s Power:%s", hit.type, bone_id, hit.power)
+	end
+	last_hit_info = {hit.type, hit.power, hit.impulse, hit.draftsman, bone_id}
+end
+
+function actor_status_log()
+	if not (db.actor) then return end
+	--[[
+	local weight = db.actor:get_total_weight()
+	local r_weight = utils.clamp(weight - (suit and suit:get_additional_max_weight() or 0) - (backpack and backpack:get_additional_max_weight() or 0) - (artefact_degradation.art_weight_add or 0),0,weight)
+	SetHudMsg (string.format("Total Weight:[%5.2f], Weight [%5.2f], Speed [%5.2f]",weight, r_weight, db.actor:get_move_magnitude()/3),1)
+	if (level.name() == "fake_start") then return end
+	--]]
+	local cactor = db.actor:cast_Actor()
+	printf("[Head  ]:%s, [Body  ]:%s",hstats[1],hstats[2])
+	printf("[L Hand]:%s, [R Hand]:%s",hstats[3],hstats[4])
+	printf("[L Leg ]:%s, [R Leg ]:%s",hstats[5],hstats[6])
+	printf("[Health]:%s, [Psy   ]:%s",hstats[11],hstats[10])
+	printf("[Toxic ]:%s, [Rad   ]:%s",hstats[7],cactor:conditions():GetRadiation())
+	printf("[Pain  ]:%s, [Temp  ]:%s",hstats[9],hstats[8])
+	for i = 0, 6 do
+		if (cactor:conditions():BleedingSpeed(i) > 0) then
+			printf("[Bleed %s]:%s",i, cactor:conditions():BleedingSpeed(i))
+		end
+		if (cactor:conditions():GetFracture(i) > 0) then
+			printf("[Fract %s]:%s",i ,cactor:conditions():GetFracture(i))
+		end
+	end
+	printf("[Stamin]:%s, [Thirst]:%s, [Hunger]:%s",cactor:conditions():GetPower(),cactor:conditions():GetThirst(),cactor:conditions():GetSatiety())
+	printf("[Sprint]:%s, [Run]:%s, [Walk]:%s",db.actor:get_actor_sprint_koef(),db.actor:get_actor_run_coef(),cactor:GetWalkAccel())
+	printf("--------------------------------------------")
+end
+
+function actor_on_hit_callback(actor, amount, local_direction, who, bone_index)
+	if show_log then
+		printf("Health::Hit::Type:%s Bone:%s Power:%s", last_hit_info[1], bone_index, amount)
+	end
+	local cactor = db.actor:cast_Actor():conditions()
+	if last_hit_info[1] == "telepatic" then
+		cactor:ChangePsyHealth(cactor:GetPsyHealth() * utils.load_var(db.actor, "psy_resist_coeff", 1))
+	--elseif (last_hit_info[1] ~= "radiation") then
+		--cactor:SetPain(cactor:GetPain()+amount*0.09)
+		--cactor:AddFracture(cactor:GetFractureBone(bone_index) + amount*utils.load_var(db.actor, "fracture_resist_coeff", 0), bone_index)
+	end
+
+	for i=1, 6 do
+		part_health_update(parts[i], cactor:GetHealth(i))
+	end
+	
+	--if vulnerable_bone[bone_index] then
+	--	local ch_hit = hit()
+	--	ch_hit.direction = vector():set(1,0,0)
+	--	ch_hit.draftsman = db.actor
+	--	ch_hit.impulse = 1
+	--	ch_hit:bone(bone_index)
+	--	ch_hit.power = amount * vulnerable_bone[bone_index]
+	--	ch_hit.type = "strike"
+	--	db.actor:hit(ch_hit)
+	--end
+end
+
+function part_health_update(act_bone, part_health)
+	local name = tostring(act_bone .. "_fatal")
+	local name_l = tostring(act_bone .. "_light")
+	local name_m = tostring(act_bone .. "_medium")
+	local name_h = tostring(act_bone .. "_heavy")
+	current_actor_effects[name] = false
+	current_actor_effects[name_l] = false
+	current_actor_effects[name_m] = false
+	current_actor_effects[name_h] = false
+	get_console():execute("cam_inertd 0.3")
+	get_console():execute("cam_inertn 0.3")
+	get_console():execute("cam_inertp 0.3")
+	if (part_health <= 0) then
+		current_actor_effects[name] = true
+		if actor_effects then actor_effects.use_item(name) end
+	elseif (part_health <= 0.33) then
+		current_actor_effects[name_h] = true
+		if actor_effects then actor_effects.use_item(name_h) end
+	elseif (part_health <= 0.66) then
+		current_actor_effects[name_m] = true
+		if actor_effects then actor_effects.use_item(name_m) end
+	elseif (part_health < 0.88) then
+		current_actor_effects[name_l] = true
+		if actor_effects then actor_effects.use_item(name_l) end
+	end
+end
+
+local temp_info = {
+	["clear"] = -7,
+	["cloudy"] = -4,
+	["foggy"] = -3,
+	["cloudy_no_sun"] = -5,
+	["foggy_no_sun"] = -4,
+	["partly"] = -5,
+	["rain"] = -7,
+	["storm"] = -9,
+	["thunder"] = -2,
+	["veryfoggy"] = -4,
+	["veryfoggy_no_sun"] = -5,
+	[1] = -6,
+	[2] = -5,
+	[3] = -5,
+	[4] = -4,
+	[5] = -4,
+	[6] = -3,
+	[7] = -3,
+	[8] = -2,
+	[9] = -2,
+	[10] = -1,
+	[11] = -1,
+	[12] = 0,
+	[13] = 0,
+	[14] = -1,
+	[15] = -2,
+	[16] = -2,
+	[17] = -3,
+	[18] = -3,
+	[19] = -3,
+	[20] = -4,
+	[21] = -4,
+	[22] = -5,
+	[23] = -5,
+	[24] = -6,
+}
+
+function get_environment_temp()
+	local cycle = level_weathers.get_weather_manager():get_curr_weather()
+	local hour = level.get_time_hours()
+	local weather_temp = (temp_info[cycle] or -4) + (temp_info[hour] or -3)
+	if level.get_roof(db.actor:position()) then
+		weather_temp = weather_temp + 2
+		if surge_manager.actor_in_cover() then
+			weather_temp = weather_temp + 4
+		end
+	elseif level_weathers.bLevelUnderground then
+		weather_temp = weather_temp + 10
+	end
+	
+	if table.size(bind_campfire.campfires_all) ~= 0 then
+		for id,binder in pairs(bind_campfire.campfires_all) do
+			if (db.actor:position():distance_to_sqr(binder.object:position()) <= 16) then
+				if (binder.campfire:is_on()) then
+					weather_temp = weather_temp + 10
+				end
+			end
+		end
+	end
+	
+	if table.size(bind_anomaly_field.fields_all) ~= 0 then
+		for id,object in pairs(bind_anomaly_field.fields_all) do
+			if (db.actor:position():distance_to_sqr(object:position()) <= 16) then
+				if (string.find(object:name(), "thermal") or string.find(object:name(), "steam")) then
+					weather_temp = weather_temp + 7
+				end
+			end
+		end
+	end
+	return weather_temp
+end
+
+function get_current_temp()
+	
+	local weather_temp = get_environment_temp()
+	
+	local suit = db.actor:item_in_slot(7)
+	local helm = db.actor:item_in_slot(12)
+	local isol_plus = def_plus
+	local isol_minus = def_minus
+	if suit and system_ini() and system_ini():r_float_ex(suit:section(), "temp_isolation_plus",nil) then
+		isol_plus = isol_plus + system_ini():r_float_ex(suit:section(), "temp_isolation_plus",0)*suit:condition()
+	end
+	if suit and system_ini() and system_ini():r_float_ex(suit:section(), "temp_isolation_minus",nil) then
+		isol_minus = isol_minus - system_ini():r_float_ex(suit:section(), "temp_isolation_minus",0)*suit:condition()
+	end
+	if helm and system_ini() and system_ini():r_float_ex(helm:section(), "temp_isolation_plus",nil) then
+		isol_plus = isol_plus + system_ini():r_float_ex(helm:section(), "temp_isolation_plus",0)*helm:condition()
+	end
+	if helm and system_ini() and system_ini():r_float_ex(helm:section(), "temp_isolation_minus",nil) then
+		isol_minus = isol_minus - system_ini():r_float_ex(helm:section(), "temp_isolation_minus",0)*helm:condition()
+	end
+	
+	local cactor = db.actor:cast_Actor():conditions()
+	local actor_temp = cactor:GetTemperature()
+	
+	if weather_temp >= isol_minus then
+		if actor_temp < 37 then
+			return 0.0001
+		end
+		return 0
+	else 
+		return (weather_temp - isol_minus)/1000
+	end
+
+end
+
+function actor_on_update()
+	local tg = time_global()
+	if not (db.actor) then return end
+	if upd_time and tg < upd_time then return end
+	upd_time = tg + 1000
+	
+	local cactor = db.actor:cast_Actor():conditions()
+	local actor = db.actor:cast_Actor()
+	if show_log then
+		actor_status_log()
+	end
+	
+	local max_power_coeff = 1 + cactor:GetMaxPowerBonus()
+	
+
+	if has_alife_info("adrenaline_rush") and cactor:PulseRate() > 110 then
+		default_sprint_coeff = default_sprint_coeff + 0.2
+		default_run_coeff = default_run_coeff + 0.2
+	end
+
+	--Fracture
+	local total_fracture = cactor:GetFracture()
+		
+	--Blood
+	if show_log then printf("Health:: Bleed:%s", cactor:BleedingSpeed()) end
+	
+	for i=1, 6 do
+		local part_health = cactor:GetHealth(i)
+		local bone_delta = part_health - hstats[i]
+		if (i == 1) then
+			if (part_health <= 0.1) then
+				db.actor:kill(db.actor,true)
+			end
+		elseif (i == 2) then
+			if (part_health <= 0.01) then
+				db.actor:kill(db.actor,true)
+			end
+		-- elseif (i == 3 or i == 4) then
+		-- 	if math.ceil((1-part_health)*100) > math.random(start_drop,1000) then
+		-- 		local item = db.actor:active_item()
+		-- 		local section = item and item:section()
+		-- 		if section and sys:r_float_ex(section, "single_handed", 1) == 0 then
+		-- 			if item then 
+		-- 				db.actor:drop_item(item)
+		-- 			end
+		-- 		end
+		-- 	end
+		elseif (i == 5 or i == 6) and bone_delta ~= 0 then
+			-- cactor:SetMaxPower(utils.clamp(cactor:GetMaxPower()+bone_delta, 0.4, max_power_coeff))
+			actor:ChangeWalkAccel(utils.clamp(actor:GetWalkAccel() + default_walk_coeff * bone_delta * recovery_coeff, 1, default_walk_coeff))
+			db.actor:set_actor_run_coef(utils.clamp(db.actor:get_actor_run_coef() + default_run_coeff * bone_delta * recovery_coeff, 0, default_run_coeff))
+			db.actor:set_actor_sprint_koef(utils.clamp(db.actor:get_actor_sprint_koef() + default_sprint_coeff * bone_delta * recovery_coeff, 0, default_sprint_coeff))
+		end
+		part_health_update(parts[i], part_health)
+		hstats[i] = part_health
+	end
+
+	--Toxicity
+	local toxic = cactor:GetToxicity()
+	if (toxic >= cactor:GetToxicityMax()) then
+		db.actor:kill(db.actor,true)
+	end
+	hstats[7] = toxic
+	if (hstats[7] ~= toxic) then
+		--cactor:ChangeAlcohol(utils.clamp(toxic*(1-tox_influence), 0, 1)) -- does nothing
+		cactor:SetMaxPower(utils.clamp(cactor:GetMaxPower()-toxic*tox_influence, 0, max_power_coeff))
+		if (sleep_dep.last_sleep and toxic == 0.9) then
+			sleep_dep.last_sleep = sleep_dep.last_sleep + 1
+		end
+	end
+	if show_log then printf("Health:: toxic:%s",toxic) end
+	
+	delta_temperature = get_current_temp()
+	if show_log then printf("T Delta: %s", delta_temperature) end
+
+	--Temperature
+	cactor:SetTemperature(cactor:GetTemperature() + delta_temperature)
+	temp = cactor:GetTemperature()
+	if (temp < 37) then
+		local res = tostring(0.3 + (37.01 - temp)/37)
+		get_console():execute("cam_inertd " .. res)
+		get_console():execute("cam_inertn " .. res)
+		get_console():execute("cam_inertp " .. res)
+		local mvm = db.actor:get_move_magnitude()
+		printf("mov temp %s", mvm*0.0001)
+		cactor:SetTemperature(cactor:GetTemperature() + mvm*0.000001)
+		if (temp < 36.5) then
+			if math.random(1,5) == 5 then
+				sound_object('actor\\freeze_' .. tostring(math.random(1,4))):play(db.actor,0,sound_object.s2d)
+				local dist = 0.1
+				local direct = db.actor:direction()
+				local position = db.actor:bone_position("bip01_head")
+				local smoke = particles_object("anim_hand_particles\\cigarette\\exhale_smoke")
+				direct.x = direct.x*dist
+				direct.y = (direct.y*dist)-dist
+				direct.z = (direct.z-(direct.y+dist))*dist
+				smoke:play_at_pos(position:add(direct))
+			end
+		end
+	end
+	if ((temp <= cactor:GetTemperatureMin()) or (temp >= cactor:GetTemperatureMax())) then
+		db.actor:kill(db.actor,true)
+	end
+	hstats[8] = temp
+	if show_log then printf("Health:: temperature:%s",temp) end
+	
+	--Pain
+	local move_pain_coef = 0.0001
+	local pain = cactor:GetPain()
+	if total_fracture > 0.1 then
+		pain = cactor:SetPain(pain + db.actor:get_move_magnitude() * move_pain_coef * total_fracture)
+	end
+	hstats[9] = pain
+	
+	local psyh = cactor:GetPsyHealth()
+	if (psyh > (1-pain)) and (psyh > 0.3) then
+		cactor:ChangePsyHealth(utils.clamp(psyh*(1-pain), 0.3, 1))
+	end
+	if pain == cactor:GetPainMax() and not ui_sleep_dialog.IsSleeping() then
+		sleep_dep.force_sleep()
+	end
+	if show_log then printf("health:: pain:%s",pain) end
+	
+	--Psy Health
+	local psy = cactor:GetPsyHealth()
+	if (psy == 0.0) then
+		db.actor:kill(db.actor,true)
+	end
+	hstats[10] = psy
+	if (hstats[10] > psy) then
+		craft_coeff = utils.clamp(craft_coeff*psy, 0, 1)
+	end
+	if show_log then printf("Health:: pysH:%s",psy) end
+
+	if actor_pulse then pulse() end
+	
+	-- stamina penalty from leg health
+	local bone_head = (cactor:GetHealth(5) + cactor:GetHealth(6))/2
+	cactor:SetMaxPower(utils.clamp(max_power_coeff*bone_head, 0.4, max_power_coeff))
+end
+
+function pulse()
+	--Pulse
+	local cactor = db.actor and db.actor:cast_Actor():conditions()
+	if not cactor then return end
+	local pulse = cactor:PulseRate()
+	local pulse_add = 0
+	if (has_alife_info("claustrophobia") or has_alife_info("agoraphobia")) then
+		local sim = alife()
+		local gg = game_graph()
+		local actor_level = sim:level_name(gg:vertex(sim:actor().m_game_vertex_id):level_id())
+		local weather = level_name and game_ini():r_string_ex(actor_level,"weathers")
+		if weather then
+			if weather == "indoor" and has_alife_info("claustrophobia") then
+				pulse_add = pulse_add + 20
+			elseif weather ~= "indoor" and has_alife_info("agoraphobia") then
+				pulse_add = pulse_add + 20
+			end
+		end
+	end
+		
+	if (has_alife_info("radiophobia") and db.actor.radiation > 0) then
+		pulse_add = pulse_add + 20
+	end
+	
+	if pulse < 100 then
+		pulse = utils.clamp(pulse + pulse_add,pulse,100)
+	end
+	cactor:SetPulseRate(pulse)
+	utils.save_var(db.actor,"pulse",nil)
+end
+
+function effect_check(eff_name)
+	if (current_actor_effects[eff_name] and actor_effects) then
+		actor_effects.use_item(eff_name)
+	end
+end
+
+function actor_on_item_use(obj)
+	--if (axr_main.config:r_value("mm_options","enable_weight_speed",1,false) == true) then
+		check_weight()
+	--end
+
+	local sec = obj:section()
+	local eat_pain = sys:r_float_ex(sec,"eat_pain",0)
+	local eat_psyhealth = sys:r_float_ex(sec,"eat_psyhealth",0)
+	local cactor = db.actor:cast_Actor():conditions()
+	
+	if sec == "cocaine" then
+		area_health_system.curr_time_factor = 0.8
+		xr_effects.defer_action("reset_health_time_factor", 50, "s")
+	elseif sec == "adrenalin" then
+		area_health_system.curr_time_factor = 0.6
+		xr_effects.defer_action("reset_health_time_factor", 75, "s")
+	end
+	
+	--cactor:SetTemperature(cactor:GetTemperature() + eat_pain)
+	--cactor:SetPain(cactor:GetPain() - eat_psyhealth/2)
+end
+
+function check_weight()
+	CreateTimeEvent(0,"weight_delay" ,0.01, function()
+		local backpack = db.actor:item_in_slot(13)
+		local suit = db.actor:item_in_slot(7)
+		local weight = db.actor:get_total_weight()
+		c_overweight = utils.clamp(weight - (suit and suit:get_additional_max_weight() or 0) - (backpack and backpack:get_additional_max_weight() or 0) - (artefact_degradation.art_weight_add or 0),0,weight)
+		if show_log then
+			printf("check_weight::weight bonuses suit:%s BP:%s belt:%s",suit and suit:get_additional_max_weight() or 0,backpack and backpack:get_additional_max_weight() or 0,artefact_degradation.art_weight_add or 0)
+			local delta_weight = c_overweight - OverWeight
+			printf("check_weight:Weight:[%s] OverWeight [%s] delta_weight[%s]",weight, c_overweight, delta_weight)
+			printf("weight [%s] sprint [%s] run [%s] runback [%s] jump [%s]",weight, db.actor:get_actor_sprint_koef(), db.actor:get_actor_run_coef(), db.actor:get_actor_runback_coef(), db.actor:get_actor_jump_speed())
+			--SetHudMsg (string.format("weight [%5.2f] sprint [%3.2f] run [%3.2f] back [%3.2f] jump [%4.2f]",weight, db.actor:get_actor_sprint_koef(), db.actor:get_actor_run_coef(), db.actor:get_actor_runback_coef(), db.actor:get_actor_jump_speed()),10)
+		end
+		OverWeight = c_overweight
+		return true
+	end)
+end
+
+function apply_traits()
+	if not(db.actor) then return end
+	
+	printf("A.R.E.A.: Applying traits")
+
+	local actor = db.actor:cast_Actor()
+	local cactor = db.actor:cast_Actor():conditions()
+
+	for i=1, #cond_info_table do
+		printf("cond apply: %s", cond_info_table[i])
+		if cond_info_table[i] == "athlete" then
+			cactor:SetMaxPowerBonus(0.15)
+			--cactor:ChangePowerLeakSpeed(-0.0001)
+			--cactor:BoostPowerRestore(0.0000025)
+		elseif cond_info_table[i] == "feeble" then
+			cactor:SetMaxPowerBonus(-0.15)
+			actor:ChangeWalkAccel(actor:GetWalkAccel() - 0.1)
+			db.actor:set_actor_run_coef(db.actor:get_actor_run_coef() - 0.25)
+			db.actor:set_actor_sprint_koef(db.actor:get_actor_sprint_koef() - 0.5)
+		elseif cond_info_table[i] == "survivor" then
+			--cactor:SetPainMax(1.15)
+			cactor:BoostPain(0.08)
+		elseif cond_info_table[i] == "agile" then
+			actor:ChangeWalkAccel(actor:GetWalkAccel() + 0.1)
+			db.actor:set_actor_run_coef(db.actor:get_actor_run_coef() + 0.25)
+			db.actor:set_actor_sprint_koef(db.actor:get_actor_sprint_koef() + 0.5)
+		elseif cond_info_table[i] == "steel_stomach" then
+			cactor:SetToxicityMax(default_max_toxicity + 0.25)
+			RegisterScriptCallback("actor_on_item_use", steel_stomach)
+		elseif cond_info_table[i] == "pharmacist" then
+			cactor:SetToxicityMax(cactor:GetToxicityMax()+0.15)
+			RegisterScriptCallback("actor_on_item_use", pharmacist)
+		elseif cond_info_table[i] == "agoraphobia" or
+		  cond_info_table[i] == "claustrophobia" or
+		  cond_info_table[i] == "radiophobia" then
+			actor_pulse = true
+		elseif cond_info_table[i] == "nervous" then
+			utils.save_var(db.actor, "psy_resist_coeff", 1.1)
+		elseif cond_info_table[i] == "iron_nerves" then
+			utils.save_var(db.actor, "psy_resist_coeff", utils.load_var(db.actor, "psy_resist_coeff", 1) - 0.15)
+		elseif cond_info_table[i] == "strong" then
+			db.actor:set_actor_max_weight(40)
+		elseif cond_info_table[i] == "weak" then
+			db.actor:set_actor_max_weight(20)
+		elseif cond_info_table[i] == "lethargic" then
+			--cactor:ChangePowerLeakSpeed(0.001)		-- this changes power loss rate per update 
+			--cactor:BoostPowerRestore(-0.0000015)		-- this changes power restore rate using satiety/thirst
+			utils.save_var(db.actor,"bonus_sleep",-20)
+		elseif cond_info_table[i] == "energetic" then
+			--cactor:ChangePowerLeakSpeed(-0.001)
+			--cactor:BoostPowerRestore(0.0000015)
+			utils.save_var(db.actor,"bonus_sleep",20)
+		elseif cond_info_table[i] == "resistent" then
+		 	cactor:BoostShockImmunity(0.001)
+			cactor:BoostChemicalBurnImmunity(0.001)
+			cactor:BoostExplImmunity(0.001)
+			cactor:BoostStrikeImmunity(0.001)
+			cactor:BoostFireWoundImmunity(0.001)
+			cactor:BoostWoundImmunity(0.001)
+			cactor:BoostBurnImmunity(0.001)
+			cactor:BoostRadiationImmunity(0.001)
+		elseif cond_info_table[i] == "depressed" then
+			utils.save_var(db.actor,"bonus_sleep",-30)
+			cactor:BoostPain(0.0001)
+		elseif cond_info_table[i] == "hamhanded" then
+			area_skills.raise_mul = 0.75
+		elseif cond_info_table[i] == "marauder" then
+			area_skills.marauder_mul = 1.6
+		elseif cond_info_table[i] == "mechanic" then
+			area_skills.craft_mul = 1.6
+		elseif cond_info_table[i] == "gunlover" then
+			area_skills.shooting_mul = 1.6
+		elseif cond_info_table[i] == "handyman" then
+			area_skills.raise_mul = 1.25
+--[[
+		elseif cond_info_table[i]:find("bruised_") then
+			local h = hit()
+			if cond_info_table[i]:find("_head") then
+				h:bone("bip01_head")
+			elseif cond_info_table[i]:find("_arm") then
+				h:bone("bip01_r_upperarm")
+			elseif cond_info_table[i]:find("_leg") then
+				h:bone("bip01_l_thigh")
+			else
+				h:bone("bip01_spine1")
+			end
+			h.direction = VEC_ZERO
+			h.draftsman = db.actor
+			h.type = hit.strike
+			h.power = 0.35
+			h.impulse = 0.001
+			db.actor:hit(h)
+--]]
+		elseif cond_info_table[i] == "hunger" then
+			cactor:BoostSatiety(0.0000015)
+		elseif cond_info_table[i] == "thirst" then
+			cactor:BoostThirst(0.0000015)
+		elseif cond_info_table[i] == "alcoholic" then
+			cactor:BoostAlcohol(-0.00008)
+			cactor:BoostHpRestore(-0.000005)
+		elseif cond_info_table[i] == "teetotaler" then
+			cactor:BoostAlcohol(0.00008)
+			cactor:BoostHpRestore(0.000005)
+		end
+	end
+	
+	default_walk_coeff = actor:GetWalkAccel() 				-- set default walk speed
+	default_run_coeff = db.actor:get_actor_run_coef()		-- set default run speed
+	default_sprint_coeff = db.actor:get_actor_sprint_koef()	-- set default sprint speed
+
+end
+
+function check_traits()
+
+	if not(db.actor) then return end
+--	if level.name() == "fake_start" then return end
+--[[	
+	if alun_utils.load_var(db.actor, "traits_checked", false) == true then
+		return
+	end
+	alun_utils.save_var(db.actor, "traits_checked", true)
+--]]	
+	local traits = axr_main.config:r_value("character_creation","new_game_condition",3)
+
+	if not traits or traits == "" then return end
+	if show_log then
+		printf("Health::check traits: traits:%s", traits)
+	end
+	local t = alun_utils.str_explode(traits,",")
+	
+	for i=1,#t do
+		cond_info_table[i] = t[i]:gsub("st_","")
+--		give_info(cond_info_table[i])
+	end
+	return true
+end
+
+--------------------------------------------Misc---------------------------------------------------
+
+function steel_stomach(obj) 
+	local sec = obj:section()
+	local value = sys:r_float_ex(sec, "eat_radiation") or nil
+	if value ~= 0 then
+		db.actor.radiation = db.actor.radiation - value / 2
+	end
+end
+
+function pharmacist(obj)
+	local sec = obj:section()
+	local boost_rad = sys:r_float_ex(sec,"boost_radiation_restore") or nil
+	local boost_time = sys:r_float_ex(sec,"boost_time") or nil
+	if boost_rad ~= 0 and boost_time > 0 then
+		boost_rad = boost_rad + 0.000333 -- +1mSv/sec
+		boost_time = boost_time / 2
+		db.actor.radiation = -boost_rad*boost_time
+	end
+end
+
+function save_state(m_data)
+	m_data.current_actor_effects = current_actor_effects
+	m_data.last_hit_info = last_hit_info
+	m_data.curr_time_factor = curr_time_factor or 1
+end
+
+function load_state(m_data)
+	current_actor_effects = m_data.current_actor_effects or current_actor_effects
+	last_hit_info = m_data.last_hit_info or last_hit_info
+	curr_time_factor = m_data.curr_time_factor or 1
+end

@@ -1,0 +1,205 @@
+;----------------------------------------------------------------------------------------
+; Gewehr 43 from STCOM, remade by Surs for A.R.E.A. (12.11.2019)
+;----------------------------------------------------------------------------------------
+[wpn_g43]:default_weapon_params
+$spawn								= "weapons\g43"			; option for Level Editor
+$npc								= on					; option for Level Editor
+visual								= dynamics\weapons\wpn_g43\wpn_g43.ogf
+class								= WP_AK74
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+inv_name							= st_wpn_g43
+inv_name_short						= st_wpn_g43
+description							= st_wpn_g43_descr
+heating_rates						= sniper1
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_7.92
+weapon_class						= assault_rifle
+inv_weight							= 4.33
+inv_volume							= 5
+cost								= 32880
+upgrades							= up_gr_firstab_g43, up_gr_seconab_g43, up_gr_thirdab_g43
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_toz34
+;---------------------------------------------------------------------------------
+hit_power							= 0.728, 0.728, 0.728, 0.728
+hit_impulse							= 38
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 775
+rpm									= 250
+rpm_empty_click						= 200
+time_to_aim							= 0.9
+hud									= wpn_g43_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.8
+misfire_end_condition				= 0.25
+misfire_start_prob					= 0.01
+misfire_end_prob					= 0.2
+condition_shot_dec					= 0.002
+condition_queue_shot_dec			= 0.002
+
+ammo_elapsed						= 10
+ammo_mag_size						= 10
+fire_modes							= 1
+magazine_sect						= mag_792x57_10_g43
+ammo_class							= ammo_7.92x57_fmj, ammo_7.92x57_fmj_bad, ammo_7.92x57_fmj_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;-------------------------------------------------------------------------------
+;базовая дисперсия
+fire_dispersion_base				= 0.14				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.82f
+crosshair_inertion					= 8.3
+
+cam_return							= 0
+cam_relax_speed						= 4.5
+cam_relax_speed_ai					= 360				;скорость возврата в исходное положение
+cam_dispersion						= 2.7
+cam_dispersion_inc					= 2.7
+cam_dispersion_frac					= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.65				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.45
+PDM_disp_vel_factor					= 2.75
+PDM_disp_accel_factor				= 2.75
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 0.75				; scope & ironsight
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 1.8
+zoom_cam_dispersion_inc				= 1.8
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 0.55
+
+fire_dispersion_condition_factor	= 0.001
+;---------------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2.2
+holder_range_modifier				= 2.15
+;---------------------------------------------------------------------------------
+inv_grid_width						= 6
+inv_grid_height						= 2
+inv_grid_x							= 75
+inv_grid_y							= 75
+
+upgr_icon_x							= 2050
+upgr_icon_y							= 1000
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 175
+kill_msg_y							= 0
+kill_msg_width						= 82
+kill_msg_height						= 28
+;--STRAP PARAMETERS---------------------------------------------------------------
+strap_position						= -0.14, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.14, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+;---------------------------------------------------------------------------------
+position							= -0.022, -0.0, -0.015 ;смещение (влево/вправо, вниз/вверх, назад/вперед)
+orientation							= 0.0, -2.0, 0.0
+fire_point							= 0.0, 0.060, 0.800
+fire_point2							= 0.0, 0.060, 0.800
+shell_3d_sect						= shell_762
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_sniper_rifle
+grenade_flame_particles				= weapons\generic_weapon01
+rpm_empty_click						= 200
+shell_point							= 0.0, 0.129, 0.192
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\762x39
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5.0
+light_var_color						= 0.05
+light_var_range						= 0.1
+light_time							= 0.2
+ph_mass								= 4
+
+scope_status						= 2
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+scope_zoom_factor					= 1.03
+scope_inertion_factor				= 1.0
+scope_zoom_hud_fov					= 0.35
+scopes_sect							= scope_g43
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+;--A.R.E.A. Sound Remake-----------------------------------------------
+snd_holster							= weapons\g43\g43_holster
+snd_draw							= weapons\g43\g43_draw
+snd_empty							= weapons\g43\g43_empty
+snd_reload							= weapons\g43\g43_reload
+snd_close							= weapons\g43\g43_close
+snd_shoot							= weapons\g43\g43_shoot_null
+snd_bore							= $no_sound
+snd_bore1							= $no_sound
+;--Магазины------------------------------------------------------------
+[mag_792x57_10_g43]
+magazine_name						= magazine_792x57_cnt_10
+magazine_x							= 112
+magazine_y							= 40
+custom_icon 						= 9,2,1,1 ;x,y,width,height
+;--Прицелы-------------------------------------------------------------
+[scope_g43]
+scope_name							= zf4
+scope_x								= 80
+scope_y								= 6
+hud 								= wpn_g43_zf4_hud
+;----------------------------------------------------------------------
+[wpn_g43_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_g43\wpn_g43_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0,0,0
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= wpn_body
+
+hands_position						= -0.01542,-0.02081,0.108341
+hands_position_16x9					= -0.01542,-0.02081,0.108341
+hands_orientation					= 2.488359,2,0
+hands_orientation_16x9				= 2.488359,2,0
+
+aim_hud_offset_pos					= -0.053976,0.029390,-0.1
+aim_hud_offset_pos_16x9				= -0.053976,0.029390,-0.1
+aim_hud_offset_rot					= 0.039000,0.043315,0
+aim_hud_offset_rot_16x9				= 0.039000,0.043315,0
+
+anm_show							= gxx_draw
+anm_hide							= gxx_holster
+anm_idle							= gxx_idle
+anm_idle_sprint						= gxx_idle_sprint
+anm_idle_moving						= gxx_idle_moving
+anm_idle_moving_crouch				= gxx_idle_moving, , 0.5
+anm_shots							= gxx_shoot, shoot
+anm_shots_empty						= gxx_idle
+anm_reload							= gxx_reload, reload
+anm_idle_aim						= gxx_idle_aim
+anm_bore							= gxx_idle_bore
+
+[wpn_g43_zf4_hud]:wpn_g43_hud
+aim_hud_offset_pos					= -0.066005,0.012385,-0.13149
+aim_hud_offset_pos_16x9				= -0.066005,0.012385,-0.13149
+aim_hud_offset_rot					= 0.039,0.035,0
+aim_hud_offset_rot_16x9				= 0.039,0.035,0
+;----------------------------------------------------------------------

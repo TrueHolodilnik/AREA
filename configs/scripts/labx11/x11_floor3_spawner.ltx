@@ -1,0 +1,10 @@
+; этаж 3 (вылезли из вентиляции) - открытие дверей на этаже 3, убрались forbidden1_0002 и forbidden1_0003, спавн монолита на 3_1 и 3_2
+
+[logic] ; реализовано через x11_monitor
+active = nil
+
+; [sr_idle@spawn]
+; on_actor_inside = %+x11_floor3_reached =destroy_object(story:x11_forbidden_0002) =destroy_object(story:x11_forbidden_0003) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_3_1) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_3_2) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_2_1)% nil
+; ; если вырубили пульт, но на 3-м этаже не появлялись
+; on_info = {+x11_switcher_primary_off} %+x11_floor3_reached =destroy_object(story:x11_forbidden_0002) =destroy_object(story:x11_forbidden_0003) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_3_1) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_3_2) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_2_1)% nil
+

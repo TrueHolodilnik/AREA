@@ -1,0 +1,15 @@
+[logic]
+active = sr_idle@wait
+
+[sr_idle@wait]
+on_actor_inside = %+x11_floor4_reached% sr_idle@spawn
+
+[sr_idle@spawn]
+on_info = {+x11_floor4_reached} %=destroy_object(story:x11_forbidden_0007) =destroy_object(story:x11_forbidden_0008) =destroy_object(story:x11_forbidden_0009)% sr_idle@flood1
+
+[sr_idle@flood1] ;спавн на точках в дальних комнатах
+; BUG: сквад x11_monolith_squad_3_1 с третьего этажа не портует в комнаты
+; on_info = %=create_squad(monolith_sim_squad_veteran:x11_smart_terrain_4_1) =create_squad(x11_monolith_special_squad:x11_smart_terrain_4_1) =create_squad(x11_monolith_squad_4_1:x11_smart_terrain_4_1) =create_squad(x11_monolith_squad_3_1:x11_smart_terrain_3_1)% nil
+on_info = %=create_squad(monolith_sim_squad_veteran:x11_smart_terrain_4_1) =create_squad(x11_monolith_special_squad:x11_smart_terrain_4_1) =create_squad(x11_monolith_squad_4_1:x11_smart_terrain_4_1)% nil
+
+

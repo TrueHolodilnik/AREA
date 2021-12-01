@@ -1,0 +1,66 @@
+[walker@def]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+;invulnerable = {!actor_enemy} true, false
+
+[logic@yan_semenov]
+active = animpoint@stable
+suitable = {=check_npc_name(yan_ecolog_semenov)} true
+trade = misc\trade\trade_scientific.ltx
+level_spot = trader
+
+[animpoint@stable]
+cover_name = yan_smart_cover_sit_semen
+avail_animations = animpoint_sit_high
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+meet = meet@hello_science
+
+[meet@hello_science]
+close_snd_hello = esc_mech_meet
+close_snd_bye = esc_mech_meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+allow_break 	= false
+meet_on_talking = false
+
+[logic@yan_vasilyev]
+active = animpoint@anim_vasilyev
+suitable = {=check_npc_name(yan_ecolog_vasilyev)} true
+
+[animpoint@anim_vasilyev]
+cover_name = yan_smart_cover_vasilyev
+avail_animations = animpoint_stay_ohrana
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+
+[logic@yan_bunker_guards]
+active = patrol@base
+suitable = {=target_squad_name(yan_bunker_guards_squad)} true
+meet = no_meet
+
+[patrol@base]:walker@def
+path_walk = patrol_base
+;commander = true
+formation = line
+def_state_moving = patrol
+on_info = {=surge_started} walker@hide_4
+on_info2 = {=actor_enemy}  %+guard_killer%
+
+[walker@hide_4]:walker@def
+path_walk = hide_4_walk
+on_info = {=surge_complete} patrol@base
+

@@ -1,0 +1,319 @@
+;----------------------------------------------------------------------------------------
+;  PP-19 «Bizon» from STCOP 3.3, remade by Surs for A.R.E.A. (20.02.2021)
+;----------------------------------------------------------------------------------------
+[wpn_bizon]:default_weapon_params
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon.ogf
+$spawn								= "weapons\bizon"		; option for Level Editor
+$npc								= on					; option for Level Editor
+class								= WP_AK74
+inv_name							= st_wpn_bizon
+inv_name_short						= st_wpn_bizon
+description							= st_wpn_bizon_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+heating_rates						= ak1
+parent_section						= wpn_bizon
+default_to_ruck						= false
+sprint_allowed						= true
+control_inertion_factor				= 1.0
+repair_type							= smg
+cost								= 25000
+weapon_class						= assault_rifle
+inv_weight							= 2.3
+inv_volume							= 3.5
+ph_mass								= 3
+upgrades							= up_gr_firstab_bizon, up_gr_seconab_bizon, up_gr_thirdab_bizon, up_gr_fourtab_bizon, up_gr_fifthab_bizon, up_gr_fifthcd_bizon
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_mp5
+;----TTX--------------------------------------------------------------------------
+hit_power							= 0.28, 0.28, 0.28, 0.28
+hit_impulse							= 20
+hit_type							= fire_wound
+fire_distance						= 600
+bullet_speed						= 520
+rpm									= 680
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_bizon_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.84
+misfire_end_condition				= 0.16
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0008
+
+ammo_elapsed						= 64
+ammo_mag_size						= 64
+fire_modes							= -1, 1
+magazine_sect						= mag_9x18_cnt_64_bizon
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot								= 2
+animation_slot						= 8
+;--DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 3.4
+;--дисперсия---------------------------------------------------------------------
+fire_dispersion_base				= 0.57
+control_inertion_factor				= 1.1f
+crosshair_inertion					= 4.4
+
+cam_return							= 0
+cam_relax_speed						= 10					;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 0.53					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 0.26					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.0					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 43.0					;максимальный угол отдачи
+cam_max_angle_horz					= 43.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.54					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.55
+PDM_disp_vel_factor					= 1.145
+PDM_disp_accel_factor				= 1.15
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10					;scope & ironsight
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 0.32
+zoom_cam_dispersion_inc				= 0.13
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 43.0
+zoom_cam_max_angle_horz				= 43.0
+zoom_cam_step_angle_horz			= 1.52
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width						= 4
+inv_grid_height						= 2
+inv_grid_x							= 36
+inv_grid_y							= 34
+
+upgr_icon_x							= 900
+upgr_icon_y							= 300
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 72
+kill_msg_y							= 82
+kill_msg_width						= 56
+kill_msg_height						= 23
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.168, 0.01
+orientation							= 0, 0, 0
+fire_point							= 0, 0.220, 0.375
+fire_point2							= 0, 0.161, 0.375
+flame_particles						= weapons\new_effects\a1_type_ar15
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= 0.0, 0.188, 0.080
+shell_dir							= 0.0, 1.0, 0.0
+shell_particles						= weapons\9x18
+shell_3d_sect						= shell_9
+;-------------------------------------------------------------------------------
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2						; 0 - no addon
+silencer_status						= 2						; 1 - permanent
+grenade_launcher_status				= 0						; 2 - attachable
+
+scopes								= 1p29, 1p78, 1pn34, ekp, kobra, okp, pso
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+scope_zoom_hud_fov					= 0.35
+
+silencer_name						= wpn_sil_pbs1
+silencer_x							= 186
+silencer_y							= 12
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\bizon\bizon_holster
+snd_draw							= weapons\bizon\bizon_draw
+snd_empty							= weapons\bizon\bizon_empty
+snd_reload							= weapons\bizon\bizon_reload
+snd_reload_empty					= weapons\bizon\bizon_reload_empty
+snd_reload_misfire					= weapons\bizon\bizon_misfire
+snd_reload_detached					= weapons\bizon\bizon_reload,1.0,0.0,1.5
+snd_reload_detached_empty			= weapons\bizon\bizon_reload_empty,1.0,0.0,1.5
+snd_shoot							= weapons\bizon\bizon_shoot_null
+snd_silencer_shot					= weapons\bizon\bizon_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_9x18_cnt_64_bizon]
+magazine_name						= magazine_9x18_cnt_64
+magazine_x							= 100
+magazine_y							= 26
+custom_icon 						= 0,3,2,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_bizon_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.019825,0.060795,-0.030475
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= -0.003520,0.061995,0.422361
+fire_bone							= wpn_body
+fire_point2							= 0,0.1,0.1
+fire_bone2							= wpn_body
+
+hands_position						= -0.114266,-0.118045,-0.07352
+hands_position_16x9					= -0.114266,-0.118045,-0.07352
+hands_orientation					= -0.214912,2.464998,0
+hands_orientation_16x9				= -0.214912,2.464998,0
+
+aim_hud_offset_pos					= -0.049225,0.004405,-0.06443
+aim_hud_offset_pos_16x9				= -0.049225,0.004405,-0.06443
+aim_hud_offset_rot					= 0.027951,0.017176,0.031125
+aim_hud_offset_rot_16x9				= 0.027951,0.017176,0.031125
+
+aim_hud_offset_pos_alt				= -0.02196,-0.034465,0
+aim_hud_offset_pos_alt_16x9			= -0.02196,-0.034465,0
+aim_hud_offset_rot_alt				= 0,-0.000505,0.755354
+aim_hud_offset_rot_alt_16x9			= 0,-0.000505,0.755354
+
+anm_show							= lancew_bizon_draw
+anm_hide							= lancew_bizon_holster
+anm_idle							= lancew_bizon_idle
+anm_idle_sprint						= lancew_bizon_sprint 
+anm_idle_moving						= lancew_bizon_moving
+anm_idle_moving_crouch				= lancew_bizon_moving, , 0.5
+anm_shots							= lancew_bizon_shoot, shoot
+anm_shots_empty						= lancew_bizon_idle
+anm_reload							= lancew_bizon_reload, reload
+anm_reload_empty              		= lancew_bizon_reload_empty, reload_empty
+anm_reload_misfire              	= lancew_bizon_misfire, misfire
+anm_reload_detached					= lancew_bizon_reload, reload, , 1.5
+anm_reload_detached_empty			= lancew_bizon_reload_empty, reload_empty, , 1.5
+anm_idle_aim						= lancew_bizon_idle_aim, idle_aim
+anm_bore							= lancew_bizon_no_reload
+;-------------------------------------------------------------------------------
+;	Scopes
+;-------------------------------------------------------------------------------
+[wpn_bizon_1p29]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_1p29.ogf
+scope_name							= 1p29
+scope_x								= 59
+scope_y								= -2
+hud									= wpn_bizon_1p29_hud
+
+[wpn_bizon_1p29_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_1p29_hud.ogf
+hands_position						= -0.104221,-0.13137,-0.07352
+hands_position_16x9					= -0.104221,-0.13137,-0.07352
+aim_hud_offset_pos					= -0.055125,0.00412,-0.039024
+aim_hud_offset_pos_16x9				= -0.055125,0.00412,-0.039024
+aim_hud_offset_rot					= 0.029227,0.016921,-0.013799
+aim_hud_offset_rot_16x9				= 0.029227,0.016921,-0.013799
+;-------------------------------------------------------------------------------
+[wpn_bizon_1p78]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_1p78.ogf
+scope_name							= 1p78
+scope_x								= 61
+scope_y								= -3
+hud									= wpn_bizon_1p78_hud
+
+[wpn_bizon_1p78_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_1p78_hud.ogf
+hands_position						= -0.106271,-0.12809,-0.07352
+hands_position_16x9					= -0.106271,-0.12809,-0.07352
+aim_hud_offset_pos					= -0.050755,-0.00157,-0.018775
+aim_hud_offset_pos_16x9				= -0.050755,-0.00157,-0.018775
+aim_hud_offset_rot					= 0.027951,0.017176,-0.00461
+aim_hud_offset_rot_16x9				= 0.027951,0.017176,-0.00461
+;-------------------------------------------------------------------------------
+[wpn_bizon_1pn34]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_1pn34.ogf
+scope_name							= 1pn34
+scope_x								= 59
+scope_y								= -2
+hud									= wpn_bizon_1pn34_hud
+
+[wpn_bizon_1pn34_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_1pn34_hud.ogf
+hands_position						= -0.081856,-0.144704,-0.07352
+hands_position_16x9					= -0.081856,-0.144704,-0.07352
+aim_hud_offset_pos					= -0.07452,-0.01322,-0.030004
+aim_hud_offset_pos_16x9				= -0.07452,-0.01322,-0.030004
+aim_hud_offset_rot					= 0.029227,0.016921,-0.005063
+aim_hud_offset_rot_16x9				= 0.029227,0.016921,-0.005063
+;-------------------------------------------------------------------------------
+[wpn_bizon_ekp]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_ekp.ogf
+scope_name							= ekp
+scope_x								= 70
+scope_y								= -2
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\ekp.ogf, dynamics\weapons\marks\ekp2.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= -0.0010, 0.1190, 0.585
+scope_dot_scale						= 6.0
+hud									= wpn_bizon_ekp_hud
+
+[wpn_bizon_ekp_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_ekp_hud.ogf
+aim_hud_offset_pos					= -0.04158,-0.01735,-0.09475
+aim_hud_offset_pos_16x9				= -0.04158,-0.01735,-0.09475
+aim_hud_offset_rot					= 0.030248,0.006711,-0.021712
+aim_hud_offset_rot_16x9				= 0.030248,0.006711,-0.021712
+;-------------------------------------------------------------------------------
+[wpn_bizon_kobra]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_kobra.ogf
+scope_name							= kobra
+scope_x								= 70
+scope_y								= 1
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\kobra.ogf, dynamics\weapons\marks\ekp2.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= 0.0016, 0.1218, 0.585
+scope_dot_scale						= 6.0
+hud									= wpn_bizon_kobra_hud
+
+[wpn_bizon_kobra_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_kobra_hud.ogf
+aim_hud_offset_pos					= -0.04371,-0.01591,-0.08866
+aim_hud_offset_pos_16x9				= -0.04371,-0.01591,-0.08866
+aim_hud_offset_rot					= 0.038416,0.005945,-0.011757
+aim_hud_offset_rot_16x9				= 0.038416,0.005945,-0.011757
+;-------------------------------------------------------------------------------
+[wpn_bizon_okp]:wpn_bizon
+visual								= dynamics\weapons\wpn_bizon\wpn_bizon_okp.ogf
+scope_name							= okp
+scope_x								= 72
+scope_y								= 1
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\okp.ogf, dynamics\weapons\marks\okp2.ogf
+scope_dot_pos						= -0.0050, 0.1030, 0.585
+scope_dot_scale						= 5.0
+hud									= wpn_bizon_okp_hud
+
+[wpn_bizon_okp_hud]:wpn_bizon_hud
+item_visual							= dynamics\weapons\wpn_bizon\wpn_bizon_okp_hud.ogf
+aim_hud_offset_pos					= -0.040144,-0.002545,-0.073225
+aim_hud_offset_pos_16x9				= -0.040144,-0.002545,-0.073225
+aim_hud_offset_rot					= 0.027951,0.011816,-0.002313
+aim_hud_offset_rot_16x9				= 0.027951,0.011816,-0.002313
+;-------------------------------------------------------------------------------
+[wpn_bizon_pso]:wpn_bizon
+scope_name							= pso
+scope_x								= 34
+scope_y								= 1
+hud									= wpn_bizon_pso_hud
+
+[wpn_bizon_pso_hud]:wpn_bizon_hud
+hands_position						= -0.104221,-0.13342,-0.07352
+hands_position_16x9					= -0.104221,-0.13342,-0.07352
+aim_hud_offset_pos					= -0.04423,0.01103,0.026645
+aim_hud_offset_pos_16x9				= -0.04423,0.01103,0.026645
+;-------------------------------------------------------------------------------

@@ -1,0 +1,2813 @@
+;-----------------------------------------------------------------------------------
+; Procure Supplies for Clear Sky Simulation Task
+;-----------------------------------------------------------------------------------
+[simulation_task_1]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = csky
+sim_ranks = novice, trainee, experienced
+sim_ranks_npc = novice, trainee, experienced, professional, veteran
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_1_name
+title_functor = general_fetch_task
+descr = simulation_task_1_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_1_about
+fetch_descr = simulation_task_1_fetch_about
+task_complete_descr = simulation_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_1_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_1_fetch:0.8) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =inc_task_stage(simulation_task_1) =pstor_reset(simulation_task_1_fetch) =drx_sl_unregister_task_giver(simulation_task_1) =drx_sl_reset_stored_task(simulation_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:csky) =pstor_reset(simulation_task_1_fetch) =drx_sl_unregister_task_giver(simulation_task_1) =drx_sl_reset_stored_task(simulation_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_1_fetch) =drx_sl_unregister_task_giver(simulation_task_1) =drx_sl_reset_stored_task(simulation_task_1)%
+on_reversed = %=pstor_reset(simulation_task_1_fetch) =drx_sl_unregister_task_giver(simulation_task_1) =drx_sl_reset_stored_task(simulation_task_1)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Find Supplies for Freedom Simulation Task-
+
+[simulation_task_2]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced
+sim_ranks_npc = novice, trainee, experienced, professional, veteran
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_2_name
+title_functor = general_fetch_task
+descr = simulation_task_2_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_2_about
+fetch_descr = simulation_task_2_fetch_about
+task_complete_descr = simulation_task_2_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_2_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_2_fetch:0.9) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_2) =pstor_reset(simulation_task_2_fetch) =drx_sl_unregister_task_giver(simulation_task_2) =drx_sl_reset_stored_task(simulation_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =pstor_reset(simulation_task_2_fetch) =drx_sl_unregister_task_giver(simulation_task_2) =drx_sl_reset_stored_task(simulation_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_2_fetch) =drx_sl_unregister_task_giver(simulation_task_2) =drx_sl_reset_stored_task(simulation_task_2)%
+on_reversed = %=pstor_reset(simulation_task_2_fetch) =drx_sl_unregister_task_giver(simulation_task_2) =drx_sl_reset_stored_task(simulation_task_2)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Mutant Meat Stew for Clear Sky Simulation Task-
+
+[simulation_task_3]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_3_name
+title_functor = general_fetch_task
+descr = simulation_task_3_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_3_about
+fetch_descr = simulation_task_3_fetch_about
+task_complete_descr = simulation_task_3_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_3_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_3_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =inc_task_stage(simulation_task_3) =pstor_reset(simulation_task_3_fetch) =drx_sl_unregister_task_giver(simulation_task_3) =drx_sl_reset_stored_task(simulation_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:csky) =pstor_reset(simulation_task_3_fetch) =drx_sl_unregister_task_giver(simulation_task_3) =drx_sl_reset_stored_task(simulation_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_3_fetch) =drx_sl_unregister_task_giver(simulation_task_3) =drx_sl_reset_stored_task(simulation_task_3)%
+on_reversed = %=pstor_reset(simulation_task_3_fetch) =drx_sl_unregister_task_giver(simulation_task_3) =drx_sl_reset_stored_task(simulation_task_3)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Rifle for an Artefact for Stalker Simulation Task-
+
+[simulation_task_4]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_4_name
+title_functor = general_fetch_task
+descr = simulation_task_4_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_4_about
+fetch_descr = simulation_task_4_fetch_about
+task_complete_descr = simulation_task_4_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_4)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_4_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_4_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_4) =pstor_reset(simulation_task_4_fetch) =drx_sl_unregister_task_giver(simulation_task_4) =drx_sl_reset_stored_task(simulation_task_4)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_4_fetch) =drx_sl_unregister_task_giver(simulation_task_4) =drx_sl_reset_stored_task(simulation_task_4)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_4_fetch) =drx_sl_unregister_task_giver(simulation_task_4) =drx_sl_reset_stored_task(simulation_task_4)%
+on_reversed = %=pstor_reset(simulation_task_4_fetch) =drx_sl_unregister_task_giver(simulation_task_4) =drx_sl_reset_stored_task(simulation_task_4)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Replace Looted Weapon for Stalker Simulation Task-
+
+[simulation_task_5]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_5_name
+title_functor = general_fetch_task
+descr = simulation_task_5_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_5_about
+fetch_descr = simulation_task_5_fetch_about
+task_complete_descr = simulation_task_5_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_5)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_5_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_5_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_5) =pstor_reset(simulation_task_5_fetch) =drx_sl_unregister_task_giver(simulation_task_5) =drx_sl_reset_stored_task(simulation_task_5)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_5_fetch) =drx_sl_unregister_task_giver(simulation_task_5) =drx_sl_reset_stored_task(simulation_task_5)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_5_fetch) =drx_sl_unregister_task_giver(simulation_task_5) =drx_sl_reset_stored_task(simulation_task_5)%
+on_reversed = %=pstor_reset(simulation_task_5_fetch) =drx_sl_unregister_task_giver(simulation_task_5) =drx_sl_reset_stored_task(simulation_task_5)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Find a Reliable Weapon for Duty Simulation Task-
+
+[simulation_task_6]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = dolg
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_6_name
+title_functor = general_fetch_task
+descr = simulation_task_6_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_6_about
+fetch_descr = simulation_task_6_fetch_about
+task_complete_descr = simulation_task_6_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_6)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_6_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_6_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_6) =pstor_reset(simulation_task_6_fetch) =drx_sl_unregister_task_giver(simulation_task_6) =drx_sl_reset_stored_task(simulation_task_6)%
+on_fail = %=fail_task_dec_goodwill(100:dolg) =pstor_reset(simulation_task_6_fetch) =drx_sl_unregister_task_giver(simulation_task_6) =drx_sl_reset_stored_task(simulation_task_6)%
+on_cancel = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_6_fetch) =drx_sl_unregister_task_giver(simulation_task_6) =drx_sl_reset_stored_task(simulation_task_6)%
+on_reversed = %=pstor_reset(simulation_task_6_fetch) =drx_sl_unregister_task_giver(simulation_task_6) =drx_sl_reset_stored_task(simulation_task_6)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Rescue Kidnapped Stalker Simulation Task-
+
+[simulation_task_7]
+
+icon = ui_inGame2_Zalozhnik
+storyline = false
+prior = 95
+sim_communities = stalker
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(bandit) -hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:bandit) !squad_exist(hostage_companion_task_1)} true, false
+type = smart_hostage
+
+title = simulation_task_7_name
+descr = simulation_task_7_text
+job_descr = simulation_task_7_about
+task_complete_descr = simulation_task_7_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(simulation_task_7)} reversed
+condlist_2 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_stalker:nil:simulation_task_7_id:true:hostage_companion_task_1_started:bandit)%
+on_complete = %=reward_random_money(11000:13000:roubles) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(simulation_task_7_id) =pstor_reset(simulation_task_7_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(simulation_task_7) =unlock_smart(simulation_task_7_id) =drx_sl_unregister_hostage_giver(simulation_task_7) =drx_sl_unregister_task_giver(simulation_task_7) =drx_sl_reset_stored_task(simulation_task_7)%
+on_fail = %=unlock_smart(simulation_task_7_id) =fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_7_id) =pstor_reset(simulation_task_7_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_7) =drx_sl_unregister_task_giver(simulation_task_7) =drx_sl_reset_stored_task(simulation_task_7)%
+on_cancel = %=unlock_smart(simulation_task_7_id) =fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_7_id) =pstor_reset(simulation_task_7_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_7) =drx_sl_unregister_task_giver(simulation_task_7) =drx_sl_reset_stored_task(simulation_task_7)%
+on_reversed = %=unlock_smart(simulation_task_7_id) =pstor_reset(simulation_task_7_id) =pstor_reset(simulation_task_7_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_7) =drx_sl_unregister_task_giver(simulation_task_7) =drx_sl_reset_stored_task(simulation_task_7)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Free the Duty Hostage Simulation Task-
+
+[simulation_task_8]
+
+icon = ui_inGame2_Zalozhnik
+storyline = false
+prior = 95
+sim_communities = dolg
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(freedom) -hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:freedom) !squad_exist(hostage_companion_task_1)} true, false
+type = smart_hostage
+
+title = simulation_task_8_name
+descr = simulation_task_8_text
+job_descr = simulation_task_8_about
+task_complete_descr = simulation_task_8_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(simulation_task_8)} reversed
+condlist_2 = {=drx_sl_is_enemy(dolg)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_dolg:nil:simulation_task_8_id:true:hostage_companion_task_1_started:freedom)%
+on_complete = %=reward_random_money(11000:13000:roubles) =reward_random_item(grenade_rgd5:grenade_f1) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(simulation_task_8_id) =pstor_reset(simulation_task_8_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(simulation_task_8) =unlock_smart(simulation_task_8_id) =drx_sl_unregister_hostage_giver(simulation_task_8) =drx_sl_unregister_task_giver(simulation_task_8) =drx_sl_reset_stored_task(simulation_task_8)%
+on_fail = %=unlock_smart(simulation_task_8_id) =fail_task_dec_goodwill(100:dolg) =pstor_reset(simulation_task_8_id) =pstor_reset(simulation_task_8_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_8) =drx_sl_unregister_task_giver(simulation_task_8) =drx_sl_reset_stored_task(simulation_task_8)%
+on_cancel = %=unlock_smart(simulation_task_8_id) =fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_8_id) =pstor_reset(simulation_task_8_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_8) =drx_sl_unregister_task_giver(simulation_task_8) =drx_sl_reset_stored_task(simulation_task_8)%
+on_reversed = %=unlock_smart(simulation_task_8_id) =pstor_reset(simulation_task_8_id) =pstor_reset(simulation_task_8_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_8) =drx_sl_unregister_task_giver(simulation_task_8) =drx_sl_reset_stored_task(simulation_task_8)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Hostage Rescue for Freedom Simulation Task-
+
+[simulation_task_9]
+
+icon = ui_inGame2_Zalozhnik
+storyline = false
+prior = 95
+sim_communities = freedom
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(monolith) -hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monolith) !squad_exist(hostage_companion_task_1)} true, false
+type = smart_hostage
+
+title = simulation_task_9_name
+descr = simulation_task_9_text
+job_descr = simulation_task_9_about
+task_complete_descr = simulation_task_9_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(simulation_task_9)} reversed
+condlist_2 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_freedom:nil:simulation_task_9_id:true:hostage_companion_task_1_started:monolith:dolg)%
+on_complete = %=reward_random_money(11000:13000:hrivni) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(simulation_task_9_id) =pstor_reset(simulation_task_9_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(simulation_task_9) =unlock_smart(simulation_task_9_id) =drx_sl_unregister_hostage_giver(simulation_task_9) =drx_sl_unregister_task_giver(simulation_task_9) =drx_sl_reset_stored_task(simulation_task_9)%
+on_fail = %=unlock_smart(simulation_task_9_id) =fail_task_dec_goodwill(100:freedom) =pstor_reset(simulation_task_9_id) =pstor_reset(simulation_task_9_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_9) =drx_sl_unregister_task_giver(simulation_task_9) =drx_sl_reset_stored_task(simulation_task_9)%
+on_cancel = %=unlock_smart(simulation_task_9_id) =fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_9_id) =pstor_reset(simulation_task_9_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_9) =drx_sl_unregister_task_giver(simulation_task_9) =drx_sl_reset_stored_task(simulation_task_9)%
+on_reversed = %=unlock_smart(simulation_task_9_id) =pstor_reset(simulation_task_9_id) =pstor_reset(simulation_task_9_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_9) =drx_sl_unregister_task_giver(simulation_task_9) =drx_sl_reset_stored_task(simulation_task_9)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Ecologist Ransom Simulation Task-
+
+[simulation_task_10]
+
+icon = ui_inGame2_Zalozhnik
+storyline = false
+prior = 95
+sim_communities = ecolog
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(bandit) -hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:bandit) !squad_exist(hostage_companion_task_1)} true, false
+type = smart_hostage
+
+title = simulation_task_10_name
+descr = simulation_task_10_text
+job_descr = simulation_task_10_about
+task_complete_descr = simulation_task_10_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(simulation_task_10)} reversed
+condlist_2 = {=drx_sl_is_enemy(ecolog)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_ecolog:nil:simulation_task_10_id:true:hostage_companion_task_1_started:bandit)%
+on_complete = %=reward_random_money(11000:13000:roubles) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(simulation_task_10_id) =pstor_reset(simulation_task_10_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(simulation_task_10) =unlock_smart(simulation_task_10_id) =drx_sl_unregister_hostage_giver(simulation_task_10) =drx_sl_unregister_task_giver(simulation_task_10) =drx_sl_reset_stored_task(simulation_task_10)%
+on_fail = %=unlock_smart(simulation_task_10_id) =fail_task_dec_goodwill(100:ecolog) =pstor_reset(simulation_task_10_id) =pstor_reset(simulation_task_10_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_10) =drx_sl_unregister_task_giver(simulation_task_10) =drx_sl_reset_stored_task(simulation_task_10)%
+on_cancel = %=unlock_smart(simulation_task_10_id) =fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_10_id) =pstor_reset(simulation_task_10_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_10) =drx_sl_unregister_task_giver(simulation_task_10) =drx_sl_reset_stored_task(simulation_task_10)%
+on_reversed = %=unlock_smart(simulation_task_10_id) =pstor_reset(simulation_task_10_id) =pstor_reset(simulation_task_10_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_10) =drx_sl_unregister_task_giver(simulation_task_10) =drx_sl_reset_stored_task(simulation_task_10)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Reverse Bounty Hunt for Stalker Simulation Task-
+
+[simulation_task_11]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = stalker
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(stalker)} true, false
+type = bounty
+
+title = simulation_task_11_name
+descr = simulation_task_11_text
+job_descr = simulation_task_11_about
+task_complete_descr = simulation_task_11_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_11)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_11:stalker)%
+on_complete = %=reward_random_money(9000:12000:hrivni) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_11) =drx_sl_unregister_task_giver(simulation_task_11) =drx_sl_reset_stored_task(simulation_task_11)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(simulation_task_11) =drx_sl_reset_stored_task(simulation_task_11)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(simulation_task_11) =drx_sl_reset_stored_task(simulation_task_11)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_11) =drx_sl_reset_stored_task(simulation_task_11)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Vengeance for Stalker Simulation Task-
+
+[simulation_task_12]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = stalker
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(stalker)} true, false
+type = bounty
+
+title = simulation_task_12_name
+descr = simulation_task_12_text
+job_descr = simulation_task_12_about
+task_complete_descr = simulation_task_12_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_12)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_12:stalker)%
+on_complete = %=reward_random_money(9000:12000:roubles) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_12) =drx_sl_unregister_task_giver(simulation_task_12) =drx_sl_reset_stored_task(simulation_task_12)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(simulation_task_12) =drx_sl_reset_stored_task(simulation_task_12)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(simulation_task_12) =drx_sl_reset_stored_task(simulation_task_12)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_12) =drx_sl_reset_stored_task(simulation_task_12)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Find Supplies for Bandit Simulation Task-
+
+[simulation_task_13]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_13_name
+title_functor = general_fetch_task
+descr = simulation_task_13_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_13_about
+fetch_descr = simulation_task_13_fetch_about
+task_complete_descr = simulation_task_13_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_13)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_13_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_13_fetch:0.9) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(simulation_task_13) =pstor_reset(simulation_task_13_fetch) =drx_sl_unregister_task_giver(simulation_task_13) =drx_sl_reset_stored_task(simulation_task_13)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =pstor_reset(simulation_task_13_fetch) =drx_sl_unregister_task_giver(simulation_task_13) =drx_sl_reset_stored_task(simulation_task_13)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(simulation_task_13_fetch) =drx_sl_unregister_task_giver(simulation_task_13) =drx_sl_reset_stored_task(simulation_task_13)%
+on_reversed = %=pstor_reset(simulation_task_13_fetch) =drx_sl_unregister_task_giver(simulation_task_13) =drx_sl_reset_stored_task(simulation_task_13)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Find Supplies for Military Simulation Task-
+
+[simulation_task_14]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = army
+sim_ranks = novice, trainee, experienced, professional
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_14_name
+title_functor = general_fetch_task
+descr = simulation_task_14_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_14_about
+fetch_descr = simulation_task_14_fetch_about
+task_complete_descr = simulation_task_14_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_14)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_14_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_14_fetch:0.8) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(simulation_task_14) =pstor_reset(simulation_task_14_fetch) =drx_sl_unregister_task_giver(simulation_task_14) =drx_sl_reset_stored_task(simulation_task_14)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(simulation_task_14_fetch) =drx_sl_unregister_task_giver(simulation_task_14) =drx_sl_reset_stored_task(simulation_task_14)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(simulation_task_14_fetch) =drx_sl_unregister_task_giver(simulation_task_14) =drx_sl_reset_stored_task(simulation_task_14)%
+on_reversed = %=pstor_reset(simulation_task_14_fetch) =drx_sl_unregister_task_giver(simulation_task_14) =drx_sl_reset_stored_task(simulation_task_14)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Contraband Artefact for Military Simulation Task-
+
+[simulation_task_15]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = army
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_15_name
+title_functor = general_fetch_task
+descr = simulation_task_15_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_15_about
+fetch_descr = simulation_task_15_fetch_about
+task_complete_descr = simulation_task_15_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_15)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_15_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_15_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(simulation_task_15) =pstor_reset(simulation_task_15_fetch) =drx_sl_unregister_task_giver(simulation_task_15) =drx_sl_reset_stored_task(simulation_task_15)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(simulation_task_15_fetch) =drx_sl_unregister_task_giver(simulation_task_15) =drx_sl_reset_stored_task(simulation_task_15)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(simulation_task_15_fetch) =drx_sl_unregister_task_giver(simulation_task_15) =drx_sl_reset_stored_task(simulation_task_15)%
+on_reversed = %=pstor_reset(simulation_task_15_fetch) =drx_sl_unregister_task_giver(simulation_task_15) =drx_sl_reset_stored_task(simulation_task_15)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Weapon Straw Purchase for Bandit Simulation Task-
+
+[simulation_task_16]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_16_name
+title_functor = general_fetch_task
+descr = simulation_task_16_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_16_about
+fetch_descr = simulation_task_16_fetch_about
+task_complete_descr = simulation_task_16_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_16)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_16_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_16_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(simulation_task_16) =pstor_reset(simulation_task_16_fetch) =drx_sl_unregister_task_giver(simulation_task_16) =drx_sl_reset_stored_task(simulation_task_16)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =pstor_reset(simulation_task_16_fetch) =drx_sl_unregister_task_giver(simulation_task_16) =drx_sl_reset_stored_task(simulation_task_16)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(simulation_task_16_fetch) =drx_sl_unregister_task_giver(simulation_task_16) =drx_sl_reset_stored_task(simulation_task_16)%
+on_reversed = %=pstor_reset(simulation_task_16_fetch) =drx_sl_unregister_task_giver(simulation_task_16) =drx_sl_reset_stored_task(simulation_task_16)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Assassination on a Dare for Military Simulation Task-
+
+[simulation_task_17]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = army
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(army)} true, false
+type = bounty
+
+title = simulation_task_17_name
+descr = simulation_task_17_text
+job_descr = simulation_task_17_about
+task_complete_descr = simulation_task_17_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_17)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_17:army)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_random_item(grenade_rgd5:grenade_f1) =reward_random_item(grenade_rgd5:grenade_f1) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(simulation_task_17) =drx_sl_unregister_task_giver(simulation_task_17) =drx_sl_reset_stored_task(simulation_task_17)%
+on_fail = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(simulation_task_17) =drx_sl_reset_stored_task(simulation_task_17)%
+on_cancel = %=fail_task_dec_goodwill(10:army) =drx_sl_unregister_task_giver(simulation_task_17) =drx_sl_reset_stored_task(simulation_task_17)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_17) =drx_sl_reset_stored_task(simulation_task_17)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Subcontractor for Merc Simulation Task-
+
+[simulation_task_18]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = killer
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(killer)} true, false
+type = bounty
+
+title = simulation_task_18_name
+descr = simulation_task_18_text
+job_descr = simulation_task_18_about
+task_complete_descr = simulation_task_18_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_18)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_18:killer)%
+on_complete = %=reward_random_money(10000:12000:dollars) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =reward_random_item(grenade_rgd5:grenade_f1) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_18) =drx_sl_unregister_task_giver(simulation_task_18) =drx_sl_reset_stored_task(simulation_task_18)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_unregister_task_giver(simulation_task_18) =drx_sl_reset_stored_task(simulation_task_18)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_unregister_task_giver(simulation_task_18) =drx_sl_reset_stored_task(simulation_task_18)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_18) =drx_sl_reset_stored_task(simulation_task_18)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Eliminate Enemy Forces for Monolith Simulation Task-
+
+[simulation_task_19]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = false
+prior = 85
+sim_communities = monolith
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_local_task(1:nil:false:monolith)} true, false
+type = assault
+
+title = simulation_task_19_name
+descr = simulation_task_19_text
+job_descr = simulation_task_19_about
+task_complete_descr = simulation_task_19_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker,dolg,freedom,csky,ecolog,killer,army,bandit
+condlist_0 = {!task_giver_alive(simulation_task_19)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_init = %=drx_sl_setup_assault_local(simulation_task_19_id:monolith)%
+on_complete = %=reward_random_money(10000:12000:roubles) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(simulation_task_19) =pstor_reset(simulation_task_19_id) =pstor_reset(simulation_task_19_target_id) =drx_sl_unregister_task_giver(simulation_task_19) =drx_sl_reset_stored_task(simulation_task_19)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =pstor_reset(simulation_task_19_id) =pstor_reset(simulation_task_19_target_id) =drx_sl_unregister_task_giver(simulation_task_19) =drx_sl_reset_stored_task(simulation_task_19)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =pstor_reset(simulation_task_19_id) =pstor_reset(simulation_task_19_target_id) =drx_sl_unregister_task_giver(simulation_task_19) =drx_sl_reset_stored_task(simulation_task_19)%
+on_reversed = %=pstor_reset(simulation_task_19_id) =pstor_reset(simulation_task_19_target_id) =drx_sl_unregister_task_giver(simulation_task_19) =drx_sl_reset_stored_task(simulation_task_19)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Scouting Expedition for Mercenary Simulation Task-
+
+[simulation_task_20]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = false
+prior = 65
+sim_communities = killer
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_remote_task(1:nil:false:killer)} true, false
+type = assault
+
+title = simulation_task_20_name
+descr = simulation_task_20_text
+job_descr = simulation_task_20_about
+task_complete_descr = simulation_task_20_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, dolg, army
+condlist_0 = {!task_giver_alive(simulation_task_20)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(simulation_task_20_id:killer)%
+on_complete = %=reward_random_money(10000:12000:dollars) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_20) =pstor_reset(simulation_task_20_id) =pstor_reset(simulation_task_20_target_id) =drx_sl_unregister_task_giver(simulation_task_20) =drx_sl_reset_stored_task(simulation_task_20)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =pstor_reset(simulation_task_20_id) =pstor_reset(simulation_task_20_target_id) =drx_sl_unregister_task_giver(simulation_task_20) =drx_sl_reset_stored_task(simulation_task_20)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =pstor_reset(simulation_task_20_id) =pstor_reset(simulation_task_20_target_id) =drx_sl_unregister_task_giver(simulation_task_20) =drx_sl_reset_stored_task(simulation_task_20)%
+on_reversed = %=pstor_reset(simulation_task_20_id) =pstor_reset(simulation_task_20_target_id) =drx_sl_unregister_task_giver(simulation_task_20) =drx_sl_reset_stored_task(simulation_task_20)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Eliminate Dangerous Mutants for Duty Simulation Task-
+
+[simulation_task_21]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = false
+prior = 55
+sim_communities = dolg
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = simulation_task_21_name
+descr = simulation_task_21_text
+job_descr = simulation_task_21_about
+task_complete_descr = simulation_task_21_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(simulation_task_21)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(simulation_task_21_id)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_21) =pstor_reset(simulation_task_21_id) =pstor_reset(simulation_task_21_target_id) =drx_sl_unregister_task_giver(simulation_task_21) =drx_sl_reset_stored_task(simulation_task_21)%
+on_fail = %=fail_task_dec_goodwill(100:dolg) =pstor_reset(simulation_task_21_id) =pstor_reset(simulation_task_21_target_id) =drx_sl_unregister_task_giver(simulation_task_21) =drx_sl_reset_stored_task(simulation_task_21)%
+on_cancel = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_21_id) =pstor_reset(simulation_task_21_target_id) =drx_sl_unregister_task_giver(simulation_task_21) =drx_sl_reset_stored_task(simulation_task_21)%
+on_reversed = %=pstor_reset(simulation_task_21_id) =pstor_reset(simulation_task_21_target_id) =drx_sl_unregister_task_giver(simulation_task_21) =drx_sl_reset_stored_task(simulation_task_21)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Assualt Remote (Capture Territory) Simulation Task-
+
+[simulation_task_22]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = false
+prior = 65
+sim_communities = ecolog
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_remote_task(1:nil:false:ecolog)} true, false
+type = assault
+
+title = simulation_task_22_name
+descr = simulation_task_22_text
+job_descr = simulation_task_22_about
+task_complete_descr = simulation_task_22_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = bandit, monolith
+condlist_0 = {!task_giver_alive(simulation_task_22)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(simulation_task_22_id:ecolog)%
+on_complete = %=reward_random_money(12000:13000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_22) =pstor_reset(simulation_task_22_id) =pstor_reset(simulation_task_22_target_id) =drx_sl_unregister_task_giver(simulation_task_22) =drx_sl_reset_stored_task(simulation_task_22)%
+on_fail = %=fail_task_dec_goodwill(100:ecolog) =pstor_reset(simulation_task_22_id) =pstor_reset(simulation_task_22_target_id) =drx_sl_unregister_task_giver(simulation_task_22) =drx_sl_reset_stored_task(simulation_task_22)%
+on_cancel = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_22_id) =pstor_reset(simulation_task_22_target_id) =drx_sl_unregister_task_giver(simulation_task_22) =drx_sl_reset_stored_task(simulation_task_22)%
+on_reversed = %=pstor_reset(simulation_task_22_id) =pstor_reset(simulation_task_22_target_id) =drx_sl_unregister_task_giver(simulation_task_22) =drx_sl_reset_stored_task(simulation_task_22)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Bring Supplies for Monolith Simulation Task-
+
+[simulation_task_23]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = monolith
+sim_ranks = novice, trainee, experienced, professional, veteran
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_23_name
+title_functor = general_fetch_task
+descr = simulation_task_23_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_23_about
+fetch_descr = simulation_task_23_fetch_about
+task_complete_descr = simulation_task_23_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_23)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_23_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_23_fetch:0.8) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(simulation_task_23) =pstor_reset(simulation_task_23_fetch) =drx_sl_unregister_task_giver(simulation_task_23) =drx_sl_reset_stored_task(simulation_task_23)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =pstor_reset(simulation_task_23_fetch) =drx_sl_unregister_task_giver(simulation_task_23) =drx_sl_reset_stored_task(simulation_task_23)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =pstor_reset(simulation_task_23_fetch) =drx_sl_unregister_task_giver(simulation_task_23) =drx_sl_reset_stored_task(simulation_task_23)%
+on_reversed = %=pstor_reset(simulation_task_23_fetch) =drx_sl_unregister_task_giver(simulation_task_23) =drx_sl_reset_stored_task(simulation_task_23)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Search the Stash for Stalker Simulation Task-
+
+[simulation_task_24]
+
+icon = ui_inGame2_PD_Torgovets_informatsiey
+storyline = false
+prior = 39
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {-drx_sl_quest_item_task_3_started} true, false
+
+title = simulation_task_24_name
+descr = simulation_task_24_text
+job_descr = simulation_task_24_about
+task_complete_descr = simulation_task_24_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_3_target
+status_functor = drx_sl_quest_item_task_3_status
+condlist_0 = {!task_giver_alive(simulation_task_24)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_create_quest_stash_3() +drx_sl_quest_item_task_3_started%
+on_complete = %=reward_random_money(5400:6000:hrivni) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_item(drx_sl_quest_item_3) =inc_task_stage(simulation_task_24) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(simulation_task_24) =drx_sl_reset_stored_task(simulation_task_24)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(simulation_task_24) =drx_sl_reset_stored_task(simulation_task_24)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(simulation_task_24) =drx_sl_reset_stored_task(simulation_task_24)%
+on_reversed = %=pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(simulation_task_24) =drx_sl_reset_stored_task(simulation_task_24)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Ecologist Simulation Task-
+
+[simulation_task_25]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_25_name
+title_functor = general_fetch_task
+descr = simulation_task_25_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_25_about
+fetch_descr = simulation_task_25_fetch_about
+task_complete_descr = simulation_task_25_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_25)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_25_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_25_fetch:1.2) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_25) =pstor_reset(simulation_task_25_fetch) =drx_sl_unregister_task_giver(simulation_task_25) =drx_sl_reset_stored_task(simulation_task_25)%
+on_fail = %=fail_task_dec_goodwill(100:ecolog) =pstor_reset(simulation_task_25_fetch) =drx_sl_unregister_task_giver(simulation_task_25) =drx_sl_reset_stored_task(simulation_task_25)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_25_fetch) =drx_sl_unregister_task_giver(simulation_task_25) =drx_sl_reset_stored_task(simulation_task_25)%
+on_fail = %=pstor_reset(simulation_task_25_fetch) =drx_sl_unregister_task_giver(simulation_task_25) =drx_sl_reset_stored_task(simulation_task_25)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Drug Runner for Freedom Simulation Task-
+
+[simulation_task_26]
+
+icon = ui_inGame2_Osobiy_zakaz
+storyline = false
+prior = 39
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {-drx_sl_quest_item_task_2_started} true, false
+
+title = simulation_task_26_name
+descr = simulation_task_26_text
+job_descr = simulation_task_26_about
+task_complete_descr = simulation_task_26_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_2_target
+status_functor = drx_sl_quest_item_task_2_status
+condlist_0 = {!task_giver_alive(simulation_task_26)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=drx_sl_create_quest_stash_2() +drx_sl_quest_item_task_2_started%
+on_complete = %=reward_random_money(5400:6000:hrivni) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =remove_item(drx_sl_quest_item_2) =inc_task_stage(simulation_task_26) =pstor_reset(drx_sl_quest_stash_2_id) -drx_sl_quest_item_task_2_started =drx_sl_unregister_task_giver(simulation_task_26) =drx_sl_reset_stored_task(simulation_task_26)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =pstor_reset(drx_sl_quest_stash_2_id) -drx_sl_quest_item_task_2_started =drx_sl_unregister_task_giver(simulation_task_26) =drx_sl_reset_stored_task(simulation_task_26)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(drx_sl_quest_stash_2_id) -drx_sl_quest_item_task_2_started =drx_sl_unregister_task_giver(simulation_task_26) =drx_sl_reset_stored_task(simulation_task_26)%
+on_reversed = %=pstor_reset(drx_sl_quest_stash_2_id) -drx_sl_quest_item_task_2_started =drx_sl_unregister_task_giver(simulation_task_26) =drx_sl_reset_stored_task(simulation_task_26)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Retrieve Documents for Clear Sky Simulation Task-
+
+[simulation_task_27]
+
+icon = ui_inGame2_Poslednie_razrabotki
+storyline = false
+prior = 39
+sim_communities = csky
+sim_ranks = novice, trainee, experienced, professional, veteran
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {-drx_sl_quest_item_task_1_started} true, false
+
+title = simulation_task_27_name
+descr = simulation_task_27_text
+job_descr = simulation_task_27_about
+task_complete_descr = simulation_task_27_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_1_target
+status_functor = drx_sl_quest_item_task_1_status
+condlist_0 = {!task_giver_alive(simulation_task_27)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+on_init = %=drx_sl_create_quest_stash_1() +drx_sl_quest_item_task_1_started%
+on_complete = %=reward_random_money(5400:6000:roubles) =reward_stash(true) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =complete_task_inc_goodwill(50:csky) =remove_item(drx_sl_quest_item_1) =inc_task_stage(simulation_task_27) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(simulation_task_27) =drx_sl_reset_stored_task(simulation_task_27)%
+on_fail = %=fail_task_dec_goodwill(100:csky) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(simulation_task_27) =drx_sl_reset_stored_task(simulation_task_27)%
+on_cancel = %=fail_task_dec_goodwill(25:csky) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(simulation_task_27) =drx_sl_reset_stored_task(simulation_task_27)%
+on_reversed = %=pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(simulation_task_27) =drx_sl_reset_stored_task(simulation_task_27)%
+
+;------------------------------------------------
+; Push Back Monolith Incursion for Freedom Simulation Task-
+
+[simulation_task_28]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = false
+prior = 85
+sim_communities = freedom
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(monolith) =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monolith)} true, false
+type = assault
+
+title = simulation_task_28_name
+descr = simulation_task_28_text
+job_descr = simulation_task_28_about
+task_complete_descr = simulation_task_28_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monolith
+condlist_0 = {!task_giver_alive(simulation_task_28)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=find_smart_under_faction_control(simulation_task_28_id:monolith)%
+on_complete = %=reward_random_money(12000:13000:roubles) =reward_random_item(batteries_ccell:gun_oil:gun_oil_ru_d:sharpening_stones:glue_b:glue_a) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_28) =pstor_reset(simulation_task_28_id) =pstor_reset(simulation_task_28_target_id) =drx_sl_unregister_task_giver(simulation_task_28) =drx_sl_reset_stored_task(simulation_task_28)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =pstor_reset(simulation_task_28_id) =pstor_reset(simulation_task_28_target_id) =drx_sl_unregister_task_giver(simulation_task_28) =drx_sl_reset_stored_task(simulation_task_28)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_28_id) =pstor_reset(simulation_task_28_target_id) =drx_sl_unregister_task_giver(simulation_task_28) =drx_sl_reset_stored_task(simulation_task_28)%
+on_reversed = %=pstor_reset(simulation_task_28_id) =pstor_reset(simulation_task_28_target_id) =drx_sl_unregister_task_giver(simulation_task_28) =drx_sl_reset_stored_task(simulation_task_28)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Interdict Enemy Forces for Duty Simulation Task-
+
+[simulation_task_29]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = false
+prior = 65
+sim_communities = dolg
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(bandit) =all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:bandit)} true, false
+type = assault
+
+title = simulation_task_29_name
+descr = simulation_task_29_text
+job_descr = simulation_task_29_about
+task_complete_descr = simulation_task_29_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = bandit
+condlist_0 = {!task_giver_alive(simulation_task_29)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+on_init = %=find_smart_under_faction_control_ex(simulation_task_29_id:bandit)%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =reward_random_item(tushonka:protein:beans:chili:nuts:mre:ration_ru:ration_ukr) =reward_random_item(grenade_rgd5:grenade_f1) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_29) =pstor_reset(simulation_task_29_target_id) =drx_sl_unregister_task_giver(simulation_task_29) =drx_sl_reset_stored_task(simulation_task_29)%
+on_fail = %=fail_task_dec_goodwill(100:dolg) =pstor_reset(simulation_task_29_target_id) =drx_sl_unregister_task_giver(simulation_task_29) =drx_sl_reset_stored_task(simulation_task_29)%
+on_cancel = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_29_target_id) =drx_sl_unregister_task_giver(simulation_task_29) =drx_sl_reset_stored_task(simulation_task_29)%
+on_reversed = %=pstor_reset(simulation_task_29_target_id) =drx_sl_unregister_task_giver(simulation_task_29) =drx_sl_reset_stored_task(simulation_task_29)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Redemption for Monolith Simulation Task-
+
+[simulation_task_30]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = monolith
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(monolith)} true, false
+type = bounty
+
+title = simulation_task_30_name
+descr = simulation_task_30_text
+job_descr = simulation_task_30_about
+task_complete_descr = simulation_task_30_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_30)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_30:monolith)%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_stash(true) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =reward_random_item(stimpack:medkit:morphine:drug_booster:tetanus) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(simulation_task_30) =drx_sl_unregister_task_giver(simulation_task_30) =drx_sl_reset_stored_task(simulation_task_30)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =drx_sl_unregister_task_giver(simulation_task_30) =drx_sl_reset_stored_task(simulation_task_30)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =drx_sl_unregister_task_giver(simulation_task_30) =drx_sl_reset_stored_task(simulation_task_30)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_30) =drx_sl_reset_stored_task(simulation_task_30)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Find Supplies for Merc Simulation Task-
+
+[simulation_task_31]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_31_name
+title_functor = general_fetch_task
+descr = simulation_task_31_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_31_about
+fetch_descr = simulation_task_31_fetch_about
+task_complete_descr = simulation_task_31_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_31)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_31_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_31_fetch:0.8) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_31) =pstor_reset(simulation_task_31_fetch) =drx_sl_unregister_task_giver(simulation_task_31) =drx_sl_reset_stored_task(simulation_task_31)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =pstor_reset(simulation_task_31_fetch) =drx_sl_unregister_task_giver(simulation_task_31) =drx_sl_reset_stored_task(simulation_task_31)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =pstor_reset(simulation_task_31_fetch) =drx_sl_unregister_task_giver(simulation_task_31) =drx_sl_reset_stored_task(simulation_task_31)%
+on_reversed = %=pstor_reset(simulation_task_31_fetch) =drx_sl_unregister_task_giver(simulation_task_31) =drx_sl_reset_stored_task(simulation_task_31)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Mutant Meat Stew for Bandit Simulation Task-
+
+[simulation_task_32]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_32_name
+title_functor = general_fetch_task
+descr = simulation_task_32_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_32_about
+fetch_descr = simulation_task_32_fetch_about
+task_complete_descr = simulation_task_32_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_32)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_32_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_32_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(simulation_task_32) =pstor_reset(simulation_task_32_fetch) =drx_sl_unregister_task_giver(simulation_task_32) =drx_sl_reset_stored_task(simulation_task_32)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =pstor_reset(simulation_task_32_fetch) =drx_sl_unregister_task_giver(simulation_task_32) =drx_sl_reset_stored_task(simulation_task_32)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(simulation_task_32_fetch) =drx_sl_unregister_task_giver(simulation_task_32) =drx_sl_reset_stored_task(simulation_task_32)%
+on_reversed = %=pstor_reset(simulation_task_32_fetch) =drx_sl_unregister_task_giver(simulation_task_32) =drx_sl_reset_stored_task(simulation_task_32)%
+
+quest_timeout = 259200
+;------------------------------------------------
+; Find a Reliable Weapon for Merc Simulation Task-
+
+[simulation_task_33]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_33_name
+title_functor = general_fetch_task
+descr = simulation_task_33_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_33_about
+fetch_descr = simulation_task_33_fetch_about
+task_complete_descr = simulation_task_33_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_33)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_33_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_33_fetch:1.8) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_33) =pstor_reset(simulation_task_33_fetch) =drx_sl_unregister_task_giver(simulation_task_33) =drx_sl_reset_stored_task(simulation_task_33)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =pstor_reset(simulation_task_33_fetch) =drx_sl_unregister_task_giver(simulation_task_33) =drx_sl_reset_stored_task(simulation_task_33)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =pstor_reset(simulation_task_33_fetch) =drx_sl_unregister_task_giver(simulation_task_33) =drx_sl_reset_stored_task(simulation_task_33)%
+on_reversed = %=pstor_reset(simulation_task_33_fetch) =drx_sl_unregister_task_giver(simulation_task_33) =drx_sl_reset_stored_task(simulation_task_33)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Find a Reliable Weapon for Military Simulation Task-
+
+[simulation_task_34]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = army
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_34_name
+title_functor = general_fetch_task
+descr = simulation_task_34_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_34_about
+fetch_descr = simulation_task_34_fetch_about
+task_complete_descr = simulation_task_34_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_34)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_34_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_34_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(simulation_task_34) =pstor_reset(simulation_task_34_fetch) =drx_sl_unregister_task_giver(simulation_task_34) =drx_sl_reset_stored_task(simulation_task_34)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(simulation_task_34_fetch) =drx_sl_unregister_task_giver(simulation_task_34) =drx_sl_reset_stored_task(simulation_task_34)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(simulation_task_34_fetch) =drx_sl_unregister_task_giver(simulation_task_34) =drx_sl_reset_stored_task(simulation_task_34)%
+on_reversed = %=pstor_reset(simulation_task_34_fetch) =drx_sl_unregister_task_giver(simulation_task_34) =drx_sl_reset_stored_task(simulation_task_34)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Subcontractor for Bandit Simulation Task-
+
+[simulation_task_35]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = bandit
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(bandit)} true, false
+type = bounty
+
+title = simulation_task_35_name
+descr = simulation_task_35_text
+job_descr = simulation_task_35_about
+task_complete_descr = simulation_task_35_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_35)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_35:bandit)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_stash(true) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(simulation_task_35) =drx_sl_unregister_task_giver(simulation_task_35) =drx_sl_reset_stored_task(simulation_task_35)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =drx_sl_unregister_task_giver(simulation_task_35) =drx_sl_reset_stored_task(simulation_task_35)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =drx_sl_unregister_task_giver(simulation_task_35) =drx_sl_reset_stored_task(simulation_task_35)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_35) =drx_sl_reset_stored_task(simulation_task_35)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Eliminate Dangerous Mutants for Clear Sky Simulation Task-
+
+[simulation_task_36]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = false
+prior = 55
+sim_communities = csky
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = simulation_task_36_name
+descr = simulation_task_36_text
+job_descr = simulation_task_36_about
+task_complete_descr = simulation_task_36_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(simulation_task_36)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(simulation_task_36_id)%
+on_complete = %=reward_random_money(9000:12000:roubles) =reward_random_item(batteries_ccell:gun_oil:gun_oil_ru_d:sharpening_stones:glue_b:glue_a) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =inc_task_stage(simulation_task_36) =pstor_reset(simulation_task_36_id) =pstor_reset(simulation_task_36_target_id) =drx_sl_unregister_task_giver(simulation_task_36) =drx_sl_reset_stored_task(simulation_task_36)%
+on_fail = %=fail_task_dec_goodwill(100:csky) =pstor_reset(simulation_task_36_id) =pstor_reset(simulation_task_36_target_id) =drx_sl_unregister_task_giver(simulation_task_36) =drx_sl_reset_stored_task(simulation_task_36)%
+on_cancel = %=fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_36_id) =pstor_reset(simulation_task_36_target_id) =drx_sl_unregister_task_giver(simulation_task_36) =drx_sl_reset_stored_task(simulation_task_36)%
+on_reversed = %=pstor_reset(simulation_task_36_id) =pstor_reset(simulation_task_36_target_id) =drx_sl_unregister_task_giver(simulation_task_36) =drx_sl_reset_stored_task(simulation_task_36)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Eliminate Dangerous Mutants for Monolith Simulation Task-
+
+[simulation_task_37]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = false
+prior = 55
+sim_communities = monolith
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = simulation_task_37_name
+descr = simulation_task_37_text
+job_descr = simulation_task_37_about
+task_complete_descr = simulation_task_37_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(simulation_task_37)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(simulation_task_37_id)%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(simulation_task_37) =pstor_reset(simulation_task_37_id) =pstor_reset(simulation_task_37_target_id) =drx_sl_unregister_task_giver(simulation_task_37) =drx_sl_reset_stored_task(simulation_task_37)%
+on_fail = %=fail_task_dec_goodwill(100:monolith) =pstor_reset(simulation_task_37_id) =pstor_reset(simulation_task_37_target_id) =drx_sl_unregister_task_giver(simulation_task_37) =drx_sl_reset_stored_task(simulation_task_37)%
+on_cancel = %=fail_task_dec_goodwill(25:monolith) =pstor_reset(simulation_task_37_id) =pstor_reset(simulation_task_37_target_id) =drx_sl_unregister_task_giver(simulation_task_37) =drx_sl_reset_stored_task(simulation_task_37)%
+on_reversed = %=pstor_reset(simulation_task_37_id) =pstor_reset(simulation_task_37_target_id) =drx_sl_unregister_task_giver(simulation_task_37) =drx_sl_reset_stored_task(simulation_task_37)%
+
+quest_timeout = 86400
+
+;------------------------------------------------
+; Find patches for Freedom Simulation Task-
+
+[simulation_task_38]
+
+icon = ui_iconsTotal_find_item
+storyline = false
+prior = 90
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_38_name
+title_functor = general_fetch_task
+descr = simulation_task_38_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_38_about
+fetch_descr = simulation_task_38_fetch_about
+task_complete_descr = simulation_task_38_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(simulation_task_38)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+fetch_func = %=setup_supplies_fetch_task_patch(simulation_task_38_fetch)%
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(50:freedom) =remove_fetch_item(simulation_task_38_fetch) =inc_task_stage(simulation_task_38) =reward_random_item(af_black_spray:af_bead:af_fusion:af_medusa_lead_box:af_cristall_lead_box) =pstor_reset(simulation_task_38_fetch) =drx_sl_unregister_task_giver(simulation_task_38) =drx_sl_reset_stored_task(simulation_task_38)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) pstor_reset(simulation_task_38_fetch) =drx_sl_unregister_task_giver(simulation_task_38) =drx_sl_reset_stored_task(simulation_task_38)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) pstor_reset(simulation_task_38_fetch) =drx_sl_unregister_task_giver(simulation_task_38) =drx_sl_reset_stored_task(simulation_task_38)%
+on_reversed = %=pstor_reset(simulation_task_38_fetch) =drx_sl_unregister_task_giver(simulation_task_38) =drx_sl_reset_stored_task(simulation_task_38)%
+
+;------------------------------------------------
+; Find patches for Duty Simulation Task-
+
+[simulation_task_39]
+
+icon = ui_iconsTotal_find_item
+storyline = false
+prior = 90
+sim_communities = dolg
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_39_name
+title_functor = general_fetch_task
+descr = simulation_task_39_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_39_about
+fetch_descr = simulation_task_39_fetch_about
+task_complete_descr = simulation_task_39_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(simulation_task_39)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+fetch_func = %=setup_supplies_fetch_task_patch(simulation_task_39_fetch)%
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(50:dolg) =remove_fetch_item(simulation_task_39_fetch) =inc_task_stage(simulation_task_39) =reward_random_item(af_black_spray:af_bead:af_fusion:af_medusa_lead_box:af_cristall_lead_box) =pstor_reset(simulation_task_39_fetch) =drx_sl_unregister_task_giver(simulation_task_39) =drx_sl_reset_stored_task(simulation_task_39)%
+on_fail = %=fail_task_dec_goodwill(100:dolg) =pstor_reset(simulation_task_39_fetch) =drx_sl_unregister_task_giver(simulation_task_39) =drx_sl_reset_stored_task(simulation_task_39)%
+on_cancel = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_39_fetch) =drx_sl_unregister_task_giver(simulation_task_39) =drx_sl_reset_stored_task(simulation_task_39)%
+on_reversed = %=pstor_reset(simulation_task_39_fetch) =drx_sl_unregister_task_giver(simulation_task_39) =drx_sl_reset_stored_task(simulation_task_39)%
+
+;------------------------------------------------
+; Find patches for stalkers and Clear Sky Simulation Task-
+
+[simulation_task_40]
+
+icon = ui_iconsTotal_find_item
+storyline = false
+prior = 90
+sim_communities = stalker, csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_40_name
+title_functor = general_fetch_task
+descr = simulation_task_40_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_40_about
+fetch_descr = simulation_task_40_fetch_about
+task_complete_descr = simulation_task_40_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(simulation_task_40)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=setup_supplies_fetch_task_patch(simulation_task_40_fetch:5:15)%
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(simulation_task_40_fetch) =inc_task_stage(simulation_task_40) =reward_random_item(af_black_spray:af_bead:af_fusion:af_medusa_lead_box:af_cristall_lead_box) =pstor_reset(simulation_task_40_fetch) =drx_sl_unregister_task_giver(simulation_task_40) =drx_sl_reset_stored_task(simulation_task_40)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_40_fetch) =drx_sl_unregister_task_giver(simulation_task_40) =drx_sl_reset_stored_task(simulation_task_40)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_40_fetch) =drx_sl_unregister_task_giver(simulation_task_40) =drx_sl_reset_stored_task(simulation_task_40)%
+on_reversed = %=pstor_reset(simulation_task_40_fetch) =drx_sl_unregister_task_giver(simulation_task_40) =drx_sl_reset_stored_task(simulation_task_40)%
+
+;------------------------------------------------
+; Find patches for bandits Simulation Task-
+
+[simulation_task_41]
+
+icon = ui_icons_find_item35
+storyline = false
+prior = 90
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_41_name
+title_functor = general_fetch_task
+descr = simulation_task_41_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_41_about
+fetch_descr = simulation_task_41_fetch_about
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = simulation_task_41_fetch_finish
+condlist_0 = {!task_giver_alive(simulation_task_41)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=setup_supplies_fetch_task_patch(simulation_task_41_fetch)%
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(simulation_task_41_fetch) =inc_task_stage(simulation_task_41) =reward_random_item(drug_engine:amphetamines:adrenalin) =pstor_reset(simulation_task_41_fetch) =drx_sl_unregister_task_giver(simulation_task_41) =drx_sl_reset_stored_task(simulation_task_41)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =pstor_reset(simulation_task_41_fetch) =drx_sl_unregister_task_giver(simulation_task_41) =drx_sl_reset_stored_task(simulation_task_41)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(simulation_task_41_fetch) =drx_sl_unregister_task_giver(simulation_task_41) =drx_sl_reset_stored_task(simulation_task_41)%
+on_reversed = %=pstor_reset(simulation_task_41_fetch) =drx_sl_unregister_task_giver(simulation_task_41) =drx_sl_reset_stored_task(simulation_task_41)%
+
+;------------------------------------------------
+; Find backpacks Simulation Task-
+
+[simulation_task_42]
+
+icon = ui_icons_find_item35
+prior = 90
+storyline = false
+sim_communities = bandit, stalker, csky, dolg, freedom, killer, army, ecolog, monolith
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_42_name
+title_functor = general_fetch_task
+descr = simulation_task_42_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_42_about
+fetch_descr = simulation_task_42_fetch_about
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = simulation_task_42_fetch_finish
+condlist_0 = {!task_giver_alive(simulation_task_42)} reversed
+
+fetch_func = %=setup_supplies_fetch_task_mlr_backpack(simulation_task_42_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_42_fetch:0.8) =reward_stash(true) =remove_fetch_item(simulation_task_42_fetch) =inc_task_stage(simulation_task_42) =pstor_reset(simulation_task_42_fetch) =drx_sl_unregister_task_giver(simulation_task_42) =drx_sl_reset_stored_task(simulation_task_42)%
+on_fail = %=pstor_reset(simulation_task_42_fetch) =drx_sl_unregister_task_giver(simulation_task_42) =drx_sl_reset_stored_task(simulation_task_42)%
+on_cancel = %=pstor_reset(simulation_task_42_fetch) =drx_sl_unregister_task_giver(simulation_task_42) =drx_sl_reset_stored_task(simulation_task_42)%
+on_reversed = %=pstor_reset(simulation_task_42_fetch) =drx_sl_unregister_task_giver(simulation_task_42) =drx_sl_reset_stored_task(simulation_task_42)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Find PDA Simulation Task-
+
+[simulation_task_43]
+
+icon = ui_icons_find_item35
+prior = 90
+storyline = false
+sim_communities = bandit, stalker, csky, dolg, freedom, killer, army, ecolog, monolith
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_43_name
+title_functor = general_fetch_task
+descr = simulation_task_43_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_43_about
+fetch_descr = simulation_task_43_fetch_about
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = simulation_task_43_fetch_finish
+condlist_0 = {!task_giver_alive(simulation_task_43)} reversed
+
+fetch_func = %=setup_supplies_fetch_task_pda(simulation_task_43_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_43_fetch:0.8) =reward_stash(true) =remove_fetch_item(simulation_task_43_fetch) =inc_task_stage(simulation_task_43) =pstor_reset(simulation_task_43_fetch) =drx_sl_unregister_task_giver(simulation_task_43) =drx_sl_reset_stored_task(simulation_task_43)%
+on_fail = %=pstor_reset(simulation_task_43_fetch) =drx_sl_unregister_task_giver(simulation_task_43) =drx_sl_reset_stored_task(simulation_task_43)%
+on_cancel = %=pstor_reset(simulation_task_43_fetch) =drx_sl_unregister_task_giver(simulation_task_43) =drx_sl_reset_stored_task(simulation_task_43)%
+on_reversed = %=pstor_reset(simulation_task_43_fetch) =drx_sl_unregister_task_giver(simulation_task_43) =drx_sl_reset_stored_task(simulation_task_43)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Find supplies for Stalkers Simulation Task-
+
+[simulation_task_44]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced
+sim_ranks_npc = novice, trainee, experienced, professional, veteran
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_44_name
+title_functor = general_fetch_task
+descr = simulation_task_44_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_44_about
+fetch_descr = simulation_task_44_fetch_about
+task_complete_descr = simulation_task_44_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_44)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_44_fetch:1:4)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_44_fetch:0.8) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_44) =pstor_reset(simulation_task_44_fetch) =drx_sl_unregister_task_giver(simulation_task_44) =drx_sl_reset_stored_task(simulation_task_44)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_44_fetch) =drx_sl_unregister_task_giver(simulation_task_44) =drx_sl_reset_stored_task(simulation_task_44)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =pstor_reset(simulation_task_44_fetch) =drx_sl_unregister_task_giver(simulation_task_44) =drx_sl_reset_stored_task(simulation_task_44)%
+on_reversed = %=pstor_reset(simulation_task_44_fetch) =drx_sl_unregister_task_giver(simulation_task_44) =drx_sl_reset_stored_task(simulation_task_44)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Stalker Simulation Task-
+
+[simulation_task_45]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_45_name
+title_functor = general_fetch_task
+descr = simulation_task_45_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_45_about
+fetch_descr = simulation_task_45_fetch_about
+task_complete_descr = simulation_task_45_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_45)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_45_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_45_fetch:1.2) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_45) =pstor_reset(simulation_task_45_fetch) =drx_sl_unregister_task_giver(simulation_task_45) =drx_sl_reset_stored_task(simulation_task_45)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_45_fetch) =drx_sl_unregister_task_giver(simulation_task_45) =drx_sl_reset_stored_task(simulation_task_45)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_45_fetch) =drx_sl_unregister_task_giver(simulation_task_45) =drx_sl_reset_stored_task(simulation_task_45)%
+on_reversed = %=pstor_reset(simulation_task_45_fetch) =drx_sl_unregister_task_giver(simulation_task_45) =drx_sl_reset_stored_task(simulation_task_45)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Eliminate Dangerous Mutants for Stalker Simulation Task-
+
+[simulation_task_46]
+
+icon = ui_inGame2_Nochnaya_ohota
+storyline = false
+prior = 55
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+type = assault
+
+title = simulation_task_46_name
+descr = simulation_task_46_text
+job_descr = simulation_task_46_about
+task_complete_descr = simulation_task_46_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!task_giver_alive(simulation_task_46)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_assault_mutant(simulation_task_46_id)%
+on_complete = %=reward_random_money(9000:12000:hrivni) =reward_random_item(batteries_ccell:gun_oil:gun_oil_ru_d:sharpening_stones:glue_b:glue_a) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_46) =pstor_reset(simulation_task_46_id) =pstor_reset(simulation_task_46_target_id) =drx_sl_unregister_task_giver(simulation_task_46) =drx_sl_reset_stored_task(simulation_task_46)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(simulation_task_46_id) =pstor_reset(simulation_task_46_target_id) =drx_sl_unregister_task_giver(simulation_task_46) =drx_sl_reset_stored_task(simulation_task_46)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_46_id) =pstor_reset(simulation_task_46_target_id) =drx_sl_unregister_task_giver(simulation_task_46) =drx_sl_reset_stored_task(simulation_task_46)%
+on_reversed = %=pstor_reset(simulation_task_46_id) =pstor_reset(simulation_task_46_target_id) =drx_sl_unregister_task_giver(simulation_task_46) =drx_sl_reset_stored_task(simulation_task_46)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Debt for Merc Simulation Task-
+
+[simulation_task_47]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = simulation_task_47_name
+descr = simulation_task_47_text
+job_descr = simulation_task_47_about
+task_complete_descr = simulation_task_47_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {!task_giver_alive(simulation_task_47)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+condlist_2 = {!task_target_alive(simulation_task_47)} reversed
+
+on_init = %=setup_debt_task(simulation_task_47)%
+on_complete = %=take_debt_money(simulation_task_47) =reward_debt_money(simulation_task_47) =reset_debt_vars(simulation_task_47) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_47) =drx_sl_unregister_task_giver(simulation_task_47) =drx_sl_reset_stored_task(simulation_task_47)%
+on_fail = %=reset_debt_vars(simulation_task_47) =fail_task_dec_goodwill(150:killer) =drx_sl_unregister_task_giver(simulation_task_47) =drx_sl_reset_stored_task(simulation_task_47)%
+on_cancel = %=reset_debt_vars(simulation_task_47) =fail_task_dec_goodwill(40:killer) =drx_sl_unregister_task_giver(simulation_task_47) =drx_sl_reset_stored_task(simulation_task_47)%
+on_reversed = %=reset_debt_vars(simulation_task_47) =drx_sl_unregister_task_giver(simulation_task_47) =drx_sl_reset_stored_task(simulation_task_47)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Debt for Bandit Simulation Task-
+
+[simulation_task_48]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = simulation_task_48_name
+descr = simulation_task_48_text
+job_descr = simulation_task_48_about
+task_complete_descr = simulation_task_48_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {!task_giver_alive(simulation_task_48)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+condlist_2 = {!task_target_alive(simulation_task_48)} reversed
+
+on_init = %=setup_debt_task(simulation_task_48)%
+on_complete = %=take_debt_money(simulation_task_48) =reward_debt_money(simulation_task_48) =reset_debt_vars(simulation_task_48) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_48) =drx_sl_unregister_task_giver(simulation_task_48) =drx_sl_reset_stored_task(simulation_task_48)%
+on_fail = %=reset_debt_vars(simulation_task_48) =fail_task_dec_goodwill(150:bandit) =drx_sl_unregister_task_giver(simulation_task_48) =drx_sl_reset_stored_task(simulation_task_48)%
+on_cancel = %=reset_debt_vars(simulation_task_48) =fail_task_dec_goodwill(40:bandit) =drx_sl_unregister_task_giver(simulation_task_48) =drx_sl_reset_stored_task(simulation_task_48)%
+on_reversed = %=reset_debt_vars(simulation_task_48) =drx_sl_unregister_task_giver(simulation_task_48) =drx_sl_reset_stored_task(simulation_task_48)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Debt for Stalker and Clear Sky Simulation Task-
+
+[simulation_task_49]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+sim_communities = stalker, csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = simulation_task_49_name
+descr = simulation_task_49_text
+job_descr = simulation_task_49_about
+task_complete_descr = simulation_task_49_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {!task_giver_alive(simulation_task_49)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+condlist_2 = {!task_target_alive(simulation_task_49)} reversed
+
+on_init = %=setup_debt_task(simulation_task_49)%
+on_complete = %=take_debt_money(simulation_task_49) =reward_debt_money(simulation_task_49) =reset_debt_vars(simulation_task_49) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(medkit_army:stimpack:mre:ration_ru:water_drink:caffeine:drug_psy_blockade) =inc_task_stage(simulation_task_49) =drx_sl_unregister_task_giver(simulation_task_49) =drx_sl_reset_stored_task(simulation_task_49)%
+on_fail = %=reset_debt_vars(simulation_task_49) =fail_task_dec_goodwill(150:stalker) =drx_sl_unregister_task_giver(simulation_task_49) =drx_sl_reset_stored_task(simulation_task_49)%
+on_cancel = %=reset_debt_vars(simulation_task_49) =fail_task_dec_goodwill(40:stalker) =drx_sl_unregister_task_giver(simulation_task_49) =drx_sl_reset_stored_task(simulation_task_49)%
+on_reversed = %=reset_debt_vars(simulation_task_49) =drx_sl_unregister_task_giver(simulation_task_49) =drx_sl_reset_stored_task(simulation_task_49)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Debt for Duty Simulation Task-
+
+[simulation_task_50]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+sim_communities = duty
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = simulation_task_50_name
+descr = simulation_task_50_text
+job_descr = simulation_task_50_about
+task_complete_descr = simulation_task_50_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {!task_giver_alive(simulation_task_50)} reversed
+condlist_1 = {=drx_sl_is_enemy(duty)} cancel
+condlist_2 = {!task_target_alive(simulation_task_50)} reversed
+
+on_init = %=setup_debt_task(simulation_task_50)%
+on_complete = %=take_debt_money(simulation_task_50) =reward_debt_money(simulation_task_50) =reset_debt_vars(simulation_task_50) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(medkit_army:stimpack:mre:ration_ru:water_drink:caffeine:drug_psy_blockade) =inc_task_stage(simulation_task_50) =drx_sl_unregister_task_giver(simulation_task_50) =drx_sl_reset_stored_task(simulation_task_50)%
+on_fail = %=reset_debt_vars(simulation_task_50) =fail_task_dec_goodwill(150:duty) =drx_sl_unregister_task_giver(simulation_task_50) =drx_sl_reset_stored_task(simulation_task_50)%
+on_cancel = %=reset_debt_vars(simulation_task_50) =fail_task_dec_goodwill(40:duty) =drx_sl_unregister_task_giver(simulation_task_50) =drx_sl_reset_stored_task(simulation_task_50)%
+on_reversed = %=reset_debt_vars(simulation_task_50) =drx_sl_unregister_task_giver(simulation_task_50) =drx_sl_reset_stored_task(simulation_task_50)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Debt for Freedom Simulation Task-
+
+[simulation_task_51]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = simulation_task_51_name
+descr = simulation_task_51_text
+job_descr = simulation_task_51_about
+task_complete_descr = simulation_task_51_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {!task_giver_alive(simulation_task_51)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+condlist_2 = {!task_target_alive(simulation_task_51)} reversed
+
+on_init = %=setup_debt_task(simulation_task_51)%
+on_complete = %=take_debt_money(simulation_task_51) =reward_debt_money(simulation_task_51) =reset_debt_vars(simulation_task_51) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(medkit_army:stimpack:mre:ration_ru:water_drink:caffeine:drug_psy_blockade) =inc_task_stage(simulation_task_51) =drx_sl_unregister_task_giver(simulation_task_51) =drx_sl_reset_stored_task(simulation_task_51)%
+on_fail = %=reset_debt_vars(simulation_task_51) =fail_task_dec_goodwill(150:freedom) =drx_sl_unregister_task_giver(simulation_task_51) =drx_sl_reset_stored_task(simulation_task_51)%
+on_cancel = %=reset_debt_vars(simulation_task_51) =fail_task_dec_goodwill(40:freedom) =drx_sl_unregister_task_giver(simulation_task_51) =drx_sl_reset_stored_task(simulation_task_51)%
+on_reversed = %=reset_debt_vars(simulation_task_51) =drx_sl_unregister_task_giver(simulation_task_51) =drx_sl_reset_stored_task(simulation_task_51)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Assualt Remote (Capture Territory) Simulation Task-
+
+[simulation_task_52]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = false
+prior = 65
+sim_communities = stalker
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced
+repeat_timeout = 259200
+precondition = {=drx_sl_validate_assault_remote_task(1:nil:false:stalker)} true, false
+type = assault
+
+title = simulation_task_52_name
+descr = simulation_task_52_text
+job_descr = simulation_task_52_about
+task_complete_descr = simulation_task_52_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = army, killer, bandit, monolith
+condlist_0 = {!task_giver_alive(simulation_task_52)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(simulation_task_52_id:stalker)%
+on_complete = %=reward_random_money(12000:13000) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_52) =pstor_reset(simulation_task_52_id) =pstor_reset(simulation_task_52_target_id) =drx_sl_unregister_task_giver(simulation_task_52) =drx_sl_reset_stored_task(simulation_task_52)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_52_id) =pstor_reset(simulation_task_52_target_id) =drx_sl_unregister_task_giver(simulation_task_52) =drx_sl_reset_stored_task(simulation_task_52)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =pstor_reset(simulation_task_52_id) =pstor_reset(simulation_task_52_target_id) =drx_sl_unregister_task_giver(simulation_task_52) =drx_sl_reset_stored_task(simulation_task_52)%
+on_reversed = %=pstor_reset(simulation_task_52_id) =pstor_reset(simulation_task_52_target_id) =drx_sl_unregister_task_giver(simulation_task_52) =drx_sl_reset_stored_task(simulation_task_52)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Procure Supplies for Ecologist Simulation Task-
+
+[simulation_task_53]
+
+icon = ui_inGame2_D_Sisshik
+storyline = false
+prior = 20
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced
+sim_ranks_npc = novice, trainee, experienced, professional, veteran
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_53_name
+title_functor = general_fetch_task
+descr = simulation_task_53_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_53_about
+fetch_descr = simulation_task_53_fetch_about
+task_complete_descr = simulation_task_53_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_53)} reversed
+condlist_53 = {=drx_sl_is_enemy(ecolog)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_supplies(simulation_task_53_fetch:1:4)%
+on_complete = %=reward_random_item(af_drops_lead_box:af_ameba_slime_lead_box:af_rusty_thorn_lead_box) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_53) =pstor_reset(simulation_task_53_fetch) =drx_sl_unregister_task_giver(simulation_task_53) =drx_sl_reset_stored_task(simulation_task_53)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_53_fetch) =drx_sl_unregister_task_giver(simulation_task_53) =drx_sl_reset_stored_task(simulation_task_53)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =pstor_reset(simulation_task_53_fetch) =drx_sl_unregister_task_giver(simulation_task_53) =drx_sl_reset_stored_task(simulation_task_53)%
+on_reversed = %=pstor_reset(simulation_task_53_fetch) =drx_sl_unregister_task_giver(simulation_task_53) =drx_sl_reset_stored_task(simulation_task_53)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Mutant Meat Stew for Freedom Simulation Task-
+
+[simulation_task_54]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_54_name
+title_functor = general_fetch_task
+descr = simulation_task_54_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_54_about
+fetch_descr = simulation_task_54_fetch_about
+task_complete_descr = simulation_task_54_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_54)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_54_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_54_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_54) =pstor_reset(simulation_task_54_fetch) =drx_sl_unregister_task_giver(simulation_task_54) =drx_sl_reset_stored_task(simulation_task_54)%
+on_fail = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_54_fetch) =drx_sl_unregister_task_giver(simulation_task_54) =drx_sl_reset_stored_task(simulation_task_54)%
+on_cancel = %=fail_task_dec_goodwill(10:freedom) =pstor_reset(simulation_task_54_fetch) =drx_sl_unregister_task_giver(simulation_task_54) =drx_sl_reset_stored_task(simulation_task_54)%
+on_reversed = %=pstor_reset(simulation_task_54_fetch) =drx_sl_unregister_task_giver(simulation_task_54) =drx_sl_reset_stored_task(simulation_task_54)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Mutant Meat Stew for Stalker Simulation Task-
+
+[simulation_task_55]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_55_name
+title_functor = general_fetch_task
+descr = simulation_task_55_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_55_about
+fetch_descr = simulation_task_55_fetch_about
+task_complete_descr = simulation_task_55_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_55)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_55_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_55_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(simulation_task_55) =pstor_reset(simulation_task_55_fetch) =drx_sl_unregister_task_giver(simulation_task_55) =drx_sl_reset_stored_task(simulation_task_55)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(simulation_task_55_fetch) =drx_sl_unregister_task_giver(simulation_task_55) =drx_sl_reset_stored_task(simulation_task_55)%
+on_fail = %=fail_task_dec_goodwill(10:stalker) =pstor_reset(simulation_task_55_fetch) =drx_sl_unregister_task_giver(simulation_task_55) =drx_sl_reset_stored_task(simulation_task_55)%
+on_fail = %=pstor_reset(simulation_task_55_fetch) =drx_sl_unregister_task_giver(simulation_task_55) =drx_sl_reset_stored_task(simulation_task_55)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Mutant Meat Stew for Soldier Simulation Task-
+
+[simulation_task_56]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = army
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_56_name
+title_functor = general_fetch_task
+descr = simulation_task_56_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_56_about
+fetch_descr = simulation_task_56_fetch_about
+task_complete_descr = simulation_task_56_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_56)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_56_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_56_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(simulation_task_56) =pstor_reset(simulation_task_56_fetch) =drx_sl_unregister_task_giver(simulation_task_56) =drx_sl_reset_stored_task(simulation_task_56)%
+on_fail = %=fail_task_dec_goodwill(25:army) =pstor_reset(simulation_task_56_fetch) =drx_sl_unregister_task_giver(simulation_task_56) =drx_sl_reset_stored_task(simulation_task_56)%
+on_cancel = %=fail_task_dec_goodwill(10:army) =pstor_reset(simulation_task_56_fetch) =drx_sl_unregister_task_giver(simulation_task_56) =drx_sl_reset_stored_task(simulation_task_56)%
+on_reversed = %=pstor_reset(simulation_task_56_fetch) =drx_sl_unregister_task_giver(simulation_task_56) =drx_sl_reset_stored_task(simulation_task_56)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Mutant Meat Stew for Duty Simulation Task-
+
+[simulation_task_57]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = dolg
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_57_name
+title_functor = general_fetch_task
+descr = simulation_task_57_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_57_about
+fetch_descr = simulation_task_57_fetch_about
+task_complete_descr = simulation_task_57_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_57)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_57_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_57_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_57) =pstor_reset(simulation_task_57_fetch) =drx_sl_unregister_task_giver(simulation_task_57) =drx_sl_reset_stored_task(simulation_task_57)%
+on_fail = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_57_fetch) =drx_sl_unregister_task_giver(simulation_task_57) =drx_sl_reset_stored_task(simulation_task_57)%
+on_cancel = %=fail_task_dec_goodwill(10:dolg) =pstor_reset(simulation_task_57_fetch) =drx_sl_unregister_task_giver(simulation_task_57) =drx_sl_reset_stored_task(simulation_task_57)%
+on_reversed = %=pstor_reset(simulation_task_57_fetch) =drx_sl_unregister_task_giver(simulation_task_57) =drx_sl_reset_stored_task(simulation_task_57)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Mutant Meat Stew for Ecologist Simulation Task-
+
+[simulation_task_58]
+
+icon = ui_inGame2_Pripasi
+storyline = false
+prior = 30
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced, professional, veteran, expert
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_58_name
+title_functor = general_fetch_task
+descr = simulation_task_58_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_58_about
+fetch_descr = simulation_task_58_fetch_about
+task_complete_descr = simulation_task_58_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_58)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(simulation_task_58_fetch:4:6)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_58_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_58) =pstor_reset(simulation_task_58_fetch) =drx_sl_unregister_task_giver(simulation_task_58) =drx_sl_reset_stored_task(simulation_task_58)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_58_fetch) =drx_sl_unregister_task_giver(simulation_task_58) =drx_sl_reset_stored_task(simulation_task_58)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =pstor_reset(simulation_task_58_fetch) =drx_sl_unregister_task_giver(simulation_task_58) =drx_sl_reset_stored_task(simulation_task_58)%
+on_reversed = %=pstor_reset(simulation_task_58_fetch) =drx_sl_unregister_task_giver(simulation_task_58) =drx_sl_reset_stored_task(simulation_task_58)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Artefact for Ecologist Simulation Task-
+
+[simulation_task_59]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_59_name
+title_functor = general_fetch_task
+descr = simulation_task_59_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_59_about
+fetch_descr = simulation_task_59_fetch_about
+task_complete_descr = simulation_task_59_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_59)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_59_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_59_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_59) =pstor_reset(simulation_task_59_fetch) =drx_sl_unregister_task_giver(simulation_task_59) =drx_sl_reset_stored_task(simulation_task_59)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_59_fetch) =drx_sl_unregister_task_giver(simulation_task_59) =drx_sl_reset_stored_task(simulation_task_59)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =pstor_reset(simulation_task_59_fetch) =drx_sl_unregister_task_giver(simulation_task_59) =drx_sl_reset_stored_task(simulation_task_59)%
+on_reversed = %=pstor_reset(simulation_task_59_fetch) =drx_sl_unregister_task_giver(simulation_task_59) =drx_sl_reset_stored_task(simulation_task_59)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Artefact for Clear Sky Simulation Task-
+
+[simulation_task_60]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_60_name
+title_functor = general_fetch_task
+descr = simulation_task_60_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_60_about
+fetch_descr = simulation_task_60_fetch_about
+task_complete_descr = simulation_task_60_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_60)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_60_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_60_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =inc_task_stage(simulation_task_60) =pstor_reset(simulation_task_60_fetch) =drx_sl_unregister_task_giver(simulation_task_60) =drx_sl_reset_stored_task(simulation_task_60)%
+on_fail = %=fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_60_fetch) =drx_sl_unregister_task_giver(simulation_task_60) =drx_sl_reset_stored_task(simulation_task_60)%
+on_cancel = %=fail_task_dec_goodwill(10:csky) =pstor_reset(simulation_task_60_fetch) =drx_sl_unregister_task_giver(simulation_task_60) =drx_sl_reset_stored_task(simulation_task_60)%
+on_reversed = %=pstor_reset(simulation_task_60_fetch) =drx_sl_unregister_task_giver(simulation_task_60) =drx_sl_reset_stored_task(simulation_task_60)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Artefact for Bandit Simulation Task-
+
+[simulation_task_61]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_61_name
+title_functor = general_fetch_task
+descr = simulation_task_61_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_61_about
+fetch_descr = simulation_task_61_fetch_about
+task_complete_descr = simulation_task_61_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_61)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_61_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_61_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:bandit) =inc_task_stage(simulation_task_61) =pstor_reset(simulation_task_61_fetch) =drx_sl_unregister_task_giver(simulation_task_61) =drx_sl_reset_stored_task(simulation_task_61)%
+on_fail = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(simulation_task_61_fetch) =drx_sl_unregister_task_giver(simulation_task_61) =drx_sl_reset_stored_task(simulation_task_61)%
+on_cancel = %=fail_task_dec_goodwill(10:bandit) =pstor_reset(simulation_task_61_fetch) =drx_sl_unregister_task_giver(simulation_task_61) =drx_sl_reset_stored_task(simulation_task_61)%
+on_reversed = %=pstor_reset(simulation_task_61_fetch) =drx_sl_unregister_task_giver(simulation_task_61) =drx_sl_reset_stored_task(simulation_task_61)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Artefact for Killer Task-
+
+[simulation_task_62]
+
+icon = ui_inGame2_Kontrakt_s_uchenimi
+storyline = false
+prior = 25
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_62_name
+title_functor = general_fetch_task
+descr = simulation_task_62_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_62_about
+fetch_descr = simulation_task_62_fetch_about
+task_complete_descr = simulation_task_62_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_62)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(simulation_task_62_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_62_fetch:1.0) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_62) =pstor_reset(simulation_task_62_fetch) =drx_sl_unregister_task_giver(simulation_task_62) =drx_sl_reset_stored_task(simulation_task_62)%
+on_fail = %=fail_task_dec_goodwill(25:killer) =pstor_reset(simulation_task_62_fetch) =drx_sl_unregister_task_giver(simulation_task_62) =drx_sl_reset_stored_task(simulation_task_62)%
+on_cancel = %=fail_task_dec_goodwill(10:killer) =pstor_reset(simulation_task_62_fetch) =drx_sl_unregister_task_giver(simulation_task_62) =drx_sl_reset_stored_task(simulation_task_62)%
+on_reversed = %=pstor_reset(simulation_task_62_fetch) =drx_sl_unregister_task_giver(simulation_task_62) =drx_sl_reset_stored_task(simulation_task_62)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Find Weapon for Freedom Simulation Task-
+
+[simulation_task_63]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_63_name
+title_functor = general_fetch_task
+descr = simulation_task_63_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_63_about
+fetch_descr = simulation_task_63_fetch_about
+task_complete_descr = simulation_task_63_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_63)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_63_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_63_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_63) =pstor_reset(simulation_task_63_fetch) =drx_sl_unregister_task_giver(simulation_task_63) =drx_sl_reset_stored_task(simulation_task_63)%
+on_fail = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_63_fetch) =drx_sl_unregister_task_giver(simulation_task_63) =drx_sl_reset_stored_task(simulation_task_63)%
+on_cancel = %=fail_task_dec_goodwill(10:freedom) =pstor_reset(simulation_task_63_fetch) =drx_sl_unregister_task_giver(simulation_task_63) =drx_sl_reset_stored_task(simulation_task_63)%
+on_reversed = %=pstor_reset(simulation_task_63_fetch) =drx_sl_unregister_task_giver(simulation_task_63) =drx_sl_reset_stored_task(simulation_task_63)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Stalker Simulation Task-
+
+[simulation_task_64]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_64_name
+title_functor = general_fetch_task
+descr = simulation_task_64_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_64_about
+fetch_descr = simulation_task_64_fetch_about
+task_complete_descr = simulation_task_64_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_64)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_64_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_64_fetch:1.2) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =inc_task_stage(simulation_task_64) =pstor_reset(simulation_task_64_fetch) =drx_sl_unregister_task_giver(simulation_task_64) =drx_sl_reset_stored_task(simulation_task_64)%
+on_fail = %=fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_64_fetch) =drx_sl_unregister_task_giver(simulation_task_64) =drx_sl_reset_stored_task(simulation_task_64)%
+on_cancel = %=fail_task_dec_goodwill(10:csky) =pstor_reset(simulation_task_64_fetch) =drx_sl_unregister_task_giver(simulation_task_64) =drx_sl_reset_stored_task(simulation_task_64)%
+on_reversed = %=pstor_reset(simulation_task_64_fetch) =drx_sl_unregister_task_giver(simulation_task_64) =drx_sl_reset_stored_task(simulation_task_64)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Find Weapon for Monolith Simulation Task-
+
+[simulation_task_65]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+sim_communities = monolith
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 518400
+precondition = true
+
+title = simulation_task_65_name
+title_functor = general_fetch_task
+descr = simulation_task_65_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_65_about
+fetch_descr = simulation_task_65_fetch_about
+task_complete_descr = simulation_task_65_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_65)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(simulation_task_65_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_65_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:monolith) =inc_task_stage(simulation_task_65) =pstor_reset(simulation_task_65_fetch) =drx_sl_unregister_task_giver(simulation_task_65) =drx_sl_reset_stored_task(simulation_task_65)%
+on_fail = %=fail_task_dec_goodwill(25:monolith) =pstor_reset(simulation_task_65_fetch) =drx_sl_unregister_task_giver(simulation_task_65) =drx_sl_reset_stored_task(simulation_task_65)%
+on_cancel = %=fail_task_dec_goodwill(10:monolith) =pstor_reset(simulation_task_65_fetch) =drx_sl_unregister_task_giver(simulation_task_65) =drx_sl_reset_stored_task(simulation_task_65)%
+on_reversed = %=pstor_reset(simulation_task_65_fetch) =drx_sl_unregister_task_giver(simulation_task_65) =drx_sl_reset_stored_task(simulation_task_65)%
+
+quest_timeout = 518400
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Freedom Simulation Task-
+
+[simulation_task_66]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_66_name
+title_functor = general_fetch_task
+descr = simulation_task_66_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_66_about
+fetch_descr = simulation_task_66_fetch_about
+task_complete_descr = simulation_task_66_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_66)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_66_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_66_fetch:1.2) =reward_stash(true) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_66) =pstor_reset(simulation_task_66_fetch) =drx_sl_unregister_task_giver(simulation_task_66) =drx_sl_reset_stored_task(simulation_task_66)%
+on_fail = %=fail_task_dec_goodwill(25:freedom) =pstor_reset(simulation_task_66_fetch) =drx_sl_unregister_task_giver(simulation_task_66) =drx_sl_reset_stored_task(simulation_task_66)%
+on_cancel = %=fail_task_dec_goodwill(10:freedom) =pstor_reset(simulation_task_66_fetch) =drx_sl_unregister_task_giver(simulation_task_66) =drx_sl_reset_stored_task(simulation_task_66)%
+on_reversed = %=pstor_reset(simulation_task_66_fetch) =drx_sl_unregister_task_giver(simulation_task_66) =drx_sl_reset_stored_task(simulation_task_66)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Ecologist Simulation Task-
+
+[simulation_task_67]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_67_name
+title_functor = general_fetch_task
+descr = simulation_task_67_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_67_about
+fetch_descr = simulation_task_67_fetch_about
+task_complete_descr = simulation_task_67_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_67)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_67_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_67_fetch:1.4) =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =inc_task_stage(simulation_task_67) =pstor_reset(simulation_task_67_fetch) =drx_sl_unregister_task_giver(simulation_task_67) =drx_sl_reset_stored_task(simulation_task_67)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =pstor_reset(simulation_task_67_fetch) =drx_sl_unregister_task_giver(simulation_task_67) =drx_sl_reset_stored_task(simulation_task_67)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =pstor_reset(simulation_task_67_fetch) =drx_sl_unregister_task_giver(simulation_task_67) =drx_sl_reset_stored_task(simulation_task_67)%
+on_reversed = %=pstor_reset(simulation_task_67_fetch) =drx_sl_unregister_task_giver(simulation_task_67) =drx_sl_reset_stored_task(simulation_task_67)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Killer Simulation Task-
+
+[simulation_task_68]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_68_name
+title_functor = general_fetch_task
+descr = simulation_task_68_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_68_about
+fetch_descr = simulation_task_68_fetch_about
+task_complete_descr = simulation_task_68_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_68)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_68_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_68_fetch:1.3) =reward_stash(true) =complete_task_inc_goodwill(50:killer) =inc_task_stage(simulation_task_68) =pstor_reset(simulation_task_68_fetch) =drx_sl_unregister_task_giver(simulation_task_68) =drx_sl_reset_stored_task(simulation_task_68)%
+on_fail = %=fail_task_dec_goodwill(25:killer) =pstor_reset(simulation_task_68_fetch) =drx_sl_unregister_task_giver(simulation_task_68) =drx_sl_reset_stored_task(simulation_task_68)%
+on_cancel = %=fail_task_dec_goodwill(10:killer) =pstor_reset(simulation_task_68_fetch) =drx_sl_unregister_task_giver(simulation_task_68) =drx_sl_reset_stored_task(simulation_task_68)%
+on_reversed = %=pstor_reset(simulation_task_68_fetch) =drx_sl_unregister_task_giver(simulation_task_68) =drx_sl_reset_stored_task(simulation_task_68)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Collect Mutant Tissue Sample for Duty Simulation Task-
+
+[simulation_task_69]
+
+icon = ui_inGame2_Logovo_krovososov
+storyline = false
+prior = 35
+sim_communities = dolg
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = true
+
+title = simulation_task_69_name
+title_functor = general_fetch_task
+descr = simulation_task_69_text
+descr_functor = general_fetch_task
+job_descr = simulation_task_69_about
+fetch_descr = simulation_task_69_fetch_about
+task_complete_descr = simulation_task_69_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(simulation_task_69)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(simulation_task_69_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(simulation_task_69_fetch:1.3) =reward_stash(true) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_69) =pstor_reset(simulation_task_69_fetch) =drx_sl_unregister_task_giver(simulation_task_69) =drx_sl_reset_stored_task(simulation_task_69)%
+on_fail = %=fail_task_dec_goodwill(25:dolg) =pstor_reset(simulation_task_69_fetch) =drx_sl_unregister_task_giver(simulation_task_69) =drx_sl_reset_stored_task(simulation_task_69)%
+on_cancel = %=fail_task_dec_goodwill(10:dolg) =pstor_reset(simulation_task_69_fetch) =drx_sl_unregister_task_giver(simulation_task_69) =drx_sl_reset_stored_task(simulation_task_69)%
+on_reversed = %=pstor_reset(simulation_task_69_fetch) =drx_sl_unregister_task_giver(simulation_task_69) =drx_sl_reset_stored_task(simulation_task_69)%
+
+quest_timeout = 259200
+
+;------------------------------------------------
+; Free the Csky Hostage Simulation Task-
+
+[simulation_task_70]
+
+icon = ui_inGame2_Zalozhnik
+storyline = false
+prior = 95
+sim_communities = csky
+sim_ranks = experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=drx_sl_is_enemy(bandit) -hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:bandit) !squad_exist(hostage_companion_task_1)} true, false
+type = smart_hostage
+
+title = simulation_task_70_name
+descr = simulation_task_70_text
+job_descr = simulation_task_70_about
+task_complete_descr = simulation_task_70_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(simulation_task_70)} reversed
+condlist_2 = {=drx_sl_is_enemy(csky)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_csky:nil:simulation_task_70_id:true:hostage_companion_task_1_started:bandit)%
+on_complete = %=reward_random_money(11000:12000:roubles) =reward_random_item(grenade_rgd5:grenade_f1) =reward_stash(true) =complete_task_inc_goodwill(50:csky) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(simulation_task_70_id) =pstor_reset(simulation_task_70_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(simulation_task_70) =unlock_smart(simulation_task_70_id) =drx_sl_unregister_hostage_giver(simulation_task_70) =drx_sl_unregister_task_giver(simulation_task_70) =drx_sl_reset_stored_task(simulation_task_70)%
+on_fail = %=unlock_smart(simulation_task_70_id) =fail_task_dec_goodwill(25:csky) =pstor_reset(simulation_task_70_id) =pstor_reset(simulation_task_70_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_70) =drx_sl_unregister_task_giver(simulation_task_70) =drx_sl_reset_stored_task(simulation_task_70)%
+on_cancel = %=unlock_smart(simulation_task_70_id) =fail_task_dec_goodwill(10:csky) =pstor_reset(simulation_task_70_id) =pstor_reset(simulation_task_70_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_70) =drx_sl_unregister_task_giver(simulation_task_70) =drx_sl_reset_stored_task(simulation_task_70)%
+on_reversed = %=unlock_smart(simulation_task_70_id) =pstor_reset(simulation_task_70_id) =pstor_reset(simulation_task_70_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_hostage_giver(simulation_task_70) =drx_sl_unregister_task_giver(simulation_task_70) =drx_sl_reset_stored_task(simulation_task_70)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Subcontractor for Freedom Simulation Task-
+
+[simulation_task_71]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = freedom
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(freedom)} true, false
+type = bounty
+
+title = simulation_task_71_name
+descr = simulation_task_71_text
+job_descr = simulation_task_71_about
+task_complete_descr = simulation_task_71_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_71)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_71:freedom)%
+on_complete = %=reward_random_money(11000:12000:hrivni) =reward_stash(true) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =complete_task_inc_goodwill(50:freedom) =inc_task_stage(simulation_task_71) =drx_sl_unregister_task_giver(simulation_task_71) =drx_sl_reset_stored_task(simulation_task_71)%
+on_fail = %=fail_task_dec_goodwill(25:freedom) =drx_sl_unregister_task_giver(simulation_task_71) =drx_sl_reset_stored_task(simulation_task_71)%
+on_cancel = %=fail_task_dec_goodwill(10:freedom) =drx_sl_unregister_task_giver(simulation_task_71) =drx_sl_reset_stored_task(simulation_task_71)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_71) =drx_sl_reset_stored_task(simulation_task_71)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Subcontractor for Duty Simulation Task-
+
+[simulation_task_72]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+sim_communities = dolg
+sim_ranks = trainee, experienced, professional, veteran, expert, master, legend
+sim_ranks_npc = trainee, experienced, professional, veteran, expert, master, legend
+repeat_timeout = 259200
+precondition = {=check_available_targets(dolg)} true, false
+type = bounty
+
+title = simulation_task_72_name
+descr = simulation_task_72_text
+job_descr = simulation_task_72_about
+task_complete_descr = simulation_task_72_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(simulation_task_72)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(simulation_task_72:dolg)%
+on_complete = %=reward_random_money(8000:11000:roubles) =reward_stash(true) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =complete_task_inc_goodwill(50:dolg) =inc_task_stage(simulation_task_72) =drx_sl_unregister_task_giver(simulation_task_72) =drx_sl_reset_stored_task(simulation_task_72)%
+on_fail = %=fail_task_dec_goodwill(25:dolg) =drx_sl_unregister_task_giver(simulation_task_72) =drx_sl_reset_stored_task(simulation_task_72)%
+on_cancel = %=fail_task_dec_goodwill(10:dolg) =drx_sl_unregister_task_giver(simulation_task_72) =drx_sl_reset_stored_task(simulation_task_72)%
+on_reversed = %=drx_sl_unregister_task_giver(simulation_task_72) =drx_sl_reset_stored_task(simulation_task_72)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_73]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = stalker
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_73_name
+descr = simulation_task_73_text
+job_descr = simulation_task_73_about
+task_complete_descr = simulation_task_73_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_73)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+condlist_2 = {!task_target_alive(simulation_task_73) =task_package_taken(simulation_task_73)} reversed
+condlist_3 = {!task_target_alive(simulation_task_73) !task_package_taken(simulation_task_73)} cancel
+
+on_init = %=setup_debt_task(simulation_task_73) =give_package(simulation_task_73)%
+on_complete = %=take_package_money(simulation_task_73) =complete_task_inc_goodwill(25:stalker) =reset_package_vars(simulation_task_73) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_73) =drx_sl_unregister_task_giver(simulation_task_73) =drx_sl_reset_stored_task(simulation_task_73)%
+on_fail = %=reset_package_vars(simulation_task_73) =fail_task_dec_goodwill(300:stalker) =drx_sl_unregister_task_giver(simulation_task_73) =drx_sl_reset_stored_task(simulation_task_73)%
+on_cancel = %=reset_package_vars(simulation_task_73) =fail_task_dec_goodwill(80:stalker) =drx_sl_unregister_task_giver(simulation_task_73) =drx_sl_reset_stored_task(simulation_task_73)%
+on_reversed = %=reset_package_vars(simulation_task_73) =drx_sl_unregister_task_giver(simulation_task_73) =drx_sl_reset_stored_task(simulation_task_73)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_74]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = csky
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_74_name
+descr = simulation_task_74_text
+job_descr = simulation_task_74_about
+task_complete_descr = simulation_task_74_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_74)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+condlist_2 = {!task_target_alive(simulation_task_74) =task_package_taken(simulation_task_74)} reversed
+condlist_3 = {!task_target_alive(simulation_task_74) !task_package_taken(simulation_task_74)} cancel
+
+on_init = %=setup_debt_task(simulation_task_74) =give_package(simulation_task_74)%
+on_complete = %=take_package_money(simulation_task_74) =complete_task_inc_goodwill(25:csky) =reset_package_vars(simulation_task_74) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_74) =drx_sl_unregister_task_giver(simulation_task_74) =drx_sl_reset_stored_task(simulation_task_74)%
+on_fail = %=reset_package_vars(simulation_task_74) =fail_task_dec_goodwill(300:csky) =drx_sl_unregister_task_giver(simulation_task_74) =drx_sl_reset_stored_task(simulation_task_74)%
+on_cancel = %=reset_package_vars(simulation_task_74) =fail_task_dec_goodwill(80:csky) =drx_sl_unregister_task_giver(simulation_task_74) =drx_sl_reset_stored_task(simulation_task_74)%
+on_reversed = %=reset_package_vars(simulation_task_74) =drx_sl_unregister_task_giver(simulation_task_74) =drx_sl_reset_stored_task(simulation_task_74)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_75]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = bandit
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_75_name
+descr = simulation_task_75_text
+job_descr = simulation_task_75_about
+task_complete_descr = simulation_task_75_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_75)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+condlist_2 = {!task_target_alive(simulation_task_75) =task_package_taken(simulation_task_75)} reversed
+condlist_3 = {!task_target_alive(simulation_task_75) !task_package_taken(simulation_task_75)} cancel
+
+on_init = %=setup_debt_task(simulation_task_75) =give_package(simulation_task_75)%
+on_complete = %=take_package_money(simulation_task_75) =complete_task_inc_goodwill(25:bandit) =reset_package_vars(simulation_task_75) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_75) =drx_sl_unregister_task_giver(simulation_task_75) =drx_sl_reset_stored_task(simulation_task_75)%
+on_fail = %=reset_package_vars(simulation_task_75) =fail_task_dec_goodwill(300:bandit) =drx_sl_unregister_task_giver(simulation_task_75) =drx_sl_reset_stored_task(simulation_task_75)%
+on_cancel = %=reset_package_vars(simulation_task_75) =fail_task_dec_goodwill(80:bandit) =drx_sl_unregister_task_giver(simulation_task_75) =drx_sl_reset_stored_task(simulation_task_75)%
+on_reversed = %=reset_package_vars(simulation_task_75) =drx_sl_unregister_task_giver(simulation_task_75) =drx_sl_reset_stored_task(simulation_task_75)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_76]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = dolg
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_76_name
+descr = simulation_task_76_text
+job_descr = simulation_task_76_about
+task_complete_descr = simulation_task_76_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_76)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+condlist_2 = {!task_target_alive(simulation_task_76) =task_package_taken(simulation_task_76)} reversed
+condlist_3 = {!task_target_alive(simulation_task_76) !task_package_taken(simulation_task_76)} cancel
+
+on_init = %=setup_debt_task(simulation_task_76) =give_package(simulation_task_76)%
+on_complete = %=take_package_money(simulation_task_76) =complete_task_inc_goodwill(25:dolg) =reset_package_vars(simulation_task_76) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_76) =drx_sl_unregister_task_giver(simulation_task_76) =drx_sl_reset_stored_task(simulation_task_76)%
+on_fail = %=reset_package_vars(simulation_task_76) =fail_task_dec_goodwill(300:dolg) =drx_sl_unregister_task_giver(simulation_task_76) =drx_sl_reset_stored_task(simulation_task_76)%
+on_cancel = %=reset_package_vars(simulation_task_76) =fail_task_dec_goodwill(80:dolg) =drx_sl_unregister_task_giver(simulation_task_76) =drx_sl_reset_stored_task(simulation_task_76)%
+on_reversed = %=reset_package_vars(simulation_task_76) =drx_sl_unregister_task_giver(simulation_task_76) =drx_sl_reset_stored_task(simulation_task_76)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_77]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = freedom
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = novice, trainee, experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_77_name
+descr = simulation_task_77_text
+job_descr = simulation_task_77_about
+task_complete_descr = simulation_task_77_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_77)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+condlist_2 = {!task_target_alive(simulation_task_77) =task_package_taken(simulation_task_77)} reversed
+condlist_3 = {!task_target_alive(simulation_task_77) !task_package_taken(simulation_task_77)} cancel
+
+on_init = %=setup_debt_task(simulation_task_77) =give_package(simulation_task_77)%
+on_complete = %=take_package_money(simulation_task_77) =complete_task_inc_goodwill(25:freedom) =reset_package_vars(simulation_task_77) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_77) =drx_sl_unregister_task_giver(simulation_task_77) =drx_sl_reset_stored_task(simulation_task_77)%
+on_fail = %=reset_package_vars(simulation_task_77) =fail_task_dec_goodwill(300:freedom) =drx_sl_unregister_task_giver(simulation_task_77) =drx_sl_reset_stored_task(simulation_task_77)%
+on_cancel = %=reset_package_vars(simulation_task_77) =fail_task_dec_goodwill(80:freedom) =drx_sl_unregister_task_giver(simulation_task_77) =drx_sl_reset_stored_task(simulation_task_77)%
+on_reversed = %=reset_package_vars(simulation_task_77) =drx_sl_unregister_task_giver(simulation_task_77) =drx_sl_reset_stored_task(simulation_task_77)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_78]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = army
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_78_name
+descr = simulation_task_78_text
+job_descr = simulation_task_78_about
+task_complete_descr = simulation_task_78_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_78)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+condlist_2 = {!task_target_alive(simulation_task_78) =task_package_taken(simulation_task_78)} reversed
+condlist_3 = {!task_target_alive(simulation_task_78) !task_package_taken(simulation_task_78)} cancel
+
+on_init = %=setup_debt_task(simulation_task_78) =give_package(simulation_task_78)%
+on_complete = %=take_package_money(simulation_task_78) =complete_task_inc_goodwill(25:army) =reset_package_vars(simulation_task_78) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_78) =drx_sl_unregister_task_giver(simulation_task_78) =drx_sl_reset_stored_task(simulation_task_78)%
+on_fail = %=reset_package_vars(simulation_task_78) =fail_task_dec_goodwill(300:army) =drx_sl_unregister_task_giver(simulation_task_78) =drx_sl_reset_stored_task(simulation_task_78)%
+on_cancel = %=reset_package_vars(simulation_task_78) =fail_task_dec_goodwill(300:army) =drx_sl_unregister_task_giver(simulation_task_78) =drx_sl_reset_stored_task(simulation_task_78)%
+on_reversed = %=reset_package_vars(simulation_task_78) =fail_task_dec_goodwill(300:army) =drx_sl_unregister_task_giver(simulation_task_78) =drx_sl_reset_stored_task(simulation_task_78)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_79]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = killer
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_79_name
+descr = simulation_task_79_text
+job_descr = simulation_task_79_about
+task_complete_descr = simulation_task_79_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_79)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+condlist_2 = {!task_target_alive(simulation_task_79) =task_package_taken(simulation_task_79)} reversed
+condlist_3 = {!task_target_alive(simulation_task_79) !task_package_taken(simulation_task_79)} cancel
+
+on_init = %=setup_debt_task(simulation_task_79) =give_package(simulation_task_79)%
+on_complete = %=take_package_money(simulation_task_79) =complete_task_inc_goodwill(25:killer) =reset_package_vars(simulation_task_79) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_79) =drx_sl_unregister_task_giver(simulation_task_79) =drx_sl_reset_stored_task(simulation_task_79)%
+on_fail = %=reset_package_vars(simulation_task_79) =fail_task_dec_goodwill(300:killer) =drx_sl_unregister_task_giver(simulation_task_79) =drx_sl_reset_stored_task(simulation_task_79)%
+on_cancel = %=reset_package_vars(simulation_task_79) =fail_task_dec_goodwill(80:killer) =drx_sl_unregister_task_giver(simulation_task_79) =drx_sl_reset_stored_task(simulation_task_79)%
+on_reversed = %=reset_package_vars(simulation_task_79) =drx_sl_unregister_task_giver(simulation_task_79) =drx_sl_reset_stored_task(simulation_task_79)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[simulation_task_80]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+sim_communities = ecolog
+sim_ranks = novice, trainee, experienced, professional, veteran, expert, master
+sim_ranks_npc = experienced, professional, veteran, expert, master
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = simulation_task_80_name
+descr = simulation_task_80_text
+job_descr = simulation_task_80_about
+task_complete_descr = simulation_task_80_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {!task_giver_alive(simulation_task_80)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+condlist_2 = {!task_target_alive(simulation_task_80) =task_package_taken(simulation_task_80)} reversed
+condlist_3 = {!task_target_alive(simulation_task_80) !task_package_taken(simulation_task_80)} cancel
+
+on_init = %=setup_debt_task(simulation_task_80) =give_package(simulation_task_80)%
+on_complete = %=take_package_money(simulation_task_80) =complete_task_inc_goodwill(25:ecolog) =reset_package_vars(simulation_task_80) =reward_random_item(beer:vodka:vodka2:cigarettes_lucky:cigarettes_russian) =inc_task_stage(simulation_task_80) =drx_sl_unregister_task_giver(simulation_task_80) =drx_sl_reset_stored_task(simulation_task_80)%
+on_fail = %=reset_package_vars(simulation_task_80) =fail_task_dec_goodwill(300:ecolog) =drx_sl_unregister_task_giver(simulation_task_80) =drx_sl_reset_stored_task(simulation_task_80)%
+on_cancel = %=reset_package_vars(simulation_task_80) =fail_task_dec_goodwill(80:ecolog) =drx_sl_unregister_task_giver(simulation_task_80) =drx_sl_reset_stored_task(simulation_task_80)%
+on_reversed = %=reset_package_vars(simulation_task_80) =drx_sl_unregister_task_giver(simulation_task_80) =drx_sl_reset_stored_task(simulation_task_80)%
+
+quest_timeout = 172800
+
+;--------------------------------------------------------------------------------------------------
+; FACTION BASE DEFENSE VS MUTANTS-
+[faction_base_defense]
+icon = ui_iconsTotal_defend_lager
+prior = 35
+storyline = false
+title = {-yantar_faction_base_defense_quest_started} faction_base_defense_name, {+yantar_faction_base_defense_quest_started} faction_base_defense_yantar_name
+descr = {-yantar_faction_base_defense_quest_started} faction_base_defense_text, {+yantar_faction_base_defense_quest_started} faction_base_defense_yantar_text
+target_functor = faction_base_defense_target
+condlist_0 = {+faction_base_defense_enemy_killed +faction_base_defense_2nd_enemy_killed} complete
+condlist_1 = {!base_defense_is_actor_on_level} reversed
+on_init = %=setup_base_defense_fail_conditions%
+on_complete = %=actor_surge_immuned(false)%
+on_fail = %=actor_surge_immuned(false)%
+on_cancel = %=actor_surge_immuned(false)%
+on_reversed = %=actor_surge_immuned(false)%

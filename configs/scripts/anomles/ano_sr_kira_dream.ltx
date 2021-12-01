@@ -1,0 +1,8 @@
+[logic]
+active = sr_idle@check
+
+[sr_idle@check]
+on_actor_inside = {-rm_ano_kira_nfield_done} %=play_sound_on_actor(anomaly\teleport_work_2) =run_pp_effector(blink) =teleport_actor(ano_smart_terrain_6_1_surge_8_walk:ano_smart_terrain_6_1_surge_4_walk)%
+on_info = {+rm_ano_kira_nfield_done} nil
+
+; TODO: Н-Поле Киры

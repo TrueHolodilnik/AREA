@@ -1,0 +1,587 @@
+
+-- Global dynamic object spawn by Holodilnik for A.R.E.A.
+-- Part of the procedural world generation
+
+local valid_item_list = nil
+local valid_item_list_array = nil
+local ini = system_ini()
+local spawn_ini = ini_file("plugins\\dynamic_spawn.ltx")
+local smart_cover_count = 0
+smart_cover_table = {}
+
+function get_cover_name(index)
+	return smart_cover_table[index] 
+end
+
+local function get_stash_sect(cnt)
+	local str = spawn_ini:r_string_ex("stashes","sections")
+	local t = alun_utils.str_explode(str,",")
+    return t[cnt] or t[math.random(1,#t)]
+end
+
+local function get_env_sect(cnt)
+	local env = {"env_b","env_kust","env_kust_1","env_kust_big"}
+    return env[cnt] or env[math.random(1,#env)]
+end
+
+local function is_consumable(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "S_FOOD" or v == "II_FOOD"
+end
+
+local function is_outfit(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "EQU_STLK" or v == "E_STLK" or v == "EQU_HLMET" or v == "E_HLMET"
+end
+
+local function is_weapon(section)
+	local v = ini:r_string_ex(section,"class","")
+	return string.find(v,"WP_") ~= nil
+end
+
+local function is_ammo(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "AMMO" or v == "AMMO_S"
+end
+
+local function is_backpack(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "EQ_BAKPK"
+end
+
+local function is_toolkit(section)
+	return section == "itm_repairkit_tier_1" or section == "itm_repairkit_tier_2" or section == "itm_repairkit_tier_3"
+end
+
+local function is_artefact(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "SCRPTART"		
+end
+
+local function is_detector(section)
+	local v = ini:r_string_ex(section,"class","")
+	return v == "DET_ADVA" or v == "DET_ELIT" or v == "DET_SCIE" or v == "DET_SIMP"
+end
+
+function on_game_start()
+    RegisterScriptCallback("on_game_load", dynamic_spawn)
+end
+
+function s_spawn(se_obj, sect)
+
+	local level_name = level.name()
+	local id = se_obj.id
+
+	local treasure = {}
+	
+	if not (valid_item_list) then 
+		valid_item_list,valid_item_list_array = coc_treasure_manager.get_valid_item_sections()
+	end
+	
+	local spawned_item = {}
+	local max_weight = math.random(170,200)
+	
+	if (dxr_achievements.has_achievement("rag_and_bone")) then
+		max_weight = max_weight + 30
+	end
+	
+	local cost_lvls = {500,1000,3000,5000,9000,15000,25000}
+	local has_spawned = false
+	local function try_spawn_item(sec,min,max,chance,weight)
+		local cost = ini:r_float_ex(sec,"cost") or 0
+		if cost < 1 then
+			return
+		end
+		if (max_weight >= weight) then 
+			local new_max = math.random(min,max)
+			for i=1,new_max do
+				if ((math.random(1,1000)/1000) <= chance) then 
+					treasure[#treasure+1] = sec
+					max_weight = max_weight - weight
+					has_spawned = true
+				end
+			end
+		end
+	end
+	
+	local allow_item = true
+	utils.shuffle(valid_item_list_array)
+	for i,section in ipairs(valid_item_list_array) do
+		local cost = valid_item_list[section]
+
+		has_spawned = false
+		local skip = false
+		local bDetector = is_detector(section)
+		local bToolkit = not bDetector and is_toolkit(section)
+		local bArtefact = not bToolkit and is_artefact(section)
+		local bWeapon = not bArtefact and is_weapon(section)
+		local bOutfit = not bWeapon and is_outfit(section)
+		local bBackpack = not bWeapon and not bOutfit and is_backpack(section)
+		if (bWeapon or bOutfit or bBackpack or bArtefact) then
+			if not (allow_item) then
+				skip = true
+			end
+		end
+		
+		if not (skip) then
+			if (bDetector) then
+				local v = ini:r_string_ex(section,"class","")
+				if (v == "DET_SCIE") then
+					try_spawn_item(section,1,1,0.005,80)
+				elseif (v == "DET_ELIT") then 
+					try_spawn_item(section,1,1,0.05,60)
+				elseif (v == "DET_ADVA") then
+					try_spawn_item(section,1,1,0.10,50)
+				else 
+					try_spawn_item(section,1,1,0.15,40)
+				end
+			elseif (bToolkit) then 
+				if (section == "itm_repairkit_tier_3") then 
+					try_spawn_item(section,1,1,0.04,80)
+				elseif (section == "itm_repairkit_tier_2") then
+					try_spawn_item(section,1,1,0.08,80)
+				else
+					try_spawn_item(section,1,1,0.12,50)
+				end
+			else
+				if (cost <= cost_lvls[1]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,4,0.70,40)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.30,50)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.80,40)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.80,50)
+					else
+						try_spawn_item(section,1,1,0.90,40)
+					end
+				elseif (cost <= cost_lvls[2]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,3,0.60,50)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.25,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.80,40)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.80,60)
+					else
+						try_spawn_item(section,1,1,0.80,50)
+					end
+				elseif (cost <= cost_lvls[3]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,2,0.50,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.20,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.70,40)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.70,70)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.10,50)
+					else 
+						try_spawn_item(section,1,1,0.70,50)
+					end
+				elseif (cost <= cost_lvls[4]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,1,0.40,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.15,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.50,60)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.50,80)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.05,50)
+					else 
+						try_spawn_item(section,1,1,0.60,50)
+					end
+				elseif (cost <= cost_lvls[5]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,1,0.05,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.01,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.005,80)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.005,80)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.005,60)
+					else 
+						try_spawn_item(section,1,1,0.05,50)
+					end
+				elseif (cost <= cost_lvls[6]) then 
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,1,0.03,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.01,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.005,80)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.004,80)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.003,70)
+					else 
+						try_spawn_item(section,1,1,0.03,50)
+					end
+				elseif (cost <= cost_lvls[7]) then
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,1,0.01,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.005,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.003,90)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.003,80)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.001,80)
+					else 
+						try_spawn_item(section,1,1,0.01,50)
+					end
+				else
+					if (is_consumable(section)) then
+						try_spawn_item(section,1,1,0.005,60)
+					elseif (is_ammo(section)) then
+						try_spawn_item(section,1,1,0.003,60)
+					elseif (bOutfit) then
+						try_spawn_item(section,1,1,0.001,90)
+					elseif (bWeapon) then
+						try_spawn_item(section,1,1,0.001,80)
+					elseif (bArtefact) then
+						try_spawn_item(section,1,1,0.001,90)
+					else 
+						try_spawn_item(section,1,1,0.005,50)
+					end
+				end
+			end
+		end
+		
+		if (has_spawned) and (bWeapon or bOutfit or bBackpack or bArtefact) then
+			if (allow_item) then 
+				allow_item = false 
+			end
+		end
+		
+		if (max_weight <= 0) then
+			break
+		end
+	end
+	
+	for i = 1, #treasure do
+
+		sec = treasure[i]
+		if (sec ~= "" and ini:section_exist(sec)) then
+			--if utils.is_consumable(sec) and (math.random(1,20) == 1) then
+			--	sec = xrs_rnd_npc_loadout.radiate(sec)
+			--end
+			--printf("A.R.E.A.: dyn spawn stash sec: %s, id: %s", sec, id)
+			se_obj = alife():create(sec, se_obj.position, 0, 0, id)
+			if (IsWeapon(nil, se_obj:clsid( ))) then
+				data = stpk_utils.get_weapon_data(se_obj)
+				if (data) then
+
+					--flag = 0
+					--if ( ini:r_float_ex( sec, "scope_status" )) then
+					--	flag = (flag + 1)
+					--end
+					--if ( ini:r_float_ex( sec, "grenade_launcher_status" )) then
+					--	flag = (flag + 2)
+					--end
+					--if ( ini:r_float_ex( sec, "silencer_status" )) then
+					--	flag = (flag + 4)
+					--end
+					--flag = math.random(0, flag)
+
+					ammos = alun_utils.parse_list(ini, sec, "ammo_class")
+					ct = ammos and #ammos
+					ammo_type = ammos and ct and math.random(0, (ct - 1)) or 0
+					ammo_section = ammo_type and ammos[(ammo_type + 1)]
+
+					--data.addon_flags = flag
+					data.ammo_type = ammo_type
+					data.condition = ((math.random(70)+30)/100)
+					stpk_utils.set_weapon_data(data, se_obj)
+
+				end
+			end
+		end
+	end
+
+	coc_treasure_manager.caches[id] = false
+	coc_treasure_manager.caches_count = coc_treasure_manager.caches_count + 1
+
+end
+ 
+function dynamic_spawn()
+	
+	local level_name = level.name()
+	if ((not level_name) or (level_name == "") or (level_name == "fake_start") or ((utils.load_var(db.actor,("area_dynamic_objects_spawned_"..level_name),false)) == true)) then
+		return
+	end
+	
+    printf("A.R.E.A.: Dynamic spawn level name: %s.", level_name)
+	
+	if (alun_utils.load_var(db.actor,("static_boxes_released"),false) == false) then
+		local v_table = {
+			"box_bochka",
+			"box_gorb",
+			"box_lut",
+			"box_white",
+			"box_wood_01"
+		}
+		local v_table_small = {
+			"box_ammobox",
+			"box_drop",
+			"box_med",
+			"box_wood_mil",
+			"box_red_mil",
+			"box_metall_01"
+		}
+		local first_number = 0
+		for n=1, 65534 do
+			local se_obj = alife():object(n)
+			if se_obj and not string.find(se_obj:section_name(), "backpack") and not string.find(se_obj:name(), "fanat") then
+				local cls = se_obj:clsid()
+				if cls == clsid.inventory_box_s then
+					safe_release_manager.release(se_obj)
+				end
+				
+				if cls == clsid.destrphys_s then
+					local data = stpk_utils.get_object_data(se_obj)
+					if string.find(data.custom_data, "drop_box") then
+						if se_obj.id == first_number then
+							break
+						end
+						local pos = se_obj.position
+						local lvlid = se_obj.m_level_vertex_id
+						local gvid = se_obj.m_game_vertex_id
+						local ini = se_obj:spawn_ini()
+						local comm = ini:r_string_ex("drop_box","community") or ini:r_string_ex("drop_box","items") or "str"
+						local vis
+						if comm == "small_box_ussr" or comm == "small_box_nato" or comm == "small_box_army" or comm == "small_box_science" or comm == "small_box_generic" then
+							vis = v_table_small[math.random(1, #v_table_small)]
+						else
+							vis = v_table[math.random(1, #v_table)]
+						end
+						safe_release_manager.release(se_obj)
+						local new_box = vis
+						local new_se_obj = alife():create(new_box, pos, lvlid, gvid)
+						--printf("Created new drop box: %s, %s, %s, %s, %s, %s", new_box, pos.x, pos.y, pos.z, lvlid, gvid)
+						if first_number == 0 then first_number = new_se_obj.id end
+					end
+				end
+			end
+		end
+		alun_utils.save_var(db.actor,("static_boxes_released"),true)
+		printf("A.R.E.A.: Static boxes released")
+	end
+	
+	if not spawn_ini:section_exist(level_name) then
+		return
+	end
+
+	local n = spawn_ini:line_count(level_name) or 0
+
+	if not n or n == 1 then
+		printf("A.R.E.A.: Dynamic spawn: dynamic_spawn_table for this level is nil: %s.", level_name)
+		return
+	end
+	
+	local function get_sect(par)
+		if par == "random_sect" then
+			return get_stash_sect()
+		elseif par == "random_env_sect" then
+			return get_env_sect()
+		else
+			return false
+		end
+	end
+	
+    for i=1, n-1 do
+		local dfggh, asdq, st = spawn_ini:r_line(level_name,i,"","")
+		st = alun_utils.str_explode(st,",")
+		local section = get_sect(st[1]) or st[1]
+		local visual = st[2]
+		--printf("A.R.E.A. Dynamic spawn section name: %s, visual: %s.", section, visual)
+		local position = {
+			["x"] = tonumber(st[3]),
+			["y"] = tonumber(st[4]),
+			["z"] = tonumber(st[5])
+		}
+		local game_vertex_id = tonumber(st[6])
+		local level_vertex_id = tonumber(st[7])
+		local chance = tonumber(st[8]) or 50
+		local radius = tonumber(st[9])
+		local custom = st[10]
+		local dir = tonumber(st[11])
+		local obj_flags = tonumber(st[12])
+		local description = st[13]
+		local enter_min_enemy_distance = tonumber(st[14])
+		local exit_min_enemy_distance = tonumber(st[15])
+		local last_description = st[16]
+		local loopholes = st[17]
+		local shapes = st[18]
+		local shape_type = st[19]
+		local shape_offset = tonumber(st[20])
+		local name = st[21]
+		local distance = tonumber(st[22])
+
+		local valid_st_sect =	{
+			
+			inv_backpack_medium = true,
+			inv_st_box_blue_steel = true,
+			inv_st_box_wood_small = true,
+			inv_st_box_metall = true,
+			inv_st_box_case = true,
+			inv_st_box_lab = true,
+			inv_st_box_green_steel = true,
+			inv_backpack_pods = true,
+			inv_backpack_nato = true,
+			inv_backpack_cloth = true,
+			inv_backpack_hunt = true,
+			inv_backpack_compact = true,
+			inv_backpack_vesh = true,
+			inv_armor_repair_pro_0 = true,
+			inv_helmet_repair_kit_0 = true,
+			inv_toolkit_r5_0 = true,
+			inv_toolkit_s_0 = true,
+			inv_toolkit_r7_0 = true,
+			inv_backpack_pohod = true,
+			inv_backpack_camo = true,
+			inv_backpack_camp = true,
+			inv_st_box_wood_metall = true,
+			inv_toolkit_u_0 = true,
+			inv_backpack_sport = true,
+			inv_backpack_sport_frame = true,
+			inv_backpack_military = true,
+			inv_backpack_specops = true,
+			inv_backpack_tourist = true,
+			inv_backpack_heavy = true,
+			inv_backpack_frame = true
+								}
+
+		if valid_st_sect[section] then
+			if (math.random(0,100) >= chance) then
+				if (radius and radius ~= nil) then
+					--local X = math.random(1,radius)/math.random(1,5)
+					--local Z = math.random(1,radius)/math.random(1,5)
+					--position.x = (math.random(1,2) == 1) and (position.x + X) or (position.x - X)
+					--position.z = (math.random(1,2) == 1) and (position.z + Z) or (position.z - Z)
+					position = vector():set(position.x,position.y + 0.2,position.z)
+					--local lvid = level.vertex_id(position)
+					--if (lvid < 4294967295) then
+					--	position = level.vertex_position(position)
+					--end
+					--printf("A.R.E.A.: Random stash created on position: %s, %s, %s.", position.x, position.y, position.z)
+					local se_obj = alife():create(section,position,level_vertex_id,game_vertex_id)
+					s_spawn(se_obj, section)
+					if (visual ~= "nil") then
+						alife():create(visual,position,level_vertex_id,game_vertex_id)
+					end
+					
+				else
+					position = vector():set(position.x,position.y,position.z)
+					--local lvid = level.vertex_id(position)
+					--if (lvid < 4294967295) then
+					--	position = level.vertex_position(position)
+					--end
+					--printf("A.R.E.A.: Point stash created on position: %s, %s, %s.", position.x, position.y, position.z)
+					local se_obj = alife():create(section,position,level_vertex_id,game_vertex_id)
+					s_spawn(se_obj, section)
+					if (visual ~= "nil") then
+						alife():create(visual,position,level_vertex_id,game_vertex_id)
+					end
+					
+				end
+			end
+		else
+			if (math.random(0,100) >= chance) then
+				position = vector():set(position.x,position.y,position.z)
+				if (section ~= nil) then
+					local se_obj = alife():create(section,position,level_vertex_id,game_vertex_id)
+					if (custom ~= nil) or (dir ~= nil) or (obj_flags ~= nil) or (description ~= nil) or (enter_min_enemy_distance ~= nil) or (exit_min_enemy_distance ~= nil) or (last_description ~= nil) or (loopholes ~= nil) or (shapes ~= nil) or (shape_type ~= nil) or (shape_offset ~= nil) or (name ~= nil) or (distance ~= nil) then
+						local data = se_obj and stpk_utils.get_object_data(se_obj)
+						if (data) then
+							if custom and custom ~= nil then
+								data.custom_data = custom
+							end
+							if (dir and dir ~= nil) then
+								data.direction =  vector():set(dir.x,dir.y,dir.z)
+							end
+							if (obj_flags and obj_flags ~= nil) then
+								data.object_flags = obj_flags
+							end
+							if (description and description ~= nil) then
+								data.description = description
+							end
+							if (enter_min_enemy_distance and enter_min_enemy_distance ~= nil) then
+								data.enter_min_enemy_distance = enter_min_enemy_distance
+							end
+							if (exit_min_enemy_distance and exit_min_enemy_distance ~= nil) then
+								data.exit_min_enemy_distance = exit_min_enemy_distance
+							end
+							if (last_description and last_description ~= nil) then
+								data.last_description = last_description
+							end
+							if (loopholes and loopholes ~= nil) then
+								data.loopholes = {}
+								data.loopholes[1] = loopholes[1]
+								data.loopholes[2] = loopholes[2]
+							end
+							if (shapes and shapes ~= nil) then
+								data.shapes = {}
+								for x=1,shapes do
+									data.shapes[x] = {}
+								end
+							end
+							if (shape_type and shape_type ~= nil and shapes ~= nil) then
+								for x=1,shapes do
+									data.shapes[x].shtype = shape_type
+								end
+							end
+							if (shape_offset and shape_offset ~= nil and shapes ~= nil) then
+								for x=1,shapes do
+									data.shapes[x].center = shape_offset
+								end
+							end
+							if (radius and radius ~= nil and shapes ~= nil) then
+								for x=1,shapes do
+									data.shapes[x].radius = radius
+								end
+							end
+							if (name and name ~= nil) then
+								data.name = name
+							end
+							if (distance and distance ~= nil) then
+								data.distance = distance
+							end
+							stpk_utils.set_object_data(data,se_obj)
+						end
+						if section == "smart_cover" then
+							smart_cover_count = smart_cover_count + 1
+							smart_cover_table[smart_cover_count] = se_obj:name()
+						end
+					end
+				end
+				if (visual ~= "nil") then
+					local se_obj_v = alife():create(visual,position,level_vertex_id,game_vertex_id)
+					if (custom ~= nil) or (dir ~= nil) then
+						local data_v = se_obj_v and stpk_utils.get_object_data(se_obj_v)
+						if (data_v) then
+							if custom and custom ~= nil then
+								data_v.custom_data = custom
+							end
+							if (dir and dir ~= nil) then
+								data_v.direction =  vector():set(dir.x,dir.y,dir.z)
+							end
+							stpk_utils.set_object_data(data_v,se_obj_v)
+						end
+					end
+				end
+				--printf("A.R.E.A.: Another section created on: %s, %s, %s.", position.x, position.y, position.z)
+			end
+		end
+	end
+    utils.save_var(db.actor,("area_dynamic_objects_spawned_"..level_name),true)
+	printf("A.R.E.A.: Dynamic objects spawned for level: %s.", level_name)
+end

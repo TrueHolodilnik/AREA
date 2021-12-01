@@ -1,0 +1,479 @@
+;----------------------------------------------------------------------------------------
+; M16 from STCOP 3.3, remade by Surs for A.R.E.A. (20.02.2021)
+;----------------------------------------------------------------------------------------
+[wpn_m16]:default_weapon_params
+$spawn								= "weapons\lr-300"		; option for Level Editor
+$npc								= on					; option for Level Editor
+class                   	= WP_AK74
+visual                  	= dynamics\weapons\wpn_m16\wpn_m16.ogf
+inv_name             		= st_wpn_m16
+inv_name_short          	= st_wpn_m16
+description							= st_wpn_m16_descr
+heating_rates						= nato2
+parent_section						= wpn_m16
+ef_main_weapon_type					= 2
+ef_weapon_type         		= 8
+default_to_ruck         	= false
+sprint_allowed          	= true
+repair_type 				= rifle_5.56
+cost                 		= 35690
+weapon_class            	= assault_rifle
+inv_weight              	= 3.09
+inv_volume					= 5.2
+ph_mass                 	= 3
+upgrades               	 	= up_gr_firstab_m4, up_gr_seconab_m4, up_gr_thirdab_m4, up_gr_fourtab_m4, up_gr_fifthab_m4
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_lr300
+;--TTX----------------------------------------------------------------------------
+hit_power         	 		= 0.483, 0.483, 0.483, 0.483
+hit_impulse       	 		= 25
+hit_type          	 		= fire_wound
+fire_distance        		= 900
+bullet_speed         		= 790
+rpm                  		= 670
+rpm_empty_click      		= 200
+time_to_aim             	= 2.0
+hud                     	= wpn_m16_hud
+
+misfire_probability			= 0.005
+misfire_start_condition		= 0.84
+misfire_end_condition		= 0.12
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec			= 0.0008
+condition_queue_shot_dec	= 0.0008
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= 1, 3, -1
+magazine_sect						= mag_556_cnt_30_m16, mag_556_cnt_30_2_m16, mag_556_cnt_30_g36_m16, mag_556_cnt_35_ace_m16, mag_556_cnt_60_m16
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot 			 					= 2
+animation_slot						= 2
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 3
+;--дисперсия--------------------------------------------------------------------
+fire_dispersion_base				= 0.21	;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+fire_dispersion_condition_factor	 = 0.001
+control_inertion_factor				= 1.28f
+crosshair_inertion					= 5.3
+
+cam_return							= 0
+cam_relax_speed         	= 10	;скорость возврата в исходное положение
+cam_relax_speed_ai      	= 360
+cam_dispersion	        	= 1.38
+cam_dispersion_inc      	= 1.06
+cam_dispersion_frac     	= 0.7	;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle        		= 50.0 	;максимальный угол отдачи
+cam_max_angle_horz      	= 50.0	;(degree) maximum shot horizontal degree
+cam_step_angle_horz    	 	= 1.36	;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 1.2
+PDM_disp_vel_factor 		= 2.75
+PDM_disp_accel_factor 		= 2.75
+PDM_disp_crouch 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0 
+
+zoom_cam_relax_speed        = 10    ; scope & ironsight
+zoom_cam_relax_speed_ai     = 360
+zoom_cam_dispersion         = 1.18
+zoom_cam_dispersion_inc				= 0.96
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.24
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 25
+inv_grid_y							= 54
+
+upgr_icon_x							= 600
+upgr_icon_y							= 400
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 175
+kill_msg_y					= 0
+kill_msg_width				= 82
+kill_msg_height				= 28
+;-------------------------------------------------------------------------------
+position                	= -0.026, -0.130, 0.0
+orientation             	= 0.0, 0.0, 0.0
+fire_point              	= 0.0, 0.199, 0.715
+fire_point2             	= 0.0, 0.199, 0.715
+flame_particles         	= weapons\new_effects\fn2000
+smoke_particles				= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles		= weapons\new_effects\glauncher
+shell_point             	= 0, 0.21, 0.08
+shell_dir               	= 0.0, 0.0, 0.4
+shell_particles         	= weapons\556x45
+
+light_disabled          	= false
+light_color            	 	= 0.6,0.5,0.3
+light_range             	= 5
+light_var_color         	= 0.05
+light_var_range         	= 0.1
+light_time							= 0.2
+
+;addons
+scope_status						= 2					; 0 - no addon
+silencer_status						= 2					; 1 - permanent
+grenade_launcher_status				= 2					; 2 - attachable
+
+scopes								= ac10632, acog, c-more, eot, specter
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 220
+silencer_y							= 16
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 120
+grenade_launcher_y					= 31
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time     	= 0.2
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster					= weapons\m16\m16_holster
+snd_draw							= weapons\m16\m16_draw
+snd_empty							= weapons\m16\m16_empty
+snd_reload							= weapons\m16\m16_reload
+snd_reload_empty					= weapons\m16\m16_reload_empty
+snd_reload_misfire					= weapons\m16\m16_reload_empty,1,0,1.8
+snd_reload_detached					= weapons\m16\m16_reload,1,0,0.5
+snd_reload_detached_empty			= weapons\m16\m16_reload_empty,1,0,0.5
+snd_shoot_grenade					= weapons\m16\m16_grenshoot
+snd_reload_grenade					= weapons\m16\m16_grenreload
+snd_switch							= weapons\m16\m16_switch
+snd_shoot							= weapons\m16\m16_shoot_null
+snd_silencer_shot					= weapons\m16\m16_shot_sil_null
+snd_bore							= $no_sound
+;--Магазины---------------------------------------------------------------------
+[mag_556_cnt_30_m16]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 83
+magazine_y							= 46
+custom_icon 						= 4,7,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_556_cnt_30_2_m16]
+magazine_name						= magazine_556_cnt_30_2
+magazine_x							= 84
+magazine_y							= 47
+custom_icon 						= 1,5,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_556_cnt_30_g36_m16]
+magazine_name						= magazine_556_cnt_30_g36
+magazine_x							= 83
+magazine_y							= 47
+custom_icon 						= 2,5,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_556_cnt_35_ace_m16]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 85
+magazine_y							= 49
+custom_icon 						= 3,5,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_556_cnt_60_m16]
+magazine_name						= magazine_556_cnt_60
+magazine_x							= 86
+magazine_y							= 49
+custom_icon 						= 4,5,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_m16_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_hud.ogf
+zoom_hide_crosshair					= false
+shell_point							= 0.000000,-0.030975,-0.079800
+shell_dir							= 0,1,0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= muzzle_gl
+
+hands_position						= -0.1049,-0.125876,-0.07093
+hands_position_16x9					= -0.1049,-0.125876,-0.07093
+hands_orientation					= 0,1,0
+hands_orientation_16x9				= 0,1,0
+
+aim_hud_offset_pos					= -0.044725,-0.00253,-0.064906
+aim_hud_offset_pos_16x9				= -0.044725,-0.00253,-0.064906
+aim_hud_offset_rot					= 0.00905,-0.00075,-0.0125
+aim_hud_offset_rot_16x9				= 0.00905,-0.00075,-0.0125
+
+aim_hud_offset_pos_alt				= -0.01586,-0.023485,0
+aim_hud_offset_pos_alt_16x9			= -0.01586,-0.023485,0
+aim_hud_offset_rot_alt				= 0,0,0.739185
+aim_hud_offset_rot_alt_16x9			= 0,0,0.739185
+
+gl_hud_offset_pos					= -0.042079,-0.143824,-0.15
+gl_hud_offset_pos_16x9				= -0.042079,-0.143824,-0.15
+gl_hud_offset_rot					= -0.187,-0.0054,0
+gl_hud_offset_rot_16x9				= -0.187,-0.0054,0
+
+anm_show							= m16_draw
+anm_hide							= m16_holster
+anm_idle							= m16_idle
+anm_idle_sprint						= m16_sprint
+anm_idle_moving						= m16_move
+anm_shots							= m16_shoot, shoot
+anm_shots_empty						= m16_idle
+anm_reload							= m16_reload, reload
+anm_reload_empty					= m16_reload_empty, reload_empty
+anm_reload_misfire					= m16_misfire, misfire
+anm_reload_detached					= m16_reload, reload, , 0.5
+anm_reload_detached_empty			= m16_reload_empty, reload_empty, , 0.5
+anm_idle_aim						= m16_aim
+anm_switch							= m16_switch_off, switch_off
+anm_switch_g						= m16_switch_on, switch_on
+anm_bore							= m16_aim
+anm_hide_w_gl						= m16_holster_w_gl
+anm_show_w_gl						= m16_draw_w_gl
+anm_idle_w_gl						= m16_idle_w_gl
+anm_shots_w_gl						= m16_shoot_w_gl, shoot
+anm_shots_w_gl_empty				= m16_idle_w_gl
+anm_reload_w_gl						= m16_reload_w_gl, reload
+anm_reload_empty_w_gl				= m16_reload_empty_w_gl, reload_empty
+anm_reload_misfire_w_gl				= m16_misfire_w_gl, misfire
+anm_reload_detached_w_gl			= m16_reload_w_gl, reload_w_gl, , 0.5
+anm_reload_detached_empty_w_gl		= m16_reload_empty_w_gl, reload_empty, , 0.5
+anm_idle_w_gl_aim					= m16_aim_w_gl
+anm_idle_sprint_w_gl				= m16_sprint_w_gl
+anm_idle_moving_w_gl				= m16_move_w_gl
+anm_bore_w_gl						= m16_aim_w_gl
+anm_show_g							= m16_draw_g, idle_g
+anm_hide_g							= m16_holster_g, idle_g	
+anm_idle_g							= m16_idle_g, idle_g
+anm_reload_g						= m16_reload_g, reload_g
+anm_idle_g_aim						= m16_aim_g, idle_g	
+anm_shots_g							= m16_shoot_g, shoot_g
+anm_idle_sprint_g					= m16_sprint_g, idle_g
+anm_idle_moving_g					= m16_move_g, idle_g
+anm_bore_g							= m16_aim_g, idle_g
+;-----------------------------------------------------------------------------
+;	Scopes
+;-----------------------------------------------------------------------------
+[wpn_m16_ac10632]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 75
+scope_y								= -7
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= -0.0005, 0.1150, 0.500
+scope_dot_scale						= 6.0
+hud									= wpn_m16_ac10632_hud
+
+[wpn_m16_ac10632_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.044620,-0.000430,-0.098401
+aim_hud_offset_pos_16x9				= -0.044620,-0.000430,-0.098401
+;-----------------------------------------------------------------------------
+[wpn_m16_acog]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_acog.ogf
+scope_name							= acog
+scope_x								= 70
+scope_y								= -4
+hud									= wpn_m16_acog_hud
+
+[wpn_m16_acog_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_acog_hud.ogf
+anm_shots_when_aim					= m16_shoot_scope
+anm_shots_w_gl_when_aim				= m16_shoot_scope_w_gl
+aim_hud_offset_pos					= -0.044725,0.004295,-0.147710
+aim_hud_offset_pos_16x9				= -0.044725,0.004295,-0.147710
+;-----------------------------------------------------------------------------
+[wpn_m16_c-more]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_c-more.ogf
+scope_name							= c-more
+scope_x								= 74
+scope_y								= -4
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos						= -0.0003, 0.1145, 0.5
+scope_dot_scale						= 6.0
+hud									= wpn_m16_c-more_hud
+
+[wpn_m16_c-more_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_c-more_hud.ogf
+aim_hud_offset_pos					= -0.044725,-0.000430,-0.064906
+aim_hud_offset_pos_16x9				= -0.044725,-0.000430,-0.064906
+;-----------------------------------------------------------------------------
+[wpn_m16_eot]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_eot.ogf
+scope_name							= eot
+scope_x								= 72
+scope_y								= -2
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos						= -0.0005, 0.1175, 0.5
+scope_dot_scale						= 6.0
+hud									= wpn_m16_eot_hud
+
+[wpn_m16_eot_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_eot_hud.ogf
+aim_hud_offset_pos					= -0.044725,-0.003055,-0.064906
+aim_hud_offset_pos_16x9				= -0.044725,-0.003055,-0.064906
+;-----------------------------------------------------------------------------
+[wpn_m16_specter]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_specter.ogf
+scope_name							= specter
+scope_x								= 63
+scope_y								= 0
+hud									= wpn_m16_specter_hud
+
+[wpn_m16_specter_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_specter_hud.ogf
+anm_shots_when_aim					= m16_shoot_scope
+anm_shots_w_gl_when_aim				= m16_shoot_scope_w_gl
+aim_hud_offset_pos					= -0.0446,-0.003515,-0.118585
+aim_hud_offset_pos_16x9				= -0.0446,-0.003515,-0.118585
+aim_hud_offset_pos_alt				= -0.000315,-0.02793,-0.018375
+aim_hud_offset_pos_alt_16x9			= -0.000315,-0.02793,-0.018375
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+;	M16 Worn
+;-----------------------------------------------------------------------------
+[wpn_m16_worn]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16_sk1.ogf
+parent_section						= wpn_m16_worn
+upgrades							= up_gr_firstab_m4_worn, up_gr_seconab_m4_worn, up_gr_thirdab_m4_worn, up_gr_fourtab_m4_worn, up_gr_fifthab_m4_worn
+inv_name							= st_wpn_m16_worn
+inv_name_short						= st_wpn_m16_worn
+cost								= 25380
+hit_power							= 0.44, 0.44, 0.44, 0.44
+bullet_speed						= 735
+rpm									= 650
+misfire_start_condition				= 0.88
+misfire_end_condition		= 0.15
+condition_shot_dec			= 0.00088
+condition_queue_shot_dec	= 0.00088
+fire_dispersion_base		= 0.268
+inv_grid_width				= 5
+inv_grid_height				= 2
+inv_grid_x					= 25
+inv_grid_y					= 56
+hud							= wpn_m16_sk1_hud
+
+[wpn_m16_sk1_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_m16_worn_ac10632]:wpn_m16_worn
+visual								= dynamics\weapons\wpn_m16\wpn_m16_ac10632_sk1.ogf
+scope_name							= ac10632
+scope_x								= 75
+scope_y								= -7
+hud									= wpn_m16_ac10632_sk1_hud
+
+[wpn_m16_ac10632_sk1_hud]:wpn_m16_ac10632_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_ac10632_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_m16_worn_acog]:wpn_m16_worn
+visual								= dynamics\weapons\wpn_m16\wpn_m16_acog_sk1.ogf
+scope_name							= acog
+scope_x								= 70
+scope_y								= -4
+hud									= wpn_m16_acog_sk1_hud
+
+[wpn_m16_acog_sk1_hud]:wpn_m16_acog_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_acog_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_m16_worn_c-more]:wpn_m16_worn
+visual								= dynamics\weapons\wpn_m16\wpn_m16_c-more_sk1.ogf
+scope_name							= c-more
+scope_x								= 69
+scope_y								= 3
+hud									= wpn_m16_c-more_sk1_hud
+
+[wpn_m16_c-more_sk1_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_c-more_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_m16_worn_eot]:wpn_m16_worn
+visual								= dynamics\weapons\wpn_m16\wpn_m16_eot_sk1.ogf
+scope_name							= eot
+scope_x								= 72
+scope_y								= -2
+hud									= wpn_m16_eot_sk1_hud
+
+[wpn_m16_eot_sk1_hud]:wpn_m16_eot_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_eot_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_m16_worn_specter]:wpn_m16_worn
+visual								= dynamics\weapons\wpn_m16\wpn_m16_specter_sk1.ogf
+scope_name							= specter
+scope_x								= 63
+scope_y								= 0
+hud									= wpn_m16_specter_sk1_hud
+
+[wpn_m16_specter_sk1_hud]:wpn_m16_specter_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16_specter_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+;	M16A2
+;-------------------------------------------------------------------------------
+[wpn_m16a2]:wpn_m16
+visual								= dynamics\weapons\wpn_m16\wpn_m16a2.ogf
+inv_name							= st_wpn_m16a2
+inv_name_short						= st_wpn_m16a2
+description							= st_wpn_m16a2_descr
+parent_section  					= wpn_m16a2
+magazine_sect						= mag_556_cnt_30_m16a2, mag_556_cnt_30_2_m16, mag_556_cnt_30_g36_m16, mag_556_cnt_35_ace_m16, mag_556_cnt_60_m16
+scope_status						= 0
+cost								= 35880
+inv_weight							= 3.51
+hit_power							= 0.53, 0.53, 0.53, 0.53
+hit_impulse							= 25
+hit_type							= fire_wound
+fire_distance						= 800
+bullet_speed						= 830
+rpm									= 700
+rpm_empty_click						= 200
+grenade_vel							= 76
+time_to_aim							= 2.0
+hud									= wpn_m16a2_hud
+misfire_probability					= 0.005
+misfire_start_condition				= 0.9
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0009
+condition_queue_shot_dec			= 0.0009
+;--дисперсия---------------------------------------------------------------------------
+fire_dispersion_base				= 0.192				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.2f
+crosshair_inertion					= 5.8
+
+inv_grid_x							= 25
+inv_grid_y							= 58
+upgr_icon_x							= 600
+upgr_icon_y							= 500
+
+silencer_x							= 220
+silencer_y							= 15
+
+grenade_launcher_x					= 118
+grenade_launcher_y					= 28
+;--Магазины---------------------------------------------------------------------
+[mag_556_cnt_30_m16a2]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 83
+magazine_y							= 45
+custom_icon 						= 3,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_m16a2_hud]:wpn_m16_hud
+item_visual							= dynamics\weapons\wpn_m16\wpn_m16a2_hud.ogf
+aim_hud_offset_pos					= -0.043255,-0.002845,-0.113101
+aim_hud_offset_pos_16x9				= -0.043255,-0.002845,-0.113101
+aim_hud_offset_rot					= 0.00905,-0.00075,-0.0125
+aim_hud_offset_rot_16x9				= 0.00905,-0.00075,-0.0125
+;-----------------------------------------------------------------------------

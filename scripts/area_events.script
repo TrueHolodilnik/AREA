@@ -1,0 +1,159 @@
+--------------------------------------------
+--Events script by Holodilnik for A.R.E.A.--
+--------------------------------------------
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_update",actor_on_update) 
+	RegisterScriptCallback("on_game_load", mush_spawn)
+	RegisterScriptCallback("actor_on_item_take", actor_on_item_take)
+	RegisterScriptCallback("npc_on_item_take", actor_on_item_take)
+	if (USE_MARSHAL) then
+		RegisterScriptCallback("save_state",save_state)
+		RegisterScriptCallback("load_state",load_state)
+	end
+end
+
+local is_event_allowed = true
+local last_event_time = 0
+local period = 1800
+local spawn_ini = ini_file("plugins\\plants.ltx")
+
+function actor_on_update()
+	if (db.actor) then
+		local s_time = level.get_start_time()
+		local gt = tonumber(game.get_game_time():diffSec(s_time))
+		if (((last_event_time + 900) + period) < gt) and (is_event_allowed == true) then
+			last_event_time = (last_event_time + period)
+			local rain = level.rain_factor()
+			if (rain ~= nil) then
+				--area_events.respawn_mushrooms()
+			end
+		end
+	end
+end
+
+local check_tbl = {}
+
+function save_state(m_data)
+	if (USE_MARSHAL) then
+		m_data.area_events = last_event_time or 0
+		m_data.check_tbl = check_tbl
+	end
+end
+
+function load_state(m_data)
+	if (USE_MARSHAL) then
+		check_tbl = m_data.check_tbl
+		last_event_time = m_data.area_events or 0
+	end
+end
+
+function get_mush_sect()
+	local mush = {"mushroom","mushroom_muh","mushroom_str","mushroom_1"}
+	local ch = math.random(1,5)
+	if (ch == 1) then
+		return mush[1]
+	elseif (ch == 3) or (ch == 4) then
+		return mush[3]
+	elseif (ch == 2) then
+		return mush[4]
+	else
+		return mush[2]
+	end
+end
+
+function mush_spawn()
+	if ((utils.load_var(db.actor,"area_mushrooms_spawned",false)) == false) then
+	
+		local n = spawn_ini:line_count("mushrooms") or 0
+	
+		if not n or n == 1 then
+			printf("A.R.E.A.: mushrooms table is nil")
+			return
+		end
+		
+		printf("A.R.E.A.: Mushrooms spawn starting")
+		
+		local function get_sect(par)
+			if par == "rnd_mush" then
+				return get_mush_sect()
+			else
+				return false
+			end
+		end
+	
+		for i=1, n-1 do
+			local dfggh, asdq, t_table = spawn_ini:r_line("mushrooms",i,"","")
+			t_table = alun_utils.str_explode(t_table,",")
+			local sect = get_sect(t_table[1]) or t_table[1]
+			local position = vector():set(tonumber(t_table[2]),tonumber(t_table[3]),tonumber(t_table[4]))
+			local game_vertex_id = tonumber(t_table[5])
+			local level_vertex_id = tonumber(t_table[6])
+			local id = game_vertex_id + level_vertex_id
+			check_tbl[id] = false
+			if (math.random(1,5) == 5) then
+				local se_obj = alife():create(sect,position,level_vertex_id,game_vertex_id)
+				printf("A.R.E.A.: Mushroom spawned, sec %s, id %s", sect, se_obj.id)
+				check_tbl[id] = true
+			end
+		end
+		printf("A.R.E.A.: Mushrooms has been spawned")
+		utils.save_var(db.actor,"area_mushrooms_spawned",true)
+	end
+end
+
+function respawn_mushrooms()
+	local rain = level.rain_factor()
+	if (rain == nil) then return end
+	
+	local n = spawn_ini:line_count("mushrooms") or 0
+	
+	if not n or n == 1 then
+		printf("A.R.E.A.: mushrooms table is nil")
+		return
+	end
+
+	local m_count = 0
+	if (rain > 0.75) then
+		m_count = math.random(math.floor(n/4),math.floor(n/3))
+	elseif  (rain > 0.5) then
+		m_count = math.random(math.floor(n/6),math.floor(n/5))
+	elseif  (rain > 0.25) then
+		m_count = math.random(math.floor(n/8),math.floor(n/7))
+	elseif  (rain > 0) then
+		m_count = math.random(math.floor(n/10),math.floor(n/9))
+	end
+	
+	local function get_sect(par)
+		if par == "rnd_mush" then
+			return get_mush_sect()
+		else
+			return false
+		end
+	end
+	
+	for i=1, m_count do
+		local index = math.random(1,n)
+		local dfggh, asdq, t_table = spawn_ini:r_line("mushrooms",n,"","")
+		t_table = alun_utils.str_explode(t_table,",")
+		local sect = get_sect(t_table[1]) or t_table[1]
+		local position = vector():set(tonumber(t_table[2]),tonumber(t_table[3]),tonumber(t_table[4]))
+		local game_vertex_id = tonumber(t_table[5])
+		local level_vertex_id = tonumber(t_table[6])
+		local id = game_vertex_id + level_vertex_id
+		if (check_tbl[id] == true) then
+			return
+		end
+		alife():create(sect,position,level_vertex_id,game_vertex_id)
+		check_tbl[id] = true
+	end
+end
+
+function actor_on_item_take(obj)
+	if ((obj:section() == "mushroom") or (obj:section() == "mushroom_muh") or (obj:section() == "mushroom_str")) then
+		local l_id = obj:level_vertex_id()
+		local g_id = obj:game_vertex_id()
+		local id = l_id + g_id
+		check_tbl[id] = false
+	end
+end

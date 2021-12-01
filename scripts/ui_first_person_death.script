@@ -1,0 +1,93 @@
+----------------------------------------------------------
+-- Reworked and modified by Holodilnik for A.R.E.A.
+-- Copyright (C) 2018 Seda145 (Tips and class structure)
+----------------------------------------------------------
+
+class "death_ui" (CUIScriptWnd)
+function death_ui:__init() super()
+	self:InitControls()
+end
+
+----------------------------------------------------------
+
+function death_ui:__finalize() end
+
+----------------------------------------------------------
+
+function death_ui:InitControls()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	self:SetWndPos			(vector2():set(0,0))
+		
+	self:SetAutoDelete(true)
+
+	self.xml = CScriptXmlInit()
+	local ctrl
+	self.xml:ParseFile("ui_first_person_death.xml")
+
+	ctrl				= CUIWindow()	
+	
+	self.dialog			= self.xml:InitStatic("main_dialog:dialog", self)
+
+	ctrl				= self.xml:Init3tButton("main_dialog:btn_next",	self.form)
+	self:Register		(ctrl, "btn_next")
+
+	self.caption_death	=	self.xml:InitTextWnd("main_dialog:caption_death",self)	
+	
+	self.time			= time_global()
+	
+end
+
+function death_ui:OnKeyboard(dik, keyboard_action)
+
+	if ((self.time + 1000) > time_global()) then
+		return
+	end
+	
+	self:HideDialog()
+	self:Show(false)
+	
+	area_utils.on_tutor_gameover_stop()
+end
+
+function death_ui:set_death_text()
+
+	local number = math.random(1,5)
+	local text = game.translate_string("st_death_tip_"..number)
+
+	self.caption_death:SetText(text)
+	
+	get_console():execute("r2_dof_kernel 10")
+	get_console():execute("r2_dof_far 1.5")
+	get_console():execute("r2_dof_sky 10000")
+	
+	level.enable_input()
+	
+	level.add_pp_effector("gravi.ppe",1234,true)
+	level.add_pp_effector("fade_to_black_9_sec.ppe",8792,false)
+	
+	local function t()
+		level.add_pp_effector("black.ppe",8792,true)
+	end
+	CreateTimeEvent(0,"temp" ,8, t)
+	
+	local function time(n)
+		k = tonumber(1-(n - 3)/100)
+		k = k * k
+		if k < 0.030 then
+			k = 0.031
+		end
+		get_console():execute("time_factor " .. k)
+	end
+	
+	for i=4,100 do
+		CreateTimeEvent(i + 10,"time",i/10 + 2, time, i)
+	end
+	
+	local r = math.random(-5,5)
+	local g = math.random(-15,15)
+	local b = math.random(-20,20)
+	
+	self.caption_death:SetTextColor(GetARGB(255,215 + r,169 + g,124 + b))
+	self.caption_death:SetFont(GetFontDI())
+
+end

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<!--===========================================================
+<
+< TEXT  STRINGS FOR TASKS ON AGROPROM MAP
+<	CoC 1.4.14 - DoctorX Questlines 1.9
+<
+<	Modified by: DoctorX
+<	Last revised: October 29, 2016
+<
+<===========================================================-->
+
+<string_table>
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- STORYLINE TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.9
+	<!--	October 29, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Default Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_name">
+		<text>Get Next Task</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_text">
+		<text>Receive your next task.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_about">
+		<text>I need you to report to someone in the field. I have marked his location on your PDA.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_finish">
+		<text>Good luck stalker.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Sniper Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_name">
+		<text>Sniper</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_text">
+		<text>Major Kuznetsov has ordered you to eliminate the target. The deadline is two days.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_about">
+		<text>So, soldier, we have one high priority goal, in the death of which the Security Service of Ukraine itself is interested, and this goal is not so easy to get to, you know? We will need to act quietly and quickly. All our special fighters for such special tasks are busy, so I need an experienced sniper, even though you do not look like him at all. Your deadline is two days.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_finish">
+		<text>Well, I must say I was wrong about you. Well done. Take it, don't be shy:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Assault Enemy Camp Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_name">
+		<text>Assault Enemy Camp</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_text">
+		<text>Destroy the camp. The deadline is half a day.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_about">
+		<text>There are stalkers in the area, and we're preparing an attack on their camp. There's information they're gonna do something I don't like, so get them out of here fast, you've got half a day. Get a squad together and move out.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_finish">
+		<text>Well done, you made me happy. That's what I'm supposed to do:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Defend Military Base Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_name">
+		<text>Defend Military Base</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_text">
+		<text>Protect the military base from a future assault. Date of execution - 6 hours.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_about">
+		<text>Okay, so somebody lost all their fear. Some stalkers have been spotted in the area and we suspect they're preparing an attack on our base. Neutralize the threat, you've got six hours to do it.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_finish">
+		<text>Oh, come on, what can I say? Oh, yeah, extra money:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Default Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_name">
+		<text>Get Next Task</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_text">
+		<text>Receive your next task.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_about">
+		<text>One of our allies needs our help. Report to him and see what assistance you can give.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_finish">
+		<text>Good luck stalker.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Battle Plans Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_name">
+		<text>Battle Plans</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_text">
+		<text>Lieutenant Kirilov learned the location of important documents, and now it is necessary to capture them. The deadline is 24 hours.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_about">
+		<text>You need a job, right? There's always work. I have information about a scheme where some stalkers have hidden some important papers. I need you to get them out of there. Don't drag it out too long, they can take it, so the maximum you've got is 24 hours.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_finish">
+		<text>All right, give them here... All right, thank you:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Patrol Local Area Storyline Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_name">
+		<text>Patrol Local Area</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_text">
+		<text>Patrol the area around Agoroprom.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_about">
+		<text>It's your turn for sentry duty. Patrol the local area and keep an eye out for any unauthorized personnel.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_finish">
+		<text>Good work. The commander will be pleased.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- CHANGE FACTIONS TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 14, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Payoff Change Factions Task -->
+
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_name">
+		<text>Bribe Kuznetsov To Join the Military</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_text">
+		<text>Major Kuznetsov will accept a 8,000 UAH payment to let you join the Military</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_about">
+		<text>You want to enlist? Well, you'll never pass the physical requirements will all the radiation you've absorbed in the Zone. Tell you what though, if you're willing to slip me 8,000 UAH I might be persuaded to look the other way.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_finish">
+		<text>Very well. Welcome to the Military, soldier.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- DYNAMIC TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 14, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Stop Unauthorized Incursions Task -->
+
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_name">
+		<text>Stop Unauthorized Incursions</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_text">
+		<text>You've been tasked to lead a sweep operation. The deadline is 24 hours.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_about">
+		<text>So, I understand that in the stalker zone of the pond, but lately these creatures are flies, and the bosses are not happy with it, and I get a hat. We need to reduce the number of unaccounted-for faces a little bit, okay? You've got 24 hours at your disposal.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_finish">
+		<text>Okay, don't worry, you didn't do anything illegal. Here you go:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Capture Territory Task -->
+
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_name">
+		<text>Capture Territory for Kuznetsov</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_text">
+		<text>There's been an order to take over the territory for a new camp. The deadline is two days.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_about">
+		<text>You should know that the SBU is searching for documents, evidence and reasons for the Zone and our unit has been instructed to penetrate further into the Zone to conduct the research operation. The commander is looking for volunteers to take over the bridgehead for us. Would you like to help? Not for nothing. This has to be done before the research team gets here, so you have two days.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_finish">
+		<text>The task is done? Good job. I'll inform the commander right away of your success.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kuznetsov (Military Honcho) Capture Enemy Combatant Task -->
+
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_name">
+		<text>Capture Enemy Combatant</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_text">
+		<text>The task is to capture or kill the enemy in 12 hours.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_about">
+		<text>You're on time, though. A couple hours ago, it was reported that a creature had killed our officer who was on a mission. We need to take him hostage and bust him half to death and then send him to the zone. You're allowed to kill as a last resort, but you know it's not going to do any good. You've got 12 hours before he goes into hiding.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_finish">
+		<text>Outstanding work! The bosses will be pretty, and so will you:</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+	<!-- ASSAULT AREA FOR MILITARY TASK -->
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_1_name">
+		<text>Assault territory</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_1_text">
+		<text>You have been assigned to lead an assault to clear out any unauthorized individuals.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_1_about">
+		<text>The commander is concerned about the rising number of incursions into the Zone. He wants you to go in and sweep an area for unauthorized personnel. Keep alert for any friendlies, but anyone else you see you are cleared to shoot on sight.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_1_finish">
+		<text>Great job. Keep it up you'll be in line for a commendation.</text>
+	</string>
+	<!-- CAPTURE TERRITORY FOR MILITARY TASK -->
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_2_name">
+		<text>Capture territory</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_2_text">
+		<text>You have been ordered to capture territory within the Zone.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_2_about">
+		<text>Our unit has been tasked with pushing further into the Zone. The commander is looking for volunteers to capture territory for us. Can I inform him of your cooperation?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_2_finish">
+		<text>The task is done? Good job. I'll inform the commander right away of your success.</text>
+	</string>
+	<!-- ASSASSINATION FOR MILITARY TASK -->
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_3_name">
+		<text>Capture enemy target</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_3_text">
+		<text>You have been assigned a hostile target to capture or kill.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_3_about">
+		<text>HQ has a list of of most wanted individuals in the Zone. If you can get to any of them, there will be a bonus in your next paycheck. Are you up for the job?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_3_finish">
+		<text>Outstanding work! The commander will be pleased.</text>
+	</string>
+	<!-- ELMINATE ALL MUTANTS IN GUNSHIP FOR MILITARY TASK -->
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_4_name">
+		<text>Eliminate all targets</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_4_text">
+		<text>You have been tasked to eliminate all mutants in the area, with expressed permission to eliminate any other hostile threats.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_4_about">
+		<text>After a recent emission, the mutant population in the area has risen considerably. Normally we keep it under control with the hind, but the aerial gunner is on leave; We're looking for a volunteer to fill his position in his absence. Your personnel record mentions you have experience as a gunner. What do you say, soldier?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_trader_stalker_task_4_finish">
+		<text>Outstanding work! The commander will be pleased.</text>
+	</string>
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- MECHANIC TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 06, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Find Level 1 Toolkit Task -->
+
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_1_name">
+		<text>Find %s for Kirilov</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_1_text">
+		<text>It is necessary to bring %s to Lieutenant Kirillov - technique on the base. He will pay for the tool and, in addition, will be able to provide more complex upgrades of weapons or armor.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_1_about">
+		<text>Listen, soldier, would you do me a favor? Almost every day, soldiers come to me with broken shells, and my cat cried. It's not like I'm gonna get armor wrapped up in duct tape, right? Maybe you can get me some of the easiest belts and I'll get you some money, hmm?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch_about">
+		<text>Anyway, if you find a set of tools, bring them, I owe you one.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch_finish">
+		<text>Great! You brought exactly what I've asked. Thanks.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Find Level 2 Toolkit Task -->
+
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_2_name">
+		<text>Find %s for Kirilov</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_2_text">
+		<text>%s are required by Kirilov to install advanced equipment upgrades, you should bring them back to him if you find any.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_2_about">
+		<text>Alright, If you are up for it, I need more tools. But they may be a bit harder to find. Can you do this for me?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch_about">
+		<text>I need a set of advanced tools. It should contain what I need. If you can bring some back for me I will be grateful, I will even offer you a discount from here on out.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch_finish">
+		<text>Great! Come back any time if you need me to take a look at your gear.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Kirilov (Military Mechanic) Find Level 3 Toolkit Task -->
+
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_3_name">
+		<text>Find %s for Kirilov</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_3_text">
+		<text>Lieutenant Kirillov asked to find a set of tools for calibration. The technician will pay for the tool and, in addition, will be able to provide more complex upgrades of weapons or armored vest.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_3_about">
+		<text>Alright, If you are up for it, I need more tools. But they may be a bit harder to find. Can you do this for me?</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch_about">
+		<text>I need tools to calibrate. If you bring it in, you'll get a discount on the repair.</text>
+	</string>
+	<string id="agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch_finish">
+		<text>Perfect! Well, now we won't have to break our heads anymore than patch up armor, and we'll lose less fighters. Thank you, all right. If you need anything, you're welcome, I'll help you in any way I can.</text>
+	</string>
+</string_table>

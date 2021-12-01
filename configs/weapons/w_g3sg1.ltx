@@ -1,0 +1,484 @@
+;-------------------------------------------------------------------------------
+;	H&K G3
+;-------------------------------------------------------------------------------
+[wpn_g3]:default_weapon_params
+$spawn								= "weapons\wpn_g3"	; option for Level Editor
+visual								= dynamics\weapons\wpn_g3\wpn_g3.ogf
+class								= WP_LR300
+inv_name							= st_wpn_g3
+inv_name_short						= st_wpn_g3
+description							= st_wpn_g3_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+default_to_ruck						= false
+sprint_allowed						= true
+heating_rates						= nato2
+repair_type							= rifle_7.62
+weapon_class						= assault_rifle
+parent_section						= wpn_g3
+inv_weight							= 4.63
+inv_volume							= 5.0
+inv_volume							= 5
+cost								= 40000
+upgrades							= up_gr_firstab_g3, up_gr_seconab_g3, up_gr_thirdab_g3, up_gr_fourtab_g3, up_gr_fourtcd_g3, up_gr_fourtef_g3
+;-------TTX-----------------------------------------------------------------------
+hit_power							= 0.58, 0.58, 0.58, 0.58
+hit_impulse							= 35
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 798
+rpm									= 600
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_g3_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.73
+misfire_end_condition				= 0.058
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0009
+condition_queue_shot_dec			= 0.0009
+
+ammo_elapsed						= 20
+ammo_mag_size						= 20
+fire_modes							= -1, 1
+magazine_sect						= magazine_762x51_cnt_20_3
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;--DOF---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 3
+;--Дисперсия---------------------------------------------------------------------
+fire_dispersion_base				= 0.29				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+fire_dispersion_condition_factor	= 0.001
+control_inertion_factor				= 1.44f
+crosshair_inertion					= 6.98
+
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 1.5
+cam_dispersion_inc					= 1.03
+cam_dispersion_frac					= 0.66				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.22				;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 10				; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 1.05
+zoom_cam_dispersion_inc				= 0.88
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.13
+
+PDM_disp_base						= 1.2
+PDM_disp_vel_factor					= 2.75
+PDM_disp_accel_factor				= 2.75
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 30
+inv_grid_y							= 56
+
+upgr_icon_x							= 300
+upgr_icon_y							= 600
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.097, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0,0.137,0.649
+fire_point2							= 0, 0.097, 0.722
+flame_particles						= weapons\new_effects\a1_type_ar15
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= 0,0.188,0.12
+shell_dir							= 0,1,0
+shell_particles						= weapons\762x51
+;-------------------------------------------------------------------------------
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.1
+light_time							= 0.2
+
+scopes								= ac10632,acog,eot,c-more,specter,pn23
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 232
+silencer_y							= 20
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 128
+grenade_launcher_y					= 28
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\g3\g3_holster
+snd_draw							= weapons\g3\g3_draw
+snd_empty							= weapons\g3\g3_empty
+snd_reload							= weapons\g3\g3_reload
+snd_reload_empty					= weapons\g3\g3_reload_empty
+snd_reload_misfire					= weapons\g3\g3_reload_empty,1,0,2.0
+snd_reload_detached					= weapons\g3\g3_reload,1,0,1.25
+snd_reload_detached_empty			= weapons\g3\g3_reload_empty,1,0,1.25
+snd_shoot							= weapons\g3\g3_shoot_null
+snd_silencer_shot					= weapons\g3\g3_shot_sil_null
+snd_bore							= $no_sound
+;-------------------------------------------------------------------------------
+[wpn_g3_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= -0.00021,0.063145,0.139148
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= wpn_body
+
+hands_position						= -0.096605,-0.154674,-0.033915
+hands_position_16x9					= -0.096605,-0.154674,-0.033915
+hands_orientation					= 1.539368,1.585421,0.00042
+hands_orientation_16x9				= 1.539368,1.585421,0.00042
+
+aim_hud_offset_pos					= -0.05585,0.01277,-0.11
+aim_hud_offset_pos_16x9				= -0.05585,0.01277,-0.11
+aim_hud_offset_rot					= 0.032421,0.0253,0
+aim_hud_offset_rot_16x9				= 0.032421,0.0253,0
+
+anm_show							= g3_draw
+anm_hide							= g3_holster
+anm_idle							= g3_idle
+anm_idle_aim						= g3_aim
+anm_idle_sprint						= g3_sprint_v2
+anm_idle_moving						= g3_move
+anm_idle_moving_crouch				= g3_move, , 0.5
+anm_shots							= g3_shoot, shoot
+anm_shots_empty						= g3_idle
+anm_shots_when_aim					= g3_shoot_scope, shoot
+anm_reload							= g3_reload, reload
+anm_reload_empty					= g3_reload_empty, reload_empty
+anm_reload_misfire					= g3_reload_empty, reload_empty, , 2.0
+anm_reload_detached					= g3_reload, reload, , 0.9
+anm_reload_detached_empty			= g3_reload_empty, reload_empty, , 0.9
+anm_bore							= g3_aim
+;-----------------------------------------------------------------------------
+;	Scopes
+;-----------------------------------------------------------------------------
+[wpn_g3_ac10632]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 74
+scope_y								= -3
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= 0.0014, 0.1815, 0.75
+scope_dot_scale						= 8.0
+hud									= wpn_g3_ac10632_hud
+
+[wpn_g3_ac10632_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.055535,-0.030805,-0.11
+aim_hud_offset_pos_16x9				= -0.055535,-0.030805,-0.11
+aim_hud_offset_pos_alt				= -0.000315,0.042315,0
+aim_hud_offset_pos_alt_16x9			= -0.000315,0.042315,0
+;-----------------------------------------------------------------------------
+[wpn_g3_acog]:wpn_g3
+scope_name							= acog
+scope_x								= 72
+scope_y								= -1
+hud									= wpn_g3_acog_hud
+
+[wpn_g3_acog_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_hud.ogf
+aim_hud_offset_pos					= -0.0555,-0.02902,-0.145594
+aim_hud_offset_pos_16x9				= -0.0555,-0.02902,-0.145594
+aim_hud_offset_rot					= 0.032421,0.0253,0
+aim_hud_offset_rot_16x9				= 0.032421,0.0253,0
+;-----------------------------------------------------------------------------
+[wpn_g3_c-more]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_c-more.ogf
+scope_name							= c-more
+scope_x								= 80
+scope_y								= 5
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos						= 0.0016, 0.1765, 0.55
+scope_dot_scale						= 5.0
+hud									= wpn_g3_c-more_hud
+
+[wpn_g3_c-more_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_c-more_hud.ogf
+aim_hud_offset_pos					= -0.05626,-0.027085,-0.13993
+aim_hud_offset_pos_16x9				= -0.05626,-0.027085,-0.13993
+aim_hud_offset_rot					= 0.032421,0.025300,0
+aim_hud_offset_rot_16x9				= 0.032421,0.025300,0
+;-----------------------------------------------------------------------------
+[wpn_g3_eot]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_eot.ogf
+scope_name							= eot
+scope_x								= 76
+scope_y								= 3
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\eot2.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos						= 0.0016, 0.1865, 0.40
+scope_dot_scale						= 6.0
+hud									= wpn_g3_eot_hud
+
+[wpn_g3_eot_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_eot_hud.ogf
+aim_hud_offset_pos					= -0.05585,-0.03684,-0.12968
+aim_hud_offset_pos_16x9				= -0.05585,-0.03684,-0.12968
+aim_hud_offset_rot					= 0.032421,0.025300,0
+aim_hud_offset_rot_16x9				= 0.032421,0.025300,0
+;-----------------------------------------------------------------------------
+[wpn_g3_specter]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_specter.ogf
+scope_name							= specter
+scope_x								= 76
+scope_y								= 3
+hud									= wpn_g3_specter_hud
+
+[wpn_g3_specter_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_specter_hud.ogf
+aim_hud_offset_pos					= -0.055345,-0.034385,-0.131935
+aim_hud_offset_pos_16x9				= -0.055345,-0.034385,-0.131935
+aim_hud_offset_rot					= 0.032421,0.0253,0
+aim_hud_offset_rot_16x9				= 0.032421,0.0253,0
+;-----------------------------------------------------------------------------
+[wpn_g3_pn23]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_pn23.ogf
+scope_name							= pn23
+scope_x								= 76
+scope_y								= 3
+hud									= wpn_g3_pn23_hud
+
+[wpn_g3_pn23_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_pn23_hud.ogf
+aim_hud_offset_pos					= -0.056795,-0.04517,-0.084275
+aim_hud_offset_pos_16x9				= -0.056795,-0.04517,-0.084275
+aim_hud_offset_rot					= 0.032421,0.0253,0
+aim_hud_offset_rot_16x9				= 0.032421,0.0253,0
+;-----------------------------------------------------------------------------
+;	H&K G3 Worn
+;-----------------------------------------------------------------------------
+[wpn_g3_worn]:wpn_g3
+visual								= dynamics\weapons\wpn_g3\wpn_g3_sk1.ogf
+parent_section						= wpn_g3_worn
+upgrades							= up_gr_firstab_g3_worn, up_gr_seconab_g3_worn, up_gr_thirdab_g3_worn, up_gr_fourtab_g3_worn, up_gr_fourtcd_g3_worn, up_gr_fourtef_g3_worn
+inv_name							= st_wpn_g3_worn
+inv_name_short						= st_wpn_g3_worn
+cost								= 30000
+hit_power							= 0.53, 0.53, 0.53, 0.53
+bullet_speed						= 777
+rpm									= 565
+misfire_start_condition				= 0.83
+misfire_end_condition				= 0.073
+condition_shot_dec					= 0.001
+condition_queue_shot_dec			= 0.001
+fire_dispersion_base				= 0.32
+inv_grid_x							= 30
+inv_grid_y							= 58
+upgr_icon_x							= 300
+upgr_icon_y							= 600
+hud									= wpn_g3_sk1_hud
+
+[wpn_g3_sk1_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_ac10632]:wpn_g3_worn
+visual								= dynamics\weapons\wpn_g3\wpn_g3_ac10632_sk1.ogf
+scope_name							= ac10632
+scope_x								= 74
+scope_y								= -3
+hud									= wpn_g3_ac10632_sk1_hud
+
+[wpn_g3_ac10632_sk1_hud]:wpn_g3_ac10632_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_ac10632_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_acog]:wpn_g3_worn
+scope_name							= acog
+scope_x								= 72
+scope_y								= -1
+hud									= wpn_g3_acog_sk1_hud
+
+[wpn_g3_acog_sk1_hud]:wpn_g3_acog_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_c-more]:wpn_g3_worn
+visual								= dynamics\weapons\wpn_g3\wpn_g3_c-more_sk1.ogf
+scope_name							= c-more
+scope_x								= 80
+scope_y								= 5
+hud									= wpn_g3_c-more_sk1_hud
+
+[wpn_g3_c-more_sk1_hud]:wpn_g3_c-more_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_c-more_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_eot]:wpn_g3_worn
+visual								= dynamics\weapons\wpn_g3\wpn_g3_eot_sk1.ogf
+scope_name							= eot
+scope_x								= 76
+scope_y								= 3
+hud									= wpn_g3_eot_sk1_hud
+
+[wpn_g3_eot_sk1_hud]:wpn_g3_eot_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_eot_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_specter]:wpn_g3_worn
+visual								= dynamics\weapons\wpn_g3\wpn_g3_specter_sk1.ogf
+scope_name							= specter
+scope_x								= 76
+scope_y								= 3
+hud									= wpn_g3_specter_sk1_hud
+
+[wpn_g3_specter_sk1_hud]:wpn_g3_specter_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_specter_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g3_worn_pn23]:wpn_g3_worn
+visual								= dynamics\weapons\wpn_g3\wpn_g3_pn23_sk1.ogf
+scope_name							= pn23
+scope_x								= 76
+scope_y								= 3
+hud									= wpn_g3_pn23_sk1_hud
+
+[wpn_g3_pn23_sk1_hud]:wpn_g3_pn23_hud
+item_visual							= dynamics\weapons\wpn_g3\wpn_g3_pn23_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+;	H&K G3SG1
+;-----------------------------------------------------------------------------
+[wpn_g3sg1]:wpn_g3
+visual								= dynamics\weapons\wpn_g3sg1\wpn_g3sg1.ogf
+$spawn								= "weapons\wpn_g3sg1"	; option for Level Editor
+inv_name							= st_wpn_g3sg1
+inv_name_short						= st_wpn_g3sg1
+description							= st_wpn_g3sg1_descr
+inv_weight							= 4.7
+inv_volume							= 5.7
+ph_mass								= 5
+cost								= 43000
+upgrades							= up_gr_firstab_g3sg1, up_gr_seconab_g3sg1, up_gr_thirdab_g3sg1, up_gr_fourtab_g3sg1, up_gr_fourtcd_g3sg1, up_gr_fourtef_g3sg1
+upgrade_scheme						= upgrade_scheme_fn2000
+magazine_sect						= mag_762x51_cnt_20_g3sg1
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.7, 0.7, 0.7, 0.7
+hit_impulse							= 38
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 850
+rpm									= 500
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_g3sg1_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.7
+misfire_end_condition				= 0.05
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0020
+condition_queue_shot_dec			= 0.0020
+;--дисперсия--------------------------------------------------------------------
+fire_dispersion_base				= 0.26
+control_inertion_factor				= 1.6f
+crosshair_inertion					= 5.6
+
+cam_dispersion						= 1.58
+cam_dispersion_inc					= 1.16
+cam_dispersion_frac					= 0.7
+cam_step_angle_horz					= 1.36
+
+zoom_cam_dispersion					= 1.18
+zoom_cam_dispersion_inc				= 0.96
+zoom_cam_step_angle_horz			= 1.24
+;-------------------------------------------------------------------------------
+inv_grid_x							= 30
+inv_grid_y							= 52
+upgr_icon_x							= 2050
+upgr_icon_y							= 0
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.125, 0.01
+orientation							= 0, 0, 0
+fire_point							= 0,0.188,0.630
+fire_point2							= 0,0.188,0.650
+;-------------------------------------------------------------------------------
+scope_inertion_factor				= 0.05
+scope_control_factor				= 0.1
+scope_lense_factor					= 3.8
+scope_zoom_factor					= 3.8
+scope_zoom_hud_fov					= 0.40
+scope_status						= 1
+scope_texture						= wpn_crosshair_mark4
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 128
+grenade_launcher_y					= 28
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--Магазины---------------------------------------------------------------------
+[mag_762x51_cnt_20_g3sg1]
+magazine_name						= magazine_762x51_cnt_20_3
+magazine_x							= 91
+magazine_y							= 47
+custom_icon 						= 6,3,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_g3sg1_hud]:wpn_g3_hud
+item_visual							= dynamics\weapons\wpn_g3sg1\wpn_g3sg1_hud.ogf
+shell_point							= 0.04019,0.08082,0.138035
+
+hands_position						= -0.10215,-0.149009,-0.030006
+hands_position_16x9					= -0.10215,-0.149009,-0.030006
+hands_orientation					= 1.801708,2.093628,0
+hands_orientation_16x9				= 1.801708,2.093628,0
+
+aim_hud_offset_pos					= -0.053250,-0.024905,-0.101415
+aim_hud_offset_pos_16x9				= -0.053250,-0.024905,-0.101415
+aim_hud_offset_rot					= 0.035358,0.049458,-0.006749
+aim_hud_offset_rot_16x9				= 0.035358,0.049458,-0.006749
+
+aim_hud_offset_pos_alt				= 0.0028,0.031075,0
+aim_hud_offset_pos_alt_16x9			= 0.0028,0.031075,0
+aim_hud_offset_rot_alt				= 0.001158,-0.018883,0
+aim_hud_offset_rot_alt_16x9			= 0.001158,-0.018883,0
+;-----------------------------------------------------------------------------
+;	H&K G3SG1 Worn
+;-----------------------------------------------------------------------------
+[wpn_g3sg1_worn]:wpn_g3sg1
+visual								= dynamics\weapons\wpn_g3sg1\wpn_g3sg1_sk1.ogf
+inv_name							= st_wpn_g3sg1_worn
+inv_name_short						= st_wpn_g3sg1_worn
+upgrades							= up_gr_firstab_g3sg1_worn, up_gr_seconab_g3sg1_worn, up_gr_thirdab_g3sg1_worn, up_gr_fourtab_g3sg1_worn, up_gr_fourtcd_g3sg1_worn, up_gr_fourtef_g3sg1_worn
+cost								= 35360
+hit_power							= 0.65, 0.65, 0.65, 0.65
+bullet_speed						= 817
+rpm									= 480
+hud									= wpn_g3sg1_sk1_hud
+misfire_start_condition				= 0.8
+misfire_end_condition				= 0.06
+condition_shot_dec					= 0.0022
+condition_queue_shot_dec			= 0.0022
+fire_dispersion_base				= 0.24
+inv_grid_y							= 54
+upgr_icon_x							= 300
+upgr_icon_y							= 1400
+
+[wpn_g3sg1_sk1_hud]:wpn_g3sg1_hud
+item_visual							= dynamics\weapons\wpn_g3sg1\wpn_g3sg1_sk1_hud.ogf

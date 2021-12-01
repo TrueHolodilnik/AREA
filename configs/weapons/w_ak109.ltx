@@ -1,0 +1,287 @@
+;----------------------------------------------------------------------------------------
+; AK-109 Added by Surs for A.R.E.A. (18.07.2018)
+;----------------------------------------------------------------------------------------
+[wpn_ak109]:default_weapon_params
+visual								= dynamics\weapons\wpn_ak109\wpn_ak109.ogf
+$spawn								= "weapons\ak-74"		; name and section in level editor
+$npc								= on
+class								= WP_AK74
+inv_name							= st_wpn_ak109
+inv_name_short						= st_wpn_ak109
+description							= st_wpn_ak109_descr
+heating_rates						= ak2
+parent_section						= wpn_ak109
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_7.62
+cost								= 48000
+weapon_class						= assault_rifle
+inv_weight							= 3.8
+inv_volume							= 5
+ph_mass								= 5
+upgrades							= up_gr_firstab_ak103, up_gr_seconab_ak103, up_gr_thirdab_ak103, up_gr_fourtab_ak103, up_gr_fifthab_ak103, up_gr_fifthcd_ak103
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_ak74
+;--ТТХ--------------------------------------------------------------------------
+hit_power							= 0.54, 0.54, 0.54, 0.54
+hit_impulse							= 27
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 750
+rpm									= 900
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_ak109_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.73
+misfire_end_condition				= 0.08
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0008
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= -1, 1
+magazine_sect						= mag_76239_30_ak109, mag_762x39_30_2_ak109, mag_762x39_30_3_ak109, mag_762x39_40_ak109, mag_762x39_40_2_ak109, mag_762x39_75_ak109
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot								= 2
+animation_slot						= 2
+;--Доф---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 4
+;--Дисперсия---------------------------------------------------------------------
+fire_dispersion_base				= 0.34
+control_inertion_factor				= 1.32f
+crosshair_inertion					= 5.6
+
+cam_return							= 0
+cam_relax_speed						= 10					; скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.93
+cam_dispersion_inc					= 0.65
+cam_dispersion_frac					= 1.1					; ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					; максимальный угол отдачи
+cam_max_angle_horz					= 50.0					; (degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.15					; (degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 10					; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.75
+zoom_cam_dispersion_inc				= 0.53
+zoom_cam_dispersion_frac			= 0.7
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.05
+
+PDM_disp_base						= 1.0
+PDM_disp_vel_factor					= 2.5
+PDM_disp_accel_factor				= 2.5
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+fire_dispersion_condition_factor	= 0.001
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.14, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.14, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.019, 0.009, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0, 0.040, 0.615
+fire_point2							= 0, 0.020, 0.562
+flame_particles						= weapons\new_effects\ak74
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= -0.02, 0.046, 0.125
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\762x39
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 35
+inv_grid_y							= 10
+
+upgr_icon_x							= 0
+upgr_icon_y							= 500
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 28
+kill_msg_width						= 84
+kill_msg_height						= 28
+;-------------------------------------------------------------------------------
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2						; 0 - no addon ; UPGRADABLE
+silencer_status						= 2						; 1 - permanent
+grenade_launcher_status				= 0						; 2 - attachable
+
+scopes								= pso; ac10632, ac11090, acog, aimpoint, coyote, eot, c-more, tars101, 1p29, kobra, pso
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 122
+grenade_launcher_y					= 22
+
+silencer_name						= wpn_sil_atg
+silencer_x							= 225
+silencer_y							= 12
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\ak101\ak101_holster
+snd_empty							= weapons\ak101\ak101_empty
+snd_draw							= weapons\ak101\ak101_draw
+snd_reload							= weapons\ak101\ak101_reload
+snd_shoot_grenade					= weapons\ak101\ak101_grenshoot
+snd_reload_grenade					= weapons\ak101\ak101_grenload	
+snd_shoot							= weapons\ak101\ak101_shoot_null
+snd_silencer_shot					= weapons\ak101\ak101_shot_sil_null
+snd_switch							= $no_sound
+snd_bore							= $no_sound
+;--Магазины---------------------------------------------------------------------
+[mag_76239_30_ak109]
+magazine_name						= magazine_762x39_cnt_30
+magazine_x							= 95
+magazine_y							= 43
+custom_icon 						= 0,7,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[mag_762x39_30_2_ak109]
+magazine_name						= magazine_762x39_cnt_30_2
+magazine_x							= 89
+magazine_y							= 33
+magazine_width						= 1.0
+magazine_height						= 1.1
+magazine_rotation					= 21
+;-------------------------------------------------------------------------------
+[mag_762x39_30_3_ak109]
+magazine_name						= magazine_762x39_cnt_30_3
+magazine_x							= 73
+magazine_y							= 30
+magazine_width						= 1.3
+magazine_height						= 1.2
+magazine_rotation					= 21
+;-------------------------------------------------------------------------------
+[mag_762x39_40_ak109]
+magazine_name						= magazine_762x39_cnt_40
+magazine_x							= 74
+magazine_y							= 29
+magazine_width						= 1.3
+magazine_height						= 1.2
+magazine_rotation					= 21
+;-------------------------------------------------------------------------------
+[mag_762x39_40_2_ak109]
+magazine_name						= magazine_762x39_cnt_40_2
+magazine_x							= 70
+magazine_y							= 31
+magazine_width						= 1.3
+magazine_height						= 1.1
+magazine_rotation					= 18
+;-------------------------------------------------------------------------------
+[mag_762x39_75_ak109]
+magazine_name						= magazine_762x39_cnt_75
+magazine_x							= 70
+magazine_y							= 31
+magazine_width						= 1.3
+magazine_height						= 1.1
+magazine_rotation					= 18
+;-------------------------------------------------------------------------------
+[wpn_ak109_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_ak109\wpn_ak109_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.007035,0.042895,-0.018035
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.038159,0.608368
+fire_bone							= wpn_body
+fire_point2							= 0,-0.011,0.553
+fire_bone2							= wpn_body
+
+item_position						= 0,0.004,0
+item_orientation					= -15.488927,-3.320898,367.220154
+
+hands_position						= -0.16806,-0.15074,-0.0381
+hands_position_16x9					= -0.16806,-0.15074,-0.0381
+hands_orientation					= -0.75,1.7,-4.2
+hands_orientation_16x9				= -0.75,1.7,-4.2
+
+aim_hud_offset_pos					= -0.0489,0.016515,-0.13
+aim_hud_offset_pos_16x9				= -0.0489,0.016515,-0.13
+aim_hud_offset_rot					= 0.02,-0.0002,-0.006
+aim_hud_offset_rot_16x9				= 0.02,-0.0002,-0.006
+
+gl_hud_offset_pos					= -0.0395,0.011,0
+gl_hud_offset_pos_16x9				= -0.0395,0.011,0
+gl_hud_offset_rot					= -0.087,-0.004,-0.02
+gl_hud_offset_rot_16x9				= -0.087,-0.004,-0.02
+
+anm_show							= lancew_ak101_draw
+anm_hide							= lancew_ak101_holster
+anm_idle							= lancew_ak101_idle
+anm_idle_sprint						= lancew_ak101_sprint
+anm_shots							= lancew_ak101_shoot, shoot
+anm_shots_empty						= lancew_ak101_idle
+anm_reload							= lancew_ak101_reload, reload
+anm_idle_aim						= lancew_ak101_idle_aim, idle_aim
+anm_bore							= lancew_ak101_no_reload
+anm_show_w_gl						= lancew_ak101_draw_w_gl
+anm_hide_w_gl						= lancew_ak101_holster_w_gl
+anm_idle_w_gl						= lancew_ak101_idle_w_gl
+anm_shots_w_gl						= lancew_ak101_shoot_w_gl, shoot
+anm_shots_w_gl_empty				= lancew_ak101_idle_w_gl
+anm_reload_w_gl						= lancew_ak101_reload_w_gl, reload
+anm_idle_w_gl_aim					= lancew_ak101_idle_aim_w_gl, idle_aim
+anm_idle_sprint_w_gl				= lancew_ak101_sprint
+anm_idle_moving						= lancew_ak101_moving
+anm_idle_moving_crouch				= lancew_ak101_moving, , 0.5
+anm_idle_moving_g					= lancew_ak101_moving_w_gl
+anm_idle_moving_crouch_g			= lancew_ak101_moving_w_gl, , 0.5
+anm_idle_moving_w_gl				= lancew_ak101_moving_w_gl
+anm_idle_moving_crouch_w_gl			= lancew_ak101_moving_w_gl, , 0.5
+anm_bore_w_gl						= lancew_ak101_no_reload_w_gl
+anm_switch_g						= lancew_ak101_no_reload_w_gl
+anm_switch							= lancew_ak101_no_reload_w_gl 
+anm_show_g							= lancew_ak101_draw_w_gl
+anm_hide_g							= lancew_ak101_holster_w_gl	
+anm_idle_g							= lancew_ak101_idle_w_gl
+anm_reload_g						= lancew_ak101_reload_g, reload_g
+anm_idle_g_aim						= lancew_ak101_idle_aim_w_gl
+anm_shots_g							= lancew_ak101_shoot_g, shoot_g
+anm_idle_sprint_g					= lancew_ak101_sprint
+anm_bore_g							= lancew_ak101_no_reload_w_gl
+
+;-----------------------------------------------------------------------------
+[wpn_ak109_pso]:wpn_ak109
+visual								= dynamics\weapons\wpn_ak109\wpn_ak109_pso.ogf
+scope_name							= pso
+scope_x								= 30
+scope_y								= 3
+hud									= wpn_ak109_pso1_hud
+
+[wpn_ak109_pso1_hud]:wpn_ak109_hud
+item_visual							= dynamics\weapons\wpn_ak109\wpn_ak109_pso_hud.ogf
+aim_hud_offset_pos					= -0.0687,0.0398,-0.10
+aim_hud_offset_pos_16x9				= -0.0687,0.0398,-0.10
+aim_hud_offset_rot					= 0.0225,-0.002,0.0075
+aim_hud_offset_rot_16x9				= 0.0225,-0.002,0.0075
+;-----------------------------------------------------------------------------

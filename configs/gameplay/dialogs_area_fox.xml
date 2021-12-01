@@ -1,0 +1,3592 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<			DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					A.R.E.A - DIALOG
+<				------ by Fox Fire -----
+<===========================================================-->
+<game_dialogs>
+	<!--=====Topor_start=====-->
+    <dialog id="Jeka_topor_start_and_Hi">
+        <phrase_list>
+            <phrase id="3">
+                <text>Jeka_topor_start_and_Hi_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="4">
+                <text>Jeka_topor_start_and_Hi_4</text>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>10</next>
+                <next>5</next>
+                <next>6</next>
+            </phrase>
+            <phrase id="6">
+                <text>Jeka_topor_start_and_Hi_6</text>
+                <has_info>topor_start</has_info>
+            </phrase>
+            <phrase id="5">
+                <text>Jeka_topor_start_and_Hi_5</text>
+                <has_info>topor_start</has_info>
+            </phrase>
+            <phrase id="10">
+                <text>Jeka_topor_start_and_Hi_10</text>
+                <has_info>topor_start</has_info>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="2">
+                <text>Jeka_topor_start_and_Hi_2</text>
+                <dont_has_info>topor_start</dont_has_info>
+                <give_info>topor_start</give_info>
+                <next>3</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+	
+	<!--=====Change_Faction=====-->
+	<dialog id="change_faction_to_killer">
+		<phrase_list>
+			<phrase id="5">
+				<text>change_faction_to_killer_5</text>
+				<next>7</next>
+				<next>9</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>change_faction_to_killer_10</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="13">
+				<text>change_faction_to_killer_13</text>
+			</phrase>
+			<phrase id="9">
+				<text>change_faction_to_killer_9</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="20">
+				<text>change_faction_to_killer_20</text>
+				<next>21</next>
+			</phrase>
+			<phrase id="21">
+				<text>change_faction_to_killer_21</text>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_killer_3</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_killer_2</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_killer_4</text>
+				<next>6</next>
+				<next>8</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_killer_7</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>14</next>
+			</phrase>
+			<phrase id="15">
+				<text>change_faction_to_killer_15</text>
+				<give_info>money_to_killer_2</give_info>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_killer_1</text>
+				<precondition>dialogs_area.prc_in_killer</precondition>
+				<dont_has_info>money_to_killer_1</dont_has_info>
+				<dont_has_info>money_to_killer_2</dont_has_info>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_killer_6</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>11</next>
+			</phrase>
+			<phrase id="19">
+				<text>change_faction_to_killer_19</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>11</next>
+			</phrase>
+			<phrase id="16">
+				<text>change_faction_to_killer_16</text>
+				<has_info>money_to_killer_1</has_info>
+				<next>19</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_killer_0</text>
+				<next>1</next>
+				<next>16</next>
+				<next>17</next>
+				<next>18</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_killer_8</text>
+				<next>12</next>
+			</phrase>
+			<phrase id="12">
+				<text>change_faction_to_killer_12</text>
+				<give_info>money_to_killer_1</give_info>
+			</phrase>
+			<phrase id="11">
+				<text>change_faction_to_killer_11</text>
+				<action>dialogs_area.in_killer</action>
+				<action>dialogs_area.take_10k</action>
+				<disable_info>money_to_killer_1</disable_info>
+			</phrase>
+			<phrase id="17">
+				<text>change_faction_to_killer_17</text>
+				<has_info>money_to_killer_2</has_info>
+				<next>22</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="22">
+				<text>change_faction_to_killer_22</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>14</next>
+			</phrase>
+			<phrase id="14">
+				<text>change_faction_to_killer_14</text>
+				<action>dialogs_area.in_killer</action>
+				<action>dialogs_area.take_10k</action>
+				<disable_info>money_to_killer_2</disable_info>
+			</phrase>
+			<phrase id="18">
+				<text>change_faction_to_killer_18</text>
+				<precondition>dialogs_area.stop_killer</precondition>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_csky">
+		<phrase_list>
+			<phrase id="2">
+				<text>change_faction_to_csky_2</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_csky_6</text>
+				<action>dialogs_area.in_csky</action>
+				<action>dialogs_area.take_10k</action>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_csky_3</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_csky_7</text>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_csky_4</text>
+				<next>8</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_csky_8</text>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_csky_5</text>
+				<precondition>dialogs_area.stop_csky</precondition>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_csky_1</text>
+				<precondition>dialogs_area.prc_in_csky</precondition>
+				<next>2</next>
+				<next>3</next>
+				<next>4</next>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_csky_0</text>
+				<next>1</next>
+				<next>5</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_dolg">
+		<phrase_list>
+			<phrase id="4">
+				<text>change_faction_to_dolg_4</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_dolg_6</text>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_dolg_3</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_dolg_5</text>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_dolg_7</text>
+				<action>dialogs_area.in_dolg</action>
+				<action>dialogs_area.take_10k</action>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_dolg_2</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>7</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_dolg_8</text>
+				<precondition>dialogs_area.stop_dolg</precondition>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_dolg_1</text>
+				<precondition>dialogs_area.prc_in_dolg</precondition>
+				<next>2</next>
+				<next>3</next>
+				<next>4</next>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_dolg_0</text>
+				<next>1</next>
+				<next>8</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_freedom">
+		<phrase_list>
+			<phrase id="6">
+				<text>change_faction_to_freedom_6</text>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_freedom_3</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_freedom_7</text>
+				<next>8</next>
+				<next>9</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_freedom_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="11">
+				<text>change_faction_to_freedom_11</text>
+				<action>dialogs_area.in_freedom</action>
+				<action>dialogs_area.take_10k</action>
+				<action>dialogs_area.welcome_to_freedom</action>
+				<disable_info>money_to_freedom</disable_info>
+			</phrase>
+			<phrase id="9">
+				<text>change_faction_to_freedom_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>change_faction_to_freedom_10</text>
+				<give_info>money_to_freedom</give_info>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_freedom_4</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_freedom_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="13">
+				<text>change_faction_to_freedom_13</text>
+				<precondition>dialogs_area.stop_freedom</precondition>
+			</phrase>
+			<phrase id="12">
+				<text>change_faction_to_freedom_12</text>
+				<has_info>money_to_freedom</has_info>
+				<next>8</next>
+				<next>9</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_freedom_8</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>11</next>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_freedom_0</text>
+				<next>1</next>
+				<next>12</next>
+				<next>13</next>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_freedom_1</text>
+				<precondition>dialogs_area.prc_in_freedom</precondition>
+				<dont_has_info>money_to_freedom</dont_has_info>
+				<next>2</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_ecolog">
+		<phrase_list>
+			<phrase id="6">
+				<text>change_faction_to_ecolog_6</text>
+				<precondition>dialogs_area.stop_ecolog</precondition>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_ecolog_2</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_ecolog_5</text>
+				<action>dialogs_area.in_ecolog</action>
+				<action>dialogs_area.take_10k</action>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_ecolog_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_ecolog_4</text>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_ecolog_0</text>
+				<next>1</next>
+				<next>6</next>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_ecolog_1</text>
+				<precondition>dialogs_area.prc_in_ecolog</precondition>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_bandit">
+		<phrase_list>
+			<phrase id="15">
+				<text>change_faction_to_bandit_15</text>
+				<next>16</next>
+			</phrase>
+			<phrase id="16">
+				<text>change_faction_to_bandit_16</text>
+				<next>17</next>
+				<next>18</next>
+			</phrase>
+			<phrase id="25">
+				<text>change_faction_to_bandit_25</text>
+				<has_info>10k</has_info>
+				<next>20</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="24">
+				<text>change_faction_to_bandit_24</text>
+				<has_info>20k</has_info>
+				<next>11</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_bandit_2</text>
+				<precondition>dialogs_area.stop_bandit</precondition>
+				<dont_has_info>20k</dont_has_info>
+				<dont_has_info>10k</dont_has_info>
+			</phrase>
+			<phrase id="20">
+				<text>change_faction_to_bandit_20</text>
+				<next>23</next>
+			</phrase>
+			<phrase id="21">
+				<text>change_faction_to_bandit_21</text>
+				<next>22</next>
+			</phrase>
+			<phrase id="22">
+				<text>change_faction_to_bandit_22</text>
+				<give_info>10k</give_info>
+			</phrase>
+			<phrase id="23">
+				<text>change_faction_to_bandit_23</text>
+				<action>dialogs_area.in_bandit</action>
+				<action>dialogs_area.take_10k</action>
+				<disable_info>10k</disable_info>
+			</phrase>
+			<phrase id="11">
+				<text>change_faction_to_bandit_11</text>
+				<precondition>dialogs_area.have_20k</precondition>
+				<next>14</next>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_bandit_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_bandit_4</text>
+				<next>6</next>
+				<next>5</next>
+				<next>26</next>
+			</phrase>
+			<phrase id="12">
+				<text>change_faction_to_bandit_12</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="14">
+				<text>change_faction_to_bandit_14</text>
+				<action>dialogs_area.in_bandit</action>
+				<action>dialogs_area.take_20k</action>
+				<disable_info>20k</disable_info>
+			</phrase>
+			<phrase id="13">
+				<text>change_faction_to_bandit_13</text>
+				<give_info>20k</give_info>
+			</phrase>
+			<phrase id="10">
+				<text>change_faction_to_bandit_10</text>
+				<next>11</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_bandit_6</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_bandit_5</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="27">
+				<text>change_faction_to_bandit_27</text>
+			</phrase>
+			<phrase id="26">
+				<text>change_faction_to_bandit_26</text>
+				<next>27</next>
+			</phrase>
+			<phrase id="9">
+				<text>change_faction_to_bandit_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_bandit_7</text>
+				<next>8</next>
+				<next>9</next>
+				<next>26</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_bandit_8</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_bandit_1</text>
+				<precondition>dialogs_area.prc_in_bandit</precondition>
+				<dont_has_info>20k</dont_has_info>
+				<dont_has_info>10k</dont_has_info>
+				<next>3</next>
+			</phrase>
+			<phrase id="18">
+				<text>change_faction_to_bandit_18</text>
+				<next>20</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="17">
+				<text>change_faction_to_bandit_17</text>
+				<next>19</next>
+			</phrase>
+			<phrase id="19">
+				<text>change_faction_to_bandit_19</text>
+				<action>dialogs_area.prove_your_words_bandit</action>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_bandit_0</text>
+				<next>1</next>
+				<next>2</next>
+				<next>24</next>
+				<next>25</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_army">
+		<phrase_list>
+			<phrase id="1">
+				<text>change_faction_to_army_1</text>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_army_7</text>
+				<precondition>dialogs_area.stop_army</precondition>
+			</phrase>
+			<phrase id="3">
+				<text>change_faction_to_army_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_army_2</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_army_5</text>
+				<action>dialogs_area.in_army</action>
+				<action>dialogs_area.take_10k</action>
+				<disable_info>money_to_army</disable_info>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_army_4</text>
+				<give_info>money_to_army</give_info>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_army_0</text>
+				<next>1</next>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_army_6</text>
+				<has_info>money_to_army</has_info>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_loner">
+		<phrase_list>
+			<phrase id="3">
+				<text>change_faction_to_loner_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_loner_7</text>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_loner_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="9">
+				<text>change_faction_to_loner_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>change_faction_to_loner_10</text>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_loner_4</text>
+				<next>5</next>
+				<next>6</next>
+				<next>9</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_loner_5</text>
+				<precondition>dialogs_area.have_10k</precondition>
+				<next>8</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_loner_2</text>
+				<precondition>dialogs_area.stop_stalker</precondition>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_loner_1</text>
+				<precondition>dialogs_area.prc_in_stalker</precondition>
+				<next>3</next>
+			</phrase>
+			<phrase id="8">
+				<text>change_faction_to_loner_8</text>
+				<action>dialogs_area.in_loner</action>
+				<action>dialogs_area.take_10k</action>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_loner_0</text>
+				<next>1</next>
+				<next>2</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="change_faction_to_monolith">
+		<phrase_list>
+			<phrase id="3">
+				<text>change_faction_to_monolith_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="0">
+				<text>change_faction_to_monolith_0</text>
+				<next>1</next>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="2">
+				<text>change_faction_to_monolith_2</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="6">
+				<text>change_faction_to_monolith_6</text>
+				<has_info>money_to_monolith</has_info>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="7">
+				<text>change_faction_to_monolith_7</text>
+				<precondition>dialogs_area.stop_monolith</precondition>
+			</phrase>
+			<phrase id="1">
+				<text>change_faction_to_monolith_1</text>
+				<precondition>dialogs_area.prc_in_monolith</precondition>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="5">
+				<text>change_faction_to_monolith_5</text>
+				<action>dialogs_area.in_monolith</action>
+				<action>dialogs_area.take_10k</action>
+				<disable_info>money_to_monolith</disable_info>
+			</phrase>
+			<phrase id="4">
+				<text>change_faction_to_monolith_4</text>
+				<give_info>money_to_monolith</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	<!--=====Tech_trade=====-->
+	<dialog id="tech_trade">
+		<precondition>area_utils.if_actor_have_neutral_relation</precondition>
+        <init_func>dialog_manager.dm_trade_add</init_func>
+	</dialog>
+	<!--=====Sim_drnk=====-->
+	<dialog id="drink_with_me">
+		<dont_has_info>repead_drink</dont_has_info>
+		<phrase_list>
+			<phrase id="21">
+				<text>drink_with_me_21</text>
+				<next>4</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="19">
+				<text>drink_with_me_19</text>
+				<next>23</next>
+				<next>27</next>
+			</phrase>
+			<phrase id="23">
+				<text>drink_with_me_23</text>
+				<next>24</next>
+			</phrase>
+			<phrase id="27">
+				<text>drink_with_me_27</text>
+				<next>24</next>
+			</phrase>
+			<phrase id="26">
+				<text>drink_with_me_26</text>
+				<action>dialogs_area.fight_me_bitch</action>
+				<action>xr_effects.repeat_drink_timer</action>
+			</phrase>
+			<phrase id="18">
+				<text>drink_with_me_18</text>
+				<give_info>repead_drink</give_info>
+				<next>19</next>
+				<next>26</next>
+			</phrase>
+			<phrase id="35">
+				<text>drink_with_me_35</text>
+				<action>xr_effects.repeat_drink_timer</action>
+			</phrase>
+			<phrase id="33">
+				<text>drink_with_me_33</text>
+				<next>34</next>
+			</phrase>
+			<phrase id="34">
+				<text>drink_with_me_34</text>
+				<dont_has_info>barsyk_01</dont_has_info>
+				<give_info>barsyk_01</give_info>
+			</phrase>
+			<phrase id="20">
+				<text>drink_with_me_20</text>
+				<action>xr_effects.repeat_drink_timer</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="52">
+				<text>drink_with_me_52</text>
+				<next>53</next>
+			</phrase>
+			<phrase id="53">
+				<text>drink_with_me_53</text>
+				<next>24</next>
+			</phrase>
+			<phrase id="24">
+				<text>drink_with_me_24</text>
+				<action>dialogs_area.fight_me_bitch</action>
+				<action>xr_effects.repeat_drink_timer</action>
+			</phrase>
+			<phrase id="51">
+				<text>drink_with_me_51</text>
+				<next>4</next>
+				<next>52</next>
+			</phrase>
+			<phrase id="50">
+				<text>drink_with_me_50</text>
+				<next>51</next>
+			</phrase>
+			<phrase id="22">
+				<text>drink_with_me_22</text>
+				<action>xr_effects.repeat_drink_timer</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="5">
+				<text>drink_with_me_5</text>
+			</phrase>
+			<phrase id="32">
+				<text>drink_with_me_32</text>
+				<action>dialogs_mlr.inf_trader_sell_stashes_funct</action>
+				<give_info>repead_drink</give_info>
+				<has_info>grabbed</has_info>
+				<next>35</next>
+			</phrase>
+			<phrase id="36">
+				<text>drink_with_me_36</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="38">
+				<text>drink_with_me_38</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="47">
+				<text>drink_with_me_47</text>
+				<dont_has_info>maniac_01</dont_has_info>
+				<give_info>maniac_01</give_info>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+				<next>50</next>
+			</phrase>
+			<phrase id="48">
+				<text>drink_with_me_48</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="15">
+				<text>drink_with_me_15</text>
+				<action>dialogs_mlr.inf_trader_sell_stashes_funct</action>
+				<give_info>repead_drink</give_info>
+				<has_info>grabbed</has_info>
+				<next>35</next>
+			</phrase>
+			<phrase id="28">
+				<text>drink_with_me_28</text>
+				<action>dialogs_mlr.inf_trader_sell_stashes_funct</action>
+				<give_info>repead_drink</give_info>
+				<has_info>grabbed</has_info>
+				<next>35</next>
+			</phrase>
+			<phrase id="14">
+				<text>drink_with_me_14</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="30">
+				<text>drink_with_me_30</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="49">
+				<text>drink_with_me_49</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="37">
+				<text>drink_with_me_37</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="31">
+				<text>drink_with_me_31</text>
+				<action>dialogs_mlr.inf_trader_sell_stashes_funct</action>
+				<action>xr_effects.cash_reward_11</action>
+				<action>xr_effects.repeat_drink_timer</action>
+				<give_info>repead_drink</give_info>
+				<has_info>grabbed</has_info>
+				<next>33</next>
+			</phrase>
+			<phrase id="29">
+				<text>drink_with_me_29</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="16">
+				<text>drink_with_me_16</text>
+				<action>dialogs_mlr.inf_trader_sell_stashes_funct</action>
+				<give_info>repead_drink</give_info>
+				<has_info>grabbed</has_info>
+				<next>35</next>
+			</phrase>
+			<phrase id="13">
+				<text>drink_with_me_13</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="63">
+				<text>drink_with_me_63</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="64">
+				<text>drink_with_me_64</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="65">
+				<text>drink_with_me_65</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="66">
+				<text>drink_with_me_66</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="67">
+				<text>drink_with_me_67</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="68">
+				<text>drink_with_me_68</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="69">
+				<text>drink_with_me_69</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="17">
+				<text>drink_with_me_17</text>
+				<action>xr_effects.repeat_drink_timer</action>
+				<next>18</next>
+				<next>20</next>
+				<next>22</next>
+			</phrase>
+			<phrase id="25">
+				<text>drink_with_me_25</text>
+				<precondition>dialogs_area.actor_precond_eat</precondition>
+				<action>dialogs_area.actor_transfer_food</action>
+				<action>dialogs_area.food_eat</action>
+				<next>21</next>
+			</phrase>
+			<phrase id="12">
+				<text>drink_with_me_12</text>
+				<give_info>grabbed</give_info>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="62">
+				<text>drink_with_me_62</text>
+				<next>4</next>
+				<next>25</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="11">
+				<text>drink_with_me_11</text>
+				<action>dialogs_area.drink_eat</action>
+				<action>dialogs_area.i_drunk</action>
+				<next>12</next>
+				<next>13</next>
+				<next>14</next>
+				<next>15</next>
+				<next>16</next>
+				<next>28</next>
+				<next>29</next>
+				<next>30</next>
+				<next>31</next>
+				<next>32</next>
+				<next>36</next>
+				<next>37</next>
+				<next>38</next>
+				<next>47</next>
+				<next>48</next>
+				<next>49</next>
+				<next>62</next>
+				<next>63</next>
+				<next>64</next>
+				<next>65</next>
+				<next>66</next>
+				<next>67</next>
+				<next>68</next>
+				<next>69</next>
+			</phrase>
+			<phrase id="6">
+				<text>drink_with_me_6</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="7">
+				<text>drink_with_me_7</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="8">
+				<text>drink_with_me_8</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="9">
+				<text>drink_with_me_9</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="10">
+				<text>drink_with_me_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="39">
+				<text>drink_with_me_39</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="40">
+				<text>drink_with_me_40</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="41">
+				<text>drink_with_me_41</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="42">
+				<text>drink_with_me_42</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="43">
+				<text>drink_with_me_43</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="44">
+				<text>drink_with_me_44</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="45">
+				<text>drink_with_me_45</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="46">
+				<text>drink_with_me_46</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="70">
+				<text>drink_with_me_70</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="71">
+				<text>drink_with_me_71</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="72">
+				<text>drink_with_me_72</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="73">
+				<text>drink_with_me_73</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="74">
+				<text>drink_with_me_74</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="75">
+				<text>drink_with_me_75</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="76">
+				<text>drink_with_me_76</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="77">
+				<text>drink_with_me_77</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="78">
+				<text>drink_with_me_78</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="79">
+				<text>drink_with_me_79</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="80">
+				<text>drink_with_me_80</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="4">
+				<text>drink_with_me_4</text>
+				<precondition>dialogs_area.actor_precond_drink</precondition>
+				<action>dialogs_area.actor_transfer_drink</action>
+				<next>6</next>
+				<next>7</next>
+				<next>8</next>
+				<next>9</next>
+				<next>10</next>
+				<next>39</next>
+				<next>40</next>
+				<next>41</next>
+				<next>42</next>
+				<next>43</next>
+				<next>44</next>
+				<next>45</next>
+				<next>46</next>
+				<next>70</next>
+				<next>71</next>
+				<next>72</next>
+				<next>73</next>
+				<next>74</next>
+				<next>75</next>
+				<next>76</next>
+				<next>77</next>
+				<next>78</next>
+				<next>79</next>
+				<next>80</next>
+			</phrase>
+			<phrase id="0">
+				<text>drink_with_me_0</text>
+				<next>1</next>
+				<next>2</next>
+				<next>3</next>
+				<next>54</next>
+				<next>55</next>
+				<next>56</next>
+				<next>57</next>
+				<next>58</next>
+				<next>59</next>
+				<next>60</next>
+				<next>61</next>
+			</phrase>
+			<phrase id="2">
+				<text>drink_with_me_2</text>
+				<action>xr_effects.repeat_drink_timer_false</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="3">
+				<text>drink_with_me_3</text>
+				<action>xr_effects.repeat_drink_timer_false</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="54">
+				<text>drink_with_me_54</text>
+				<action>xr_effects.repeat_drink_timer_false</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="55">
+				<text>drink_with_me_55</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="56">
+				<text>drink_with_me_56</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="57">
+				<text>drink_with_me_57</text>
+				<action>xr_effects.repeat_drink_timer_false</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="58">
+				<text>drink_with_me_58</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="59">
+				<text>drink_with_me_59</text>
+				<action>xr_effects.repeat_drink_timer_false</action>
+				<give_info>repead_drink</give_info>
+			</phrase>
+			<phrase id="60">
+				<text>drink_with_me_60</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="61">
+				<text>drink_with_me_61</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+			<phrase id="1">
+				<text>drink_with_me_1</text>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<!--=====Fake_DTK=====-->
+	<dialog id="detector_repair_uni">
+		<phrase_list>
+			<phrase id="5">
+				<text>detector_repair_uni_5</text>
+				<next>6</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_uni_1</text>
+				<next>6</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="3">
+				<text>detector_repair_uni_3</text>
+				<next>6</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="2">
+				<text>detector_repair_uni_2</text>
+				<next>6</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="4">
+				<text>detector_repair_uni_4</text>
+				<next>6</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_uni_10</text>
+			</phrase>
+			<phrase id="9">
+				<text>detector_repair_uni_9</text>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_uni_6</text>
+				<precondition>dialogs_area.detector_repair_uni</precondition>
+				<next>7</next>
+				<next>8</next>
+				<next>9</next>
+				<next>10</next>
+				<next>11</next>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_uni_12</text>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_uni_11</text>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_uni_7</text>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_uni_8</text>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_uni_0</text>
+				<next>1</next>
+				<next>2</next>
+				<next>3</next>
+				<next>4</next>
+				<next>5</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_bandit_meh_teh_advn_done">
+        <has_info>advanced_done</has_info>
+		<phrase_list>
+			<phrase id="9">
+				<text>detector_repair_bandit_meh_teh_advn_done_9</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="25">
+				<text>detector_repair_bandit_meh_teh_advn_done_25</text>
+				<next>26</next>
+			</phrase>
+			<phrase id="23">
+				<text>detector_repair_bandit_meh_teh_advn_done_23</text>
+				<next>27</next>
+			</phrase>
+			<phrase id="27">
+				<text>detector_repair_bandit_meh_teh_advn_done_27</text>
+				<next>28</next>
+				<next>29</next>
+			</phrase>
+			<phrase id="22">
+				<text>detector_repair_bandit_meh_teh_advn_done_22</text>
+				<next>25</next>
+			</phrase>
+			<phrase id="29">
+				<text>detector_repair_bandit_meh_teh_advn_done_29</text>
+				<next>30</next>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_bandit_meh_teh_advn_done_10</text>
+				<action>xr_effects.dtkt_no_money_advn_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_bandit_meh_teh_advn_done_11</text>
+				<action>xr_effects.dtkt_no_money_advn_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_bandit_meh_teh_advn_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="28">
+				<text>detector_repair_bandit_meh_teh_advn_done_28</text>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+				<disable_info>advanced_done</disable_info>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_bandit_meh_teh_advn_done_12</text>
+				<action>dialogs_area.give_actor_dtkt_advn</action>
+				<action>dialogs_area.drink_random</action>
+                <dont_has_info>no_money</dont_has_info>
+				<next>14</next>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_bandit_meh_teh_advn_done_8</text>
+				<action>xr_effects.dtkt_no_money_advn_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="30">
+				<text>detector_repair_bandit_meh_teh_advn_done_30</text>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+				<disable_info>advanced_done</disable_info>
+			</phrase>
+			<phrase id="14">
+				<text>detector_repair_bandit_meh_teh_advn_done_14</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="15">
+				<text>detector_repair_bandit_meh_teh_advn_done_15</text>
+				<disable_info>advanced_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_bandit_meh_teh_advn_done_7</text>
+				<next>8</next>
+				<next>10</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="19">
+				<text>detector_repair_bandit_meh_teh_advn_done_19</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>22</next>
+				<next>23</next>
+			</phrase>
+			<phrase id="18">
+				<text>detector_repair_bandit_meh_teh_advn_done_18</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="26">
+				<text>detector_repair_bandit_meh_teh_advn_done_26</text>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+				<disable_info>advanced_done</disable_info>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_bandit_meh_teh_advn_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_bandit_meh_teh_advn_done_6</text>
+				<precondition>dialogs_area.u_have_money_04</precondition>
+				<action>dialogs_area.give_actor_dtkt_advn</action>
+				<action>dialogs_area.give_me_money_detc_advn_2</action>
+				<disable_info>advanced_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_bandit_meh_teh_advn_done_17</text>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_bandit_meh_teh_advn_done_21</text>
+			</phrase>
+			<phrase id="13">
+				<text>detector_repair_bandit_meh_teh_advn_done_13</text>
+				<action>xr_effects.dtkt_no_money_advn_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_bandit_meh_teh_advn_done_20</text>
+				<has_info>no_money</has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_bandit_meh_teh_advn_done_0</text>
+				<next>1</next>
+				<next>18</next>
+				<next>19</next>
+				<next>20</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_scientist_teh">
+        <dont_has_info>repair_start</dont_has_info>
+		<phrase_list>
+			<phrase id="5">
+				<text>detector_repair_scientist_teh_5</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_scientist_teh_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_scientist_teh_11</text>
+			</phrase>
+			<phrase id="4">
+				<text>detector_repair_scientist_teh_4</text>
+				<precondition>dialogs_area.detector_repair_uni</precondition>
+                <dont_has_info>repair_start</dont_has_info>
+				<next>5</next>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_scientist_teh_21</text>
+			</phrase>
+			<phrase id="22">
+				<text>detector_repair_scientist_teh_22</text>
+			</phrase>
+			<phrase id="23">
+				<text>detector_repair_scientist_teh_23</text>
+			</phrase>
+			<phrase id="14">
+				<text>detector_repair_scientist_teh_14</text>
+				<next>15</next>
+				<next>16</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="15">
+				<text>detector_repair_scientist_teh_15</text>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_scientist_teh_16</text>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_scientist_teh_17</text>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_scientist_teh_1</text>
+				<next>4</next>
+				<next>20</next>
+				<next>14</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_scientist_teh_6</text>
+				<precondition>dialogs_area.simple_slom_1_prec</precondition>
+				<next>8</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_scientist_teh_7</text>
+				<precondition>dialogs_area.advanced_slom_1_prec</precondition>
+				<next>12</next>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_scientist_teh_8</text>
+				<next>9</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_scientist_teh_12</text>
+				<next>13</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="9">
+				<text>detector_repair_scientist_teh_9</text>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.simple_slom_1_take</action>
+				<action>xr_effects.dtkt_smpl_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_smpl_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="13">
+				<text>detector_repair_scientist_teh_13</text>
+				<precondition>dialogs_area.u_have_money_03</precondition>
+				<action>dialogs_area.advanced_slom_1_take</action>
+				<action>xr_effects.dtkt_advn_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_advn_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_scientist_teh_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_scientist_teh_20</text>
+				<precondition>dialogs_area.detector_repair_uni_drova</precondition>
+				<next>21</next>
+				<next>22</next>
+				<next>23</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_scientist_meh_teh_smpl_done">
+        <has_info>simple_done</has_info>
+		<phrase_list>
+			<phrase id="6">
+				<text>detector_repair_scientist_meh_teh_smpl_done_6</text>
+				<precondition>dialogs_area.u_have_money_02</precondition>
+				<action>dialogs_area.give_me_money_detc_smpl_2</action>
+				<action>dialogs_area.give_actor_dtkt_smpl</action>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_scientist_meh_teh_smpl_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_scientist_meh_teh_smpl_done_7</text>
+				<next>8</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_scientist_meh_teh_smpl_done_20</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_scientist_meh_teh_smpl_done_17</text>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_scientist_meh_teh_smpl_done_21</text>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_scientist_meh_teh_smpl_done_8</text>
+				<action>xr_effects.dtkt_no_money_smpl_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_scientist_meh_teh_smpl_done_0</text>
+				<next>1</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_scientist_meh_teh_smpl_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_scientist_meh_teh_advn_done">
+        <has_info>advanced_done</has_info>
+		<phrase_list>
+			<phrase id="6">
+				<text>detector_repair_scientist_meh_teh_advn_done_6</text>
+				<precondition>dialogs_area.u_have_money_04</precondition>
+				<action>dialogs_area.give_actor_dtkt_advn</action>
+				<action>dialogs_area.give_me_money_detc_advn_2</action>
+				<disable_info>advanced_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_scientist_meh_teh_advn_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_scientist_meh_teh_advn_done_7</text>
+				<next>8</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_scientist_meh_teh_advn_done_17</text>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_scientist_meh_teh_advn_done_21</text>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_scientist_meh_teh_advn_done_8</text>
+				<action>xr_effects.dtkt_no_money_advn_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_scientist_meh_teh_advn_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_scientist_meh_teh_advn_done_0</text>
+				<next>1</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_scientist_meh_teh_advn_done_20</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_monolith_teh_advn_done">
+        <has_info>advanced_done</has_info>
+		<phrase_list>
+			<phrase id="21">
+				<text>detector_repair_monolith_teh_advn_done_21</text>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_monolith_teh_advn_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_monolith_teh_advn_done_17</text>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_monolith_teh_advn_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_monolith_teh_advn_done_0</text>
+				<next>1</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_monolith_teh_advn_done_20</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_monolith_teh_advn_done_6</text>
+				<precondition>dialogs_area.u_have_money_04</precondition>
+				<action>dialogs_area.give_actor_dtkt_advn</action>
+				<action>dialogs_area.give_me_money_detc_advn_2</action>
+				<disable_info>advanced_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_monolith_teh_advn_done_7</text>
+				<next>8</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_monolith_teh_advn_done_8</text>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_bandit_meh_teh_smpl_done">
+        <has_info>simple_done</has_info>
+		<phrase_list>
+			<phrase id="9">
+				<text>detector_repair_bandit_meh_teh_smpl_done_9</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_bandit_meh_teh_smpl_done_10</text>
+				<action>xr_effects.dtkt_no_money_smpl_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="25">
+				<text>detector_repair_bandit_meh_teh_smpl_done_25</text>
+				<next>26</next>
+			</phrase>
+			<phrase id="27">
+				<text>detector_repair_bandit_meh_teh_smpl_done_27</text>
+				<next>28</next>
+				<next>29</next>
+			</phrase>
+			<phrase id="22">
+				<text>detector_repair_bandit_meh_teh_smpl_done_22</text>
+				<next>25</next>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_bandit_meh_teh_smpl_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_bandit_meh_teh_smpl_done_21</text>
+			</phrase>
+			<phrase id="26">
+				<text>detector_repair_bandit_meh_teh_smpl_done_26</text>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+			</phrase>
+			<phrase id="23">
+				<text>detector_repair_bandit_meh_teh_smpl_done_23</text>
+				<next>27</next>
+			</phrase>
+			<phrase id="28">
+				<text>detector_repair_bandit_meh_teh_smpl_done_28</text>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+			</phrase>
+			<phrase id="29">
+				<text>detector_repair_bandit_meh_teh_smpl_done_29</text>
+				<next>30</next>
+			</phrase>
+			<phrase id="30">
+				<text>detector_repair_bandit_meh_teh_smpl_done_30</text>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+			</phrase>
+			<phrase id="14">
+				<text>detector_repair_bandit_meh_teh_smpl_done_14</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="15">
+				<text>detector_repair_bandit_meh_teh_smpl_done_15</text>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<disable_info>repair_start</disable_info>
+			</phrase>
+			<phrase id="19">
+				<text>detector_repair_bandit_meh_teh_smpl_done_19</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>22</next>
+				<next>23</next>
+			</phrase>
+			<phrase id="18">
+				<text>detector_repair_bandit_meh_teh_smpl_done_18</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_bandit_meh_teh_smpl_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_bandit_meh_teh_smpl_done_6</text>
+				<precondition>dialogs_area.u_have_money_02</precondition>
+				<action>dialogs_area.give_me_money_detc_smpl_2</action>
+				<action>dialogs_area.give_actor_dtkt_smpl</action>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_bandit_meh_teh_smpl_done_7</text>
+				<next>8</next>
+				<next>10</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_bandit_meh_teh_smpl_done_17</text>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_bandit_meh_teh_smpl_done_12</text>
+				<action>dialogs_area.give_actor_dtkt_smpl</action>
+				<action>dialogs_area.drink_random</action>
+                <dont_has_info>no_money</dont_has_info>
+				<next>14</next>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_bandit_meh_teh_smpl_done_11</text>
+				<action>xr_effects.dtkt_no_money_smpl_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="13">
+				<text>detector_repair_bandit_meh_teh_smpl_done_13</text>
+				<action>xr_effects.dtkt_no_money_smpl_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_bandit_meh_teh_smpl_done_20</text>
+				<has_info>no_money</has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_bandit_meh_teh_smpl_done_0</text>
+				<next>1</next>
+				<next>18</next>
+				<next>19</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_bandit_meh_teh_smpl_done_8</text>
+				<action>xr_effects.dtkt_no_money_smpl_timer</action>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_monolith_teh_smpl_done">
+        <has_info>simple_done</has_info>
+		<phrase_list>
+			<phrase id="17">
+				<text>detector_repair_monolith_teh_smpl_done_17</text>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_monolith_teh_smpl_done_1</text>
+				<disable_info>repair_start</disable_info>
+                <dont_has_info>no_money</dont_has_info>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_monolith_teh_smpl_done_6</text>
+				<precondition>dialogs_area.u_have_money_02</precondition>
+				<action>dialogs_area.give_me_money_detc_smpl_2</action>
+				<action>dialogs_area.give_actor_dtkt_smpl</action>
+				<disable_info>simple_done</disable_info>
+				<disable_info>no_money</disable_info>
+				<next>17</next>
+				<next>21</next>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_monolith_teh_smpl_done_21</text>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_monolith_teh_smpl_done_7</text>
+				<next>8</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_monolith_teh_smpl_done_16</text>
+				<has_info>no_money</has_info>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_monolith_teh_smpl_done_20</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_monolith_teh_smpl_done_0</text>
+				<next>1</next>
+				<next>20</next>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_monolith_teh_smpl_done_8</text>
+                <dont_has_info>no_money</dont_has_info>
+				<give_info>no_money</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_bandit_teh">
+        <dont_has_info>repair_start</dont_has_info>
+		<phrase_list>
+			<phrase id="18">
+				<text>detector_repair_bandit_teh_18</text>
+			</phrase>
+			<phrase id="19">
+				<text>detector_repair_bandit_teh_19</text>
+			</phrase>
+			<phrase id="2">
+				<text>detector_repair_bandit_teh_2</text>
+				<next>4</next>
+				<next>20</next>
+				<next>14</next>
+			</phrase>
+			<phrase id="3">
+				<text>detector_repair_bandit_teh_3</text>
+				<next>4</next>
+				<next>20</next>
+				<next>14</next>
+			</phrase>
+			<phrase id="9">
+				<text>detector_repair_bandit_teh_9</text>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.simple_slom_1_take</action>
+				<action>xr_effects.dtkt_smpl_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_smpl_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_bandit_teh_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_bandit_teh_11</text>
+			</phrase>
+			<phrase id="5">
+				<text>detector_repair_bandit_teh_5</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="4">
+				<text>detector_repair_bandit_teh_4</text>
+				<precondition>dialogs_area.detector_repair_uni</precondition>
+                <dont_has_info>repair_start</dont_has_info>
+				<next>5</next>
+			</phrase>
+			<phrase id="14">
+				<text>detector_repair_bandit_teh_14</text>
+				<next>15</next>
+				<next>16</next>
+				<next>17</next>
+				<next>18</next>
+				<next>19</next>
+			</phrase>
+			<phrase id="17">
+				<text>detector_repair_bandit_teh_17</text>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_bandit_teh_8</text>
+				<next>9</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_bandit_teh_6</text>
+				<precondition>dialogs_area.simple_slom_1_prec</precondition>
+				<next>8</next>
+			</phrase>
+			<phrase id="22">
+				<text>detector_repair_bandit_teh_22</text>
+			</phrase>
+			<phrase id="23">
+				<text>detector_repair_bandit_teh_23</text>
+			</phrase>
+			<phrase id="15">
+				<text>detector_repair_bandit_teh_15</text>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_bandit_teh_16</text>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_bandit_teh_21</text>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_bandit_teh_12</text>
+				<next>13</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="13">
+				<text>detector_repair_bandit_teh_13</text>
+				<precondition>dialogs_area.u_have_money_03</precondition>
+				<action>dialogs_area.advanced_slom_1_take</action>
+				<action>xr_effects.dtkt_advn_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_advn_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="1">
+				<text>detector_repair_bandit_teh_1</text>
+				<next>4</next>
+				<next>20</next>
+				<next>14</next>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_bandit_teh_20</text>
+				<precondition>dialogs_area.detector_repair_uni_drova</precondition>
+                <dont_has_info>repair_start</dont_has_info>
+				<next>21</next>
+				<next>22</next>
+				<next>23</next>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_bandit_teh_0</text>
+				<next>1</next>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_bandit_teh_7</text>
+				<precondition>dialogs_area.advanced_slom_1_prec</precondition>
+				<next>12</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="detector_repair_monolith_teh">
+        <dont_has_info>repair_start</dont_has_info>
+		<phrase_list>
+			<phrase id="1">
+				<text>detector_repair_monolith_teh_1</text>
+				<next>4</next>
+				<next>20</next>
+				<next>14</next>
+			</phrase>
+			<phrase id="4">
+				<text>detector_repair_monolith_teh_4</text>
+				<precondition>dialogs_area.detector_repair_uni</precondition>
+                <dont_has_info>repair_start</dont_has_info>
+				<next>5</next>
+			</phrase>
+			<phrase id="5">
+				<text>detector_repair_monolith_teh_5</text>
+				<next>6</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="6">
+				<text>detector_repair_monolith_teh_6</text>
+				<precondition>dialogs_area.simple_slom_1_prec</precondition>
+				<next>8</next>
+			</phrase>
+			<phrase id="10">
+				<text>detector_repair_monolith_teh_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>detector_repair_monolith_teh_11</text>
+			</phrase>
+			<phrase id="12">
+				<text>detector_repair_monolith_teh_12</text>
+				<next>13</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="9">
+				<text>detector_repair_monolith_teh_9</text>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.simple_slom_1_take</action>
+				<action>xr_effects.dtkt_smpl_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_smpl_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="13">
+				<text>detector_repair_monolith_teh_13</text>
+				<precondition>dialogs_area.u_have_money_03</precondition>
+				<action>dialogs_area.advanced_slom_1_take</action>
+				<action>xr_effects.dtkt_advn_done_timer</action>
+				<action>dialogs_area.give_me_money_detc_advn_1</action>
+				<give_info>repair_start</give_info>
+			</phrase>
+			<phrase id="20">
+				<text>detector_repair_monolith_teh_20</text>
+				<precondition>dialogs_area.detector_repair_uni_drova</precondition>
+				<next>21</next>
+				<next>23</next>
+			</phrase>
+			<phrase id="21">
+				<text>detector_repair_monolith_teh_21</text>
+			</phrase>
+			<phrase id="23">
+				<text>detector_repair_monolith_teh_23</text>
+			</phrase>
+			<phrase id="14">
+				<text>detector_repair_monolith_teh_14</text>
+				<next>15</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="15">
+				<text>detector_repair_monolith_teh_15</text>
+			</phrase>
+			<phrase id="16">
+				<text>detector_repair_monolith_teh_16</text>
+			</phrase>
+			<phrase id="8">
+				<text>detector_repair_monolith_teh_8</text>
+				<next>9</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="0">
+				<text>detector_repair_monolith_teh_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="7">
+				<text>detector_repair_monolith_teh_7</text>
+				<precondition>dialogs_area.advanced_slom_1_prec</precondition>
+				<next>12</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<!--=====Sidor_let_me_out=====-->
+	<dialog id="sidor_let_me_out">
+	<has_info>esc_trader_door_locked</has_info>
+		<phrase_list>
+			<phrase id="0">
+				<text>sidor_let_me_out_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>sidor_let_me_out_1</text>
+				<give_info>sidor_let_me_out</give_info>
+				<action>xr_effects.sidor_let_me_out_timer</action>
+				<action>dialogs.break_dialog</action>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<!--=====Gerdge_KillTask=====-->
+	<dialog id="georgii_kltsk_cancel">
+        <precondition>dialogs_area.when_find_kryk_PDA</precondition>
+        <precondition>dialogs_area.when_find_shilo_PDA</precondition>
+        <has_info>georgii_kltsk_start</has_info>
+        <dont_has_info>georgii_kltsk_predohranin</dont_has_info>
+		<phrase_list>
+			<phrase id="1">
+				<text>georgii_kltsk_cancel_1</text>
+				<action>dialogs_area.delete_georgii_kltsk_m_01</action>
+				<give_info>georgii_kltsk_repead</give_info>
+			</phrase>
+			<phrase id="0">
+				<text>georgii_kltsk_cancel_0</text>
+				<give_info>georgii_kltsk_fail</give_info>
+				<give_info>georgii_kltsk_predohranin</give_info>
+				<next>1</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="georgii_kltsk_start">
+        <dont_has_info>georgii_kltsk_start</dont_has_info>
+        <dont_has_info>georgii_kltsk_repead</dont_has_info>
+        <dont_has_info>georgii_kltsk_pred_start</dont_has_info>
+		<phrase_list>
+			<phrase id="6">
+				<text>georgii_kltsk_start_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="9">
+				<text>georgii_kltsk_start_9</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="10">
+				<text>georgii_kltsk_start_10</text>
+			</phrase>
+			<phrase id="7">
+				<text>georgii_kltsk_start_7</text>
+				<next>8</next>
+				<next>3</next>
+				<next>9</next>
+			</phrase>
+			<phrase id="3">
+				<text>georgii_kltsk_start_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="1">
+				<text>georgii_kltsk_start_1</text>
+				<next>3</next>
+				<next>6</next>
+			</phrase>
+			<phrase id="4">
+				<text>georgii_kltsk_start_4</text>
+				<next>8</next>
+				<next>6</next>
+				<next>9</next>
+			</phrase>
+			<phrase id="8">
+				<text>georgii_kltsk_start_8</text>
+				<action>dialogs_area.georgii_kltsk_01</action>
+				<action>dialogs_area.georgii_kltsk_source</action>
+				<action>xr_effects.kill_timer_predohranin_01</action>
+				<give_info>georgii_kltsk_start</give_info>
+				<give_info>georgii_kltsk_predohranin</give_info>
+			</phrase>
+			<phrase id="0">
+				<text>georgii_kltsk_start_0</text>
+				<next>1</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="georgii_kltsk_end">
+        <precondition>dialogs_area.find_kryk_pda</precondition>
+        <precondition>dialogs_area.find_shilo_pda</precondition>
+		<phrase_list>
+			<phrase id="0">
+				<text>georgii_kltsk_end_0</text>
+				<give_info>georgii_kltsk_complete</give_info>
+				<next>1</next>
+			</phrase>
+			<phrase id="2">
+				<text>georgii_kltsk_end_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="1">
+				<text>georgii_kltsk_end_1</text>
+				<action>dialogs_area.take_actor_kryk_pda</action>
+				<action>dialogs_area.take_actor_shilo_pda</action>
+				<next>2</next>
+			</phrase>
+			<phrase id="3">
+				<text>georgii_kltsk_end_3</text>
+				<action>dialogs_area.brothers_reward_RND_money</action>
+				<action>dialogs_area.drug_reward_RND_01</action>
+				<action>dialogs_area.drug_reward_RND_02</action>
+				<disable_info>georgii_kltsk_start</disable_info>
+				<disable_info>georgii_kltsk_complete</disable_info>
+				<give_info>georgii_kltsk_repead</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<!--=====Mihail_star_hi=====-->
+
+	<dialog id="mihail_start_hi">
+		<phrase_list>
+			<phrase id="13">
+				<text>mihail_start_hi_13</text>
+				<next>14</next>
+			</phrase>
+			<phrase id="15">
+				<text>mihail_start_hi_15</text>
+				<next>16</next>
+			</phrase>
+			<phrase id="5">
+				<text>mihail_start_hi_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="17">
+				<text>mihail_start_hi_17</text>
+				<next>18</next>
+			</phrase>
+			<phrase id="18">
+				<text>mihail_start_hi_18</text>
+				<next>19</next>
+			</phrase>
+			<phrase id="4">
+				<text>mihail_start_hi_4</text>
+				<next>5</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="12">
+				<text>mihail_start_hi_12</text>
+				<next>20</next>
+			</phrase>
+			<phrase id="0">
+				<text></text>
+				<next>1</next>
+			</phrase>
+			<phrase id="20">
+				<text>mihail_start_hi_20</text>
+				<next>21</next>
+			</phrase>
+			<phrase id="1">
+				<text></text>
+				<next>2</next>
+				<next>7</next>
+				<next>8</next>
+				<next>9</next>
+				<next>10</next>
+				<next>11</next>
+			</phrase>
+			<phrase id="2">
+				<text>mihail_start_hi_2</text>
+                <dont_has_info>mihail_start</dont_has_info>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>mihail_start_hi_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="16">
+				<text>mihail_start_hi_16</text>
+				<give_info>mihail_start</give_info>
+			</phrase>
+			<phrase id="14">
+				<text>mihail_start_hi_14</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="6">
+				<text>mihail_start_hi_6</text>
+				<next>13</next>
+				<next>17</next>
+			</phrase>
+			<phrase id="19">
+				<text>mihail_start_hi_19</text>
+				<give_info>mihail_start</give_info>
+			</phrase>
+			<phrase id="7">
+				<text>mihail_start_hi_7</text>
+				<has_info>mihail_start</has_info>
+			</phrase>
+			<phrase id="8">
+				<text>mihail_start_hi_8</text>
+				<has_info>mihail_start</has_info>
+			</phrase>
+			<phrase id="9">
+				<text>mihail_start_hi_9</text>
+				<has_info>mihail_start</has_info>
+			</phrase>
+			<phrase id="10">
+				<text>mihail_start_hi_10</text>
+				<has_info>mihail_start</has_info>
+			</phrase>
+			<phrase id="11">
+				<text>mihail_start_hi_11</text>
+				<has_info>mihail_start</has_info>
+			</phrase>
+			<phrase id="21">
+				<text>mihail_start_hi_21</text>
+				<action>dialogs_area.fight_me_bitch</action>
+				<give_info>mihail_start</give_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<!--=====Mihail_water_trade=====-->
+	<dialog id="mih_wtr_brt">
+		<phrase_list>
+			<phrase id="0">
+				<text>mih_wtr_brt_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>mih_wtr_brt_1</text>
+				<next>2</next>
+				<next>3</next>
+				<next>4</next>
+				<next>5</next>
+				<next>6</next>
+				<next>7</next>
+				<next>8</next>
+				<next>9</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="2">
+				<text>water_brt_2</text>
+				<precondition>dialogs_area.mineral_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_mineral_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="3">
+				<text>water_brt_3</text>
+				<precondition>dialogs_area.termos_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_termos_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="4">
+				<text>water_brt_4</text>
+				<precondition>dialogs_area.flask_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_flask_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="5">
+				<text>water_brt_5</text>
+				<precondition>dialogs_area.flask_2_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_flask_2_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="6">
+				<text>water_brt_6</text>
+				<precondition>dialogs_area.bottle_metal_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_bottle_metal_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="7">
+				<text>water_brt_7</text>
+				<precondition>dialogs_area.bottle_glass_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_bottle_glass_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="8">
+				<text>water_brt_8</text>
+				<precondition>dialogs_area.bottle_glass_empty2</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_bottle_glass_empty_2</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="9">
+				<text>water_brt_9</text>
+				<precondition>dialogs_area.bottle_beer_empty</precondition>
+				<precondition>dialogs_area.have_money_500</precondition>
+				<action>dialogs_area.take_actor_bottle_beer_empty</action>
+				<action>dialogs_area.give_me_money_wtr</action>
+			</phrase>
+			<phrase id="10">
+				<text>water_brt_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="11">
+				<text>mih_wtr_brt_11</text>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	<!--Battery recharge dialogue-->
+	<dialog id="battery_rechange">
+		<phrase_list>
+			<phrase id="0">
+				<text>battery_rechange_0</text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text>battery_rechange_1</text>
+				<next>2</next>
+				<next>3</next>
+				<next>4</next>
+				<next>5</next>
+				<next>6</next>
+			</phrase>
+			<phrase id="2">
+				<text>battery_rechange_2</text>
+				<precondition>dialogs_area.have_battery_4000mah</precondition>
+				<next>2_1</next>
+				<next>6</next>
+			</phrase>
+				<phrase id="2_1">
+					<text>battery_rechange_2_1</text>
+					<next>2_2</next>
+					<next>6</next>
+				</phrase>
+				<phrase id="2_2">
+					<text>battery_rechange_agree</text>
+					<precondition>dialogs_area.have_money_1000</precondition>
+					<action>dialogs_area.take_battery_4000mah</action>
+					<action>dialogs_area.give_battery_4000mah</action>
+				</phrase>
+			<phrase id="3">
+				<text>battery_rechange_3</text>
+				<precondition>dialogs_area.have_battery_4200mah</precondition>
+				<next>3_1</next>
+			</phrase>
+				<phrase id="3_1">
+					<text>battery_rechange_2_1</text>
+					<next>3_2</next>
+					<next>6</next>
+				</phrase>
+				<phrase id="3_2">
+					<text>battery_rechange_agree</text>
+					<precondition>dialogs_area.have_money_1000</precondition>
+					<action>dialogs_area.take_battery_4200mah</action>
+					<action>dialogs_area.give_battery_4200mah</action>
+				</phrase>
+			<phrase id="4">
+				<text>battery_rechange_4</text>
+				<precondition>dialogs_area.have_battery_4500mah</precondition>
+				<next>4_1</next>
+			</phrase>
+				<phrase id="4_1">
+					<text>battery_rechange_2_1</text>
+					<next>4_2</next>
+					<next>6</next>
+				</phrase>
+				<phrase id="4_2">
+					<text>battery_rechange_agree</text>
+					<precondition>dialogs_area.have_money_1000</precondition>
+					<action>dialogs_area.take_battery_4500mah</action>
+					<action>dialogs_area.give_battery_4500mah</action>
+				</phrase>
+			<phrase id="5">
+				<text>battery_rechange_5</text>
+				<precondition>dialogs_area.have_battery_100v</precondition>
+				<next>5_1</next>
+			</phrase>
+				<phrase id="5_1">
+					<text>battery_rechange_5_1</text>
+					<next>5_2</next>
+					<next>6</next>
+				</phrase>
+				<phrase id="5_2">
+					<text>battery_rechange_agree</text>
+					<precondition>dialogs_area.have_money_3000</precondition>
+					<action>dialogs_area.take_battery_100v</action>
+					<action>dialogs_area.give_battery_100v</action>
+				</phrase>
+			<phrase id="6">
+				<text>battery_rechange_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="7">
+				<text>battery_rechange_7</text>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	<!--=====Fanat_drugs=====-->
+	<dialog id="fanat_drugs_complete">
+        <precondition>dialogs_area.find_drugs</precondition>
+        <has_info>Find_me_drugs_start</has_info>
+		<phrase_list>
+			<phrase id="7">
+				<text>fanat_drugs_complete_7</text>
+				<next>8</next>
+			</phrase>
+			<phrase id="4">
+				<text>fanat_drugs_complete_4</text>
+			</phrase>
+			<phrase id="5">
+				<text>fanat_drugs_complete_5</text>
+				<action>dialogs_area.rep_up</action>
+				<give_info>Find_me_drugs_end</give_info>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>7</next>
+			</phrase>
+			<phrase id="2">
+				<text>fanat_drugs_complete_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>fanat_drugs_complete_3</text>
+				<action>dialogs_area.delete_quest_obj</action>
+				<action>dialogs_area.drug_reward_RND_01</action>
+				<action>dialogs_area.drug_reward_RND_02</action>
+				<action>dialogs_area.drug_reward_RND_money</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>4</next>
+			</phrase>
+			<phrase id="8">
+				<text>fanat_drugs_complete_8</text>
+				<action>dialogs_area.delete_quest_obj</action>
+				<action>dialogs_area.drug_reward_RND_01</action>
+				<action>dialogs_area.drug_reward_RND_02</action>
+				<action>dialogs_area.drug_reward_RND_money</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>9</next>
+			</phrase>
+			<phrase id="11">
+				<text>fanat_drugs_complete_11</text>
+				<action>dialogs_area.delete_quest_obj</action>
+				<action>dialogs_area.drug_reward_RND_01</action>
+				<action>dialogs_area.drug_reward_RND_02</action>
+				<action>dialogs_area.drug_reward_RND_money</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>12</next>
+			</phrase>
+			<phrase id="9">
+				<text>fanat_drugs_complete_9</text>
+			</phrase>
+			<phrase id="12">
+				<text>fanat_drugs_complete_12</text>
+			</phrase>
+			<phrase id="10">
+				<text>fanat_drugs_complete_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="6">
+				<text>fanat_drugs_complete_6</text>
+				<action>dialogs_area.rep_up</action>
+				<give_info>Find_me_drugs_end</give_info>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>10</next>
+			</phrase>
+			<phrase id="0">
+				<text>fanat_drugs_complete_0</text>
+				<next>1</next>
+				<next>5</next>
+				<next>6</next>
+			</phrase>
+			<phrase id="1">
+				<text>fanat_drugs_complete_1</text>
+				<action>dialogs_area.rep_up</action>
+				<give_info>Find_me_drugs_end</give_info>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<next>2</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="fanat_drugs_start">
+        <has_info>Find_me_drugs_pred_start</has_info>
+        <has_info>Find_me_drugs_pred_start_2</has_info>
+        <dont_has_info>Find_me_drugs_start</dont_has_info>
+        <dont_has_info>Find_me_drugs_repeat</dont_has_info>
+		<phrase_list>
+			<phrase id="11">
+				<text>fanat_drugs_start_11</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_08</action>
+				<action>dialogs_area.Soprovod_08</action>
+			</phrase>
+			<phrase id="10">
+				<text>fanat_drugs_start_10</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_07</action>
+				<action>dialogs_area.Soprovod_07</action>
+			</phrase>
+			<phrase id="9">
+				<text>fanat_drugs_start_9</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_06</action>
+				<action>dialogs_area.Soprovod_06</action>
+			</phrase>
+			<phrase id="8">
+				<text>fanat_drugs_start_8</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_05</action>
+				<action>dialogs_area.Soprovod_05</action>
+			</phrase>
+			<phrase id="7">
+				<text>fanat_drugs_start_7</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_04</action>
+				<action>dialogs_area.Soprovod_04</action>
+			</phrase>
+			<phrase id="6">
+				<text>fanat_drugs_start_6</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_03</action>
+				<action>dialogs_area.Soprovod_03</action>
+			</phrase>
+			<phrase id="12">
+				<text>fanat_drugs_start_12</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_09</action>
+				<action>dialogs_area.Soprovod_09</action>
+			</phrase>
+			<phrase id="13">
+				<text>fanat_drugs_start_13</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_10</action>
+				<action>dialogs_area.Soprovod_10</action>
+			</phrase>
+			<phrase id="14">
+				<text>fanat_drugs_start_14</text>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>dialogs_area.fanat_drugs_create_11</action>
+				<action>dialogs_area.Soprovod_11</action>
+			</phrase>
+			<phrase id="16">
+				<text>fanat_drugs_start_16</text>
+				<action>dialogs_area.fanat_drugs_create_12</action>
+				<action>dialogs_area.Soprovod_12</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="17">
+				<text>fanat_drugs_start_17</text>
+				<action>dialogs_area.fanat_drugs_create_13</action>
+				<action>dialogs_area.Soprovod_13</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="19">
+				<text>fanat_drugs_start_19</text>
+				<action>dialogs_area.fanat_drugs_create_15</action>
+				<action>dialogs_area.Soprovod_16</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="18">
+				<text>fanat_drugs_start_18</text>
+				<action>dialogs_area.fanat_drugs_create_14</action>
+				<action>dialogs_area.Soprovod_14</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="20">
+				<text>fanat_drugs_start_20</text>
+				<action>dialogs_area.fanat_drugs_create_16</action>
+				<action>dialogs_area.Soprovod_16</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="21">
+				<text>fanat_drugs_start_21</text>
+				<action>dialogs_area.fanat_drugs_create_17</action>
+				<action>dialogs_area.Soprovod_17</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="22">
+				<text>fanat_drugs_start_22</text>
+				<action>dialogs_area.fanat_drugs_create_18</action>
+				<action>dialogs_area.Soprovod_18</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="23">
+				<text>fanat_drugs_start_23</text>
+				<action>dialogs_area.fanat_drugs_create_19</action>
+				<action>dialogs_area.Soprovod_19</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="24">
+				<text>fanat_drugs_start_24</text>
+				<action>dialogs_area.fanat_drugs_create_20</action>
+				<action>dialogs_area.Soprovod_20</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="25">
+				<text>fanat_drugs_start_25</text>
+				<action>dialogs_area.fanat_drugs_create_21</action>
+				<action>dialogs_area.Soprovod_21</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="26">
+				<text>fanat_drugs_start_26</text>
+				<action>dialogs_area.fanat_drugs_create_22</action>
+				<action>dialogs_area.Soprovod_22</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="27">
+				<text>fanat_drugs_start_27</text>
+				<action>dialogs_area.fanat_drugs_create_23</action>
+				<action>dialogs_area.Soprovod_23</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="28">
+				<text>fanat_drugs_start_28</text>
+				<action>dialogs_area.fanat_drugs_create_24</action>
+				<action>dialogs_area.Soprovod_24</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="34">
+				<text>fanat_drugs_start_34</text>
+				<action>dialogs_area.fanat_drugs_create_30</action>
+				<action>dialogs_area.Soprovod_30</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="35">
+				<text>fanat_drugs_start_35</text>
+				<action>dialogs_area.fanat_drugs_create_31</action>
+				<action>dialogs_area.Soprovod_31</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="36">
+				<text>fanat_drugs_start_36</text>
+				<action>dialogs_area.fanat_drugs_create_32</action>
+				<action>dialogs_area.Soprovod_32</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="38">
+				<text>fanat_drugs_start_38</text>
+				<action>dialogs_area.fanat_drugs_create_34</action>
+				<action>dialogs_area.Soprovod_34</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="43">
+				<text>fanat_drugs_start_43</text>
+				<action>dialogs_area.fanat_drugs_create_39</action>
+				<action>dialogs_area.Soprovod_39</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="44">
+				<text>fanat_drugs_start_44</text>
+				<action>dialogs_area.fanat_drugs_create_40</action>
+				<action>dialogs_area.Soprovod_40</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="45">
+				<text>fanat_drugs_start_45</text>
+				<action>dialogs_area.fanat_drugs_create_41</action>
+				<action>dialogs_area.Soprovod_41</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="31">
+				<text>fanat_drugs_start_31</text>
+				<action>dialogs_area.fanat_drugs_create_27</action>
+				<action>dialogs_area.Soprovod_27</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="29">
+				<text>fanat_drugs_start_29</text>
+				<action>dialogs_area.fanat_drugs_create_25</action>
+				<action>dialogs_area.Soprovod_25</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="32">
+				<text>fanat_drugs_start_32</text>
+				<action>dialogs_area.fanat_drugs_create_28</action>
+				<action>dialogs_area.Soprovod_28</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="33">
+				<text>fanat_drugs_start_33</text>
+				<action>dialogs_area.fanat_drugs_create_29</action>
+				<action>dialogs_area.Soprovod_29</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="37">
+				<text>fanat_drugs_start_37</text>
+				<action>dialogs_area.fanat_drugs_create_33</action>
+				<action>dialogs_area.Soprovod_33</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="39">
+				<text>fanat_drugs_start_39</text>
+				<action>dialogs_area.fanat_drugs_create_35</action>
+				<action>dialogs_area.Soprovod_35</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="40">
+				<text>fanat_drugs_start_40</text>
+				<action>dialogs_area.fanat_drugs_create_36</action>
+				<action>dialogs_area.Soprovod_36</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="41">
+				<text>fanat_drugs_start_41</text>
+				<action>dialogs_area.fanat_drugs_create_37</action>
+				<action>dialogs_area.Soprovod_37</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="42">
+				<text>fanat_drugs_start_42</text>
+				<action>dialogs_area.fanat_drugs_create_38</action>
+				<action>dialogs_area.Soprovod_38</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="5">
+				<text>fanat_drugs_start_5</text>
+				<action>dialogs_area.fanat_drugs_create_02</action>
+				<action>dialogs_area.Soprovod_02</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="15">
+				<text>fanat_drugs_start_15</text>
+				<has_info>Find_me_drugs_start</has_info>
+			</phrase>
+			<phrase id="1">
+				<text>fanat_drugs_start_1</text>
+                <dont_has_info>Find_me_drugs_start</dont_has_info>
+				<next>2</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="2">
+				<text>fanat_drugs_start_2</text>
+				<give_info>Find_me_drugs_start</give_info>
+				<give_info>Find_me_drugs_predohranin</give_info>
+				<next>5</next>
+				<next>6</next>
+				<next>7</next>
+				<next>8</next>
+				<next>9</next>
+				<next>10</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>14</next>
+				<next>16</next>
+				<next>17</next>
+				<next>18</next>
+				<next>19</next>
+				<next>20</next>
+				<next>21</next>
+				<next>22</next>
+				<next>23</next>
+				<next>24</next>
+				<next>25</next>
+				<next>26</next>
+				<next>27</next>
+				<next>28</next>
+				<next>29</next>
+				<next>30</next>
+				<next>31</next>
+				<next>32</next>
+				<next>33</next>
+				<next>34</next>
+				<next>35</next>
+				<next>36</next>
+				<next>37</next>
+				<next>38</next>
+				<next>39</next>
+				<next>40</next>
+				<next>41</next>
+				<next>42</next>
+				<next>43</next>
+				<next>44</next>
+				<next>45</next>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>fanat_drugs_start_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="30">
+				<text>fanat_drugs_start_30</text>
+				<action>dialogs_area.fanat_drugs_create_26</action>
+				<action>dialogs_area.Soprovod_26</action>
+				<action>dialogs_area.fanat_drugs_give_task</action>
+				<action>xr_effects.drug_timer_predohranin_01</action>
+			</phrase>
+			<phrase id="4">
+				<text>fanat_drugs_start_4</text>
+			</phrase>
+			<phrase id="0">
+				<text>fanat_drugs_start_0</text>
+				<next>1</next>
+				<next>15</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="fanat_pred_start">
+        <dont_has_info>Find_me_drugs_pred_start</dont_has_info>
+		<phrase_list>
+			<phrase id="10">
+				<text>fanat_pred_start_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="13">
+				<text>fanat_pred_start_13</text>
+			</phrase>
+			<phrase id="1">
+				<text>fanat_pred_start_1</text>
+				<next>2</next>
+				<next>3</next>
+				<next>7</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="7">
+				<text>fanat_pred_start_7</text>
+				<next>8</next>
+			</phrase>
+			<phrase id="12">
+				<text>fanat_pred_start_12</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="3">
+				<text>fanat_pred_start_3</text>
+				<give_info>Find_me_drugs_pred_start</give_info>
+				<next>4</next>
+			</phrase>
+			<phrase id="11">
+				<text>fanat_pred_start_11</text>
+				<next>2</next>
+				<next>7</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="5">
+				<text>fanat_pred_start_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="8">
+				<text>fanat_pred_start_8</text>
+				<next>14</next>
+				<next>3</next>
+				<next>12</next>
+			</phrase>
+			<phrase id="2">
+				<text>fanat_pred_start_2</text>
+				<give_info>Find_me_drugs_pred_start</give_info>
+				<next>5</next>
+			</phrase>
+			<phrase id="14">
+				<text>fanat_pred_start_14</text>
+				<give_info>Find_me_drugs_pred_start</give_info>
+				<next>5</next>
+			</phrase>
+			<phrase id="6">
+				<text>fanat_pred_start_6</text>
+				<action>xr_effects.drug_timer_pred_start_01</action>
+			</phrase>
+			<phrase id="4">
+				<text>fanat_pred_start_4</text>
+				<next>10</next>
+			</phrase>
+			<phrase id="0">
+				<text>fanat_pred_start_0</text>
+				<next>1</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<dialog id="fanat_drugs_cancel">
+        <precondition>dialogs_area.when_find_drugs</precondition>
+        <has_info>Find_me_drugs_start</has_info>
+        <dont_has_info>Find_me_drugs_predohranin</dont_has_info>
+        <dont_has_info>Find_me_drugs_repeat</dont_has_info>
+		<phrase_list>
+			<phrase id="2">
+				<text>fanat_drugs_cancel_2</text>
+				<action>dialogs_area.delete_quest_obj</action>
+			</phrase>
+			<phrase id="1">
+				<text>fanat_drugs_cancel_1</text>
+				<action>dialogs_area.rep_down</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<give_info>Find_me_drugs_cancel</give_info>
+				<next>2</next>
+			</phrase>
+			<phrase id="3">
+				<text>fanat_drugs_cancel_3</text>
+				<action>dialogs_area.rep_down</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<give_info>Find_me_drugs_cancel</give_info>
+				<next>2</next>
+			</phrase>
+			<phrase id="4">
+				<text>fanat_drugs_cancel_4</text>
+				<action>dialogs_area.rep_down</action>
+				<give_info>Find_me_drugs_repeat</give_info>
+				<give_info>Find_me_drugs_cancel</give_info>
+				<next>2</next>
+			</phrase>
+			<phrase id="0">
+				<text>fanat_drugs_cancel_0</text>
+				<next>1</next>
+				<next>3</next>
+				<next>4</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	<!--=====Fanat_start_and_Vodka_1=====-->
+	<dialog id="Fanat_Start_and_Hi">
+		<phrase_list>
+			<phrase id="20">
+				<text>Fanat_Start_and_Hi_20</text>
+				<next>21</next>
+			</phrase>
+			<phrase id="30">
+				<text>Fanat_Start_and_Hi_30</text>
+				<give_info>Fanat_Start_1</give_info>
+			</phrase>
+			<phrase id="26">
+				<text>Fanat_Start_and_Hi_26</text>
+				<next>27</next>
+			</phrase>
+			<phrase id="29">
+				<text>Fanat_Start_and_Hi_29</text>
+				<next>30</next>
+			</phrase>
+			<phrase id="25">
+				<text>Fanat_Start_and_Hi_25</text>
+				<next>26</next>
+			</phrase>
+			<phrase id="24">
+				<text>Fanat_Start_and_Hi_24</text>
+				<next>25</next>
+			</phrase>
+			<phrase id="21">
+				<text>Fanat_Start_and_Hi_21</text>
+				<next>35</next>
+				<next>22</next>
+			</phrase>
+			<phrase id="35">
+				<text>Fanat_Start_and_Hi_35</text>
+				<precondition>dialogs_area.test_actor_have_vodka</precondition>
+				<next>36</next>
+			</phrase>
+			<phrase id="36">
+				<text>Fanat_Start_and_Hi_36</text>
+				<next>37</next>
+			</phrase>
+			<phrase id="37">
+				<text>Fanat_Start_and_Hi_37</text>
+				<next>38</next>
+			</phrase>
+			<phrase id="39">
+				<text>Fanat_Start_and_Hi_39</text>
+				<action>dialogs_area.i_drunk</action>
+				<action>dialogs_area.drink_eat</action>
+			</phrase>
+			<phrase id="40">
+				<text>Fanat_Start_and_Hi_40</text>
+				<action>dialogs_area.i_drunk</action>
+				<action>dialogs_area.drink_eat</action>
+			</phrase>
+			<phrase id="41">
+				<text>Fanat_Start_and_Hi_41</text>
+				<action>dialogs_area.i_drunk</action>
+				<action>dialogs_area.drink_eat</action>
+			</phrase>
+			<phrase id="42">
+				<text>Fanat_Start_and_Hi_42</text>
+				<action>dialogs_area.i_drunk</action>
+				<action>dialogs_area.drink_eat</action>
+			</phrase>
+			<phrase id="43">
+				<text>Fanat_Start_and_Hi_43</text>
+				<action>dialogs_area.i_drunk</action>
+				<action>dialogs_area.drink_eat</action>
+			</phrase>
+			<phrase id="38">
+				<text>Fanat_Start_and_Hi_38</text>
+				<next>39</next>
+				<next>40</next>
+				<next>41</next>
+				<next>42</next>
+				<next>43</next>
+			</phrase>
+			<phrase id="22">
+				<text>Fanat_Start_and_Hi_22</text>
+				<next>23</next>
+			</phrase>
+			<phrase id="23">
+				<text>Fanat_Start_and_Hi_23</text>
+				<next>31</next>
+			</phrase>
+			<phrase id="31">
+				<text>Fanat_Start_and_Hi_31</text>
+				<give_info>Fanat_Start_1</give_info>
+			</phrase>
+			<phrase id="1">
+				<text></text>
+				<next>10</next>
+				<next>2</next>
+				<next>5</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>14</next>
+				<next>15</next>
+				<next>16</next>
+				<next>17</next>
+				<next>18</next>
+			</phrase>
+			<phrase id="0">
+				<text></text>
+				<next>1</next>
+			</phrase>
+			<phrase id="33">
+				<text>Fanat_Start_and_Hi_33</text>
+				<next>34</next>
+			</phrase>
+			<phrase id="34">
+				<text>Fanat_Start_and_Hi_34</text>
+				<action>dialogs_area.drink_eat</action>
+				<action>dialogs_area.i_drunk</action>
+			</phrase>
+			<phrase id="27">
+				<text>Fanat_Start_and_Hi_27</text>
+				<next>32</next>
+				<next>28</next>
+			</phrase>
+			<phrase id="32">
+				<text>Fanat_Start_and_Hi_32</text>
+				<precondition>dialogs_area.test_actor_have_vodka</precondition>
+				<next>33</next>
+			</phrase>
+			<phrase id="28">
+				<text>Fanat_Start_and_Hi_28</text>
+				<next>29</next>
+			</phrase>
+			<phrase id="11">
+				<text>Fanat_Start_and_Hi_11</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="12">
+				<text>Fanat_Start_and_Hi_12</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="13">
+				<text>Fanat_Start_and_Hi_13</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="14">
+				<text>Fanat_Start_and_Hi_14</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="15">
+				<text>Fanat_Start_and_Hi_15</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="16">
+				<text>Fanat_Start_and_Hi_16</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="17">
+				<text>Fanat_Start_and_Hi_17</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="18">
+				<text>Fanat_Start_and_Hi_18</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="10">
+				<text>Fanat_Start_and_Hi_10</text>
+				<precondition>area_utils.if_actor_havent_low_rank</precondition>
+                <dont_has_info>Fanat_Start_1</dont_has_info>
+				<give_info>fanat_kmb_1_cancel</give_info>
+				<give_info>Fanat_Start_1</give_info>
+				<next>24</next>
+			</phrase>
+			<phrase id="5">
+				<text>Fanat_Start_and_Hi_5</text>
+				<has_info>Fanat_Start_1</has_info>
+			</phrase>
+			<phrase id="2">
+				<text>Fanat_Start_and_Hi_2</text>
+				<precondition>area_utils.if_actor_havent_high_rank</precondition>
+                <dont_has_info>Fanat_Start_1</dont_has_info>
+				<give_info>fanat_kmb_1_cancel</give_info>
+				<give_info>Fanat_Start_1</give_info>
+				<next>20</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	    <!----- Klin_Klin_Hi_1 ------>
+	
+	<dialog id="Klin_Hi_1">
+		<phrase_list>
+			<phrase id="3">
+				<text>Klin_Hi_1_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="2">
+				<text>Klin_Hi_1_2</text>
+                <dont_has_info>stop_1</dont_has_info>
+				<give_info>stop_1</give_info>
+				<next>3</next>
+			</phrase>
+			<phrase id="4">
+				<text>Klin_Hi_1_4</text>
+				<give_info>stop_1</give_info>
+			</phrase>
+			<phrase id="0">
+				<text></text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text></text>
+				<next>2</next>
+				<next>9</next>
+				<next>10</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>14</next>
+				<next>15</next>
+				<next>16</next>
+			</phrase>
+			<phrase id="10">
+				<text>Klin_Hi_1_10</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="11">
+				<text>Klin_Hi_1_11</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="12">
+				<text>Klin_Hi_1_12</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="13">
+				<text>Klin_Hi_1_13</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="14">
+				<text>Klin_Hi_1_14</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="16">
+				<text>Klin_Hi_1_16</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="15">
+				<text>Klin_Hi_1_15</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+			<phrase id="9">
+				<text>Klin_Hi_1_9</text>
+				<has_info>stop_1</has_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	    <!----- Klin_Inf_craf_remaster ------>
+		
+	<dialog id="Klin_Guide">
+        <dont_has_info>stop_2</dont_has_info>
+		<phrase_list>
+			<phrase id="4">
+				<text>Klin_Guide_4</text>
+				<next>5</next>
+			</phrase>
+			<phrase id="8">
+				<text>Klin_Guide_8</text>
+				<next>9</next>
+			</phrase>
+			<phrase id="10">
+				<text>Klin_Guide_10</text>
+				<next>11</next>
+			</phrase>
+			<phrase id="14">
+				<text>Klin_Guide_14</text>
+				<next>15</next>
+			</phrase>
+			<phrase id="17">
+				<text>Klin_Guide_17</text>
+				<next>18</next>
+			</phrase>
+			<phrase id="18">
+				<text>Klin_Guide_18</text>
+				<next>19</next>
+			</phrase>
+			<phrase id="16">
+				<text>Klin_Guide_16</text>
+				<next>17</next>
+			</phrase>
+			<phrase id="6">
+				<text>Klin_Guide_6</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="12">
+				<text>Klin_Guide_12</text>
+				<next>13</next>
+			</phrase>
+			<phrase id="5">
+				<text>Klin_Guide_5</text>
+			</phrase>
+			<phrase id="7">
+				<text>Klin_Guide_7</text>
+			</phrase>
+			<phrase id="9">
+				<text>Klin_Guide_9</text>
+			</phrase>
+			<phrase id="3">
+				<text>Klin_Guide_3</text>
+			</phrase>
+			<phrase id="11">
+				<text>Klin_Guide_11</text>
+			</phrase>
+			<phrase id="13">
+				<text>Klin_Guide_13</text>
+			</phrase>
+			<phrase id="15">
+				<text>Klin_Guide_15</text>
+			</phrase>
+			<phrase id="99">
+				<text></text>
+				<next>98</next>
+			</phrase>
+			<phrase id="2">
+				<text>Klin_Guide_2</text>
+				<next>3</next>
+			</phrase>
+			<phrase id="20">
+				<text>Klin_Guide_20</text>
+				<next>21</next>
+			</phrase>
+			<phrase id="21">
+				<text>Klin_Guide_21</text>
+			</phrase>
+			<phrase id="19">
+				<text>Klin_Guide_19</text>
+				<next>20</next>
+			</phrase>
+			<phrase id="24">
+				<text>Klin_Guide_24</text>
+				<give_info>stop_2</give_info>
+			</phrase>
+			<phrase id="23">
+				<text>Klin_Guide_23</text>
+				<next>24</next>
+			</phrase>
+			<phrase id="98">
+				<text></text>
+				<next>1</next>
+			</phrase>
+			<phrase id="0">
+				<text>Klin_Guide_0</text>
+				<next>99</next>
+			</phrase>
+			<phrase id="1">
+				<text>Klin_Guide_1</text>
+				<next>2</next>
+				<next>4</next>
+				<next>6</next>
+				<next>8</next>
+				<next>10</next>
+				<next>12</next>
+				<next>14</next>
+				<next>16</next>
+				<next>23</next>
+				<next>22</next>
+			</phrase>
+			<phrase id="22">
+				<text>Klin_Guide_22</text>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	<!--=====Grisha_start=====-->
+
+		<dialog id="Grisha_start_and_Hi">
+		<phrase_list>
+			<phrase id="5">
+				<text>Grisha_start_and_Hi_5</text>
+				<next>6</next>
+			</phrase>
+			<phrase id="6">
+				<text>Grisha_start_and_Hi_6</text>
+				<next>8</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="3">
+				<text>Grisha_start_and_Hi_3</text>
+				<next>4</next>
+			</phrase>
+			<phrase id="4">
+				<text>Grisha_start_and_Hi_4</text>
+				<next>5</next>
+				<next>7</next>
+			</phrase>
+			<phrase id="8">
+				<text>Grisha_start_and_Hi_8</text>
+				<next>9</next>
+			</phrase>
+			<phrase id="0">
+				<text></text>
+				<next>1</next>
+			</phrase>
+			<phrase id="1">
+				<text></text>
+				<next>2</next>
+				<next>10</next>
+				<next>11</next>
+				<next>12</next>
+				<next>13</next>
+				<next>14</next>
+				<next>15</next>
+				<next>16</next>
+				<next>17</next>
+				<next>18</next>
+				<next>19</next>
+			</phrase>
+			<phrase id="2">
+				<text>Grisha_start_and_Hi_2</text>
+                <dont_has_info>Grisha_start</dont_has_info>
+				<give_info>Grisha_start</give_info>
+				<next>3</next>
+			</phrase>
+			<phrase id="10">
+				<text>Grisha_start_and_Hi_10</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="11">
+				<text>Grisha_start_and_Hi_11</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="12">
+				<text>Grisha_start_and_Hi_12</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="13">
+				<text>Grisha_start_and_Hi_13</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="14">
+				<text>Grisha_start_and_Hi_14</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="15">
+				<text>Grisha_start_and_Hi_15</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="16">
+				<text>Grisha_start_and_Hi_16</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="17">
+				<text>Grisha_start_and_Hi_17</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="18">
+				<text>Grisha_start_and_Hi_18</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="19">
+				<text>Grisha_start_and_Hi_19</text>
+				<has_info>Grisha_start</has_info>
+			</phrase>
+			<phrase id="7">
+				<text>Grisha_start_and_Hi_7</text>
+				<action>dialogs.break_dialog</action>
+				<give_info>Grisha_start</give_info>
+			</phrase>
+			<phrase id="9">
+				<text>Grisha_start_and_Hi_9</text>
+				<give_info>Grisha_start</give_info>
+				<next>7</next>
+			</phrase>
+		</phrase_list>
+	</dialog>
+
+	<!--=====Georg_start=====-->
+
+	<dialog id="Georg_start_and_Hi">
+		<phrase_list>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>18</next>
+                <next>21</next>
+                <next>22</next>
+                <next>23</next>
+            </phrase>
+            <phrase id="3">
+                <text>Georg_start_and_Hi_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="4">
+                <text>Georg_start_and_Hi_4</text>
+                <next>5</next>
+                <next>27</next>
+                <next>29</next>
+            </phrase>
+            <phrase id="5">
+                <text>Georg_start_and_Hi_5</text>
+                <next>7</next>
+            </phrase>
+            <phrase id="7">
+                <text>Georg_start_and_Hi_6</text>
+                <next>27</next>
+                <next>29</next>
+            </phrase>
+            <phrase id="28">
+                <text>Georg_start_and_Hi_28</text>
+                <next>29</next>
+            </phrase>
+            <phrase id="27">
+                <text>Georg_start_and_Hi_27</text>
+                <next>28</next>
+            </phrase>
+            <phrase id="29">
+                <text>Georg_start_and_Hi_29</text>
+            </phrase>
+            <phrase id="2">
+                <text>Georg_start_and_Hi_2</text>
+                <action>xr_effects.kill_timer_pred_start_01</action>
+                <dont_has_info>Georg_start_1</dont_has_info>
+                <give_info>Georg_start_1</give_info>
+                <give_info>georgii_kltsk_pred_start</give_info>
+                <next>3</next>
+            </phrase>
+			<phrase id="15">
+				<text>Georg_start_and_Hi_15</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+			<phrase id="16">
+				<text>Georg_start_and_Hi_16</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+			<phrase id="17">
+				<text>Georg_start_and_Hi_17</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+			<phrase id="18">
+				<text>Georg_start_and_Hi_18</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+			<phrase id="21">
+				<text>Georg_start_and_Hi_21</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+			<phrase id="22">
+				<text>Georg_start_and_Hi_22</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+			<phrase id="23">
+				<text>Georg_start_and_Hi_23</text>
+				<has_info>Georg_start_1</has_info>
+			</phrase>
+		</phrase_list>
+	</dialog>
+	
+	<!--=====Georg_heal=====-->
+
+	<dialog id="georgii_heal">
+		<phrase_list>
+			<phrase id="0">
+				<text>georgii_heal_0</text>
+				<next>1</next>
+				<next>10</next>
+			</phrase>
+			<phrase id="1">
+				<text>georgii_heal_1</text>
+				<precondition>dialogs.actor_needs_bless</precondition>
+				<next>3</next>
+			</phrase>
+			<phrase id="3">
+				<text>georgii_heal_3</text>
+				<next>7</next>
+			</phrase>
+			<phrase id="10">
+				<text>georgii_heal_10</text>
+				<precondition>dialogs.actor_is_damn_healthy</precondition>
+			</phrase>
+			<phrase id="8">
+				<text>georgii_heal_8</text>
+				<precondition>dialogs_area.actor_needs_health_georgii</precondition>
+				<action>dialogs_area.price_heal</action>
+				<next>12</next>
+			</phrase>
+			<phrase id="9">
+				<text>georgii_heal_9</text>
+				<precondition>dialogs_area.actor_needs_rad_health_georgii</precondition>
+				<action>dialogs_area.price_heal_rad</action>
+				<next>13</next>
+			</phrase>
+			<phrase id="11">
+				<text>georgii_heal_11</text>
+				<next>14</next>
+			</phrase>
+			<phrase id="7">
+				<text>georgii_heal_7</text>
+				<next>8</next>
+				<next>9</next>
+				<next>11</next>
+			</phrase>
+			<phrase id="14">
+				<text>georgii_heal_14</text>
+			</phrase>
+			<phrase id="13">
+				<text>georgii_heal_13</text>
+				<action>dialogs_area.heal_rad_01</action>
+				<action>dialogs.medic_rad_potion</action>
+			</phrase>
+			<phrase id="12">
+				<text>georgii_heal_12</text>
+				<action>dialogs_area.heal_01</action>
+				<action>dialogs.medic_magic_potion</action>
+			</phrase>
+		</phrase_list>
+	</dialog>
+</game_dialogs>

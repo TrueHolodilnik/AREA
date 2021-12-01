@@ -1,0 +1,3642 @@
+<specific_character id="sim_default_bandit_0_default_0" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>970</rank>
+	<reputation>-681</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_1" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>872</rank>
+	<reputation>685</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_2" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1b</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>260</rank>
+	<reputation>1889</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_3" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>760</rank>
+	<reputation>-2060</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_4" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>908</rank>
+	<reputation>1849</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_1_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_5" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>614</rank>
+	<reputation>1040</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_6" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>12</rank>
+	<reputation>503</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1b_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_7" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>26</rank>
+	<reputation>193</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1c_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_8" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>652</rank>
+	<reputation>-829</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_9" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>124</rank>
+	<reputation>-1505</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandita1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_10" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>596</rank>
+	<reputation>1327</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandita2</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_11" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>948</rank>
+	<reputation>107</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandita3</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_12" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1_gas</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2656</rank>
+	<reputation>-938</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_1_gas</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_13" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1_gas</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>1220</rank>
+	<reputation>830</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1a_gas</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_14" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1b_gas</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>1418</rank>
+	<reputation>-1484</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1b_gas</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_15" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1_gas</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>1976</rank>
+	<reputation>-345</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1c_gas</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_0_default_16" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>988</rank>
+	<reputation>-345</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_cloak</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_0_default_17" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_0</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>988</rank>
+	<reputation>-345</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_cloak_1</visual>
+    	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_18" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_19" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_20" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_glasses_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_21" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_glasses_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_22" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_glasses_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_23" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_24" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_25" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_26" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_27" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_0_default_28" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_0</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>988</rank>
+    <reputation>-345</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_novice_m40_5</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+    <!--  bandit expirienced  -->
+<specific_character id="sim_default_bandit_1_default_0" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>412</rank>
+	<reputation>1253</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_1" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>3650</rank>
+	<reputation>343</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_2" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_3_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>3494</rank>
+	<reputation>479</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit3a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_3" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>5182</rank>
+	<reputation>1741</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit3b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_4" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>3228</rank>
+	<reputation>369</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit3c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_5" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>348</rank>
+	<reputation>1213</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_6" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1b</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>206</rank>
+	<reputation>1978</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_7" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>624</rank>
+	<reputation>-1022</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_8" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>400</rank>
+	<reputation>1049</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_1_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_9" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>128</rank>
+	<reputation>94</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_10" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>896</rank>
+	<reputation>2490</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1b_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_11" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_1a_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>258</rank>
+	<reputation>-1267</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit1c_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_1_default_12" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit2a_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>129</rank>
+	<reputation>-567</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_stalker</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_1_default_13" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit2a_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_1</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>129</rank>
+	<reputation>-567</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_stalker_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_14" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_15" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_16" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_17" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_18" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_19" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_20" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_21" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_22" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_23" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_24" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_battle_5</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_25" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_26" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_27" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_28" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_29" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_1_default_30" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_1</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>129</rank>
+    <reputation>-567</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_halfresp_5</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+    <!--  bandit expirienced 2  -->
+<specific_character id="sim_default_bandit_2_default_0" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>1354</rank>
+	<reputation>-508</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_1" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>5904</rank>
+	<reputation>1209</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_2" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>4178</rank>
+	<reputation>1893</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_3" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>1678</rank>
+	<reputation>1655</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_4" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_band_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>13208</rank>
+	<reputation>-2</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_band_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_5" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_band_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>13528</rank>
+	<reputation>1826</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_band2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_6" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>1780</rank>
+	<reputation>-835</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_7" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>1722</rank>
+	<reputation>1707</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_8" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>5038</rank>
+	<reputation>145</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_9" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>3994</rank>
+	<reputation>-2072</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_10" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk_1\</snd_config>
+	<rank>2886</rank>
+	<reputation>-25</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_11" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>2278</rank>
+	<reputation>-353</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_12" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>2032</rank>
+	<reputation>-524</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_13" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>2150</rank>
+	<reputation>169</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_14" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>1960</rank>
+	<reputation>-357</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_15" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>1068</rank>
+	<reputation>2196</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5d</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_16" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit2a_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk_1\</snd_config>
+	<rank>12610</rank>
+	<reputation>646</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_17" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>11402</rank>
+	<reputation>-213</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_18" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_gp5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_1\</snd_config>
+	<rank>7900</rank>
+	<reputation>2191</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_gp5</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_19" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>11650</rank>
+	<reputation>1349</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_20" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6d</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_1\</snd_config>
+	<rank>14756</rank>
+	<reputation>-2037</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_21" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>13058</rank>
+	<reputation>203</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_22" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk_1\</snd_config>
+	<rank>13612</rank>
+	<reputation>774</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6d</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_23" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6d</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>13154</rank>
+	<reputation>-1887</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6e</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_24" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_1\</snd_config>
+	<rank>10222</rank>
+	<reputation>1515</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6f</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_25" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>12648</rank>
+	<reputation>-1710</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6g</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_26" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_1\</snd_config>
+	<rank>12592</rank>
+	<reputation>1879</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6h</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_27" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_black</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_28" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_blackseva</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_29" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_blacksevarazgruzka</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_30" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_brown</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_31" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_brownseva</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_32" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_darkbrown</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_2_default_33" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_darkgreenseva</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_34" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_darkgreensevagreen</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_35" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_green</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_36" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_lightbrown</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_37" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_lightbrownseva</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_38" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_swamp</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_2_default_39" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_2</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>2296</rank>
+	<reputation>-79</reputation>
+	
+	<visual>actors\stalker_hero\n_stalker_trenchcoatresp_swampseva</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_40" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>ui_inGame2_merc_sun1_merc</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_41" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_sfera</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_42" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40_traveller</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_43" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40_traveller_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_44" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_m40_traveller_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_45" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_tactic</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_46" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_tactic_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_47" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>ui_inGame2_bandit_2a_merc</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_48" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_sfera_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_2_default_49" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_sfera_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+	<specific_character id="sim_default_bandit_2_default_50" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_modernbackpack</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+	<specific_character id="sim_default_bandit_2_default_51" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_2</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>2296</rank>
+    <reputation>-79</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_modernbackpack_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+    <!--  bandit veteran  -->
+<specific_character id="sim_default_bandit_3_default_0" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>2542</rank>
+	<reputation>2131</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_1" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>1006</rank>
+	<reputation>2336</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_2" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>2526</rank>
+	<reputation>-144</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_3" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>4864</rank>
+	<reputation>1457</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_4" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>4952</rank>
+	<reputation>324</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_5" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>2104</rank>
+	<reputation>2189</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit4c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_6" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>3328</rank>
+	<reputation>1825</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_7" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>3418</rank>
+	<reputation>1242</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_8" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk_1\</snd_config>
+	<rank>2414</rank>
+	<reputation>1916</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_9" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>2088</rank>
+	<reputation>-262</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_10" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>1294</rank>
+	<reputation>277</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_11" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>2212</rank>
+	<reputation>1228</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_12" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>1318</rank>
+	<reputation>-2481</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_13" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_4abc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>2328</rank>
+	<reputation>433</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit5d</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_14" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit2a_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>11226</rank>
+	<reputation>-545</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_15" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>14942</rank>
+	<reputation>-2209</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_16" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_gp5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>6814</rank>
+	<reputation>2448</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_gp5</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_17" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>14662</rank>
+	<reputation>-300</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_18" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6d</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>10302</rank>
+	<reputation>-574</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_19" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>12994</rank>
+	<reputation>1385</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_20" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>12740</rank>
+	<reputation>457</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6d</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_21" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6d</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>14974</rank>
+	<reputation>1334</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6e</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_22" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>13090</rank>
+	<reputation>938</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6f</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_23" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>14132</rank>
+	<reputation>931</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6g</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_24" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>11352</rank>
+	<reputation>1852</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6h</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_3_default_25" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_26" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_27" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy_camomask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_28" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_csky_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_29" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_3_default_30" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_csky_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_3</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>5676</rank>
+	<reputation>-1852</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_heavy_1_mask</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_31" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_32" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_33" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_34" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_35" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_36" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_spec_resp_5</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_37" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_travel_pmk</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_38" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_travel_pmk_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_39" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_travel_pmk_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_40" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_battle</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_41" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_battle_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_42" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_battle_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_43" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_battle_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_44" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_trenchcoat_battle_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_45" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_berill_resp</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_bandit_3_default_46" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_3</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>5676</rank>
+    <reputation>-1852</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_berill_tactic</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+    <!--  bandit master  -->
+<specific_character id="sim_default_bandit_4_default_0" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>25890</rank>
+	<reputation>1597</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_exo</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_1" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>23524</rank>
+	<reputation>-48</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_exo</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_2" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>27438</rank>
+	<reputation>404</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_exo</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_3" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>23958</rank>
+	<reputation>2260</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_exo</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_4" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_band_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>10688</rank>
+	<reputation>917</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_band2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_5" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_band_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_2\</snd_config>
+	<rank>10770</rank>
+	<reputation>-996</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_band_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_6" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>1846</rank>
+	<reputation>-1306</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_7" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit2a_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk_1\</snd_config>
+	<rank>10920</rank>
+	<reputation>-1108</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_8" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_1\</snd_config>
+	<rank>10320</rank>
+	<reputation>-12</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_9" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_2a_gp5</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>8244</rank>
+	<reputation>-875</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit_2a_gp5</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_10" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_1\</snd_config>
+	<rank>11338</rank>
+	<reputation>1682</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6a</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_11" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6d</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit\</snd_config>
+	<rank>12634</rank>
+	<reputation>1905</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6b</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_12" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\bandit_uk_1\</snd_config>
+	<rank>10216</rank>
+	<reputation>155</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6c</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_13" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_6l</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\bandit_uk\</snd_config>
+	<rank>10718</rank>
+	<reputation>431</reputation>
+	
+	<visual>actors\stalker_bandit\stalker_bandit6d</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_bandit_4_default_14" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+    <icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>7359</rank>
+	<reputation>-431</reputation>
+	
+    <visual>actors\stalker_bandit\n_stalker_bandit_voshod_0</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_15" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_proto_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>6959</rank>
+	<reputation>-431</reputation>
+	
+    <visual>actors\stalker_bandit\n_stalker_bandit_voshod_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_16" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+    <icon>no_data_anim</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>7859</rank>
+	<reputation>-431</reputation>
+	
+    <visual>actors\stalker_bandit\n_stalker_bandit_berill_exo</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_17" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_band_proto</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>8859</rank>
+	<reputation>-431</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_exoproto_modern</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_18" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_proto_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>8859</rank>
+	<reputation>-431</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_exoproto_modern_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_19" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+	<rank>8859</rank>
+	<reputation>-431</reputation>
+	
+	<visual>actors\stalker_bandit\n_stalker_bandit_voshod</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_bandit_4_default_20" team_default = "1">
+	<name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_bandit_exo</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_bandit_4</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\bandit\</snd_config>
+	<rank>8859</rank>
+	<reputation>-431</reputation>
+	
+    <visual>actors\stalker_bandit\n_stalker_bandit_exoprot</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_bandit_4_default_21" team_default = "1">
+    <name>GENERATE_NAME_bandit</name>
+	<icon>ui_inGame2_merc_4a</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_bandit_4</class>
+    <community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\bandit_uk\</snd_config>
+    <rank>8859</rank>
+    <reputation>-431</reputation>
+    
+    <visual>actors\stalker_bandit\n_stalker_bandit_exoprot_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+<specific_character id="stalker_bandit_default" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_bandit_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>Stalker_bandit</class>
+	<community>bandit</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\stalker\</snd_config>
+	<rank>196</rank>
+	<reputation>933</reputation>
+	<visual>actors\stalker_bandit\stalker_bandit_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>

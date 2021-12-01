@@ -1,0 +1,2031 @@
+;---------------------------------------------------------------------------------------------
+;		BASE
+;---------------------------------------------------------------------------------------------
+[outfit_exo_base]
+GroupControlSection				= spawn_group
+discovery_dependency			=
+$prefetch 						= 32
+class							= EQU_STLK	;Change to E_STLK if you want to use se_item.se_outfit script binding
+cform							= skeleton
+repair_type 					= exo
+player_hud_section				= actor_hud_05
+pickup_color					= 255, 0, 255, 255	; Violet
+installed_upgrades				=
+ef_equipment_type				= 5
+slot							= 6
+full_scale_icon					= 2,11
+sprint_allowed					= false
+default_to_ruck					= true
+helmet_allowed					= false
+backpack_allowed				= false
+hit_fraction_actor				= 0.2
+control_inertion_factor			= 2.5
+inv_volume						= 25
+power_loss						= 0.04
+power_restore_speed				= 0.0001
+additional_inventory_weight		= 50
+additional_inventory_weight2	= 50
+additional_inventory_volume		= 40
+snd_level						= heavy
+community						= stalker
+upgrades						= up_gr_firstab_exo_outfit, up_gr_seconab_exo_outfit, up_gr_thirdab_exo_outfit, up_gr_fourtab_exo_outfit, up_gr_fifthab_exo_outfit
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_exo_outfit  
+immunities_sect					= sect_exo_outfit_immunities
+bones_koeff_protection			= actor_armor_exo
+inv_grid_width					= 2
+inv_grid_height					= 3
+script_binding					= bind_outfit.bind
+visibility_factor				= 0.6
+disguise_time					= 30
+temp_isolation_minus            = 7
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.0533
+shock_protection				= 0.2133
+radiation_protection			= 0.0080
+chemical_burn_protection		= 0.0533
+telepatic_protection			= 0.0588
+strike_protection				= 0.3350
+explosion_protection			= 0.3150
+wound_protection				= 0.3150
+
+[sect_exo_outfit_immunities]
+burn_immunity					= 0.10			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.005
+shock_immunity					= 0.028
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.026
+explosion_immunity				= 0.009
+fire_wound_immunity				= 0.008
+
+[sect_exo_outfit_immunities_add]
+burn_immunity					= -0.011
+strike_immunity					= -0.001
+shock_immunity					= -0.015
+wound_immunity					= -0.007
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= -0.011
+explosion_immunity				= -0.009
+fire_wound_immunity				= -0.005
+
+[sect_exo_outfit_immunities_burn_add]
+burn_immunity					= -0.019		;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exo_outfit_immunities_chemical_burn_add]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.002
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exo_outfit_immunities_shock_add]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0022
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exo_outfit_immunities_physical_add_small]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0003
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0004
+fire_wound_immunity				= -0.0004
+
+[sect_exo_outfit_immunities_physical_add_large]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0005
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0008
+fire_wound_immunity				= -0.0007
+;---------------------------------------------------------------------------------------------
+;		EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[exo_outfit]:outfit_exo_base
+$spawn							= "outfit\exo_outfit"
+visual							= dynamics\outfit\exo_outfit
+actor_visual					= actors\stalker_neutral\stalker_neutral_4.ogf
+npc_visual						= actors\stalker_neutral\stalker_neutral_4.ogf
+player_hud_section				= actor_hud_exo
+inv_name						= exo_outfit_name
+inv_name_short					= exo_outfit_name
+description						= exo_outfit_description
+inv_weight						= 40.0
+power_loss						= 0.040
+additional_inventory_weight		= 80
+additional_inventory_weight2	= 80
+slot							= 6
+inv_grid_width					= 2
+inv_grid_height					= 3
+inv_grid_x					= 14
+inv_grid_y					= 15
+upgr_icon_x						= 334
+upgr_icon_y						= 450
+upgr_icon_width					= 303
+upgr_icon_height				= 159
+cost							= 111680
+full_scale_icon					= 2,11
+immunities_sect					= sect_exo_outfit_immunities
+character_portrait				= ui_inGame2_neutral_4
+; Suit Battery
+battery_weight_penalty			= -75	;Kg penalty with no batt or drained one
+battery_suit_decay_rate			= 0.0005
+battery_suit_type				= battery_100v
+keep_battery					= true
+use1_action_functor				= area_battery_discharge.suit_battery_action_functor
+use1_functor					= area_battery_discharge.suit_battery_functor
+; NV Battery
+battery_decay_rate				= 0.00025
+battery_type					= battery_9v
+use2_action_functor				= area_battery_discharge.NV_battery_action_functor
+use2_functor					= area_battery_discharge.NV_battery_functor
+nightvision_sect				= effector_nightvision_1
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.350 ; 773 kW / m2
+shock_protection				= 1.380 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0750 ; 190 C1 ppm eq.
+telepatic_protection			= 0.0920 ; 4 mT
+strike_protection				= 0.55
+explosion_protection			= 0.95
+wound_protection				= 0.64
+fire_wound_protection			= 0.58
+
+hit_fraction_actor				= 0.15
+bones_koeff_protection			= actor_armor_exo
+
+default_to_ruck					= true
+repair_type 				= exo
+artefact_count					= 6
+control_inertion_factor			= 1.76
+
+upgrades						= up_gr_firstab_exo_outfit, up_gr_seconab_exo_outfit, up_gr_thirdab_exo_outfit, up_gr_fourtab_exo_outfit, up_gr_fifthab_exo_outfit
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_exo_outfit
+
+;---------------------------------------------------------------------------------------------
+;		FREEDOM EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[svoboda_exo_outfit]:exo_outfit
+$spawn                      = "outfit\freedom_exo_outfit"
+visual                      = dynamics\outfit\freedom_exo_outfit
+actor_visual                = actors\stalker_freedom\stalker_freedom_4.ogf
+npc_visual                  = actors\stalker_freedom\stalker_freedom_4.ogf
+player_hud_section          = actor_hud_freedom_exo
+character_portrait			= ui_inGame2_Freedom_4
+immunities_sect					= sect_svoboda_exo_outfit_immunities
+inv_grid_x                  = 12
+inv_grid_y                  = 18
+upgr_icon_x                 = 935
+upgr_icon_y                 = 670
+upgr_icon_width             = 304
+upgr_icon_height            = 159
+inv_weight						= 38.0
+power_loss						= 0.038
+artefact_count					= 6
+hit_fraction_actor				= 0.20
+cost							= 114680
+additional_inventory_weight		= 80
+additional_inventory_weight2	= 80
+community						= freedom
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.400			; 773 kW / m2
+shock_protection				= 1.10			; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0800		; 54 C1 ppm eq.
+telepatic_protection			= 0.0970		; 0 mT
+strike_protection				= 0.55
+explosion_protection			= 0.85
+wound_protection				= 0.57
+fire_wound_protection			= 0.50
+
+[sect_svoboda_exo_outfit_immunities]
+burn_immunity					= 0.14			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.005
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		BANDIT EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[bandit_exo_outfit]:exo_outfit
+$spawn                      = "outfit\bandit_exo_outfit"
+visual                      = dynamics\outfit\bandit_exo_outfit
+actor_visual                = actors\stalker_bandit\stalker_bandit_exo.ogf
+npc_visual                  = actors\stalker_bandit\stalker_bandit_exo.ogf
+player_hud_section          = actor_hud_bandit_exo
+character_portrait			= ui_inGame2_merc_4
+inv_grid_x                  = 2
+inv_grid_y                  = 36
+upgr_icon_x                 = 2500
+upgr_icon_y                 = 0
+upgr_icon_width             = 350
+upgr_icon_height            = 200
+inv_weight					= 35
+power_loss						= 0.035
+cost						= 107000
+artefact_count					= 6
+immunities_sect					= sect_bandit_exo_outfit_immunities
+additional_inventory_weight		= 75
+additional_inventory_weight2	= 75
+community						= bandit
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.300			; 29 kW / m2
+shock_protection				= 1.30			; 1083 kV
+radiation_protection			= 0.0240
+chemical_burn_protection		= 0.0600		; 54 C1 ppm eq.
+telepatic_protection			= 0.0800		; 0 mT
+strike_protection				= 0.48
+explosion_protection			= 0.85
+wound_protection				= 0.57
+fire_wound_protection			= 0.50
+
+[sect_bandit_exo_outfit_immunities]
+burn_immunity					= 0.14			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.005
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		MERCENARY EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[merc_exo_outfit]:exo_outfit
+$spawn                      = "outfit\merc_exo_outfit"
+visual                      = dynamics\outfit\merc_exo_outfit
+actor_visual                = actors\stalker_merc\stalker_merc_4.ogf
+npc_visual                  = actors\stalker_merc\stalker_merc_4.ogf
+player_hud_section          = actor_hud_merc_exo
+character_portrait			= ui_inGame2_merc_4
+inv_grid_x                  = 16
+inv_grid_y                  = 17
+upgr_icon_x                 = 1546
+upgr_icon_y                 = 670
+upgr_icon_width					= 310
+upgr_icon_height				= 160
+inv_weight						= 38.0
+power_loss						= 0.038
+cost							= 132610
+artefact_count					= 6
+;upgrades						= up_gr_firstab_merc_exo_outfit, up_gr_seconab_merc_exo_outfit, up_gr_thirdab_merc_exo_outfit, up_gr_fourtab_merc_exo_outfit, up_gr_fifthab_merc_exo_outfit
+immunities_sect					= sect_merc_exo_outfit_immunities
+community						= killer
+
+burn_protection					= 0.350 ; 773 kW / m2
+shock_protection				= 1.380 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0750 ; 190 C1 ppm eq.
+telepatic_protection			= 0.0920 ; 4 mT
+strike_protection				= 0.55
+explosion_protection			= 0.98
+wound_protection				= 0.64
+fire_wound_protection			= 0.58
+
+[sect_merc_exo_outfit_immunities]
+burn_immunity					= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.005
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		MONOLITH EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[monolith_exo_outfit]:exo_outfit
+$spawn                      = "outfit\monolith_exo_outfit"
+visual                      = dynamics\outfit\monolith_exo_outfit
+actor_visual                = actors\stalker_monolith\stalker_monolith_4.ogf
+npc_visual                  = actors\stalker_monolith\stalker_monolith_4.ogf
+player_hud_section          = actor_hud_monolith_exo
+inv_grid_x                  = 4
+inv_grid_y                  = 36
+upgr_icon_x                 = 1540
+upgr_icon_y                 = 510
+upgr_icon_width					= 304
+upgr_icon_height				= 159
+inv_weight						= 38.5
+power_loss						= 0.038
+disguise_time					= 14
+community						= monolith
+
+burn_protection					= 0.350 ; 29 kW / m2
+shock_protection				= 1.380 ; 1083 kV
+radiation_protection			= 0.0450
+chemical_burn_protection		= 0.0750 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0920 ; 0 mT
+strike_protection				= 0.55
+explosion_protection			= 0.95
+wound_protection				= 0.69
+fire_wound_protection			= 0.65
+
+cost							= 134280
+artefact_count					= 6
+character_portrait				= ui_inGame2_monolit_4
+immunities_sect					= sect_monolith_exo_outfit_immunities
+
+[sect_monolith_exo_outfit_immunities]
+burn_immunity					= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		DUTY EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[dolg_exo_outfit]:exo_outfit
+$spawn                      = "outfit\duty_exo_outfit"
+visual                      = dynamics\outfit\dolg_exo_outfit
+actor_visual                = actors\stalker_dolg\stalker_dolg_4.ogf
+npc_visual                  = actors\stalker_dolg\stalker_dolg_4.ogf
+player_hud_section          = actor_hud_dolg_exo
+inv_grid_x                  = 2
+inv_grid_y                  = 15
+upgr_icon_x                 = 1242
+upgr_icon_y                 = 670
+upgr_icon_width             = 304
+upgr_icon_height				= 159
+inv_weight						= 39.0
+power_loss						= 0.039
+community						= dolg
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.300 ; 29 kW / m2
+shock_protection				= 1.30 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0800 ; 0 mT
+strike_protection				= 0.62
+explosion_protection			= 0.95
+wound_protection				= 0.80
+fire_wound_protection			= 0.65
+
+cost							= 121080
+artefact_count					= 6
+character_portrait				= ui_inGame2_Dolg_4
+immunities_sect					= sect_dolg_exo_outfit_immunities
+hit_fraction_actor				= 0.2
+
+[sect_dolg_exo_outfit_immunities]
+burn_immunity					= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		MILITARY EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[military_exo_outfit]:exo_outfit
+$spawn                      = "outfit\military_exo_outfit"
+visual                      = dynamics\outfit\military_exo_outfit
+actor_visual                = actors\stalker_soldier\stalker_military_exo.ogf
+npc_visual                  = actors\stalker_soldier\stalker_military_exo.ogf
+player_hud_section          = actor_hud_military_exo
+inv_grid_x                  = 0
+inv_grid_y                  = 36
+upgr_icon_x                 = 1850
+upgr_icon_y                 = 1000
+upgr_icon_width					= 350
+upgr_icon_height				= 200
+inv_weight						= 40.0
+power_loss						= 0.040
+community						= army
+
+burn_protection					= 0.300 ; 29 kW / m2
+shock_protection				= 1.30 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0800 ; 0 mT
+strike_protection				= 0.72
+explosion_protection			= 0.95
+wound_protection				= 0.72
+fire_wound_protection			= 0.65
+
+cost							= 129510
+artefact_count					= 6
+character_portrait				= ui_inGame2_monolit_4
+immunities_sect					= sect_military_exo_outfit_immunities
+
+[sect_military_exo_outfit_immunities]
+burn_immunity					= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;*************************************************************************************
+;*********************************** OUTFIT ADDON ************************************
+;*************************************************************************************
+;-------------------------------------------------------------------------------------
+;		Radiation Suit
+;-------------------------------------------------------------------------------------
+[radiation_outfit]:outfit_exo_base
+visual							= dynamics\outfit\neutarl_exolight_outfit
+actor_visual					= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual						= actors\stalker_neutral\stalker_neutral3a.ogf
+player_hud_section				= actor_hud_exolight
+inv_name						= radiation_outfit_name
+inv_name_short					= radiation_outfit_name
+description						= radiation_outfit_description
+inv_weight						= 24.0
+power_loss						= 0.024
+slot							= 6
+inv_grid_width					= 2
+inv_grid_height					= 3
+inv_grid_x						= 6
+inv_grid_y						= 36
+upgr_icon_x						= 935
+upgr_icon_y						= 509
+upgr_icon_width					= 298
+upgr_icon_height				= 156
+cost							= 85680
+full_scale_icon					= 2,11
+immunities_sect					= sect_exolight_outfit_immunities
+; NV Battery
+battery_decay_rate				= 0.0005
+battery_type					= battery_9v
+use2_action_functor				= area_battery_discharge.NV_battery_action_functor
+use2_functor					= area_battery_discharge.NV_battery_functor
+backpack_allowed				= true
+
+; MEDIUM RESISTANCE
+burn_protection					= 0.300 ; 29 kW / m2
+shock_protection				= 1.300 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0700 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0850 ; 13 mT
+strike_protection				= 0.18
+explosion_protection			= 0.73
+wound_protection				= 0.59
+fire_wound_protection			= 0.52
+
+hit_fraction_actor				= 0.30
+bones_koeff_protection			= actor_armor_exo
+
+additional_inventory_weight2	= 24
+additional_inventory_weight		= 24
+artefact_count					= 4
+snd_level						= 
+control_inertion_factor			= 1.76
+nightvision_sect				= effector_nightvision_2
+
+upgrades						= up_gr_firstab_exolight_outfit, up_gr_seconab_exolight_outfit, up_gr_thirdab_exolight_outfit, up_gr_fourtab_exolight_outfit, up_gr_fifthab_exolight_outfit
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_exo_outfit
+
+[sect_exolight_outfit_immunities]
+burn_immunity					= 0.16			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.025
+wound_immunity					= 0.01
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.027
+explosion_immunity				= 0.02
+fire_wound_immunity				= 0.01
+
+[sect_exolight_outfit_immunities_burn_add]
+burn_immunity					= -0.020		;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exolight_outfit_immunities_chemical_burn_add]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.003
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exolight_outfit_immunities_shock_add]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0020
+wound_immunity					= -0.0
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0
+fire_wound_immunity				= -0.0
+
+[sect_exolight_outfit_immunities_physical_add_small]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0004
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.0006
+fire_wound_immunity				= -0.0006
+
+[sect_exolight_outfit_immunities_physical_add_large]
+burn_immunity					= -0.0			;коэффициенты иммунитета самого костюма
+strike_immunity					= -0.0
+shock_immunity					= -0.0
+wound_immunity					= -0.0006
+radiation_immunity 				=  0.0
+telepatic_immunity				= -0.0
+chemical_burn_immunity			= -0.0
+explosion_immunity				= -0.001
+fire_wound_immunity				= -0.0009
+
+;---------------------------------------------------------------------------------------------
+;		Duty Radiation Suit
+;---------------------------------------------------------------------------------------------
+[dolg_radiation_outfit]:radiation_outfit
+$spawn							= "outfit\dolg_radiation_outfit"
+visual							= dynamics\outfit\duty_rad_outfit
+actor_visual				= actors\stalker_dolg\stalker_dolgexo_4.ogf
+player_hud_section			= actor_hud_dolg_exolight
+inv_grid_x					= 10
+inv_grid_y					= 37
+upgr_icon_x					= 1858
+upgr_icon_y						= 676
+upgr_icon_width					= 290
+upgr_icon_height				= 153
+character_portrait				= ui_inGame2_Dolg_4
+burn_protection					= 0.270 ; 29 kW / m2
+shock_protection				= 1.250 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0850 ; 13 mT
+strike_protection				= 0.30
+explosion_protection			= 0.80
+wound_protection				= 0.75
+fire_wound_protection			= 0.60
+inv_weight						= 25.0
+power_loss						= 0.025
+cost							= 90580
+community						= dolg
+immunities_sect					= sect_dolg_exolight_outfit_immunities
+
+[sect_dolg_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.009
+
+;---------------------------------------------------------------------------------------------
+;		Freedom Radiation Suit
+;---------------------------------------------------------------------------------------------
+[svoboda_radiation_outfit]:radiation_outfit
+$spawn						= "outfit\svoboda_radiation_outfit"
+visual						= dynamics\outfit\freedom_rad_outfit
+actor_visual				= actors\stalker_freedom\stalker_freedom5a.ogf
+player_hud_section			= actor_hud_freedom_exolight
+character_portrait			= ui_inGame2_Freedom_4
+inv_grid_x					= 12
+inv_grid_y					= 37
+upgr_icon_x					= 1861
+upgr_icon_y						= 842
+upgr_icon_width					= 298
+upgr_icon_height				= 157
+inv_weight						= 24.5
+power_loss						= 0.024
+community						= freedom
+
+burn_protection					= 0.340 ; 29 kW / m2
+shock_protection				= 1.350 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0750 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0900 ; 13 mT
+strike_protection				= 0.18
+explosion_protection			= 0.63
+wound_protection				= 0.52
+fire_wound_protection			= 0.45
+
+cost							= 88880
+immunities_sect					= sect_svoboda_exolight_outfit_immunities
+
+[sect_svoboda_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.009
+
+;---------------------------------------------------------------------------------------------
+;		Merc Radiation Suit
+;---------------------------------------------------------------------------------------------
+[merc_radiation_outfit]:radiation_outfit
+$spawn						= "outfit\merc_radiation_outfit"
+visual						= dynamics\outfit\killer_rad_outfit
+actor_visual				= actors\stalker_merc\stalker_mercexo_4
+player_hud_section			= actor_hud_monolith_exolight
+character_portrait		    = ui_inGame2_merc_4
+inv_grid_x					= 14
+inv_grid_y					= 37
+upgr_icon_x					= 1857
+upgr_icon_y					= 507
+upgr_icon_width					= 293
+upgr_icon_height				= 157
+burn_protection					= 0.300 ; 29 kW / m2
+shock_protection				= 1.300 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0700 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0850 ; 13 mT
+strike_protection				= 0.18
+explosion_protection			= 0.85
+wound_protection				= 0.59
+fire_wound_protection			= 0.52
+inv_weight						= 24.0
+power_loss						= 0.024
+cost							= 93890
+community						= killer
+immunities_sect					= sect_merc_exolight_outfit_immunities
+
+[sect_merc_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.009
+
+;---------------------------------------------------------------------------------------------
+;		Bandit Radiation Suit
+;---------------------------------------------------------------------------------------------
+[bandit_radiation_outfit]:radiation_outfit
+$spawn 						= "outfit\bandit_exolight_outfit"
+visual						= dynamics\outfit\bandit_exolight_outfit
+actor_visual				= actors\stalker_bandit\n_stalker_bandit_voshod_0.ogf
+npc_visual					= actors\stalker_bandit\n_stalker_bandit_voshod_0.ogf
+player_hud_section			= actor_hud_bandit_exolight
+character_portrait			= ui_inGame2_bandit_exo
+inv_grid_width				= 2
+inv_grid_height					= 3
+inv_grid_x						= 52
+inv_grid_y						= 28
+upgr_icon_x						= 1860
+upgr_icon_y						= 500
+upgr_icon_width					= 290
+upgr_icon_height				= 165
+inv_weight						= 26.0
+power_loss						= 0.026
+additional_inventory_weight		= 28
+additional_inventory_weight2	= 28
+community						= bandit
+
+burn_protection					= 0.270 ; 29 kW / m2
+shock_protection				= 1.250 ; 1083 kV
+radiation_protection			= 0.0250
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0800 ; 13 mT
+strike_protection				= 0.14
+explosion_protection			= 0.63
+wound_protection				= 0.52
+fire_wound_protection			= 0.45
+
+cost							= 83180
+immunities_sect					= sect_bandit_exolight_outfit_immunities
+[sect_bandit_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.009
+
+;---------------------------------------------------------------------------------------------
+;		Monolith Radiation Suit
+;---------------------------------------------------------------------------------------------
+[monolith_radiation_outfit]:radiation_outfit
+$spawn						= "outfit\monolith_radiation_outfit"
+visual						= dynamics\outfit\monolith_rad_outfit
+actor_visual				= actors\stalker_monolith\stalker_monolith_3.ogf
+npc_visual					= actors\stalker_monolith\stalker_monolith3a.ogf
+player_hud_section			= actor_hud_monolith_exolight
+character_portrait				= ui_inGame2_monolit_4
+inv_grid_x						= 8
+inv_grid_y						= 36
+upgr_icon_x						= 1240
+upgr_icon_y						= 509
+upgr_icon_width					= 296
+upgr_icon_height				= 157
+cost							= 92580
+inv_weight						= 25.0
+power_loss						= 0.025
+additional_inventory_weight		= 28
+additional_inventory_weight2	= 28
+community						= monolith
+disguise_time					= 12
+immunities_sect					= sect_monolith_exolight_outfit_immunities
+
+burn_protection					= 0.350 ; 773 kW / m2
+shock_protection				= 1.380 ; 1083 kV
+radiation_protection			= 0.0385
+chemical_burn_protection		= 0.0750 ; 190 C1 ppm eq.
+telepatic_protection			= 0.0920 ; 4 mT
+strike_protection				= 0.30
+explosion_protection			= 0.80
+wound_protection				= 0.65
+fire_wound_protection			= 0.60
+
+[sect_monolith_exolight_outfit_immunities]
+fire_wound_immunity				= 0.009
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.009
+
+;---------------------------------------------------------------------------------------------
+;		Military Rad Outfit
+;---------------------------------------------------------------------------------------------
+[military_radiation_outfit]:radiation_outfit
+$spawn 						= "outfit\military_exolight_outfit"
+visual						= dynamics\outfit\military_exolight_outfit
+actor_visual				= actors\stalker_soldier\stalker_soldier_voshod.ogf
+npc_visual					= actors\stalker_soldier\stalker_soldier_voshod.ogf
+player_hud_section			= actor_hud_military_exolight
+character_portrait				= ui_inGame2_monolit_4
+inv_grid_width					= 2
+inv_grid_height					= 3
+inv_grid_x						= 75
+inv_grid_y						= 14
+upgr_icon_x						= 1240
+upgr_icon_y						= 509
+upgr_icon_width					= 296
+upgr_icon_height				= 157
+cost							= 83480
+inv_weight						= 25.5
+power_loss						= 0.025
+community						= army
+immunities_sect					= sect_military_exolight_outfit_immunities
+
+burn_protection					= 0.270 ; 29 kW / m2
+shock_protection				= 1.250 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0850 ; 13 mT
+strike_protection				= 0.45
+explosion_protection			= 0.80
+wound_protection				= 0.65
+fire_wound_protection			= 0.60
+
+[sect_military_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+fire_wound_immunity				= 0.009
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+
+;---------------------------------------------------------------------------------------------
+;		CS Rad Outfit
+;---------------------------------------------------------------------------------------------
+[cs_radiation_outfit]:radiation_outfit
+$spawn 						= "outfit\cs_exolight_outfit"
+visual						= dynamics\outfit\cs_exolight_outfit
+actor_visual				= actors\stalker_nebo\stalker_radexo4a.ogf
+npc_visual					= actors\stalker_nebo\stalker_radexo4a.ogf
+player_hud_section      	= actor_hud_monolith_exolight
+inv_grid_width				= 2
+inv_grid_height				= 3
+inv_grid_x					= 75
+inv_grid_y						= 20
+upgr_icon_x						= 924
+upgr_icon_y						= 1756
+upgr_icon_width					= 304
+upgr_icon_height				= 184
+inv_weight						= 24.0
+power_loss						= 0.024
+community						= csky
+character_portrait				= ui_inGame2_csky_exo
+
+burn_protection					= 0.270 ; 29 kW / m2
+shock_protection				= 1.250 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0850 ; 13 mT
+strike_protection				= 0.30
+explosion_protection			= 0.80
+wound_protection				= 0.65
+fire_wound_protection			= 0.60
+
+cost							= 90625
+immunities_sect					= sect_cs_exolight_outfit_immunities
+
+[sect_cs_exolight_outfit_immunities]
+burn_immunity					= 0.15		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.015
+wound_immunity					= 0.006
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.017
+explosion_immunity				= 0.01
+fire_wound_immunity				= 0.09
+[csky_radiation_outfit_1]:cs_radiation_outfit
+actor_visual							 = actors\stalker_nebo\n_stalker_nebo_voshod.ogf
+npc_visual								 = actors\stalker_nebo\n_stalker_nebo_voshod.ogf
+player_hud_section      				 = actor_hud_bandit_exolight
+inv_name								 = radiation_outfit_reinf_name
+inv_name_short							 = radiation_outfit_reinf_name
+description								 = radiation_outfit_reinf_descr
+strike_protection 						 = 0.35
+explosion_protection 					 = 0.90
+wound_protection						 = 0.75
+cost									 = 98625
+inv_grid_x								 = 93
+inv_grid_y          					 = 15
+community						= csky
+
+;---------------------------------------------------------------------------------------------
+;		Clear Sky EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[cs_exo_outfit]:exo_outfit
+$spawn                      = "outfit\cs_exo_outfit"
+visual                      = dynamics\outfit\cs_exo_outfit
+actor_visual                = actors\stalker_nebo\stalker_nebo_exo_1.ogf
+npc_visual                  = actors\stalker_nebo\stalker_nebo_exo_1.ogf
+player_hud_section          = actor_hud_cs_exo
+inv_grid_x         			= 16
+inv_grid_y         			= 37
+upgr_icon_x						= 938
+upgr_icon_y						= 1000
+upgr_icon_width					= 296
+upgr_icon_height				= 154
+inv_weight						= 36.0
+power_loss						= 0.036
+cost							= 127150
+artefact_count					= 6
+community						= csky
+character_portrait				= ui_inGame2_csky_exo
+
+burn_protection					= 0.300 ; 29 kW / m2
+shock_protection				= 1.30 ; 1083 kV
+radiation_protection			= 0.0300
+chemical_burn_protection		= 0.0650 ; 54 C1 ppm eq.
+telepatic_protection			= 0.0800 ; 0 mT
+strike_protection				= 0.62
+explosion_protection			= 0.95
+wound_protection				= 0.72
+fire_wound_protection			= 0.65
+immunities_sect					= sect_cs_exo_outfit_immunities
+
+[sect_cs_exo_outfit_immunities]
+burn_immunity					= 0.14		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.018
+wound_immunity					= 0.005
+radiation_immunity 				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.016
+explosion_immunity				= 0.008
+fire_wound_immunity				= 0.007
+
+;---------------------------------------------------------------------------------------------
+;		PROTO EXOSKELETON
+;---------------------------------------------------------------------------------------------
+[exo_proto_outfit]:outfit_exo_base
+$spawn							= "outfit\exo_proto_outfit"
+visual							= dynamics\outfit\exo_outfit
+actor_visual					= actors\stalker_neutral\stalker_neutral_exo_proto.ogf
+npc_visual						= actors\stalker_neutral\stalker_neutral_exo_proto.ogf
+player_hud_section				= actor_hud_exo
+inv_name						= exo_proto_outfit_name
+inv_name_short					= exo_proto_outfit_name
+description						= exo_proto_outfit_description
+inv_weight						= 24
+inv_grid_x						= 58
+inv_grid_y						= 27
+upgr_icon_x						= 624
+upgr_icon_y						= 1150
+upgr_icon_width					= 302
+upgr_icon_height				= 157
+cost							= 98750
+inv_weight						= 24.0
+power_loss						= 0.024
+helmet_allowed					= true
+additional_inventory_weight		= 50
+additional_inventory_weight2	= 50
+artefact_count					= 5
+helmet_avaliable				= true
+snd_level						= easy
+community						= stalker
+character_portrait				= ui_inGame2_neutral_2_old
+upgrades						= up_gr_firstab_stalker_outfit, up_gr_seconab_stalker_outfit, up_gr_thirdab_stalker_outfit
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_stalker_outfit
+; Suit Battery
+battery_weight_penalty			= -75	;Kg penalty with no batt or drained one
+battery_suit_decay_rate			= 0.0006
+battery_suit_type				= battery_100v
+keep_battery					= true
+use1_action_functor				= area_battery_discharge.suit_battery_action_functor
+use1_functor					= area_battery_discharge.suit_battery_functor
+; NV Battery
+battery_decay_rate				= 0.0003
+battery_type					= battery_9v
+use2_action_functor				= area_battery_discharge.NV_battery_action_functor
+use2_functor					= area_battery_discharge.NV_battery_functor
+
+; LOW RESISTANCE
+burn_protection					= 0.0433
+shock_protection				= 0.1333
+radiation_protection			= 0.0075
+chemical_burn_protection		= 0.0133
+telepatic_protection			= 0.0
+strike_protection				= 0.925
+explosion_protection			= 0.625
+wound_protection				= 0.525
+
+bones_koeff_protection			= actor_armor_suit_proto
+immunities_sect					= sect_exo_outfit_immunities
+hit_fraction_actor				= 0.25
+
+[sect_exo_proto_outfit_immunities]
+burn_immunity					= 0.10			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.0
+shock_immunity					= 0.03
+wound_immunity					= 0.03
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.03
+explosion_immunity				= 0.03
+fire_wound_immunity				= 0.015
+
+[sect_exo_proto_outfit_immunities_add]
+burn_immunity					= -0.015		;коэффициенты иммунитета самого костюма
+strike_immunity					= 0.0
+shock_immunity					= -0.015
+wound_immunity					= -0.015
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= -0.015
+explosion_immunity				= -0.015
+fire_wound_immunity				= -0.005
+
+;---------------------------------------------------------------------------------------------
+;		Berill-5M Exoskeleton
+;---------------------------------------------------------------------------------------------
+[exo_specops]:exo_outfit
+$spawn							= "outfit\specops_outfit"
+visual							= dynamics\outfit\specops_outfit
+actor_visual					= actors\stalker_soldier\n_stalker_soldier_berill_exo.ogf
+npc_visual						= actors\stalker_soldier\n_stalker_soldier_berill_exo.ogf
+player_hud_section				= actor_hud_military_exo
+ef_equipment_type				= 3
+inv_name						= exo_specops_name
+inv_name_short					= exo_specops_name
+description						= exo_specops_description
+helmet_allowed					= true
+inv_weight						= 26.5
+power_loss						= 0.025
+additional_inventory_weight		= 60
+additional_inventory_weight2	= 60
+inv_grid_x						= 71
+inv_grid_y						= 14
+upgr_icon_x						= 318
+upgr_icon_y						= 163
+upgr_icon_width					= 303
+upgr_icon_height				= 126
+community						= army
+cost							= 78600
+immunities_sect					= sect_exo_specops_immunities
+
+; LOW RESISTANCE
+burn_protection					= 0.030 ; 13 kW / m2
+shock_protection				= 0.480 ; 458 kV
+radiation_protection			= 0.0042
+chemical_burn_protection		= 0.011 ; 34 C1 ppm eq.
+telepatic_protection			= 0.0 ; 0 mT
+strike_protection				= 0.020
+explosion_protection			= 0.85
+wound_protection				= 0.5
+fire_wound_protection			= 0.38
+
+hit_fraction_actor				= 0.14
+bones_koeff_protection			= actor_armor_berill
+artefact_count					= 6
+control_inertion_factor			= 1.48
+
+upgrades						= up_gr_firstab_specops_outfit, up_gr_seconab_specops_outfit, up_gr_thirdab_specops_outfit
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_specops
+character_portrait				= ui_inGame2_Soldier_2
+sprint_allowed					= true
+
+[sect_exo_specops_immunities]
+burn_immunity					= 0.12			;коэффициенты иммунитета самого костюма
+strike_immunity					= 0
+shock_immunity					= 0.018
+wound_immunity					= 0.020
+radiation_immunity				= 0.0
+telepatic_immunity				= 0.0
+chemical_burn_immunity			= 0.041
+explosion_immunity				= 0.029
+fire_wound_immunity				= 0.020
+
+[exo_specops_freedom]:exo_specops
+actor_visual					= actors\stalker_freedom\n_stalker_freedom_berill_exo.ogf
+npc_visual						= actors\stalker_freedom\n_stalker_freedom_berill_exo.ogf
+player_hud_section				= actor_hud_freedom_exo
+inv_grid_x						= 69
+inv_grid_y						= 14
+community						= freedom
+
+[exo_specops_bandit]:exo_specops
+actor_visual					= actors\stalker_bandit\n_stalker_bandit_berill_exo.ogf
+npc_visual						= actors\stalker_bandit\n_stalker_bandit_berill_exo.ogf
+player_hud_section				= actor_hud_bandit_exo
+inv_grid_x						= 67
+inv_grid_y						= 14
+community						= bandit
+
+[exo_specops_merc]:exo_specops
+actor_visual					= actors\stalker_merc\n_stalker_merc_berill_exo.ogf
+npc_visual						= actors\stalker_merc\n_stalker_merc_berill_exo.ogf
+player_hud_section				= actor_hud_merc_exo
+inv_grid_x						= 69
+inv_grid_y						= 11
+community						= merc
+
+[exo_specops_dolg]:exo_specops
+actor_visual					= actors\stalker_dolg\n_stalker_dolg_berill_exo.ogf
+npc_visual						= actors\stalker_dolg\n_stalker_dolg_berill_exo.ogf
+player_hud_section				= actor_hud_dolg_exo
+inv_grid_x						= 71
+inv_grid_y						= 11
+community						= dolg
+
+[radiation_outfit_1]:radiation_outfit
+actor_visual				= actors\stalker_neutral\stalker_neutral3a.ogf
+npc_visual					= actors\stalker_neutral\stalker_neutral3a.ogf
+player_hud_section      	= actor_hud_monolith_exolight
+inv_grid_x					= 8
+inv_grid_y          		= 36
+
+[radiation_outfit_2]:radiation_outfit
+visual						= dynamics\outfit\military_exo_outfit
+actor_visual				= actors\stalker_neutral\stalker_neutral3b.ogf
+npc_visual					= actors\stalker_neutral\stalker_neutral3b.ogf
+player_hud_section      	= actor_hud_military_exolight
+inv_grid_x					= 93
+inv_grid_y          		= 12
+
+[radiation_outfit_3]:radiation_outfit
+actor_visual				= actors\stalker_neutral\stalker_neutral_3.ogf
+npc_visual					= actors\stalker_neutral\stalker_neutral_3.ogf
+player_hud_section      	= actor_hud_military_exolight
+inv_grid_x					= 93
+inv_grid_y          		= 12
+
+[radiation_outfit_4]:radiation_outfit
+actor_visual				= actors\stalker_neutral\n_stalker_voshod.ogf
+npc_visual					= actors\stalker_neutral\n_stalker_voshod.ogf
+player_hud_section      	= actor_hud_exolight
+inv_name					= radiation_outfit_razgr_name
+inv_name_short				= radiation_outfit_razgr_name
+description					= radiation_outfit_razgr_descr
+inv_grid_x					= 93
+inv_grid_y          		= 27
+inv_weight					= 23.0
+power_loss					= 0.023
+cost						= 72680
+artefact_count					= 6
+additional_inventory_weight	 = 30
+additional_inventory_weight2 = 30
+
+;---------------------------------------------------------------------------------------------
+[dolg_exo_outfit_1]:dolg_exo_outfit
+actor_visual                             = actors\stalker_dolg\stalker_dolg4b.ogf
+npc_visual                               = actors\stalker_dolg\stalker_dolg4b.ogf
+inv_grid_x        				 		 = 83
+inv_grid_y         						 = 15
+
+[dolg_exo_outfit_2]:dolg_exo_outfit
+actor_visual                             = actors\stalker_dolg\stalker_dolg4c.ogf
+npc_visual                               = actors\stalker_dolg\stalker_dolg4c.ogf
+inv_grid_x         						 = 83
+inv_grid_y         						 = 18
+;---------------------------------------------------------------------------------------------
+[exo_proto_outfit_dolg]:exo_proto_outfit
+actor_visual					= actors\stalker_hero\n_dolg_exo_prot.ogf
+npc_visual						= actors\stalker_hero\n_dolg_exo_prot.ogf
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 79
+inv_grid_y                               = 23
+community						= bandit
+
+[exo_proto_outfit_freedom]:exo_proto_outfit
+actor_visual					= actors\stalker_hero\n_free_2_exo_prot.ogf
+npc_visual						= actors\stalker_hero\n_free_2_exo_prot.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 79
+inv_grid_y                               = 26
+community						= freedom
+
+[exo_proto_outfit_merc]:exo_proto_outfit
+actor_visual					= actors\stalker_hero\n_merc_exo_prot.ogf
+npc_visual						= actors\stalker_hero\n_merc_exo_prot.ogf
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 27
+community						= killer
+
+[exo_proto_outfit_monolith]:exo_proto_outfit
+actor_visual					= actors\stalker_hero\n_mono_exo_prot.ogf
+npc_visual						= actors\stalker_hero\n_mono_exo_prot.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 24
+disguise_time					= 12
+community						= monolith
+
+community					= stalker
+[exo_proto_outfit_bandit]:exo_proto_outfit
+actor_visual					= actors\stalker_bandit\n_stalker_bandit4a.ogf
+npc_visual						= actors\stalker_bandit\n_stalker_bandit4a.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 21
+community						= bandit
+
+[exo_proto_outfit_bandit_1]:exo_proto_outfit_bandit
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 85
+inv_grid_y                               = 27
+community						= bandit
+
+community						= bandit
+
+[exo_proto_outfit_ecologist]:exo_proto_outfit
+actor_visual					= actors\stalker_ecolog\n_stalker_ecolog_exoprot.ogf
+npc_visual						= actors\stalker_ecolog\n_stalker_ecolog_exoprot.ogf
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 85
+inv_grid_y                               = 21
+community						= ecolog
+
+[exo_proto_outfit_csky]:exo_proto_outfit
+actor_visual					= actors\stalker_nebo\n_stalker_nebo3a.ogf
+npc_visual						= actors\stalker_nebo\n_stalker_nebo3a.ogf
+player_hud_section                       = actor_hud_cs_exo
+inv_grid_x                               = 85
+inv_grid_y                               = 24
+community						= csky
+
+[exo_proto_outfit_military]:exo_proto_outfit
+actor_visual					= actors\stalker_soldier\n_stalker_soldier_4a.ogf
+npc_visual						= actors\stalker_soldier\n_stalker_soldier_4a.ogf
+player_hud_section                       = actor_hud_military_exo
+community						= army
+;---------------------------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------------------------
+[exo_proto_outfit_dolg_1]:exo_proto_outfit_dolg
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 79
+inv_grid_y                               = 23
+community						= dolg
+
+;---------------------------------------------------------------------------------------------
+community						= ecolog
+[exo_proto_outfit_freedom_1]:exo_proto_outfit_freedom
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 79
+inv_grid_y                               = 26
+community						= freedom
+
+[exo_proto_outfit_freedom_2]:exo_proto_outfit_freedom
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 21
+community						= freedom
+
+[exo_proto_outfit_freedom_3]:exo_proto_outfit_freedom
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 79
+inv_grid_y                               = 26
+community						= freedom
+
+community						= freedom
+community						= freedom
+;---------------------------------------------------------------------------------------------
+[exo_proto_outfit_merc_1]:exo_proto_outfit_merc
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 27
+community						= killer
+
+;---------------------------------------------------------------------------------------------
+[exo_proto_outfit_monolith_1]:exo_proto_outfit_monolith
+player_hud_section                       = actor_hud_bandit_exo
+disguise_time					= 12
+community						= monolith
+
+[exo_proto_outfit_monolith_2]:exo_proto_outfit_monolith
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 21
+community						= monolith
+
+community						= monolith
+community						= monolith
+community						= monolith
+;---------------------------------------------------------------------------------------------
+community						= csky
+[exo_proto_outfit_1]:exo_proto_outfit
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 83
+inv_grid_y                               = 21
+
+[exo_proto_outfit_2]:exo_proto_outfit
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 85
+inv_grid_y                               = 21
+
+;---------------------------------------------------------------------------------------------
+[dolg_radiation_outfit_1]:dolg_radiation_outfit
+actor_visual							 = actors\stalker_dolg\stalker_dolgexo4a.ogf
+npc_visual								 = actors\stalker_dolg\stalker_dolgexo4a.ogf
+player_hud_section      				 = actor_hud_dolg_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 12
+community						= dolg
+
+[dolg_radiation_outfit_2]:dolg_radiation_outfit
+actor_visual							 = actors\stalker_dolg\stalker_dolgexo4b.ogf
+npc_visual								 = actors\stalker_dolg\stalker_dolgexo4b.ogf
+player_hud_section      				 = actor_hud_military_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 6
+community						= dolg
+
+[dolg_radiation_outfit_3]:dolg_radiation_outfit
+actor_visual							 = actors\stalker_dolg\stalker_dolgexo4c.ogf
+npc_visual								 = actors\stalker_dolg\stalker_dolgexo4c.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 9
+community						= dolg
+
+;---------------------------------------------------------------------------------------------
+[bandit_radiation_outfit_1]:bandit_radiation_outfit
+actor_visual							 = actors\stalker_bandit\n_stalker_bandit_voshod.ogf
+npc_visual								 = actors\stalker_bandit\n_stalker_bandit_voshod.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 75
+inv_grid_y          				 	 = 23
+upgr_icon_x						= 1248
+upgr_icon_y						= 1595
+upgr_icon_width					= 290
+upgr_icon_height				= 165
+community						= bandit
+
+[bandit_radiation_outfit_2]:bandit_radiation_outfit
+actor_visual							 = actors\stalker_bandit\n_stalker_bandit_voshod_1.ogf
+npc_visual								 = actors\stalker_bandit\n_stalker_bandit_voshod_1.ogf
+player_hud_section      				 = actor_hud_bandit_exolight
+inv_name								 = radiation_outfit_razgr_name
+inv_name_short							 = radiation_outfit_razgr_name
+description								 = radiation_outfit_razgr_descr
+inv_grid_x								 = 50
+inv_grid_y          					 = 22
+cost									 = 88180
+community						= bandit
+additional_inventory_weight				 = 30
+additional_inventory_weight2 			 = 30
+;---------------------------------------------------------------------------------------------
+[svoboda_radiation_outfit_1]:svoboda_radiation_outfit
+actor_visual							 = actors\stalker_freedom\stalker_freedom5a.ogf
+npc_visual								 = actors\stalker_freedom\stalker_freedom5a.ogf
+player_hud_section     					 = actor_hud_freedom_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 15
+community						= freedom
+
+[svoboda_radiation_outfit_2]:svoboda_radiation_outfit
+actor_visual							 = actors\stalker_freedom\stalker_freedom5b.ogf
+npc_visual								 = actors\stalker_freedom\stalker_freedom5b.ogf
+player_hud_section     				 	 = actor_hud_military_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 18
+community						= freedom
+
+[svoboda_radiation_outfit_3]:svoboda_radiation_outfit
+actor_visual							 = actors\stalker_freedom\n_stalker_freedom_voshod.ogf
+npc_visual								 = actors\stalker_freedom\n_stalker_freedom_voshod.ogf
+player_hud_section      				 = actor_hud_freedom_exolight
+inv_name								 = radiation_outfit_razgr_name
+inv_name_short							 = radiation_outfit_razgr_name
+description								 = radiation_outfit_razgr_descr
+inv_grid_x								 = 91
+inv_grid_y          					 = 24
+cost									 = 94880
+community						= freedom
+additional_inventory_weight	 			 = 31
+additional_inventory_weight2 			 = 31
+
+;---------------------------------------------------------------------------------------------
+[merc_radiation_outfit_1]:merc_radiation_outfit
+actor_visual							 = actors\stalker_merc\stalker_mercexo4a.ogf
+npc_visual								 = actors\stalker_merc\stalker_mercexo4a.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 52
+inv_grid_y          					 = 19
+community						= killer
+
+[merc_radiation_outfit_2]:merc_radiation_outfit
+actor_visual							 = actors\stalker_merc\n_stalker_merc_voshod.ogf
+npc_visual								 = actors\stalker_merc\n_stalker_merc_voshod.ogf
+player_hud_section      				 = actor_hud_exolight
+inv_grid_x								 = 93
+inv_grid_y          					 = 24
+community						= killer
+
+[merc_radiation_outfit_3]:merc_radiation_outfit
+actor_visual							 = actors\stalker_merc\n_stalker_merc_voshod_2.ogf
+npc_visual								 = actors\stalker_merc\n_stalker_merc_voshod_2.ogf
+player_hud_section     				  	 = actor_hud_merc_exolight
+inv_grid_x								 = 93
+inv_grid_y          					 = 24
+community						= killer
+
+;---------------------------------------------------------------------------------------------
+[monolith_radiation_outfit_1]:monolith_radiation_outfit
+actor_visual							 = actors\stalker_monolith\stalker_monolith3a.ogf
+npc_visual								 = actors\stalker_monolith\stalker_monolith3a.ogf
+player_hud_section      				 = actor_hud_monolith_exolight
+inv_grid_x								 = 93
+inv_grid_y          					 = 21
+community						= monolith
+
+[monolith_radiation_outfit_2]:monolith_radiation_outfit
+actor_visual							 = actors\stalker_monolith\stalker_monolith3b.ogf
+npc_visual								 = actors\stalker_monolith\stalker_monolith3b.ogf
+player_hud_section      				 = actor_hud_exolight
+inv_grid_x								 = 91
+inv_grid_y          					 = 0
+community						= monolith
+
+;---------------------------------------------------------------------------------------------
+;		Modern protoexoskeletons
+;---------------------------------------------------------------------------------------------
+[mod_exo_proto_outfit]:exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern.ogf
+player_hud_section                       = actor_hud_exo
+inv_name                                 = mod_exo_proto_outfit_name
+inv_name_short                           = mod_exo_proto_outfit_name
+description                              = mod_exo_proto_outfit_description
+inv_weight                               = 26
+power_loss						= 0.026
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+cost                                     = 108750
+additional_inventory_weight		= 70
+additional_inventory_weight2	= 70
+radiation_protection                     = 0.0085
+snd_level						= middle
+
+[mod_exo_proto_outfit_bandit]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_bandit\n_stalker_bandit_exoproto_modern.ogf
+npc_visual                               = actors\stalker_bandit\n_stalker_bandit_exoproto_modern.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 6
+community						= bandit
+
+[mod_exo_proto_outfit_bandit_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_bandit\n_stalker_bandit_exoproto_modern_1.ogf
+npc_visual                               = actors\stalker_bandit\n_stalker_bandit_exoproto_modern_1.ogf
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 3
+community						= bandit
+
+[mod_exo_proto_outfit_dolg]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_dolg\n_stalker_dolg_exoproto_modern.ogf
+npc_visual                               = actors\stalker_dolg\n_stalker_dolg_exoproto_modern.ogf
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 0
+community						= dolg
+
+[mod_exo_proto_outfit_dolg_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_1.ogf
+npc_visual                               = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_1.ogf
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 93
+inv_grid_y                               = 0
+community						= dolg
+
+[mod_exo_proto_outfit_dolg_2]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_2.ogf
+npc_visual                               = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_2.ogf
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 93
+inv_grid_y                               = 3
+community						= dolg
+
+[mod_exo_proto_outfit_dolg_3]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_3.ogf
+npc_visual                               = actors\stalker_dolg\n_stalker_dolg_exoproto_modern_3.ogf
+player_hud_section                       = actor_hud_dolg_exo
+inv_grid_x                               = 93
+inv_grid_y                               = 6
+community						= dolg
+
+[mod_exo_proto_outfit_ecolog]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_ecolog\n_stalker_ecolog_exoprot_modern.ogf
+npc_visual                               = actors\stalker_ecolog\n_stalker_ecolog_exoprot_modern.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 0
+community						= ecolog
+
+[mod_exo_proto_outfit_ecolog_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_ecolog\n_stalker_ecolog_exoprot_modern_1.ogf
+npc_visual                               = actors\stalker_ecolog\n_stalker_ecolog_exoprot_modern_1.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 18
+community						= ecolog
+
+[mod_exo_proto_outfit_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_1.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_1.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 3
+
+[mod_exo_proto_outfit_2]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_2.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_2.ogf
+player_hud_section                       = actor_hud_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 6
+
+[mod_exo_proto_outfit_3]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_3.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_3.ogf
+player_hud_section                       = actor_hud_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 9
+
+[mod_exo_proto_outfit_4]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_4.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_4.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 3
+
+[mod_exo_proto_outfit_5]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_5.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_5.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+
+[mod_exo_proto_outfit_6]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_6.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_6.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+
+[mod_exo_proto_outfit_7]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_7.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_7.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 6
+
+[mod_exo_proto_outfit_8]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_8.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_8.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 18
+
+[mod_exo_proto_outfit_9]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_9.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_9.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+disguise_time					= 14
+
+[mod_exo_proto_outfit_10]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_neutral\n_stalker_exoprot_modern_10.ogf
+npc_visual                               = actors\stalker_neutral\n_stalker_exoprot_modern_10.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+
+[mod_exo_proto_outfit_freedom]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+community						= freedom
+
+[mod_exo_proto_outfit_freedom_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_1.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_1.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 12
+
+[mod_exo_proto_outfit_freedom_2]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_2.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_2.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 15
+community						= freedom
+
+[mod_exo_proto_outfit_freedom_3]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_3.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_3.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 12
+community						= freedom
+
+[mod_exo_proto_outfit_freedom_4]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_4.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_4.ogf
+player_hud_section                       = actor_hud_freedom_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 12
+community						= freedom
+
+[mod_exo_proto_outfit_freedom_5]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_5.ogf
+npc_visual                               = actors\stalker_freedom\n_stalker_freedom_exoproto_modern_5.ogf
+player_hud_section                       = actor_hud_military_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 15
+community						= freedom
+
+[mod_exo_proto_outfit_merc]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_merc\n_stalker_merc_exoproto_modern.ogf
+npc_visual                               = actors\stalker_merc\n_stalker_merc_exoproto_modern.ogf
+player_hud_section                       = actor_hud_merc_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 18
+community						= freedom
+
+[mod_exo_proto_outfit_merc_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_merc\n_stalker_merc_exoproto_modern_1.ogf
+npc_visual                               = actors\stalker_merc\n_stalker_merc_exoproto_modern_1.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 0
+community						= killer
+
+[mod_exo_proto_outfit_monolith]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 6
+disguise_time					= 14
+community						= monolith
+
+[mod_exo_proto_outfit_monolith_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_1.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_1.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 3
+community						= monolith
+
+[mod_exo_proto_outfit_monolith_2]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_2.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_2.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 3
+community						= monolith
+
+[mod_exo_proto_outfit_monolith_3]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_3.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_3.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 9
+community						= monolith
+
+[mod_exo_proto_outfit_monolith_4]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_4.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_4.ogf
+player_hud_section                       = actor_hud_monolith_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 9
+community						= monolith
+
+[mod_exo_proto_outfit_monolith_5]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_5.ogf
+npc_visual                               = actors\stalker_monolith\n_stalker_monolith_exoproto_modern_5.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 6
+community						= monolith
+
+[mod_exo_proto_outfit_csky]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_nebo\n_stalker_nebo_protoexo_modern.ogf
+npc_visual                               = actors\stalker_nebo\n_stalker_nebo_protoexo_modern.ogf
+player_hud_section                       = actor_hud_cs_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 21
+community						= csky
+
+[mod_exo_proto_outfit_csky_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_nebo\n_stalker_nebo_protoexo_modern_1.ogf
+npc_visual                               = actors\stalker_nebo\n_stalker_nebo_protoexo_modern_1.ogf
+player_hud_section                       = actor_hud_cs_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 21
+community						= csky
+
+[mod_exo_proto_outfit_military]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_soldier\n_stalker_soldier_exoprot_modern.ogf
+npc_visual                               = actors\stalker_soldier\n_stalker_soldier_exoprot_modern.ogf
+player_hud_section                       = actor_hud_bandit_exo
+inv_grid_x                               = 89
+inv_grid_y                               = 3
+community						= army
+
+[mod_exo_proto_outfit_military_1]:mod_exo_proto_outfit
+actor_visual                             = actors\stalker_soldier\n_stalker_soldier_exoprot_modern_1.ogf
+npc_visual                               = actors\stalker_soldier\n_stalker_soldier_exoprot_modern_1.ogf
+player_hud_section                       = actor_hud_military_exo
+inv_grid_x                               = 95
+inv_grid_y                               = 6
+community						= army
+;---------------------------------------------------------------------------------------------
+;		Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit]:radiation_outfit
+$spawn						= "outfit\heavy_outfit"
+visual							= dynamics\outfit\neutarl_exolight_outfit
+actor_visual				= actors\stalker_neutral\n_stalker_heavy_4.ogf
+npc_visual					= actors\stalker_neutral\n_stalker_heavy_4.ogf
+player_hud_section			= actor_hud_exolight
+inv_name					= heavy_outfit_name
+inv_name_short				= heavy_outfit_name
+description					= heavy_outfit_description
+class							= E_STLK
+inv_grid_x						= 85
+inv_grid_y						= 0
+upgr_icon_x						= 935
+upgr_icon_y						= 509
+upgr_icon_width					= 298
+upgr_icon_height				= 156
+cost							= 67680
+inv_weight					= 18.0
+power_loss						= 0.018
+helmet_allowed					= true
+additional_inventory_weight	 = 20
+additional_inventory_weight2 = 20
+nightvision_sect				=
+backpack_allowed				= true
+
+; MEDIUM RESISTANCE
+burn_protection 			= 0.040 ; 29 kW / m2
+shock_protection 			= 0.600 ; 1083 kV
+radiation_protection 		= 0.0040
+chemical_burn_protection 	= 0.0120 ; 54 C1 ppm eq.
+telepatic_protection 		= 0.00 ; 13 mT
+strike_protection 			= 0.05
+explosion_protection 		= 0.70
+wound_protection			= 0.56
+fire_wound_protection  		= 0.48
+
+hit_fraction_actor				= 0.30
+bones_koeff_protection		= actor_armor_heavy
+sprint_allowed				= true
+artefact_count					= 4
+control_inertion_factor		= 1.61
+helmet_avaliable			= true
+immunities_sect					= sect_exolight_outfit_immunities
+
+upgrades						= up_gr_firstab_exo_outfit, up_gr_seconab_exo_outfit, up_gr_thirdab_exo_outfit, up_gr_fourtab_exo_outfit, up_gr_fifthab_exo_outfit
+installed_upgrades     		=
+upgrade_scheme         	    = upgrade_scheme_exo_outfit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_1]:heavy_outfit
+actor_visual							 = actors\stalker_neutral\n_stalker_heavy_1.ogf
+npc_visual								 = actors\stalker_neutral\n_stalker_heavy_1.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 27
+
+[heavy_outfit_2]:heavy_outfit
+actor_visual							 = actors\stalker_neutral\n_stalker_heavy_2.ogf
+npc_visual								 = actors\stalker_neutral\n_stalker_heavy_2.ogf
+inv_grid_x								 = 89
+inv_grid_y								 = 12
+cost									 = 70680
+additional_inventory_weight2			 = 25
+additional_inventory_weight				 = 25
+inv_name								 = heavy_outfit_2_name
+inv_name_short							 = heavy_outfit_2_name
+description								 = heavy_outfit_2_descr
+
+[heavy_outfit_3]:heavy_outfit
+actor_visual						     = actors\stalker_neutral\n_stalker_heavy_3.ogf
+npc_visual								 = actors\stalker_neutral\n_stalker_heavy_3.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 27
+;		Bandit Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_bandit]:heavy_outfit
+actor_visual				= actors\stalker_bandit\n_stalker_bandit_heavy.ogf
+npc_visual					= actors\stalker_bandit\n_stalker_bandit_heavy.ogf
+player_hud_section			= actor_hud_bandit_exolight
+inv_grid_x					= 87
+inv_grid_y					= 0
+community						= bandit
+[heavy_outfit_bandit_1]:heavy_outfit_bandit
+actor_visual							 = actors\stalker_bandit\n_stalker_bandit_heavy_1.ogf
+npc_visual								 = actors\stalker_bandit\n_stalker_bandit_heavy_1.ogf
+player_hud_section     				 	 = actor_hud_merc_exolight
+inv_grid_x								 = 85
+inv_grid_y          					 = 15
+community						= bandit
+
+[heavy_outfit_bandit_2]:heavy_outfit_bandit
+actor_visual							 = actors\stalker_bandit\n_stalker_bandit_heavy_2.ogf
+npc_visual								 = actors\stalker_bandit\n_stalker_bandit_heavy_2.ogf
+player_hud_section     					 = actor_hud_bandit_exolight
+inv_name								 = heavy_outfit_2_name
+inv_name_short							 = heavy_outfit_2_name
+inv_grid_x								 = 50
+inv_grid_y          					 = 19
+cost									 = 76680
+community						= bandit
+additional_inventory_weight				 = 28
+additional_inventory_weight2 			 = 28
+;---------------------------------------------------------------------------------------------
+;		Clear Sky Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_csky]:heavy_outfit
+actor_visual				= actors\stalker_nebo\n_stalker_nebo_heavy.ogf
+npc_visual					= actors\stalker_nebo\n_stalker_nebo_heavy.ogf
+player_hud_section			= actor_hud_cs_exolight
+inv_grid_x					= 89
+inv_grid_y					= 18
+community						= csky
+
+[heavy_outfit_csky_1]:heavy_outfit_csky
+actor_visual							 = actors\stalker_nebo\n_stalker_nebo_heavy_1.ogf
+npc_visual								 = actors\stalker_nebo\n_stalker_nebo_heavy_1.ogf
+player_hud_section      				 = actor_hud_bandit_exolight
+inv_name								 = heavy_outfit_reinf_name
+inv_name_short							 = heavy_outfit_reinf_name
+description								 = heavy_outfit_reinf_descr
+cost									 = 79980
+strike_protection 						 = 0.08
+explosion_protection 					 = 0.80
+wound_protection						 = 0.75
+inv_grid_x								 = 89
+inv_grid_y          					 = 15
+community						= csky
+
+;---------------------------------------------------------------------------------------------
+;		Dolg Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_dolg]:heavy_outfit
+actor_visual				= actors\stalker_dolg\n_stalker_dolg_heavy.ogf
+npc_visual					= actors\stalker_dolg\n_stalker_dolg_heavy.ogf
+player_hud_section			= actor_hud_dolg_exolight
+inv_grid_x					= 85
+inv_grid_y					= 6
+community						= dolg
+[heavy_outfit_dolg_1]:heavy_outfit
+actor_visual							 = actors\stalker_dolg\n_stalker_dolg_heavy_1.ogf
+npc_visual								 = actors\stalker_dolg\n_stalker_dolg_heavy_1.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 6
+community						= dolg
+
+[heavy_outfit_dolg_2]:heavy_outfit
+actor_visual							 = actors\stalker_dolg\n_stalker_dolg_heavy_2.ogf
+npc_visual								 = actors\stalker_dolg\n_stalker_dolg_heavy_2.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 9
+community						= dolg
+
+[heavy_outfit_dolg_3]:heavy_outfit
+actor_visual							 = actors\stalker_dolg\n_stalker_dolg_heavy_3.ogf
+npc_visual								 = actors\stalker_dolg\n_stalker_dolg_heavy_3.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 3
+community						= dolg
+
+[heavy_outfit_dolg_4]:heavy_outfit
+actor_visual							 = actors\stalker_dolg\n_stalker_dolg_heavy_4.ogf
+npc_visual								 = actors\stalker_dolg\n_stalker_dolg_heavy_4.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 12
+community						= dolg
+
+[heavy_outfit_dolg_5]:heavy_outfit
+actor_visual							 = actors\stalker_dolg\n_stalker_dolg_heavy_5.ogf
+npc_visual								 = actors\stalker_dolg\n_stalker_dolg_heavy_5.ogf
+inv_grid_x								 = 87
+inv_grid_y								 = 3
+community						= dolg
+;---------------------------------------------------------------------------------------------
+;		Freedom Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_freedom]:heavy_outfit
+actor_visual				= actors\stalker_freedom\n_stalker_freedom_heavy.ogf
+npc_visual					= actors\stalker_freedom\n_stalker_freedom_heavy.ogf
+player_hud_section			= actor_hud_freedom_exolight
+inv_grid_x					= 87
+inv_grid_y					= 15
+community						= freedom
+[heavy_outfit_freedom_1]:heavy_outfit_freedom
+actor_visual							 = actors\stalker_freedom\n_stalker_freedom_heavy_1.ogf
+npc_visual								 = actors\stalker_freedom\n_stalker_freedom_heavy_1.ogf
+player_hud_section      				 = actor_hud_military_exolight
+inv_grid_x								 = 87
+inv_grid_y          				 	 = 18
+community						= freedom
+
+[heavy_outfit_freedom_2]:heavy_outfit_freedom
+actor_visual							 = actors\stalker_freedom\n_stalker_freedom_heavy_2.ogf
+npc_visual								 = actors\stalker_freedom\n_stalker_freedom_heavy_2.ogf
+player_hud_section      				 = actor_hud_freedom_exolight
+inv_grid_x								 = 87
+inv_grid_y          					 = 21
+community						= freedom
+
+[heavy_outfit_freedom_3]:heavy_outfit_freedom
+actor_visual							 = actors\stalker_freedom\n_stalker_freedom_heavy_3.ogf
+npc_visual								 = actors\stalker_freedom\n_stalker_freedom_heavy_3.ogf
+player_hud_section      				 = actor_hud_freedom_exolight
+inv_name								 = radiation_outfit_razgr_name
+inv_name_short							 = radiation_outfit_razgr_name
+description								 = radiation_outfit_razgr_descr
+inv_grid_x								 = 87
+inv_grid_y          					 = 24
+cost									 = 71680
+community						= freedom
+additional_inventory_weight				 = 25
+additional_inventory_weight2 			 = 25
+;---------------------------------------------------------------------------------------------
+;		Merc Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_merc]:heavy_outfit
+actor_visual				= actors\stalker_merc\n_stalker_merc_heavy.ogf
+npc_visual					= actors\stalker_merc\n_stalker_merc_heavy.ogf
+player_hud_section			= actor_hud_exolight
+inv_grid_x					= 54
+inv_grid_y					= 19
+community						= killer
+[heavy_outfit_merc_1]:heavy_outfit_merc
+actor_visual							 = actors\stalker_merc\n_stalker_merc_heavy_1.ogf
+npc_visual								 = actors\stalker_merc\n_stalker_merc_heavy_1.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 89
+inv_grid_y          					 = 24
+community						= killer
+
+[heavy_outfit_merc_2]:heavy_outfit_merc
+actor_visual							 = actors\stalker_merc\n_stalker_merc_heavy_2.ogf
+npc_visual								 = actors\stalker_merc\n_stalker_merc_heavy_2.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 54
+inv_grid_y          					 = 19
+community						= killer
+
+[heavy_outfit_merc_3]:heavy_outfit_merc
+actor_visual							 = actors\stalker_merc\n_stalker_merc_heavy_3.ogf
+npc_visual								 = actors\stalker_merc\n_stalker_merc_heavy_3.ogf
+player_hud_section      				 = actor_hud_merc_exolight
+inv_grid_x								 = 54
+inv_grid_y          					 = 19
+community						= killer
+;---------------------------------------------------------------------------------------------
+;		Military Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_military]:heavy_outfit
+actor_visual				= actors\stalker_soldier\n_stalker_soldier_heavy.ogf
+npc_visual					= actors\stalker_soldier\n_stalker_soldier_heavy.ogf
+player_hud_section			= actor_hud_military_exolight
+inv_grid_x					= 73
+inv_grid_y					= 14
+community						= army
+;---------------------------------------------------------------------------------------------
+;		Monolith Heavy Suit
+;---------------------------------------------------------------------------------------------
+[heavy_outfit_monolith]:heavy_outfit
+actor_visual				= actors\stalker_monolith\n_stalker_monolith_heavy.ogf
+npc_visual					= actors\stalker_monolith\n_stalker_monolith_heavy.ogf
+player_hud_section			= actor_hud_monolith_exolight
+inv_grid_x					= 85
+inv_grid_y					= 3
+disguise_time					= 10
+community						= monolith
+[heavy_outfit_monolith_1]:heavy_outfit_monolith
+actor_visual							 = actors\stalker_monolith\n_stalker_monolith_heavy_1.ogf
+npc_visual								 = actors\stalker_monolith\n_stalker_monolith_heavy_1.ogf
+player_hud_section      			 	 = actor_hud_exolight
+inv_grid_x								 = 87
+inv_grid_y          					 = 0
+community						= monolith
+
+[heavy_outfit_monolith_2]:heavy_outfit_monolith
+actor_visual							 = actors\stalker_monolith\n_stalker_monolith_heavy_2.ogf
+npc_visual								 = actors\stalker_monolith\n_stalker_monolith_heavy_2.ogf
+player_hud_section      				 = actor_hud_monolith_exolight
+inv_grid_x								 = 89
+inv_grid_y          					 = 21
+community						= monolith

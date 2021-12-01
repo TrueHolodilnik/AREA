@@ -1,0 +1,19 @@
+[logic@zagon1]
+active = mob_home
+; suitable = {=check_npc_name(lx8_controller)} true
+suitable = true
+prior = 100
+monster_job = true
+; on_death = death
+
+[mob_home]
+path_home = zagon_home
+actor_friendly = false
+home_min_radius = 20
+home_max_radius = 30
+aggressive = true
+out_restr = x27_sr_st21_out_restr
+; combat_ignore_cond = {=check_enemy_name(lx8_snork_1_jump:lx8_snork_2_jump:lx8_snork)} true
+
+[death]
+on_info = %+lx8_controller_dead%

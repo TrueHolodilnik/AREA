@@ -1,0 +1,15 @@
+[logic]
+active = ph_idle@wait
+
+[ph_idle@wait]
+on_info = %=play_sound(escape_sr_rupor_sound)%
+on_info2 = {=is_night} ph_idle@night
+hit_on_bone = 1|ph_idle@broken
+
+[ph_idle@night]
+on_info = %=play_sound(no_sound_mlr)%
+on_info2 = {!is_night} ph_idle@wait
+hit_on_bone = 1|ph_idle@broken
+
+[ph_idle@broken]
+on_info = nil %=stop_sound%

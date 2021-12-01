@@ -1,0 +1,564 @@
+;baraholka
+
+;visitors
+[logic@gar_smart_terrain_6_3_bar_1]
+active = animpoint@gar_smart_terrain_6_3_bar_1
+;any advanced or veteran
+suitable = {=check_npc_name(stalker_3)} true, {=check_npc_name(stalker_2)} true, false
+prior = 200
+
+[animpoint@bar]
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+; combat_ignore_keep_when_attacked = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+meet = meet@bar
+
+[meet@bar]
+close_victim 	= {+gar_butcher_firstmeet_4} actor, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} actor, nil
+far_victim 		= {+gar_butcher_firstmeet_4} actor, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} actor, nil
+close_distance  = {+gar_butcher_firstmeet_4} 2, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} 2, 0
+far_distance 	= {+gar_butcher_firstmeet_4} 3, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} 3, 0
+snd_on_use		= {=dist_to_actor_le(3) +gar_butcher_firstmeet_4} nil, {=dist_to_actor_le(3) =check_npc_name(izum) +gar_leshiy_dolg_1_accept} nil, meet_use_no_default
+use = {+gar_butcher_firstmeet_4 !actor_enemy} true, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept !actor_enemy} true, false
+meet_on_talking = {+gar_butcher_firstmeet_4} true, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} true, false
+close_snd_hello	= {+gar_butcher_firstmeet_4} meet_hello, {=check_npc_name(izum) +gar_leshiy_dolg_1_accept} meet_hello, nil
+
+[walker@panic]
+path_walk = fear_1_walk
+path_look = fear_1_look
+def_state_moving = sprint
+snd = panic_human
+meet = no_meet
+use_camp = false
+turn_on_campfire = false
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+on_info2 = {~10} %=play_sound(panic_human)%
+
+[animpoint@gar_smart_terrain_6_3_bar_1]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp1
+avail_animations = drunk_stand_table_2
+on_actor_in_zone = gar_smart_terrain_6_3_surge_hide_a1 | %=play_sound(bar_sad_veteran_phrases)%
+meet = no_meet
+
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_1} walker@panic_1 %+gar_smart_terrain_6_3_bar_1%
+
+[walker@panic_1]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_1 %-gar_smart_terrain_6_3_bar_1%
+
+[logic@gar_smart_terrain_6_3_bar_2]
+active = animpoint@gar_smart_terrain_6_3_bar_2
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_2]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp2
+avail_animations = animpoint_stay_table
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_2} walker@panic_2 %+gar_smart_terrain_6_3_bar_2%
+
+[walker@panic_2]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_2 %-gar_smart_terrain_6_3_bar_2%
+
+[logic@gar_smart_terrain_6_3_bar_3]
+active = animpoint@gar_smart_terrain_6_3_bar_3
+suitable = {!is_squad_commander} true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_3]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp3
+avail_animations = drunk_stand_table_2
+meet = no_meet
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_3} walker@panic_3 %+gar_smart_terrain_6_3_bar_3%
+
+[walker@panic_3]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_3 %-gar_smart_terrain_6_3_bar_3%
+
+[logic@gar_smart_terrain_6_3_bar_4]
+active = animpoint@gar_smart_terrain_6_3_bar_4
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_4]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp4
+avail_animations = animpoint_stay_bar_2
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_4} walker@panic_4 %+gar_smart_terrain_6_3_bar_4%
+
+[walker@panic_4]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_4 %-gar_smart_terrain_6_3_bar_4%
+
+[logic@gar_smart_terrain_6_3_bar_5]
+active = animpoint@gar_smart_terrain_6_3_bar_5
+suitable = {!is_squad_commander} true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_5]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp5
+avail_animations = drunk_stand_table_2
+meet = no_meet
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_5} walker@panic_5 %+gar_smart_terrain_6_3_bar_5%
+
+[walker@panic_5]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_5 %-gar_smart_terrain_6_3_bar_5%
+
+[logic@gar_smart_terrain_6_3_bar_6]
+active = animpoint@gar_smart_terrain_6_3_bar_6
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_6]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp6
+avail_animations = animpoint_stay_table
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_6} walker@panic_6 %+gar_smart_terrain_6_3_bar_6%
+
+[walker@panic_6]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_6 %-gar_smart_terrain_6_3_bar_6%
+
+[logic@gar_smart_terrain_6_3_bar_8]
+active = animpoint@gar_smart_terrain_6_3_bar_8
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_8]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp8
+avail_animations = animpoint_stay_table
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_8} walker@panic_8 %+gar_smart_terrain_6_3_bar_8%
+
+[walker@panic_8]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_8 %-gar_smart_terrain_6_3_bar_8%
+
+[logic@gar_smart_terrain_6_3_bar_9]
+active = animpoint@gar_smart_terrain_6_3_bar_9
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_9]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp9
+avail_animations = animpoint_stay_table
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_9} walker@panic_9 %+gar_smart_terrain_6_3_bar_9%
+
+[walker@panic_9]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_9 %-gar_smart_terrain_6_3_bar_9%
+
+[logic@gar_smart_terrain_6_3_bar_10]
+active = animpoint@gar_smart_terrain_6_3_bar_10
+suitable = {!is_squad_commander} true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_10]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp10
+avail_animations = drunk_stand_table_2
+meet = no_meet
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_10} walker@panic_10 %+gar_smart_terrain_6_3_bar_10%
+
+[walker@panic_10]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_10 %-gar_smart_terrain_6_3_bar_10%
+
+[logic@gar_smart_terrain_6_3_bar_11]
+active = animpoint@gar_smart_terrain_6_3_bar_11
+suitable = true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_bar_11]:animpoint@bar
+cover_name = gar_smart_terrain_6_3_animpoint_kamp11
+avail_animations = animpoint_stay_table
+on_game_timer = 1500 | {!surge_started} animpoint@smoke
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death ~50 -gar_smart_terrain_6_3_bar_11} walker@panic_11 %+gar_smart_terrain_6_3_bar_11%
+
+[walker@panic_11]:walker@panic
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_smart_terrain_6_3_bar_11 %-gar_smart_terrain_6_3_bar_11%
+
+[animpoint@smoke]:animpoint@gar_smart_terrain_6_3_bar_11
+cover_name = gar_smart_terrain_6_3_animpoint_smoking_1
+avail_animations = smoking_stand
+on_game_timer = 700|animpoint@gar_smart_terrain_6_3_bar_11
+on_info = {=surge_started} animpoint@gar_smart_terrain_6_3_bar_11
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+
+; [logic@gar_smart_terrain_6_3_bar_12]
+; active = animpoint@gar_smart_terrain_6_3_bar_12
+; suitable = {=check_npc_name(gar_stalker_moryak)} true
+; prior = 200
+
+; [animpoint@gar_smart_terrain_6_3_bar_12]
+; cover_name = gar_smart_terrain_6_3_animpoint_kamp12
+; use_camp = true
+; turn_on_campfire = true
+; invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+; combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+; 
+
+[logic@gar_smart_terrain_6_3_animpoint_wall_1]
+active = animpoint@gar_smart_terrain_6_3_animpoint_wall_1
+suitable = {!is_rain} true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_animpoint_wall_1]
+cover_name = gar_smart_terrain_6_3_animpoint_wall_1
+avail_animations = animpoint_stay_wall
+
+
+[logic@gar_smart_terrain_6_3_animpoint_wall_2]
+active = animpoint@gar_smart_terrain_6_3_animpoint_wall_2
+suitable = {!is_rain} true
+prior = 45
+
+[animpoint@gar_smart_terrain_6_3_animpoint_wall_2]
+cover_name = gar_smart_terrain_6_3_animpoint_wall_2
+avail_animations = animpoint_stay_wall
+
+;hunter trader
+[logic@hunter_gar_trader_logic]
+suitable = {=check_npc_name(hunter_gar_trader)} true
+prior = 200
+active = animpoint@stand
+level_spot = trader
+
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@stand]
+cover_name = gar_mlr_trader_angar
+avail_animations = jup_b41_novikov_stand
+use_camp = false
+
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+;hunter
+[logic@hunter_gar_trader]
+active = animpoint@gar_stalker_butcher
+suitable = {=check_npc_name(hunter_gar_trader)} true
+trade = misc\trade\trade_barman.ltx
+prior = 200
+can_select_weapon = true
+level_spot = trader
+dont_keep_items = true
+post_combat_time = 0,0
+
+[animpoint@gar_stalker_butcher]
+cover_name = gar_smart_terrain_6_3_trader_animpoint_1
+avail_animations = animpoint_stay_table
+use_camp = false
+turn_on_campfire = false
+meet = meet@gar_stalker_butcher
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+on_info = {+gar_butcher_firstmeet_1 -gar_zombied_stalker_squad_death} remark@gar_stalker_butcher_cover
+
+[remark@gar_stalker_butcher_cover]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+turn_on_campfire = false
+invulnerable = true
+path_walk = trader_walker_1_walk
+path_look = trader_walker_1_look
+combat_ignore_cond = true
+anim = hide_no_wpn
+target = story | gar_zombied_stalker
+on_info = {+gar_zombied_stalker_squad_death} animpoint@gar_stalker_butcher
+meet = no_meet
+
+[meet@gar_stalker_butcher]
+close_anim 		= animpoint_stay_table
+close_victim 	= nil
+far_anim 		= animpoint_stay_table
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, true
+meet_on_talking = false
+allow_break = false
+trade_enable = {+gar_butcher_firstmeet_3} true, false
+
+;?????
+[logic@gar_stalker_bald]
+active = animpoint@gar_stalker_bald
+suitable = {=check_npc_name(gar_stalker_bald)} true
+prior = 200
+level_spot = mechanic
+post_combat_time = 0,0
+
+[animpoint@gar_stalker_bald]
+cover_name = gar_smart_terrain_6_3_animpoint_kamp12
+avail_animations = animpoint_sit_normal
+use_camp = false
+turn_on_campfire = false
+meet = meet@gar_stalker_bald
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+
+[meet@gar_stalker_bald]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, {+gar_butcher_firstmeet_4} true, false
+allow_break = false
+snd_on_use		= {=dist_to_actor_le(3) +gar_butcher_firstmeet_4} nil, meet_use_no_default
+meet_on_talking = {+gar_butcher_firstmeet_4} true, false
+close_snd_hello	= {+gar_butcher_firstmeet_4} meet_hello, nil
+
+
+;guard and guider
+[logic@gar_baraholka_guard]
+active = animpoint@gar_baraholka_guard
+; suitable = {=check_npc_name(gar_baraholka_guard)} true
+suitable = {=check_npc_name(sim)} true
+prior = 200
+level_spot = guider
+
+[animpoint@gar_baraholka_guard]
+cover_name = gar_smart_terrain_6_3_guard_animpoint_1
+; avail_animations = animpoint_sit_normal
+use_camp = false
+turn_on_campfire = false
+meet = meet@gar_baraholka_guard
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} true, false
+combat_ignore_cond = {=npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1) !check_enemy_name(gar_zombied_stalker)} true, false
+
+[meet@gar_baraholka_guard]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, {+gar_butcher_firstmeet_4} true, false
+meet_on_talking = false
+allow_break = false
+meet_dialog = global_travel
+
+[logic@gar_zombied_stalker]
+active = remark@gar_zombied_stalker
+suitable = {=check_npc_name(gar_zombied_stalker)} true
+prior = 200
+
+[remark@gar_zombied_stalker]
+path_walk = zombie_spawn_1_walk
+path_look = trader_walker_1_walk
+on_info = {=squad_exist(gar_zombied_stalker_squad) !npc_in_zone(gar_smart_terrain_6_3_surge_hide_a1)} %=teleport_squad(gar_zombied_stalker_squad:gar_smart_terrain_6_3_zombie_spawn_1_walk)%
+anim = threat_fire
+target = story | gar_stalker_butcher
+snd = fight_attack
+on_info2 = {~10 =is_alive} %=play_sound(fight_attack)%
+
+;
+[walker@gar_lohotron]
+use_camp = false
+turn_on_campfire = false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = true
+combat_ignore_cond = true
+
+[logic@gar_lohotron_1]
+active = walker@gar_lohotron_1
+suitable = {=check_npc_name(gar_bandit_lohotron_1)} true
+prior = 200
+
+[walker@gar_lohotron_1]:walker@gar_lohotron
+path_walk = lohotron_1_walk
+path_look = lohotron_1_look
+meet = meet@gar_lohotron_1
+on_info = {=surge_started} walker@gar_lohotron_1_surge
+
+[walker@gar_lohotron_1_surge]:walker@gar_lohotron
+path_walk = surge_2_walk
+; path_look = lohotron_1_look
+on_info = {!surge_started} walker@gar_lohotron_1
+
+[meet@gar_lohotron_1]
+close_anim 		= {+gar_lohotron_1_reject} nil, {-gar_lohotron_1 =dist_to_actor_le(6)} wait, nil
+close_victim 	= {+gar_lohotron_1_reject} nil, {-gar_lohotron_1 =dist_to_actor_le(6)} actor, nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 5
+far_distance 	= 10
+use = {+gar_lohotron_1_reject} false, {-gar_lohotron_1 =dist_to_actor_le(6)} self, false
+meet_on_talking = false
+allow_break = false
+trade_enable = false
+meet_dialog = {+gar_lohotron_1_reject} nil, {+gar_lohotron_1} nil, gar_lohotron_1
+
+[logic@gar_lohotron_2]
+active = walker@gar_lohotron_2
+suitable = {=check_npc_name(gar_bandit_lohotron_2)} true
+prior = 200
+
+[walker@gar_lohotron_2]:walker@gar_lohotron
+path_walk = lohotron_2_walk
+path_look = lohotron_2_look
+on_info = {=surge_started} walker@gar_lohotron_2_surge
+meet = no_meet
+
+[walker@gar_lohotron_2_surge]:walker@gar_lohotron
+path_walk = surge_3_walk
+; path_look = lohotron_1_look
+on_info = {!surge_started} walker@gar_lohotron_2
+
+;lottery
+[logic@gar_stalker_lottery]
+active = animpoint@gar_stalker_lottery
+suitable = {=check_npc_name(gar_stalker_lottery)} true
+prior = 200
+
+[animpoint@gar_stalker_lottery]
+cover_name = gar_smart_terrain_6_3_lottery_animpoint_1
+use_camp = false
+turn_on_campfire = false
+meet = meet@gar_stalker_lottery
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = true
+combat_ignore_cond = true
+; on_info = {=squad_exist(gar_stalker_lottery_squad) !npc_in_zone(gar_smart_terrain_6_3_surge_hide_a2)} %=teleport_squad(gar_stalker_lottery_squad:gar_smart_terrain_6_3_surge_7_walk)%
+reach_distance = 60
+
+[meet@gar_stalker_lottery]
+close_anim 		= nil
+close_victim 		= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, true
+meet_on_talking = true
+allow_break = false
+
+
+;rim
+[logic@rm_stalker_rim]
+active = animpoint@rm_stalker_rim
+suitable = {=check_npc_name(rm_stalker_rim)} true
+prior = 200
+
+[animpoint@rm_stalker_rim]
+cover_name = gar_smart_terrain_6_3_rim_animpoint_1
+avail_animations = animpoint_sit_low
+use_camp = false
+turn_on_campfire = false
+meet = meet@rm_stalker_rim
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = true
+combat_ignore_cond = true
+; on_info = {=squad_exist(rm_stalker_rim_squad) !npc_in_zone(gar_smart_terrain_6_3_surge_hide_a2)} %=teleport_squad(rm_stalker_rim_squad:gar_smart_terrain_6_3_surge_7_walk)%
+reach_distance = 60
+
+[meet@rm_stalker_rim]
+close_anim 		= nil
+close_victim 		= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = {=actor_enemy} false, true
+meet_on_talking = true
+allow_break = false
+trade_enable = false
+
+[logic@gar_6_3_stalker_taras]
+suitable = {=target_squad_name(gar_3_5_taras_squad)} true
+prior = 140
+active = animpoint@baraholka_1
+trade_enable = true
+level_spot = trader
+trade = misc\trade\trade_baraholka_day.ltx
+dont_keep_items = true
+can_select_weapon = true
+
+[animpoint@baraholka_1]
+cover_name = gar_cover_day_trader_baraholka
+avail_animations = animpoint_sit_low
+use_camp = false
+meet = meet@baraholka_hello
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = false
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+on_info = {=is_night} sleeper@baraholka_sleep
+
+[sleeper@baraholka_sleep]
+snd = sleep
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+path_main = baraholka_sleep_walk_01
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = false
+on_info = {!is_night} animpoint@baraholka_1
+
+[logic@gar_6_3_stalker_paton]
+suitable = {=target_squad_name(gar_3_5_paton_squad)} true
+prior = 140
+active = animpoint@baraholka_2
+trade_enable = true
+level_spot = trader
+trade = misc\trade\trade_baraholka_night.ltx
+dont_keep_items = true
+can_select_weapon = true
+
+[animpoint@baraholka_2]
+cover_name = gar_cover_day_trader_baraholka
+avail_animations = animpoint_sit_low
+use_camp = false
+meet = meet@baraholka_hello
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = false
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+on_info = {!is_night} sleeper@baraholka_sleep1
+
+[sleeper@baraholka_sleep1]
+snd = sleep
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+path_main = baraholka_sleep_walk_01
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = false
+on_info = {=is_night} animpoint@baraholka_2
+
+[meet@baraholka_hello]
+close_snd_hello = meet_hello
+close_snd_bye = meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3

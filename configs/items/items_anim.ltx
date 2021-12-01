@@ -1,0 +1,1022 @@
+;=====================================================================
+; A.R.E.A. HUD items animations, animations from Item Animations 1.2
+;=====================================================================
+[anm_base]:weapon_base
+visual							= dynamics\devices\dev_eat\invisible_item
+$spawn							= "weapons\animation"
+$npc							= on
+animation_slot					= 15
+slot							= 14
+inv_grid_x						= 19
+inv_grid_y						= 0
+hud								= anm_base_hud
+can_trade						= false
+quest_item     					= true
+;animation entries for area_enhanced_animations
+;anim_length					= 25
+;anim_sound						= $no_sound
+;anim_camera					= camera_effects\actor_move\ ***.anm
+;anim_ppe						= \path\ ***.ppe
+;remove_helm					= true
+
+[anm_base_hud]:hud_base
+item_visual						= dynamics\devices\dev_eat\invisible_item
+zoom_hide_crosshair				= true
+anm_show						= hands_noanim
+anm_show_16x9					= hands_noanim
+anm_hide						= hands_noanim
+anm_hide_16x9					= hands_noanim
+anm_idle						= hands_noanim
+anm_idle_16x9					= hands_noanim
+anm_idle_moving					= hands_noanim
+anm_idle_moving_16x9			= hands_noanim
+anm_idle_sprint					= hands_noanim
+anm_idle_sprint_16x9			= hands_noanim
+fire_point						= 0,0,0
+fire_point2						= 0,0,0
+fire_direction					= 0,0,1	;Note: engine default is 0,0,1
+fire_bone						= wpn_body
+fire_bone2						= wpn_body
+hands_position					= -0.037000,-0.014500,0.099000
+hands_position_16x9				= -0.037000,-0.014500,0.099000
+[anm_dummy]:anm_base
+hud								= anm_dummy_hud
+
+[anm_dummy_hud]:anm_base_hud
+fire_bone						= link
+fire_bone2						= link
+;=====================================================================
+;	Interactions
+;=====================================================================
+[anm_pickup]:anm_base
+hud								= anm_pickup_hud
+action_delay					= 0.40
+
+[anm_pickup_hud]:anm_base_hud
+fire_bone						= link
+fire_bone2						= link
+hands_position					= -0.037000,-0.014500,0.099000
+hands_position_16x9				= -0.037000,-0.014500,0.099000
+hands_orientation				= 21.349998,4.249999,-5.150002
+hands_orientation_16x9			= 21.349998,4.249999,-5.150002
+anm_show						= pickup, ,1.2
+anm_show_16x9					= pickup, ,1.2
+
+[anm_pickup_l]:anm_pickup
+hand_dependence			    	= 0
+hud								= anm_pickup_l_hud
+action_delay					= 0.50
+
+[anm_pickup_l_hud]:anm_pickup_hud
+attach_place_idx				= 1
+hands_position					= -100.337000,-0.014500,0.099000
+hands_position_16x9				= -100.337000,-0.014500,0.099000
+anm_show						= pickup_l, ,1.2
+anm_show_16x9					= pickup_l, ,1.2
+;=====================================================================
+[anm_gasmask_wipe]:anm_base
+hand_dependence					= 0
+hud								= anm_gasmask_wipe_hud
+animation_slot					= 6
+sprint_allowed					= true
+anim_camera						= camera_effects\items_use\gasmask.anm
+snd_draw                	    = interface\item_usage\mask_clean
+action_delay                    = 0.34
+
+[anm_gasmask_wipe_hud]:anm_base_hud
+attach_place_idx				= 1
+fire_bone						= link
+fire_bone2						= link
+hands_position					= -0.021000,-0.160000,0.002500
+hands_position_16x9				= -0.093000,-0.180500,0.039000
+hands_orientation				= -0.500000,1.000000,1.149999
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+anm_show						= gasmask_wipe
+anm_show_16x9					= gasmask_wipe
+;=====================================================================
+[anm_torch]:anm_base
+hand_dependence					= 0
+hud								= anm_torch_hud
+anim_camera						= camera_effects\items_use\torch.anm
+animation_slot					= 6
+inv_grid_x						= 7
+inv_grid_y						= 9
+sprint_allowed					= true
+action_delay					= 0.6
+
+[anm_torch_hud]:anm_gasmask_wipe_hud
+fire_bone						= link
+fire_bone2						= link
+hands_position					= 0,-0.160000,0.002500
+hands_position_16x9				= -0.02,-0.180500,0.039000
+hands_orientation				= -0.500000,1.000000,1.149999
+hands_orientation_16x9			= 2.349998,2.749999,2.849998
+anm_show						= torch
+anm_show_16x9					= torch
+
+[anm_nv]:anm_torch
+inv_grid_width					= 2
+inv_grid_x						= 14
+;=====================================================================
+[anm_hit]:anm_base
+hud								= anm_hit_hud
+
+[anm_hit_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_pda\dev_pda.ogf
+hands_position					= 0.2000,-0.1700,0.30
+hands_position_16x9				= 0.2000,-0.1700,0.30
+anm_show						= actor_hit_anim
+anm_show_16x9                   = actor_hit_anim
+anm_hide						= hende_hoh_draw
+anm_idle						= hende_hoh_idle
+anm_idle_aim					= hende_hoh_idle
+anm_idle_moving					= hende_hoh_idle
+anm_idle_sprint					= hende_hoh_idle
+anm_bore						= actor_hit_anim
+;=====================================================================
+[anm_hand_generator]:anm_base
+visual							= dynamics\weapons\wpn_dynamo_hand\wpn_dynamo_hand.ogf
+inv_grid_width					= 2
+inv_grid_height					= 2
+inv_grid_x						= 16
+inv_grid_y						= 9
+hud								= anm_dynamo_hand_hud
+snd_draw						= weapons\generic_draw
+snd_holster						= weapons\generic_holster
+snd_empty						= weapons\gen_empty
+snd_shoot						= device\dynamo_hand\dynamo_hand_shoot
+snd_reload						= device\dynamo_hand\dynamo_hand_shoot
+snd_switch						= $no_sound
+
+[anm_dynamo_hand_hud]:anm_base_hud
+item_visual						= dynamics\weapons\wpn_dynamo_hand\wpn_dynamo_hand_hud.ogf
+hands_position					= 0.033095,-0.264393,0.274173
+hands_position_16x9				= 0.033095,-0.264393,0.274173
+hands_orientation				= 5.850004,5.450003,-0.95
+hands_orientation_16x9			= 5.850004,5.450003,-0.95
+anm_show						= dynamo_hand_draw
+anm_show_16x9					= dynamo_hand_draw
+anm_hide						= dynamo_hand_hide
+anm_hide_16x9					= dynamo_hand_hide
+anm_idle						= dynamo_hand_idle
+anm_idle_16x9					= dynamo_hand_idle
+anm_reload						= dynamo_hand_shoot, ,1.5
+anm_reload_16x9					= dynamo_hand_shoot, ,1.5
+anm_idle_moving					= dynamo_hand_moving_idle
+anm_idle_moving_16x9			= dynamo_hand_moving_idle
+anm_idle_sprint					= dynamo_hand_sprint_idle
+anm_idle_sprint_16x9			= dynamo_hand_sprint_idle
+anm_bore                        = dynamo_hand_moving_idle
+;=====================================================================
+[anm_hit_knife_base]
+slot                            = 14
+animation_slot					= 13
+inv_weight						= 0
+inv_volume						= 0
+snd_draw						= $no_sound
+snd_holster						= weapons\melee\knife_holster
+hud			                    = anm_hit_knife_hud
+
+[anm_hit_knife]:wpn_knife,anm_hit_knife_base
+hud		        				= anm_hit_knife_hud
+
+[anm_hit_knife_hud]:anm_base_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hud.ogf
+hands_position					= 0.033,-0.155,0.1
+hands_position_16x9				= 0.033,-0.155,0.1
+hands_orientation				= 0,0,0
+hands_orientation_16x9			= 0,0,0
+aim_hud_offset_pos				= -0.0770,0.0220,0.0000
+aim_hud_offset_rot				= 0.0000,0.0050,-0.0150
+
+anm_show						= knife_draw, ,3
+anm_show_16x9					= knife_draw, ,3
+anm_hide						= knife_holster, ,2
+anm_hide_16x9					= knife_holster, ,2
+anm_idle						= knife_idle
+anm_idle_16x9					= knife_idle
+anm_attack			            = knife_kick, ,1.5
+anm_attack_16x9			        = knife_kick, ,1.5
+anm_attack2			            = knife_kick, ,1.5
+anm_attack2_16x9			    = knife_kick, ,1.5
+anm_idle_moving					= knife_idle_moving
+anm_idle_sprint					= knife_idle_sprint
+anm_bore						= knife_idle_bore
+
+[anm_hit_knife2]:wpn_knife2, anm_hit_knife_base
+hud		        				= anm_hit_knife2_hud
+
+[anm_hit_knife2_hud]:anm_hit_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_nr40_hud.ogf
+
+[anm_hit_knife3]:wpn_knife3,anm_hit_knife_base
+hud		        				= anm_hit_knife3_hud
+
+[anm_hit_knife3_hud]:anm_hit_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hunting_hud.ogf
+
+[anm_hit_knife4]:wpn_knife4,anm_hit_knife_base
+hud		        				= anm_hit_knife4_hud
+
+[anm_hit_knife4_hud]:anm_hit_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_swat_hud.ogf
+
+[anm_hit_knife5]:wpn_knife5,anm_hit_knife_base
+hud		        				= anm_hit_knife5_hud
+
+[anm_hit_knife5_hud]:anm_hit_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_combat_hud.ogf
+
+[anm_hit_knife_swiss]:wpn_knife_swiss,anm_hit_knife_base
+hud		        				= anm_hit_knife_swiss_hud
+
+[anm_hit_knife_swiss_hud]:anm_hit_knife_hud
+visual							= dynamics\weapons\wpn_knife\wpn_knife_swiss.ogf
+
+[anm_hit_knife_fanat]:anm_hit_knife3
+;=====================================================================
+[anim_guitar]:anm_base			; Гитара
+hud								= anim_guitar_hud
+inv_grid_width					= 4
+inv_grid_height					= 2
+inv_grid_x						= 10
+inv_grid_y						= 1
+snd_draw						= weapons\detector\detector_draw
+snd_holster						= weapons\detector\detector_holster
+
+[anim_guitar_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_guitar\dev_guitar_hud
+hands_position_16x9				= 0.130000,-0.005000,0.360000
+hands_orientation_16x9			= 5.600000,-0.700000,0.000000
+item_position					= -0.045112,-0.005971,-0.019946
+item_orientation				= 19.520569,-32.933628,-87.779259
+
+;item_position					= 0.007461,0.002447,0.221632
+;item_orientation				= -12.741276,-69.541580,-10.043612
+;hands_position					= 0.247584,-0.057260,0.153976
+;hands_position_16x9			= 0.247584,-0.057260,0.153976
+;hands_orientation				= 57.236015,4.253467,0.000000
+;hands_orientation_16x9			= 57.236015,4.253467,0.000000
+
+anm_show						= guitar_draw
+anm_idle						= guitar_play
+anm_hide						= guitar_hide
+anm_idle_moving					= guitar_run
+anm_idle_moving_crouch			= guitar_move
+anm_shoot						= guitar_play
+;=====================================================================
+;	Food
+;=====================================================================
+[anm_bread]:anm_base
+visual							= dynamics\devices\dev_bred\dev_bred.ogf
+inv_grid_x						= 14
+inv_grid_y						= 66
+remove_helm						= true
+anim_sound						= interface\item_usage\eat_bread
+anim_cam						= camera_effects\items_use\move_back_off.anm
+hud								= anm_bread_hud
+
+[anm_bread_hud]:anm_base_hud
+item_visual             		= dynamics\devices\dev_eat\food\wpn_eat_hleb.ogf
+hands_position					= 0.045,0.13,0.3
+hands_position_16x9				= 0.045,0.13,0.3
+hands_orientation				= 0,20.5,0
+hands_orientation_16x9			= 0,20.5,0
+anm_show						= eat_hleb_d_use_2, eat_hleb_d_use_2, 0.6
+;=====================================================================
+[anm_kolbasa]:anm_bread
+inv_grid_x						= 13
+inv_grid_y						= 68
+hud								= anm_kolbasa_hud
+
+[anm_kolbasa_hud]:anm_bread_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_kolbasa.ogf
+;=====================================================================
+[anm_conserva]:anm_base
+visual							= dynamics\devices\dev_conserv\dev_conserv.ogf
+nv_grid_x						= 15
+inv_grid_y						= 67
+anim_cam						= camera_effects\items_use\eat_tushonka_d_use_h.anm
+anim_sound						= interface\item_usage\conserva_use
+hud								= anm_conserva_hud
+
+[anm_conserva_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_conserva.ogf
+hands_position					= 0.003,-0.190421,0.390097
+hands_position_16x9				= 0.003,-0.190421,0.390097
+hands_orientation				= 0,16.473801,0
+hands_orientation_16x9			= 0,16.473801,0
+anm_show						= tushka_draw
+;=====================================================================
+[anm_corn]:anm_conserva
+visual							= dynamics\devices\dev_corn\dev_corn.ogf
+inv_grid_x						= 18
+inv_grid_y						= 66
+hud								= anm_corn_hud
+
+[anm_corn_hud]:anm_conserva_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_corn.ogf
+;=====================================================================
+[anm_nuts]:anm_conserva
+visual							= dynamics\devices\dev_nuts\dev_nuts.ogf
+inv_grid_x						= 16
+inv_grid_y						= 67
+hud								= anm_nuts_hud
+
+[anm_nuts_hud]:anm_conserva_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_nuts.ogf
+;=====================================================================
+[anm_olives]:anm_conserva
+visual							= dynamics\devices\dev_corn\dev_corn.ogf
+inv_grid_x						= 8
+inv_grid_y						= 42
+hud								= anm_olives_hud
+
+[anm_olives_hud]:anm_conserva_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_olives.ogf
+;=====================================================================
+[anm_tushenka]:anm_conserva
+visual							= dynamics\devices\dev_tushonka\dev_tushonka.ogf
+inv_grid_x						= 8
+inv_grid_y						= 68
+hud								= anm_tushenka_hud
+
+[anm_tushenka_hud]:anm_conserva_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_tushonka.ogf
+;=====================================================================
+[anm_sardina]:anm_conserva
+visual							= dynamics\devices\dev_foods\kilka.ogf
+inv_grid_x						= 5
+inv_grid_y						= 68
+hud								= anm_sardina_hud
+
+[anm_sardina_hud]:anm_conserva_hud
+item_visual						= dynamics\devices\dev_eat\food\wpn_eat_sardina.ogf
+;=====================================================================
+;	Drinks
+;=====================================================================
+[anm_vodka]:anm_base
+visual							= dynamics\devices\dev_vodka\dev_vodka.ogf
+inv_grid_x						= 13
+inv_grid_y						= 53
+inv_grid_height					= 2
+remove_helm						= true
+anim_sound						= interface\item_usage\vodka_use
+anim_cam						= camera_effects\items_use\vodka_use.anm
+hud								= anm_vodka_hud
+
+[anm_vodka_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_vodka_kazaki_hud.ogf
+hands_position					= -0.0055,-0.07, 0.32
+hands_position_16x9				= -0.0055,-0.07, 0.32
+anm_show						= vodka_hands_eat_invtrans, vodka_wpn_eat
+;=====================================================================
+[anm_vodka2]:anm_vodka
+inv_grid_x						= 15
+inv_grid_y						= 53
+hud								= anm_vodka2_hud
+
+[anm_vodka2_hud]:anm_vodka_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_vodka_hemupob_hud.ogf
+;=====================================================================
+[anm_mineral_water]:anm_vodka
+visual							= dynamics\items\drinks\mineral_water.ogf
+inv_grid_x						= 11
+inv_grid_y						= 53
+anim_camera						= camera_effects\items_use\butilka_steklo_use.anm
+hud								= anm_minearal_water_hud
+
+[anm_minearal_water_hud]:anm_vodka_hud
+item_visual             		= dynamics\devices\dev_eat\drinks\wpn_mineral_water_hud.ogf
+hands_position					= -0.0055,-0.07, 0.32
+hands_position_16x9				= -0.0055,-0.07, 0.32
+anm_show						= vodka_hands_eat_invtrans, vodka_wpn_eat
+;=====================================================================
+[anm_thermos]:anm_mineral_water
+visual							= dynamics\items\drinks\thermos.ogf
+inv_grid_x						= 14
+inv_grid_y						= 64
+hud								= anm_thermos_hud
+
+[anm_thermos_hud]:anm_minearal_water_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_thermos_hud.ogf
+;=====================================================================
+[anm_drug_booster]:anm_mineral_water
+visual							= dynamics\equipments\medical\drug_booster.ogf
+inv_grid_x						= 6
+inv_grid_y						= 65
+hud								= anm_drug_booster_hud
+
+[anm_drug_booster_hud]:anm_minearal_water_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_booster_hud.ogf
+;=====================================================================
+[anm_energy_drink]:anm_mineral_water
+visual							= dynamics\devices\dev_drink_stalker\dev_drink_stalker.ogf
+inv_grid_x						= 10
+inv_grid_y						= 64
+inv_grid_height					= 1
+hud								= anm_energy_drink_hud
+anim_sound                    	= interface\item_usage\drink_soda_use
+
+[anm_energy_drink_hud]:anm_minearal_water_hud
+item_visual             		= dynamics\devices\dev_eat\drinks\wpn_banka_energy_hud.ogf
+hands_position              	= -0.0055,-0.06, 0.33
+hands_position_16x9         	= -0.0055,-0.06, 0.33
+anm_show						= banka_1_hands_eat_invtrans, banka_1_wpn_eat
+;=====================================================================
+[anm_redbull]:anm_energy_drink
+visual							= dynamics\devices\dev_eat\drinks\banka_1_redbull
+inv_grid_x						= 16
+inv_grid_y						= 56
+hud								= anm_redbull_hud
+
+[anm_redbull_hud]:anm_energy_drink_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_banka_1_redbull_hud
+;=====================================================================
+
+[anm_water_can_1]:anm_energy_drink		; Artezian_water
+visual							= dynamics\devices\dev_eat\drinks\banka_2_artezian
+inv_grid_x						= 6
+inv_grid_y						= 70
+hud								= anm_water_can_1_hud
+
+[anm_water_can_1_hud]:anm_energy_drink_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_banka_2_artezian_hud
+;=====================================================================
+[anm_beer_can_2]:anm_base		; Heiniken
+visual							= dynamics\devices\dev_eat\drinks\banka_3_heiniken
+inv_grid_x						= 6
+inv_grid_y						= 71
+inv_grid_height					= 1
+hud								= anm_beer_can_2_hud
+
+[anm_beer_can_2_hud]:anm_redbull_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_banka_3_heiniken_hud
+;=====================================================================
+[anm_cocacola]:anm_base			; Кока Кола
+visual							= dynamics\devices\dev_eat\drinks\butilka_steklo_cocacola
+inv_grid_x						= 7
+inv_grid_y						= 69
+inv_grid_height					= 1
+remove_helm						= true
+hud								= anm_cocacola_hud
+
+[anm_cocacola_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_butilka_steklo_cocacola_hud
+hands_position					= -0.0055,-0.06, 0.34
+hands_position_16x9				= -0.0055,-0.06, 0.34
+anm_show						= butilka_steklo_1_hands_eat_alt_1_invtrans, butilka_steklo_1_wpn_eat_alt_1
+;=====================================================================
+[anm_beer]:anm_mineral_water	; Балтика 3
+inv_grid_x						= 9
+inv_grid_y						= 53
+anim_sound						= interface\item_usage\drink_beer_use
+hud								= anm_beer_hud
+
+[anm_beer_hud]:anm_cocacola_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_butilka_steklo_slavutich_hud.ogf
+;=====================================================================
+[anm_beer_2]:anm_base			; Славутич
+visual							= dynamics\devices\dev_eat\drinks\butilka_steklo_slavutich
+description						= st_beer_2_descr
+inv_name						= st_beer_2
+inv_name_short					= st_beer_2
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 7
+inv_grid_y						= 70
+hud								= anm_beer_2_hud
+
+[anm_beer_2_hud]:anm_cocacola_hud
+item_visual						= dynamics\devices\dev_eat\drinks\wpn_butilka_steklo_slavutich_hud
+;=====================================================================
+;	Healing
+;=====================================================================
+[anm_bandage]:anm_base
+visual							= dynamics\devices\dev_bandage\dev_bandage.ogf
+anim_sound						= interface\item_usage\bandage_use
+anim_camera						= camera_effects\items_use\bint_use.anm
+inv_grid_x						= 2
+inv_grid_y						= 67
+hud								= anm_bandage_hud
+
+[anm_bandage_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\bandages\wpn_bandage_hud
+hands_position					= -0.0055,-0.05, 0.35
+hands_position_16x9				= -0.0055,-0.05, 0.35
+anm_show						= bint_hands_eat_alt_1_invtrans, bint_wpn_eat
+;=====================================================================
+[anm_bandage_special]:anm_bandage
+inv_grid_x						= 3
+inv_grid_y						= 67
+hud								= anm_bandage_special_hud
+
+[anm_bandage_special_hud]:anm_bandage_hud
+item_visual						= dynamics\devices\dev_eat\bandages\wpn_bandage_special_hud
+;=====================================================================
+[anm_bandage_enhanced]:anm_bandage
+visual							= dynamics\devices\dev_bandage\dev_bandage_spec.ogf
+inv_grid_x						= 4
+inv_grid_y						= 67
+hud								= anm_bandage_enhanced_hud
+
+[anm_bandage_enhanced_hud]:anm_bandage_hud
+item_visual						= dynamics\devices\dev_eat\bandages\wpn_bandage_enhanced_hud
+;=====================================================================
+[anm_bandage_selfmade]:anm_bandage
+inv_grid_x						= 3
+inv_grid_y						= 66
+;=====================================================================
+[anm_medkit]:anm_base
+visual							= dynamics\devices\dev_eat\medkit\aptechka_basic
+anim_sound						= interface\item_usage\medkit_use
+anim_camera						= camera_effects\items_use\aptechka_use.anm
+inv_grid_x						= 5
+inv_grid_y						= 67
+hud								= anm_medkit_hud
+
+[anm_medkit_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\medkit\wpn_aptechka_basic_hud
+hands_position					= -0.0055,-0.07, 0.36
+hands_position_16x9				= -0.0055,-0.07, 0.36
+anm_show						= aptechka_hands_eat_invtrans,aptechka_wpn_eat
+;=====================================================================
+[anm_medkit_army]:anm_medkit
+visual							= dynamics\devices\dev_eat\medkit\aptechka_army
+inv_grid_x						= 6
+inv_grid_y						= 67
+hud								= anm_medkit_army_hud
+
+[anm_medkit_army_hud]:anm_medkit_hud
+item_visual						= dynamics\devices\dev_eat\medkit\wpn_aptechka_army_hud
+;=====================================================================
+[anm_medkit_scientic]:anm_medkit
+visual							= dynamics\devices\dev_eat\medkit\aptechka_scientific
+inv_grid_x						= 7
+inv_grid_y						= 67
+hud								= anm_medkit_scientic_hud
+
+[anm_medkit_scientic_hud]:anm_medkit_hud
+item_visual						= dynamics\devices\dev_eat\medkit\wpn_aptechka_scientific_hud
+;=====================================================================
+[anm_medkit_elite]:anm_medkit
+visual							= dynamics\devices\dev_eat\medkit\aptechka_elite
+inv_grid_x						= 8
+inv_grid_y						= 67
+hud								= anm_medkit_elite_hud
+
+[anm_medkit_elite_hud]:anm_medkit_hud
+item_visual						= dynamics\devices\dev_eat\medkit\wpn_aptechka_elite_hud
+;=====================================================================
+[anm_stimpack]:anm_base
+visual							= dynamics\devices\dev_eat\injectors\wpn_injector.ogf
+anim_sound						= interface\item_usage\antirad_use
+anim_camera						= camera_effects\items_use\antirad_use.anm
+inv_grid_x						= 5
+inv_grid_y						= 66
+hud								= anm_stimpack_hud
+snd_draw						= interface\item_usage\antirad_use
+
+[anm_stimpack_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\injectors\wpn_injector_big_antirad_hud
+hands_position					= -0.0055,-0.05, 0.35
+hands_position_16x9				= -0.0055,-0.05, 0.35
+anm_show						= antirad_hands_eat_invtrans, antirad_wpn_eat
+;=====================================================================
+;	Drugs
+;=====================================================================
+[anm_drug_antidot]:anm_base
+visual							= dynamics\devices\dev_eat\drugs\tabletki_antidot
+inv_grid_x						= 7
+inv_grid_y						= 60
+remove_helm						= true
+anim_sound						= interface\item_usage\pills_use
+anim_camera						= camera_effects\items_use\tabletki_use.anm
+hud								= anm_drug_antidot_hud
+
+[anm_drug_antidot_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_antidot_hud
+hands_position					= -0.0055,-0.07, 0.32
+hands_position_16x9				= -0.0055,-0.07, 0.32
+anm_show						= tabletki_1_hands_eat_invtrans, tabletki_2_wpn_eat
+;=====================================================================
+[anm_drug_cat_eye]:anm_drug_antidot
+visual							= dynamics\devices\dev_eat\drugs\tabletki_coagulant
+inv_grid_x						= 9
+inv_grid_y						= 44
+hud								= anm_drug_cat_eye_hud
+
+[anm_drug_cat_eye_hud]:anm_drug_antidot_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_cat_eye_hud
+anm_show						= tabletki_1_hands_eat_invtrans, tabletki_1_wpn_eat
+;=====================================================================
+[anm_drug_coagulant]:anm_drug_antidot
+visual							= dynamics\devices\dev_eat\drugs\tabletki_coagulant
+inv_grid_x						= 7
+inv_grid_y						= 65
+hud								= anm_drug_coagulant_hud
+
+[anm_drug_coagulant_hud]:anm_drug_cat_eye_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_coagulant_hud
+;=====================================================================
+[anm_drug_charcoal]:anm_drug_antidot
+visual							= dynamics\devices\dev_eat\drugs\tabletki_carbon
+inv_grid_x						= 4
+inv_grid_y						= 65
+hud								= anm_drug_charcoal_hud
+
+[anm_drug_charcoal_hud]:anm_drug_cat_eye_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_carbon_hud
+;=====================================================================
+[anm_drug_psy_blockade]:anm_drug_antidot
+visual							= dynamics\equipments\medical\drug_psy_blockade
+inv_grid_x						= 8
+inv_grid_y						= 65
+hud								= anm_drug_psy_blockade_hud
+
+[anm_drug_psy_blockade_hud]:anm_drug_cat_eye_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_psy_blockade_hud
+;=====================================================================
+[anm_drug_radioprotector]:anm_drug_antidot
+visual							= dynamics\equipments\medical\drug_sleeping_pills
+inv_grid_x						= 10
+inv_grid_y						= 65
+hud								= anm_drug_radioprotector_hud
+
+[anm_drug_radioprotector_hud]:anm_drug_cat_eye_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_radioprotector_hud
+anm_show						= tabletki_1_hands_eat_invtrans, tabletki_3_wpn_eat
+;=====================================================================
+[anm_drug_sleepingpills]:anm_drug_antidot
+visual							= dynamics\equipments\medical\drug_sleeping_pills
+inv_grid_x						= 6
+inv_grid_y						= 65
+anim_sound						= interface\item_usage\pills_use
+hud								= anm_drug_sleepingpills_hud
+
+[anm_drug_sleepingpills_hud]:anm_drug_cat_eye_hud
+item_visual						= dynamics\devices\dev_eat\drugs\wpn_drug_sleepingpills_hud
+;=====================================================================
+;	Smoking
+;=====================================================================
+[anm_cigar1]:anm_base
+visual							= dynamics\items\smoking\cigarettes_marlboro.ogf
+remove_helm						= true
+anim_sound						= interface\item_usage\smoking
+anim_cam						= itemuse_anm_effects\antirad_use.anm
+hud								= anm_cigar1_hud
+use_after_while					= 11.5
+
+[anm_cigar1_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigar1.ogf
+hands_position					= -0.0055,0.02, 0.00
+hands_position_16x9				= -0.0055,0.02, 0.00
+anm_show						= cig_hands, cig
+anm_show_16x9					= cig_hands, cig
+anm_hide						= cig_hands, cig
+anm_hide_16x9					= cig_hands, cig
+anm_idle						= cig_hands, cig
+anm_idle_16x9					= cig_hands, cig
+anm_idle_moving					= cig_hands, cig
+anm_idle_moving_16x9			= cig_hands, cig
+anm_idle_sprint					= cig_hands, cig
+anm_idle_sprint_16x9			= cig_hands, cig
+
+[anm_cigar2]:anm_cigar1
+hud								= anm_cigar2_hud
+[anm_cigar2_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigar2.ogf
+
+[anm_cigar3]:anm_cigar1
+hud								= anm_cigar3_hud
+[anm_cigar3_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigar3.ogf
+
+[anm_cigarettes_slava]:anm_cigar1
+inv_grid_x						= 18
+inv_grid_y						= 65
+hud								= anm_cigarettes_slava_hud
+[anm_cigarettes_slava_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigarettes_slava.ogf
+
+[anm_cigarettes_lucky]:anm_cigar1
+inv_grid_x						= 18
+inv_grid_y						= 64
+hud								= anm_cigarettes_lucky_hud
+[anm_cigarettes_lucky_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigarettes_lucky.ogf
+
+[anm_cigarettes_marlboro]:anm_cigar1
+inv_grid_x						= 17
+inv_grid_y						= 64
+hud								= anm_cigarettes_marlboro_hud
+[anm_cigarettes_marlboro_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigarettes_marlboro.ogf
+
+[anm_cigarettes_russian]:anm_cigar1
+inv_grid_x						= 17
+inv_grid_y						= 65
+hud								= anm_cigarettes_russian_hud
+[anm_cigarettes_russian_hud]:anm_cigar1_hud
+item_visual						= dynamics\devices\dev_eat\smoking\cigarettes_russian.ogf
+;=====================================================================
+;	Skinning
+;=====================================================================
+[anm_harv_useknife]:anm_base
+visual							= dynamics\weapons\wpn_knife\wpn_knife
+snd_draw						= interface\item_usage\harvest_use
+anim_camera						= camera_effects\items_use\harvest_skin_use.anm
+inv_grid_width					= 2
+inv_grid_x						= 0
+inv_grid_y						= 10
+hud								= anm_harv_useknife_hud
+
+[anm_harv_useknife_hud]:anm_base_hud
+hands_position					= -0.0055,-0.07, 0.36
+hands_position_16x9				= -0.0055,-0.07, 0.36
+anm_show						= harvest_hands_eat_invtrans
+;=====================================================================
+[anm_harv_wpn_knife]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife.ogf
+hud								= anm_harv_wpn_knife_hud
+
+[anm_harv_wpn_knife_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife2]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_nr40.ogf
+inv_grid_x						= 2
+hud								= anm_harv_wpn_knife2_hud
+
+[anm_harv_wpn_knife2_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_nr40_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife3]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_hunting.ogf
+inv_grid_x						= 4
+hud								= anm_harv_wpn_knife3_hud
+
+[anm_harv_wpn_knife3_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hunting_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife4]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_swat.ogf
+inv_grid_x						= 6
+hud								= anm_harv_wpn_knife4_hud
+
+[anm_harv_wpn_knife4_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_swat_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife5]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_combat.ogf
+inv_grid_x						= 8
+hud								= anm_harv_wpn_knife5_hud
+
+[anm_harv_wpn_knife5_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_combat_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife_swiss]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_swiss.ogf
+hud								= anm_harv_wpn_knife_swiss_hud
+inv_grid_x						= 18
+inv_grid_y						= 53
+
+[anm_harv_wpn_knife_swiss_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_swiss_hud.ogf
+;=====================================================================
+[anm_harv_wpn_knife_fanat]:anm_harv_wpn_knife3
+;=====================================================================
+[anm_harv_wpn_axe]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_axe\wpn_axe.ogf
+snd_draw						= interface\inv_axe_dismember_2
+inv_grid_x						= 0
+inv_grid_y						= 68
+hud								= anm_harv_wpn_axe_hud
+
+[anm_harv_wpn_axe_hud]:anm_harv_useknife_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe_hud.ogf
+item_position					= 0.003164,0.00775,-0.000906
+item_orientation				= 0, 180, 180
+hands_position					= -0.021000,-0.180000,-0.025
+hands_position_16x9				= -0.021000,-0.180000,-0.025
+hands_orientation				= -0.500000,1.000000,10
+hands_orientation_16x9			= -0.500000,1.000000,10
+anm_show						= lancew_knife1_kick_1
+;=====================================================================
+[anm_harv_wpn_axe2]:anm_harv_wpn_axe
+visual							= dynamics\weapons\wpn_axe\wpn_axe2.ogf
+snd_draw						= interface\inv_axe_dismember_1
+hud								= anm_harv_wpn_axe2_hud
+inv_grid_x						= 0
+inv_grid_y						= 69
+
+[anm_harv_wpn_axe2_hud]:anm_harv_wpn_axe_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe2_hud.ogf
+item_position					= 0.003164,0.01475,-0.09
+item_orientation				= 0, 170, 180
+;=====================================================================
+[anm_harv_wpn_axe3]:anm_harv_useknife
+visual							= dynamics\weapons\wpn_axe\wpn_axe3.ogf
+snd_draw						= interface\inv_axe_dismember_3
+hud								= anm_harv_wpn_axe3_hud
+inv_grid_x						= 0
+inv_grid_y						= 70
+
+[anm_harv_wpn_axe3_hud]:anm_harv_wpn_axe_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe3_hud.ogf
+item_position					= 0.003164,0.002989,-0.042906
+item_orientation				= 175, 0, -360
+aim_hud_offset_pos				= -0.077000,0.022000,0.000000
+aim_hud_offset_rot				= 0.000000,0.005000,-0.017000
+;=====================================================================
+;	Put mutant part in bag
+;=====================================================================
+[anm_harv_meat]:anm_base
+item_visual						= dynamics\zpf\meat_chimer2.ogf
+snd_draw 						= interface\item_usage\harvest_use_success
+inv_grid_x						= 0
+inv_grid_y						= 81
+hud								= anm_harv_meat_hud
+
+[anm_harv_meat_hud]:anm_base_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_meat_hud.ogf
+hands_position					= -0.0055,-0.075, 0.42
+hands_position_16x9				= -0.0055,-0.075, 0.42
+anm_show						= harvest_success_hands_eat, harvest_success_wpn_eat, 0.75
+anm_idle						= harvest_success_hands_eat, idle
+;=====================================================================
+[anm_harv_bloodsucker]:anm_harv_meat
+hud								= anm_harv_bloodsucker_hud
+[anm_harv_bloodsucker_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_bloodsucker_hud.ogf
+;=====================================================================
+[anm_harv_boar_hoof]:anm_harv_meat
+hud								= anm_harv_boar_hoof_hud
+[anm_harv_boar_hoof_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_boar_hoof_hud.ogf
+;=====================================================================
+[anm_harv_boar_tusk]:anm_harv_meat
+hud								= anm_harv_boar_tusk_hud
+[anm_harv_boar_tusk_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_boar_tusk_hud.ogf
+;=====================================================================
+[anm_harv_brain]:anm_harv_meat
+hud								= anm_harv_brain_hud
+[anm_harv_brain_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_brain_hud.ogf
+;=====================================================================
+[anm_harv_burer_hand]:anm_harv_meat
+hud								= anm_harv_burer_hand_hud
+[anm_harv_burer_hand_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_burer_hand_hud.ogf
+;=====================================================================
+[anm_harv_cat_tail]:anm_harv_meat
+hud								= anm_harv_cat_tail_hud
+[anm_harv_cat_tail_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_cat_tail_hud.ogf
+;=====================================================================
+[anm_harv_cat_thyroid]:anm_harv_meat
+hud								= anm_harv_cat_thyroid_hud
+[anm_harv_cat_thyroid_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_cat_thyroid_hud.ogf
+;=====================================================================
+[anm_harv_chimera_claw]:anm_harv_meat
+hud								= anm_harv_chimera_claw_hud
+[anm_harv_chimera_claw_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_chimera_claw_hud.ogf
+;=====================================================================
+[anm_harv_chimera_tooth]:anm_harv_meat
+hud								= anm_harv_chimera_tooth_hud
+[anm_harv_chimera_tooth_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_chimera_tooth_hud.ogf
+;=====================================================================
+[anm_harv_controler_hand]:anm_harv_meat
+hud								= anm_harv_controler_hand_hud
+[anm_harv_controler_hand_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_controler_hand_hud.ogf
+;=====================================================================
+[anm_harv_crow_beak]:anm_harv_meat
+hud								= anm_harv_crow_beak_hud
+[anm_harv_crow_beak_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_crow_beak_hud.ogf
+;=====================================================================
+[anm_harv_crow_egg]:anm_harv_meat
+hud								= anm_harv_crow_egg_hud
+[anm_harv_crow_egg_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_crow_egg_hud.ogf
+;=====================================================================
+[anm_harv_dog_tail]:anm_harv_meat
+hud								= anm_harv_dog_tail_hud
+[anm_harv_dog_tail_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_dog_tail_hud.ogf
+;=====================================================================
+[anm_harv_dog_heart]:anm_harv_meat
+hud								= anm_harv_dog_heart_hud
+[anm_harv_dog_heart_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_dog_heart_hud.ogf
+;=====================================================================
+[anm_harv_dog_liver]:anm_harv_meat
+hud								= anm_harv_dog_liver_hud
+[anm_harv_dog_liver_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_dog_liver_hud.ogf
+;=====================================================================
+[anm_harv_ear]:anm_harv_meat
+hud								= anm_harv_ear_hud
+[anm_harv_ear_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_ear_hud.ogf
+;=====================================================================
+[anm_harv_eye]:anm_harv_meat
+hud								= anm_harv_eye_hud
+[anm_harv_eye_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_eye_hud.ogf
+;=====================================================================
+[anm_harv_flesh]:anm_harv_meat
+hud								= anm_harv_flesh_hud
+[anm_harv_flesh_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_flesh_hud.ogf
+;=====================================================================
+[anm_harv_fracture_hand]:anm_harv_meat
+hud								= anm_harv_fracture_hand_hud
+[anm_harv_fracture_hand_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_fracture_hand_hud.ogf
+;=====================================================================
+[anm_harv_poltergeist_powder]:anm_harv_meat
+hud								= anm_harv_poltergeist_powder_hud
+[anm_harv_poltergeist_powder_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_poltergeist_powder_hud.ogf
+;=====================================================================
+[anm_harv_pseudodog_tail]:anm_harv_meat
+hud								= anm_harv_pseudodog_tail_hud
+[anm_harv_pseudodog_tail_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_pseudodog_tail_hud.ogf
+;=====================================================================
+[anm_harv_pseudogiant_brain]:anm_harv_meat
+hud								= anm_harv_pseudogiant_brain_hud
+[anm_harv_pseudogiant_brain_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_pseudogiant_brain_hud.ogf
+;=====================================================================
+[anm_harv_pseudogiant_hand]:anm_harv_meat
+hud								= anm_harv_pseudogiant_hand_hud
+[anm_harv_pseudogiant_hand_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_pseudogiant_hand_hud.ogf
+;=====================================================================
+[anm_harv_snork_leg]:anm_harv_meat
+hud								= anm_harv_snork_leg_hud
+[anm_harv_snork_leg_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_snork_leg_hud.ogf
+;=====================================================================
+[anm_harv_snork_mask]:anm_harv_meat
+hud								= anm_harv_snork_mask_hud
+[anm_harv_snork_mask_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_snork_mask_hud.ogf
+;=====================================================================
+[anm_harv_tushkano_head]:anm_harv_meat
+hud								= anm_harv_tushkano_head_hud
+[anm_harv_tushkano_head_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_tushkano_head_hud.ogf
+;=====================================================================
+[anm_harv_zombie_hand]:anm_harv_meat
+hud								= anm_harv_zombie_hand_hud
+[anm_harv_zombie_hand_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_zombie_hand_hud.ogf
+;=====================================================================
+[anm_harv_hide_bloodsucker]:anm_harv_meat
+hud								= anm_harv_hide_bloodsucker_hud
+[anm_harv_hide_bloodsucker_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_bloodsucker_hud.ogf
+;=====================================================================
+[anm_harv_hide_boar]:anm_harv_meat
+hud								= anm_harv_hide_boar_hud
+[anm_harv_hide_boar_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_boar_hud.ogf
+;=====================================================================
+[anm_harv_hide_burer]:anm_harv_meat
+hud								= anm_harv_hide_burer_hud
+[anm_harv_hide_burer_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_burer_hud.ogf
+;=====================================================================
+[anm_harv_hide_chimera]:anm_harv_meat
+hud								= anm_harv_hide_chimera_hud
+[anm_harv_hide_chimera_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_chimera_hud.ogf
+;=====================================================================
+[anm_harv_hide_controler]:anm_harv_meat
+hud								= anm_harv_hide_controler_hud
+[anm_harv_hide_controler_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_controler_hud.ogf
+;=====================================================================
+[anm_harv_hide_flesh]:anm_harv_meat
+hud								= anm_harv_hide_flesh_hud
+[anm_harv_hide_flesh_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_flesh_hud.ogf
+;=====================================================================
+[anm_harv_hide_pseudodog]:anm_harv_meat
+hud								= anm_harv_hide_pseudodog_hud
+[anm_harv_hide_pseudodog_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_pseudodog_hud.ogf
+;=====================================================================
+[anm_harv_hide_pseudogiant]:anm_harv_meat
+hud								= anm_harv_hide_pseudogiant_hud
+[anm_harv_hide_pseudogiant_hud]:anm_harv_meat_hud
+item_visual						= dynamics\devices\dev_eat\harvest\wpn_harvest_hide_pseudogiant_hud.ogf
+;=====================================================================

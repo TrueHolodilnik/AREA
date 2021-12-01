@@ -1,0 +1,2017 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<		   DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					A.R.E.A - DIALOG
+<					------ FaL -----
+<===========================================================-->
+<string_table>
+	<!--=====Topor_start=====-->
+    <string id="Jeka_topor_start_and_Hi_10">
+        <text>I don't regret anything... Ech.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_2">
+        <text>Have a nice... Stalker.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_3">
+        <text>Hi. What are you selling?</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_4">
+        <text>Everything. Take your pick.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_5">
+        <text>We should order some more...</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_6">
+        <text>Soon Dushman... Soon.</text>
+    </string>
+	
+	<!--=====Change_Faction=====-->
+	<string id="change_faction_to_army_0">
+		<text>I want to join to the [Army].</text>
+	</string>
+	<string id="change_faction_to_army_1">
+		<text>Are you crazy? Do you even have the documents? How you dare? ...Although, okay, I know how to present it to my superiors. But it will cost you 10 thousand hryvnias, and what do you want? This is the army son! So what are you going to do? Do you have any money? </text>
+	</string>
+	<string id="change_faction_to_army_2">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_army_3">
+		<text>No.</text>
+	</string>
+	<string id="change_faction_to_army_4">
+		<text>Then I don't see you serving in our valiant Army. Dismissed.</text>
+	</string>
+	<string id="change_faction_to_army_5">
+		<text>Okay, hmmm... Okay... Okay, the paperwork... and although, okay, you can consider you're in the army now. If I'm correct, I'll contact with my superiors. Dismissed. I do not see any joy on the face of a private. Now you are in the army!</text>
+	</string>
+	<string id="change_faction_to_army_6">
+		<text>Did you bring the money?</text>
+	</string>
+	<string id="change_faction_to_army_7">
+		<text>Are you drunk or something? Or you have amnesia? You are already in the army fool! Get out of here before I kick your ass.</text>
+	</string>
+	<string id="change_faction_to_bandit_0">
+		<text>I want to join the [Bandits]</text>
+	</string>
+	<string id="change_faction_to_bandit_1">
+		<text>If you start spitting, I'll think about it. </text>
+	</string>
+	<string id="change_faction_to_bandit_10">
+		<text>You got the money on you? </text>
+	</string>
+	<string id="change_faction_to_bandit_11">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_bandit_12">
+		<text>Not yet.</text>
+	</string>
+	<string id="change_faction_to_bandit_13">
+		<text>So why the fuck are you bothering me? Get the fuck out of here!</text>
+	</string>
+	<string id="change_faction_to_bandit_14">
+		<text>Well, that's great. I'll take care of you, you will be always welcome here. Go away. </text>
+	</string>
+	<string id="change_faction_to_bandit_15">
+		<text>What are you... Are you provoking me, bitch?</text>
+	</string>
+	<string id="change_faction_to_bandit_16">
+		<text>Hey, you need to be responsible about what you say.</text>
+	</string>
+	<string id="change_faction_to_bandit_17">
+		<text>Yeah, well, you're right, fucker.</text>
+	</string>
+	<string id="change_faction_to_bandit_18">
+		<text>Hmm... Aren't you afraid? Well, I need those kind of guys. In short, give me a dozen and I'll let you in.</text>
+	</string>
+	<string id="change_faction_to_bandit_19">
+		<text>...</text>
+	</string>
+	<string id="change_faction_to_bandit_2">
+		<text>Look, if you don't cooperate, we'll beat the shit out of you fast. You're already in a group. Go... Wash your face. </text>
+	</string>
+	<string id="change_faction_to_bandit_20">
+		<text>Here you go.</text>
+	</string>
+	<string id="change_faction_to_bandit_21">
+		<text>I don't have that much right now.</text>
+	</string>
+ 
+	<string id="change_faction_to_bandit_22">
+		<text>So why are you riding cotton here? Come back when they are.</text>
+	</string>
+	<string id="change_faction_to_bandit_23">
+		<text>Well, that's the solution. I'll go out with people. In the meantime, you go for a walk.</text>
+	</string>
+	<string id="change_faction_to_bandit_24">
+		<text>Well, what's up? Did you get the money?</text>
+	</string>
+	<string id="change_faction_to_bandit_25">
+		<text>Well, what's up? Did you get the money?</text>
+	</string>
+	<string id="change_faction_to_bandit_26">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_bandit_27">
+		<text>Well, then get out of here.</text>
+	</string>
+	<string id="change_faction_to_bandit_3">
+		<text>Okay, how much do you need?</text>
+	</string>
+	<string id="change_faction_to_bandit_4">
+		<text>Well, 20,000... </text>
+	</string>
+	<string id="change_faction_to_bandit_5">
+		<text>Are you fucking kidding me? What the...</text>
+	</string>
+	<string id="change_faction_to_bandit_6">
+		<text>Okay, then.</text>
+	</string>
+	<string id="change_faction_to_bandit_7">
+		<text>Shut the fuck up! Do you know with who you're dealing with? Another bitch with a word of gonorrhoea... I'll cut you on pieces.</text>
+	</string>
+	<string id="change_faction_to_bandit_8">
+		<text>Try it.</text>
+	</string>
+	<string id="change_faction_to_bandit_9">
+		<text>Come on, calm down! 20, ok, 20.</text>
+	</string>
+	<string id="change_faction_to_csky_0">
+		<text>I want to join [Clear Sky]</text>
+	</string>
+	<string id="change_faction_to_csky_1">
+		<text>Yeah, we need people, especially now when few of us are left. That trip to the nuclear power plant really dropped our numbers. But I just can't take you in, we need a contribution of 10 thousand. Are you ready?</text>
+	</string>
+	<string id="change_faction_to_csky_2">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_csky_3">
+		<text>I don't have that much.</text>
+	</string>
+	<string id="change_faction_to_csky_4">
+		<text>I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_csky_5">
+		<text>So you're already in our group. Do you feel okay? Look at our doctor. Let him examine you.</text>
+	</string>
+	<string id="change_faction_to_csky_6">
+		<text>It's settled. I'll let the others know. Welcome to Clear Sky.</text>
+	</string>
+	<string id="change_faction_to_csky_7">
+		<text>Alas, I can't accept you without a fee.</text>
+	</string>
+	<string id="change_faction_to_csky_8">
+		<text>When you're ready, come back.</text>
+	</string>
+	<string id="change_faction_to_dolg_0">
+		<text>I want to join [Duty].</text>
+	</string>
+	<string id="change_faction_to_dolg_1">
+		<text>The new recruit's contribution is 10,000. Mainly for the rations and the supplies of your future brothers. Do you have that much?</text>
+	</string>
+	<string id="change_faction_to_dolg_2">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_dolg_3">
+		<text>No, I don't have that much, maybe there are other options for joining? Without investment?</text>
+	</string>
+	<string id="change_faction_to_dolg_4">
+		<text>I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_dolg_5">
+		<text>No. Come back when you get it.</text>
+	</string>
+	<string id="change_faction_to_dolg_6">
+		<text>...</text>
+	</string>
+	<string id="change_faction_to_dolg_7">
+		<text>Okay, now you belong to Duty. Remember our purpose.</text>
+	</string>
+	<string id="change_faction_to_dolg_8">
+		<text>You hit your head, didn't you? You're already in debt.</text>
+	</string>
+	<string id="change_faction_to_ecolog_0">
+		<text>I want to join the [Scientists].</text>
+	</string>
+	<string id="change_faction_to_ecolog_1">
+		<text>Yeah, we can take you into the junior field group, But due to bureaucratic delays we will need a contribution of 10 thousand hryvnias. Do you have this amount?</text>
+	</string>
+	<string id="change_faction_to_ecolog_2">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_ecolog_3">
+		<text>No.</text>
+	</string>
+	<string id="change_faction_to_ecolog_4">
+		<text>Well, then I can't help you on this case.</text>
+	</string>
+	<string id="change_faction_to_ecolog_5">
+		<text>Okay, I'll send in a request, it'll take some time, mainly because of the papers, but you can already be considered an employee. Have a nice day.</text>
+	</string>
+	<string id="change_faction_to_ecolog_6">
+		<text>Well, well, well... Young man, you are already listed as an employee? There is no reason to ask again!</text>
+	</string>
+	<string id="change_faction_to_freedom_0">
+		<text>I want to join [Freedom]</text>
+	</string>
+	<string id="change_faction_to_freedom_1">
+		<text>Of course man! We are always happy to see new faces! Do you know the rules for joining us?</text>
+	</string>
+	<string id="change_faction_to_freedom_10">
+		<text>Don't worry! come back when you're ready. Peace, brother!</text>
+	</string>
+	<string id="change_faction_to_freedom_11">
+		<text>Hold this joint man! Welcome to Freedom! This is a personal fit for you from me! Come to the fire, warm up, brother, listen to the music. But remember, you have to fight for and with freedom!</text>
+	</string>
+	<string id="change_faction_to_freedom_12">
+		<text>You're rich, aren't you? A dozen with you?</text>
+	</string>
+	<string id="change_faction_to_freedom_13">
+		<text>Brother! Are you on the sky? Are you in this dimension? You're already with us, all right! Take a break, get your thoughts in order.</text>
+	</string>
+	<string id="change_faction_to_freedom_2">
+		<text>What are the rules?</text>
+	</string>
+	<string id="change_faction_to_freedom_3">
+		<text>It's just, man, I have to make some money. Not much. Understand, it is necessary. You know, I would accept everyone without any sums, but, it doesn't work that way.</text>
+	</string>
+	<string id="change_faction_to_freedom_4">
+		<text>How much are we talking about?</text>
+	</string>
+	<string id="change_faction_to_freedom_5">
+		<text>I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_freedom_6">
+		<text>Oh, no problem! Come back when you change your mind again.</text>
+	</string>
+	<string id="change_faction_to_freedom_7">
+		<text>10,000, that's all it takes, no more hryvnias!</text>
+	</string>
+	<string id="change_faction_to_freedom_8">
+		<text>Here you go. Hold this.</text>
+	</string>
+	<string id="change_faction_to_freedom_9">
+		<text>I don't have that much right now.</text>
+	</string>
+	<string id="change_faction_to_killer_0">
+		<text>I want to join the [Mercenaries].</text>
+	</string>
+	<string id="change_faction_to_killer_1">
+		<text>Do you think you match? Why do you want to join?</text>
+	</string>
+	<string id="change_faction_to_killer_10">
+		<text>I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_killer_11">
+		<text>Okay, I'll let people know about you. Remember my lesson. And don't forget who you obey. Dismissed.</text>
+	</string>
+	<string id="change_faction_to_killer_12">
+		<text>You'll be back when you have the right amount of money. Dismissed.</text>
+	</string>
+	<string id="change_faction_to_killer_13">
+		<text>Then I have nothing to talk to you about.</text>
+	</string>
+	<string id="change_faction_to_killer_14">
+		<text>Okay, I'll let people know about you. In the meantime, you can go.</text>
+	</string>
+	<string id="change_faction_to_killer_15">
+		<text>Come back when you are. We need such agents.</text>
+	</string>
+	<string id="change_faction_to_killer_16">
+		<text>You got the money on you?</text>
+	</string>
+	<string id="change_faction_to_killer_17">
+		<text>Ready to join us?</text>
+	</string>
+	<string id="change_faction_to_killer_18">
+		<text>Did you hit your head? You're already one of us.</text>
+	</string>
+	<string id="change_faction_to_killer_19">
+		<text>Yeah. Here you go.</text>
+	</string>
+	<string id="change_faction_to_killer_2">
+		<text>Because... I...</text>
+	</string>
+	<string id="change_faction_to_killer_20">
+		<text>Not yet.</text>
+	</string>
+	<string id="change_faction_to_killer_21">
+		<text>Then why are you hanging around here? You have a task.</text>
+	</string>
+	<string id="change_faction_to_killer_22">
+		<text>Yeah, here you go.</text>
+	</string>
+	<string id="change_faction_to_killer_3">
+		<text>Not your business.</text>
+	</string>
+	<string id="change_faction_to_killer_4">
+		<text>Shut up. Head from the gramophone. I doubt that you are the right fit for us. Because the main thing in our work is confidenciality. And your tongue is untied, bite it. Being a mercenary means keeping a secret. Which will be known only to you and the customer. However, for a certain amount of money I will close my eyes and ears, because I believe you have learned the lesson, 10 thousand is a fee for your language. Pay, and you will be one of us. Did you understand everything?</text>
+	</string>
+	<string id="change_faction_to_killer_5">
+		<text>That's right. Hehehe, I think you're right for us. Secrecy is just as important in our business as the accuracy of the order. It doesn't matter who is in front of you. The motive should only be with you and the customer. And every agent is impersonal. However, I can't accept you without an investment. 10 thousand is enough. Consider it an investment. You will earn much more with us.</text>
+	</string>
+	<string id="change_faction_to_killer_6">
+		<text>Yeah, I get it. Here you go.</text>
+	</string>
+	<string id="change_faction_to_killer_7">
+		<text>I agree with you. Here you go.</text>
+	</string>
+	<string id="change_faction_to_killer_8">
+		<text>Yeah, I get it. But I don't have that much.</text>
+	</string>
+	<string id="change_faction_to_killer_9">
+		<text>I agree, but I don't have that much yet.</text>
+	</string>
+	<string id="change_faction_to_loner_0">
+		<text>I want to become a [Loner].</text>
+	</string>
+	<string id="change_faction_to_loner_1">
+		<text>You do realize this isn't free, right?</text>
+	</string>
+	<string id="change_faction_to_loner_10">
+		<text>Come back when you change your mind.</text>
+	</string>
+	<string id="change_faction_to_loner_2">
+		<text>Are you drunk or something? You're already a loner.</text>
+	</string>
+	<string id="change_faction_to_loner_3">
+		<text>I understand that. How much do you want for your trouble?</text>
+	</string>
+	<string id="change_faction_to_loner_4">
+		<text>Ten, that'll be enough.</text>
+	</string>
+	<string id="change_faction_to_loner_5">
+		<text>Here you go.</text>
+	</string>
+	<string id="change_faction_to_loner_6">
+		<text>I don't have that much...</text>
+	</string>
+	<string id="change_faction_to_loner_7">
+		<text>Then come back when you get it.</text>
+	</string>
+	<string id="change_faction_to_loner_8">
+		<text>Oh, there you go! A business man. I'll get in touch with the right people, you can go. Loner.</text>
+	</string>
+	<string id="change_faction_to_loner_9">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="change_faction_to_monolith_0">
+		<text>I want to join [Monolith]</text>
+	</string>
+	<string id="change_faction_to_monolith_1">
+		<text>Yeah, I know. Yes... But I have to take away 10 thousand from you... That's what he wants. It is His will. You have the money, right?</text>
+	</string>
+	<string id="change_faction_to_monolith_2">
+		<text>Yeah. Here you go.</text>
+	</string>
+	<string id="change_faction_to_monolith_3">
+		<text>No.</text>
+	</string>
+	<string id="change_faction_to_monolith_4">
+		<text>So it's not time yet, don't rush things. Come when the right time comes.</text>
+	</string>
+	<string id="change_faction_to_monolith_5">
+		<text>Yeah, that's the moment. I greet you in our ranks, neophyte. Go, go and carry His will! </text>
+	</string>
+	<string id="change_faction_to_monolith_6">
+		<text>Is this the moment? Do you have the money?</text>
+	</string>
+	<string id="change_faction_to_monolith_7">
+		<text>The monolith tests me... I know who you are. You are one of us. Go ahead, I have passed the test.</text>
+	</string>
+	
+	<!--=====Shoot_yourself=====-->
+	<string id="bandit_barman_dar_mlr_find_number_0">
+		<text>Come on! I'm ready.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_1">
+		<text>Here you go, self murderer.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_2">
+		<text>[Click on trigger]</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_3">
+		<text>Wow... Bitch! Okay, you're lucky this time.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_4">
+		<text>...</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_5">
+		<text>Again? Well, here's the suicide boy.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_6">
+		<text>No, fuck it. I changed my mind.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_7">
+		<text>Pussy... Come back when you grow some balls.</text>
+	</string>
+	
+	<!--=====Tech_trade=====-->
+	<string id="tech_trade_0">
+		<text>Do you sell anything?</text>
+	</string>
+	<!--=====Sim_drnk=====-->
+	<string id="drink_with_me_0">
+		<text>I'm sick of everything, want a drink?</text>
+	</string>
+	<string id="drink_with_me_1">
+		<text>Yeah, I'm sick of all, too, come on.</text>
+	</string>
+	<string id="drink_with_me_10">
+		<text>When you drink, you need to know the measure. Otherwise you can drink less than you need. Let's drink to the measure! To the measure of everything!</text>
+	</string>
+	<string id="drink_with_me_11">
+		<text>Hurry up!</text>
+	</string>
+	<string id="drink_with_me_12">
+		<text>*Hic* My... *Hic* Throat, fuch... Well, let's have another one, because it didn't break!</text>
+	</string>
+	<string id="drink_with_me_13">
+		<text>Ooh, bastard. Repeat?</text>
+	</string>
+	<string id="drink_with_me_14">
+		<text>Oh, I'm warming up! One more?</text>
+	</string>
+	<string id="drink_with_me_15">
+		<text>Eh! It's good! You should be thanked. There is a rule in the zone, who got drunk or fed, to thank you is due. Or the zone will not forgive you. So, look, there are some of my reapers here, they are now yours. Good luck stalker.</text>
+	</string>
+	<string id="drink_with_me_16">
+		<text>Oh, my gosh, that was so fucked up! My legs don't work... Ugh, something is not good for me... Inhale and exhale... I think it's okay. No, I don't know how to drink, no matter how hard I try, it just sucks, and then I start talking... Would you believe that I was robbed once? I told the "woe-bottle" that I hide the loot in a very interesting place... It is really interesting! Who the fuck would find it there, I used to go... Open the map... Here I saw that you can whine here, so it is, and sometimes I drag all sorts of things there, if I'm going by. The prick knows when it may come in handy... Listen, do you still have any? Although, no, enough for today, my head is not thinking.</text>
+	</string>
+	<string id="drink_with_me_17">
+		<text>All right, that's enough.</text>
+	</string>
+	<string id="drink_with_me_18">
+		<text>I don't think so. Drive everything you have. However, I will kill you anyway, I will take it myself.</text>
+	</string>
+	<string id="drink_with_me_19">
+		<text>Man, what are you doing? Drank too much?</text>
+	</string>
+	<string id="drink_with_me_2">
+		<text>No, I'm on a raid soon.</text>
+	</string>
+	<string id="drink_with_me_20">
+		<text>Well, that's enough, that's enough, come on.</text>
+	</string>
+	<string id="drink_with_me_21">
+		<text>Oh, yeah! Well, shall we continue?</text>
+	</string>
+	<string id="drink_with_me_22">
+		<text>Ah, sorry. I thought we'd have a good time.</text>
+	</string>
+	<string id="drink_with_me_23">
+		<text>Pray, bitch.</text>
+	</string>
+	<string id="drink_with_me_24">
+		<text>...</text>
+	</string>
+	<string id="drink_with_me_25">
+		<text>Let's focus.</text>
+	</string>
+	<string id="drink_with_me_26">
+		<text>Are you fucking crazy? Yes, I am...</text>
+	</string>
+	<string id="drink_with_me_27">
+		<text>Sorry, I... I can't, it's not me.</text>
+	</string>
+	<string id="drink_with_me_28">
+		<text>Ooh, my dear, thank you! Oh, I'll remember... Tears are wrapped in tears... Ah? Yes, I had a friend, the ground was on him. So he poured vodka like this, always good, just like now... Look, I snorted his belongings in a secluded place, let me tell you on the map that you will find it - yours. Okay, the memories are up, I need to sit alone. Be a stalker.</text>
+	</string>
+	<string id="drink_with_me_29">
+		<text>Wow, whore, how much I missed that.</text>
+	</string>
+	<string id="drink_with_me_3">
+		<text>I don't drink with anyone.</text>
+	</string>
+	<string id="drink_with_me_30">
+		<text>Eh... Come on, one more... It's not good that it's like that.</text>
+	</string>
+	<string id="drink_with_me_31">
+		<text>... You know, let it be you. Here are the coordinates for you. There's what I have left... They are already following me anyway. Here's a little bit more for you, but still love money, huh? Eh, it's time to die.</text>
+	</string>
+	<string id="drink_with_me_32">
+		<text>Oh made him happy, so happy! Listen, and I was sitting here recently at the campfire, so the flying stalkers were joking about the hidden crib, let me show you on the map. Don't worry, they disappeared after 24 hours, went to get the artifacts and never came back. And what kind of a real stalker would talk about his stash in front of everybody? I'm not going to go there myself, you can... Be careful if you get there, maybe an ambush... I've had enough alcohol for today, take care of yourself.</text>
+	</string>
+	<string id="drink_with_me_33">
+		<text>Thank you, but what are you talking about?</text>
+	</string>
+	<string id="drink_with_me_34">
+		<text>Doesn't matter, remember one thing. Never contact Badger. He seems immortal. And now get out of here, I need to be alone, goodbye stalker. Remember my words and take care.</text>
+	</string>
+	<string id="drink_with_me_35">
+		<text>Behave.</text>
+	</string>
+	<string id="drink_with_me_36">
+		<text>Wow, bitch, that's making me cry... What kind of drink is that? Let's do it again?</text>
+	</string>
+	<string id="drink_with_me_37">
+		<text>Ah, I'm gonna have a drink, I'm gonna live right away! Ha-ha! Let's have another one, shall we?</text>
+	</string>
+	<string id="drink_with_me_38">
+		<text>I'm not feeling well... But this is not a reason to stop! Will it get better now, let's do it again?</text>
+	</string>
+	<string id="drink_with_me_39">
+		<text>And you know why man is the most perfect creature in the animal world? Because he himself distributes the places in this classification... Are you savvy? So let's drink to human reasonableness!</text>
+	</string>
+	<string id="drink_with_me_4">
+		<text>Hold it.</text>
+	</string>
+	<string id="drink_with_me_40">
+		<text>Excellent! Well, don't worry!</text>
+	</string>
+	<string id="drink_with_me_41">
+		<text>Somebody can't drink alone, let's drink collectively. To the great power of the team!</text>
+	</string>
+	<string id="drink_with_me_42">
+		<text>We'll make sure we always have a light heart and heavy pockets!</text>
+	</string>
+	<string id="drink_with_me_43">
+		<text>Let your life be people you want to drink to, not people you want to drink to! To Mark!</text>
+	</string>
+	<string id="drink_with_me_44">
+		<text>We'll blame those who aren't there!</text>
+	</string>
+	<string id="drink_with_me_45">
+		<text>God gave us a day to drink, but nobody knows what day it is. So let's drink every day so we don't miss it!</text>
+	</string>
+	<string id="drink_with_me_46">
+		<text>Vodka is our enemy. But we are not afraid of enemies, we are eradicating them.</text>
+	</string>
+	<string id="drink_with_me_47">
+		<text>Wow... Nice to see you, heh - heh, I've learned in practice... People, they're like trees - they fall to the ground after three to four hits with an axe. Pour it, we haven't finished.</text>
+	</string>
+	<string id="drink_with_me_48">
+		<text>Um ... What was that? You know, recently in the morning at the cordon three attentive stalkers found one inattentive. On the branches ... And a little over the territory. Let's have another drink to, attentiveness?</text>
+	</string>
+	<string id="drink_with_me_49">
+		<text>Can it go free? Look, laughter, as you know, prolongs life, and drugs, on the contrary, reduce it... In general, that's what it comes out to, but it's more fun... So? </text>
+	</string>
+	<string id="drink_with_me_5">
+		<text>I changed my mind.</text>
+	</string>
+	<string id="drink_with_me_50">
+		<text>What?</text>
+	</string>
+	<string id="drink_with_me_51">
+		<text>Don't you understand? I said pour it, or I'll blow your head off now.</text>
+	</string>
+	<string id="drink_with_me_52">
+		<text>You'd calm down, fucking hero.</text>
+	</string>
+	<string id="drink_with_me_53">
+		<text>Oh, bitch, you asked for it.</text>
+	</string>
+	<string id="drink_with_me_54">
+		<text>Yeah, just yesterday, I got into it in such a way that the ravens are still seeing everywhere...</text>
+	</string>
+	<string id="drink_with_me_55">
+		<text>Carry? If you suggest it, pour it!</text>
+	</string>
+	<string id="drink_with_me_56">
+		<text>Whoever's looking for strength in vodka walks on the edge of the grave. Have you heard this? But if you treat me, I won't refuse!</text>
+	</string>
+	<string id="drink_with_me_57">
+		<text>Is Alkashka with you? Ugh, what am I doing? I'm going on a raid with men. I'm sorry, but next time.</text>
+	</string>
+	<string id="drink_with_me_58">
+		<text>Drink? Why not drink? Recently I was told that there was some special vodka in the Zone, diggers dug it up near the NPP, and... Oh, right, pour it!</text>
+	</string>
+	<string id="drink_with_me_59">
+		<text>Yes, I don't even know you, how do I know what you're stirring up?</text>
+	</string>
+	<string id="drink_with_me_6">
+		<text>Stacker's share, she's so thirsty, eternal pursuit. Let's drink to the success of our hopeless cause!</text>
+	</string>
+	<string id="drink_with_me_60">
+		<text>Oppa-pa, this is an unexpectedly pleasant turn of events! Let's take it slow and maybe more.</text>
+	</string>
+	<string id="drink_with_me_61">
+		<text>You know... I left a friend to die... But, if I otherwise tried to help him, we would have died. Let's at least remember.</text>
+	</string>
+	<string id="drink_with_me_62">
+		<text>Wow... Heh-heh... I drank a shot... I drank two, it made me laugh! I felt a stir... What am I talking about? Ah! Shall we have another one?</text>
+	</string>
+	<string id="drink_with_me_63">
+		<text>Wow... Do you know how to prevent hangovers? Don't be sober! Let's tip over again!</text>
+	</string>
+	<string id="drink_with_me_64">
+		<text>Eh... Drinking, drinking, drinking... You know, alcohol doesn't help to find answers, it helps to forget questions. And I have a lot of questions... And in the zone they just added... Shall we repeat?</text>
+	</string>
+	<string id="drink_with_me_65">
+		<text>Khee... That's why you think everyone at the bar is so relaxed? That's because alcohol kills nerve cells. Only the quiet ones are left. So what else can we drain?</text>
+	</string>
+	<string id="drink_with_me_66">
+		<text>Whoo! As my grandfather used to say: "The mood is zero? Hello, strong alcohol" Still there?</text>
+	</string>
+	<string id="drink_with_me_67">
+		<text>Eh... I waked up today freezing and smiled, thinking: "It was she who pulled the blanket as usual. And then I realized that the fire was gone... Nothing, soon home. Soon... What are you looking at? We continue.</text>
+	</string>
+	<string id="drink_with_me_68">
+		<text>Kha-*hic*! I said to myself this morning, "I'll get drunk! And so... I was drunk! I like to set goals and reach them. But that doesn't mean it's time to stop! Shall we continue?</text>
+	</string>
+	<string id="drink_with_me_69">
+		<text>Wow... You know, I didn't join the AA club that way... I've been drinking for two weeks and I don't even know who... You are also in the club, right? Okay, I remember the first rule... Oh. Anyway, let's go on!</text>
+	</string>
+	<string id="drink_with_me_7">
+		<text>The savior of the hungry man doesn't know... Drunk sober doesn't understand... Hence the conclusion: drink, eat - and you will understand! Let's drink for the understanding!</text>
+	</string>
+	<string id="drink_with_me_70">
+		<text>Ages changes memory, vision, even a loved one, and only alcohol remains the same. For alcohol!</text>
+	</string>
+	<string id="drink_with_me_71">
+		<text>We'll get the VDV! That is - for Vera, Heroism, and Luck!</text>
+	</string>
+	<string id="drink_with_me_72">
+		<text>They say the lane of failure sometimes turns out to be a takeoff. Let's toast to our runway without any joy!</text>
+	</string>
+	<string id="drink_with_me_73">
+		<text>Vodka is abomination, vodka is poison! But a shot won't hurt! Especially to us.</text>
+	</string>
+	<string id="drink_with_me_74">
+		<text>Let's drink to the success of our hopeless cause! To the luck that can turn everything in our favor!</text>
+	</string>
+	<string id="drink_with_me_75">
+		<text>I'll be short. Let's drink to... I want to!</text>
+	</string>
+	<string id="drink_with_me_76">
+		<text>Slow and frowning, we're sitting dopey. To revive life in us, we need a shot!</text>
+	</string>
+	<string id="drink_with_me_77">
+		<text>To make sure the day goes by, you have to drink the stops!</text>
+	</string>
+	<string id="drink_with_me_78">
+		<text>Let us have as much sadness as we have left in the glass!</text>
+	</string>
+	<string id="drink_with_me_79">
+		<text>Lift up the cups for full pockets!</text>
+	</string>
+	<string id="drink_with_me_8">
+		<text>We'll blame the people on board. Who is overboard will drink himself!</text>
+	</string>
+	<string id="drink_with_me_80">
+		<text>All is fine, amazing if you drink it beforehand.</text>
+	</string>
+	<string id="drink_with_me_9">
+		<text>Let's drink... In one gulp!</text>
+	</string>
+
+	<!--=====Fake_DTK=====-->
+	<string id="detector_repair_bandit_meh_teh_advn_done_0">
+		<text>What's with the detector?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_1">
+		<text>Got it, give me the rest and take it.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_10">
+		<text>Heh, what am I supposed to wait, for you to scrap it up? A day. I will wait 24 hours, and then kick your detector for the amount of repair.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_11">
+		<text>Well, that's great! Someone here already wants to take your detector. I'm waiting 24 hours, and he gives more than you. Do you understand?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_12">
+		<text>Oh, fuck you. I got such a message from the out land today! So here's your detector, here's your booze! Get out of here!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_13">
+		<text>Bitch... How did you get the fuck out of it, you're not going to make any moves at all, you're a bunch of empty words, promise, but the point? In short, listen here, I give you 24 hours. Pina is your detector, and it's over.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_14">
+		<text>And what do we mark?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_15">
+		<text>Yes, it's none of your business! Don't find out, Redfinger! Ha-ha! Drink to my health! Oh, good life!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_16">
+		<text>I already told you everything. Look for money.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_17">
+		<text>Well, go check it out.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_18">
+		<text>Shit... No matter how much I bother with this shit. Ready, working. The rest of my blood was drank by this bitch.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_19">
+		<text>Shit... In short, firewood to him. I was tempted, he was dead at the end. Hold on to your piece of metal, it can't be fixed anymore.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_20">
+		<text>The detector's okay, did you bring the money?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_21">
+		<text>Turn around... Shoot.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_22">
+		<text>Horseshit... Are you sure you can't fix it anymore?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_23">
+		<text>And the prepayment?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_25">
+		<text>Yes, that's all, it's cheaper to order a new one than to fix it. Was it thrown into the electric circuit? Instead of a bolt?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_26">
+		<text>Cheers.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_27">
+		<text>Are you crazy? I've spent so much time on it, and you're gonna talk to me for pre-payment? Are you drunk or what? I took it from you by god!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_28">
+		<text>Okay, okay. Be my guest.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_29">
+		<text>So you broke it down!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_30">
+		<text>You're a fucker, aren't you? Are the shores all messed up? Did you call me a stupid? I told you that, I will try to fix it, nothing that you can't do anyway! Get the fuck out of here while you're alive! Or they'll take you away!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_6">
+		<text>This is the rest. I hope it's working...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_8">
+		<text>Oh, how... When I asked you about the cost of repairs, what were you thinking? Anyway, you have 24 hours, if I don't see my money, you won't see your detector. Free.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_9">
+		<text>Conditions you know.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_0">
+		<text>What's with the detector?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_1">
+		<text>Got it, give me the rest and take it.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_10">
+		<text>Heh, what am I supposed to wait for you to scrape up? A day. I will wait 24 hours, and then kick your detector for the amount of repair.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_11">
+		<text>Well, that's great! Someone here already wants to take your detector. I'm waiting 24 hours, and he gives more than you. Smeke?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_12">
+		<text>Oh, fuck you. I got such a message from the big land today! So here's your detector, here's your booze! Get out of here!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_13">
+		<text>Sooka... How did you get the fuck out of it, you're not going to make any moves at all, you promise, but you're not going to do any good? In short, listen here, I give you 24 hours. Pina is your detector, and it's over.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_14">
+		<text>And what do we mark?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_15">
+		<text>Yes, it's none of your business! Don't find out, Redfinger! Ha-ha! Drink to my health! Oh, good life! Good...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_16">
+		<text>I already told you everything. Look for money.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_17">
+		<text>Well, go check it out.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_18">
+		<text>Holly shit... No matter how much I bother with this shit. Ready, working. The rest of my blood was drank by the bitch.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_19">
+		<text>Shit... In short, firewood to him. I was tempted, he was dead at the end. Hold on to your piece of metal, it can't be fixed anymore.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_20">
+		<text>The detector's okay, did you bring the money?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_21">
+		<text>Turn around... Shoot.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_22">
+		<text>Horseshit... Are you sure you can't fix it anymore?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_23">
+		<text>And the prepayment?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_25">
+		<text>Yes, that's all, it's cheaper to order a new one than to fix it. Was it thrown into the electric circuit? Instead of a bolt?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_26">
+		<text>Behave.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_27">
+		<text>Are you crazy? I've spent so much time on it, and you're gonna talk to me for pre-payment? Are you drunk or what? I took it from you by god!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_28">
+		<text>Okay, okay. Be my guest.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_29">
+		<text>So you broke it down!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_30">
+		<text>You're a fucker, aren't you? Are the shores all messed up? Did you call me a fucking bitch? I told you I'd try to fix it, not that it would happen anyway! Get the fuck out of here while you're at it! Otherwise they'll take the bitch away!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_6">
+		<text>This is the rest. I hope it's working...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_8">
+		<text>Oh, how... When I asked you about the cost of repairs, what were you thinking? Anyway, you have 24 hours, if I don't see my money, you won't see your detector. Free.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_9">
+		<text>Conditions you know.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_0">
+		<text>I have an unusual business for you.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_1">
+		<text>Well, let's talk about it.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_10">
+		<text>Well, No, what the hell are you doing? Where'd you get the money from?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_11">
+		<text>Well, you don't want to, I just feel better.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_12">
+		<text> Heh-heh... Faced with such, galimaya is a job. But I think we can fix it. Sometimes it turns out... In short, drive 8310 UAH and I take it, it's a prepayment, and a complete repair will cost you 23750 UAH. Do you agree?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_13">
+		<text>Okay, take it, let me know when you're ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_14">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_15">
+		<text>Hey, Orca, are you fucked up or something?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_16">
+		<text>Go to bed, you're drunk.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_17">
+		<text>No, what the fuck! I'm just interested in the shit! ...Get the hell out of here, asshole.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_18">
+		<text>Yeah, I thought so, people like you don't have the usual stuff.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_19">
+		<text>This jerk...</text>
+	</string>
+	<string id="detector_repair_bandit_teh_2">
+		<text>Talk, what have you got there?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_20">
+		<text>Look what's there, but it looks pretty lousy. Will you take it?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_21">
+		<text>Ooh, no, there's no point in trying. Throw it away, or give it to scientists at the worst.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_22">
+		<text>Are you kidding me? It's scrap metal. Who do you think I am?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_23">
+		<text>You may also believe in Santa Claus? I'm not a wizard, I'm not a wizard, you can't get anything out of this junk.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_3">
+		<text>Bloody mysterious, let's get to the bottom of it.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_4">
+		<text>Look what's there, but it's not a hype. See if you can take it?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_5">
+		<text>What did you bring in?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_6">
+		<text>A "Echo"</text>
+	</string>
+	<string id="detector_repair_bandit_teh_7">
+		<text>A "Bear"</text>
+	</string>
+	<string id="detector_repair_bandit_teh_8">
+		<text>Heh-heh... Faced with such, galimaya is a job. But I think we can fix it. Sometimes it turns out... In short, drive 3750 UAH and I take it, it's a prepayment, and a complete repair will cost you 10700 UAH. Do you agree?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_9">
+		<text>Okay, take it, let me know when you're ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_0">
+		<text>I don't have that much for you.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_1">
+		<text>I'm listening.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_10">
+		<text>No, it's too expensive.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_11">
+		<text>Come back when you have enough money.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_12">
+		<text>Yes, I see a malfunction without laying it down. I can fix it, but it will not be free. 8310 UAH For starters. Upon completion of the repair you will give to me the rest. ...And yes, the total cost of repair is 23750 UAH. Agree?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_13">
+		<text> Okay. I leave it to you to let me know when it's ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_14">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_15">
+		<text>That's your decision.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_16">
+		<text>Come back when you're ready.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_20">
+		<text>Is it possible to fix it?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_21">
+		<text>No. It's destroyed. Fixing it will cost you more than ordering a worker.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_23">
+		<text>No, it's no longer recoverable.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_4">
+		<text>The device is not working, right?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_5">
+		<text>Show.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_6">
+		<text>A "Echo"</text>
+	</string>
+	<string id="detector_repair_monolith_teh_7">
+		<text>A "Bear"</text>
+	</string>a
+	<string id="detector_repair_monolith_teh_8">
+		<text>Yes, I see a malfunction without laying it down. I can fix it, but it will not be free. 3750 UAH For starters. Upon completion of the repair you will give me the rest. ...And yes, the total cost of repair is 10700 UAH. Agree?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_9">
+		<text>Okay. I leave it to you to let me know when it's ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_0">
+		<text>Is the Detector ready?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_1">
+		<text>Yes, did you bring the rest?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_16">
+		<text>Find the money.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_17">
+		<text>If you need to fix it, come on over, I'll help.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_20">
+		<text>The detector is ready, and the money is ready?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_21">
+		<text>Turn around.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_6">
+		<text>Yes, here's the money.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_8">
+		<text>Okay, come when you have enough...</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_0">
+		<text>Is the Detector ready?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_1">
+		<text>Yes, did you bring the rest?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_16">
+		<text>Find the money.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_17">
+		<text>If you need to fix it, come and see.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_20">
+		<text>The detector is ready, and the money is ready?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_21">
+		<text>Turn around.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_6">
+		<text>Yes, here's the money.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_8">
+		<text>Okay, come when you have enough...</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_0">
+		<text>What's with the detector?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_1">
+		<text>Your detector is ready. Did you bring the rest?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_16">
+		<text> I already told you everything. Look for money.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_17">
+		<text>If you need to fix it, come on over, I'll help.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_20">
+		<text>The detector's okay, did you bring the money?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_21">
+		<text>Turn around.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_6">
+		<text>Yes, here's the money.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_8">
+		<text>Hmm. Okay. As soon as you get the money, come. But don't take too long. Because the interest will flow for the content of your detector. I'm kidding. I'll put it in the inventory. And that's me, I'm not kidding. You have 24 hours.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_0">
+		<text>What's with the detector?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_1">
+		<text>Your detector is ready. Did you bring the rest?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_16">
+		<text>I already told you everything. Look for money.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_17">
+		<text>If you need to fix it, come and see.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_20">
+		<text>The detector's okay, did you bring the money?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_21">
+		<text>Turn around.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_6">
+		<text>Yes, here's the money.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_7">
+		<text>I don't have any money right now.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_8">
+		<text>Hmm. Okay. As soon as you get the money, come. But don't take too long. Because the interest will flow for the content of your detector. I'm kidding. I'll put it in the inventory. And that's me, I'm not kidding. You have 24 hours.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_0">
+		<text>I don't have that for you.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_1">
+		<text>And what is it?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_10">
+		<text>No, it's too expensive.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_11">
+		<text>How do you say...</text>
+	</string>
+	<string id="detector_repair_scientist_teh_12">
+		<text> Mm-hmm. So, yes, I see, the reason for the breakage. I can fix it, but it will not be free. 8310 UAH For starters. Upon completion of the repair you will give the rest... And yes, the total cost of repair is 23750 UAH. Agree?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_13">
+		<text>kay, take it, let me know when you're ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_14">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_15">
+		<text>Stop distracting me.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_16">
+		<text>When you have a thought in your head, then come.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_17">
+		<text>What are you so undefined...</text>
+	</string>
+	<string id="detector_repair_scientist_teh_20">
+		<text>Yes, nothing works! Is it possible to fix it?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_21">
+		<text>You are. This is a very serious damage, it will cost you more than ordering a new one.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_22">
+		<text>No, I have to admit it's scraps.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_23">
+		<text>No, it's no longer recoverable.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_4">
+		<text>Yes, it doesn't work!</text>
+	</string>
+	<string id="detector_repair_scientist_teh_5">
+		<text>Show me what you got there?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_6">
+		<text>A "Echo"</text>
+	</string>
+	<string id="detector_repair_scientist_teh_7">
+		<text>A "Bear"</text>
+	</string>
+	<string id="detector_repair_scientist_teh_8">
+		<text>Mm-hmm. So, yes, I see, the reason for the breakage. I can fix it, but it will not be free. 3750 UAH For starters. Upon completion of the repair you will give the rest. ...And yes, the total cost of repair is 10700 UAH. Agree? </text>
+	</string>
+	<string id="detector_repair_scientist_teh_9">
+		<text>Okay, take it, let me know when you're ready. I am in touch.</text>
+	</string>
+	<string id="detector_repair_uni_0">
+		<text>I don't have a thing for you.</text>
+	</string>
+	<string id="detector_repair_uni_1">
+		<text>Make it happen.</text>
+	</string>
+	<string id="detector_repair_uni_10">
+		<text>Well, not anymore, I'm not patient enough for the second time.</text>
+	</string>
+	<string id="detector_repair_uni_11">
+		<text>No stalker, I'm not even gonna try to fix that. Very fine work. Go to the scientists, they have the space and equipment they need.</text>
+	</string>
+	<string id="detector_repair_uni_12">
+		<text>I've changed my mind another time.</text>
+	</string>
+	<string id="detector_repair_uni_2">
+		<text>Intrigued, tell me.</text>
+	</string>
+	<string id="detector_repair_uni_3">
+		<text>I'm not a wizard, but let's hear it.</text>
+	</string>
+	<string id="detector_repair_uni_4">
+		<text>What makes you think I'm interested in it?</text>
+	</string>
+	<string id="detector_repair_uni_5">
+		<text>What did you break this time?</text>
+	</string>
+	<string id="detector_repair_uni_6">
+		<text>Look at the detector, I think it's broken.</text>
+	</string>
+	<string id="detector_repair_uni_7">
+		<text>Detector? No, I don't do that. Not a thank-you job, go to the scientists, they have a technician who does this stuff.</text>
+	</string>
+	<string id="detector_repair_uni_8">
+		<text>No, I don't fix detectors.</text>
+	</string>
+	<string id="detector_repair_uni_9">
+		<text>Detector? No, I'm not going to do that. Go with the scientists. They do this there.</text>
+	</string>
+	
+	<!--=====Sidor_let_me_out=====-->
+	<string id="sidor_let_me_out_0">
+		<text>Sidorovich, open the door!</text>
+	</string>
+	<string id="sidor_let_me_out_1">
+		<text>Get out of here. </text>
+	</string>
+
+	<!--=====Gerdge_KillTask=====-->
+	<string id="georgii_kltsk_cancel_0">
+		<text>No, I changed my mind about killing them.</text>
+	</string>
+	<string id="georgii_kltsk_cancel_1">
+		<text>...Free.</text>
+	</string>
+	<string id="georgii_kltsk_end_0">
+		<text>This is done, keep the PDA.</text>
+	</string>
+	<string id="georgii_kltsk_end_1">
+		<text>Great, give it to me.</text>
+	</string>
+	<string id="georgii_kltsk_end_2">
+		<text>Why do you need them?</text>
+	</string>
+	<string id="georgii_kltsk_end_3">
+		<text>This is none of your business stalker... Here's your reward, if there's more work, I'll write you.</text>
+	</string>
+	<string id="georgii_kltsk_reversed_1">
+		<text>Whatever you say.</text>
+	</string>
+	<string id="georgii_kltsk_start_0">
+		<text>Hi, what's your business with me?</text>
+	</string>
+	<string id="georgii_kltsk_start_1">
+		<text>This world is full of evil stalker... I need your help. I have received information that two brothers, Shilo and Hook, appeared in the marshes. Get me their PDA.</text>
+	</string>
+	<string id="georgii_kltsk_start_10">
+		<text>That's a shame, so I'm wrong about you.</text>
+	</string>
+	<string id="georgii_kltsk_start_3">
+		<text>On the swamps... The swamps are big, do you have a tip?</text>
+	</string>
+	<string id="georgii_kltsk_start_4">
+		<text>Yes, of course. They came from Agroprom, so look for them on the outskirts near the train. They wouldn't have gone far, they wouldn't have gotten away with it.</text>
+	</string>
+	<string id="georgii_kltsk_start_6">
+		<text>What do I get for these PDAs?</text>
+	</string>
+	<string id="georgii_kltsk_start_7">
+		<text>Around 10 thousand hryvnias and medicines.</text>
+	</string>
+	<string id="georgii_kltsk_start_8">
+		<text>Okay, I'll take it.</text>
+	</string>
+	<string id="georgii_kltsk_start_9">
+		<text>No, I'm not interested.</text>
+	</string>
+	
+	<!--=====Mihail_start_hi=====-->
+	<string id="mihail_start_hi_10">
+		<text>Something I don't like about the way you're fucking around tonight, honey, I'd like to see you...</text>
+	</string>
+	<string id="mihail_start_hi_11">
+		<text>Where does this cardboard fool go? It's been two hours now, or did you decide to starve to death?</text>
+	</string>
+	<string id="mihail_start_hi_12">
+		<text>Your water pump? Look, man, I don't have time for you, back off.</text>
+	</string>
+	<string id="mihail_start_hi_13">
+		<text>Why, does the water pump work? Oh, I don't mind, the water's expensive nowadays.</text>
+	</string>
+	<string id="mihail_start_hi_14">
+		<text>And how does it not work? Do you hear that the pump is malfunctioning? I'm just looking for a rank. The water is as clean as a child's tear.</text>
+	</string>
+	<string id="mihail_start_hi_15">
+		<text>Well, I will.</text>
+	</string>
+	<string id="mihail_start_hi_16">
+		<text>Heh, keep it in mind.</text>
+	</string>
+	<string id="mihail_start_hi_17">
+		<text>No, I'm on another occasion.</text>
+	</string>
+	<string id="mihail_start_hi_18">
+		<text>I mean, I'm watching you, son. And I don't have salt in my cartridges.</text>
+	</string>
+	<string id="mihail_start_hi_19">
+		<text>Okay, okay.</text>
+	</string>
+	<string id="mihail_start_hi_2">
+		<text>Hello, Stalker, what are you doing here?</text>
+	</string>
+	<string id="mihail_start_hi_20">
+		<text>Ah, you bitch! He doesn't have time! Isha what you're thinking! I'm gonna get you now...</text>
+	</string>
+	<string id="mihail_start_hi_21">
+		<text>Sit tight, old man...</text>
+	</string>
+	<string id="mihail_start_hi_3">
+		<text>Hello. I'm here on my own business, and who are you?</text>
+	</string>
+	<string id="mihail_start_hi_4">
+		<text>What kind of business can you have on my water pump? Ish, you young people, he has things to do! Come here as if you were at home, do you know how many of my own men shoot with my own guns? Huh?</text>
+	</string>
+	<string id="mihail_start_hi_5">
+		<text> Calm down, man, I'm not mad!</text>
+	</string>
+	<string id="mihail_start_hi_6">
+		<text>Well, if that's the case... Look at me. I've been here for a long time, the locals know me. Ask me what I do with business. So what do you need? Did you come for water?</text>
+	</string>
+	<string id="mihail_start_hi_7">
+		<text>Eh... My knees hurt again... A Blowout is soon.</text>
+	</string>
+	<string id="mihail_start_hi_8">
+		<text>Nothing Maria Kuzminichna, but I'll see you soon...</text>
+	</string>
+	<string id="mihail_start_hi_9">
+		<text>Shhh... Wailing... Hungry, creatures.</text>
+	</string>
+	
+	<!--=====Mihail_water_barter=====-->
+	<string id="mih_wtr_brt_0">
+		<text>Hello Mikhalych! Is there anything to fill the bottle?</text>
+	</string>
+	<string id="mih_wtr_brt_1">
+		<text>Oh, yeah! Ready for half a thousand. What do you need to fill?</text>
+	</string>
+	<string id="mih_wtr_brt_11">
+		<text>Why are you messing with my head? Get out!</text>
+	</string>
+
+	<!--=====Barman_water_barter=====-->
+	<string id="bar_wtr_brt_0">
+		<text>Barman! Got something to fill the container with?</text>
+	</string>
+	<string id="bar_wtr_brt_1">
+		<text>It is, prepare 500 hryvnias. What do you want to fill?</text>
+	</string>
+	<string id="bar_wtr_brt_11">
+		<text>How only does this land carry...? Get out of here while you're still in one piece.</text>
+	</string>
+	
+	<!-- Olivius Dark Valley water dialog -->
+	<string id="bandit_wtr_brt_0">
+		<text>Hеy fellas, pour some water.</text>
+	</string>
+	<string id="bandit_wtr_brt_1">
+		<text>Give me 500 UAH, where do you want it? He-he...</text>
+	</string>
+	<string id="bandit_wtr_brt_11">
+		<text>Hey, do you hear me, fuck off, fucking hoodlum!</text>
+	</string>
+	
+	<!-- sah_wtr_brt -->
+	<string id="sah_wtr_brt_0">
+		<text>Hi, Professor, I need water.</text>
+	</string>
+	<string id="sah_wtr_brt_1">
+		<text>It will cost you 500 UAH. Got anything to pour into?</text>
+	</string>
+	<string id="sah_wtr_brt_11">
+		<text>Leave me alone.</text>
+	</string>
+	
+	<!-- nucl_wtr_brt -->
+	<string id="nucl_wtr_brt_0">
+		<text>Hello, pour water.</text>
+	</string>
+	<string id="nucl_wtr_brt_1">
+		<text>500 UAH. Where do you want it?</text>
+	</string>
+	<string id="nucl_wtr_brt_11">
+		<text>Leave me alone.</text>
+	</string>
+	
+	<string id="water_brt_2">
+		<text>A Plastic bottle.</text>
+	</string>
+	<string id="water_brt_3">
+		<text>A Thermo.</text>
+	</string>
+	<string id="water_brt_4">
+		<text>A Olive flask.</text>
+	</string>
+	<string id="water_brt_5">
+		<text>A Dark flask.</text>
+	</string>
+	<string id="water_brt_6">
+		<text>A Metal flask.</text>
+	</string>
+	<string id="water_brt_7">
+		<text>A Glass bottle.</text>
+	</string>
+	<string id="water_brt_8">
+		<text>A Bottle of glass.</text>
+	</string>
+	<string id="water_brt_9">
+		<text>A beer bottle.</text>
+	</string>
+	<string id="water_brt_10">
+		<text>I changed my mind.</text>
+	</string>
+	<!--=====Battery recharge=====-->
+	<string id="battery_rechange_0">
+		<text>I need to charge my batteries.</text>
+	</string>
+	<string id="battery_rechange_1">
+		<text>No problem, what do you have there?</text>
+	</string>
+	<string id="battery_rechange_2">
+		<text>A Battery of 4000mAH</text>
+	</string>
+	<string id="battery_rechange_2_1">
+		<text>It's gonna cost 1000 and you're gonna have to wait a little bit, okay?</text>
+	</string>
+	<string id="battery_rechange_5_1">
+		<text>It's gonna cost 3000 and you're gonna have to wait a little bit, okay?</text>
+	</string>
+	<string id="battery_rechange_agree">
+		<text>Here it is, I hope I don't have to wait forever.</text>
+	</string>
+	<string id="battery_rechange_3">
+		<text>A Battery of 4200mAH</text>
+	</string>
+	<string id="battery_rechange_4">
+		<text>A Battery of 4500mAH</text>
+	</string>
+	<string id="battery_rechange_5">
+		<text>A Battery of 100V AM1</text>
+	</string>
+	<string id="battery_rechange_6">
+		<text>I changed my mind, maybe later.</text>
+	</string>
+	<string id="battery_rechange_7">
+		<text>As you wish, but I've got that all busy here.</text>
+	</string>
+
+	<!--=====Inf_craft_remaster=====-->
+	<string id="Klin_Guide_0">
+		<text>Klin, can we talk?</text>
+	</string>
+	<string id="Klin_Guide_1">
+		<text>Ahem... Your conversations are your... Okay, still no work yet. What do you want?</text>
+	</string>
+	<string id="Klin_Guide_10">
+		<text>Tell me about the weapons disassembly.</text>
+	</string>
+	<string id="Klin_Guide_11">
+		<text>Well, disassembling weapons is probably the easiest thing. Stalkers use everything that comes in handy, different sets of tools, even cutlery is used, but remember, disassemble everything carefully. Then, spare parts are used in to repair or you can sell them, I collect good samples.</text>
+	</string>
+	<string id="Klin_Guide_12">
+		<text>Tell me something about self made cartridges.</text>
+	</string>
+	<string id="Klin_Guide_13">
+		<text>Yes, also an interesting topic. Recently, traders have all sorts of kits for making cartridges, but any homemade ammunition will be worse than the factory one. Usually here they use tools for making a cartridge and materials for them. All this can be bought from traders. I can't tell you more about it further, because each set has its own instructions. Well, you will read it, it is not difficult to understand there.</text>
+	</string>
+	<string id="Klin_Guide_14">
+		<text>And what else can you do with your handy items?</text>
+	</string>
+	<string id="Klin_Guide_15">
+		<text>Heh... Turn your head. What else can i do? Here in the Zone in general, a lot of things are done with our own hands. Rags and vodka are bandages. We sew sleeping bags and backpacks, materials and tools for which almost any trader has. Joints and blunts also can be made from improvised materials, but it is more often seen in Freedom. Yes, even here it is possible to collect a barrel, and without my help, the main thing is to work with my head.</text>
+	</string>
+	<string id="Klin_Guide_16">
+		<text>The wedge, what do you need to assemble a weapon?</text>
+	</string>
+	<string id="Klin_Guide_17">
+		<text>So, depending on what you want to collect, I say at once, I collect not all, but different calibers. Look around me, this isn't a factory, so the quality will be outdated. And the parts I use are mostly outdated. There is no new use for new parts, I will not build a new one anyway, so save it for another.</text>
+	</string>
+	<string id="Klin_Guide_18">
+		<text>Okay, what parts do I need?</text>
+	</string>
+	<string id="Klin_Guide_19">
+		<text>\n%c[0,188,124,42]-9x18mm,9x19mm,0.45 ACP,7.62x25mm%c[default] - A handle, spring and trigger.\n%c[0,188,124,42]-9x39mm,5.45x39mm,5.56x45mm,7.62x39mm,7.62x51 NATO%c[default] - barrel 9x39/5.45x39/7.62mm, handle, spring, trigger, stock, bolt.\n%c[0,188,124,42]-7.62x54mm%c[default] - barrel 7.62mm,handle, spring, trigger, stock, bolt.\n%c[0,188,124,42]-7.92x33mm%c[default] - barrel 7.92mm, spring, trigger, stock, bolt.\n%c[0,188,124,42]-12x70mm%c[default] single-barrel - shotgun barrel, stock and trigger.\n%c[0,188,124,42]-12x70mm%c[default] double-barreled - double shotgun barrel, double trigger, and a stock.</text>
+	</string>
+	<string id="Klin_Guide_2">
+		<text>Tell me about the barrel replacement.</text>
+	</string>
+	<string id="Klin_Guide_20">
+		<text>And that's it?</text>
+	</string>
+	<string id="Klin_Guide_21">
+		<text> Of course not. Besides this junk, I need money for my work. And also the tools. \n\n\n%c[0,188,124,42]9x18mm%c[default] - 200UAH, \n%c[0,188,124,42]9x19mm%c[default] - 350UAH, \n%c[0,188,124,42]9.39mm%c[default] - 1000UAH, \n%c[0,188,124,42]0.45 ACP%c[default] - 450UAH, \n%c[0,188,124,42]5.45x39mm%c[default] - 700UAH, \n%c[0,188,124,42]5.56x45mm%c[default] - 850UAH, \n%c[0,188,124,42]7.62x25mm%c[default] - 500UAH, \n%c[0,188,124,42]7.62x39mm%c[default] - 750UAH, \n%c[0,188,124,42]7.62x51mm%c[default] - 700UAH, \n%c[0,188,124,42]7.62x54mm%c[default] - 1400UAH, \n%c[0,188,124,42]7.92x33mm%c[default] - 900UAH, \n%c[0,188,124,42]12x70mm%c[default] - 220UAH.</text>
+	</string>
+	<string id="Klin_Guide_22">
+		<text>Got it.</text>
+	</string>
+	<string id="Klin_Guide_23">
+		<text>I know all this, Klin, this isn't my first day here.</text>
+	</string>
+	<string id="Klin_Guide_24">
+		<text>Then I have nothing to talk to you about.</text>
+	</string>
+	<string id="Klin_Guide_3">
+		<text>The gun barrel is a delicate thing. To replace it you need to have two things: the barrel itself and a set for its replacement. As a rule, the barrel is either bought or extracted from the weapon by a special set of tools corresponding to its application. There are three types. As well as in the case of disassembly of clothes on the receipt of component parts affects the subject, its condition and your skills. I also want to add that when disassembling rusty, obsolete and new weapons, the final parts will correspond to the quality of it... Rusty or dirty barrels will not work, so they will need to be cleaned and cleaned. They clean the barrels with different means: gasoline, kerosene, vodka, water, solvents, cleaning kits and many others. Replacement kits are different, that is, for each caliber has its own set. Basically, these field kits can be found with traders. By the way, not every weapon and caliber can be replaced by a barrel, this also take into account.</text>
+	</string>
+	<string id="Klin_Guide_4">
+		<text>Tell me about the suit disassembly.</text>
+	</string>
+	<string id="Klin_Guide_5">
+		<text>Well, the suits are not difficult to disassemble, the main thing here is precision. They are mainly disassembled in sets, they are sold by traders. More advanced equipment is disassembled only with the help of appropriate tools available. There are three types of tools for such work. The number of received components also depends on personal skills and the state of the object to be disassembled... All the important details are cut out of the costumes, the rest is thrown away, because here, in the Zone, there is no use from such trifles. Then they repair their equipment or sell the obtained parts. Certain things made of fabric such as Balaklavas or simple clothes like jackets, as well as some of their components can be disassembled with a knife. The number of components that can be produced depends on the strength of the object to be disassembled and personal skills. Also, as a rule, disassemble only those suits from which there is something to get. For example, on jackets or raincoats makes no sense even to spend their time and money, and on the disassembly of exoskeletons, well... that's the source of income.</text>
+	</string>
+	<string id="Klin_Guide_6">
+		<text>Tell me about the suit repair.</text>
+	</string>
+	<string id="Klin_Guide_7">
+		<text>In the field, suits can also be repaired in a homemade way, of course, but it is possible. Almost everything from rags to heavy armour plates is used in reparation. The consumables themselves will not be glued to the costume, so you still need something that can be organized to sew the whole thing. There are sets for sewing and reparations, there can be something else. And the consumables are also important. It is better to use high-quality materials, than garbage, because it can all cost more than the equipment. Glue, sewing and repair kits can be bought from dealers. Consumables can be obtained by yourself, for example, from disassembly of suits, or also bought from traders. It is worth noting that each outfit has its own repair kits with appropriate restrictions. If the condition of the equipment is below the capabilities of the kit, repair is not possible. Also, each repair kit improves the condition of the object, but using additional components specified in the kit, it is possible to achieve a better repair.</text>
+	</string>
+	<string id="Klin_Guide_8">
+		<text>Tell me about the weapons reparation.</text>
+	</string>
+	<string id="Klin_Guide_9">
+		<text>The weapons in the zone are quite difficult and expensive to keep. Reparations by a professional can be much cheaper to do almost always, but it is simply necessary to use improvised means to regularly care for your weapons, as repair is always more expensive. To repair the trunks, just like for the repair of suits, you need consumables and repair kits. To repair, all the spare parts can be bought from traders or get yourself, for example, many manually disassemble the barrels and repair themselves.</text>
+	</string>
+
+	<!--=====Gerdge_KillTask_title=====-->
+	<string id="georgii_DPA_title_01">
+		<text> Don't doubt it, kill them.</text>
+	</string>
+	<string id="georgii_kltsk_DPA_descr_02">
+		<text>This is done, it's time to go back to George</text>
+	</string>
+	<string id="georgii_kltsk_DPA_descr_01">
+		<text>So, swamps, Outskirts... 2 PDA's.</text>
+	</string>
+	
+	<!--=====Fanat_drugs_title=====-->
+	<string id="fanat_drugs_DPA_title_01">
+		<text>Whoever's looking, he'll find it.</text>
+	</string>
+	<string id="fanat_drugs_DPA_descr_02">
+		<text>So I found the stash, it's time to get the promised reward.</text>
+	</string>
+	<string id="fanat_drugs_DPA_descr_01">
+		<text>Yeah, that's a good tip. Look for the wind in the field...</text>
+	</string>
+	
+	<!--=====Fanat_drugs=====-->
+	<string id="fanat_drugs_cancel_0">
+		<text>No, I couldn't find the coordinates.</text>
+	</string>
+	<string id="fanat_drugs_cancel_1">
+		<text>If they were more accurate, I'd go myself. Okay, sometimes... Not every day is a holiday, right? Go sit by the fire and rest. If I have new coordinates I will inform you.</text>
+	</string>
+	<string id="fanat_drugs_cancel_2">
+		<text>Behave.</text>
+	</string>
+	<string id="fanat_drugs_cancel_3">
+		<text>Damn it... Okay. No problem. I'll let you know the new coordinates, but in the meantime, I need to get in touch with someone.</text>
+	</string>
+	<string id="fanat_drugs_cancel_4">
+		<text>Bad... Bad. Okay, well, things happen. If there are new coordinates, I will beacon you.</text>
+	</string>
+	<string id="fanat_drugs_complete_0">
+		<text>I found it. Here you go.</text>
+	</string>
+	<string id="fanat_drugs_complete_1">
+		<text>Excellent! One less headache. Give me your backpack.</text>
+	</string>
+	<string id="fanat_drugs_complete_10">
+		<text>Hell, what the hell's the gravity, Fanat, what's inside?</text>
+	</string>
+	<string id="fanat_drugs_complete_11">
+		<text> Don't ask. I will not answer... I see you're good, maybe I might even trust you with something important, but not now. Here you have, from me personally. I will write when there is a job. And it's time for me to clean up this shit...</text>
+	</string>
+	<string id="fanat_drugs_complete_12">
+		<text>Okay, Fanat, if you say.</text>
+	</string>
+	<string id="fanat_drugs_complete_2">
+		<text>Fanat, why don't you explain what's inside?</text>
+	</string>
+	<string id="fanat_drugs_complete_3">
+		<text>Not now stalker, not now. Here you have, from me personally. And if there will be more coordinates I will inform you.</text>
+	</string>
+	<string id="fanat_drugs_complete_4">
+		<text>Behave, Fanat.</text>
+	</string>
+	<string id="fanat_drugs_complete_5">
+		<text>Well, at least you make me happy today! Show me what you found.</text>
+	</string>
+	<string id="fanat_drugs_complete_6">
+		<text>You're the one who's doing great. I like it when everything works out properly.</text>
+	</string>
+	<string id="fanat_drugs_complete_7">
+		<text>Don't you want to tell me what's inside?</text>
+	</string>
+	<string id="fanat_drugs_complete_8">
+		<text>Great... Great! Look, you don't need to know this, you'll sleep better. By the way, here's a little present for you from Fanat. Heh-heh. Don't get lost stalker.</text>
+	</string>
+	<string id="fanat_drugs_complete_9">
+		<text>Good luck, Fanat.</text>
+	</string>
+	<string id="fanat_drugs_start_0">
+		<text>Howdy Fanat, do you have the coordinates?</text>
+	</string>
+	<string id="fanat_drugs_start_1">
+		<text>Yes, there is. Will you do it?</text>
+	</string>
+	<string id="fanat_drugs_start_10">
+		<text>From what is known, the Supplies are, here on the Cordon, it's either the vicinity of the Farm, or on the edge on the car park, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_11">
+		<text>From what is known, the Supplies are on the Cordon, it's either on the near of the Farm, or the Elevators on the car park, on the edge, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_12">
+		<text>From what is known, the Supplies are here, on the Cordon, it's either around the car park, or in the railway tunnel, behind the bridge, look around the Farm, maybe somewhere there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_13">
+		<text>This time is more complicated, the Supplies are either on the Cordon or in the Swamps. On Cordon it may be in the vicinity of the car park and the Farm, if not, look in the Swamps near the Lonely Tower or the Church. I know it's not an easy task, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_14">
+		<text>This time is more complicated, the Supplies are either here, on the Cordon or in the Swamps. On Cordon it may be in the vicinity of the Railway Tunnel behind the bridge and the Car Park, if it isn't there, look in the Swamps near the Lonely Tower or the Machine yard. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_15">
+		<text>You haven't found the one I tasked you yet, don't waste your time.</text>
+	</string>
+	<string id="fanat_drugs_start_16">
+		<text>From what is known, the Supplies are in the Swamps, it is either the neighborhood of the Church or the Machine yard, or on the edge in the neighborhood of the Lonely Tower, maybe somewhere out there, but it is unlikely. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_17">
+		<text>From what is known, the Supplies are in the Swamps is either near the Lonely Tower or the Church, on the edge of the Burned Village, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_18">
+		<text>This time is more complicated, the Supplies are either on the Cordon or in the Swamps. On Cordon it may be in the near the Railway Tunnel and the car park, if not there, look in the Swamps near the Lonely Tower or the Church. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_19">
+		<text>This time is more complicated, the Supplies are either here, on the Cordon, or in the Swamps. On the Cordon it may be in the vicinity of the car park and the Farm, if it isn't there, look in the Swamps near the Church or the Machine Yard. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_2">
+		<text>Yes. Where do I look?</text>
+	</string>
+	<string id="fanat_drugs_start_20">
+		<text>This time is more complicated, the Supplies are either here, on the Cordon, or in the Swamps. On the Cordon it may be near the Railway Tunnel and the Farm, if not, look in the Swamps close to the Lone Tower or the Church. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_21">
+		<text>This time is more complicated, the Supplies are either on the Cordon or in the Swamps. On the Cordon it may be close to the Farm and the Car Park, if not, look in the Swamps near the Burned Village or the Lonely Tower. I know it's not an easy task, but I think you can do it. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_22">
+		<text>This time is more complicated, the Supplies are either here on Cordon or in the Swamps. On Cordon it may be in the vicinity of the Railway Tunnel and the ATP, if not there, look in the Swamps near the Lone Tower or the Burnt-out Village. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_23">
+		<text>From what is known, the Supplies are in the Swamps is either near the Church or the Lone Tower, look around the Machine Yard, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_24">
+		<text>From what is known, the Supplies are in the Swamps, it's either close to the Burned Village or the Lonely Tower, on the edge of the look around the Machine Yard, maybe somewhere out there, but it's unlikely. You have 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_25">
+		<text>From what is known, the Supplies are in the Swamps is either near the Church or the Lonely Tower, look around the Burnt Village, maybe somewhere out there, but it is unlikely. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_26">
+		<text>From what is known, the Supplies here on Cordon, it's either near the Car Park, or the farm, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_27">
+		<text>From what is known, the Supplies here on Cordon, it's either around the Car Park, or the Mill, look around the farm, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_28">
+		<text>From what is known, the Supplies here on Cordon, it's either near the Farm or the railway tunnel behind the bridge, look around the Car Park, maybe somewhere there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_29">
+		<text>This time is more complicated, the Supplies are either here on Cordon or in the Swamps. On Cordon it may be around the Farm or the Car Park, if not, look in the Swamps near the Lonely Tower or the Machine Yard. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_3">
+		<text>No, I changed my mind.</text>
+	</string>
+	<string id="fanat_drugs_start_30">
+		<text>This time is more complicated, the Supplies are either here on the Cordon or in the Swamps. On Cordon it may be near the Railway Tunnel and the Farm, if not, look in the Swamps near the Lonely Tower or the Church. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_31">
+		<text>This time is more complicated, the Supplies are either here on the Cordon or in the Swamps. On Cordon it may be around the Mill and the railway tunnel behind the bridge, if not, look in the Swamps in the vicinity of the Church or the Machine Yard. I understand the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_32">
+		<text>This time is more complicated, the Supplies are either here, on the Cordon, or in the Swamps. On Cordon it may be in the vicinity of the Railway Tunnel and the Car Park, if not, look in the Swamps near the Lonely Tower or the Burnt Village. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_33">
+		<text>From what is known, the Supplies are here on Cordon, it's either near the Farm or the railway tunnel behind the bridge, near the Mill, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_34">
+		<text>From what is known, the Supplies are here on Cordon, it's either near the Elevator or the Farm, on the edge of the railway tunnel behind the bridge, maybe somewhere there, but it's unlikely. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_35">
+		<text>From what is known, the Supplies are here on Cordon, it's either around the Railway Tunnel behind the bridge, or the Farm, close to the Car Park, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_36">
+		<text>From what is known, the Supplies are in the Swamps is either around the Church or the Lonely Tower, around the Machine Yard, maybe somewhere out there, but it is unlikely. You have 24 hours, it will no longer make sense to look for further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_37">
+		<text>From what is known, the Supplies are in the Swamps, it's either around the Lonely Tower or the Machine Yard, look around the Burnt Village, maybe somewhere out there, but it's unlikely. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_38">
+		<text>From what is known, the Supplies are in the Swamps, it is either near the Church or the Machine Yard, on the edge of the Lonely Tower, maybe somewhere out there, but it is unlikely. You've got 24 hours, so it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_39">
+		<text>This time is more complicated, the Supplies are either here, on Cordon, or in the Swamps. On Cordon it may be near the Railway Tunnel and the Mill, if not, look in the Swamps near the Lonely Tower or the Machine Yard. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_4">
+		<text>You're drunk! Go to sleep!</text>
+	</string>
+	<string id="fanat_drugs_start_40">
+		<text>This time is more complicated, the Supplies are either here on Cordon or in the Swamps. On Cordon it may be near the Car Park and the Farm, if not, look in the Swamps near the Church or the Lonely Tower. I know it's not an easy task, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_41">
+		<text>This time is more complicated, the Supplies are either here on the Cordon or in the Swamps. On Cordon it may be close to the Mill and the Railway Tunnel, if not, look at the Swamps, near the Machine Yard or the Lonely Tower. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_42">
+		<text>This time is more complicated, the Supplies are either here on the Cordon or the Swamps. On Cordon it may be around the Mill and the Railway Tunnel, if not, look in the Swamps near the Church or the Machine Yard. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_43">
+		<text>From what is known, the Supplies on the Swamps is either near the Church or the Machine Yard, near the Burnt Village, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_44">
+		<text>From what is known, the Supplies are in the Swamps, it's either around the Burned Village or the Lonely Tower, near the Machine Yard, maybe somewhere out there, but it's unlikely. You've got 24 hours, it won't make sense to look any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_45">
+		<text>From what is known, the Supplies in the Swamps, it's either close to the Machine Yard, or the Lonely Tower, look into the Church, maybe somewhere out there, but it's unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_5">
+		<text>From what is known, the Supplies are here on the Cordon, in the Car Park or the Mill, if not, look around the farm, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_6">
+		<text>From what is known, the Supplies are here on the Cordon, close to the Railway Tunnel behind the bridge, or the Farm, or the Mill, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_7">
+		<text>From what is known, the Supplies are here on the Cordon, near the Farm Behind the Bridge, or the Mill, if not, look on the Car Park, maybe somewhere out there, but it is unlikely. You have 24 hours, there will be no point in looking any further. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_8">
+		<text>This time is more complicated, the Supplies are either here on Cordon or in the Swamps. On Cordon it may be around the Mill or the Railway Tunnel, if not, look in the Swamps near the Church or the Machine Yard. I understand that the task is not easy, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_drugs_start_9">
+		<text>This time is more complicated, the Supplies are either here on Cordon or in the Swamps. On Cordon it can be around the Farm or the Mill, if not, look around the Swamps, on the Lonely Tower there are only two of them, you need the one that is on the outskirts of well or the Burnt of the village. I know it's not an easy task, but I think you can do it. You have 24 hours, there will be no point in looking anymore. Good luck with your search.</text>
+	</string>
+	<string id="fanat_pred_start_0">
+		<text>What kind of work do you suggest?</text>
+	</string>
+	<string id="fanat_pred_start_1">
+		<text>Mm-hmm. Mm-hmm. I'll try briefly. I'll give you a place to look for something. Asking no unnecesary questions. If you found it, you are the first guy in the village, praise be to you, honor and half the kingdom in addition! It's ironic, you can take away your grin. I will give you a fee. And further cooperation. I haven't found, well, there are times like this. If I don't worry, I give everyone a second chance. Questions?</text>
+	</string>
+	<string id="fanat_pred_start_10">
+		<text>And if I don't find it?</text>
+	</string>
+	<string id="fanat_pred_start_11">
+		<text>You're not getting anything. But you should try to find it. More questions?</text>
+	</string>
+	<string id="fanat_pred_start_12">
+		<text>No, I'm not interested.</text>
+	</string>
+	<string id="fanat_pred_start_13">
+		<text>Well, as you know, you're not someone else.</text>
+	</string>
+	<string id="fanat_pred_start_14">
+		<text>I can handle it. Let's get started.</text>
+	</string>
+	<string id="fanat_pred_start_2">
+		<text>No, let's get started.</text>
+	</string>
+	<string id="fanat_pred_start_3">
+		<text>What do I get for running?</text>
+	</string>
+	<string id="fanat_pred_start_4">
+		<text>Around 10 thousand hryvnias. And something else, by the circumstances.</text>
+	</string>
+	<string id="fanat_pred_start_5">
+		<text>That's good... But not so fast. I've already sent a good boy to search, I don't have other coordinates yet, two can't look for one thing without getting hurt, and I'm not going to put you two to search it to find out the best one. I will inform you. Be in touch.</text>
+	</string>
+	<string id="fanat_pred_start_6">
+		<text>Okay, come on.</text>
+	</string>
+	<string id="fanat_pred_start_7">
+		<text>What am I gonna look for?</text>
+	</string>
+	<string id="fanat_pred_start_8">
+		<text>Well, it's mostly a backpack. Heavy. Do not look inside. Just bring it to me. I don't know what will happen if you look inside, but it's no good, are you ready to take that risk?</text>
+	</string>
+
+	<!--=====Fanat_start_and_Vodka_1=====-->
+	<string id="Fanat_Start_and_Hi_10">
+		<text>Oppa, hello! Looked at your face tell me you're experienced one. What's the matter, or so, why did you came at my camp?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_11">
+		<text>Snow fell at night ... A torn pillow of the moon ... Stars of discos ... Boulders on the city.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_12">
+		<text>Wow... Okay, go for it, you bastard...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_13">
+		<text>Where's the fool in there? It's a foolish thing to do.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_14">
+		<text>Eh... Well, who if not me? Huh?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_15">
+		<text>Yeah, you bitches aren't enough... Ah? Hello! What did you come with?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_16">
+		<text>So they could be here, here, here, and perhaps here... Ah, not here anymore. It's like drinking...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_17">
+		<text>Eh... Now to the city. The ass in the car, and at night... Eh...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_18">
+		<text>How did you...? Is everything okay... Who knows?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_2">
+		<text>Oppa! New faces! Hello! What, you just got to the Cordon, huh? Well, settle in! We're glad to see everyone here! But just remember who's come to us with the sword... From sword will die! Oh, relax! I was just warning you.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_20">
+		<text>Heh... Hello. Yes, I'm new here.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_21">
+		<text>Ah, so if you want to take a little tour, young fighter courses, so to speak. I'm Fanatic, I'm here to look after the rookies. I help with advice, I plant my work, it's not my first year here. Do you have vodka? Maybe we can tip over a couple of glasses so?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_22">
+		<text>Thanks for the warm welcome, but another time.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_23">
+		<text>Well, another time it's like that, but you take a vodka with you, okay?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_24">
+		<text>Full of light. Who are you?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_25">
+		<text>I am? I'm Fanat and I keep an eye on the youngsters. I throw them jobs, but I have jobs for the experienced ones as well.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_26">
+		<text> Okay, I'll take it into account. Be my guest.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_27">
+		<text>Wait, why don't we slam a drink for dating?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_28">
+		<text>Not until now.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_29">
+		<text>Well, no problem. Well, you're the one who shouldn't neglect it in the zone.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_30">
+		<text>Okay, come on.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_31">
+		<text>I will.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_32">
+		<text>Clap!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_33">
+		<text>Wow, good. Well, come and see if you're a good guy, as I see it.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_34">
+		<text>Obligatory, you're good too!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_35">
+		<text>Hmm, why not? Come on! I have just that!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_36">
+		<text>Excellent! I see you know a lot about good acquaintances!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_37">
+		<text>Clap!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_38">
+		<text>Eh... The bastard, it got really hot. What are you holding it for? Drink up, or it will cool down!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_39">
+		<text>For luck!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_40">
+		<text>For health!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_41">
+		<text>For peace in the world!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_42">
+		<text>For Sidorovich!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_43">
+		<text>For yourself and for Sashka!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_5">
+		<text>Oh, I see you're still alive?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_6">
+		<text>Yeah, let's slam it.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_7">
+		<text>What do you smell there? I have nothing.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_8">
+		<text>Where's it goin'on, here, one at a time?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_9">
+		<text>Yes, I don't have anything.</text>
+	</string>
+
+	<!--=====Klin_Hi_1=====-->
+	<string id="Klin_Hi_1_10">
+		<text>What the fuck... Where are they digging this shit from?</text>
+	</string>
+	<string id="Klin_Hi_1_11">
+		<text>Me, how did you managed to kill all the servos?</text>
+	</string>
+	<string id="Klin_Hi_1_12">
+		<text>Where are my files? Tools? What kind of shithole is this? How the fuck I'm gonna find shit!</text>
+	</string>
+	<string id="Klin_Hi_1_13">
+		<text>What kind of asshole gives a rusty gun.</text>
+	</string>
+	<string id="Klin_Hi_1_14">
+		<text> Ah, I'd have a normal key... Okay, I can do it anyway.</text>
+	</string>
+	<string id="Klin_Hi_1_15">
+		<text>Ah... It's you.</text>
+	</string>
+	<string id="Klin_Hi_1_16">
+		<text>Wow! Fuck... So without fingers can be left.</text>
+	</string>
+	<string id="Klin_Hi_1_2">
+		<text>Who the hell are you?</text>
+	</string>
+	<string id="Klin_Hi_1_3">
+		<text>I'm a Stalker, and you're a local Technician here, right?</text>
+	</string>
+	<string id="Klin_Hi_1_4">
+		<text>One more... Yeah, you want me to fix you up or something?</text>
+	</string>
+	<string id="Klin_Hi_1_9">
+		<text>There you go again... Well? What do you want?</text>
+	</string>
+
+	<!--=====Grisha_start=====-->
+	<string id="Grisha_start_and_Hi_10">
+		<text>Hmm, it's weird... </text>
+	</string>
+	<string id="Grisha_start_and_Hi_11">
+		<text>Ah, someday I'll get to Pripyat...</text>
+	</string>
+	<string id="Grisha_start_and_Hi_12">
+		<text>Uh, how's Mom? Sis?</text>
+	</string>
+	<string id="Grisha_start_and_Hi_13">
+		<text>I wish I had a dog, too. Doc tamed a pseudo dog once,I wish I had a little one.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_14">
+		<text>Soldiers are shooting again, just so they don't come to us.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_15">
+		<text>I wish Klin could teach me how to assemble guns, because we'd be faster together.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_16">
+		<text>I'm tired... And where to go? There's death everywhere.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_17">
+		<text>Man, my jacket's torn... Well, at least it's still in one piece.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_18">
+		<text>...bitch, you'll remember me. You'll remember me again.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_19">
+		<text>Eh, Psycho. Sorry you left us.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_2">
+		<text>Ah? What?</text>
+	</string>
+    <string id="Grisha_start_and_Hi_20">
+        <text>Wasn't that enough?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_21">
+        <text>Nothing...</text>
+    </string>
+    <string id="Grisha_start_and_Hi_3">
+        <text>Hey, what are you doing here?</text>
+    </string>
+	<string id="Grisha_start_and_Hi_4">
+		<text>Yeah, I... Business. I... Anyway, it's not about you, man. You go... Your darling, while you're still in one piece.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_5">
+		<text>Okay, what's your name?</text>
+	</string>
+	<string id="Grisha_start_and_Hi_6">
+		<text>Grisha.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_7">
+		<text>Okay, come on.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_8">
+		<text>Well, nice to meet you, Grisha.</text>
+	</string>
+	<string id="Grisha_start_and_Hi_9">
+		<text>Yeah, well... You'd better turn to the Fanat, wouldn't you...</text>
+	</string>
+	
+	<!--=====Georg_start=====-->
+	<string id="Georg_start_and_Hi_15">
+		<text>We're out of meds...</text>
+	</string>
+	<string id="Georg_start_and_Hi_16">
+		<text>We have to find more, how can you get short on drugs?</text>
+	</string>
+	<string id="Georg_start_and_Hi_17">
+		<text>Again, all hands are covered in blood ...</text>
+	</string>
+	<string id="Georg_start_and_Hi_18">
+		<text>It's so quiet, my heart is so slow, I... Ahem... Looks like the dose... Exceeded.</text>
+	</string>
+	<string id="Georg_start_and_Hi_2">
+		<text>Hello, Stalker. Do you need help?</text>
+	</string>
+	<string id="Georg_start_and_Hi_21">
+		<text>What the... Can't I just pray in peace now?</text>
+	</string>
+	<string id="Georg_start_and_Hi_22">
+		<text>I'm sorry. The body is weak. Forgive me.</text>
+	</string>
+	<string id="Georg_start_and_Hi_23">
+		<text>What do you want? I just washed my hands...</text>
+	</string>
+	<string id="Georg_start_and_Hi_27">
+		<text>Why "Father George"?</text>
+	</string>
+	<string id="Georg_start_and_Hi_28">
+		<text>I used to serve the church.</text>
+	</string>
+	<string id="Georg_start_and_Hi_29">
+		<text>Okay... I will take that into account.</text>
+	</string>
+	<string id="Georg_start_and_Hi_3">
+		<text>How can you help?</text>
+	</string>
+	<string id="Georg_start_and_Hi_4">
+		<text>I can give you medical help.</text>
+	</string>
+	<string id="Georg_start_and_Hi_5">
+		<text>Are you a medic?</text>
+	</string>
+	<string id="Georg_start_and_Hi_6">
+		<text>I have some medical knowledge.</text>
+	</string>
+	
+	<!--=====Georg_heal=====-->
+	<string id="georgii_heal_0">
+		<text>I need help.</text>
+	</string>
+	<string id="georgii_heal_1">
+		<text> I know.</text>
+	</string>
+	<string id="georgii_heal_10">
+		<text>Your body doesn't need treatment. But your soul...</text>
+	</string>
+	<string id="georgii_heal_11">
+		<text>I can't afford it.</text>
+	</string>
+	<string id="georgii_heal_12">
+		<text>Close your eyes... Believe me.</text>
+	</string>
+	<string id="georgii_heal_13">
+		<text>Relax, you'll get better soon... Believe me.</text>
+	</string>
+	<string id="georgii_heal_14">
+		<text>Sorry. Come to God.</text>
+	</string>
+	<string id="georgii_heal_3">
+		<text>Well, you know what you're waiting for?</text>
+	</string>
+	<string id="georgii_heal_7">
+		<text>You have a choice, son. I can heal your wounds, and I can save you the radiation. But I will not do it for free. Treatment of wounds will cost you 1400 hryvnia. And the radiation treatment is 1100. What do you choose?</text>
+	</string>
+	<string id="georgii_heal_8">
+		<text>Heal me.</text>
+	</string>
+	<string id="georgii_heal_9">
+		<text>Spare me the radiation.</text>
+	</string>
+</string_table>

@@ -1,0 +1,450 @@
+;-------------------------------------------------------------------------
+; F1
+;-------------------------------------------------------------------------
+[grenade_f1]:default_weapon_params
+$prefetch						= 128
+$spawn							= "weapons\grenades\f1"
+visual							= dynamics\weapons\wpn_grenades\wpn_f1.ogf
+class							= G_F1
+control_inertion_factor			= 1
+inv_name						= st_grenade_f1
+inv_name_short					= st_grenade_f1
+description						= st_grenade_f1_descr
+inv_weight						= 0.6
+inv_volume						= 0.6
+single_handed					= 1
+slot							= 3
+cost							= 2400
+default_to_ruck					= false
+highlight_equipped				= true
+sprint_allowed					= true
+detonation_on_hit				= false
+animation_slot					= 7
+hit_type_blast					= explosion
+hit_type_frag					= fire_wound
+hud								= grenade_f1_hud
+blast							= 3
+blast_impulse					= 180
+blast_impulse_factor			= 1
+blast_r							= 15
+destroy_time					= 2500
+detonation_threshold_hit		= 200
+pickup_color					= 255, 100, 50, 255	; Orange
+;-------------------------------------------------------------------------
+ef_weapon_type					= 4
+explode_duration				= 3
+explode_particles				= explosions_new\ecp_explosion_grey
+force_const						= 25
+force_grow_speed				= 20
+force_max						= 30
+force_min						= 10
+frag_hit						= 0.14
+frag_hit_impulse				= 160
+fragment_speed					= 55
+frags							= 380
+frags_r							= 45
+grenade_remove_time				= 60000
+
+inv_grid_height					= 1
+inv_grid_width					= 1
+inv_grid_x						= 6
+inv_grid_y						= 5
+
+upgr_icon_height				= 132
+upgr_icon_width					= 60
+upgr_icon_x						= 924
+upgr_icon_y						= 384
+
+kill_msg_height					= 23
+kill_msg_width					= 13
+kill_msg_x						= 1
+kill_msg_y						= 232
+
+light_color						= 1.9,1.4,0.5
+light_range						= 25.0
+light_time						= 0.85
+
+attach_angle_offset				= 0,0,0
+attach_bone_name				= 
+attach_position_offset			= -0.053,-0.089,0.0
+third_person_throw_point_offset	= -0.198,1.8,-0.833
+throw_dir						= 0,0,1
+throw_point						= 0.4, 0.3, 0.1
+up_throw_factor					= 1.2
+
+wallmark_section				= explosion_marks
+wm_size							= 0.2
+;-------------------------------------------------------------------------
+;A.R.E.A. Sounds Remake
+snd_draw						= weapons\gren_draw 
+snd_holster						= weapons\gren_holster
+snd_explode						= weapons\explo\f1_explosion  
+snd_checkout					= weapons\generic_checkout, 1.0, 0.4
+;-------------------------------------------------------------------------
+[grenade_f1_hud]:hud_base
+fire_point						= 0,0,0
+fire_bone						= wpn_body
+attach_place_idx				= 0
+item_visual						= dynamics\weapons\wpn_grenades\wpn_f1_hud.ogf
+throw_point						= 0,0.4,0.3
+throw_dir						= 0,0,1
+third_person_throw_point_offset = -0.05,0.848,0.706
+
+hands_position					= -0.061,-0.16,0.1
+hands_orientation				= -0.5,1.0,-2.0
+hands_position_16x9				= -0.061,-0.16,0.1
+hands_orientation_16x9			= -0.5,1.0,-2.0
+
+item_position 					= -0.001,0.004,0
+item_orientation 				= 18.5,1.5,0
+
+anm_show						= lancew_f1_draw
+anm_hide						= lancew_f1_holster
+anm_idle						= lancew_f1_idle, idle
+anm_bore						= lancew_f1_no_reload
+anm_idle_moving					= lancew_f1_moving, moving
+anm_idle_moving_crouch			= lancew_f1_moving, moving, 0.5
+anm_idle_sprint					= lancew_f1_sprint, sprint
+anm_throw_begin					= lancew_f1_throw_begin, throw_begin
+anm_throw_idle					= lancew_f1_throw_idle, throw_idle
+anm_throw						= lancew_f1_throw, throw
+;-------------------------------------------------------------------------
+; RGD5
+;-------------------------------------------------------------------------
+[grenade_rgd5]:default_weapon_params
+grenade_remove_time				= 60000
+detonation_threshold_hit		= 200
+$spawn 							= "weapons\grenades\rgd5"
+$prefetch						= 128
+class							= G_RGD5_S
+visual							= dynamics\weapons\wpn_grenades\wpn_rgd5.ogf
+inv_name						= st_grenade_rgd5
+inv_name_short					= st_grenade_rgd5
+description						= st_grenade_rgd5_descr
+inv_weight						= 0.31
+inv_volume						= 0.5
+ef_weapon_type					= 4
+default_to_ruck					= false
+sprint_allowed					= true
+control_inertion_factor			= 1
+pickup_color					= 255, 100, 50, 255	; Orange
+highlight_equipped				= true
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 8
+inv_grid_y						= 5
+
+upgr_icon_x						= 1724
+upgr_icon_y						= 802
+upgr_icon_width					= 167
+upgr_icon_height				= 159
+
+kill_msg_x						= 240
+kill_msg_y						= 123
+kill_msg_width					= 14
+kill_msg_height					= 23
+
+animation_slot					= 7
+single_handed					= 1
+slot							= 3
+hud								= grenade_rgd5_hud
+force_min						= 15 ;~30%
+force_const						= 25
+force_max						= 35
+force_grow_speed				= 20
+
+destroy_time					= 2500
+cost							= 1550
+
+blast							= 3
+blast_r							= 7
+blast_impulse					= 120
+blast_impulse_factor			= 1
+
+frags							= 240
+frags_r							= 30
+frag_hit						= 0.16
+frag_hit_impulse				= 55
+
+hit_type_blast					= explosion
+hit_type_frag					= fire_wound
+
+up_throw_factor					= 1.2
+explode_particles				= explosions_new\explosion_ground_1
+
+light_color						= 1.9,1.4,0.5
+light_range						= 14.0
+light_time						= 0.85
+
+;трассы от осколков
+fragment_speed					= 200
+explode_duration				= 3
+
+attach_position_offset			= -0.053,-0.089,0.0
+attach_angle_offset				= 0,0,0
+attach_bone_name				=
+bone_name						= bip01_r_hand
+position_offset					= 0.0,0.0,0.0
+angle_offset					= 1.570790,1.570790,3.92699
+
+throw_point						= 0.2, 0.3, 0.1
+throw_dir						= 0,0,0
+third_person_throw_point_offset	= -0.198,1.8,-0.833 ;-0.05,0.848,0.706
+
+wallmark_section				= explosion_marks
+wm_size							= 0.2
+;--------------------------------------------------------------------------
+;A.R.E.A. Sounds Remake
+snd_draw						= weapons\gren_draw 
+snd_holster						= weapons\gren_holster
+snd_explode						= weapons\explo\explosion1  
+snd_checkout					= weapons\generic_checkout
+;--------------------------------------------------------------------------
+[grenade_rgd5_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_grenades\wpn_rgd5_hud.ogf
+fire_point						= 0,0,0
+fire_bone						= wpn_body
+attach_place_idx				= 0
+
+hands_position					= -0.061,-0.16,0.1
+hands_orientation				= -0.5,1.0,-2.0
+hands_position_16x9				= -0.061,-0.16,0.1
+hands_orientation_16x9			= -0.5,1.0,-2.0
+
+item_position 					= -0.001,0.004,0
+item_orientation 				= 18.5,1.5,0
+
+anm_show						= lancew_rgd5_draw
+anm_hide						= lancew_rgd5_holster
+anm_idle						= lancew_rgd5_idle
+anm_bore						= lancew_rgd5_no_reload
+anm_idle_moving					= lancew_rgd5_moving, moving
+anm_idle_moving_crouch			= lancew_rgd5_moving, moving, 0.5
+anm_idle_sprint					= lancew_rgd5_sprint, sprint
+anm_throw_begin					= lancew_rgd5_throw_begin, begin
+anm_throw_idle					= lancew_rgd5_throw_idle, throw_idle
+anm_throw						= lancew_f1_throw
+
+;-------------------------------------------------------------------------
+; RGN added by Surs from SWM
+;-------------------------------------------------------------------------
+[grenade_rgn]:grenade_rgd5
+visual							= dynamics\weapons\wpn_grenades\wpn_rgn.ogf
+inv_name						= st_grenade_rgn
+inv_name_short					= st_grenade_rgn
+description						= st_grenade_rgn_descr
+inv_volume						= 0.45
+inv_volume						= 0.5
+cost							= 1200
+detonation_threshold_hit		= 2
+inv_grid_x						= 4
+inv_grid_y						= 44
+blast							= 3
+blast_r							= 2
+blast_impulse					= 240
+frags							= 200
+frags_r							= 15
+frag_hit						= 9.50
+frag_hit_impulse				= 100
+frag_ap							= 9.50
+hud								= grenade_rgn_hud
+detonation_on_hit				= false
+contact_trigger_time			= 1000 ;Time after throw grenade arms default
+
+[grenade_rgn_hud]:grenade_rgd5_hud
+item_visual						= dynamics\weapons\wpn_grenades\wpn_rgn_hud.ogf
+anm_show						= lancew_rgn_draw
+anm_hide						= lancew_rgn_holster
+anm_idle						= lancew_rgn_idle
+anm_bore						= lancew_rgn_no_reload
+anm_idle_moving					= lancew_rgn_moving, moving
+anm_idle_moving_crouch			= lancew_rgn_moving, moving, 0.5
+anm_idle_sprint					= lancew_rgn_sprint, sprint
+anm_throw_begin					= lancew_rgn_throw_begin, throw_idle
+anm_throw_idle					= lancew_rgn_throw_idle, throw_idle
+;-------------------------------------------------------------------------
+; GD-05 Thermite grenade
+;-------------------------------------------------------------------------
+[grenade_gd-05]:grenade_f1
+visual							= dynamics\weapons\wpn_grenades\wpn_gd5.ogf
+$spawn 							= "weapons\grenades\gd-05"
+class							= G_F1_S
+inv_name						= st_grenade_thermite
+inv_name_short					= st_grenade_thermite
+description						= st_grenade_thermite_descr
+cost							= 1789
+inv_weight						= 0.198
+inv_volume						= 0.4
+hud								= grenade_gd-05_hud
+
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 7
+inv_grid_y						= 5
+
+hit_type_blast					= explosion
+hit_type_frag					= fire_wound
+blast							= 4
+blast_r							= 7
+blast_impulse					= 90
+blast_impulse_factor 			= 0.85
+force_min						= 15 ;~30%
+force_const						= 25
+force_max						= 35
+force_grow_speed				= 20
+destroy_time					= 2500
+detonation_threshold_hit		= 200
+fragment_speed					= 150
+explode_duration				= 4.0
+frags							= 284
+frags_r							= 36.0
+frag_hit						= 0.04
+frag_hit_impulse				= 32
+up_throw_factor					= 0
+wm_size							= 0.1
+
+explode_particles				= explosions_new\explosion_01b
+light_color						= 1.9,1.4,0.5
+light_range						= 14.0
+light_time						= 0.85
+
+attach_position_offset			= -0.053,-0.089,0.0
+position_offset					= 0.0,0.0,0.0
+angle_offset					= 1.570790,1.570790,3.92699
+throw_point						= 0.2, 0.3, 0.1
+third_person_throw_point_offset = -0.198,1.8,-0.833
+
+;A.R.E.A. Sounds Remake
+snd_explode						= weapons\explo\grenade_gd05_explosion
+
+[grenade_gd-05_hud]:grenade_f1_hud
+item_visual						= dynamics\weapons\wpn_grenades\wpn_gd5_hud.ogf
+;-------------------------------------------------------------------------
+; Light Grenade
+;-------------------------------------------------------------------------
+[grenade_light]:grenade_f1
+$spawn							= "weapons\grenades\grenade_light"
+visual							= dynamics\weapons\wpn_grenades\wpn_grenade_light.ogf
+inv_name						= st_grenade_light
+inv_name_short					= st_grenade_light
+description						= st_grenade_light_descr
+cost							= 1500
+inv_weight						= 0.4
+inv_volume						= 0.4
+hud								= grenade_gd-05_hud
+
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 17
+inv_grid_y						= 5
+
+force_min						= 10 ; ~30% от максимума
+force_const						= 25
+force_max						= 30
+force_grow_speed				= 20
+destroy_time					= 2500
+
+blast							= 0
+blast_r							= 0
+blast_impulse					= 0
+blast_impulse_factor			= 0
+frags							= 0
+frags_r							= 0
+frag_hit						= 0.004
+frag_hit_impulse				= 10
+hit_type_blast					= strike
+hit_type_frag					= fire_wound
+up_throw_factor					= 0
+detonation_threshold_hit		= 2
+
+explode_particles				= weapons\wg-hit-ground ;  explosions\explosion_01
+light_color						= 1.4,1.6,1.5
+light_range						= 50
+light_time						= 30
+light_trace_bone				= lights_bone
+range							= 90
+range_r2						= 90
+color							= 1.0,1.0,1.0,0.2
+color_r2						= 0.6,0.55,0.55,0.8
+omni_range						= 50.6
+omni_range_r2					= 20.5
+omni_color						= 1.0,1.0,1.0,0.1
+omni_color_r2					= 1.0,1.0,1.0,0.1
+color_animator					= galogen_br
+spot_texture					= internal\internal_light_torch_r2
+spot_angle						= 360
+glow_texture					= glow\glow_torch_r2
+glow_radius						= 0.5
+guide_bone						= lights_bone
+
+fragment_speed					= 50
+explode_duration				= 25
+hide_in_explosion				= false
+explode_hide_duration			= 0
+dynamic_explosion_particles		= true
+
+attach_position_offset			= -0.053,-0.089,0.0
+position_offset					= 0.0, 0.0, 0.0
+angle_offset					= 1.570790,1.570790,3.92699
+throw_point						= 0.0,0.4,0.3
+throw_dir						= 0,0,1
+third_person_throw_point_offset	= -0.198,1.8,-0.833
+wm_size							= 0.1
+wallmark_section				= explosion_marks
+
+;A.R.E.A. Sounds Remake
+snd_draw						= weapons\gren_draw 
+snd_holster						= weapons\gren_holster
+snd_explode						= weapons\explo\explosion1
+
+[grenade_light_hud]:grenade_f1_hud
+item_visual						= dynamics\weapons\wpn_grenades\wpn_grenade_light_hud.ogf
+;-------------------------------------------------------------------------
+; Smoke Grenade РДГ-М
+;-------------------------------------------------------------------------
+[grenade_rgdm]:grenade_f1
+visual							= dynamics\weapons\wpn_grenades\wpn_gsmoke.ogf
+$spawn							= "weapons\grenades\gd-05"
+inv_name						= st_grenade_rgdm
+inv_name_short					= st_grenade_rgdm
+description						= st_grenade_rgdm_descr
+inv_weight						= 0.15
+inv_volume						= 0.5
+cost							= 590
+hud								= grenade_smoke_hud
+
+inv_grid_height					= 1
+inv_grid_width					= 1
+inv_grid_x						= 18
+inv_grid_y						= 5
+
+blast							= 0
+blast_impulse					= 0
+blast_impulse_factor			= 0
+blast_r							= 0
+frag_hit						= 0
+frag_hit_impulse				= 0
+fragment_speed					= 50
+frags							= 0
+frags_r							= 0
+
+explode_duration				= 12
+explode_particles				= explosions\explosion_dym
+force_const						= 25
+force_grow_speed				= 15
+force_max						= 30
+force_min						= 10
+wm_size							= 0.112
+
+light_color						= 0.9,0.6,0.5
+light_range						= 2.0
+light_time						= 2.85
+position_offset					= 0.0,0.0,0.0
+reload_dof						= 0.0, 0.5, 5, 1.7
+third_person_throw_point_offset = -0.05,0.848,0.706
+up_throw_factor					= 0
+dynamic_explosion_particles		= true
+snd_explode						= weapons\explo\grenade_rgdm_explosion
+
+[grenade_smoke_hud]:grenade_f1_hud
+item_visual						= dynamics\weapons\wpn_grenades\wpn_gsmoke_hud.ogf

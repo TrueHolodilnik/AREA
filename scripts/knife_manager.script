@@ -1,0 +1,71 @@
+--1: Простой
+--2: Советский
+--3: Охотничий
+--4: Спецназовский
+--5: Охотничий продвинутый
+--6: Топор
+--5: Пожарный топор
+--6: Охотничий топор
+
+function on_game_start()
+	is_equipped()
+	get_condition()
+	can_loot("boar_weak")
+end
+
+function is_equipped()
+	if (db.actor) then
+		local obj = db.actor:active_item()
+		if (obj) then
+			return(string.match(tostring(obj:section()),"knife")) or (string.match(tostring(obj:section()),"axe"))
+		end
+	end
+return false
+end
+
+function get_condition()
+local cond = 1
+	if (is_equipped()) then
+		local obj = db.actor:active_item()
+		cond = obj:condition()
+	end
+return cond
+end
+
+function can_loot(monster)
+	if (db.actor) then
+		local obj = db.actor:active_item()
+		local name = obj:section()
+		local is_chimera = string.match(tostring(monster),"chimera")
+		local is_gigant = string.match(tostring(monster),"gigant")
+
+		if (is_gigant or is_chimera) and (string.match(tostring(obj:section()),"knife")) then
+			return false
+		end
+	end
+	return true
+end
+
+function degradate()
+	local num = 0
+	if (is_equipped()) then
+		local obj = db.actor:active_item()
+		local cond = obj:condition()
+		local name = obj:section()
+		if (name == "wpn_knife_swiss") then num = 0.08 end
+		if (name == "wpn_knife") then num = 0.06 end
+		if (name == "wpn_knife2") then num = 0.05 end
+		if (name == "wpn_knife3") then num = 0.04 end
+		if (name == "wpn_knife4") then num = 0.03 end
+		if (name == "wpn_knife5") then num = 0.02 end
+		if (name == "wpn_axe") then num = 0.04 end
+		if (name == "wpn_axe2") then num = 0.03 end
+		if (name == "wpn_axe3") then num = 0.03 end
+		
+		if (cond > num) then 
+			obj:set_condition(cond-num/4) 
+		else
+			obj:set_condition(0.01)
+		end
+	end
+end

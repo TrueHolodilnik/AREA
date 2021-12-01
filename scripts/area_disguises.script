@@ -1,0 +1,223 @@
+--[[
+	A.R.E.A. Disguises - developed by Nuor, last modified by Surs (21.04.2019)
+    Add the following lines to helm, outfit and patch sections:
+    community = "community name" (stalker, csky, army, dolg, freedom, killer, bandit, ecolog, monolith)
+    disguise_time = "value in game seconds"
+--]]
+
+local actor_in_mem
+local LT = {}
+local update_interval, forget_cycles, unmasked = 60, 1, 50
+local comm,disguise_time
+loaded = nil
+function on_game_start()
+	RegisterScriptCallback("actor_item_to_slot", patch_comm)
+	RegisterScriptCallback("actor_item_to_ruck", patch_comm)
+	RegisterScriptCallback("npc_on_see_actor_callback",npc_on_see_actor)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+	loaded = true
+end
+
+function load_state(m_data)
+	actor_in_mem = m_data.disguise or {}
+	m_data.disguise = nil
+end
+
+function save_state(m_data)
+	m_data.disguise = actor_in_mem
+end
+
+function actor_is_disguised(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	local id = npc:id()
+	local squad = id and alife_object(id)
+	if actor_in_mem[squad.id] and (actor_in_mem[squad.id].community ~= alife():actor():community()) and (actor_in_mem[squad.id].mem_time > 0) then
+		return true
+	end
+	return false
+end
+
+function disguise_password(a,b)
+	if db.actor:object("disguise_password") then
+		return true
+	end
+	return false
+end
+
+function set_squad_goodwill_to_actor(squad, squad_comm, actor_comm)
+	local a_comm = actor_comm or db.actor:character_community()
+	local new_goodwill = relation_registry.community_relation(squad_comm, a_comm)
+	local goodwill = tonumber(new_goodwill) or new_goodwill == "enemy" and -1000 or new_goodwill == "friend" and 1000 or 0
+	--printf("disguises squad goodwill = %s", goodwill)
+	if squad then
+		local sim = alife()
+		if squad:clsid()==clsid.online_offline_group_s then
+			for k in squad:squad_members() do
+				local se_obj = k.object or k.id and sim:object(k.id)
+				if (se_obj) then
+					se_obj:force_set_goodwill(goodwill, db.actor)
+				end
+			end
+		else
+			--printf("set_goodwill %s = %s", squad:character_name(),goodwill)
+			--news_manager.send_tip(db.actor,"Community changed in for Individual:"..squad:character_name(), nil, nil, nil, 20000)
+			alife_object(squad.id):force_set_goodwill(goodwill, db.actor)
+		end
+	end
+	return goodwill
+end
+
+function patch_comm(item)
+	if item and not(IsOutfit(item) or IsHeadgear(item) or item:section():find("_patch")) then return end
+	local ini = system_ini()
+	disguise_time = 0
+	comm = nil
+	local patch = db.actor:item_in_slot(14)
+	patch = patch and patch:section()
+	if patch then
+		patch = (patch == "merc_patch" and "killer_patch") or (patch == "duty_patch" and "dolg_patch") or patch
+		comm = "actor_" .. patch:gsub("_patch","")
+		disguise_time = ini:r_float_ex(patch,"disguise_time",0)
+	end
+	local suit = db.actor:item_in_slot(7)
+	local outfit_sect = suit and suit:section()
+	local s_comm = outfit_sect and ini:r_string_ex(outfit_sect,"community")				-- set community to suit value
+	s_comm = s_comm and "actor_" .. s_comm
+	if s_comm then
+		if (comm == nil) or (s_comm == comm) then
+			disguise_time = disguise_time + ini:r_float_ex(outfit_sect,"disguise_time",0) -- set disguise time to suit value or default
+		else
+			disguise_time = 0
+		end
+	end
+	--printf("outfit_sect comm %s",comm)
+	local helm = db.actor:item_in_slot(12) or outfit_sect and ini:r_bool_ex(outfit_sect,"helmet_allowed",true) == false and suit
+	local h_sect = helm and helm:section()
+	local h_comm = h_sect and ini:r_string_ex(h_sect,"community",nil)		-- set community to helm value or default
+	h_comm = h_comm and "actor_" .. h_comm
+	--printf("2 helm %s Comm %s", h_comm, comm)
+	if disguise_time > 0 then
+		if h_comm then
+			if h_comm == comm or h_comm == s_comm then
+				local temp = ini:r_float_ex(h_sect,"disguise_time",0) * helm:condition()
+				disguise_time = disguise_time + temp	-- set disguise time to helm value or default
+				if h_comm == s_comm then
+					comm = h_comm
+				end
+			else
+				disguise_time = 0
+			end
+		elseif (s_comm ~= comm) or (s_comm == nil and comm == nil) then	-- if no helm community patch must match suit community
+			disguise_time = 0
+		end
+	end
+	comm = disguise_time > 0 and comm or db.actor:character_community()
+	--printf("disguises::patch_comm: comm:%s disguise_time:%s",comm,disguise_time)
+	--local msg = "comm:"..tostring(comm).." disguise time "..tostring(disguise_time)
+	--news_manager.send_tip(db.actor, msg, nil, nil, nil, 10000)
+	return comm
+end
+
+function outfit_disguise(npc, dis, vel, def_comm)
+	--printf("outfit_disguise")
+	comm = comm or patch_comm()
+	--printf("outfit_disguise:comm: %s", comm)
+	local squad, squad_comm, id
+	if def_comm then
+		id = npc:id()
+		squad_comm = def_comm
+	else
+		squad = get_object_squad(npc)
+		if squad then
+			id = squad.id
+			squad_comm = squad:get_squad_community()
+		else
+			 id = npc:id()
+			 squad_comm = npc:character_community()
+			 squad = alife():object(id)
+		end
+	end
+	--printf("squad_comm:%s, patch comm:%s", squad_comm, comm)
+	if (squad_comm == nil) then return end
+	if not (actor_in_mem[id]) and comm == db.actor:character_community() then return end
+	--printf("squad_comm:%s, patch comm:%s", squad_comm, comm)
+	if actor_in_mem[id] then
+		--printf("ID:%s, mem time:%s goodwill:%s", id, actor_in_mem[id].mem_time, actor_in_mem[id].goodwill)
+		local gt = game.get_game_time()
+		local DT = LT[id] and gt:diffSec(LT[id]) or update_interval
+		if (DT < update_interval) then
+			return actor_in_mem[id].goodwill
+		end
+		LT[id] = gt
+
+		if (actor_in_mem[id].mem_time <= 0) then
+			actor_in_mem[id].mem_time = actor_in_mem[id].mem_time + DT
+			if (actor_in_mem[id].mem_time > 0) then
+				actor_in_mem[id] = nil
+				return
+			end
+		end
+		--if def_comm then news_manager.send_tip(db.actor, "2def_comm = "..def_comm , nil, nil, nil, 10000) end
+		--printf("disguises:: comm:%s memory_time:%s",comm,actor_in_mem[id].mem_time)
+		--local msg = "comm:"..tostring(comm).." memory time "..tostring(actor_in_mem[id].mem_time).. " distance "..tostring(dis)
+		--news_manager.send_tip(db.actor, msg, nil, nil, nil, 10000)
+		
+		if actor_in_mem[id].mem_time > 0 then 													-- disguised actor is seen again
+			if actor_in_mem[id].community ~= comm then											-- changed faction since last seen
+				
+				--printf("disguises:: old comm:%s  new_comm:%s",actor_in_mem[id].community,comm)
+				--local msg = "old comm:"..tostring(actor_in_mem[id].community).." new_comm:"..tostring(comm)
+				--news_manager.send_tip(db.actor, msg, nil, nil, nil, 10000)
+		
+				actor_in_mem[id].mem_time = -forget_cycles * update_interval
+				actor_in_mem[id].community = db.actor:character_community()
+				actor_in_mem[id].goodwill = set_squad_goodwill_to_actor(squad, squad_comm) - 50	--reset with penalty
+				if (actor_in_mem[id].goodwill > -1000) then
+					db.actor:change_character_reputation(-10)									-- lower reputation if non-hostiles
+				end
+			else
+				dis = dis or npc:position():distance_to(db.actor:position())
+				actor_in_mem[id].mem_time = actor_in_mem[id].mem_time - utils.clamp(math.ceil((10-vel)/math.sqrt(dis)), 1, 10)
+				if (actor_in_mem[id].mem_time < 0) then
+					if math.random(1,20) < 2 then
+						actor_in_mem[id].mem_time = -unmasked * update_interval
+						--printf("disguises:: squad:%s recognized actor  memory_time:%s",id,actor_in_mem[id].mem_time)
+						--msg = tostring(id).." recognized actor memory time "..tostring(actor_in_mem[id].mem_time)
+						--news_manager.send_tip(db.actor, msg, nil, nil, nil, 10000)
+						
+						actor_in_mem[id].goodwill = set_squad_goodwill_to_actor(squad, squad_comm)
+					else
+						actor_in_mem[id].mem_time = 1
+					end
+				end
+			end
+		end
+	else
+		actor_in_mem[id] = {}
+		actor_in_mem[id].mem_time = disguise_time											-- set disguise time-out length
+		actor_in_mem[id].community = comm													-- set community for id
+		actor_in_mem[id].goodwill = set_squad_goodwill_to_actor(squad, squad_comm, comm)	-- set goodwill to match current disguise
+		--printf("set squad %s community recognition = %s for time = %s", id, actor_in_mem[id].community, actor_in_mem[id].mem_time)
+	end
+
+	for sqid,val in pairs(actor_in_mem) do													-- offline cleanup
+		if sqid ~= id then
+			local sqd = alife_object(sqid)
+			if not(sqd and sqd.online) then
+				actor_in_mem[sqid] = nil
+			end
+		end
+	end
+	
+	--printf("disguises:: npc:%s  dis_to_actor:%s actor_speed:%s memory_time:%s current goodwill:%s",npc:name(),dis,vel,actor_in_mem[id].mem_time,actor_in_mem[id].goodwill)
+	--local msg = tostring(npc:name()).." actor distance "..tostring(dis).." memory time "..tostring(actor_in_mem[id].mem_time.." current goodwill:"..tostring(actor_in_mem[id].goodwill))
+	--news_manager.send_tip(db.actor, msg, nil, nil, nil, 10000)
+	active = nil
+	return actor_in_mem[id].goodwill
+end
+
+function npc_on_see_actor(npc,dis,vel)
+	if IsMonster(npc) or IsHelicopter(npc) then return end
+	outfit_disguise(npc, dis, vel)
+end

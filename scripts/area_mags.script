@@ -1,0 +1,589 @@
+local sys_ini = system_ini()
+local inv_load_ui
+local hud_icon = {}
+local count
+local RIP
+local active_slot = 0
+UI_ICONS = nil
+
+local function opt_menu_on_init(menu)
+	menu.gameplay_options["mags_hud_ui"]	= {default=true, 	debug_only=false, 	typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			if (level.present()) then
+				UI_ICONS = ctrl:GetCheck()
+			end
+		end
+	}
+end
+
+function on_game_start()
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",drag_ammo)
+	RegisterScriptCallback("actor_on_item_take",actor_on_reload)
+	RegisterScriptCallback("actor_on_weapon_reload",actor_on_reload)
+	RegisterScriptCallback("actor_on_hud_animation_end",actor_on_hud_animation_end)
+	RegisterScriptCallback("actor_on_weapon_magazine_detach",on_magazine_detach) --on_magazine_detach
+	RegisterScriptCallback("actor_on_item_drop",actor_on_drop)
+	RegisterScriptCallback("actor_on_wpn_state",on_wpn_state)
+	RegisterScriptCallback("on_key_press",abort_reload)
+	--RegisterScriptCallback("actor_on_weapon_fired",on_wpn_fired)
+end
+
+------------------
+--Abort the weapon charging process.
+local block_inv_reload_wpn = {}
+
+function on_wpn_state(wpn, old_state, new_state)
+	if IsGrenade(wpn) or IsBolt(wpn) then return end --ignore grenades or bolts
+	if wpn and not TableAnimHands().AnmCheck(wpn) and (wpn:get_magazine_sect() ~= "" or not IsMultiLoad(wpn)) then
+		local id = wpn:id()
+
+		if not block_inv_reload_wpn[id] then
+			block_inv_reload_wpn[id] = {}
+		end
+
+		block_inv_reload_wpn[id].abort_reload = true
+
+		if new_state == 7 then
+			level.Actor():BlockItemsInput(1)
+		elseif new_state <= 3 then
+			if not db.actor:has_info("anim_hands_status") then
+				level.Actor():BlockItemsInput(0)
+			end
+
+			if block_inv_reload_wpn[id] and block_inv_reload_wpn[id].animation_interrupted then
+				if block_inv_reload_wpn[id].ammo_coint > wpn:get_ammo_in_magazine() then
+					wpn:add_ammo_elapsed(1, block_inv_reload_wpn[id].ammo_type)
+				end
+			else
+				block_inv_reload_wpn[id].ammo_coint = wpn:get_ammo_in_magazine()
+				block_inv_reload_wpn[id].ammo_type = wpn:get_ammo_type()
+			end
+
+			block_inv_reload_wpn[id].animation_interrupted = false
+		end
+	end
+end
+
+
+function abort_reload(key)
+	if db.actor and db.actor:alive() and (dik_to_bind(key) == key_bindings.kWPN_FIRE) then
+		local wpn = db.actor:active_item()
+		local id = wpn and wpn:id()
+
+		if wpn
+		and block_inv_reload_wpn[id]
+		and block_inv_reload_wpn[id].abort_reload 
+		and IsWeapon(wpn) 
+		and not TableAnimHands().AnmCheck(wpn)
+		and wpn:get_state() == 7
+		then
+			block_inv_reload_wpn[id].animation_interrupted = true
+			level.Actor():BlockItemsInput(0)
+			wpn:switch_state(3)
+		end
+	end
+end
+------------------
+
+function SetMagCond(id, src)
+	--printf("SetMagCond: id:%s src:%s RIP:%s", id, src, RIP)
+	local mag = id and level.object_by_id(id)
+	if mag then
+		--printf("set condition: elapsed-%s size-%s",mag:get_ammo_in_magazine(),sys_ini:r_float_ex(mag:section(),"ammo_mag_size"))
+		mag:set_condition(mag:get_ammo_in_magazine()/sys_ini:r_float_ex(mag:section(),"ammo_mag_size"))
+		local inventory = ActorMenu.get_actor_menu()
+		if inventory and inventory:IsShown() then
+			if RIP == true then
+				inventory:ToBelt(mag)
+			end
+			inventory:UpdateConditionProgressBars()
+		end
+		get_hud():UpdateActorMenu()
+		RIP = nil
+		return true
+	end
+end
+
+-- function on_wpn_fired(item,wpn)
+-- 	update_icon_on_hud(wpn)
+-- end
+
+function actor_on_drop(item)
+	if not IsWeapon(item) then return end
+	update_icon_on_hud(db.actor:active_item())
+end
+
+function actor_on_reload(mag)
+	--printf("item %s(%s) elapsed %s", mag:section(), mag:id(), mag:get_ammo_in_magazine())
+	if mag:clsid() == clsid.wpn_magazine_s or mag:section():find("magazine_") then
+		--printf("Inside item %s(%s) elapsed %s", mag:section(), mag:id(), mag:get_ammo_in_magazine())
+		CreateTimeEvent("show_mag",mag:id(),0,SetMagCond, mag:id(), "actor_on_reload")
+	end
+end
+
+function on_magazine_detach(mag, ammo_total)
+	-- printf("on_magazine_detach:item %s(%s) elapsed %s[%s]", mag:section(), mag:id(), mag:get_ammo_in_magazine(), ammo_total)
+	local inventory = ActorMenu.get_actor_menu()
+	if (mag:clsid() == clsid.wpn_magazine_s and inventory and inventory:IsShown()) then
+		inventory:UpdateConditionProgressBars()
+	end
+end
+
+function actor_on_hud_animation_end(item,section,motion,state,slot)
+	if TableAnimHands().AnmCheck(item) or not IsWeapon(item) then return end
+	--printf("name:%s hud:%s motion:%s state:%s slot:%s",item:section(),section,motion,state,slot)
+	if state == 7 and IsMultiLoad(item) and not motion:find("anm_close",1,true) then return end
+
+	if db.actor:active_slot() == 15 then
+		if state == 7 then
+			item:switch_state(2)--enable weapon hiding status
+		elseif state == 2 then
+			AddUniqueCall(function()
+				if db.actor:active_slot() ~= active_slot then
+					db.actor:activate_slot(active_slot)
+				else
+					active_slot = 0
+					return true
+				end
+			end)
+			db.actor:move_to_ruck(item)--return the weapon to your inventory after reloading
+		end
+	end
+	
+	CreateTimeEvent("Delmag",item:id(),0.5,function()
+		get_hud():UpdateActorMenu()
+		update_icon_on_hud(item)
+		return true
+	end)
+end
+
+function reload_anim(id, ammo_id, mag)
+	--delay to close inventory if open
+	
+	local inventory = ActorMenu.get_actor_menu()
+	if inventory and inventory:IsShown() then
+		get_hud():HideActorMenu()
+		active_slot = actor_menu.active_slot
+		ResetTimeEvent(0,"reload_anm",0.5)
+		return false
+	end
+
+	local a_item = db.actor:active_item()
+	-- activate slot for DnD item if not currently active 
+	if not a_item or a_item:id() ~= id then
+		for slot=1, 5 do
+			local act = db.actor:item_in_slot(slot)
+			if act and act:id() == id then
+				db.actor:activate_slot(slot)
+				ResetTimeEvent(0,"reload_anm",0.5)
+				return false
+			end
+		end
+	end
+	-- trigger reload animation
+	if a_item and a_item:id() == id then
+		if ammo_id == nil then
+			-- printf("reload_animation for %s(%s) in state:%s", a_item:section(),id, a_item:get_state())
+			a_item:switch_state(7) --"eReload"
+		else
+			local ammo = level.object_by_id(ammo_id)
+			if ammo then
+				if (mag == true) then
+					a_item:load_magazine(ammo, true)
+				else
+					a_item:load_ammo(ammo, true)
+				end
+			end
+		end
+	end
+	return true
+end
+
+function drag_ammo(from_obj,to_obj,from_slot,to_slot)
+	--	printf("mags:drag_ammo:: %s:From Parent:%s From Slot:%s %s:To Parent:%s To Slot:%s",from_obj:section(),from_obj:parent() and from_obj:parent():id(),from_slot,to_obj:section(),to_obj:parent() and to_obj:parent():id(),to_slot)
+	local parent_id = to_obj and to_obj:parent() and to_obj:parent():id()
+	if (not parent_id) or (parent_id ~= 0) then return end
+
+	local from_sec, to_sec = from_obj:section(), to_obj:section()
+	local from_id, to_id = from_obj:id(), to_obj:id()
+	local mag_size = to_obj:get_magazine_size() or 0
+	local mag_elapsed = to_obj:get_ammo_in_magazine() or 0
+	local box_count = from_obj:ammo_get_count() or 0
+	local s_list = alun_utils.parse_list(sys_ini,to_sec, "magazine_sect") or {}
+	local m_list = {}
+	for i=1, #s_list do
+		m_list[sys_ini:r_string_ex(s_list[i], "magazine_name", s_list[i])] = true
+	end
+	--local m_list = alun_utils.parse_list(sys_ini,to_sec, "magazine_class",true) or {}
+--[[	
+	local function exit_ui(a_type, mag)
+		printf("exit ui: %s, ui = %s", count, inv_load_ui == nil)
+		if inv_load_ui == nil then
+			printf("count: %s", count)
+			to_obj:add_ammo_elapsed(count, a_type)
+			if box_count > count then
+				from_obj:ammo_set_count(box_count - count)
+			else
+				alife():release(alife_object(from_id), true)
+			end
+			if mag then
+				CreateTimeEvent(0,"show_mag_"..to_id,0,SetMagCond, to_id, "exit_ui")
+			end
+			return true
+		end
+		return
+	end
+--]]
+	local function fill_ammo(mag)
+		local a_list = alun_utils.parse_list(sys_ini,to_sec,"ammo_class") or {}
+		if (#a_list == 0) or (mag_size == mag_elapsed) then return end
+		--printf("Ammo: name %s : size %s : elapsed %s", to_sec, mag_size, mag_elapsed)
+		for i=1, #a_list do
+			if a_list[i] == from_sec then
+				count = mag_size - mag_elapsed
+				count = box_count > count and count or box_count
+				if count > 0 then
+					show_load_gui(from_sec,to_sec, from_id,to_id,i-1,mag)
+				end
+				--CreateTimeEvent(0,"mag_"..to_id,1,exit_ui, i-1, mag)
+				break
+			end
+		end
+		return
+	end
+	--printf("rifle_grenade check")
+	if to_obj:weapon_in_grenade_mode() then
+		local GLSection = to_obj:get_launcher_sect()
+		m_list = {}
+		if GLSection ~= "" then
+			m_list = alun_utils.parse_list(sys_ini,GLSection,"grenade_class",true) or {}
+		end
+		if table.size(m_list) == 0 then
+			m_list = alun_utils.parse_list(sys_ini,to_sec,"grenade_class",true) or {}
+		end
+		
+		if m_list[from_sec] then
+			if to_slot ~= EDDListType.iActorSlot then
+				if (ActorMenu.get_actor_menu():ToSlot(to_obj,true,15) ~= true) then
+					to_obj:set_ammo_elapsed(1)
+					alife():release(alife_object(from_id), true)
+					return
+				end
+			end
+			CreateTimeEvent(0,"reload_anm",0.2,reload_anim,to_id,from_id)
+			to_obj:ammo_box_load(from_obj)
+		end
+		return
+	end
+	--printf("shotgun check")
+	if (IsShotgun(to_obj) and table.size(m_list) == 0) or IsLauncher(to_obj) then
+		if (IsShotgun(from_obj) or IsLauncher(from_obj)) and to_slot == EDDListType.iActorSlot then
+			return
+		end
+		m_list = alun_utils.parse_list(sys_ini,to_sec,"ammo_class",true) or {}
+		if m_list[from_sec] then
+			if to_slot ~= EDDListType.iActorSlot then
+				if (ActorMenu.get_actor_menu():ToSlot(to_obj,true,15) ~= true) then
+					fill_ammo()
+					return
+				end
+			end
+			CreateTimeEvent(0,"reload_anm",0.2,reload_anim,to_id,from_id)
+			to_obj:ammo_box_load(from_obj)
+		end
+		return
+	end
+	--printf("load check")
+	if (from_obj:clsid() == clsid.wpn_magazine_s and IsWeapon(to_obj)) then
+		if (ActorMenu.get_menu_mode() == 4 and from_obj:parent():id() ~= 0) then return end
+		if not (from_sec and m_list[from_sec]) then return end
+		if (to_slot == EDDListType.iActorSlot) then
+			CreateTimeEvent(0,"reload_anm",0.2,reload_anim,to_id,from_id, true)
+			RIP = from_slot == EDDListType.iActorBelt
+		else
+			if (ActorMenu.get_actor_menu():ToSlot(to_obj,true,15) == true) then
+				CreateTimeEvent(0,"reload_anm",0.2,reload_anim,to_id,from_id, true)
+			end
+		end
+		--printf("ammo elapsed:%s",to_obj:get_ammo_in_magazine())
+		--if anim == true and ActorMenu.get_actor_menu():IsShown() then
+		--	get_hud():HideActorMenu()
+		--end
+		--to_obj:load_magazine(from_obj)
+		return
+	end
+
+	--printf("ammo check")
+	if IsAmmo(from_obj) then
+		m_list = alun_utils.parse_list(sys_ini,to_sec,"ammo_class",true) or {}
+		if to_obj:clsid() == clsid.wpn_magazine_s then
+			fill_ammo(true)
+		elseif IsWeapon(to_obj) and m_list[from_sec] then
+			if to_obj:get_magazine_sect() ~= "" and to_obj:get_ammo_in_magazine() >= 1 then return end
+			if mag_elapsed < mag_size or 
+			  (mag_elapsed == 0 and mag_size == 0) or 
+			  (sys_ini:r_bool_ex(to_sec,"extra_round",false) and mag_elapsed == mag_size) then
+				local a_list = alun_utils.parse_list(sys_ini,to_sec,"ammo_class")
+				for i=1, #a_list do
+					if a_list[i] == from_sec then
+						to_obj:add_ammo_elapsed(1, i-1)
+					end
+				end
+				from_obj:ammo_set_count(from_obj:ammo_get_count() - 1)
+				if from_obj:ammo_get_count() == 0 then
+					alife():release(alife_object(from_id), true)
+				end
+				local snd_obj = sound_object(sys_ini:r_string_ex(to_sec,"snd_add_cartridge", "weapons\\bullet_load"))
+				snd_obj:play(db.actor, 0, sound_object.s2d)
+			end
+		elseif from_slot ~= to_slot then
+			db.actor:cast_Actor():RepackAmmo(true)
+		end
+	end
+end
+--======================================================================================================
+--//------------------------------------- Hud functions ------------------------------------------------
+function hud_opened()
+	if not (db.actor and db.actor:alive()) then return false end
+	return has_alife_info("inventory_wnd_opened") or 
+	(axr_main.weapon_is_zoomed) or 
+	inv_load_ui or 
+	axr_main.config:r_value("mm_options","enable_hud_draw",1,false) == false
+end
+
+function update_icon_on_hud(wpn)
+	for k,v in pairs(hud_icon) do
+		remove_icons_on_hud(v)
+		hud_icon[k] = nil
+	end
+	UI_ICONS = axr_main.config:r_value("mm_options","enable_mags_hud_ui",1,true)
+	if UI_ICONS ~= true then return end
+	
+	if not (wpn and IsWeapon(wpn)) then return end
+	local s_list = alun_utils.parse_list(sys_ini,wpn:section(), "magazine_sect") or {}
+	local m_list = {}
+	for i=1, #s_list do
+		m_list[sys_ini:r_string_ex(s_list[i], "magazine_name", s_list[i])] = true
+	end
+	if not (IsShotgun(wpn) or IsLauncher(wpn) or wpn:weapon_in_grenade_mode()) and
+		table.size(m_list) == 0 then
+		return
+	end
+	--printf("current mag type for %s is %s", wpn:section(), wpn:get_magazine_sect())
+	if not (IsShotgun(wpn) or IsLauncher(wpn) or 
+		wpn:get_magazine_sect() ~= "" or 
+		wpn:weapon_in_grenade_mode()) then
+		return
+	end
+	
+	local mags = {}
+	local function itr(dummy, mag)
+		if IsShotgun(wpn) then
+			if mag:clsid() == clsid.wpn_magazine_s or IsAmmoGrenade(mag) then
+				return
+			end
+		elseif IsLauncher(wpn) or wpn:weapon_in_grenade_mode() then
+			if mag:clsid() == clsid.wpn_magazine_s or IsAmmo(mag) then
+				return
+			end
+		elseif mag:clsid() ~= clsid.wpn_magazine_s then
+			return
+		end
+		local buf = nil
+		local section = mag:section()
+		if (sys_ini:r_bool_ex(section, "belt_load") == true) then
+			if (db.actor:is_on_belt(mag) and m_list[section]) then
+				buf = section
+			end
+		elseif m_list[section] then
+			buf = section
+		end
+		if buf then
+			local elapsed = -1
+			local size = 0
+			if IsAmmo(mag) then
+				elapsed = mag:ammo_get_count()
+				size = mag:ammo_box_size()
+			elseif mag:clsid() == clsid.wpn_magazine_s then
+				elapsed = mag:get_ammo_in_magazine()
+				size = mag:get_magazine_size()
+			end
+			--printf("elapsed cnt:%s for mag section:%s mag size:%s", elapsed, buf, size)
+			mags[buf] = mags[buf] and {p=mags[buf].p + 1, f=mags[buf].f, e=mags[buf].e} or {p=1, f=0, e=0}
+			if size > 1 and elapsed >= size then
+				--printf("partial:%s full:%s",mags[buf].p, mags[buf].f)
+				mags[buf].f = mags[buf].f + 1
+			end
+			if elapsed == 0 then
+				mags[buf].e = mags[buf].e + 1
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(itr)
+	if hud_opened()	or table.size(mags) == 0 then
+		return
+	end
+	
+	local cnt = -1
+	for sec,cnts in pairs(mags) do
+		hud_icon[sec] = get_icon(sec, "mag_icon", "shotgun")
+		cnt = cnt + 1
+		--printf("section:%s icon:%s partial:%s full:%s",sec, hud_icon[sec], cnts.p, cnts.f)
+		local str = {}
+		if cnts.e > 0 then str[#str+1] = cnts.e..":" end
+		str[#str+1] = cnts.p
+		if cnts.f > 0 then str[#str+1] = "|"..cnts.f end
+		
+		--printf("string:%s", table.concat(str))
+		local cs = hud_icon_on(hud_icon[sec])
+		if cs then
+			local pos = cs:GetWndPos()
+			cs:SetWndPos(vector2():set(pos.x - (cnt*0.7*cs:GetWidth()), pos.y))
+			cs:TextControl():SetText(table.concat(str))
+		else
+			remove_icons_on_hud(hud_icon[sec])
+			hud_icon[sec] = nil
+		end
+	end
+end
+
+function hud_icon_on(icon)
+	local hud = get_hud()
+	local gcs = hud and hud:GetCustomStatic(icon)
+	if (hud) and (gcs == nil) then 
+		hud:AddCustomStatic(icon, true) 
+		gcs = hud:GetCustomStatic(icon)
+	end
+	return gcs:wnd()
+end
+
+function remove_icons_on_hud(icon)
+	--printf("remove hud icon %s", icon)
+	local hud = get_hud()
+	
+	if hud and icon and hud:GetCustomStatic(icon) then
+		hud:RemoveCustomStatic(icon)
+	end
+end
+
+function get_icon(mag_sec, icon, default_icon)
+	return sys_ini:r_string_ex(mag_sec, icon) or default_icon
+end
+--======================================================================================================
+
+function exit_ui(from_id, to_id, a_type, mag)
+	--printf("count: %s", count)
+	local from_obj, to_obj = level.object_by_id(from_id), level.object_by_id(to_id)
+	if not(from_obj and to_obj) then return end
+	to_obj:add_ammo_elapsed(count, a_type)
+	local box_count = from_obj:ammo_get_count() or 0
+	if box_count > count then
+		from_obj:ammo_set_count(box_count - count)
+	else
+		alife():release(alife_object(from_id), true)
+	end
+	if mag then
+		--CreateTimeEvent(0,"show_mag_"..to_id,0,SetMagCond, to_id, "exit_ui")
+		SetMagCond(to_id, "exit_ui")
+	end
+end
+
+local cyc_time,cyc_b_time = 750, 5	-- load time (millisec per bullet)
+function show_load_gui(section, to_sec, id, to_id,a,m)
+    inv_load_ui = ui_load(section,to_sec, id,to_id,a,m)
+	if inv_load_ui then
+		inv_load_ui:ShowDialog(true)
+	end
+end
+
+class "ui_load" (CUIScriptWnd)
+function ui_load:__init(sect,to_sec, id,to_id,a,m) super()
+	self.id, self.to_id,self.a,self.m = id, to_id, a, m
+	self.count = count
+	self.load_moveX = 50
+	self:SetWndRect(Frect():set(435,300,200,150))
+	local xml = CScriptXmlInit()
+	xml:ParseFile("ui_mag_wnd.xml")
+	
+	xml:InitStatic("reload_background", self)
+	xml:InitStatic(get_icon(to_sec, "mag_icon", "shotgun"), self)
+	self.bullet = xml:InitStatic(get_icon(to_sec, "bullet_icon", "reload_bullet"), self)
+	printf("from section: %s to section: %s Bullet icon: %s", sect, to_sec, bullet)
+	xml:InitStatic(sect, self)
+	
+	self:Register(xml:Init3tButton("reload_caption", self),"reload_caption")
+	
+	self.ammo = xml:Init3tButton("reload_ammo_caption", self)
+	self:Register(self.ammo, "reload_ammo_caption")
+	
+	self.cnt_display = xml:Init3tButton("reload_cnt_caption", self)
+	self:Register(self.cnt_display, "reload_cnt_caption")
+	
+	self.name = sys_ini:r_string_ex(sect,"inv_name_short") or ""
+
+	self.snd = sound_object(sys_ini:r_string_ex(to_sec,"snd_add_cartridge", "weapons\\bullet_load"))
+end
+
+function ui_load:__finalize() end
+
+function ui_load:quit_ui()
+	if self.snd:playing() then
+		self.snd:stop()
+		self.snd = nil
+	end
+	if (inv_load_ui:IsShown()) then
+		count = count - self.count
+		--printf("exit count %s self.count %s", count, self.count)
+		inv_load_ui:HideDialog()
+		exit_ui(self.id,self.to_id, self.a, self.m)
+		inv_load_ui = nil
+	end
+end
+
+function ui_load:Update()
+	CUIScriptWnd.Update(self)
+	local tg = time_global()
+	if (self.tmr_ui_b and tg < self.tmr_ui_b) then 
+		return
+	end
+	if db.actor and not db.actor:alive() then 
+		self:quit_ui()
+		return
+	end
+	self.tmr_ui_b = tg + cyc_b_time
+	
+	self.load_moveX = self.load_moveX + 1
+	if self.load_moveX >= 125 then self.load_moveX = 50 end
+	self.bullet:SetWndPos(vector2():set(self.load_moveX,30))
+	self.ammo:TextControl():SetText(game.translate_string(self.name))
+	self.cnt_display:TextControl():SetText(count-self.count .." ("..count..")")
+	
+	if (self.tmr_ui and tg < self.tmr_ui) then
+		return
+	end
+	local bonus = area_skills and area_skills.skills_table["shooting_skill"] or 0
+	self.tmr_ui = tg + cyc_time - (bonus*2)
+	
+	if self.snd then
+		if self.snd:playing() then
+			self.snd:stop()
+		end
+	--if self.snd and not self.snd:playing() then
+		self.snd:play(db.actor, 0, sound_object.s2d) -- + sound_object.looped)
+	end
+	
+	if self.count == 0 then self:quit_ui() end
+	self.count = self.count - 1
+end
+
+function ui_load:OnKeyboard(DIK, KeyboardAction)
+	CUIScriptWnd.OnKeyboard(self, DIK, KeyboardAction)
+	if KeyboardAction == ui_events.WINDOW_KEY_PRESSED then
+		if DIK == DIK_keys.DIK_ESCAPE or DIK == DIK_keys.MOUSE_1 then
+			--printf("esc count %s", count)
+			self:quit_ui()
+		end
+	end
+end

@@ -1,0 +1,1376 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<game_dialogs>
+
+<dialog id="deactivate_items">
+<phrase_list>
+	<phrase id="0">
+		<text>deactivate_items_0</text>
+	<next>1</next>
+	<next>3</next>
+	<next>4</next>
+	</phrase>
+	<phrase id="1">
+		<dont_has_info>deact_first_time</dont_has_info>
+		<give_info>deact_first_time</give_info>
+		<text>deactivate_items_1</text>
+	<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>deactivate_items_2</text>
+	<next>3</next>
+	<next>4</next>
+	</phrase>
+	<phrase id="3">
+	<has_info>deact_first_time</has_info>
+	<precondition>area_utils.actor_has_radiated_items</precondition>
+		<text>deactivate_items_3</text>
+		<action>area_utils.irradiate_items</action>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+	<has_info>deact_first_time</has_info>
+		<text>deactivate_items_4</text>
+	<next>6</next>
+	</phrase>
+	<phrase id="5">
+		<text>deactivate_items_5</text>
+	</phrase>
+	<phrase id="6">
+		<text>deactivate_items_6</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="inf_craft">
+<phrase_list>
+	<phrase id="0">
+		<text>inf_craft_0</text>
+	<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>inf_craft_1</text>
+	<next>2</next>
+	<next>3</next>
+	<next>4</next>
+	<next>5</next>
+	<next>6</next>
+	<next>7</next>
+	<next>8</next>
+	<next>9</next>	
+	</phrase>
+	<phrase id="2">
+		<text>inf_craft_2</text>
+	<next>10</next>	
+	</phrase>
+	<phrase id="3">
+		<text>inf_craft_3</text>
+	<next>11</next>	
+	</phrase>
+	<phrase id="4">
+		<text>inf_craft_4</text>
+	<next>12</next>	
+	</phrase>	
+	<phrase id="5">
+		<text>inf_craft_5</text>
+	<next>13</next>	
+	</phrase>
+	<phrase id="6">
+		<text>inf_craft_6</text>
+	<next>14</next>	
+	</phrase>	
+	<phrase id="7">
+		<text>inf_craft_7</text>
+	<next>15</next>	
+	</phrase>	
+	<phrase id="8">
+		<text>inf_craft_8</text>
+	<next>16</next>	
+	</phrase>	
+	<phrase id="9">
+		<text>inf_craft_9</text>
+	</phrase>
+	<phrase id="10">
+		<text>inf_craft_10</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="11">
+		<text>inf_craft_11</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="12">
+		<text>inf_craft_12</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="13">
+		<text>inf_craft_13</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="14">
+		<text>inf_craft_14</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="15">
+		<text>inf_craft_15</text>
+	<next>17</next>
+	</phrase>	
+	<phrase id="16">
+		<text>inf_craft_16</text>
+	<next>17</next>	
+	</phrase>	
+	<phrase id="17">
+		<text>inf_craft_17</text>	
+	</phrase>	
+</phrase_list>
+</dialog>
+
+<dialog id="debtor_dialog">
+	<precondition>dialogs.is_debtor</precondition>
+	<init_func>dialog_manager.debt_task_dialog</init_func>
+</dialog>
+
+<dialog id="package_dialog">
+	<precondition>dialogs.is_package</precondition>
+	<init_func>dialog_manager.package_task_dialog</init_func>
+</dialog>
+
+<dialog id="dt2_bandits_camp">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_hello_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_hello_2</text>
+		<give_info>dt2_band_first_warning</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandits_camp_1">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_1_hello_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_1_hello_2</text>
+		<give_info>dt2_actor_started_fight_bandit</give_info>
+		<give_info>dt2_band_second_warning</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandits_guard">
+<phrase_list>
+	<phrase id="7">
+		<has_info>dt2_bandits_pass</has_info>
+		<dont_has_info>dt2_bandits_guard_out</dont_has_info>
+		<give_info>dt2_bandits_guard_out</give_info>
+		<text>dt2_bandits_guard_1_2</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="0">
+		<text>dt2_bandit_guard_1</text>
+		<next>1</next>
+		<next>2</next>
+		<next>3</next>
+		<next>7</next>
+		<next>9</next>
+	</phrase>
+	<phrase id="1">
+		<dont_has_info>dt2_bandits_guard_start</dont_has_info>
+		<dont_has_info>dt2_bandits_pass</dont_has_info>
+		<text>dt2_bandit_guard_4</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="2">
+		<dont_has_info>dt2_bandits_guard_start</dont_has_info>
+		<dont_has_info>dt2_bandits_pass</dont_has_info>
+		<text>dt2_bandit_guard_3</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="3">
+		<dont_has_info>dt2_bandits_guard_start</dont_has_info>
+		<dont_has_info>dt2_bandits_pass</dont_has_info>
+		<give_info>dt2_bandits_guard_start</give_info>
+		<give_info>dt2_bandits_pass</give_info>
+		<give_info>dt2_bandits_guard_out</give_info>
+		<text>dt2_bandit_guard_2</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bandit_guard_5</text>
+		<next>9</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bandit_guard_6</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bandit_guard_7</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_bandit_guard_8</text>
+		<give_info>dt2_bandits_guard_start</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_bandit_guard_8</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_barman_start">
+<precondition>area_utils.dt2_barman_start</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_barman_start</text>
+		<give_info>dt2_barman_start</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_barman_about_the_zone">
+<precondition>area_utils.dt2_barman_about_the_zone</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_barman_about_0</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_barman_about_1</text>
+		<action>area_utils.dt2_barman_zone</action>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_barman_about_2_1</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_barman_about_2_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_barman_about_2_3</text>
+		<give_info>dt2_barman_about_the_zone</give_info>
+		<give_info>dt2_bandit_amb_want_to_talk</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_barman_about_3</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_barman_about_4</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_barman_about_5</text>
+		<next>8</next>
+		<next>9</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_barman_about_6_1</text>
+		<next>10</next>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_barman_about_6_2</text>
+		<next>11</next>
+	</phrase>
+	<phrase id="10">
+		<text>dt2_barman_about_7_1</text>
+		<give_info>dt2_barman_guiders</give_info>
+		<next>13</next>
+		<next>16</next>
+	</phrase>
+	<phrase id="11">
+		<text>dt2_barman_about_7_2</text>
+		<next>12</next>
+		<next>16</next>
+	</phrase>
+	<phrase id="12">
+		<text>dt2_barman_about_6_1</text>
+		<next>14</next>
+	</phrase>
+	<phrase id="13">
+		<text>dt2_barman_about_6_2</text>
+		<next>15</next>
+	</phrase>
+	<phrase id="14">
+		<text>dt2_barman_about_7_1</text>
+		<next>16</next>
+	</phrase>
+	<phrase id="15">
+		<text>dt2_barman_about_7_2</text>
+		<next>16</next>
+	</phrase>
+	<phrase id="16">
+		<text>dt2_barman_about_8</text>
+		<give_info>dt2_barman_about_the_zone</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_ambassador">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_ambassador_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_ambassador_2_1</text>
+		<give_info>dt2_bandits_pass</give_info>
+		<disable_info>dt2_bandit_amb_want_to_talk</disable_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandit_ambassador_2_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandit_ambassador_3</text>
+		<next>4</next>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bandit_ambassador_4_1</text>
+		<give_info>dt2_bandits_pass</give_info>
+		<disable_info>dt2_bandit_amb_want_to_talk</disable_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bandit_ambassador_4_2</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bandit_ambassador_5</text>
+		<give_info>dt2_bandits_pass</give_info>
+		<disable_info>dt2_bandit_amb_want_to_talk</disable_info>
+		<give_info>dt2_amb_p</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_ambassador_p">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_ambassador_p_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_ambassador_p_2</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandit_ambassador_p_3</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandit_ambassador_p_7</text>
+		<disable_info>dt2_amb_p</disable_info>
+		<give_info>dt2_amb_get_bottle</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_ambassador_p_1">
+<precondition>area_utils.dt2_not_after_drink</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_ambassador_p_4</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<action>dialogs_area.i_drunk</action>
+		<action>dialogs_area.drink_eat</action>
+		<text>dt2_bandit_ambassador_p_5</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandit_ambassador_p_6</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandit_ambassador_p_7</text>
+		<action>area_utils.dt2_drink_effect</action>
+		<disable_info>dt2_amb_get_bottle</disable_info>
+		<give_info>dt2_after_drink</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_ambassador_p_2">
+<precondition>area_utils.dt2_after_drink</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_ambassador_p_10</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_ambassador_p_8</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandit_ambassador_p_9</text>
+		<action>dialogs.break_dialog</action>
+		<disable_info>dt2_after_drink</disable_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_stalker_guide">
+<precondition>area_utils.dt2_stalker_guide</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_stalker_guide_1</text>
+		<next>1</next>
+		<next>2</next>
+		<next>3</next>
+	</phrase>
+	<phrase id="1">
+		<has_info>dt2_barman_guiders</has_info>
+		<text>dt2_stalker_guide_2_1</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_stalker_guide_2_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_stalker_guide_2_3</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_stalker_guide_3_1</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_stalker_guide_3_2</text>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_stalker_guide_4</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_stalker_guide_5</text>
+		<action>area_utils.dt2_spawn_guide_stash</action>
+		<give_info>dt2_stalker_guide</give_info>
+		<next>8</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_stalker_guide_6</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_barman_guide">
+<precondition>area_utils.dt2_barman_guide</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_barman_guide_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_barman_guide_2</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+	</phrase>
+	<phrase id="2">
+		<precondition>area_utils.dt2_stash_not_robbed</precondition>
+		<text>dt2_barman_guide_3_1</text>
+		<action>area_utils.dt2_barman_take_items_1</action>
+		<next>5</next>
+	</phrase>
+	<phrase id="3">
+		<precondition>area_utils.dt2_stash_not_robbed</precondition>
+		<text>dt2_barman_guide_3_2</text>
+		<action>area_utils.dt2_barman_take_items_2</action>
+		<next>6</next>
+	</phrase>
+	<phrase id="4">
+		<precondition>area_utils.dt2_stash_robbed</precondition>
+		<text>dt2_barman_guide_3_3</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_barman_guide_4_2</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_barman_guide_4_1</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_barman_guide_4_3</text>
+		<next>9</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_barman_guide_5_1</text>
+		<give_info>dt2_barman_guide</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_barman_guide_5_3</text>
+		<next>10</next>
+	</phrase>
+	<phrase id="10">
+		<text>dt2_barman_guide_6</text>
+		<give_info>dt2_barman_guide</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_cs_assistant">
+<precondition>area_utils.dt2_assistant</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_cs_ambassador_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_cs_ambassador_2_1</text>
+		<give_info>dt2_assistant</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_cs_ambassador_2_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_cs_ambassador_3</text>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_cs_ambassador_3_1</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_cs_ambassador_3_2</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_cs_ambassador_3_3</text>
+		<give_info>dt2_assistant</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_cs_ambassador_4</text>
+		<next>9</next>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_cs_ambassador_4_1</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_cs_ambassador_5</text>
+		<give_info>dt2_assistant</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_barman_sleephouse">
+<precondition>area_utils.dt2_barman_sleephouse</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_barman_sleephouse_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_barman_sleephouse_2</text>
+		<next>2</next>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<precondition>area_utils.dt2_barman_sleephouse_money</precondition>
+		<action>area_utils.dt2_barman_sleephouse_key</action>
+		<give_info>dt2_barman_sleephouse</give_info>
+		<text>dt2_barman_sleephouse_3</text>
+	</phrase>
+	<phrase id="3">
+		<give_info>dt2_barman_sleephouse</give_info>
+		<text>dt2_barman_sleephouse_4</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bus_driver">
+<precondition>area_utils.dt2_bus_driver</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bus_driver_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bus_driver_2</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bus_driver_3</text>
+		<next>3</next>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bus_driver_4_1</text>
+		<give_info>dt2_bus_driver</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bus_driver_4_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bus_driver_5</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bus_driver_6</text>
+		<give_info>dt2_bus_driver</give_info>
+		<give_info>dt2_bus_find_item</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bus_item_barman">
+<precondition>area_utils.dt2_bus_item_barman</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bus_item_barman_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<give_info>dt2_bus_item_barman</give_info>
+		<text>dt2_bus_item_barman_2</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_kpp_commander">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_kpp_commander_1</text>
+		<next>1</next>
+		<next>111</next>
+		<next>1111</next>
+		<next>11111</next>
+	</phrase>
+	<phrase id="1">
+		<dont_has_info>dt2_bus_driver_item</dont_has_info>
+		<dont_has_info>dt2_kpp_bribe</dont_has_info>
+		<text>dt2_kpp_commander_2_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="1111">
+		<dont_has_info>dt2_bus_driver_item</dont_has_info>
+		<text>dt2_kpp_commander_2_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="11111">
+		<dont_has_info>dt2_kpp_bribe</dont_has_info>
+		<text>dt2_kpp_commander_2_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="111">
+		<has_info>dt2_bus_driver_item</has_info>
+		<has_info>dt2_kpp_bribe</has_info>
+		<text>dt2_kpp_commander_2_2</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="2">
+		<has_info>dt2_bus_driver</has_info>
+		<dont_has_info>dt2_kpp_car_candles</dont_has_info>
+		<text>dt2_kpp_commander_3_1</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="3">
+		<dont_has_info>dt2_actor_got_pass</dont_has_info>
+		<dont_has_info>dt2_actor_is_eco</dont_has_info>
+		<text>dt2_kpp_commander_3_2</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="4">
+		<dont_has_info>dt2_actor_got_pass</dont_has_info>
+		<has_info>dt2_actor_is_eco</has_info>
+		<precondition>area_utils.dt2_actor_have_idcard</precondition>
+		<text>dt2_kpp_commander_3_3</text>
+		<next>9</next>
+	</phrase>
+	<phrase id="5">
+		<dont_has_info>dt2_actor_got_weap</dont_has_info>
+		<text>dt2_kpp_commander_3_4</text>
+		<next>10</next>
+		<next>11</next>
+	</phrase>
+	<phrase id="6">
+		<action>dialogs.break_dialog</action>
+		<text>dt2_kpp_commander_3_5</text>
+	</phrase>
+	<phrase id="7">
+		<give_info>dt2_kpp_car_candles</give_info>
+		<text>dt2_kpp_commander_4_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_kpp_commander_4_2</text>
+		<next>12</next>
+		<next>13</next>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_kpp_commander_4_3</text>
+		<next>14</next>
+	</phrase>
+	<phrase id="10">
+		<precondition>area_utils.dt2_kpp_com_weap_1</precondition>
+		<text>dt2_kpp_commander_4_4_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="11">
+		<precondition>area_utils.dt2_kpp_com_weap_2</precondition>
+		<text>dt2_kpp_commander_4_4_2</text>
+		<next>15</next>
+		<next>16</next>
+	</phrase>
+	<phrase id="12">
+		<precondition>area_utils.dt2_actor_havent_idcard</precondition>
+		<text>dt2_kpp_commander_5_2_1</text>
+		<next>17</next>
+	</phrase>
+	<phrase id="13">
+		<precondition>area_utils.dt2_actor_have_idcard</precondition>
+		<text>dt2_kpp_commander_5_2_2</text>
+		<next>18</next>
+	</phrase>
+	<phrase id="14">
+		<text>dt2_kpp_commander_5_3</text>
+		<next>19</next>
+	</phrase>
+	<phrase id="15">
+		<precondition>area_utils.dt2_kpp_actor_have_money</precondition>
+		<action>area_utils.dt2_kpp_relocate_money</action>
+		<text>dt2_kpp_commander_5_4_1</text>
+		<next>20</next>
+	</phrase>
+	<phrase id="16">
+		<text>dt2_kpp_commander_5_4_2</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="17">
+		<text>dt2_kpp_commander_6_2_1</text>
+		<next>21</next>
+		<next>22</next>
+	</phrase>
+	<phrase id="18">
+		<action>area_utils.dt2_open_main_exit</action>
+		<give_info>dt2_actor_got_pass</give_info>
+		<text>dt2_kpp_commander_6_2_2</text>
+	</phrase>
+	<phrase id="19">
+		<action>area_utils.dt2_open_main_exit</action>
+		<give_info>dt2_actor_got_pass</give_info>
+		<text>dt2_kpp_commander_6_3</text>
+	</phrase>
+	<phrase id="20">
+		<give_info>dt2_actor_got_weap</give_info>
+		<action>xr_effects.dt2_kpp_weap_timer</action>
+		<text>dt2_kpp_commander_6_4</text>
+	</phrase>
+	<phrase id="21">
+		<action>area_utils.dt2_open_main_exit</action>
+		<give_info>dt2_actor_got_pass</give_info>
+		<text>dt2_kpp_commander_7_2_1</text>
+	</phrase>
+	<phrase id="22">
+		<text>dt2_kpp_commander_7_2_2</text>
+	</phrase>
+	<phrase id="22">
+		<precondition>area_utils.dt2_kpp_com_candle</precondition>
+		<text>dt2_kpp_commander_5_1</text>
+	</phrase>
+	<phrase id="23">
+		<action>area_utils.dt2_kpp_com_candle_get</action>
+		<give_info>dt2_kpp_car_candles_got</give_info>
+		<text>dt2_kpp_commander_6_1</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>6</next>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bus_driver_item">
+<precondition>area_utils.dt2_bus_driver_item</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bus_driver_item_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<action>area_utils.dt2_bus_driver_item_take</action>
+		<text>dt2_bus_driver_item_2</text>
+		<next>2</next>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bus_driver_item_3_1</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bus_driver_item_3_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bus_driver_item_4_1</text>
+		<give_info>dt2_bus_driver_item</give_info>
+		<action>area_utils.dt2_bus_driver_item_backpack</action>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bus_driver_item_4_2</text>
+		<give_info>dt2_bus_driver_item</give_info>
+		<action>area_utils.dt2_bus_driver_item_money</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_kpp_weap_done">
+<precondition>area_utils.dt2_kpp_weap_done</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_kpp_commander_weap_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<action>area_utils.dt2_kpp_weap_give</action>
+		<give_info>dt2_kpp_weap</give_info>
+		<text>dt2_kpp_commander_weap_2</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_trader">
+<precondition>area_utils.dt2_bandit_trader</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_trader_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_trader_2</text>
+		<next>2</next>
+		<next>3</next>
+		<next>4</next>
+	</phrase>
+	<phrase id="2">
+		<action>area_utils.dt2_bandit_trader_3_1</action>
+		<text>dt2_bandit_trader_3_1</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="3">
+		<action>area_utils.dt2_bandit_trader_3_2</action>
+		<text>dt2_bandit_trader_3_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<action>area_utils.dt2_bandit_trader_3_3</action>
+		<text>dt2_bandit_trader_3_3</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bandit_trader_4</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bandit_trader_5</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_bandit_trader_6</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="8">
+		<action>area_utils.dt2_bandit_trader_end</action>
+		<give_info>dt2_bandit_trader</give_info>
+		<give_info>dt2_barman_guiders</give_info>
+		<text>dt2_bandit_trader_7</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_blockpost_guard">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_blockpost_guard_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<dont_has_info>dt2_kpp_bribe</dont_has_info>
+		<text>dt2_blockpost_guard_2_1</text>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+	</phrase>
+	<phrase id="2">
+		<give_info>dt2_blockpost_guard_out</give_info>
+		<has_info>dt2_kpp_bribe</has_info>
+		<text>dt2_blockpost_guard_2_2</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_blockpost_guard_3_1</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="4">
+		<precondition>area_utils.dt2_kpp_guard_bribe</precondition>
+		<give_info>dt2_kpp_bribe</give_info>
+		<action>area_utils.dt2_kpp_guard_bribe_give</action>
+		<text>dt2_blockpost_guard_3_2</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_blockpost_guard_3_3</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="6">
+		<give_info>dt2_blockpost_guard_out</give_info>
+		<text>dt2_blockpost_guard_4_1</text>
+	</phrase>
+	<phrase id="7">
+		<give_info>dt2_blockpost_guard_out</give_info>
+		<text>dt2_blockpost_guard_4_2</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_guiders_package">
+<precondition>area_utils.dt2_guiders_package</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_guiders_package_0</text>
+		<next>10</next>
+	</phrase>
+	<phrase id="10">
+		<text>dt2_guiders_package_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_guiders_package_2_1</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_guiders_package_2_2</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_guiders_package_3_1</text>
+		<next>5</next>
+		<next>6</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_guiders_package_3_2</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="5">
+		<precondition>area_utils.dt2_guiders_have_money</precondition>
+		<action>area_utils.dt2_guiders_take_money</action>
+		<give_info>dt2_guiders_package</give_info>
+		<give_info>dt2_guiders_paid</give_info>
+		<text>dt2_guiders_package_4_1_1</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="6">
+		<give_info>dt2_guiders_package</give_info>
+		<text>dt2_guiders_package_4_1_2</text>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_guiders_package_4_2</text>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_guiders_package_5</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_guiders_guide">
+<precondition>area_utils.dt2_guiders_guide</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_guiders_guide_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_guiders_guide_2</text>
+		<next>2</next>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_guiders_guide_3_1</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_guiders_guide_3_2</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_guiders_guide_4_1</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_guiders_guide_4_2</text>
+		<next>6</next>
+	</phrase>
+	<phrase id="6">
+		<give_info>dt2_guiders_guide</give_info>
+		<text>dt2_guiders_guide_5</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_guiders_fima">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_guiders_fima_1</text>
+		<action>area_utils.dt2_guiders_open_exit</action>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_guiders_fima_2_1</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_guiders_fima_2_2</text>
+		<give_info>dt2_guiders_fima</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_guiders_fima_3</text>
+		<next>4</next>
+		<next>5</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_guiders_fima_4_1</text>
+		<give_info>dt2_guiders_fima</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_guiders_fima_4_2</text>
+		<give_info>dt2_guiders_fima</give_info>
+		<action>area_utils.dt2_guiders_tp_actor</action>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_take">
+<precondition>area_utils.dt2_bandit_take</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_take_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_take_2</text>
+		<next>2</next>
+		<next>3</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandit_take_3_1</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandit_take_3_2</text>
+		<give_info>dt2_bandit_take</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bandit_take_4</text>
+		<next>5</next>
+		<next>6</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bandit_take_5_1</text>
+		<give_info>dt2_bandit_take</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bandit_take_5_2</text>
+		<give_info>dt2_bandit_take</give_info>
+		<give_info>dt2_bandit_find_stash</give_info>
+		<action>area_utils.dt2_spawn_guide_stash_2</action>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_csky_leader">
+<precondition>area_utils.dt2_csky_leader</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_csky_leader_0</text>
+		<next>10</next>
+	</phrase>
+	<phrase id="10">
+		<text>dt2_csky_leader_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_csky_leader_2</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_csky_leader_3</text>
+		<next>3</next>
+		<next>4</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_csky_leader_4_2</text>
+		<give_info>dt2_csky_leader</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_csky_leader_4_1</text>
+		<next>5</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_csky_leader_5</text>
+		<next>6</next>
+		<next>7</next>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_csky_leader_6_1</text>
+		<give_info>dt2_csky_leader</give_info>
+		<give_info>dt2_csky_leader_quest</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_csky_leader_6_2</text>
+		<give_info>dt2_csky_leader</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_csky_leader_docs">
+<precondition>area_utils.dt2_csky_leader_docs</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_csky_leader_docs_0</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_csky_leader_docs_1</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<action>area_utils.dt2_csky_leader_take_docs</action>
+		<text>dt2_csky_leader_docs_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_csky_leader_docs_3</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_csky_leader_docs_4</text>
+		<give_info>dt2_csky_leader_docs</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandits_robbery">
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandits_robbery_1</text>
+		<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandits_robbery_2</text>
+		<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandits_robbery_3</text>
+		<next>3</next>
+		<next>4</next>
+		<next>5</next>
+		<next>11</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandits_robbery_4_1</text>
+		<action>area_utils.dt2_robbery_take_items</action>
+		<next>6</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bandits_robbery_4_2</text>
+		<next>7</next>
+	</phrase>
+	<phrase id="5">
+		<text>dt2_bandits_robbery_4_3</text>
+		<action>area_utils.make_npc_enemy</action>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="6">
+		<text>dt2_bandits_robbery_5_1</text>
+		<next>8</next>
+	</phrase>
+	<phrase id="7">
+		<text>dt2_bandits_robbery_5_2</text>
+		<next>9</next>
+		<next>10</next>
+	</phrase>
+	<phrase id="8">
+		<text>dt2_bandits_robbery_6_1</text>
+		<give_info>dt2_bandits_robbery</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="9">
+		<text>dt2_bandits_robbery_6_2_1</text>
+		<give_info>dt2_bandits_robbery</give_info>
+		<action>area_utils.dt2_robbery_take_items</action>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="10">
+		<text>dt2_bandits_robbery_6_2_2</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="11">
+		<has_info>dt2_bandit_trader</has_info>
+		<text>dt2_bandits_robbery_7</text>
+		<next>12</next>
+	</phrase>
+	<phrase id="12">
+		<give_info>dt2_bandits_robbery</give_info>
+		<text>dt2_bandits_robbery_8</text>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandits_exit">
+<precondition>area_utils.dt2_bandits_exit</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandits_exit_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandits_exit_2_1</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_bandits_exit_2_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandits_exit_3</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_bandits_exit_4</text>
+		<give_info>dt2_bandits_exit</give_info>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_csky_exit">
+<precondition>area_utils.dt2_csky_exit</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_csky_exit_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_csky_exit_2_1</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="2">
+		<text>dt2_csky_exit_2_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_csky_exit_3</text>
+		<next>4</next>
+	</phrase>
+	<phrase id="4">
+		<text>dt2_csky_exit_4</text>
+		<give_info>dt2_csky_exit</give_info>
+		<action>area_utils.dt2_open_transitions_csky</action>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="dt2_bandit_found_stash">
+<precondition>area_utils.dt2_bandit_found_stash</precondition>
+<phrase_list>
+	<phrase id="0">
+		<text>dt2_bandit_found_stash_1</text>
+		<next>1</next>
+		<next>2</next>
+	</phrase>
+	<phrase id="1">
+		<text>dt2_bandit_found_stash_2_1</text>
+		<action>dialogs.break_dialog</action>
+	</phrase>
+	<phrase id="2">
+		<precondition>area_utils.dt2_bandit_found_stash_1</precondition>
+		<text>dt2_bandit_found_stash_2_2</text>
+		<next>3</next>
+	</phrase>
+	<phrase id="3">
+		<text>dt2_bandit_found_stash_3</text>
+		<give_info>dt2_bandit_found_stash</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+
+</game_dialogs>

@@ -1,0 +1,245 @@
+[wpn_gsh18]:default_weapon_params, strap_pistol
+$spawn                  	= "weapons\gsh18"		; option for Level Editor
+$npc						= on					; option for Level Editor
+visual                  	= dynamics\weapons\wpn_gsh18\wpn_gsh18.ogf
+class                   	= WP_PM
+inv_name					= st_wpn_gsh18
+inv_name_short				= st_wpn_gsh18
+description          		= st_wpn_gsh18_descr
+ef_weapon_type          	= 5
+heating_rates 				= pistol2
+default_to_ruck         	= false
+sprint_allowed          	= true
+control_inertion_factor 	= 1.0
+repair_type 				= pistol
+inv_weight					= 0.58
+inv_volume					= 1.2
+ph_mass						= 1
+cost						= 14680
+upgrades                	= up_gr_firstab_gsh18, up_gr_seconab_gsh18, up_gr_thirdab_gsh18, up_gr_fourtab_gsh18, up_gr_fifthab_gsh18
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_walther
+;--TTX----------------------------------------------------------------------------
+hit_power           		= 0.33, 0.33, 0.33, 0.33
+hit_impulse					= 24
+hit_type					= fire_wound
+fire_distance				= 400
+bullet_speed				= 390
+rpm							= 280
+rpm_empty_click				= 120
+time_to_aim					= 3.0
+hud                     	= wpn_gsh18_hud
+
+misfire_probability        	= 0.005
+misfire_start_condition		= 0.85
+misfire_end_condition		= 0.1
+misfire_start_prob			= 0.007
+misfire_end_prob			= 0.11
+condition_shot_dec      	= 0.0017
+condition_queue_shot_dec	= 0.0017
+
+ammo_elapsed				= 18
+ammo_mag_size				= 18
+fire_modes					= 1
+magazine_sect				= magazine_9x19_cnt_18
+ammo_class					= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+grenade_class				= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+single_handed				= 1
+slot              			= 0
+animation_slot   			= 1
+;--DOF--------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 1.7
+reload_empty_dof			= 0.0, 0.5, 5, 3
+;--Fire-------------------------------------------------------------------------
+fire_dispersion_base		= 0.41
+control_inertion_factor 	= 1.0f
+crosshair_inertion   		= 3.3
+
+cam_return 					= 0
+cam_relax_speed         	= 8	
+cam_relax_speed_ai      	= 360
+cam_dispersion          	= 0.65
+cam_dispersion_inc			= 0.76
+cam_dispersion_frac			= 1.0	
+cam_max_angle				= 50.0
+cam_max_angle_horz			= 50.0
+cam_step_angle_horz			= 0.69
+
+PDM_disp_base 				= 0.75
+PDM_disp_vel_factor 		= 1.35
+PDM_disp_accel_factor 		= 1.355
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width				= 2
+inv_grid_height				= 1
+inv_grid_x					= 61
+inv_grid_y					= 79
+
+upgr_icon_x					= 1300
+upgr_icon_y					= 400
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+
+kill_msg_x					= 168
+kill_msg_y					= 178
+kill_msg_width				= 27
+kill_msg_height				= 23
+;-------------------------------------------------------------------------------
+position                	= -0.021, -0.085, 0.0
+orientation             	= 0, 0, 0
+fire_point					= 0.0, 0.133, 0.161
+fire_point2					= 0.0, 0.133, 0.161
+flame_particles				= weapons\new_effects\pistol_9x18
+smoke_particles         	= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles 	= weapons\generic_weapon01
+shell_point		 			= 0.0, 0.133, 0.047
+shell_dir		 			= 0.0, 0.0, 0.4
+shell_particles	 			= weapons\9x19
+shell_3d_sect				= shell_9
+
+light_disabled				= false
+light_color					= 0.6,0.5,0.3
+light_range					= 3.0
+light_var_color		 		= 0.05
+light_var_range		 		= 0.5
+light_time					= 0.2
+
+;addons
+scope_status				= 0							; 0 - no addon
+silencer_status				= 0							; 1 - permanent
+grenade_launcher_status		= 0							; 2 - attachable
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor			= 1.03
+
+scope_name					= wpn_addon_scope
+scope_x						= 47
+scope_y						= 0
+
+grenade_launcher_name		= wpn_addon_grenade_launcher
+grenade_launcher_x			= 126
+grenade_launcher_y			= 24
+
+;silencer_name				= wpn_addon_silencer
+;silencer_x					= 63
+;silencer_y					= -10
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time 		= 0.2
+silencer_smoke_particles 	= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster				    = weapons\gsh18\gsh18_holster
+snd_draw				    = weapons\gsh18\gsh18_draw
+snd_empty				    = weapons\gsh18\gsh18_empty
+snd_reload				    = weapons\gsh18\gsh18_reload
+snd_reload_empty            = weapons\gsh18\gsh18_reload_empty
+snd_reload_misfire			= weapons\hpsa\hpsa_reload_empty,1,0,2.0
+snd_reload_detached			= weapons\gsh18\gsh18_reload,1,0,1.1
+snd_reload_detached_empty	= weapons\gsh18\gsh18_reload_empty,1,0,1.1
+snd_close				    = weapons\gsh18\gsh18_close
+snd_shoot				    = weapons\gsh18\gsh18_shoot_null
+snd_silencer_shot			= weapons\gsh18\gsh18_shot_sil
+;-------------------------------------------------------------------------------
+[wpn_gsh18_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_gsh18\wpn_gsh18_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0.005555,-0.003535,-0.1515
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone					= muzzle
+
+item_position				= 0.000746,-0.000321,0.003479
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+hands_position				= -0.102355,-0.1298,-0.08442
+hands_position_16x9			= -0.102355,-0.1298,-0.08442
+hands_orientation			= -0.5,1.0,1.15
+hands_orientation_16x9		= -0.5,1.0,1.15
+
+aim_hud_offset_pos			= -0.029005,0.01874,0.00042
+aim_hud_offset_pos_16x9		= -0.029005,0.01874,0.00042
+aim_hud_offset_rot			= 0.021939,0.012926,-0.015
+aim_hud_offset_rot_16x9		= 0.021939,0.012926,-0.015
+
+anm_show					= p99_draw
+anm_show_empty				= p99_draw, opened
+anm_hide					= lancew_cz75_holster
+anm_hide_empty				= lancew_cz75_holster, opened
+anm_idle					= p99_idle
+anm_idle_empty				= p99_idle, opened
+anm_shots					= p99_shoot, shoot
+anm_shots_empty				= p99_shoot, shoot_last
+anm_shot_l					= p99_shoot, shoot_last
+anm_idle_aim				= p99_idle_aim
+anm_idle_aim_empty			= p99_idle_aim, opened
+anm_reload					= p99_reload, reload
+anm_reload_empty			= p99_reload_empty, reload_empty
+anm_reload_misfire			= hpsa_reload_empty, reload_empty, , 2.0
+anm_reload_detached			= p99_reload, reload, , 1.1
+anm_reload_detached_empty	= p99_reload_empty, reload_empty, , 1.1
+anm_idle_moving				= p99_idle_moving
+anm_idle_moving_empty		= p99_idle_moving, opened
+anm_idle_moving_crouch		= p99_idle_crouch
+anm_idle_moving_crouch_empty = p99_idle_crouch, opened
+anm_idle_sprint				= cz75a_idle_sprint
+anm_idle_sprint_empty		= cz75a_idle_sprint, opened
+anm_bore					= pm_idle_bore2
+anm_bore_empty				= pm_idle_bore2, opened
+
+;-----------------------------------------------------------------------------
+[wpn_gsh18_custom]:wpn_gsh18
+visual						= dynamics\weapons\wpn_gsh18\wpn_gsh18_sk1.ogf
+inv_name					= st_wpn_gsh18_custom
+inv_name_short				= st_wpn_gsh18_custom
+installed_upgrades      	= up_firsta_gsh18
+cost						= 11580
+hit_power           		= 0.34, 0.34, 0.34, 0.34
+bullet_speed				= 395
+rpm                     	= 305
+hud                      	= wpn_gsh18_sk1_hud
+misfire_start_condition		= 0.83
+misfire_end_condition		= 0.09
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.00182
+condition_queue_shot_dec	= 0.00182
+fire_dispersion_base		= 0.38
+inv_grid_x					= 63
+upgr_icon_x					= 1150
+upgr_icon_y					= 500
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+
+[wpn_gsh18_sk1_hud]:wpn_gsh18_hud
+item_visual					= dynamics\weapons\wpn_gsh18\wpn_gsh18_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_gsh18_worn]:wpn_gsh18
+visual						= dynamics\weapons\wpn_gsh18\wpn_gsh18_sk2.ogf
+inv_name					= st_wpn_gsh18_worn
+inv_name_short				= st_wpn_gsh18_worn
+upgrades                	= up_gr_firstab_gsh18_worn, up_gr_seconab_gsh18_worn, up_gr_thirdab_gsh18_worn, up_gr_fourtab_gsh18_worn, up_gr_fifthab_gsh18_worn
+cost						= 5980
+hit_power           		= 0.28, 0.28, 0.28, 0.28
+bullet_speed				= 360
+rpm                     	= 250
+hud                      	= wpn_gsh18_sk2_hud
+misfire_start_condition		= 0.89
+misfire_end_condition		= 0.13
+condition_shot_dec      	= 0.0018
+condition_queue_shot_dec	= 0.0018
+fire_dispersion_base		= 0.45
+inv_grid_x					= 65
+upgr_icon_x					= 1450
+upgr_icon_y					= 400
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+
+[wpn_gsh18_sk2_hud]:wpn_gsh18_hud
+item_visual					= dynamics\weapons\wpn_gsh18\wpn_gsh18_sk2_hud.ogf
+;-----------------------------------------------------------------------------

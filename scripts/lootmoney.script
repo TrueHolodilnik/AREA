@@ -1,0 +1,80 @@
+--Modified by Surs for A.R.E.A.
+
+function lootmoney(npc)
+	if not (npc) then return end
+	local money = npc:money()
+	local actor = db.actor
+	local pda = actor:item_in_slot(8)
+	local check = pda and pda:get_item_battery_dead() == false or false
+	if check == false then return end
+	if money and (money > 0) and (money < 10000) then
+		local deadmoney = money
+		local npc_rank = ranks.get_obj_rank_name(npc)
+		if npc_rank then
+			if npc_rank == "legend" and deadmoney >=800
+				then deadmoney=math.random(600,2000)
+			elseif npc_rank == "master" and deadmoney >=750
+				then deadmoney=math.random(500,1500)
+			elseif npc_rank == "expert" and deadmoney >=700
+				then deadmoney=math.random(500,1000)
+			elseif npc_rank == "veteran" and deadmoney >=650
+				then deadmoney=math.random(400,800)
+			elseif npc_rank == "professional" and deadmoney >=600
+				then deadmoney=math.random(400,600)
+			elseif npc_rank == "experienced" and deadmoney >=550
+				then deadmoney=math.random(200,400)
+			elseif npc_rank == "trainee" and deadmoney >=500
+				then deadmoney=math.random(50,300)
+			elseif npc_rank == "novice" and deadmoney >=300
+				then deadmoney=math.random(25,200)
+			end
+		end
+		if actor:has_info("hacking_soft_installed") then
+			local news_caption = game.translate_string("st_identification")..npc:character_name()
+			local hack = game.translate_string("st_hack")
+			local currency = game.translate_string("st_currency")
+			local news_text = hack.."%c[255,255,0,0]".." "..game.translate_string(deadmoney).."%c[default]".." "..currency.."."
+				actor:give_game_news(news_caption, news_text, "ui_iconsTotal_found_money", 0, 10000)
+				actor:give_money(deadmoney)
+				-- game_stats.money_quest_update(deadmoney) 
+				npc:give_money(-money)
+				-- game_stats.money_quest_update(-money)
+			if (math.random(1,100) >= 90) then
+				coc_treasure_manager.create_random_stash(nil,npc:character_name()..game.translate_string("st_his_stash"))
+			end
+		end
+		area_skills.raise_skill("marauder_skill",0.2)
+	end
+end
+
+function lootmoney_effect(npc,corpse)
+	if not (npc and corpse) then return end
+	local money=corpse:money()
+	if money and (money > 0) and (money < 10000) then
+		local deadmoney = money
+		local gi_rank = ranks.get_obj_rank_name(corpse)
+		if gi_rank then
+			if gi_rank == "legend" and deadmoney >=500
+				then deadmoney=math.random(600,1000)
+			elseif gi_rank == "master" and deadmoney >=450
+				then deadmoney=math.random(500,900)
+			elseif gi_rank == "expert" and deadmoney >=400
+				then deadmoney=math.random(500,800)
+			elseif gi_rank == "veteran" and deadmoney >=350
+				then deadmoney=math.random(400,700)
+			elseif gi_rank == "professional" and deadmoney >=300
+				then deadmoney=math.random(400,600)
+			elseif gi_rank == "experienced" and deadmoney >=250
+				then deadmoney=math.random(200,500)
+			elseif gi_rank == "trainee" and deadmoney >=200
+				then deadmoney=math.random(50,400)
+			elseif gi_rank == "novice" and deadmoney >=100
+				then deadmoney=math.random(25,400)
+			end
+		end
+		npc:give_money(deadmoney) 
+		-- game_stats.money_quest_update(deadmoney) 
+		corpse:give_money(-money) 
+		-- game_stats.money_quest_update(-money) 
+	end
+end

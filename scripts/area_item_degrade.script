@@ -1,0 +1,110 @@
+--//Developed by Nuor
+local ini = system_ini()
+local bad_condition = 0.1
+local FoodPoison = 0.1
+local _debug = false
+
+function on_game_start()
+	--RegisterScriptCallback("actor_on_item_take",actor_on_item_take)
+	--RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+	--RegisterScriptCallback("actor_on_item_drop",on_item_drop)
+	--RegisterScriptCallback("actor_menu_mode_changed", menu_mode_change)
+end
+
+function BadItem(item)
+	if not item then return end
+    local degrade_time = ini:r_float_ex(item:section(),"item_degrade")
+    if not (degrade_time) then return end
+    local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()))
+    if not (m_data and m_data.EatTime) then return end
+	if m_data.EatTime == -1 then
+		return true
+	else
+		local diff = game.get_game_time():diffSec(m_data.EatTime)
+		if diff and (diff > degrade_time*3600) then
+			m_data.EatTime = -1
+			item:set_condition(bad_condition)
+			return true
+		else
+			return
+		end
+	end
+	
+	return
+end
+
+function on_item_drop(item)
+	if _debug then printf("area_item_degrade.on_item_drop") end
+	local se_obj = alife_object(item:id())
+	if se_obj and BadItem(item) then
+		alife():release(se_obj, true)
+	end
+end
+
+function actor_on_item_take(obj)
+	if not (ini:r_float_ex(obj:section(),"item_degrade")) then return end
+	local m_data = alife_storage_manager.get_se_obj_state(alife_object(obj:id()),true)
+	if m_data and m_data.EatTime == nil then
+		m_data["EatTime"] = game.get_game_time()
+	end
+end
+
+function actor_on_item_use(item)
+	if _debug then printf("area_item_degrade.on_item_use") end
+	if BadItem(item) then
+        local hud = get_hud()
+        if (hud) then
+            hud:HideActorMenu()
+        end
+        local cactor = db.actor:cast_Actor():conditions()
+        cactor:SetToxicity(cactor:GetToxicity() + FoodPoison)
+        SetHudMsg(game.translate_string("st_item_spoiled_warning"),4)
+    end
+end
+
+function menu_mode_change (mode,last_mode)
+	if (mode ~= 1) or (last_mode == 1) then return end
+	local function cond_check(dummy, item)
+		if not item then return end
+		BadItem(item)
+		local box = bind_container.containers[item:id()]
+		if box and alife_object(box.id) then
+			local inv_box = level.object_by_id(box.id)
+			if inv_box then
+				inv_box:iterate_inventory_box(cond_check,inv_box)
+			end
+		end
+	end
+	if _debug then printf("area_item_degrade.menu_mode_change") end
+	db.actor:iterate_inventory(cond_check, db.actor)
+end
+
+function HintWnd(item,itm2)
+	if not item then return end
+	local txt = ""
+	if _debug then printf("area_item_degrade.HintWnd") end
+	if BadItem(item) then
+		--local ui = ui_actor_hint_wnd_ext.get_ui(item,itm2)
+		txt = game.translate_string("st_item_spoiled")
+	else
+		local degrade_time = ini:r_float_ex(item:section(),"item_degrade")
+		if not (degrade_time) then return end
+		local m_data = alife_storage_manager.get_se_obj_state(alife_object(item:id()))
+		if not (m_data and m_data.EatTime) then return end
+		local diff = game.get_game_time():diffSec(m_data.EatTime)
+		diff = degrade_time - math.floor(diff/3600)
+		local corr = utils.round(diff/degrade_time,1)
+		if item:condition() > bad_condition and corr < item:condition() then
+			if corr < bad_condition then
+				corr = bad_condition
+				m_data.EatTime = -1
+			end
+			item:set_condition(corr)
+		end
+		local days,hours = math.floor(diff/24), math.mod(diff,24)
+		if (hours > 0 or days > 0) then
+			txt = strformat(game.translate_string("st_item_spoiled_time_display"),days,hours) or game.translate_string("st_item_spoiled_within_hour")
+		end
+	end
+	return txt
+end

@@ -1,0 +1,600 @@
+;----------------------------------------------------------------------------------------
+; Steyr AUG A1, reworked by Surs for A.R.E.A. (18.03.2019)
+;----------------------------------------------------------------------------------------
+[wpn_aug]:default_weapon_params
+visual								= dynamics\weapons\wpn_aug_a1\wpn_aug_a1.ogf
+$spawn								= "weapons\aug"			; option for Level Editor
+$npc								= on					; option for Level Editor
+class								= WP_AK74
+inv_name							= st_wpn_aug
+inv_name_short						= st_wpn_aug
+description							= st_wpn_aug_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 7
+heating_rates						= nato2
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_5.56
+weapon_class						= assault_rifle
+inv_weight							= 3.3
+inv_volume							= 4
+ph_mass								= 4
+cost								= 40680
+upgrades							= up_gr_firstab_aug, up_gr_seconab_aug, up_gr_thirdab_aug, up_gr_fourtab_aug, up_gr_fourtcd_aug, up_gr_fourtef_aug, up_gr_fifthab_aug, up_gr_fifthcd_aug
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_l85
+;--TTX--------------------------------------------------------------------------
+hit_power							= 0.59, 0.59, 0.59, 0.59
+silencer_hit_power					= 0.58
+hit_impulse							= 25
+hit_type							= fire_wound
+fire_distance						= 600
+bullet_speed						= 980
+rpm									= 680
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_aug_hud
+
+misfire_probability					= 0.05
+misfire_start_condition				= 0.7
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0008
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= -1, 1
+magazine_sect						= mag_556_cnt_30_2_aug, mag_556_cnt_30_aug, mag_556_cnt_30_g36_aug, mag_556_cnt_35_ace_aug, mag_556_cnt_60_aug
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;--дисперсия----------------------------------------------------------------------------
+;базовая дисперсия
+fire_dispersion_base				= 0.3					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.17f
+crosshair_inertion					= 5.6
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 5						;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.9					;увеличения угла (в градусах) с первым выстрелом
+cam_dispersion_inc					= 0.5					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					;максимальный угол отдачи
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 2.0					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.5
+PDM_disp_vel_factor					= 1.58
+PDM_disp_accel_factor				= 1.58
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 5						; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.5
+zoom_cam_dispersion_inc				= 0.3
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.8
+fire_dispersion_condition_factor	= 0.001					;увеличение дисперсии в процентах при максимальном износе
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 3
+;-------------------------------------------------------------------------------
+holder_range_modifier				= 1.85					; во сколько раз увеличивается eye_range
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 20
+inv_grid_y							= 40
+
+upgr_icon_x							= 300
+upgr_icon_y							= 500
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 84
+kill_msg_y							= 28
+kill_msg_width						= 73
+kill_msg_height						= 30
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.32, 0.20, 0.30
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.32, -0.20, 0.30
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.135, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.186, 0.450
+fire_point2							= 0.0, 0.106, 0.468
+flame_particles						= weapons\new_effects\a1_type_ar15
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= -0.02,0.167,-0.170
+shell_dir							= 0,0,0.4
+shell_particles						= weapons\556x45
+;-------------------------------------------------------------------------------
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 1
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 2.5
+scope_zoom_hud_fov					= 0.6
+scope_lense_factor					= 2.5
+scope_texture						= wpn_crosshair_aug
+
+scope_name							= wpn_addon_scope_susat
+scope_x								= 60
+scope_y								= -2
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 178
+grenade_launcher_y					= 26
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 224
+silencer_y							= 16
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\aug\aug_holster
+snd_draw							= weapons\aug\aug_draw
+snd_empty							= weapons\aug\aug_empty
+snd_reload							= weapons\aug\aug_reload
+snd_reload_misfire					= weapons\aug\aug_reload_empty,1,0,2.9
+snd_reload_detached					= weapons\aug\aug_reload,1,0,1.2
+snd_reload_detached_empty			= weapons\aug\aug_reload_empty,1,0,1.2
+snd_shoot							= weapons\aug\aug_shoot_null
+snd_silencer_shot					= weapons\aug\aug_shot_sil_null
+snd_bore							= $no_sound
+;--Њагазины-------------------------------------------------------------------
+[mag_556_cnt_30_2_aug]
+magazine_name						= magazine_556_cnt_30_2
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 3,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_aug]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 3,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_g36_aug]
+magazine_name						= magazine_556_cnt_30_g36
+magazine_x							= 43
+magazine_y							= 50
+custom_icon 						= 2,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_35_ace_aug]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 3,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_60_aug]
+magazine_name						= magazine_556_cnt_60
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 4,6,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_aug_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_aug_a1\wpn_aug_a1_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.02976,0.04048,-0.244789
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= -0.00197,0.053137,0.487153
+fire_bone							= wpn_body
+fire_point2							= 0,-0.017,0.692
+fire_bone2							= wpn_body
+
+hands_position						= -0.08353,-0.133387,0.093844
+hands_position_16x9					= -0.08353,-0.133387,0.093844
+hands_orientation					= 0.519999,2.409999,0.149999
+hands_orientation_16x9				= 0.519999,2.409999,0.149999
+
+aim_hud_offset_pos					= -0.070684,0.004035,-0.23817
+aim_hud_offset_pos_16x9				= -0.070684,0.004035,-0.23817
+aim_hud_offset_rot					= 0.0356,0.0121,0.01
+aim_hud_offset_rot_16x9				= 0.0356,0.0121,0.01
+
+aim_hud_offset_pos_alt				= -0.00105,-0.01785,0.02814
+aim_hud_offset_pos_alt_16x9			= -0.00105,-0.01785,0.02814
+aim_hud_offset_rot_alt				= -0.000147,0,0
+aim_hud_offset_rot_alt_16x9			= -0.000147,0,0
+
+anm_show							= aug_a1_draw
+anm_hide							= aug_a1_holster
+anm_idle							= aug_a1_idle
+anm_idle_sprint						= aug_a1_idle_sprint
+anm_idle_moving						= aug_a1_idle_moving
+anm_idle_moving_crouch				= aug_a1_idle_crouch
+anm_shots							= aug_a1_shoot, shoot
+anm_shots_empty						= aug_a1_idle
+anm_shots_when_aim              	= aug_a1_shoot_scope, shoot
+anm_reload							= aug_a1_reload, reload
+anm_reload_empty					= aug_a1_reload_empty, reload_empty
+anm_reload_misfire					= aug_a1_reload_empty, reload_empty
+anm_reload_detached					= aug_a1_reload, reload, , 1.2
+anm_reload_detached_empty			= aug_a1_reload_empty, reload_empty, , 1.2
+anm_idle_aim						= aug_a1_idle_aim
+anm_bore							= aug_a1_idle_aim
+;-----------------------------------------------------------------------------
+[wpn_aug_custom]:wpn_aug
+visual								= dynamics\weapons\wpn_aug_a1\wpn_aug_a1_sk1.ogf
+inv_name							= st_wpn_aug_modern
+inv_name_short						= st_wpn_aug_modern
+description							= st_wpn_aug_modern_descr
+cost								= 45000
+repair_type							= rifle_7
+hit_power							= 0.63, 0.63, 0.63, 0.63
+silencer_hit_power					= 0.62
+hud									= wpn_aug_sk1_hud
+misfire_start_condition				= 0.67
+misfire_end_condition				= 0.09
+misfire_start_prob					= 0.003
+misfire_end_prob					= 0.02
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0008
+fire_dispersion_base				= 0.28
+inv_grid_x							= 30
+inv_grid_y							= 38
+repair_type							= rifle_7.62
+
+[wpn_aug_sk1_hud]:wpn_aug_hud
+item_visual							= dynamics\weapons\wpn_aug_a1\wpn_aug_a1_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_aug_worn]:wpn_aug
+visual								= dynamics\weapons\wpn_aug_a1\wpn_aug_a1_sk2.ogf
+inv_name							= st_wpn_aug_worn
+inv_name_short						= st_wpn_aug_worn
+upgrades							= up_gr_firstab_aug_worn, up_gr_seconab_aug_worn, up_gr_thirdab_aug_worn, up_gr_fourtab_aug_worn, up_gr_fourtcd_aug_worn, up_gr_fourtef_aug_worn, up_gr_fifthab_aug_worn, up_gr_fifthcd_aug_worn
+cost								= 30880
+hit_power							= 0.55, 0.55, 0.55, 0.55
+silencer_hit_power					= 0.54
+bullet_speed						= 955 ;начальная скорость пули
+rpm									= 660
+hud									= wpn_aug_sk2_hud
+misfire_start_condition				= 0.85
+misfire_end_condition				= 0.13
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0009
+condition_queue_shot_dec			= 0.0009
+fire_dispersion_base				= 0.36
+inv_grid_x							= 35
+inv_grid_y							= 38
+
+[wpn_aug_sk2_hud]:wpn_aug_hud
+item_visual							= dynamics\weapons\wpn_aug_a1\wpn_aug_a1_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+; Steyr AUG A3 from STCoP 3.1, reworked by Surs for A.R.E.A. (18.03.2019)
+;-----------------------------------------------------------------------------
+[wpn_aug_a3]:wpn_aug
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3.ogf
+$spawn								= "weapons\aug_a3"
+inv_name							= st_wpn_aug_a3
+inv_name_short						= st_wpn_aug_a3
+description							= st_wpn_aug_a3_descr
+scopes								= ac10632, ac11090, acog, eot, c-more
+parent_section						= wpn_aug_a3
+weapon_class						= assault_rifle
+inv_weight							= 3.90
+inv_volume							= 4
+ph_mass								= 4
+cost								= 52000
+hud									= wpn_aug_a3_hud
+magazine_sect						= mag_556_cnt_30_2_auga3, mag_556_cnt_30_auga3, mag_556_cnt_30_g36_auga3, mag_556_cnt_35_ace_auga3, mag_556_cnt_60_auga3
+
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 20
+inv_grid_y							= 66
+
+upgr_icon_x							= 2650
+upgr_icon_y							= 1200
+upgr_icon_width						= 250
+upgr_icon_height 					= 100
+;-----------------------------------------------------------------------------
+upgrades                			= up_gr_firstab_sig550, up_gr_seconab_sig550, up_gr_thirdab_sig550, up_gr_fourtab_sig550, up_gr_fifthab_sig550
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_sig550
+;-----------------------------------------------------------------------------
+hit_power							= 0.60
+hit_impulse							= 30
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 930
+rpm									= 680
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob	 				= 0.006
+misfire_end_prob	 				= 0.077
+condition_shot_dec					= 0.000125
+condition_queue_shot_dec			= 0.0002
+
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0, 0.5, 5, 2
+
+fire_dispersion_base				= 0.22
+fire_dispersion_condition_factor	= 2
+control_inertion_factor				= 1.25f
+crosshair_inertion					= 6.45
+
+cam_return							= 0
+cam_relax_speed						= 5
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.6
+cam_dispersion_inc					= 0.3
+cam_dispersion_frac					= 1.0
+cam_max_angle						= 50.0
+cam_max_angle_horz					= 50.0
+cam_step_angle_horz					= 2.0
+
+zoom_cam_relax_speed				= 5
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.4
+zoom_cam_dispersion_inc				= 0.2
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.8
+
+PDM_disp_base 						= 0.5
+PDM_disp_vel_factor 				= 1.5
+PDM_disp_accel_factor 				= 1.5
+PDM_disp_crouch	 					= 1.0
+PDM_disp_crouch_no_acc 				= 0.8
+
+slot								= 2
+animation_slot						= 2
+
+position							= -0.026, -0.135, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0, 0.190, 0.430
+fire_point2							= 0, 0.106, 0.468
+shell_particles						= weapons\556x45
+
+light_disabled						= false
+light_color							= 0.6, 0.5, 0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 2
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 146
+grenade_launcher_y					= 26
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 212
+silencer_y							= 14
+silencer_hit_power					= 0.32
+silencer_hit_impulse				= 20
+silencer_fire_distance				= 1000
+silencer_bullet_speed				= 930
+silencer_light_color				= 0.6, 0.5, 0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= amik\weapons\smoke_particles\silencer_smoke_particles_00
+
+;A.R.E.A. Sounds Remake
+snd_draw							= weapons\aug\aug_a3_draw
+snd_reload							= weapons\aug\aug_a3_reload_empty
+snd_reload_empty					= weapons\aug\aug_a3_reload_empty
+snd_reload_misfire					= weapons\aug\aug_a3_reload_empty,1,0,2.5
+snd_reload_detached					= weapons\aug\aug_a3_reload_empty,1,0,1.4
+snd_reload_detached_empty			= weapons\aug\aug_a3_reload_empty,1,0,1.4
+snd_shoot_grenade					= weapons\lr300\lr300_grenshoot
+snd_reload_grenade					= weapons\lr300\lr300_grenreload
+snd_switch							= weapons\lr300\lr300_switch
+;--Њагазины-------------------------------------------------------------------
+[mag_556_cnt_30_2_auga3]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 48
+magazine_y							= 46
+custom_icon 						= 3,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_auga3]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 3,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_g36_auga3]
+magazine_name						= magazine_556_cnt_30_g36
+magazine_x							= 43
+magazine_y							= 50
+custom_icon 						= 2,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_35_ace_auga3]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 3,7,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_60_auga3]
+magazine_name						= magazine_556_cnt_60
+magazine_x							= 43
+magazine_y							= 53
+custom_icon 						= 4,6,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.02,0.006015,-0.202264
+shell_dir							= 0, 1, 0
+shell_bone							= wpn_body
+fire_point							= 0,-0.0024,0.469
+fire_bone							= wpn_body
+fire_point2							= 0,-0.054,0.488
+fire_bone2							= wpn_body
+
+hands_position						= -0.0072,-0.093065,0.047501
+hands_position_16x9					= -0.0072,-0.093065,0.047501
+hands_orientation					= 1.6,2.85,-1.05
+hands_orientation_16x9				= 1.6,2.85,-1.05
+
+aim_hud_offset_pos					= -0.057411,0.012745,-0.069481
+aim_hud_offset_pos_16x9				= -0.057411,0.012745,-0.069481
+aim_hud_offset_rot					= 0.049368,0.028305,-0.00876
+aim_hud_offset_rot_16x9				= 0.049368,0.028305,-0.00876
+
+gl_hud_offset_pos					= -0.1332,-0.084,0.1
+gl_hud_offset_rot					= -0.1335,0.0261,0.003
+gl_hud_offset_pos_16x9				= -0.1332,-0.084,0.1
+gl_hud_offset_rot_16x9				= -0.1335,0.0261,0.003
+
+anm_show							= aug_draw
+anm_hide							= aug_holster
+anm_idle							= aug_idle
+anm_idle_sprint						= aug_idle_sprint
+anm_idle_moving						= aug_idle_move
+anm_idle_moving_crouch				= aug_idle_move, , 0.5
+anm_shots							= aug_shoot
+anm_shots_empty						= aug_idle
+anm_reload							= aug_reload
+anm_reload_empty					= aug_reload
+anm_reload_misfire					= aug_reload, , ,3.0
+anm_reload_detached					= aug_reload, , ,1.9
+anm_reload_detached_empty			= aug_reload, , ,1.9
+anm_idle_aim						= aug_idle_aim
+anm_bore							= aug_idle_bore
+anm_switch							= aug_switch_off
+anm_switch_g						= aug_switch_on
+anm_hide_w_gl						= aug_holster_w_gl, idle_w_gl
+anm_show_w_gl						= aug_draw_w_gl
+anm_idle_w_gl						= aug_idle_w_gl, idle_w_gl
+anm_shots_w_gl						= aug_shoot_w_gl
+anm_shots_w_gl_empty				= aug_idle_w_gl
+anm_reload_w_gl						= aug_reload_w_gl
+anm_reload_empty_w_gl				= aug_reload_w_gl
+anm_reload_detached_w_gl			= aug_reload_w_gl, , ,3.0
+anm_reload_detached_empty_w_gl		= aug_reload_w_gl, , ,1.9
+anm_reload_misfire_w_gl				= aug_reload_w_gl, , ,1.9
+anm_idle_w_gl_aim					= aug_idle_aim_w_gl, idle_w_gl
+anm_idle_sprint_w_gl				= aug_idle_sprint_w_gl, idle_w_gl
+anm_idle_moving_w_gl				= aug_idle_move_w_gl, idle_w_gl
+anm_idle_moving_crouch_w_gl			= aug_idle_move_w_gl, idle_w_gl, , 0.5
+anm_bore_w_gl						= aug_idle_bore_w_gl, idle_w_gl
+anm_show_g							= aug_draw_grenade
+anm_hide_g							= aug_holster_grenade, idle_grenade
+anm_idle_g							= aug_idle_grenade, idle_grenade
+anm_reload_g						= aug_reload_grenade
+anm_idle_g_aim						= aug_idle_aim_grenade, idle_grenade
+anm_shots_g							= aug_shoot_grenade
+anm_idle_sprint_g					= aug_idle_sprint_grenade, idle_grenade
+anm_idle_moving_g					= aug_idle_move_grenade, idle_grenade
+anm_idle_moving_crouch_g			= aug_idle_move_grenade, idle_grenade, , 0.5
+anm_bore_g							= aug_idle_bore_grenade, idle_grenade
+
+;-----------------------------------------------------------------------------
+; Aддоны
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_ac10632]:wpn_aug_a3
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 100
+scope_y								= -10
+hud									= wpn_aug_a3_ac10632_hud
+
+[wpn_aug_a3_ac10632_hud]:wpn_aug_a3_hud
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.1385,0.023,-0.2
+aim_hud_offset_rot					= 0.0185,0.035,0
+aim_hud_offset_pos_16x9				= -0.1385,0.023,-0.2
+aim_hud_offset_rot_16x9				= 0.0185,0.035,0
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_ac11090]:wpn_aug_a3
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 101
+scope_y								= -10
+hud									= wpn_aug_a3_ac11090_hud
+
+[wpn_aug_a3_ac11090_hud]:wpn_aug_a3_hud
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.1357,0.0416,-0.17
+aim_hud_offset_rot					= 0.06,0.03,0
+aim_hud_offset_pos_16x9				= -0.1357,0.0416,-0.17
+aim_hud_offset_rot_16x9				= 0.06,0.03,0
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_acog]:wpn_aug_a3
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_acog.ogf
+scope_name							= acog
+scope_x								= 98
+scope_y								= -10
+hud									= wpn_aug_a3_acog_hud
+
+[wpn_aug_a3_acog_hud]:wpn_aug_a3_ac11090_hud
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_acog_hud.ogf
+aim_hud_offset_pos					= -0.057475,0.014875,-0.196038
+aim_hud_offset_pos_16x9				= -0.057475,0.014875,-0.196038
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_eot]:wpn_aug_a3
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_eot.ogf
+scope_name							= eot
+scope_x								= 98
+scope_y								= -10
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos						= 0, 0.070, 0.257
+scope_dot_scale						= 3.0
+hud									= wpn_ak12_eot_hud
+hud									= wpn_aug_a3_eot_hud
+
+[wpn_aug_a3_eot_hud]:wpn_aug_a3_hud
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_eot_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_aug_a3_c-more]:wpn_aug_a3
+visual								= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_c-more.ogf
+scope_name							= c-more
+scope_x								= 102
+scope_y								= -10
+hud									= wpn_aug_a3_c-more_hud
+
+[wpn_aug_a3_c-more_hud]:wpn_aug_a3_hud
+item_visual							= dynamics\weapons\wpn_aug_a3\wpn_aug_a3_c-more_hud.ogf
+aim_hud_offset_pos					= -0.1364,0.0258,-0.15
+aim_hud_offset_rot					= 0.0225,0.03,0
+aim_hud_offset_pos_16x9				= -0.1364,0.0258,-0.15
+aim_hud_offset_rot_16x9				= 0.0225,0.03,0
+;-----------------------------------------------------------------------------

@@ -1,0 +1,210 @@
+local wide = false
+local end_wait_time = 0
+local wait_control
+
+is_wait_active = false
+
+function on_game_start()
+	axr_keybind.bind("kCUSTOM9", ui_wait_dialog.on_key_press)
+end
+
+function on_key_press()
+	if is_wait_active then return end
+	wait_control = ui_wait_dialog.wait_dialog()
+	wait_control.time_track:SetCurrentValue()
+	wait_control:TestAndShow()
+	
+end
+
+function wait_callback_end()
+
+	
+	
+	local time = tonumber(game.get_game_time():diffSec(level.get_start_time()))
+	
+	--printf("wait check: %s", time)
+	
+	if math.fmod(time,2) == 0 then
+		wait_control:Initialize()
+	end
+	
+	if end_wait_time > time then
+		return
+	end
+
+	wait_end()
+	
+	UnregisterScriptCallback("actor_on_update",wait_callback_end)
+
+end
+
+function wait_end()
+
+	get_console():execute("time_factor 1")
+
+	xr_effects.enable_ui(db.actor, nil)
+	if (_G.mus_vol > 0) then
+		get_console():execute("snd_volume_music "..tostring(_G.mus_vol))
+		_G.mus_vol = 0 
+	end
+	
+	if (_G.amb_vol > 0) then
+		get_console():execute("snd_volume_eff "..tostring(_G.amb_vol))
+		_G.amb_vol = 0
+	end
+	disable_info("tutorial_sleep")
+	disable_info("actor_is_sleeping")
+	disable_info("sleep_active")
+	
+	is_wait_active = false
+	
+	if (wait_control:IsShown()) then
+		wait_control:HideDialog()
+	end
+	
+	get_console():execute("r2_dof_kernel 2")
+	get_console():execute("r2_dof_far 800")
+	get_console():execute("r2_dof_sky 0")
+
+end
+
+class "wait_dialog" (CUIScriptWnd)
+function wait_dialog:__init() super()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	if(device().width/device().height>(1024/768+0.01)) then
+		wide = true
+	end
+	
+	self:SetAutoDelete(true)
+
+	local xml = CScriptXmlInit()
+	xml:ParseFile("ui_wait_dialog.xml")
+
+	self.back = xml:InitStatic("background", self)
+	self.wait_static = xml:InitStatic("wait_static", self.back)
+	self.wait_static2 = xml:InitStatic("wait_static", self.back)
+	self.static_cover = xml:InitStatic("wait_cover", self.back)
+	self.st_marker = xml:InitStatic("st_marker", self.static_cover)
+
+	self.wait_st_tbl = {}
+	for i = 1, 24 do
+		self.wait_st_tbl[i] = xml:InitStatic("wait_st_"..i, self.back)
+	end
+
+	self.time_track = xml:InitTrackBar("time_track", self.back)
+	self:Register(self.time_track, "time_track")
+
+	self.btn_wait = xml:Init3tButton("btn_wait", self.back)
+	self:Register(self.btn_wait, "btn_wait")
+
+	self.btn_cancel = xml:Init3tButton("btn_cancel", self.back)
+	self:Register(self.btn_cancel, "btn_cancel")
+
+	self:AddCallback("btn_wait", ui_events.BUTTON_CLICKED, self.OnButtonWait, self)
+	self:AddCallback("btn_cancel", ui_events.BUTTON_CLICKED, self.OnButtonCancel, self)
+end
+
+function wait_dialog:Initialize()
+	local cur_hours = level.get_time_hours()
+	for i = 1, 24 do
+		local hours = cur_hours + i
+		if(hours>=24) then
+			hours = hours - 24
+		end
+		self.wait_st_tbl[i]:TextControl():SetText(hours..game.translate_string("st_sleep_hours"))
+	end
+	
+	local cur_minutes = level.get_time_minutes()
+	local delta = math.floor((591/24)*(cur_hours + math.fmod(cur_minutes,60)/60 - 1))
+	local r = Frect():set(delta,413,591,531)
+	self.wait_static:SetTextureRect(r)
+	local width = 591-delta
+	if(wide) then
+		width = width*0.8
+	end
+	self.wait_static:SetWndSize(vector2():set(width, 118))
+
+	r = Frect():set(0,413,delta,531)
+	self.wait_static2:SetTextureRect(r)
+	local width = delta
+	if(wide) then
+		width = width*0.8
+	end
+	self.wait_static2:SetWndSize(vector2():set(width, 118))
+
+	local pos = self.wait_static2:GetWndPos()
+	pos.x = self.wait_static:GetWndPos().x+self.wait_static:GetWidth()
+	self.wait_static2:SetWndPos(pos)
+end
+
+function wait_dialog:__finalize()
+	is_wait_active = false
+end
+
+function wait_dialog:TestAndShow()
+
+	-- Prevent waiting if an emission or psi-storm currently ongoing.
+	if (xr_conditions.surge_started() or psi_storm_manager.is_started()) then
+		SetHudMsg(game.translate_string("st_wait_event"),4)
+		return
+	end	
+	
+	is_wait_active = true
+	
+	get_console():execute("r2_dof_kernel 10")
+	get_console():execute("r2_dof_far 1.5")
+	get_console():execute("r2_dof_sky 10000")
+
+	self:Initialize()
+	self:ShowDialog(true)
+end
+
+function wait_dialog:Update()
+	CUIScriptWnd.Update(self)
+	self:Initialize()
+	if (xr_conditions.surge_started() or psi_storm_manager.is_started()) then
+		SetHudMsg(game.translate_string("st_wait_event"),4)
+		wait_end()
+		return
+	end	
+end
+
+function wait_dialog:OnButtonWait()
+
+	self.btn_wait:Show(false)
+
+	db.actor:give_info_portion("actor_is_sleeping")
+	utils.save_var(db.actor,"heli_enemy_flag",nil)
+	xr_effects.disable_ui(db.actor, nil)
+	level.enable_input()
+	
+	_G.mus_vol = get_console():get_float("snd_volume_music")
+	_G.amb_vol = get_console():get_float("snd_volume_eff")
+
+	get_console():execute("snd_volume_music 0")
+	get_console():execute("snd_volume_eff 0")
+	
+	local hours = wait_control.time_track:GetIValue()
+	db.actor.power = 1
+	
+	if hours ~= 1 then
+		get_console():execute("time_factor " .. tostring(hours*hours*20))
+	else
+		get_console():execute("time_factor 70")
+	end
+	
+	end_wait_time = hours*60*60 + tonumber(game.get_game_time():diffSec(level.get_start_time()))
+	
+	RegisterScriptCallback("actor_on_update",wait_callback_end)
+end
+
+function wait_dialog:OnButtonCancel()
+	if (self:IsShown()) then
+		self:HideDialog()
+	end
+	
+	UnregisterScriptCallback("actor_on_update",wait_callback_end)
+	
+	wait_end()
+
+end

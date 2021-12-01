@@ -1,0 +1,2053 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<game_dialogs>
+    <dialog id="blue_men_start_dialog">
+        <phrase_list>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+            </phrase>
+            <phrase id="9">
+                <text>blue_men_start_dialog_9</text>
+                <next>10</next>
+            </phrase>
+            <phrase id="14">
+                <text>blue_men_start_dialog_14</text>
+                <next>15</next>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="15">
+                <text>blue_men_start_dialog_15</text>
+                <next>16</next>
+            </phrase>
+            <phrase id="8">
+                <text>blue_men_start_dialog_8</text>
+                <next>9</next>
+            </phrase>
+            <phrase id="10">
+                <text>blue_men_start_dialog_10</text>
+                <next>11</next>
+            </phrase>
+            <phrase id="12">
+                <text>blue_men_start_dialog_12</text>
+                <next>13</next>
+            </phrase>
+            <phrase id="11">
+                <text>blue_men_start_dialog_11</text>
+                <next>12</next>
+            </phrase>
+            <phrase id="13">
+                <text>blue_men_start_dialog_13</text>
+                <next>14</next>
+            </phrase>
+            <phrase id="16">
+                <text>blue_men_start_dialog_16</text>
+                <give_info>start_d</give_info>
+            </phrase>
+            <phrase id="3">
+                <text>blue_men_start_dialog_3</text>
+                <has_info>start_d</has_info>
+            </phrase>
+            <phrase id="4">
+                <text>blue_men_start_dialog_4</text>
+                <has_info>start_d</has_info>
+            </phrase>
+            <phrase id="5">
+                <text>blue_men_start_dialog_5</text>
+                <has_info>start_d</has_info>
+            </phrase>
+            <phrase id="6">
+                <text>blue_men_start_dialog_6</text>
+                <has_info>start_d</has_info>
+            </phrase>
+            <phrase id="7">
+                <text>blue_men_start_dialog_7</text>
+                <has_info>start_d</has_info>
+            </phrase>
+            <phrase id="2">
+                <text>blue_men_start_dialog_2</text>
+                <dont_has_info>start_d</dont_has_info>
+                <next>8</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+
+    <dialog id="markov_2_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_markov_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_markov_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>markov_2_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>markov_2_quest_3</text>
+                <action>dialogs_ah.markov_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_markov_2_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_3_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_markov_2_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_markov_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>markov_3_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>markov_3_quest_3</text>
+                <action>dialogs_ah.markov_give_quest3</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_markov_3_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_3_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_markov_3_quest_start</has_info>
+        <dont_has_info>ahi_markov_3_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>markov_3_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>markov_3_quest_end_1</text>
+                <give_info>ahi_markov_3_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_markov_3_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_pirogov_1_quest_start</has_info>
+        <dont_has_info>ahi_pirogov_1_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>pirogov_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>pirogov_1_quest_end_1</text>
+                <give_info>ahi_pirogov_1_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_pirogov_1_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_2_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_pirogov_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_pirogov_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>pirogov_2_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>pirogov_2_quest_3</text>
+                <action>dialogs_ah.pirogov_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_pirogov_2_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_2_quest_end">
+        <has_info>ah_artefact_founded</has_info>
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_pirogov_2_quest_start</has_info>
+        <dont_has_info>ahi_pirogov_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>pirogov_2_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>pirogov_2_quest_end_1</text>
+                <give_info>ahi_pirogov_2_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_pirogov_2_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_3_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <has_info>ahi_pirogov_2_quest_end</has_info>
+        <dont_has_info>ahi_pirogov_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>pirogov_3_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>pirogov_3_quest_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="4">
+                <text>pirogov_3_quest_4</text>
+                <next>5</next>
+            </phrase>
+            <phrase id="5">
+                <text>pirogov_3_quest_5</text>
+                <action>dialogs_ah.pirogov_give_quest3</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_pirogov_3_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_3_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_pirogov_3_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_pirogov_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>pirogov_3_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>pirogov_3_quest_end_1</text>
+                <give_info>ahi_pirogov_3_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_pirogov_3_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_4_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_chernov_3_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_chernov_4_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_4_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_4_quest_1</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text>chernov_4_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>chernov_4_quest_3</text>
+                <action>dialogs_ah.chernov_give_quest4</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_chernov_4_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_4_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_chernov_4_quest_start</has_info>
+        <dont_has_info>ahi_chernov_4_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_4_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_4_quest_end_1</text>
+                <give_info>ahi_chernov_4_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_chernov_4_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_5_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_chernov_4_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_chernov_5_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_5_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_5_quest_1</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text>chernov_5_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>chernov_5_quest_3</text>
+                <action>dialogs_ah.chernov_give_quest5</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_chernov_5_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_5_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_chernov_5_quest_start</has_info>
+        <dont_has_info>ahi_chernov_5_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_5_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_5_quest_end_1</text>
+                <give_info>ahi_chernov_5_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_chernov_5_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <!--Блядь, этот квест должен быть последний в линейке Чернова-->
+    <dialog id="chernov_6_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_chernov_5_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_chernov_6_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_6_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>chernov_6_quest_3</text>
+                <action>dialogs_ah.chernov_give_quest6</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_chernov_6_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_6_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_chernov_6_quest_start</has_info>
+        <dont_has_info>ahi_chernov_6_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>chernov_6_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_6_quest_end_1</text>
+                <give_info>ahi_chernov_6_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_chernov_6_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_juk_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>juk_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>juk_1_quest_3</text>
+                <action>dialogs_ah.juk_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_juk_1_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_juk_1_quest_start</has_info>
+        <dont_has_info>ahi_juk_1_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>juk_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>juk_1_quest_end_1</text>
+                <give_info>ahi_juk_1_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_juk_1_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="vorobushkin_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_vorobushkin_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_1_quest_3</text>
+                <action>dialogs_ah.vorobushkin_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_vorobushkin_1_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="vorobushkin_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_vorobushkin_1_quest_start</has_info>
+        <dont_has_info>ahi_vorobushkin_1_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>vorobushkin_1_quest_end_1</text>
+                <give_info>ahi_vorobushkin_1_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_vorobushkin_1_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="vorobushkin_2_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_vorobushkin_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_vorobushkin_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_2_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_2_quest_3</text>
+                <action>dialogs_ah.vorobushkin_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_vorobushkin_2_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="vorobushkin_2_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_vorobushkin_2_quest_start</has_info>
+        <dont_has_info>ahi_vorobushkin_2_quest_end</dont_has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_2_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>vorobushkin_2_quest_end_1</text>
+                <give_info>ahi_vorobushkin_2_quest_end</give_info>
+                <!---           <disable_info>ahi_quest_inprogress</disable_info> ---->
+                <disable_info>ahi_vorobushkin_2_quest_start</disable_info>
+                <!---			<disable_info>ah_artefact_founded</disable_info>	---->
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="skabinsky_1_quest">
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_skabinsky_1_quest_end</dont_has_info>
+        <dont_has_info>ah_fail_step_3</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>skabinsky_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>skabinsky_1_quest_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>skabinsky_1_quest_2</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="3">
+                <text>skabinsky_1_quest_3</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <!-- 			<phrase id="4">
+                <text>skabinsky_1_quest_4</text>				
+                <action>dialogs_ah.give_expert_detector</action>				
+				<next>5</next>	
+            </phrase>						
+            <phrase id="5">
+                <text>skabinsky_1_quest_5</text>				
+				<next>6</next>
+            </phrase>			 -->
+            <phrase id="6">
+                <text>skabinsky_1_quest_6</text>
+                <action>dialogs_ah.skabinsky_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_skabinsky_1_quest_start</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_redirect_dialog">
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <has_info>ahi_chernov_6_quest_end</has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="1">
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+                <text>vorobushkin_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest_small_revers</action>
+            </phrase>
+            <phrase id="2">
+                <has_info>ahi_goto_scabinsky</has_info>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <text>vorobushkin_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+            </phrase>
+            <phrase id="3">
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+                <text>vorobushkin_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_redirect_dialog">
+        <has_info>ahi_juk_3_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>vorobushkin_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="1">
+                <text>vorobushkin_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest_revers</action>
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+            </phrase>
+            <phrase id="2">
+                <text>vorobushkin_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <has_info>ahi_goto_scabinsky</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_3_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_juk_3_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_juk_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>juk_3_quest_end_1</text>
+                <disable_info>ahi_juk_3_quest_start</disable_info>
+                <give_info>ahi_juk_3_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>juk_3_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_3_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_juk_2_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_juk_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>juk_3_quest_3</text>
+                <action>dialogs_ah.juk_give_quest3</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_juk_3_quest_start</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>juk_3_quest_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_2_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_juk_2_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_juk_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>juk_2_quest_end_1</text>
+                <disable_info>ahi_juk_2_quest_start</disable_info>
+                <give_info>ahi_juk_2_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>juk_2_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="juk_2_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_juk_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_juk_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>juk_2_quest_3</text>
+                <action>dialogs_ah.juk_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_juk_2_quest_start</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>juk_2_quest_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_juk_start_dialog">
+        <phrase_list>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_juk_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="1111">
+                <text />
+            </phrase>
+            <phrase id="2222">
+                <text />
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+            <phrase id="3333">
+                <text />
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_markov_start_dialog">
+        <phrase_list>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_markov_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="3333">
+                <text />
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="2222">
+                <text />
+            </phrase>
+            <phrase id="1111">
+                <text />
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_pirogov_start_dialog">
+        <phrase_list>
+            <phrase id="1111">
+                <text />
+            </phrase>
+            <phrase id="2222">
+                <text />
+            </phrase>
+            <phrase id="3333">
+                <text />
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_pirogov_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_kovalev_start_dialog">
+        <phrase_list>
+            <phrase id="3333">
+                <text>ah_kovalev_start_dialog_3333</text>
+            </phrase>
+            <phrase id="2222">
+                <text>ah_kovalev_start_dialog_2222</text>
+            </phrase>
+            <phrase id="1111">
+                <text>ah_kovalev_start_dialog_1111</text>
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_kovalev_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+                <next>4444</next>
+                <next>5555</next>
+                <next>6666</next>
+            </phrase>
+            <phrase id="6666">
+                <text>ah_kovalev_start_dialog_6666</text>
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="5555">
+                <text>ah_kovalev_start_dialog_5555</text>
+            </phrase>
+            <phrase id="4444">
+                <text>ah_kovalev_start_dialog_4444</text>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_vorobushkin_start_dialog">
+        <phrase_list>
+            <phrase id="1111">
+                <text />
+            </phrase>
+            <phrase id="2222">
+                <text />
+            </phrase>
+            <phrase id="3333">
+                <text />
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_vorobushkin_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="skabinsky_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_skabinsky_1_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_skabinsky_1_quest_end</dont_has_info>
+        <dont_has_info>ah_fail_step_3</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>skabinsky_1_quest_end_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>skabinsky_1_quest_end_2</text>
+                <next>8</next>
+            </phrase>
+            <phrase id="4">
+                <text>skabinsky_1_quest_end_4</text>
+                <next>5</next>
+                <next>6</next>
+            </phrase>
+            <phrase id="5">
+                <text>skabinsky_1_quest_end_5</text>
+                <next>8</next>
+            </phrase>
+            <phrase id="6">
+                <text>skabinsky_1_quest_end_6</text>
+                <action>dialogs.set_enemy</action>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <phrase id="8">
+                <text>skabinsky_1_quest_end_8</text>
+                <action>dialogs_ah.give_ah_gramota</action>
+                <disable_info>ahi_quest_inprogress</disable_info>
+                <disable_info>ahi_skabinsky_1_quest_start</disable_info>
+                <disable_info>ah_artefact_founded</disable_info>
+                <give_info>ahi_skabinsky_1_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>skabinsky_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="3">
+                <text>skabinsky_1_quest_end_3</text>
+                <next>4</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_redirect_dialog">
+        <has_info>ahi_pirogov_3_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>vorobushkin_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest_small_revers</action>
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+            </phrase>
+            <phrase id="2">
+                <text>vorobushkin_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <has_info>ahi_goto_scabinsky</has_info>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+            </phrase>
+            <phrase id="0">
+                <text>vorobushkin_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="pirogov_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_pirogov_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>pirogov_1_quest_1</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="3">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>4</next>
+            </phrase>
+            <phrase id="5">
+                <text>pirogov_1_quest_5</text>
+                <action>dialogs_ah.pirogov_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_pirogov_1_quest_start</give_info>
+            </phrase>
+            <phrase id="2">
+                <text>pirogov_1_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="0">
+                <text>pirogov_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="4">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>5</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="sarik_dialog">
+        <dont_has_info>ahi_meet_actor</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>sarik_dialog_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>sarik_dialog_3</text>
+            </phrase>
+            <phrase id="4">
+                <text>sarik_dialog_4</text>
+            </phrase>
+            <phrase id="2">
+                <text>sarik_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest</action>
+                <next>4</next>
+            </phrase>
+            <phrase id="0">
+                <text>sarik_dialog_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_2_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_markov_2_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_markov_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>markov_2_quest_end_1</text>
+                <disable_info>ahi_markov_2_quest_start</disable_info>
+                <give_info>ahi_markov_2_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>markov_2_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_redirect_dialog">
+        <has_info>ahi_markov_3_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>vorobushkin_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest</action>
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+            </phrase>
+            <phrase id="2">
+                <text>vorobushkin_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <has_info>ahi_goto_scabinsky</has_info>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+            </phrase>
+            <phrase id="0">
+                <text>vorobushkin_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_skabinsky_start_dialog">
+        <phrase_list>
+            <phrase id="1">
+                <text />
+                <give_info>ahi_redirect_skabinsky_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="1111">
+                <text />
+            </phrase>
+            <phrase id="2222">
+                <text />
+            </phrase>
+            <phrase id="3333">
+                <text />
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="0">
+                <text />
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="skabinsky_fail_quest">
+        <has_info>ah_fail_step_3</has_info>
+        <dont_has_info>ahi_fail_skabinsky_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>skabinsky_fail_quest_1</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text>skabinsky_fail_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="0">
+                <text>skabinsky_fail_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="3">
+                <text>skabinsky_fail_quest_3</text>
+                <give_info>ahi_fail_skabinsky_quest_end</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="vorobushkin_redirect_dialog">
+        <has_info>ahi_vorobushkin_2_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>vorobushkin_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest_revers</action>
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+            </phrase>
+            <phrase id="2">
+                <text>vorobushkin_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <has_info>ahi_goto_scabinsky</has_info>
+            </phrase>
+            <phrase id="0">
+                <text>vorobushkin_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>vorobushkin_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="test_dialog">
+        <dont_has_info>start_quest</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>test_dialog_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>test_dialog_2</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <action>dialogs_ah.ah_signal</action>
+                <give_info>ah_fail_step_3</give_info>
+                <give_info>start_quest</give_info>
+            </phrase>
+            <phrase id="4">
+                <text>test_dialog_4</text>
+            </phrase>
+            <phrase id="0">
+                <text>test_dialog_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="3">
+                <text>test_dialog_3</text>
+                <next>4</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="test_dialog_end">
+        <precondition>dialogs_ah.stalker_trader_have_arts</precondition>
+        <has_info>start_quest</has_info>
+        <dont_has_info>quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text />
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text />
+                <action>dialogs_ah.stalker_trader_relocates_arts</action>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text />
+                <action>dialogs_ah.stalker_trader_relocates_money_to_actor</action>
+                <next>4</next>
+            </phrase>
+            <phrase id="0">
+                <text />
+                <give_info>quest_end</give_info>
+                <next>1</next>
+            </phrase>
+            <phrase id="4">
+                <text />
+                <action>dialogs.break_dialog</action>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_3_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_chernov_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_chernov_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="2">
+                <text>chernov_3_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>chernov_3_quest_3</text>
+                <action>dialogs_ah.chernov_give_quest3</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_chernov_3_quest_start</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>chernov_3_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>chernov_3_quest_1</text>
+                <next>2</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_chernov_start_dialog">
+        <phrase_list>
+            <phrase id="3333">
+                <text></text>
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+            <phrase id="2222">
+                <text></text>
+            </phrase>
+            <phrase id="1111">
+                <text></text>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <give_info>ahi_redirect_chernov_quest_end</give_info>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ah_start_dialog">
+        <phrase_list>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <action>dialogs_ah.ah_signal</action>
+                <next>1111</next>
+                <next>2222</next>
+                <next>3333</next>
+            </phrase>
+            <phrase id="1111">
+                <text></text>
+            </phrase>
+            <phrase id="2222">
+                <text></text>
+            </phrase>
+            <phrase id="3333">
+                <text></text>
+                <precondition>dialogs_ah.check_community_actor</precondition>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="meet_ah">
+        <dont_has_info>ahi_meet_actor</dont_has_info>
+        <phrase_list>
+            <phrase id="7">
+                <text>meet_ah_7</text>
+                <next>8</next>
+                <next>9</next>
+            </phrase>
+            <phrase id="3">
+                <text>meet_ah_3</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <phrase id="8">
+                <text>meet_ah_8</text>
+                <next>12</next>
+            </phrase>
+            <phrase id="9">
+                <text>meet_ah_9</text>
+                <next>10</next>
+            </phrase>
+            <phrase id="1">
+                <text>meet_ah_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="5">
+                <text>meet_ah_5</text>
+                <next>7</next>
+            </phrase>
+            <phrase id="4">
+                <text>meet_ah_4</text>
+                <give_info>ahi_meet_actor</give_info>
+                <next>5</next>
+            </phrase>
+            <phrase id="2">
+                <text>meet_ah_2</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="12">
+                <text>meet_ah_12</text>
+            </phrase>
+            <phrase id="0">
+                <text>meet_ah_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="11">
+                <text>meet_ah_11</text>
+                <action>dialogs.break_dialog</action>
+                <give_info>not_have_detector</give_info>
+            </phrase>
+            <phrase id="10">
+                <text>meet_ah_10</text>
+                <next>11</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_chernov_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>chernov_1_quest_1</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text>chernov_1_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>4</next>
+            </phrase>
+            <phrase id="5">
+                <text>chernov_1_quest_5</text>
+                <action>dialogs_ah.chernov_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_chernov_1_quest_start</give_info>
+            </phrase>
+            <phrase id="4">
+                <script_text>dialogs_ah.create_story_line_answer_phrase</script_text>
+                <next>5</next>
+            </phrase>
+            <phrase id="0">
+                <text>chernov_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="kovalev_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_kovalev_1_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_kovalev_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>kovalev_1_quest_end_1</text>
+                <disable_info>ahi_kovalev_1_quest_start</disable_info>
+                <give_info>ahi_kovalev_1_quest_end</give_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="10">
+                <text>kovalev_1_quest_end_10</text>
+            </phrase>
+            <phrase id="16">
+                <text>kovalev_1_quest_end_16</text>
+                <next>17</next>
+            </phrase>
+            <phrase id="17">
+                <text>kovalev_1_quest_end_17</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="4">
+                <text>kovalev_1_quest_end_4</text>
+                <next>10</next>
+            </phrase>
+            <phrase id="6">
+                <text>kovalev_1_quest_end_6</text>
+                <next>7</next>
+                <next>8</next>
+            </phrase>
+            <phrase id="5">
+                <text>kovalev_1_quest_end_5</text>
+                <next>6</next>
+            </phrase>
+            <phrase id="15">
+                <text>kovalev_1_quest_end_15</text>
+                <action>dialogs_area.give_actor_container</action>
+                <next>16</next>
+            </phrase>
+            <phrase id="9">
+                <text>kovalev_1_quest_end_9</text>
+            </phrase>
+            <phrase id="8">
+                <text>kovalev_1_quest_end_8</text>
+                <next>9</next>
+            </phrase>
+            <phrase id="7">
+                <text>kovalev_1_quest_end_7</text>
+                <give_info>duble_reward</give_info>
+            </phrase>
+            <phrase id="3">
+                <text>kovalev_1_quest_end_3</text>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="2">
+                <text>kovalev_1_quest_end_2</text>
+                <next>11</next>
+            </phrase>
+            <phrase id="11">
+                <text>kovalev_1_quest_end_11</text>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+            </phrase>
+            <phrase id="14">
+                <text>kovalev_1_quest_end_14</text>
+                <action>xr_effects.cash_reward_03</action>
+                <next>16</next>
+            </phrase>
+            <phrase id="13">
+                <text>kovalev_1_quest_end_13</text>
+                <action>xr_effects.cash_reward_07</action>
+                <next>16</next>
+            </phrase>
+            <phrase id="12">
+                <text>kovalev_1_quest_end_12</text>
+                <action>xr_effects.cash_reward_12</action>
+                <next>16</next>
+            </phrase>
+            <phrase id="0">
+                <text>kovalev_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="kovalev_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_kovalev_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="19">
+                <text>kovalev_1_quest_19</text>
+            </phrase>
+            <phrase id="4">
+                <text>kovalev_1_quest_4</text>
+                <next>12</next>
+            </phrase>
+            <phrase id="18">
+                <text>kovalev_1_quest_18</text>
+                <next>19</next>
+            </phrase>
+            <phrase id="21">
+                <text>kovalev_1_quest_21</text>
+                <next>22</next>
+            </phrase>
+            <phrase id="11">
+                <text>kovalev_1_quest_11</text>
+                <next>21</next>
+            </phrase>
+            <phrase id="5">
+                <text>kovalev_1_quest_5</text>
+                <next>6</next>
+                <next>7</next>
+                <next>9</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="7">
+                <text>kovalev_1_quest_7</text>
+                <dont_has_info>branch_01_end</dont_has_info>
+                <next>8</next>
+                <next>23</next>
+            </phrase>
+            <phrase id="9">
+                <text>kovalev_1_quest_9</text>
+                <dont_has_info>branch_02_end</dont_has_info>
+                <next>10</next>
+                <next>24</next>
+            </phrase>
+            <phrase id="24">
+                <text>kovalev_1_quest_24</text>
+                <give_info>branch_02_end</give_info>
+                <next>6</next>
+                <next>7</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="8">
+                <text>kovalev_1_quest_8</text>
+                <give_info>branch_01_end</give_info>
+                <next>6</next>
+                <next>9</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="23">
+                <text>kovalev_1_quest_23</text>
+                <give_info>branch_01_end</give_info>
+                <next>6</next>
+                <next>9</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="10">
+                <text>kovalev_1_quest_10</text>
+                <give_info>branch_02_end</give_info>
+                <next>6</next>
+                <next>7</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="22">
+                <text>kovalev_1_quest_22</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <phrase id="6">
+                <text>kovalev_1_quest_6</text>
+                <action>dialogs_ah.kovalev_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_kovalev_1_quest_start</give_info>
+            </phrase>
+            <phrase id="13">
+                <text>kovalev_1_quest_13</text>
+                <precondition>dialogs_area.dt_advanced</precondition>
+                <next>5</next>
+            </phrase>
+            <phrase id="14">
+                <text>kovalev_1_quest_14</text>
+                <precondition>dialogs_area.dt_elite</precondition>
+                <next>5</next>
+            </phrase>
+            <phrase id="15">
+                <text>kovalev_1_quest_15</text>
+                <precondition>dialogs_area.dt_scientific</precondition>
+                <next>5</next>
+            </phrase>
+            <phrase id="16">
+                <text>kovalev_1_quest_16</text>
+                <precondition>dialogs_area.dt_simple_broken</precondition>
+                <next>18</next>
+            </phrase>
+            <phrase id="17">
+                <text>kovalev_1_quest_17</text>
+                <precondition>dialogs_area.dt_advanced_broken</precondition>
+                <next>18</next>
+            </phrase>
+            <phrase id="1">
+                <text>kovalev_1_quest_1</text>
+                <dont_has_info>not_have_detector</dont_has_info>
+                <next>2</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>kovalev_1_quest_2</text>
+                <precondition>dialogs_area.dt_simple</precondition>
+                <next>5</next>
+            </phrase>
+            <phrase id="20">
+                <text>kovalev_1_quest_20</text>
+                <has_info>not_have_detector</has_info>
+                <next>2</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="3">
+                <text>kovalev_1_quest_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="0">
+                <text>kovalev_1_quest_0</text>
+                <has_info>not_have_detector</has_info>
+                <next>1</next>
+                <next>20</next>
+            </phrase>
+            <phrase id="12">
+                <text>kovalev_1_quest_12</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_3_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_chernov_1_quest_end</has_info>
+        <has_info>ahi_chernov_3_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_chernov_3_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>chernov_3_quest_end_1</text>
+                <disable_info>ahi_chernov_3_quest_start</disable_info>
+                <give_info>ahi_chernov_3_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>chernov_3_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="chernov_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_chernov_1_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_chernov_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>chernov_1_quest_end_1</text>
+                <disable_info>ahi_chernov_1_quest_start</disable_info>
+                <give_info>ahi_chernov_1_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>chernov_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="cancel_ah">
+        <has_info>ahi_quest_inprogress</has_info>
+        <dont_has_info>ah_artefact_founded</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>cancel_ah_1</text>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>cancel_ah_2</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <phrase id="3">
+                <text>cancel_ah_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="4">
+                <text>cancel_ah_4</text>
+                <action>dialogs_ah.ah_fail_timer</action>
+                <disable_info>ahi_quest_inprogress</disable_info>
+                <give_info>ah_quest_cancel</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>cancel_ah_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="kovalev_2_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <has_info>ahi_kovalev_1_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_kovalev_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="6">
+                <text>kovalev_2_quest_6</text>
+                <give_info>branch_04_end</give_info>
+                <next>2</next>
+                <next>3</next>
+                <next>7</next>
+            </phrase>
+            <phrase id="9">
+                <text>kovalev_2_quest_9</text>
+                <next>10</next>
+            </phrase>
+            <phrase id="8">
+                <text>kovalev_2_quest_8</text>
+                <next>9</next>
+                <next>11</next>
+            </phrase>
+            <phrase id="11">
+                <text>kovalev_2_quest_11</text>
+                <next>12</next>
+            </phrase>
+            <phrase id="10">
+                <text>kovalev_2_quest_10</text>
+                <next>2</next>
+            </phrase>
+            <phrase id="12">
+                <text>kovalev_2_quest_12</text>
+                <action>dialogs_ah.kovalev_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_kovalev_2_quest_start</give_info>
+                <next>13</next>
+            </phrase>
+            <phrase id="5">
+                <text>kovalev_2_quest_5</text>
+                <dont_has_info>branch_04_end</dont_has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="13">
+                <text>kovalev_2_quest_13</text>
+            </phrase>
+            <phrase id="2">
+                <text>kovalev_2_quest_2</text>
+                <action>dialogs_ah.kovalev_give_quest2</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_kovalev_2_quest_start</give_info>
+            </phrase>
+            <phrase id="7">
+                <text>kovalev_2_quest_7</text>
+                <next>8</next>
+            </phrase>
+            <phrase id="4">
+                <text>kovalev_2_quest_4</text>
+                <give_info>branch_03_end</give_info>
+                <next>2</next>
+                <next>5</next>
+                <next>7</next>
+            </phrase>
+            <phrase id="0">
+                <text>kovalev_2_quest_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="3">
+                <text>kovalev_2_quest_3</text>
+                <dont_has_info>branch_03_end</dont_has_info>
+                <next>4</next>
+            </phrase>
+            <phrase id="1">
+                <text>kovalev_2_quest_1</text>
+                <next>2</next>
+                <next>3</next>
+                <next>5</next>
+                <next>7</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_1_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_markov_1_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_markov_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>markov_1_quest_end_1</text>
+                <disable_info>ahi_markov_1_quest_start</disable_info>
+                <give_info>ahi_markov_1_quest_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>markov_1_quest_end_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="markov_1_quest">
+        <has_info>ahi_meet_actor</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_markov_1_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="3">
+                <text>markov_1_quest_3</text>
+                <action>dialogs_ah.markov_give_quest1</action>
+                <give_info>ahi_quest_inprogress</give_info>
+                <give_info>ahi_markov_1_quest_start</give_info>
+            </phrase>
+            <phrase id="2">
+                <text>markov_1_quest_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="1">
+                <script_text>dialogs_ah.create_story_line_phrase</script_text>
+                <next>2</next>
+            </phrase>
+            <phrase id="0">
+                <text>markov_1_quest_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="kovalev_redirect_dialog">
+        <has_info>ahi_kovalev_2_quest_end</has_info>
+        <dont_has_info>ahi_quest_inprogress</dont_has_info>
+        <dont_has_info>ahi_redirect_quest_inprogress</dont_has_info>
+        <phrase_list>
+            <phrase id="3">
+                <text>kovalev_redirect_dialog_3</text>
+                <action>dialogs_ah.give_fail_quest_skabinsky</action>
+                <has_info>ahi_goto_scabinsky</has_info>
+                <has_info>ah_fail_step_3</has_info>
+            </phrase>
+            <phrase id="0">
+                <text>kovalev_redirect_dialog_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+            </phrase>
+            <phrase id="2">
+                <text>kovalev_redirect_dialog_2</text>
+                <action>dialogs_ah.redirect_give_quest_skabinsky</action>
+                <dont_has_info>ah_fail_step_3</dont_has_info>
+                <has_info>ahi_goto_scabinsky</has_info>
+            </phrase>
+            <phrase id="1">
+                <text>kovalev_redirect_dialog_1</text>
+                <action>dialogs_ah.redirect_give_quest</action>
+                <dont_has_info>ahi_goto_scabinsky</dont_has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="kovalev_2_quest_end">
+        <has_info>ahi_quest_inprogress</has_info>
+        <has_info>ahi_kovalev_2_quest_start</has_info>
+        <has_info>ah_artefact_founded</has_info>
+        <dont_has_info>ahi_kovalev_2_quest_end</dont_has_info>
+        <phrase_list>
+            <phrase id="22">
+                <text>kovalev_2_quest_end_22</text>
+                <next>23</next>
+            </phrase>
+            <phrase id="23">
+                <text>kovalev_2_quest_end_23</text>
+                <next>25</next>
+            </phrase>
+            <phrase id="25">
+                <text>kovalev_2_quest_end_25</text>
+                <next>26</next>
+            </phrase>
+            <phrase id="26">
+                <text>kovalev_2_quest_end_26</text>
+                <give_info>questen_01_end</give_info>
+                <next>19</next>
+                <next>24</next>
+                <next>27</next>
+                <next>33</next>
+            </phrase>
+            <phrase id="28">
+                <text>kovalev_2_quest_end_28</text>
+                <give_info>questen_02_end</give_info>
+                <next>17</next>
+                <next>24</next>
+                <next>27</next>
+                <next>33</next>
+            </phrase>
+            <phrase id="37">
+                <text>kovalev_2_quest_end_37</text>
+                <give_info>show_must_go_on</give_info>
+            </phrase>
+            <phrase id="10">
+                <text>kovalev_2_quest_end_10</text>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+            </phrase>
+            <phrase id="14">
+                <text>kovalev_2_quest_end_14</text>
+                <next>15</next>
+            </phrase>
+            <phrase id="16">
+                <text>kovalev_2_quest_end_16</text>
+                <next>17</next>
+                <next>19</next>
+                <next>24</next>
+                <next>27</next>
+                <next>33</next>
+            </phrase>
+            <phrase id="40">
+                <text>kovalev_2_quest_end_40</text>
+                <action>dialogs.break_dialog</action>
+            </phrase>
+            <phrase id="5">
+                <text>kovalev_2_quest_end_5</text>
+                <action>dialogs_area.take_artef_3</action>
+                <action>dialogs_area.take_artef_2</action>
+                <action>dialogs_area.take_artef_1</action>
+                <action>dialogs_area.take_notebook</action>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+            </phrase>
+            <phrase id="12">
+                <text>kovalev_2_quest_end_12</text>
+                <action>xr_effects.cash_reward_08</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="11">
+                <text>kovalev_2_quest_end_11</text>
+                <action>xr_effects.cash_reward_13</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="13">
+                <text>kovalev_2_quest_end_13</text>
+                <action>xr_effects.cash_reward_04</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="29">
+                <text>kovalev_2_quest_end_29</text>
+                <next>30</next>
+            </phrase>
+            <phrase id="30">
+                <text>kovalev_2_quest_end_30</text>
+                <next>31</next>
+            </phrase>
+            <phrase id="31">
+                <text>kovalev_2_quest_end_31</text>
+                <give_info>questen_03_end</give_info>
+                <next>41</next>
+            </phrase>
+            <phrase id="42">
+                <text>kovalev_2_quest_end_42</text>
+                <next>17</next>
+                <next>19</next>
+                <next>27</next>
+                <next>33</next>
+            </phrase>
+            <phrase id="41">
+                <text>kovalev_2_quest_end_41</text>
+                <next>42</next>
+            </phrase>
+            <phrase id="43">
+                <text>kovalev_2_quest_end_43</text>
+                <next>44</next>
+            </phrase>
+            <phrase id="3">
+                <text>kovalev_2_quest_end_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="0">
+                <text>kovalev_2_quest_end_0</text>
+                <next>1</next>
+                <next>38</next>
+            </phrase>
+            <phrase id="38">
+                <text>kovalev_2_quest_end_38</text>
+                <has_info>show_must_go_on</has_info>
+                <next>39</next>
+                <next>40</next>
+            </phrase>
+            <phrase id="1">
+                <text>kovalev_2_quest_end_1</text>
+                <dont_has_info>show_must_go_on</dont_has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="2">
+                <text>kovalev_2_quest_end_2</text>
+                <next>3</next>
+            </phrase>
+            <phrase id="4">
+                <text>kovalev_2_quest_end_4</text>
+                <next>5</next>
+            </phrase>
+            <phrase id="7">
+                <text>kovalev_2_quest_end_7</text>
+                <action>xr_effects.cash_reward_07</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="8">
+                <text>kovalev_2_quest_end_8</text>
+                <action>xr_effects.cash_reward_03</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="9">
+                <text>kovalev_2_quest_end_9</text>
+                <has_info>duble_reward</has_info>
+                <next>10</next>
+            </phrase>
+            <phrase id="6">
+                <text>kovalev_2_quest_end_6</text>
+                <action>xr_effects.cash_reward_12</action>
+                <next>14</next>
+            </phrase>
+            <phrase id="15">
+                <text>kovalev_2_quest_end_15</text>
+                <next>16</next>
+            </phrase>
+            <phrase id="19">
+                <text>kovalev_2_quest_end_19</text>
+                <dont_has_info>questen_02_end</dont_has_info>
+                <has_info>questen_01_end</has_info>
+                <next>28</next>
+            </phrase>
+            <phrase id="34">
+                <text>kovalev_2_quest_end_34</text>
+                <next>35</next>
+                <next>36</next>
+            </phrase>
+            <phrase id="39">
+                <text>kovalev_2_quest_end_39</text>
+                <disable_info>ahi_kovalev_2_quest_start</disable_info>
+                <give_info>ahi_kovalev_2_quest_end</give_info>
+            </phrase>
+            <phrase id="35">
+                <text>kovalev_2_quest_end_35</text>
+                <disable_info>ahi_kovalev_2_quest_start</disable_info>
+                <give_info>ahi_kovalev_2_quest_end</give_info>
+            </phrase>
+            <phrase id="36">
+                <text>kovalev_2_quest_end_36</text>
+                <next>37</next>
+            </phrase>
+            <phrase id="33">
+                <text>kovalev_2_quest_end_33</text>
+                <next>34</next>
+            </phrase>
+            <phrase id="44">
+                <text>kovalev_2_quest_end_44</text>
+                <next>46</next>
+            </phrase>
+            <phrase id="46">
+                <text>kovalev_2_quest_end_46</text>
+                <next>47</next>
+            </phrase>
+            <phrase id="47">
+                <text>kovalev_2_quest_end_47</text>
+                <next>48</next>
+            </phrase>
+            <phrase id="48">
+                <text>kovalev_2_quest_end_48</text>
+                <next>49</next>
+            </phrase>
+            <phrase id="49">
+                <text>kovalev_2_quest_end_49</text>
+                <next>17</next>
+                <next>19</next>
+                <next>24</next>
+                <next>33</next>
+            </phrase>
+            <phrase id="32">
+                <text>kovalev_2_quest_end_32</text>
+                <give_info>questen_04_end</give_info>
+                <next>43</next>
+            </phrase>
+            <phrase id="27">
+                <text>kovalev_2_quest_end_27</text>
+                <dont_has_info>questen_04_end</dont_has_info>
+                <has_info>questen_01_end</has_info>
+                <next>32</next>
+            </phrase>
+            <phrase id="24">
+                <text>kovalev_2_quest_end_24</text>
+                <dont_has_info>questen_03_end</dont_has_info>
+                <has_info>questen_01_end</has_info>
+                <next>29</next>
+            </phrase>
+            <phrase id="17">
+                <text>kovalev_2_quest_end_17</text>
+                <dont_has_info>questen_01_end</dont_has_info>
+                <next>18</next>
+            </phrase>
+            <phrase id="18">
+                <text>kovalev_2_quest_end_18</text>
+                <next>20</next>
+            </phrase>
+            <phrase id="20">
+                <text>kovalev_2_quest_end_20</text>
+                <next>21</next>
+            </phrase>
+            <phrase id="21">
+                <text>kovalev_2_quest_end_21</text>
+                <next>22</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+</game_dialogs>

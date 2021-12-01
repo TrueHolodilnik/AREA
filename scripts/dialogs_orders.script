@@ -1,0 +1,269 @@
+-- special orders
+cat_size, list_size = 10,10
+local costs_table = nil
+local prepay = 0.2
+orders_max_items = 0
+local c_cnt,c_cnt2 = 0, 0
+orders_data = {}
+local broker = nil
+local broker_name = nil
+
+function on_game_start()
+	if (USE_MARSHAL) then
+		RegisterScriptCallback("save_state",save_state)
+		RegisterScriptCallback("load_state",load_state)
+	end
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+end
+
+--/ ====================   Marshal Storage  ====================
+function save_state(m_data)
+	m_data.orders_data = orders_data
+end
+
+function load_state(m_data)
+	orders_data = m_data.orders_data or {}
+	m_data.orders_data = nil
+end
+
+function actor_on_update(binder,delta)
+	for broker, t in pairs(orders_data) do
+--	printf("wait time %s for %s diff = %s", t.wait_time, broker, utils.CTimeToSec(game.get_game_time()) - t.wait_time)
+		if t.wait_time and (utils.CTimeToSec(game.get_game_time()) - t.wait_time) > 0 then 
+			t.wait_time = nil
+			local se_obj = t.id and alife_object(t.id)
+			if (se_obj and se_obj:section_name() == broker) then --and se_obj:alive()) then
+				local msg = strformat("%c[255,160,160,160]%s, %s.\\n%c[default]%s",se_obj:character_name(),se_obj:community(),game.translate_string("st_dm_orders_pickup_ready"))
+				news_manager.send_tip(db.actor,msg,nil,se_obj)
+			else
+				orders_data[broker] = nil
+			end
+		end
+	end
+end
+
+function has_orders(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	local sec = npc and npc:section()
+	if not (sec) then
+		return false
+	end
+	if (getFS():exist("$game_config$","misc\\trade\\orders\\".. sec .. "_orders.ltx")) then
+		--printf("has_orders cat_size = %s list_size = %s", cat_size,list_size)
+		init_orders(npc)
+		return true
+	end
+	return false
+end
+
+function count_size(broker)
+	local ini = ini_file("misc\\trade\\orders\\"..broker .."_orders.ltx")
+	local csize = 1
+	local sec = "category_"..csize
+	local lsize = 1
+	while ini:section_exist(sec) do
+		local n = 1
+		while ini:line_exist(sec,"item"..n) do
+			lsize = n > lsize and n or lsize
+			n = n+1
+		end
+		csize = csize + 1
+		sec = "category_"..csize
+	end
+	--printf("count cat_size = %s list_size = %s", csize - 1, lsize)
+	return csize - 1, lsize
+end
+
+function text_list(list)
+	local items = list
+	local val = ""
+	if #items > 0 then
+		while #items > 1 do
+			val = val .. (game.translate_string(system_ini():r_string_ex(table.remove(items),"inv_name")) or "Bad Item Section").." and "
+		end
+		val = val .. (game.translate_string(system_ini():r_string_ex(items[1],"inv_name")) or "Bad Item Section") --Для отлова несуществующих секции
+	end
+	return val --game.translate_string(system_ini():r_string_ex(costs_table[cnt][cnt2].item[1],"inv_name"))
+end
+
+-- silly workaround for dynamic dialog
+functor_always_false = function() return false end
+for i=1,cat_size do
+	this["has_category_"..i] = functor_always_false
+	local cnt = i
+	this["set_category_"..i] = function() c_cnt = cnt end
+	this["text_category_title_"..i] = function() return game.translate_string(costs_table[cnt].title) end
+	this["text_item_offer_"..i] = function() return strformat(game.translate_string("st_dm_item_offer"),game.translate_string(costs_table[cnt].title):lower()) end
+	for j=1,list_size do
+		this["has_item_"..i..j] = functor_always_false
+		local cnt2 = j
+		this["set_item_"..i..j] = function() c_cnt2 = cnt2 end
+		this["text_item_title_"..i..j] = function()	return text_list(costs_table[cnt][cnt2].item) end
+	end
+end
+
+function init_orders(npc)
+	if (broker and broker == npc:section()) then 
+		return -- already inited for this npc
+	end
+	
+	broker = npc and npc:section()
+	broker_name = npc:character_name()
+	--printf("INIT ORDERS %s",broker)
+	
+	local ini = ini_file("misc\\trade\\orders\\"..broker .."_orders.ltx")
+	costs_table = {}
+	-- reset
+	for i=1,cat_size do
+		this["has_category_"..i] = functor_always_false
+	end
+	
+	local s_time = level.get_start_time()
+	local days_from_start = game.get_game_time():diffSec(s_time)/86400
+		
+	local i_cnt = 1
+	local sec = "category_"..i_cnt
+	c_cnt = 0
+	
+	local function minim(tbl)
+		if not tbl or #tbl < 1 then return 0 end
+		local min_val = tonumber(tbl[1])
+		for i=1,#tbl do
+			min_val = tonumber(tbl[i]) < min_val and tonumber(tbl[i]) or min_val
+		end
+		return min_val
+	end
+
+	while ini:section_exist(sec) do
+		local day_req = alun_utils.str_explode(ini:r_string_ex(sec,"days_from_start"),",") or {0}
+		local rank_req = alun_utils.str_explode(ini:r_string_ex(sec,"rank"),",") or {0}
+		local rep_req = alun_utils.str_explode(ini:r_string_ex(sec,"reputation"),",") or {0}
+		local cost = alun_utils.str_explode(ini:r_string_ex(sec,"cost"),",") or {i_cnt^2 * 2000}
+		local wait = alun_utils.str_explode(ini:r_string_ex(sec,"wait_time"),",") or {42300}
+		local m_rep,m_rank,m_day = minim(rep_req),minim(rank_req),minim(day_req)
+
+		this["has_category_"..i_cnt] = function()
+			return db.actor:character_reputation() >= m_rep and db.actor:character_rank() >= m_rank --and days_from_start >= m_day
+		end
+
+		costs_table[i_cnt] = {}
+		costs_table[i_cnt].title = ini:r_string_ex(sec,"title") or "Error"
+--		costs_table[i_cnt].wait_time =  ini:r_float_ex(sec,"wait_time")or 84600
+		
+		for j=1,list_size do
+			this["has_item_"..i_cnt..j] = functor_always_false
+		end
+		
+		local n = 1
+		while ini:line_exist(sec,"item"..n) do
+			local rep_val = #rep_req < n and m_rep or tonumber(rep_req[n])
+			local rank_val = #rank_req < n and m_rank or tonumber(rank_req[n])
+			local day_val = #day_req < n and m_day or tonumber(day_req[n])
+			this["has_item_"..i_cnt..n] = function()
+				return db.actor:character_reputation() >= rep_val and db.actor:character_rank() >= rank_val and days_from_start >= day_val
+			end
+			local item_str = ini:r_string_ex(sec,"item"..n)
+			costs_table[i_cnt][n] = {}
+			costs_table[i_cnt][n].item = item_str and alun_utils.str_explode(item_str,",") or {}
+			costs_table[i_cnt][n].cost = #cost < n and tonumber(cost[1]) or tonumber(cost[n])
+			costs_table[i_cnt][n].wait_time = #wait < n and tonumber(wait[1]) or tonumber(wait[n])
+
+			n = n + 1
+		end
+
+		i_cnt = i_cnt + 1
+		sec = "category_"..i_cnt
+	end
+	orders_max_items = i_cnt - 1
+	-- alun_utils.print_table(orders_data[broker],"ORDERS DATA")
+	-- alun_utils.print_table(costs_table,"ORDERS COSTS")
+end 
+-----------------// place orders //-----------------------
+function text_orders_query(a,b)
+	return strformat(game.translate_string("st_dm_orders_reply_"..math.random(1,2)),broker_name) or strformat(game.translate_string("st_dm_orders_reply_1"), broker_name)
+end
+
+function text_offer_item(a,b)
+	return strformat(game.translate_string("st_dm_orders_item_selected"),costs_table[c_cnt][c_cnt2].cost,costs_table[c_cnt][c_cnt2].cost*prepay) .. "\\n \\n %c[255,160,160,160]" .. game.translate_string(system_ini():r_string_ex(costs_table[c_cnt][c_cnt2].item[1],"description")) or " "
+end
+
+function text_accept_offer_item(a,b)
+	return strformat(game.translate_string("st_dm_orders_place_price_accept"), text_list(costs_table[c_cnt][c_cnt2].item))
+end
+
+function text_confirm_offer_item(a,b)
+	return strformat(game.translate_string("st_dm_orders_place_pay_reply"), text_list(costs_table[c_cnt][c_cnt2].item))
+end
+
+function give_prepay(a,b)
+	orders_data[broker] = orders_data[broker] or {}
+	local npc = dialogs.who_is_npc(a,b)
+	orders_data[broker].active_cat = c_cnt
+	orders_data[broker].active_item = c_cnt2
+	orders_data[broker].id = npc:id()
+	orders_data[broker].wait_time = utils.CTimeAddSec(game.get_game_time(),costs_table[c_cnt][c_cnt2].wait_time) --/level.get_time_factor()
+--	alun_utils.print_table(orders_data[broker], tostring(broker))
+	dialogs.relocate_money_from_actor(a,b,costs_table[c_cnt][c_cnt2].cost*prepay)
+end
+
+function has_prepay(first_speaker, second_speaker)
+	return db.actor:money() >= costs_table[c_cnt][c_cnt2].cost*prepay
+end
+
+function hasnt_prepay(first_speaker, second_speaker)
+	return not has_prepay(first_speaker, second_speaker)
+end
+
+------------// after prepay //--------------
+function text_processing_item(a,b)
+	return strformat(game.translate_string("st_dm_orders_order_processing"),text_list(costs_table[orders_data[broker].active_cat][orders_data[broker].active_item].item))
+end
+
+function purchase_cancel()
+	orders_data[broker] = nil
+	broker = nil
+	dxr_statistics.increment_reputation(-50)
+end
+
+function break_dialog(first_speaker, second_speaker, id)
+	first_speaker:stop_talk()
+	second_speaker:stop_talk()
+	broker = nil
+end
+
+function text_orders_item_pickup(a,b)
+	return strformat(game.translate_string("st_dm_orders_pickup_existing"),text_list(costs_table[orders_data[broker].active_cat][orders_data[broker].active_item].item))
+end
+
+function buy_item(first_speaker, second_speaker)
+	local items = costs_table[orders_data[broker].active_cat][orders_data[broker].active_item].item
+	for k,v in pairs (items) do
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker,v)
+	end
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, costs_table[orders_data[broker].active_cat][orders_data[broker].active_item].cost*(1-prepay))
+	orders_data[broker] = nil
+end
+
+function has_item_cost(first_speaker, second_speaker)
+	return db.actor:money() >= (costs_table[orders_data[broker].active_cat][orders_data[broker].active_item].cost*(1-prepay))
+end
+
+function hasnt_item_cost(first_speaker, second_speaker)
+	return not has_item_cost(first_speaker, second_speaker)
+end
+
+function has_ordered_cond(a,b)
+	return (has_ready_item() or has_order_processing())
+end
+
+function hasnt_ordered_cond(a,b)
+	return not has_ordered_cond()
+end
+
+function has_order_processing(a,b)
+	return orders_data[broker] and orders_data[broker].wait_time ~= nil or false
+end
+
+function has_ready_item(a,b)
+	return orders_data[broker] and (orders_data[broker].wait_time == nil) or false
+end

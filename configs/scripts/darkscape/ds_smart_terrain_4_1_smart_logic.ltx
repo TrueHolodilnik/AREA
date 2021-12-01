@@ -1,0 +1,87 @@
+[walker@dead_stalker_base]
+path_walk = anomaly_stalker_1_walk
+path_look = anomaly_stalker_look
+invulnerable = true
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+meet = meet@dead_stalkers
+; on_info = {=dist_to_actor_le(15)} remark@wtf
+
+[beh@wtf]:walker@dead_stalker_base
+sound_idle = state
+behavior_state = beh_wait
+target = waypoint
+walk_dist = 100
+jog_dist = 220
+wait_anim = wait
+walk_anim = patrol
+jog_anim = rush
+run_anim = panic
+delay_anim = wait
+pt1 = 1000,wait | pos:-171.2268371582,43.312030792236,-12.093081474304 look_object:actor
+path_end = loop
+
+[remark@wtf]:walker@dead_stalker_base
+target = story | actor
+anim = wait
+
+[meet@dead_stalkers]
+close_snd_hello = nil
+close_snd_bye = nil
+close_anim 		= nil
+close_victim 	= actor
+; far_anim 		= nil
+; far_victim 		= nil
+close_distance  = 15
+; far_distance 	= 20
+; close_snd_distance = 7
+abuse           = false
+use = {=dist_to_actor_le(4)} self, false
+allow_break = false
+meet_on_talking = false
+meet_dialog = ds_anomaly_stalkers
+trade_enable 	= false
+
+[logic@dead_stalker_1]
+suitable = {=check_squad_name(ds_anomaly_stalkers_squad)} true
+prior = 200
+active = walker@dead_stalker_1
+
+[walker@dead_stalker_1]:walker@dead_stalker_base
+path_walk = anomaly_stalker_1_walk
+
+[logic@dead_stalker_2]
+suitable = {=check_squad_name(ds_anomaly_stalkers_squad)} true
+prior = 200
+active = walker@dead_stalker_2
+
+[walker@dead_stalker_2]:walker@dead_stalker_base
+path_walk = anomaly_stalker_2_walk
+
+[logic@dead_stalker_3]
+suitable = {=check_squad_name(ds_anomaly_stalkers_squad)} true
+prior = 200
+active = walker@dead_stalker_3
+
+[walker@dead_stalker_3]:walker@dead_stalker_base
+path_walk = anomaly_stalker_3_walk
+
+[logic@dead_stalker_4]
+suitable = {=check_squad_name(ds_anomaly_stalkers_squad)} true
+prior = 200
+active = walker@dead_stalker_4
+
+[walker@dead_stalker_4]:walker@dead_stalker_base
+path_walk = anomaly_stalker_4_walk
+
+[logic@dead_stalker_5]
+suitable = {=check_squad_name(ds_anomaly_stalkers_squad)} true
+prior = 200
+active = walker@dead_stalker_5
+
+[walker@dead_stalker_5]:walker@dead_stalker_base
+path_walk = anomaly_stalker_5_walk

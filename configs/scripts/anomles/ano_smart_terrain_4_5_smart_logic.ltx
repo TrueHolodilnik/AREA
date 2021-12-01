@@ -1,0 +1,35 @@
+[beh@general]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+turn_on_campfire = false
+on_info = {=surge_started} %=stop_surge%
+
+[hit]
+on_info = {=hit_by_actor} %=set_squad_neutral_to_actor() =play_sound(friendly_fire)%
+
+[logic@broker_1]
+suitable = {=check_npc_name(broker)} true
+prior = 200
+active = walker@broker_1
+post_combat_time = 0,0
+on_hit = hit
+
+[walker@broker_1]:beh@general
+path_walk = walker_3_walk
+path_look = walker_3_look
+def_state_moving = assault
+meet = meet@broker
+invulnerable = true
+on_info = {+mil_broker_run_away !dist_to_job_point_le(50)} %=teleport_squad(ano_ecolog_kymis_squad:ano_smart_terrain_4_5_walker_3_walk)%
+
+[meet@broker]
+close_anim 		= guard
+close_victim 	= actor
+close_distance  = 5
+close_snd_distance = 5
+use = {-ano_broker_1 =dist_to_actor_le(5)} self, false
+allow_break = false
+trade_enable = false
+; meet_dialog = ano_broker_1, nil

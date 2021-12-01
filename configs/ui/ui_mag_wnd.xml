@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<mag_ui>
+	<!-- Magazines laoding wnd-->
+	<reload_background x="0" y="0" width="200" height="100">
+		<texture>ui_mg_back_wpn</texture>
+	</reload_background>
+	<reload_bullet x="50" y="30" width="50" height="50">
+		<texture x="3200" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</reload_bullet>
+	<reload_545x39 x="50" y="30" width="50" height="50">
+		<texture x="3450" y="2750" width="50" height="50">ui\ui_icon_equipment</texture>
+	</reload_545x39>
+	<reload_9x18 x="50" y="30" width="50" height="50">
+		<texture x="3400" y="2750" width="50" height="50">ui\ui_icon_equipment</texture>
+	</reload_9x18>
+	<reload_9x39 x="50" y="30" width="50" height="50">
+		<texture x="3550" y="2750" width="50" height="50">ui\ui_icon_equipment</texture>
+	</reload_9x39>
+	<reload_shotgun_slug x="50" y="30" width="50" height="50">
+		<texture x="3350" y="2750" width="50" height="50">ui\ui_icon_equipment</texture>
+	</reload_shotgun_slug>
+	<reload_caption x="32" y="4" width="50" height="35">
+		<text x="2" y="-10" font="arial_14" r="238" g="155" b="23">st_ammo_loading</text>
+	</reload_caption>
+	<reload_ammo_caption x="32" y="4" width="50" height="35">
+		<text x="2" y="1" font="arial_14" r="238" g="155" b="23">Ammo</text>
+	</reload_ammo_caption>
+	<reload_cnt_caption x="32" y="4" width="50" height="35">
+		<text x="92" y="3" font="letterica16" r="238" g="155" b="23">Ammo Count</text>
+	</reload_cnt_caption>
+	
+	<!-- Ammo pack icon in laoding wnd-->
+	<ammo_5.45x39_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1250" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_fmj>
+	<ammo_5.45x39_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2850" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_fmj_bad>
+	<ammo_5.45x39_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2850" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_fmj_verybad>
+	<ammo_5.45x39_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1350" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_ap>
+	<ammo_5.45x39_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_ap_bad>
+	<ammo_5.45x39_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.45x39_ap_verybad>
+	
+	<ammo_5.56x45_ss190 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ss190>
+	<ammo_5.56x45_ss190_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2850" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ss190_bad>
+	<ammo_5.56x45_ss190_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2850" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ss190_verybad>
+	<ammo_5.56x45_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1550" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ap>
+	<ammo_5.56x45_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ap_bad>
+	<ammo_5.56x45_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.56x45_ap_verybad>
+	
+	<ammo_5.7x28_ss190 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1550" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss190>
+	<ammo_5.7x28_ss190_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1850" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss190_bad>
+	<ammo_5.7x28_ss190_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1850" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss190_verybad>
+	<ammo_5.7x28_ss195 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1650" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss195>
+	<ammo_5.7x28_ss195_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1950" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss195_bad>
+	<ammo_5.7x28_ss195_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1950" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_5.7x28_ss195_verybad>
+
+	<ammo_7.62x25_p x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="1550" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p>
+	<ammo_7.62x25_p_bad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="2850" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p_bad>
+	<ammo_7.62x25_p_verybad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="2850" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p_verybad>
+	<ammo_7.62x25_ps x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="1600" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_ps>
+	<ammo_7.62x25_ps_bad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="2900" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_ps_bad>
+	<ammo_7.62x25_ps_verybad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="2900" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_ps_verybad>
+	<ammo_7.62x25_p41 x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="1650" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p41>
+	<ammo_7.62x25_p41_bad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="3200" y="1100" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p41_bad>
+	<ammo_7.62x25_p41_verybad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="3200" y="1450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x25_p41_verybad>
+	
+	<ammo_7.62x39_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1650" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_fmj>
+	<ammo_7.62x39_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2400" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_fmj_bad>
+	<ammo_7.62x39_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2400" y="3650" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_fmj_verybad>
+	<ammo_7.62x39_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1750" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_ap>
+	<ammo_7.62x39_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1150" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_ap_bad>
+	<ammo_7.62x39_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1150" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x39_ap_verybad>
+	
+	<ammo_7.62x51_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1250" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_fmj>
+	<ammo_7.62x51_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1600" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_fmj_bad>
+	<ammo_7.62x51_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1700" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_fmj_verybad>
+	<ammo_7.62x51_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1350" y="3950" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_ap>
+	<ammo_7.62x51_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1850" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_ap_bad>
+	<ammo_7.62x51_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1950" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x51_ap_verybad>
+	
+	<ammo_7.62x54_7h1 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h1>
+	<ammo_7.62x54_7h1_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2050" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h1_bad>
+	<ammo_7.62x54_7h1_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2150" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h1_verybad>
+	<ammo_7.62x54_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_ap>
+	<ammo_7.62x54_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2050" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_ap_bad>
+	<ammo_7.62x54_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2150" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_ap_verybad>
+	<ammo_7.62x54_7h14 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1350" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h14>
+	<ammo_7.62x54_7h14_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2050" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h14_bad>
+	<ammo_7.62x54_7h14_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2150" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.62x54_7h14_verybad>
+	<ammo_pkm_100 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1750" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_pkm_100>
+	<ammo_pkm_100_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_pkm_100_bad>
+	<ammo_pkm_100_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_pkm_100_verybad>
+	
+	<ammo_7.92x33_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1800" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x33_fmj>
+	<ammo_7.92x33_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2400" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x33_fmj_bad>
+	<ammo_7.92x33_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2400" y="3650" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x33_fmj_verybad>
+	<ammo_7.92x57_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1900" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x57_fmj>
+	<ammo_7.92x57_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1150" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x57_fmj_bad>
+	<ammo_7.92x57_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1150" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_7.92x57_fmj_verybad>
+	
+	<ammo_9x18_fmj x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1250" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_fmj>
+	<ammo_9x18_fmj_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2550" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_fmj_bad>
+	<ammo_9x18_fmj_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2550" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_fmj_verybad>
+	<ammo_9x18_pmm x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1300" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_pmm>
+	<ammo_9x18_pmm_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2600" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_pmm_bad>
+	<ammo_9x18_pmm_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2600" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_pmm_verybad>
+	<ammo_9x18_ap x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1350" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_ap>
+	<ammo_9x18_ap_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2650" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_ap_bad>
+	<ammo_9x18_ap_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2650" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x18_ap_verybad>
+
+	<ammo_9x19_fmj x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1400" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_fmj>
+	<ammo_9x19_fmj_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2700" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_fmj_bad>
+	<ammo_9x19_fmj_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2700" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_fmj_verybad>
+	<ammo_9x19_pbp x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1450" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_pbp>
+	<ammo_9x19_pbp_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2750" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_pbp_bad>
+	<ammo_9x19_pbp_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2750" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_pbp_verybad>
+	<ammo_9x19_ap x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="1500" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_ap>
+	<ammo_9x19_ap_bad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2800" y="3500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_ap_bad>
+	<ammo_9x19_ap_verybad x="10" y="30" width="50" height="50" stretch="1">
+		<texture x="2800" y="3550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x19_ap_verybad>
+	
+	<ammo_9x39_pab9 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1550" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_pab9>
+	<ammo_9x39_pab9_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_pab9_bad>
+	<ammo_9x39_pab9_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3650" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_pab9_verybad>
+	<ammo_9x39_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1650" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_ap>
+	<ammo_9x39_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2100" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_ap_bad>
+	<ammo_9x39_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2100" y="3650" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_9x39_ap_verybad>
+	
+	<ammo_11.43x23_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1350" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_fmj>
+	<ammo_11.43x23_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2550" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_fmj_bad>
+	<ammo_11.43x23_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2550" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_fmj_verybad>
+	<ammo_11.43x23_hydro x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1250" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_hydro>
+	<ammo_11.43x23_hydro_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2650" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_hydro_bad>
+	<ammo_11.43x23_hydro_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2650" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_hydro_verybad>
+	<ammo_11.43x23_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_ap>
+	<ammo_11.43x23_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2750" y="3300" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_ap_bad>
+	<ammo_11.43x23_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2750" y="3350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_11.43x23_ap_verybad>
+	
+	<ammo_12x70_buck x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1250" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x70_buck>
+	<ammo_12x70_buck_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2550" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x70_buck_bad>
+	<ammo_12x70_buck_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2550" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x70_buck_verybad>
+	<ammo_12x70_buck_self x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1250" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x70_buck_self>
+	<ammo_12x76_zhekan x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1350" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_zhekan>
+	<ammo_12x76_zhekan_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2650" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_zhekan_bad>
+	<ammo_12x76_zhekan_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2650" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_zhekan_verybad>
+	<ammo_12x76_dart x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_dart>
+	<ammo_12x76_dart_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2750" y="3400" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_dart_bad>
+	<ammo_12x76_dart_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2750" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12x76_dart_verybad>
+
+	<ammo_gauss x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="450" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss>
+	<ammo_gauss_bad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="500" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss_bad>
+	<ammo_gauss_verybad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="550" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss_verybad>
+	<ammo_gauss_cardan x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="600" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss_cardan>
+	<ammo_gauss_cardan_bad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="650" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss_cardan_bad>
+	<ammo_gauss_cardan_verybad x="5" y="30" width="50" height="50" stretch="1">
+		<texture x="700" y="250" width="50" height="50">ui\ui_icon_equipment</texture>
+	</ammo_gauss_cardan_verybad>
+
+	<ammo_12.7x55_fmj x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="3550" y="2350" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_fmj>
+	<ammo_12.7x55_fmj_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1750" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_fmj_bad>
+	<ammo_12.7x55_fmj_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1850" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_fmj_verybad>
+	<ammo_12.7x55_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1800" y="3550"  width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_ap>
+	<ammo_12.7x55_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1900" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_ap_bad>
+	<ammo_12.7x55_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_12.7x55_ap_verybad>
+	
+	<ammo_magnum_300 x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1450" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300>
+	<ammo_magnum_300_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2200" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300_bad>
+	<ammo_magnum_300_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2200" y="3700" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300_verybad>
+	<ammo_magnum_300_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="1550" y="3450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300_ap>
+	<ammo_magnum_300_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2300" y="3600" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300_ap_bad>
+	<ammo_magnum_300_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2300" y="3700" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_magnum_300_ap_verybad>
+	
+	<ammo_357_hp_mag x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2000" y="3700" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag>
+	<ammo_357_hp_mag_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag_bad>
+	<ammo_357_hp_mag_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2950" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag_verybad>
+	<ammo_357_hp_mag_ap x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="2100" y="3700" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag_ap>
+	<ammo_357_hp_mag_ap_bad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="3050" y="3500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag_ap_bad>
+	<ammo_357_hp_mag_ap_verybad x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="3050" y="3550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_357_hp_mag_ap_verybad>
+	
+	<ammo_flw x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="900" y="2100" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_flw>
+	<ammo_flamer x="5" y="30" width="90" height="50" stretch="1">
+		<texture x="900" y="2050" width="100" height="50">ui\ui_icon_equipment</texture>
+	</ammo_flamer>
+	
+	<!-- Magazines in laoding wnd-->
+	<mag_57x28_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2600" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_57x28_20>
+	
+	<mag_57x28_50 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2650" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_57x28_50>
+	
+	<mag_338_5 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2700" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_5>
+	
+	<mag_338_5_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_5_2>
+	
+	<mag_338_5_3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2800" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_5_3>
+	
+	<mag_338_5_4 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_5_4>
+	
+	<mag_338_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2900" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_10>
+	
+	<mag_338_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2950" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_338_20>
+	
+	<mag_357_6 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3400" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_357_6>
+		
+	<mag_357_9 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2900" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_357_9>
+	
+	<mag_545x39_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_30>
+	
+	<mag_545x39_30_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_30_2>
+	
+	<mag_545x39_30_a545 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2600" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_30_a545>
+	
+	<mag_545x39_45 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3350" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_45>
+	
+	<mag_545x39_45_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3400" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_45_2>
+	
+	<mag_545x39_60 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3300" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_60>
+	
+	<mag_545x39_75 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3500" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_545x39_75>
+	
+	<mag_556x45_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_30>
+	
+	<mag_556x45_30_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_30_2>
+
+	<mag_556x45_30_ak100 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2600" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_30_ak100>
+	
+	<mag_556x45_30_g36 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3300" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_30_g36>
+	
+	<mag_556x45_30_sig550 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2650" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_30_sig550>
+	
+	<mag_556x45_35_ace x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_35_ace>
+	
+	<mag_556x45_60 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3300" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_60>
+	
+	<mag_556x45_100 x="105" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3550" y="2500" width="100" height="50">ui\ui_icon_equipment</texture>
+	</mag_556x45_100>
+	
+	<mag_762x25_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2650" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x25_8>
+	
+	<mag_762x25_71 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3500" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x25_71>
+
+	<mag_762x51_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2700" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_20>
+	
+	<mag_762x51_20_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_20_2>
+	
+	<mag_762x51_20_3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2700" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_20_3>
+	
+	<mag_762x51_25 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2650" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_25>
+	
+	<mag_762x51_64 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1100" y="100" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_64>
+	
+	<mag_762x51_71 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1100" y="0" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_71>
+	
+	<mag_762x39_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_8>
+
+	<mag_762x39_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1050" y="150" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_10>
+	
+	<mag_762x39_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2700" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_20>
+	<mag_762x39_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_30>
+	
+	<mag_762x39_30_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_30_2>
+	
+	<mag_762x39_30_3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3300" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_30_3>
+	
+	<mag_762x39_30_4 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_30_4>
+	
+	<mag_762x39_40 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3350" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_40>
+	
+	<mag_762x39_40_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3350" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_40_2>
+
+	<mag_762x39_75 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3500" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_75>
+	
+	<mag_762x39_100 x="105" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3450" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x39_100>
+
+	<mag_762x51_5 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1100" y="550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_5>
+	
+	<mag_762x51_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3450" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_8>
+
+	<mag_762x51_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_8>
+	
+	<mag_762x51_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_10>
+	
+	<mag_762x51_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1050" y="300" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_20>
+	
+	<mag_762x51_50 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1000" y="200" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_50>
+
+	<mag_762x51_100 x="105" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3550" y="2450" width="100" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x51_100>
+	
+	<mag_762x54_5 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3300" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x54_5>
+	
+	<mag_762x54_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x54_10>
+	
+	<mag_762x54_10_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x54_10_2>
+	
+	<mag_762x54_10_3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1000" y="400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x54_10_3>
+
+	<mag_762x54_100 x="105" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3550" y="2550" width="100" height="50">ui\ui_icon_equipment</texture>
+	</mag_762x54_100>
+
+	<mag_792x33_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2550" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_792x33_30>
+	
+	<mag_792x57_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3050" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_792x57_10>
+	
+	<mag_9x18_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3100" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_8>
+	
+	<mag_9x18_12 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3100" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_12>
+	
+	<mag_9x18_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3050" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_20>
+	
+	<mag_9x18_20_vz65 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2950" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_20_vz65>
+	
+	<mag_9x18_27 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_27>
+	
+	<mag_9x18_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3100" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_30>
+	
+	<mag_9x18_64 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2950" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x18_64>
+	
+	<mag_9x19_13 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_13>
+	
+	<mag_9x19_15 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2950" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_15>
+	
+	<mag_9x19_16 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3050" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_16>
+	
+	<mag_9x19_16_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2600" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_16_2>
+	
+	<mag_9x19_17 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_17>
+	
+	<mag_9x19_18 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2700" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_18>
+	
+	<mag_9x19_18_mp443 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2600" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_18_mp443>
+	
+	<mag_9x19_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_30>
+	
+	<mag_9x19_30_evo3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2950" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_30_evo3>
+	
+	<mag_9x19_30_pp19 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2900" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_30_pp19>
+	
+	<mag_9x19_30_pp2000 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3050" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_30_pp2000>
+	
+	<mag_9x19_32 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3100" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_32>
+	
+	<mag_9x19_40 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2900" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x19_40>
+	
+	<mag_9x39_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3350" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_10>
+	
+	<mag_9x39_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3400" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_20>
+	
+	<mag_9x39_20_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3400" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_20_2>
+	
+	<mag_9x39_20_3 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3250" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_20_3>
+	
+	<mag_9x39_20_4 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3350" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_20_4>
+	
+	<mag_9x39_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3200" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_9x39_30>
+	
+	<mag_1143x23_7 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2800" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_7>
+
+	<mag_1143x23_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_8>
+	
+	<mag_1143x23_12 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2650" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_12>
+	
+	<mag_1143x23_15 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2600" y="2500" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_15>
+	
+	<mag_1143x23_25 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_25>
+	
+	<mag_1143x23_8_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_8_2>
+	
+	<mag_1143x23_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_30>
+	
+	<mag_1143x23_30 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3000" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_1143x23_30>
+	
+	<mag_12x76_8 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3450" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x76_8>
+	
+	<mag_12x76_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3450" y="2450" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x76_10>
+	
+	<mag_12x76_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3500" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x76_20>
+	
+	<mag_12x76_20_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-13" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3500" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x76_20_2>
+
+	<mag_12x55_5 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16"  r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2750" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x55_5>
+	
+	<mag_12x55_5_2 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2800" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x55_5_2>
+	
+	<mag_12x55_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x55_10>
+	
+	<mag_12x55_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="2850" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_12x55_20>
+		
+	<mag_50bmg_5 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="1000" y="600" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_50bmg_5>
+	
+	<mag_gauss_10 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3550" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_gauss_10>
+	
+	<mag_gauss_20 x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3550" y="2400" width="50" height="50">ui\ui_icon_equipment</texture>
+	</mag_gauss_20>
+	
+	<shotgun_bandolier x="145" y="30" width="40" height="50" complex_mode="1">
+		<text x="0" y="-8" width="12" height="30" font="letterica16" r="61" g="111" b="108" a="220" align="c"/>
+		<texture x="3150" y="2350" width="50" height="50">ui\ui_icon_equipment</texture>
+	</shotgun_bandolier>
+</mag_ui>

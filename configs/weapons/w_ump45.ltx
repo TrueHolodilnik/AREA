@@ -1,0 +1,512 @@
+[wpn_ump45]:default_weapon_params
+visual                  	= dynamics\weapons\wpn_ump45\wpn_ump45.ogf
+$spawn                  	= "weapons\ump45"			; option for Level Editor
+$npc                    	= on						; option for Level Editor
+class                   	= WP_LR300
+inv_name                	= st_wpn_ump45
+inv_name_short          	= st_wpn_ump45
+description          		= st_wpn_ump45_descr
+scopes 						= ac10632, acog, eot
+parent_section  			= wpn_ump45
+ef_main_weapon_type     	= 2
+ef_weapon_type         		= 6
+default_to_ruck         	= false
+sprint_allowed          	= true
+heating_rates 				= smg3
+repair_type 				= smg
+cost                    	= 29000
+weapon_class            	= assault_rifle
+inv_weight              	= 2.48
+inv_volume					= 3.5
+ph_mass                 	= 3
+upgrades                	= up_gr_firstab_ump45, up_gr_seconab_ump45, up_gr_thirdab_ump45, up_gr_fourtab_ump45, up_gr_fifthab_ump45, up_gr_fifthcd_ump45
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_mp5
+;---------------------------------------------------------------------
+hit_power           		= 0.42, 0.42, 0.42, 0.42
+hit_impulse             	= 44
+hit_type                	= fire_wound
+fire_distance           	= 250
+bullet_speed            	= 285
+rpm                     	= 600
+rpm_empty_click         	= 200
+time_to_aim             	= 3.0
+hud                     	= wpn_ump45_hud
+
+misfire_probability     	= 0.005
+misfire_start_condition		= 0.85
+misfire_end_condition		= 0.17
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec      	= 0.0009
+condition_queue_shot_dec 	= 0.0009
+
+ammo_elapsed            	= 25
+ammo_mag_size           	= 25
+fire_modes	         		= 1, 2, -1
+magazine_sect				= mag_1143x23_cnt_25
+ammo_class		 			= ammo_11.43x23_fmj, ammo_11.43x23_fmj_bad, ammo_11.43x23_fmj_verybad, ammo_11.43x23_ap, ammo_11.43x23_ap_bad, ammo_11.43x23_ap_verybad, ammo_11.43x23_hydro, ammo_11.43x23_hydro_bad, ammo_11.43x23_hydro_verybad
+grenade_class           	= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot                    	= 2
+animation_slot          	= 8
+;-------------------------------------------------------------------------------------
+zoom_dof                	= 0.5, 1.0, 180
+reload_dof              	= 0.0, 0.5, 5, 2
+reload_empty_dof			= 0.0, 0.5, 5, 2.6
+;-------------------------------------------------------------------------------------
+fire_dispersion_base    	= 0.54				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor 	= 1.11f
+crosshair_inertion			= 3.8
+
+cam_return 					= 0
+cam_relax_speed         	= 12				;скорость возврата в исходное положение
+cam_relax_speed_ai      	= 120.75
+cam_dispersion          	= 0.91				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc      	= 0.45				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac     	= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle           	= 36.0				;максимальный угол отдачи
+cam_max_angle_horz      	= 36.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz     	= 1.19
+
+PDM_disp_base 				= 0.65
+PDM_disp_vel_factor 		= 1.15
+PDM_disp_accel_factor 		= 1.155
+PDM_disp_crouch 			= 1.0
+PDM_disp_crouch_no_acc	 	= 1.0
+
+zoom_cam_relax_speed    	= 12
+zoom_cam_relax_speed_ai 	= 120.75
+zoom_cam_dispersion     	= 0.67
+zoom_cam_dispersion_inc 	= 0.29
+zoom_cam_dispersion_frac	= 1.0
+zoom_cam_max_angle      	= 36.0
+zoom_cam_max_angle_horz 	= 36.0
+zoom_cam_step_angle_horz	= 1.09
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width          	= 4
+inv_grid_height         	= 2
+inv_grid_x              	= 40
+inv_grid_y              	= 30
+
+upgr_icon_x					= 900
+upgr_icon_y					= 800
+upgr_icon_width				= 250
+upgr_icon_height   			= 100
+
+kill_msg_x	        		= 0
+kill_msg_y	        		= 123
+kill_msg_width	    		= 69
+kill_msg_height	    		= 30
+;------------------------------------------------------------------------------------
+position                	= -0.026, -0.125, -0.03
+orientation             	= 0, -10, 0
+fire_point              	= 0.0, 0.188, 0.392
+fire_point2             	= 0.0, 0.188, 0.392
+flame_particles         	= weapons\new_effects\akmsl
+smoke_particles         	= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles 	= weapons\generic_weapon01
+shell_point					= 0.0, 0.188, 0.082
+shell_dir					= 0.0, 1.0, 0.0
+shell_particles	 			= weapons\45acp
+shell_3d_sect				= shell_9
+;------------------------------------------------------------------------------------
+light_disabled          	= false
+light_color             	= 0.6,0.5,0.3
+light_range             	= 5
+light_var_color         	= 0.05
+light_var_range         	= 0.5
+light_time              	= 0.2
+
+scope_status            	= 2
+silencer_status         	= 2
+grenade_launcher_status 	= 0
+
+zoom_enabled            	= true
+zoom_rotate_time        	= 0.25
+scope_zoom_factor       	= 1.03
+
+grenade_launcher_name   	= wpn_addon_grenade_launcher
+grenade_launcher_x      	= 126
+grenade_launcher_y      	= 24
+
+silencer_name  				= wpn_sil_45
+silencer_x              	= 171
+silencer_y              	= 12
+silencer_light_color    	= 0.6,0.5,0.3
+silencer_light_range    	= 0.01
+silencer_light_var_color 	= 0.05
+silencer_light_var_range 	= 0.5
+silencer_light_time     	= 0.2
+silencer_smoke_particles 	= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster				    = weapons\ump45\ump45_holster
+snd_draw				    = weapons\ump45\ump45_draw
+snd_empty				    = weapons\ump45\ump45_empty
+snd_reload                  = weapons\ump45\ump45_reload
+snd_reload_empty            = weapons\ump45\ump45_reload_empty
+snd_bore 				    = $no_sound
+snd_shoot				    = weapons\ump45\ump45_shoot_null
+snd_silencer_shot			= weapons\ump45\ump45_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_1143x23_cnt_25]
+magazine_name				= magazine_1143x23_cnt_25
+magazine_x					= 100
+magazine_y					= 50
+custom_icon					= 9,0,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_ump45_hud]:hud_base
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_hud.ogf
+zoom_hide_crosshair     	= true
+shell_point					= 0,0,0
+shell_dir       			= 0,1,0
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone      				= muzzle
+fire_point2					= 0,0,0
+fire_bone2					= wpn_body
+
+hands_position				= -0.074,-0.2,0.14
+hands_position_16x9			= -0.074,-0.2,0.14
+hands_orientation			= 2,2,0
+hands_orientation_16x9		= 2,2,0
+
+aim_hud_offset_pos			= -0.082,0.0595,-0.12
+aim_hud_offset_pos_16x9		= -0.082,0.0595,-0.12
+aim_hud_offset_rot			= 0.022,0.0342,0
+aim_hud_offset_rot_16x9		= 0.022,0.0342,0
+
+anm_show               	 	= ump45_draw
+anm_hide                	= ump45_holster
+anm_idle                	= ump45_idle
+anm_idle_sprint         	= ump45_idle_sprint
+anm_idle_moving         	= ump45_idle_moving
+anm_idle_moving_crouch		= ump45_idle_crouch
+anm_shots               	= ump45_shoot, shoot
+anm_shots_empty				= ump45_idle
+anm_shots_empty				= ump45_shoot, shoot
+anm_reload              	= ump45_reload, reload
+anm_reload_empty			= ump45_reload_empty, reload_empty
+anm_idle_aim            	= ump45_idle_aim
+anm_bore                	= ump45_idle_aim
+;-----------------------------------------------------------------------------
+[wpn_ump45_ac10632]:wpn_ump45
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632.ogf
+scope_name					= ac10632
+scope_x						= 83
+scope_y						= -13
+hud							= wpn_ump45_ac10632_hud
+
+[wpn_ump45_ac10632_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632_hud.ogf
+aim_hud_offset_pos			= -0.082,0.04,-0.1
+aim_hud_offset_pos_16x9		= -0.082,0.04,-0.1
+;-----------------------------------------------------------------------------
+[wpn_ump45_acog]:wpn_ump45
+scope_name					= acog
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_ump45_acog_hud
+
+[wpn_ump45_acog_hud]:wpn_ump45_hud
+aim_hud_offset_pos			= -0.082,0.036,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_pos_16x9 	= -0.082,0.036,-0.1
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_ump45_eot]:wpn_ump45
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_eot.ogf
+scope_name					= eot
+scope_x						= 83
+scope_y						= -8
+hud							= wpn_ump45_eot_hud
+
+[wpn_ump45_eot_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_eot_hud.ogf
+aim_hud_offset_pos			= -0.082,0.0325,-0.1
+aim_hud_offset_rot			= 0.022,0.0345,0
+aim_hud_offset_pos_16x9		= -0.082,0.0325,-0.1
+aim_hud_offset_rot_16x9		= 0.022,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_ump45_custom]:wpn_ump45
+visual                  	= dynamics\weapons\wpn_ump45\wpn_ump45_sk1.ogf
+parent_section  			= wpn_ump45_custom
+inv_name          			= st_wpn_ump45_custom
+inv_name_short       		= st_wpn_ump45_custom
+cost                    	= 33500
+installed_upgrades      	= up_fourta_ump45
+hit_power               	= 0.43, 0.43, 0.43, 0.43
+bullet_speed            	= 285
+rpm                     	= 640
+hud                     	= wpn_ump45_sk1_hud
+misfire_start_condition		= 0.82
+misfire_end_condition		= 0.11
+misfire_start_prob			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.00082
+condition_queue_shot_dec	= 0.00082
+fire_dispersion_base    	= 0.48
+inv_grid_y           		= 32
+
+[wpn_ump45_sk1_hud]:wpn_ump45_hud
+item_visual					= dynamics\weapons\wpn_ump45\wpn_ump45_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_ump45_custom_ac10632]:wpn_ump45_custom
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632_sk1.ogf
+scope_name					= ac10632
+scope_x						= 83
+scope_y						= -13
+scope_zoom_factor			= 1.15
+hud							= wpn_ump45_ac10632_sk1_hud
+
+[wpn_ump45_ac10632_sk1_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632_sk1_hud.ogf
+aim_hud_offset_pos			= -0.082,0.04,-0.1
+aim_hud_offset_pos_16x9		= -0.082,0.04,-0.1
+;-----------------------------------------------------------------------------
+[wpn_ump45_custom_acog]:wpn_ump45_custom
+scope_name					= acog
+scope_x						= 80
+scope_y						= -10
+scope_status				= 1
+hud							= wpn_ump45_acog_sk1_hud
+
+[wpn_ump45_acog_sk1_hud]:wpn_ump45_acog_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_ump45_custom_eot]:wpn_ump45_custom
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_eot_sk1.ogf
+scope_name					= eot
+scope_x						= 83
+scope_y						= -8
+hud							= wpn_ump45_eot_sk1_hud
+
+[wpn_ump45_eot_sk1_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_eot_sk1_hud.ogf
+aim_hud_offset_pos			= -0.082,0.0325,-0.1
+aim_hud_offset_rot			= 0.022,0.0345,0
+aim_hud_offset_pos_16x9		= -0.082,0.0325,-0.1
+aim_hud_offset_rot_16x9		= 0.022,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_ump45_worn]:wpn_ump45
+visual                  	= dynamics\weapons\wpn_ump45\wpn_ump45_sk2.ogf
+parent_section  			= wpn_ump45_worn
+inv_name          			= st_wpn_ump45_worn
+inv_name_short       		= st_wpn_ump45_worn
+cost                    	= 20000
+upgrades                	= up_gr_firstab_ump45_worn, up_gr_seconab_ump45_worn, up_gr_thirdab_ump45_worn, up_gr_fourtab_ump45_worn, up_gr_fifthab_ump45_worn, up_gr_fifthcd_ump45_worn
+hit_power               	= 0.38, 0.38, 0.38, 0.38
+bullet_speed            	= 260
+rpm                     	= 577
+hud                     	= wpn_ump45_sk2_hud
+misfire_start_condition		= 0.93
+misfire_end_condition		= 0.2
+misfire_start_prob 			= 0.08
+misfire_end_prob 			= 0.12
+condition_shot_dec      	= 0.001
+condition_queue_shot_dec	= 0.001
+fire_dispersion_base    	= 0.63
+inv_grid_y           		= 34
+
+[wpn_ump45_sk2_hud]:wpn_ump45_hud
+item_visual					= dynamics\weapons\wpn_ump45\wpn_ump45_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_ump45_worn_ac10632]:wpn_ump45_worn
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632_sk2.ogf
+scope_name					= ac10632
+scope_x						= 83
+scope_y						= -13
+hud							= wpn_ump45_ac10632_sk2_hud
+
+[wpn_ump45_ac10632_sk2_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_ac10632_sk2_hud.ogf
+aim_hud_offset_pos			= -0.082,0.04,-0.1
+aim_hud_offset_pos_16x9		= -0.082,0.04,-0.1
+;-----------------------------------------------------------------------------
+[wpn_ump45_worn_acog]:wpn_ump45_worn
+scope_name					= acog
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_ump45_acog_sk2_hud
+
+[wpn_ump45_acog_sk2_hud]:wpn_ump45_acog_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_ump45_worn_eot]:wpn_ump45_worn
+visual						= dynamics\weapons\wpn_ump45\wpn_ump45_eot_sk2.ogf
+scope_name					= eot
+scope_x						= 83
+scope_y						= -8
+hud							= wpn_ump45_eot_sk2_hud
+
+[wpn_ump45_eot_sk2_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_ump45\wpn_ump45_eot_sk2_hud.ogf
+aim_hud_offset_pos			= -0.082,0.0325,-0.1
+aim_hud_offset_rot			= 0.022,0.0345,0
+aim_hud_offset_pos_16x9		= -0.082,0.0325,-0.1
+aim_hud_offset_rot_16x9		= 0.022,0.0345,0
+
+;-----------------------------------------------------------------------------
+;	CZ Scorpion EVO3 added by Surs (02.06.2019)
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3]:wpn_ump45
+visual						= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3.ogf
+hud							= wpn_cz_scorpion_evo3_hud
+inv_weight					= 2.77
+inv_volume					= 3.5
+ph_mass						= 3
+cost						= 26000
+heating_rates				= smg2
+hit_power					= 0.42, 0.42, 0.42, 0.42
+hit_impulse					= 38
+fire_distance				= 250
+bullet_speed				= 370
+rpm							= 1100
+rpm_empty_click				= 200
+inv_name					= st_wpn_scorpion_evo3
+inv_name_short				= st_wpn_scorpion_evo3
+description					= st_wpn_scorpion_evo3_descr
+scopes 						= ac10632, ac11090, acog, aimpoint, coyote, c-more, eot
+parent_section				= wpn_cz_scorpion_evo3
+
+misfire_probability        	= 0.004
+misfire_start_condition		= 0.81
+misfire_end_condition		= 0.11
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11 
+condition_shot_dec      	= 0.0008
+condition_queue_shot_dec	= 0.0008
+
+ammo_elapsed				= 30
+ammo_mag_size				= 30
+fire_modes					= -1, 1, 3
+magazine_sect				= mag_9x19_cnt_30_evo3
+ammo_class					= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+grenade_class				= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot						= 2
+
+position					= -0.026, -0.125, 0.0
+orientation					= 0, 0, 0
+
+inv_grid_width				= 4
+inv_grid_height				= 2
+inv_grid_x					= 40
+inv_grid_y					= 44
+
+upgr_icon_x					= 2700
+upgr_icon_y					= 1300
+upgr_icon_width				= 200
+upgr_icon_height   			= 100
+
+silencer_name				= wpn_sil_9mm
+silencer_x					= 176
+silencer_y					= 10
+;--Магазины-------------------------------------------------------------------
+[mag_9x19_cnt_30_evo3]
+magazine_name				= magazine_9x19_cnt_30_evo3
+magazine_x					= 100
+magazine_y					= 50
+custom_icon					= 8,2,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_hud]:wpn_ump45_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_hud.ogf
+zoom_hide_crosshair     	= true
+aim_hud_offset_pos			= -0.08292,0.0628,-0.12
+aim_hud_offset_pos_16x9		= -0.08292,0.0628,-0.12
+aim_hud_offset_rot			= 0.028,0.0359,0
+aim_hud_offset_rot_16x9		= 0.028,0.0359,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_ac10632]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_ac10632.ogf
+scope_name					= ac10632
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_cz_scorpion_evo3_ac10632_hud
+
+[wpn_cz_scorpion_evo3_ac10632_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_ac10632_hud.ogf
+aim_hud_offset_pos			= -0.0824,0.0423,-0.1
+aim_hud_offset_pos_16x9 	= -0.0824,0.0423,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_ac11090]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_ac11090.ogf
+scope_name					= ac11090
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_cz_scorpion_evo3_ac11090_hud
+
+[wpn_cz_scorpion_evo3_ac11090_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_ac11090_hud.ogf
+aim_hud_offset_pos			= -0.0819,0.0447,-0.1
+aim_hud_offset_pos_16x9 	= -0.0819,0.0447,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_acog]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_acog.ogf
+scope_name					= acog
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_cz_scorpion_evo3_acog_hud
+
+[wpn_cz_scorpion_evo3_acog_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_acog_hud.ogf
+aim_hud_offset_pos			= -0.08254,0.0457,-0.1
+aim_hud_offset_pos_16x9 	= -0.08254,0.0457,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_aimpoint]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_aimpoint.ogf
+scope_name					= aimpoint
+scope_x						= 80
+scope_y						= -10
+hud							= wpn_cz_scorpion_evo3_aimpoint_hud
+
+[wpn_cz_scorpion_evo3_aimpoint_hud]:wpn_cz_scorpion_evo3_acog_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_aimpoint_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_coyote]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_coyote.ogf
+scope_name					= coyote
+scope_x						= 84
+scope_y						= -8
+hud							= wpn_cz_scorpion_evo3_coyote_hud
+
+[wpn_cz_scorpion_evo3_coyote_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_coyote_hud.ogf
+aim_hud_offset_pos			= -0.0824,0.0423,-0.1
+aim_hud_offset_pos_16x9 	= -0.0824,0.0423,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_eot]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_eot.ogf
+scope_name					= eot
+scope_x						= 84
+scope_y						= -8
+hud							= wpn_cz_scorpion_evo3_eot_hud
+
+[wpn_cz_scorpion_evo3_eot_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_eot_hud.ogf
+aim_hud_offset_pos			= -0.08174,0.0350,-0.1
+aim_hud_offset_pos_16x9 	= -0.08174,0.0350,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------
+[wpn_cz_scorpion_evo3_c-more]:wpn_cz_scorpion_evo3
+visual                  	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_c-more.ogf
+scope_name					= c-more
+scope_x						= 84
+scope_y						= -8
+hud							= wpn_cz_scorpion_evo3_c-more_hud
+
+[wpn_cz_scorpion_evo3_c-more_hud]:wpn_cz_scorpion_evo3_hud
+item_visual            	 	= dynamics\weapons\wpn_cz_evo3\wpn_cz_scorpion_evo3_c-more_hud.ogf
+aim_hud_offset_pos			= -0.0822,0.0407,-0.1
+aim_hud_offset_pos_16x9 	= -0.0822,0.0407,-0.1
+aim_hud_offset_rot	 		= 0.025,0.0345,0
+aim_hud_offset_rot_16x9 	= 0.025,0.0345,0
+;-----------------------------------------------------------------------------

@@ -1,0 +1,232 @@
+#ifndef USE_MSAA
+	Texture2D 			s_distort;
+#else
+	#ifndef USE_DX11
+		Texture2DMS<float4,MSAA_SAMPLES> s_distort;
+	#else
+		Texture2DMS<float4>	s_distort;
+	#endif
+#endif
+
+#if defined(USE_MSAA)
+	#ifndef USE_DX11
+		Texture2DMS<float4,MSAA_SAMPLES> s_dtssr;
+	#else
+		Texture2DMS<float4>	s_dtssr;
+	#endif
+#else
+	Texture2D <float3> s_dtssr;
+#endif
+
+float4 e_barrier;	// x=norm(.8f), y=depth(.1f), z=clr
+float4 e_weights;	// x=norm, y=depth, z=clr
+float4 e_kernel;	// x=norm, y=depth, z=clr
+
+uniform float4 ogse_c_rain;	
+uniform float4 screen_res;
+
+#include "common.h"
+#include "sweetfx.h"
+#include "dof.h"
+#include "mblur.h"
+#include "grain.h"
+#include "visor.h"
+#include "visordrops.h"
+#include "lumasharpen.h"
+#include "tonemapping.h"
+#include "curves.h"
+#include "DPX.h"
+#include "dither.h"
+#include "HDR.h"
+#include "tonemap.h"
+#include "_lensflare.h"
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Pixel
+
+struct c2_out
+{
+	float4	Color : SV_Target;
+#ifdef USE_MSAA
+	float	Depth : SV_Depth;
+#endif
+};
+
+c2_out main( v2p_aa_AA I, uint iSample : SV_SAMPLEINDEX   )
+{
+	c2_out	res;
+	res.Color = float4(0,0,0,0);
+
+#ifdef GBUFFER_OPTIMIZATION
+	gbuffer_data gbd	= gbuffer_load_data(I.Tex0, I.HPos, iSample );
+#else
+	gbuffer_data gbd	= gbuffer_load_data(I.Tex0, iSample );
+#endif
+	
+  	float 	depth 	= gbd.P.z;
+#ifdef 	USE_DISTORT
+	#ifndef USE_MSAA
+		float4 	distort	= s_distort.Sample(smp_nofilter, I.Tex0);
+	#else // USE_MSAA
+		float4 	distort	= s_distort.Load( int3( I.Tex0 * pos_decompression_params2.xy, 0 ), iSample );
+	#endif // USE_MSAA
+	float2	offset	= (distort.xy-(127.0f/255.0f))*def_distort;  // fix newtral offset
+
+
+	//Credits to Dark Path
+	// Check every pixel by distortion mask to prevent "color bleeding" of front objects into distortion.
+	// We also need to make black areas of mask slightly thicker to avoid artifacts on edges.
+	// So get average distortion value from 7x7 pixels area and replace grey pixels with black.
+	//  ___________
+	// | lt  t  rt |
+	// |           |
+	// | l   c   r |
+	// |           |
+	// | lb  b  rb |
+	//  -----------
+
+	float2 center = I.Tex0.xy;
+	float2	tc_offs	= I.Tex0 + offset;
+	
+	#ifdef USE_MSAA
+		float m_lt = s_distort.Load(int3((tc_offs + float2(-3.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_lt = step(0.00001f, m_lt);
+		float m_t = s_distort.Load(int3((tc_offs + float2(0.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_t = step(0.00001f, m_t);
+		float m_rt = s_distort.Load(int3((tc_offs + float2(3.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_rt = step(0.00001f, m_rt);
+		float m_l = s_distort.Load(int3((tc_offs + float2(-3.0f, 0.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_l = step(0.00001f, m_l);
+		float m_c = s_distort.Load(int3((tc_offs)*screen_res.xy, 0), iSample).w;
+		m_c = step(0.00001f, m_c);
+		float m_r = s_distort.Load(int3((tc_offs + float2(3.0f, 0.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_r = step(0.00001f, m_r);
+		float m_lb = s_distort.Load(int3((tc_offs + float2(-3.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_lb = step(0.00001f, m_lb);
+		float m_b = s_distort.Load(int3((tc_offs + float2(0.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_b = step(0.00001f, m_b);
+		float m_rb = s_distort.Load(int3((tc_offs + float2(3.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), iSample).w;
+		m_rb = step(0.00001f, m_rb);
+	#else
+		float m_lt = s_distort.Load(int3((tc_offs + float2(-3.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_lt = step(0.00001f, m_lt);
+		float m_t = s_distort.Load(int3((tc_offs + float2(0.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_t = step(0.00001f, m_t);
+		float m_rt = s_distort.Load(int3((tc_offs + float2(3.0f, 3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_rt = step(0.00001f, m_rt);
+		float m_l = s_distort.Load(int3((tc_offs + float2(-3.0f, 0.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_l = step(0.00001f, m_l);
+		float m_c = s_distort.Load(int3((tc_offs)*screen_res.xy, 0), 0).w;
+		m_c = step(0.00001f, m_c);
+		float m_r = s_distort.Load(int3((tc_offs + float2(3.0f, 0.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_r = step(0.00001f, m_r);
+		float m_lb = s_distort.Load(int3((tc_offs + float2(-3.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_lb = step(0.00001f, m_lb);
+		float m_b = s_distort.Load(int3((tc_offs + float2(0.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_b = step(0.00001f, m_b);
+		float m_rb = s_distort.Load(int3((tc_offs + float2(3.0f, -3.0f) * screen_res.zw) * screen_res.xy, 0), 0).w;
+		m_rb = step(0.00001f, m_rb);
+	#endif
+	
+	// Average mask and clip transitions to black.
+	float mask = dot(m_lt + m_t + m_rt + m_l + m_c + m_r + m_lb + m_b + m_rb, 1.0f / 9.0f);
+	mask = step(0.99f, mask);
+
+
+	// Apply distortion offset dependent on mask.
+	center += offset * mask;
+
+	#ifdef GBUFFER_OPTIMIZATION
+		gbuffer_data gbdx	= gbuffer_load_data_offset(I.Tex0, center, I.HPos, iSample );
+	#else
+		gbuffer_data gbdx	= gbuffer_load_data_offset(I.Tex0, center, iSample);
+	#endif
+
+	float 	depth_x	= gbdx.P.z;
+	if ((depth_x+EPSDEPTH)<depth)	center	= I.Tex0;	// discard new sample
+#else // USE_DISTORT
+	float2	center 	= I.Tex0;
+#endif
+
+	float3 img = dof(center, depth);
+	
+	//img 	= mblur( center, gbd.P, img.rgb);
+	
+	if (pp_control_params.x && pp_control_params.y) img = ChromaticAberration( img, center, curves_sslr_params.w);
+		
+	if (pp_control_params.x) img = ACESFilm(img);
+	
+	float3 tbloom;
+	if (pp_control_params.z) {
+		tbloom = crysisblur(s_bloom, center, 2, false);
+		img += tbloom;
+	}
+	
+
+#ifdef 	USE_DISTORT
+	if (pp_control_params.z) {
+		float3	blurred	= tbloom*def_hdr	;
+		img		= lerp	(img,blurred,distort.z);
+	}
+	else {
+		img		= lerp	(img,def_hdr,distort.z);
+	}
+#endif
+	
+	float4 final = float4(img, 1);
+		
+	if (control_params.x) {
+	
+		#ifndef USE_MSAA
+			float dep = s_position.SampleLevel(smp_rtlinear,float3(center.xy,0),0).z;
+		#else
+			float dep = s_position.Load(int3(center.xy,0),0).z;
+		#endif
+		final = visor_reflect(center, final, dep);	
+		if (ogse_c_rain.w > 0.05) {
+			float rainAmount = ogse_c_rain.w*5;
+			float2 uv = I.Tex0;   
+		
+			float t = (timers.x * .2 + rainAmount * 4.);
+		
+			float staticDrops = smoothstep(-.5, 4., rainAmount)*8.f;
+			float layer1 = smoothstep(.25, .75, rainAmount);
+			float layer2 = smoothstep(.0, .5, rainAmount);
+		
+			float2 c = Drops(uv, t, staticDrops, layer1, layer2);
+		
+			float2 e = float2(.00005, 0.);
+			float cx = Drops(uv+e, t, staticDrops, layer1, layer2).x;
+			float cy = Drops(uv+e.yx, t, staticDrops, layer1, layer2).x;
+			float2 n = float2(cx-c.x, cy-c.x);
+		
+		
+			float3 col = s_image.Sample(smp_rtlinear, uv + n);
+			
+			final.rgb += col;
+		}
+	}
+	
+	if (pp_control_params.x) {
+		final = HDRPass(final, center, s_image);
+		if (pp_control_params1.y) final.rgb = ColorFilmicToneMapping(final.rgb);
+		final = LumaSharpenPass(final,center, technicolor_params2.y);
+		//final = GrainPass( final, center );
+		final = TechnicolorPass(final);
+		final = DPXPass(final);
+		//final = TonemapPass(final);
+		final = CurvesPass(final);
+		final = DitherPass(final,center);
+		if (pp_control_params1.z) final.rgb = VignettePass(final.rgb, center);
+	}
+
+
+	res.Color = final;
+
+	#ifdef USE_MSAA
+		float4 ptp = mul(m_P, float4(gbd.P, 1));
+		res.Depth = ptp.w==0?1:ptp.z/ptp.w;
+	#endif
+	
+	return res;
+}

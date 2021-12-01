@@ -1,0 +1,99 @@
+;camping
+[logic@gar_smart_terrain_3_7_camp_work_1]
+active = animpoint@gar_smart_terrain_3_7_camp_work_1
+suitable = {!surge_started} true
+prior = 45
+
+[logic@gar_smart_terrain_3_7_camp_work_2]
+active = animpoint@gar_smart_terrain_3_7_camp_work_2
+suitable = {!surge_started} true
+prior = 45
+
+[logic@gar_smart_terrain_3_7_camp_work_3]
+active = animpoint@gar_smart_terrain_3_7_camp_work_3
+suitable = {!surge_started} true
+prior = 45
+
+[logic@gar_smart_terrain_3_7_camp_work_4]
+active = animpoint@gar_smart_terrain_3_7_camp_work_4
+suitable = {!surge_started} true
+prior = 45
+
+[logic@gar_smart_terrain_3_7_camp_work_5]
+active = animpoint@gar_smart_terrain_3_7_camp_work_5
+suitable = {!surge_started} true
+prior = 45
+
+[animpoint@gar_smart_terrain_3_7_camp_work_1]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp1
+use_camp = true
+on_info = {=is_night} animpoint@gar_smart_terrain_3_7_camp_work_night_1
+on_info2 = {=is_rain} animpoint@gar_smart_terrain_3_7_camp_work_night_1
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_2]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp2
+use_camp = true
+on_info = {=is_night} animpoint@gar_smart_terrain_3_7_camp_work_night_2
+on_info2 = {=is_rain} animpoint@gar_smart_terrain_3_7_camp_work_night_2
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_3]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp3
+use_camp = true
+on_info = {=is_night} animpoint@gar_smart_terrain_3_7_camp_work_night_3
+on_info2 = {=is_rain} animpoint@gar_smart_terrain_3_7_camp_work_night_3
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_4]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp4
+use_camp = true
+on_info = {=is_night} animpoint@gar_smart_terrain_3_7_camp_work_night_4
+on_info2 = {=is_rain} animpoint@gar_smart_terrain_3_7_camp_work_night_4
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_5]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp5
+use_camp = true
+on_info = {=is_night} animpoint@gar_smart_terrain_3_7_camp_work_night_5
+on_info2 = {=is_rain} animpoint@gar_smart_terrain_3_7_camp_work_night_5
+turn_on_campfire = true
+
+;rain/night
+
+[animpoint@gar_smart_terrain_3_7_camp_work_night_1]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp_night1
+use_camp = true
+on_info = {!is_night} animpoint@gar_smart_terrain_3_7_camp_work_1
+on_info2 = {!is_rain} animpoint@gar_smart_terrain_3_7_camp_work_1
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_night_2]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp_night2
+use_camp = true
+on_info = {!is_night} animpoint@gar_smart_terrain_3_7_camp_work_2
+on_info2 = {!is_rain} animpoint@gar_smart_terrain_3_7_camp_work_2
+turn_on_campfire = true
+avail_animations = animpoint_stay_wall
+
+[animpoint@gar_smart_terrain_3_7_camp_work_night_3]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp_night3
+use_camp = true
+on_info = {!is_night} animpoint@gar_smart_terrain_3_7_camp_work_3
+on_info2 = {!is_rain} animpoint@gar_smart_terrain_3_7_camp_work_3
+turn_on_campfire = true
+avail_animations = animpoint_stay_ohrana
+
+[animpoint@gar_smart_terrain_3_7_camp_work_night_4]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp_night4
+use_camp = true
+on_info = {!is_night} animpoint@gar_smart_terrain_3_7_camp_work_4
+on_info2 = {!is_rain} animpoint@gar_smart_terrain_3_7_camp_work_4
+turn_on_campfire = true
+
+[animpoint@gar_smart_terrain_3_7_camp_work_night_5]
+cover_name = gar_smart_terrain_3_7_animpoint_kamp_night5
+use_camp = true
+on_info = {!is_night} animpoint@gar_smart_terrain_3_7_camp_work_5
+on_info2 = {!is_rain} animpoint@gar_smart_terrain_3_7_camp_work_5
+turn_on_campfire = true

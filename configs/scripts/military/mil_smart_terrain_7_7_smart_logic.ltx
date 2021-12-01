@@ -1,0 +1,446 @@
+;freedom mechanic
+[logic@mil_smart_terrain_7_7_freedom_mechanic]
+suitable = {=check_npc_name(mil_smart_terrain_7_7_freedom_mechanic_stalker)} true
+prior = 200
+active = animpoint@stand_mech
+level_spot = mechanic
+trade = misc\trade\trade_tech_mlty.ltx
+
+[animpoint@stand_mech]
+cover_name = mil_smart_terrain_7_7_freedom_mechanic_smart_cover
+avail_animations = animpoint_stay_table
+use_camp = false
+meet = meet@mechanic
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+;reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet@mechanic]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+
+;freedom leader
+[logic@mil_smart_terrain_7_7_freedom_leader]
+suitable = {=check_npc_name(mil_smart_terrain_7_7_freedom_leader_stalker)} true
+prior = 200
+active = animpoint@mil_freedom_leader
+level_spot = quest_npc
+
+[animpoint@mil_freedom_leader]
+cover_name = mil_smart_terrain_7_7_freedom_leader_animp
+avail_animations = fold_arms
+meet = meet@stand_base
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+corpse_detection_enabled = false
+gather_items_enabled = false
+help_wounded_enabled = false
+use_camp = false
+on_game_timer = 3500 | animpoint@smoke
+
+[animpoint@smoke]:animpoint@mil_freedom_leader
+avail_animations = smoking_stand
+on_game_timer = 1300 | animpoint@mil_freedom_leader
+
+[meet@stand_base]
+close_snd_hello = jup_a6_freedom_leader_greeting
+close_snd_bye 	= jup_a6_freedom_leader_farewell
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+allow_break = false
+trade_enable = false
+meet_on_talking = false
+
+;freedom guard1
+[logic@mil_smart_terrain_7_7_freedom_bodyguard1]
+active = walker@guard
+prior = 150
+suitable = {=check_npc_name(mil_smart_terrain_7_7_freedom_bodyguard_stalker)} true
+
+[walker@guard]
+path_walk = freedom_bodyguard_1_walk
+path_look = freedom_bodyguard_1_look
+meet = meet@guard
+on_actor_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | {=actor_has_weapon} walker@threat
+
+[meet@guard]
+close_distance = 5
+close_victim = actor
+close_anim = guard
+use = false
+
+[walker@threat]
+path_walk = freedom_bodyguard_1_walk
+path_look = freedom_bodyguard_1_look
+on_game_timer = 10 | %=play_sound(mil_freedom_guards_warning_actor)%
+meet = meet@threat
+on_actor_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | {!actor_has_weapon} walker@guard
+on_actor_not_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | walker@guard
+
+[meet@threat]
+close_distance = 5
+close_victim = actor
+close_anim = {!actor_has_weapon} guard, threat
+use = false
+
+;freedom guard2
+[logic@mil_smart_terrain_7_7_freedom_bodyguard2]
+active = walker@guard_2
+prior = 150
+suitable = {=check_npc_name(mil_smart_terrain_7_7_freedom_bodyguard2_stalker)} true
+
+[walker@guard_2]
+path_walk = freedom_bodyguard_2_walk
+path_look = freedom_bodyguard_2_look
+meet = meet@guard_2
+on_actor_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | {=actor_has_weapon} walker@threat_2
+
+[meet@guard_2]
+close_distance = 5
+close_victim = actor
+close_anim = guard
+use = false
+
+[walker@threat_2]
+path_walk = freedom_bodyguard_2_walk
+path_look = freedom_bodyguard_2_look
+meet = meet@threat_2
+on_actor_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | {!actor_has_weapon} walker@guard_2
+on_actor_not_in_zone = mil_smart_terrain_7_7_freedom_bodyguard_restrictor | walker@guard_2
+
+[meet@threat_2]
+close_distance = 5
+close_victim = actor
+close_anim = {!actor_has_weapon} guard, threat
+use = false
+
+;------------------------------
+;------- Mutant swarm ----------
+;------------------------------
+
+[logic@faction_base_defense_enemy1]
+active = mob_home@faction_base_defense_enemy1
+suitable = {=target_squad_name(faction_base_defense_flesh_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy1]
+path_home = home_attackers
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+[logic@faction_base_defense_enemy2]
+active = mob_home@faction_base_defense_enemy2
+suitable = {=target_squad_name(faction_base_defense_boar_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy2]
+path_home = home_attackers
+aggressive = true
+home_min_radius = 1
+home_max_radius = 30
+panic = 0
+
+[logic@faction_base_defense_enemy3]
+active = mob_home@faction_base_defense_enemy3
+suitable = {=target_squad_name(faction_base_defense_dog_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy3]
+path_home = home_attackers
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+[logic@faction_base_defense_enemy4]
+active = mob_home@faction_base_defense_enemy4
+suitable = {=target_squad_name(faction_base_defense_flesh_second_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy4]
+path_home = home_attackers ;home_attackers_2
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+[logic@faction_base_defense_enemy5]
+active = mob_home@faction_base_defense_enemy5
+suitable = {=target_squad_name(faction_base_defense_boar_second_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy5]
+path_home = home_attackers ;home_attackers_2
+aggressive = true
+home_min_radius = 1
+home_max_radius = 30
+panic = 0
+
+[logic@faction_base_defense_enemy6]
+active = mob_home@faction_base_defense_enemy6
+suitable = {=target_squad_name(faction_base_defense_dog_second_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy6]
+path_home = home_attackers ;home_attackers_2
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+[logic@mil_smart_terrain_7_7_camp_work_1]
+active = animpoint@mil_smart_terrain_7_7_camp_work_1
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_2]
+active = animpoint@mil_smart_terrain_7_7_camp_work_2
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_3]
+active = animpoint@mil_smart_terrain_7_7_camp_work_3
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_4]
+active = animpoint@mil_smart_terrain_7_7_camp_work_4
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_5]
+active = animpoint@mil_smart_terrain_7_7_camp_work_5
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_6]
+active = animpoint@mil_smart_terrain_7_7_camp_work_6
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_7]
+active = animpoint@mil_smart_terrain_7_7_camp_work_7
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_8]
+active = animpoint@mil_smart_terrain_7_7_camp_work_8
+suitable = {!surge_started} true, {!is_rain} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_9]
+active = animpoint@mil_smart_terrain_7_7_camp_work_9
+suitable = {!surge_started} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_10]
+active = animpoint@mil_smart_terrain_7_7_camp_work_10
+suitable = {!surge_started} true
+prior = 41
+
+[logic@mil_smart_terrain_7_7_camp_work_11]
+active = animpoint@mil_smart_terrain_7_7_camp_work_11
+suitable = {!surge_started} true
+prior = 41
+
+[animpoint@mil_smart_terrain_7_7_camp_work_1]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_2]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_3]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_4]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp4
+
+[animpoint@mil_smart_terrain_7_7_camp_work_5]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp5
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_6]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp6
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_7]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp7
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_8]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp8
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_9]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp9
+use_camp = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_10]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp10
+use_camp = true
+
+[animpoint@mil_smart_terrain_7_7_camp_work_11]
+cover_name = mil_smart_terrain_7_7_animpoint_kamp11
+use_camp = false
+meet = no_meet
+avail_animations = drunk_behindwall
+
+[logic@mil_freedom_guid]
+suitable = {=check_npc_name(mil_freedom_guid)} true
+prior = 200
+active = animpoint@stand
+can_select_weapon = true
+dont_keep_items = true
+level_spot = quest_npc
+
+[animpoint@stand]
+cover_name = sc_freedom_guid_mlr
+use_camp = false
+gather_items_enabled = false
+help_wounded_enabled = false
+on_info = {=is_night} sleeper@sleeper_1
+reach_distance = 10
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+reach_movement = walk_noweap
+avail_animations = animpoint_stay_ohrana
+meet = meet
+
+[meet]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false
+trade_enable = false
+
+[sleeper@sleeper_1]
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+path_main = house_1_walk
+meet = no_meet
+on_info = {!is_night} animpoint@stand
+
+[logic@mil_freedom_medic]
+suitable = {=check_npc_name(mil_freedom_medic)} true
+prior = 200
+active = animpoint@sit
+can_select_weapon = true
+dont_keep_items = true
+level_spot = medic
+trade = misc\trade\trade_medic.ltx
+
+[animpoint@sit]
+cover_name = sc_freedom_medic_mlr
+use_camp = false
+gather_items_enabled = false
+help_wounded_enabled = false
+reach_movement = walk_noweap
+reach_distance = 10
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+meet = meet@medic
+
+[meet@medic]
+close_snd_hello = meet_hello
+close_snd_bye  = meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false
+trade_enable = true
+
+[logic@mil_freedom_barman_mlr]
+suitable = {=check_npc_name(mil_freedom_barman_mlr)} true
+prior = 200
+active = animpoint@stay_table
+can_select_weapon = true
+dont_keep_items = true
+level_spot = trader
+trade = misc\trade\trade_barman.ltx
+
+[animpoint@stay_table]
+avail_animations = animpoint_sit_high
+cover_name = mil_freedom_barman_mlr_place
+use_camp = false
+gather_items_enabled = false
+help_wounded_enabled = false
+reach_movement = walk_noweap
+reach_distance = 10
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+meet = meet@barman
+
+[meet@barman]
+close_snd_hello = mil_free_bar_meet
+close_snd_bye = mil_free_bar_meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false
+trade_enable = true

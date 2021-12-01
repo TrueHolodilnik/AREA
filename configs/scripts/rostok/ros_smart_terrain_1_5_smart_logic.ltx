@@ -1,0 +1,120 @@
+[walker@generic]
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+turn_on_campfire = true
+
+[logic@ros_smart_terrain_1_4_leader]
+active = walker@ros_smart_terrain_1_4_leader
+suitable = {=check_npc_name(ros_general_tachenko) -ros_general_tachenko_dialog_1} true
+prior = 200
+; on_death = death
+level_spot = quest_npc
+
+[walker@ros_smart_terrain_1_4_leader]
+path_walk = leader_walk
+path_look = leader_look
+;TEMP
+def_state_moving = sprint
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+meet = meet@ros_smart_terrain_1_4_leader
+; on_info = {+ros_capture_base_quest_reject} walker@go_capture
+
+[meet@ros_smart_terrain_1_4_leader]
+close_snd_hello = {=actor_enemy} nil, {=actor_has_weapon} meet_hide_weapon, meet_hello
+close_snd_bye 	= {=actor_enemy} nil, {=actor_has_weapon} nil, meet_hello
+close_anim 		= ward
+close_victim 	= actor
+far_anim 		= ward
+far_victim 		= nil
+; close_distance  = 3
+; far_distance 	= 5
+; close_snd_distance = 3
+use = {=actor_enemy} false, true
+use_wpn = false
+meet_on_talking = false
+allow_break = false
+meet_dialog = {+ros_smart_terrain_1_1_zombies_dead} ros_general_tachenko_dialog_2, {+ros_general_tachenko_dialog_1} nil, ros_general_tachenko_dialog_1
+
+[walker@go_capture]:walker@ros_smart_terrain_1_4_leader
+
+
+[logic@ros_smart_terrain_1_4_squad_01]
+active = walker@ros_smart_terrain_1_4_squad_01
+suitable = {=check_npc_name(ros_duty_trader) -ros_general_tachenko_dialog_1} true
+prior = 200
+; on_death = death
+
+[walker@ros_smart_terrain_1_4_squad_01]:walker@generic
+path_walk = squad_1_walk
+path_look = squad_all_look
+;TEMP
+def_state_moving = sprint
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+meet = no_meet
+; on_info = {+ros_capture_base_quest_reject} walker@go_capture
+
+[logic@ros_smart_terrain_1_4_squad_02]
+active = walker@ros_smart_terrain_1_4_squad_02
+suitable = {=check_npc_name(ros_duty_tech) -ros_general_tachenko_dialog_1} true
+prior = 200
+; on_death = death
+
+[walker@ros_smart_terrain_1_4_squad_02]:walker@generic
+path_walk = squad_2_walk
+path_look = squad_all_look
+;TEMP
+def_state_moving = sprint
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+meet = no_meet
+; on_info = {+ros_capture_base_quest_reject} walker@go_capture
+
+[logic@ros_smart_terrain_1_4_squad_03]:walker@generic
+active = walker@ros_smart_terrain_1_4_squad_03
+suitable = {=check_npc_name(ros_duty_medic) -ros_general_tachenko_dialog_1} true
+prior = 200
+; on_death = death
+
+[walker@ros_smart_terrain_1_4_squad_03]:walker@generic
+path_walk = squad_3_walk
+path_look = squad_all_look
+;TEMP
+def_state_moving = sprint
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+meet = no_meet
+; on_info = {+ros_capture_base_quest_reject} walker@go_capture
+
+[logic@ros_smart_terrain_1_4_squad_04]
+active = walker@ros_smart_terrain_1_4_squad_04
+suitable = {=check_npc_name(ros_duty_squad_04) -ros_general_tachenko_dialog_1} true
+prior = 200
+; on_death = death
+
+[walker@ros_smart_terrain_1_4_squad_04]:walker@generic
+path_walk = squad_4_walk
+path_look = squad_all_look
+;TEMP
+def_state_moving = sprint
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+meet = no_meet
+; on_info = {+ros_capture_base_quest_reject} walker@go_capture

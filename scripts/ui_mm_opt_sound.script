@@ -1,0 +1,108 @@
+class "opt_sound" (CUIWindow)
+
+function opt_sound:__init() super()
+
+end
+
+function opt_sound:__finalize()
+
+end
+
+function opt_sound:InitControls(x, y, xml, handler)
+
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(738,416))
+	self:SetAutoDelete(true)
+
+--	self.bk = xml:InitFrame("frame", self)
+
+	self.elements_alpha = {}
+	self.elements_noalpha = {}
+
+	self.elements_alpha[1] = xml:InitStatic("tab_sound:cap_mastervolume",		self)
+	self.elements_alpha[2] = xml:InitStatic("tab_sound:cap_musicvolume",			self)
+
+	self.elements_alpha[3] = xml:InitStatic("tab_sound:cap_check_eax",			self)
+	self.elements_alpha[4] = xml:InitStatic("tab_sound:cap_check_dynamic_music",	self)
+
+	self.elements_noalpha[1] = xml:InitCheck("tab_sound:check_eax",				self)
+	self.elements_noalpha[2] = xml:InitCheck("tab_sound:check_dynamic_music",		self)
+
+
+	self.elements_noalpha[3] = xml:InitTrackBar("tab_sound:track_musicvolume",	self)
+	self.elements_noalpha[4] = xml:InitTrackBar("tab_sound:track_mastervolume",self)
+
+
+	self.elements_alpha[5] = xml:InitStatic					("tab_sound:cap_snd_device",		self)
+	self.elements_noalpha[5] = xml:InitComboBox				("tab_sound:list_snd_device",	self)
+	
+	for i=1, #self.elements_alpha do
+		self.elements_alpha[i]:SetTextureColor(GetARGB(0,255,255,255))
+		self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(0,255,255,255))
+	end
+	
+	for i=1, #self.elements_noalpha do
+		self.elements_noalpha[i]:Show(false)
+	end
+	
+	self.anim_alpha = 0
+	self.is_quit = false
+
+end
+
+function opt_sound:UpdateSoundTab()
+
+	if (self.anim_alpha < 255 and not self.is_quit) or (self.anim_alpha > 0 and self.is_quit) then
+		
+		if (not self.is_quit) then
+			self.anim_alpha = self.anim_alpha + 1
+		else
+			self.anim_alpha = self.anim_alpha - 1
+		end
+		
+		for i=1, #self.elements_alpha do
+			self.elements_alpha[i]:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+			self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(self.anim_alpha,255,255,255))
+		end
+		
+		closecaption.closecaption_elements[1]:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+		closecaption.closecaption_elements[1]:TextControl():SetTextColor(GetARGB(self.anim_alpha,255,255,255))
+		
+		closecaption.closecaption_elements[3]:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+		closecaption.closecaption_elements[3]:TextControl():SetTextColor(GetARGB(self.anim_alpha,255,255,255))
+		
+	end
+	
+	--if self.is_quit and self.anim_alpha == 1 then
+	--	self.is_quit = false
+	--end
+	
+	if (self.anim_alpha == 254) or (self.anim_alpha == 1 and self.is_quit) then
+		for i=1, #self.elements_noalpha do
+			self.elements_noalpha[i]:Show(not self.is_quit)
+		end
+		closecaption.closecaption_elements[2]:Show(not self.is_quit)
+		closecaption.closecaption_elements[4]:Show(not self.is_quit)
+	end
+	
+end
+
+function opt_sound:SetAlphaToZero()
+
+	self.anim_alpha = 0
+	for i=1, #self.elements_noalpha do
+		self.elements_noalpha[i]:Show(false)
+	end
+	
+	closecaption.closecaption_elements[2]:Show(false)
+	closecaption.closecaption_elements[4]:Show(false)
+
+end
+
+function opt_sound:SetIsQuit()
+	self.is_quit = true
+end
+
+function opt_sound:UnsetIsQuit()
+	self.is_quit = false
+end

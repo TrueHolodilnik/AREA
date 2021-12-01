@@ -1,0 +1,30 @@
+[logic@ah_yan_markov]
+active = animpoint@stable
+suitable = {=check_npc_name(ah_yan_markov)} true
+prior = 110
+level_spot = quest_npc
+relationship = neutral   
+
+[animpoint@stable]
+cover_name = yan_smart_cover_markov
+avail_animations = animpoint_stay_ohrana
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+meet = meet@hello_science
+
+[meet@hello_science]
+close_snd_hello = meet_hello_custom
+close_snd_bye = meet_bye_custom
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+allow_break 	= false
+meet_on_talking = false

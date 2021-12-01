@@ -1,0 +1,147 @@
+;camping
+[logic@ros_smart_terrain_3_5_camp_work_1]
+active = animpoint@ros_smart_terrain_3_5_camp_work_1
+suitable = {!surge_started} true
+prior = 25
+
+[animpoint@ros_smart_terrain_3_5_camp_work_1]
+cover_name = ros_smart_terrain_3_5_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[logic@ros_smart_terrain_3_5_camp_work_2]
+active = animpoint@ros_smart_terrain_3_5_camp_work_2
+suitable = {!surge_started} true
+prior = 25
+
+[animpoint@ros_smart_terrain_3_5_camp_work_2]
+cover_name = ros_smart_terrain_3_5_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[logic@ros_smart_terrain_3_5_camp_work_3]
+active = animpoint@ros_smart_terrain_3_5_camp_work_3
+suitable = {!surge_started} true
+prior = 25
+
+[animpoint@ros_smart_terrain_3_5_camp_work_3]
+cover_name = ros_smart_terrain_3_5_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+
+[logic@ros_smart_terrain_3_5_camp_work_4]
+active = animpoint@ros_smart_terrain_3_5_camp_work_4
+suitable = {!surge_started} true
+prior = 25
+
+[animpoint@ros_smart_terrain_3_5_camp_work_4]
+cover_name = ros_smart_terrain_3_5_animpoint_kamp4
+use_camp = true
+turn_on_campfire = true
+
+[logic@bar_dolg_general_zoneguard]
+suitable = {=check_npc_name(bar_dolg_general_zoneguard_stalker)} true
+prior = 200
+active = walker@zoneguard
+
+[walker@zoneguard]
+path_walk = angar_zoneguard_walk
+path_look = angar_zoneguard_look
+meet = meet@zoneguard
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+on_actor_in_zone = bar_angar_warn_zone | %=play_sound(bar_dolg_hangar_bridge_hello)%
+;turn_on_campfire = true 
+
+[meet@zoneguard]
+use = true
+use_wpn = true
+;meet_dialog = bar_dolg_zastava
+
+;------------------------ petrenko
+[logic@bar_dolg_general_petrenko]
+suitable = {=check_npc_name(bar_dolg_general_petrenko_stalker)} true
+prior = 200
+active = animpoint@stand
+level_spot = trader
+trade = misc\trade\trade_dolg_mlty.ltx
+can_select_weapon = true ;
+dont_keep_items = true
+
+[animpoint@stand]
+cover_name = ros_smart_terrain_3_5_duty_trader
+reach_movement = walk_noweap
+avail_animations = animpoint_stay_ohrana
+use_camp = false
+meet = meet@trader
+;mlr
+on_game_timer = 10800 | {!is_rain} walker@otzhiman_petrenko
+;mlr
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet@trader]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+
+;physic
+[animpoint@bar_smart_cover_otzhiman_1]
+cover_name = bar_smart_cover_otzhiman_1
+use_camp = false
+on_info = {=surge_started} walker@hide_1
+turn_on_campfire = false
+meet = no_meet
+avail_animations = otzhiman
+on_game_timer = 3600 | animpoint@bar_dolg_general_animpoint_kamp1
+
+[animpoint@bar_smart_cover_otzhiman_2]
+cover_name = bar_smart_cover_otzhiman_2
+use_camp = false
+on_info = {=surge_started} walker@hide_2
+turn_on_campfire = false
+meet = no_meet
+avail_animations = otzhiman
+on_game_timer = 3600 | animpoint@bar_dolg_general_animpoint_kamp2
+
+[animpoint@bar_smart_cover_otzhiman_3]
+cover_name = bar_smart_cover_otzhiman_3
+use_camp = false
+on_info = {=surge_started} walker@hide_3
+turn_on_campfire = false
+meet = no_meet
+avail_animations = otzhiman
+on_game_timer = 3600 | animpoint@bar_dolg_general_animpoint_kamp3
+
+[animpoint@bar_smart_cover_otzhiman_4]
+cover_name = bar_smart_cover_otzhiman_4
+use_camp = false
+on_info = {=surge_started} walker@hide_4
+turn_on_campfire = false
+meet = no_meet
+avail_animations = otzhiman
+on_game_timer = 3600 | animpoint@bar_dolg_general_animpoint_kamp4
+
+[walker@otzhiman_petrenko]
+path_walk = otzhiman_petrenko_walk
+path_look = otzhiman_petrenko_look
+on_info = {=surge_started} animpoint@stand
+on_game_timer = 3600 | animpoint@stand
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+corpse_detection_enabled = false
+gather_items_enabled = false
+help_wounded_enabled = false
+invulnerable = {=actor_enemy} false, true

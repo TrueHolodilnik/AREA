@@ -1,0 +1,317 @@
+;----------------------------------------------------------------------------------------
+; PP-2000 from STCOP 2.9, remade by Surs for A.R.E.A. (22.11.2020)
+;----------------------------------------------------------------------------------------
+[wpn_pp2000]:default_weapon_params
+$spawn						= "weapons\mp5"		; option for Level Editor
+$npc						= on				; option for Level Editor
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000.ogf
+class						= WP_LR300
+inv_name					= st_wpn_pp2000
+inv_name_short				= st_wpn_pp2000
+description					= st_wpn_pp2000_descr
+ef_main_weapon_type			= 2
+ef_weapon_type				= 6
+heating_rates				= smg1
+parent_section				= wpn_pp2000
+default_to_ruck				= false
+sprint_allowed				= true
+control_inertion_factor		= 1.0
+repair_type					= pistol
+weapon_class				= assault_rifle
+cost						= 19650
+inv_weight					= 1.66
+inv_volume					= 2.8
+ph_mass						= 2
+upgrades					= up_gr_firstab_pp2000, up_gr_seconab_pp2000, up_gr_thirdab_pp2000, up_gr_fourtab_pp2000, up_gr_fifthab_pp2000, up_gr_fifthcd_pp2000
+installed_upgrades			=
+upgrade_scheme				= upgrade_scheme_mp5
+;--TTX----------------------------------------------------------------------------
+hit_power					= 0.32, 0.32, 0.32, 0.32
+hit_impulse					= 25
+hit_type					= fire_wound
+fire_distance				= 300
+bullet_speed				= 540
+rpm							= 750
+rpm_empty_click				= 200
+time_to_aim					= 3.0
+hud							= wpn_pp2000_hud
+
+misfire_probability			= 0.005
+misfire_start_condition		= 0.83
+misfire_end_condition		= 0.16
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec			= 0.0012
+condition_queue_shot_dec	= 0.0012
+
+ammo_elapsed				= 30
+ammo_mag_size				= 30
+fire_modes					= -1, 3, 1
+magazine_sect				= mag_9x19_cnt_30_pp2000
+ammo_class					= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+grenade_class				= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot						= 2
+animation_slot				= 8
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 2
+reload_empty_dof			= 0.0, 0.5, 5, 3
+;---дисперсия---------------------------------------------------------------------------
+fire_dispersion_base		= 0.53				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.06f
+crosshair_inertion			= 4.25
+
+cam_return					= 0
+cam_relax_speed				= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai			= 120.75
+cam_dispersion				= 0.48				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 0.19				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 41.0				;максимальный угол отдачи
+cam_max_angle_horz			= 41.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 1.5				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.6
+PDM_disp_vel_factor 		= 1.15
+PDM_disp_accel_factor 		= 1.155
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc 		= 1.0
+
+zoom_cam_relax_speed		= 10				; scope & ironsight
+zoom_cam_relax_speed_ai		= 120.75
+zoom_cam_dispersion			= 0.33
+zoom_cam_dispersion_inc		= 0.15
+zoom_cam_dispersion_frac	= 1.0
+zoom_cam_max_angle			= 41.0
+zoom_cam_max_angle_horz		= 41.0
+zoom_cam_step_angle_horz	= 1.42
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width				= 3
+inv_grid_height				= 2
+inv_grid_x					= 47
+inv_grid_y					= 59
+
+upgr_icon_x					= 900
+upgr_icon_y					= 400
+upgr_icon_width				= 250
+upgr_icon_height			= 100
+
+kill_msg_x					= 72
+kill_msg_y					= 82
+kill_msg_width				= 56
+kill_msg_height				= 23
+;-------------------------------------------------------------------------------
+position					= -0.021,-0.085,0
+orientation 				= 0,0,0
+fire_point					= 0,0.133,0.161
+fire_point2					= 0,0.133,0.161
+flame_particles				= weapons\new_effects\a1_type_ar15
+smoke_particles				= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles		= weapons\generic_weapon01
+shell_point					= 0,0.133,0.047
+shell_dir					= 0,0,0.4
+shell_particles				= weapons\9x19
+shell_3d_sect				= shell_9
+light_disabled				= false
+light_color					= 0.6,0.5,0.3
+light_range					= 5
+light_var_color				= 0.05
+light_var_range				= 0.5
+light_time					= 0.2
+
+;addons
+scope_status				= 2					; 0 - no addon
+silencer_status				= 2					; 1 - permanent
+grenade_launcher_status		= 0					; 2 - attachable
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor			= 1.03
+scopes						= ac10632, ac11090, acog, c-more, coyote, eot, pn23, specter
+
+silencer_name				= wpn_sil_9mm
+silencer_x					= 138
+silencer_y					= 9
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time			= 0.2
+silencer_smoke_particles	= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster					= weapons\pp2000\pp2000_holster
+snd_draw					= weapons\pp2000\pp2000_draw
+snd_empty					= weapons\pp2000\pp2000_empty
+snd_reload					= weapons\pp2000\pp2000_reload
+snd_reload_empty			= weapons\pp2000\pp2000_reload_empty
+snd_reload_misfire			= weapons\pp2000\pp2000_reload_misfire
+snd_reload_detached			= weapons\pp2000\pp2000_reload,1,0,0.9
+snd_reload_detached_empty	= weapons\pp2000\pp2000_reload_empty,1,0,0.9
+snd_shoot					= weapons\pp2000\pp2000_shoot_null
+snd_silencer_shot			= weapons\pp2000\pp2000_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_9x19_cnt_30_pp2000]
+magazine_name				= magazine_9x19_cnt_30_pp2000
+magazine_x					= 73
+magazine_y					= 50
+custom_icon 				= 5,2,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_pp2000_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_pp2000\wpn_pp2000_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0.004315,0.046470,-0.092606
+shell_dir					= 0,1,0
+shell_bone					= wpn_body
+fire_point					= 0,0.039682,0.215739
+fire_bone					= wpn_body
+fire_point2					= 0,-0.009,0.601
+fire_bone2					= wpn_body
+
+hands_position				= -0.118081,-0.086085,0.018461
+hands_position_16x9			= -0.118081,-0.086085,0.018461
+hands_orientation			= -0.550000,0.74,0.6
+hands_orientation_16x9		= -0.550000,0.74,0.6
+
+aim_hud_offset_pos			= -0.031955,0.007235,-0.077310
+aim_hud_offset_pos_16x9		= -0.031955,0.007235,-0.077310
+aim_hud_offset_rot			= 0.010405,-0.014762,-0.000111
+aim_hud_offset_rot_16x9		= 0.010405,-0.014762,-0.000111
+
+aim_hud_offset_pos_alt		= -0.039955,-0.02013,0
+aim_hud_offset_pos_alt_16x9	= -0.039955,-0.02013,0
+aim_hud_offset_rot_alt		= 0,0,0.610048
+aim_hud_offset_rot_alt_16x9	= 0,0,0.610048
+
+anm_show					= lancew_pp2000_draw
+anm_hide					= lancew_pp2000_holster
+anm_idle					= lancew_pp2000_idle
+anm_idle_sprint				= lancew_pp2000_sprint
+anm_idle_moving				= lancew_pp2000_moving
+anm_shots					= lancew_pp2000_shoot, shoot
+anm_shots_empty				= lancew_pp2000_idle
+anm_shots_when_aim			= pp2000_shoot_scope, shoot
+anm_reload					= pp2000_reload, reload
+anm_reload_empty			= lancew_pp2000_reload, reload_empty
+anm_reload_detached			= pp2000_reload, reload, , 0.9
+anm_reload_detached_empty	= lancew_pp2000_reload, reload_empty, , 0.9
+anm_reload_misfire			= pp2000_misfire, misfire
+anm_idle_aim				= lancew_pp2000_idle_aim, idle_aim
+anm_bore					= lancew_pp2000_no_reload
+;-------------------------------------------------------------------------------
+[wpn_pp2000_ac10632]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_ac10632.ogf
+scope_name					= ac10632
+scope_x						= 57
+scope_y						= -4
+scope_dot_enable			= true
+scope_dot_visuals			= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos				= 0.0015, 0.1024, 0.35
+scope_dot_scale				= 5.0
+hud							= wpn_pp2000_ac10632_hud
+
+[wpn_pp2000_ac10632_hud]:wpn_pp2000_hud
+item_visual            	 	= dynamics\weapons\wpn_pp2000\wpn_pp2000_ac10632_hud.ogf
+aim_hud_offset_pos			= -0.03227,-0.021955,-0.07731
+aim_hud_offset_pos_16x9		= -0.03227,-0.021955,-0.07731
+;-------------------------------------------------------------------------------
+[wpn_pp2000_ac11090]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_ac11090.ogf
+scope_name					= ac11090
+scope_x						= 60
+scope_y						= -6
+scope_dot_enable			= true
+scope_dot_visuals			= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos				= 0.0011, 0.0962, 0.257
+scope_dot_scale				= 3.0
+hud							= wpn_pp2000_ac11090_hud
+
+[wpn_pp2000_ac11090_hud]:wpn_pp2000_hud
+item_visual					= dynamics\weapons\wpn_pp2000\wpn_pp2000_ac11090_hud.ogf
+aim_hud_offset_pos			= -0.03269,-0.015445,-0.07731
+aim_hud_offset_pos_16x9		= -0.03269,-0.015445,-0.07731
+;-------------------------------------------------------------------------------
+[wpn_pp2000_acog]:wpn_pp2000
+scope_name					= acog
+scope_x						= 50
+scope_y						= -3
+hud							= wpn_pp2000_acog_hud
+
+[wpn_pp2000_acog_hud]:wpn_pp2000_hud
+aim_hud_offset_pos			= -0.03206,-0.01972,-0.12561
+aim_hud_offset_pos_16x9		= -0.03206,-0.01972,-0.12561
+;-------------------------------------------------------------------------------
+[wpn_pp2000_c-more]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_c-more.ogf
+scope_name					= c-more
+scope_x						= 55
+scope_y						= -6
+scope_dot_enable			= true
+scope_dot_visuals			= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos				= -0.0003, 0.1021, 0.257
+scope_dot_scale				= 3.0
+hud							= wpn_pp2000_c-more_hud
+
+[wpn_pp2000_c-more_hud]:wpn_pp2000_hud
+item_visual					= dynamics\weapons\wpn_pp2000\wpn_pp2000_c-more_hud.ogf
+aim_hud_offset_pos			= -0.03143,-0.021205,-0.07731
+aim_hud_offset_pos_16x9		= -0.03143,-0.021205,-0.07731
+;-------------------------------------------------------------------------------
+[wpn_pp2000_coyote]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_coyote.ogf
+scope_name					= coyote
+scope_x						= 56
+scope_y						= -8
+scope_dot_enable			= true
+scope_dot_visuals			= dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\eot.ogf
+scope_dot_pos				= 0.0004, 0.1018, 0.180
+scope_dot_scale				= 2.0
+hud							= wpn_pp2000_coyote_hud
+
+[wpn_pp2000_coyote_hud]:wpn_pp2000_hud
+item_visual					= dynamics\weapons\wpn_pp2000\wpn_pp2000_coyote_hud.ogf
+aim_hud_offset_pos			= -0.03248,-0.020485,-0.07731
+aim_hud_offset_pos_16x9		= -0.03248,-0.020485,-0.07731
+;-------------------------------------------------------------------------------
+[wpn_pp2000_eot]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_eot.ogf
+scope_name					= eot
+scope_x						= 50
+scope_y						= -1
+scope_dot_enable			= true
+scope_dot_visuals			= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos				= 0.0007, 0.1062, 0.257
+scope_dot_scale				= 3.0
+hud							= wpn_pp2000_eot_hud
+
+[wpn_pp2000_eot_hud]:wpn_pp2000_hud
+item_visual            	 	= dynamics\weapons\wpn_pp2000\wpn_pp2000_eot_hud.ogf
+aim_hud_offset_pos			= -0.03248,-0.025525,-0.07731
+aim_hud_offset_pos_16x9		= -0.03248,-0.025525,-0.07731
+;-------------------------------------------------------------------------------
+[wpn_pp2000_pn23]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_pn23.ogf
+scope_name					= pn23
+scope_x						= 45
+scope_y						= -4
+hud							= wpn_pp2000_pn23_hud
+
+[wpn_pp2000_pn23_hud]:wpn_pp2000_hud
+item_visual            	 	= dynamics\weapons\wpn_pp2000\wpn_pp2000_pn23_hud.ogf
+aim_hud_offset_pos			= -0.032535,-0.033905,-0.071955
+aim_hud_offset_pos_16x9		= -0.032535,-0.033905,-0.071955
+;-----------------------------------------------------------------------------
+[wpn_pp2000_specter]:wpn_pp2000
+visual						= dynamics\weapons\wpn_pp2000\wpn_pp2000_specter.ogf
+scope_name					= specter
+scope_x						= 45
+scope_y						= -6
+hud							= wpn_pp2000_specter_hud
+
+[wpn_pp2000_specter_hud]:wpn_pp2000_hud
+item_visual            	 	= dynamics\weapons\wpn_pp2000\wpn_pp2000_specter_hud.ogf
+aim_hud_offset_pos			= -0.032705,-0.02551,-0.110595
+aim_hud_offset_pos_16x9		= -0.032705,-0.02551,-0.110595
+aim_hud_offset_pos_alt		= 0,-0.028035,0.001365
+aim_hud_offset_pos_alt_16x9	= 0,-0.028035,0.001365
+;-----------------------------------------------------------------------------

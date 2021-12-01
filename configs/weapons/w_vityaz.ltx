@@ -1,0 +1,222 @@
+[wpn_vityaz]:default_weapon_params
+$spawn								= "weapons\mp5"			; option for Level Editor
+$npc								= on					; option for Level Editor
+visual								= dynamics\weapons\wpn_vityaz\wpn_vityaz.ogf
+class								= WP_AK74
+inv_name							= st_wpn_vityaz
+inv_name_short						= st_wpn_vityaz
+description							= st_wpn_vityaz_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+scopes								= ac10632, acog, eot
+parent_section						= wpn_vityaz
+default_to_ruck						= false
+sprint_allowed						= true
+control_inertion_factor				= 1.0
+heating_rates						= smg2
+repair_type							= sng
+weapon_class						= assault_rifle
+inv_weight							= 2.9
+inv_volume							= 3.5
+ph_mass								= 3
+cost								= 20880
+upgrades							= up_gr_firstab_pp2000, up_gr_seconab_pp2000, up_gr_thirdab_pp2000, up_gr_fourtab_pp2000, up_gr_fifthab_pp2000, up_gr_fifthcd_pp2000
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_mp5
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.28, 0.28, 0.28, 0.28
+hit_impulse							= 24
+hit_type							= fire_wound
+fire_distance						= 300
+bullet_speed						= 370
+rpm									= 700
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_vityaz_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.8
+misfire_end_condition				= 0.13
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0008
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= 1, 3, -1
+magazine_sect						= mag_9x19_cnt_30_pp19
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad ; name of the ltx-section of used grenades
+slot								= 2
+animation_slot						= 8
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+;---дисперсия---------------------------------------------------------------------------
+fire_dispersion_base				= 0.54				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.2f
+crosshair_inertion					= 5.6
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 0.52				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 0.23				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 42.0				;максимальный угол отдачи
+cam_max_angle_horz					= 42.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.5				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.63
+PDM_disp_vel_factor					= 1.15
+PDM_disp_accel_factor				= 1.155
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10				; scope & ironsight
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 0.4
+zoom_cam_dispersion_inc				= 0.8
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 42.0
+zoom_cam_max_angle_horz				= 42.0
+zoom_cam_step_angle_horz			= 1.48
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width						= 4
+inv_grid_height						= 2
+inv_grid_x							= 40
+inv_grid_y							= 52
+
+upgr_icon_x							= 2050
+upgr_icon_y							= 1400
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 72
+kill_msg_y							= 82
+kill_msg_width						= 56
+kill_msg_height						= 23
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.175, 0
+orientation							= 0, 0, 0
+fire_point							= 0, 0.218, 0.656
+fire_point2							= 0, 0.161, 0.583
+flame_particles						= weapons\new_effects\ak74
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= 0, 0.216, 0.174
+shell_dir							= 0, 0, 0.4
+shell_particles						= weapons\9x19
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2					; 0 - no addon
+silencer_status						= 2					; 1 - permanent
+grenade_launcher_status				= 0					; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_name						= wpn_sil_pbs1
+silencer_x							= 185
+silencer_y							= 12
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\vityaz\vityaz_holster
+snd_draw							= weapons\vityaz\vityaz_draw
+snd_reload							= weapons\vityaz\vityaz_reload
+snd_empty							= weapons\vityaz\vityaz_empty
+snd_shoot							= weapons\vityaz\vityaz_shoot_null
+snd_silencer_shot					= weapons\vityaz\vityaz_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_9x19_cnt_30_pp19]
+magazine_name						= magazine_9x19_cnt_30_pp19
+magazine_x							= 94
+magazine_y							= 50
+custom_icon 						= 7,0,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_vityaz_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_vityaz\wpn_vityaz_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0,0.064,0.19
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.032159,0.408368
+fire_bone							= wpn_body
+fire_point2							= 0,-0.011,0.553
+fire_bone2							= wpn_body
+
+item_position						= 0,0.004,0
+item_orientation					= -15.488927,-3.320898,367.220154
+
+hands_position						= -0.12,-0.19,0.09
+hands_position_16x9					= -0.12,-0.19,0.09
+hands_orientation					= -0.75,1.7,-4.2
+hands_orientation_16x9				= -0.75,1.7,-4.2
+
+aim_hud_offset_pos					= -0.0962,0.056,-0.1
+aim_hud_offset_pos_16x9				= -0.0962,0.056,-0.1
+aim_hud_offset_rot					= 0.008,-0.0005,-0.006
+aim_hud_offset_rot_16x9				= 0.008,-0.0005,-0.006
+
+anm_show							= lancew_ak101_draw
+anm_hide							= lancew_ak101_holster
+anm_idle							= lancew_ak101_idle
+anm_idle_sprint						= lancew_ak101_sprint
+anm_idle_moving						= lancew_ak101_moving
+anm_idle_moving_crouch				= lancew_ak101_moving, , 0.5
+anm_shots							= lancew_ak101_shoot, shoot
+anm_shots_empty						= lancew_ak101_idle
+anm_reload							= lancew_ak101_reload, reload
+anm_idle_aim						= lancew_ak101_idle_aim, idle_aim
+anm_bore							= lancew_ak101_no_reload
+;-------------------------------------------------------------------------------
+;	Scopes
+;-------------------------------------------------------------------------------
+[wpn_vityaz_ac10632]:wpn_vityaz
+visual								= dynamics\weapons\wpn_vityaz\wpn_vityaz_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 66
+scope_y								= -9
+hud									= wpn_vityaz_ac10632_hud
+
+[wpn_vityaz_ac10632_hud]:wpn_vityaz_hud
+item_visual							= dynamics\weapons\wpn_vityaz\wpn_vityaz_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.0958,0.0345,-0.05
+aim_hud_offset_pos_16x9				= -0.0958,0.0345,-0.05
+;-------------------------------------------------------------------------------
+[wpn_vityaz_acog]:wpn_vityaz
+scope_name							= acog
+scope_x								= 69
+scope_y								= -7
+scope_texture						= wpn_crosshair_acog
+;-------------------------------------------------------------------------------
+[wpn_vityaz_eot]:wpn_vityaz
+visual								= dynamics\weapons\wpn_vityaz\wpn_vityaz_eot.ogf
+scope_name							= eot
+scope_x								= 72
+scope_y								= -4
+hud									= wpn_vityaz_eot_hud
+
+[wpn_vityaz_eot_hud]:wpn_vityaz_hud
+item_visual							= dynamics\weapons\wpn_vityaz\wpn_vityaz_eot_hud.ogf
+aim_hud_offset_pos					= -0.0965,0.029,-0.025
+aim_hud_offset_rot					= 0.008,0,-0.006
+aim_hud_offset_pos_16x9				= -0.0965,0.029,-0.025
+aim_hud_offset_rot_16x9				= 0.008,0,-0.006
+;-----------------------------------------------------------------------------

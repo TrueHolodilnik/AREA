@@ -1,0 +1,617 @@
+class "options_dialog" (CUIScriptWnd)
+
+function options_dialog:__init() super()
+	self.m_preconditions = {}
+	
+    self:InitControls()
+    self:InitCallBacks()
+	self.tab:SetActiveTab("video")
+	SendScriptCallback("opt_menu_on_init",self)
+	
+	self:InitDynamicOptions("gameplay")
+end
+
+function options_dialog:__finalize()
+
+end
+
+function options_dialog:InitControls()
+	self:SetWndRect				(Frect():set(0,0,1024,768))
+	self:Enable					(true)
+
+	self.xml = CScriptXmlInit()
+	local xml = self.xml
+	xml:ParseFile				("ui_mm_opt.xml")
+	
+	self.anim_alpha				= 0
+	self.anim_gameplay_alpha	= 0
+	self.is_quit				= false
+	
+	self.elements_alpha = {}
+	self.elements_noalpha = {}
+
+	xml:InitStatic				("background", self)
+	self.dialog					= xml:InitStatic("main_dialog:dialog", self)
+	self.dialog:SetTextureColor(GetARGB(0,255,255,255))
+	self.dialog:TextControl():SetTextColor(GetARGB(0,255,255,255))
+
+--	xml:InitStatic				("main_dialog:cap_options", self.dialog)
+
+	self.dlg_video				= ui_mm_opt_video.opt_video()
+	self.dlg_video:InitControls	(0,0, xml, self)
+	self.dlg_video:Show			(false)
+	self.dlg_video_shown		= false
+	self.dialog:AttachChild		(self.dlg_video)
+	xml:InitWindow				("tab_size", 0, self.dlg_video)
+
+	self.dlg_sound				= ui_mm_opt_sound.opt_sound()
+	self.dlg_sound:InitControls	(0,0, xml, self)
+	self.dlg_sound:Show			(false)
+	self.dlg_sound_shown		= false
+	self.dialog:AttachChild		(self.dlg_sound)
+	xml:InitWindow				("tab_size", 0, self.dlg_sound)
+
+	self.dlg_gameplay			= ui_mm_opt_gameplay.opt_gameplay()
+	self.dlg_gameplay:InitControls(0,0, xml, self)
+	self.dlg_gameplay:Show		(false)
+	self.dlg_gameplay_shown		= false
+	self.dialog:AttachChild		(self.dlg_gameplay)
+	xml:InitWindow				("tab_size", 0, self.dlg_gameplay)
+	
+	self.dlg_controls			= ui_mm_opt_controls.opt_controls()
+	self.dlg_controls:InitControls(0,0, xml, self)
+	self.dlg_controls:Show		(false)
+	self.dlg_controls_shown		= false
+	self.dialog:AttachChild		(self.dlg_controls)
+	xml:InitWindow				("tab_size", 0, self.dlg_controls)
+
+	self.dlg_video_adv			= ui_mm_opt_video_adv.opt_video_adv()
+	self.dlg_video_adv:InitControls(0,0, xml, self)
+	self.dlg_video_adv:Show		(false)
+	self.dlg_video_adv_shown		= false
+	self.dialog:AttachChild		(self.dlg_video_adv)
+	xml:InitWindow				("tab_size", 0, self.dlg_video_adv)
+
+	
+	self.accept_button = xml:Init3tButton		("main_dialog:btn_accept", self.dialog)
+	self:Register				(self.accept_button, "btn_accept")
+	self.accept_button:Show(false)
+	self.cancel_button = xml:Init3tButton		("main_dialog:btn_cancel", self.dialog)
+	self:Register				(self.cancel_button, "btn_cancel")
+	self.cancel_button:Show(false)
+
+	self.tab					= xml:InitTab("main_dialog:tab", self.dialog)
+	self:Register				(self.tab, "tab")
+	self.tab:Show(false)
+
+	self.message_box			= CUIMessageBoxEx()
+	self:Register				(self.message_box, "mb")
+
+	self.b_restart_system_shown	= false
+	self.timer					= nil
+	
+	self.scroll_v:Clear()
+end
+
+function options_dialog:SetCurrentValues()
+	local opt = COptionsManager()
+
+	opt:SetCurrentValues("mm_opt_video_preset")
+	opt:SaveBackupValues("mm_opt_video_preset")
+
+	opt:SetCurrentValues("mm_opt_video")
+	opt:SaveBackupValues("mm_opt_video")
+
+	opt:SetCurrentValues("mm_opt_video_adv")
+	opt:SaveBackupValues("mm_opt_video_adv")
+
+	opt:SetCurrentValues("mm_opt_gameplay")
+	opt:SaveBackupValues("mm_opt_gameplay")
+	
+	opt:SetCurrentValues("mm_opt_sound")
+	opt:SaveBackupValues("mm_opt_sound")
+
+	opt:SetCurrentValues("mm_opt_controls")
+	opt:SaveBackupValues("mm_opt_controls")
+
+	opt:SetCurrentValues("key_binding")
+	opt:SaveBackupValues("key_binding")
+
+	SendScriptCallback("opt_menu_on_set_values",self,opt)
+
+	self:UpdateDependControls()
+end
+
+function options_dialog:InitDynamicOptions(tab)
+	-- auto-generate UI elements for Gameplay Tab
+	local checks, lists, elements = {}, {}, {}
+	local _st
+	
+	local tab_name = "tab_"..tab
+	local tab_table = self[tab.."_options"]
+	
+	-- add UI elements to scroll view in specific order
+	for cap,t in pairs(tab_table) do
+		if not (t.disabled) then
+			_st = self.xml:InitStatic(tab_name..":templ_item", nil)
+			
+			-- caption
+			local ctrl = self.xml:InitStatic(tab_name..":cap_check_axr",_st) -- ctrl needs scoped here because we pass it to wrapper or else ref will get replaced
+			
+			self.elements_alpha[#self.elements_alpha + 1] = ctrl
+			
+			-- set caption text
+			ctrl:TextControl():SetText(game.translate_string("ui_mm_"..cap))
+			
+			-- control
+			if (t.typ == "check") then
+				-- sort by name and type
+				table.insert(checks,ctrl:TextControl():GetText())
+				elements[ctrl:TextControl():GetText()] = _st
+			
+				-- create control
+				ctrl = self.xml:InitCheck(t.tag or tab_name..":check_axr",_st)
+				
+				self.elements_noalpha[#self.elements_noalpha + 1] = ctrl
+				
+				-- register for callbacks
+				if (t.default ~= nil) then -- obviously dynamic axr option
+					self:Register(ctrl,"ck_"..cap)
+				end
+				
+				
+			elseif(t.typ == "list") then 
+				-- sort by name and type
+				table.insert(lists,ctrl:TextControl():GetText())
+				elements[ctrl:TextControl():GetText()] = _st
+				
+				-- create control
+				ctrl = self.xml:InitComboBox(t.tag or tab_name..":list_axr",_st)
+				
+				self.elements_noalpha[#self.elements_noalpha + 1] = ctrl
+				
+				-- setup the list
+				if (t.list) then
+					for i,v in ipairs(t.list) do 
+						ctrl:AddItem(game.translate_string(v),i-1)
+					end
+				end
+		
+				-- register for callbacks
+				if (t.default ~= nil) then -- obviously dynamic axr option
+					self:Register(ctrl,"lst_"..cap)
+					if (t.on_list_item_select) then
+						local _wrapper = function(handler) -- we need wrapper in order to pass ctrl to method
+							t.on_list_item_select(handler,ctrl)
+						end
+						self:AddCallback("lst_"..cap,ui_events.LIST_ITEM_SELECT,_wrapper,self)
+					end
+				end
+				
+				
+			end
+			
+			t.ctrl = ctrl
+		end
+	end 
+	
+	-- sort ui elements to display in alphabetical order
+	table.sort(lists)
+	table.sort(checks)
+	
+	local dlg_name = "dlg_"..tab
+	for i=1,#lists do 
+		-- add to UIScrollView
+		self[dlg_name].scroll_v:AddWindow(elements[lists[i]],true) 
+		elements[lists[i]]:SetAutoDelete(false)
+	end
+
+	for i=1,#checks do 
+		-- add to UIScrollView
+		self[dlg_name].scroll_v:AddWindow(elements[checks[i]],true) 
+		elements[checks[i]]:SetAutoDelete(false)
+	end
+end
+
+function options_dialog:UpdateDependControls()
+	self.scroll_v:Clear()
+	local _current_id = self.combo_renderer:CurrentID()
+
+	for i,j in pairs(self.m_preconditions) do
+		if(j.func(_current_id)) then
+			self.scroll_v:AddWindow(j.control, true)
+			j.control:SetAutoDelete(false)
+		end
+	end
+
+	local max_texture_lod = 4
+	local min_texture_lod = 0
+
+	if _current_id ~= 0 then
+		if not is_enough_address_space_available()	then
+			min_texture_lod = 1
+		end
+	end
+
+	self.texture_lod_track:SetOptIBounds(min_texture_lod, max_texture_lod)
+	self:OnAOOptionChange()
+end
+
+function options_dialog:OnDynWetSurfNearUpdate()
+    local near = self.track_r3_dyn_wet_surf_near:GetFValue()
+    local far = self.track_r3_dyn_wet_surf_far:GetFValue()
+
+    if (near > far) then
+        local console = get_console()
+        console:execute("r3_dynamic_wet_surfaces_far " .. near + 1)
+    end
+
+    self.track_r3_dyn_wet_surf_far:SetCurrentValue()
+end
+
+function options_dialog:OnDynWetSurfFarUpdate()
+    local near = self.track_r3_dyn_wet_surf_near:GetFValue()
+    local far = self.track_r3_dyn_wet_surf_far:GetFValue()
+    
+    if (far < near) then
+        local console = get_console()
+        console:execute("r3_dynamic_wet_surfaces_near " .. far - 1)
+    end
+
+    self.track_r3_dyn_wet_surf_near:SetCurrentValue()
+end
+
+function options_dialog:InitCallBacks()
+	self:AddCallback("tab",					ui_events.TAB_CHANGED,		self.OnTabChange,			self)
+	self:AddCallback("btn_advanced_graphic",ui_events.BUTTON_CLICKED,	self.OnBtnAdvGraphic,		self)
+	self:AddCallback("btn_accept",			ui_events.BUTTON_CLICKED,	self.OnBtnAccept,			self)
+	self:AddCallback("btn_cancel",			ui_events.BUTTON_CLICKED,	self.OnBtnCancel,			self)
+	self:AddCallback("btn_default_graphic",	ui_events.BUTTON_CLICKED,	self.OnBtnDefGraph,			self)
+	self:AddCallback("btn_default_sound",	ui_events.BUTTON_CLICKED,	self.OnBtnDefSound,			self)
+	self:AddCallback("combo_preset",		ui_events.LIST_ITEM_SELECT,	self.OnPresetChanged,		self)
+	self:AddCallback("btn_simply_graphic",	ui_events.BUTTON_CLICKED,	self.OnSimplyGraphic,		self)
+	self:AddCallback("btn_keyb_default",	ui_events.BUTTON_CLICKED,	self.OnBtnKeybDefault,		self)
+	--self:AddCallback("btn_check_updates",	ui_events.BUTTON_CLICKED,	self.OnBtnCheckUpdates,		self)
+	self:AddCallback("combo_renderer",		ui_events.LIST_ITEM_SELECT,	self.UpdateDependControls,	self)
+	self:AddCallback("tab_ao_opt",			ui_events.TAB_CHANGED,		self.OnAOOptionChange,		self)
+	self:AddCallback("track_r3_dyn_wet_surf_near", ui_events.BUTTON_CLICKED, self.OnDynWetSurfNearUpdate, self)
+	self:AddCallback("track_r3_dyn_wet_surf_far", ui_events.BUTTON_CLICKED,  self.OnDynWetSurfFarUpdate, self)
+
+	self:AddCallback("mb",					ui_events.MESSAGE_BOX_YES_CLICKED, self.OnApplyChanges, self)
+	self:AddCallback("mb",					ui_events.MESSAGE_BOX_NO_CLICKED, self.OnDiscardChanges,self)
+--	self:AddCallback("trb_ssample",			ui_events.BUTTON_CLICKED,	self.UpdateDependControls,	self)
+--	self:AddCallback("cb_ssample",			ui_events.LIST_ITEM_SELECT,	self.UpdateDependControls,	self)
+end
+
+function options_dialog:OnBtnCheckUpdates()
+	local console			= get_console()
+	console:execute			("check_for_updates 1")
+end
+
+function options_dialog:OnBtnKeybDefault()
+	local console			= get_console()
+	console:execute			("default_controls")
+
+	local opt				= COptionsManager()
+	opt:SetCurrentValues	("mm_opt_controls")
+	opt:SetCurrentValues	("key_binding")
+end
+
+function options_dialog:OnPresetChanged()
+	local opt					= COptionsManager()
+	opt:SetCurrentValues		("mm_opt_video_adv")
+end
+
+
+function options_dialog:OnBtnDefGraph()
+	local opt = COptionsManager()
+	opt:SendMessage2Group("mm_opt_video","set_default_value")
+end
+
+function options_dialog:OnBtnDefSound()
+	local opt = COptionsManager()
+	opt:SendMessage2Group("mm_opt_sound","set_default_value")
+end
+
+function options_dialog:OnBtnAccept()
+
+	local opt		= COptionsManager()
+	local console	= get_console()
+
+   	console:execute("cfg_save tmp")
+
+	opt:SaveValues("mm_opt_video_preset")
+	opt:SaveValues("key_binding")
+	opt:SaveValues("mm_opt_video")
+	opt:SaveValues("mm_opt_video_adv")
+	opt:SaveValues("mm_opt_gameplay")
+	opt:SaveValues("mm_opt_sound")
+	opt:SaveValues("mm_opt_controls")
+
+	SendScriptCallback("opt_menu_on_accept",self,opt,console)
+
+	if opt:NeedVidRestart() then
+		self.b_discard_settings_shown = true
+		self.message_box:InitMessageBox("message_box_yes_no")
+		self.message_box:SetText(string.format("%s %d% s", game.translate_string("ui_mm_confirm_changes"), 15, game.translate_string("mp_si_sec")))
+		self.message_box:ShowDialog(true)
+	else
+		self:OnApplyChanges()
+	end
+
+	opt:OptionsPostAccept()
+	
+	console:execute("cfg_save")
+end
+
+function options_dialog:OnBtnCancel()
+	local opt				= COptionsManager()
+	if self.dlg_video_adv:IsShown() then
+		self.dlg_video_adv:Show	(false)
+		self.dlg_video:Show		(true)
+		self.dlg_video_shown = true
+		self.dlg_video_adv_shown = false
+		self.dlg_video:SetAlphaToZero()
+		self.dlg_video:UnsetIsQuit()
+		opt:UndoGroup			("mm_opt_video_adv")
+	else
+		opt:UndoGroup			("mm_opt_video_preset")
+		opt:UndoGroup			("mm_opt_video")
+		opt:UndoGroup			("mm_opt_sound")
+		opt:OptionsPostAccept	()
+		self.dlg_video:SetIsQuit()
+		self.dlg_sound:SetIsQuit()
+		self.dlg_video_adv:SetIsQuit()
+		self.dlg_controls:SetIsQuit()
+		self.is_quit = true
+	end
+
+end
+
+function options_dialog:OnTabChange()
+	self.dlg_video:Show(false)
+	self.dlg_sound:Show(false)
+	self.dlg_gameplay:Show(false)
+	self.dlg_controls:Show(false)
+	self.dlg_video_adv:Show(false)
+	
+	self.dlg_sound_shown = false
+	self.dlg_video_shown = false
+	self.dlg_gameplay_shown = false
+	self.dlg_controls_shown = false
+
+	local ids = self.tab:GetActiveId()
+	if ids == "video" then
+		self.dlg_video:SetAlphaToZero()
+		self.dlg_video:UnsetIsQuit()
+		self.dlg_video:Show(true)
+		self.dlg_video_shown = true
+	elseif ids == "sound" then
+		self.dlg_sound:SetAlphaToZero()
+		self.dlg_sound:UnsetIsQuit()
+		self.dlg_sound:Show(true)
+		self.dlg_sound_shown = true
+	elseif ids == "gameplay" then
+		self.dlg_gameplay_shown = true
+		self.anim_gameplay_alpha = 0
+		for i=1, #self.elements_noalpha do
+			self.elements_noalpha[i]:Show(false)
+		end
+		self.dlg_gameplay:Show(true)
+	elseif ids == "controls" then
+		self.dlg_controls:SetAlphaToZero()
+		self.dlg_controls:UnsetIsQuit()
+		self.dlg_controls:Show(true)
+		self.dlg_controls_shown = true
+	end
+
+end
+
+function options_dialog:OnAOOptionChange()
+	local ao_opt_id = self.tab_ao_opt:GetActiveId()
+	local render_id = self.combo_renderer:CurrentID()
+	if(render_id>=4) and (ao_opt_id=="hdao") then
+		self.combo_ssao:enable_id(4)
+	else
+		self.combo_ssao:disable_id(4)
+	end
+	self.combo_ssao:SetCurrentOptValue()
+end
+
+function options_dialog:OnBtnAdvGraphic()
+	self.dlg_video:Show		(false)
+	self.dlg_video_adv:SetAlphaToZero()
+	self.dlg_video_adv:UnsetIsQuit()
+	self.dlg_video_adv:Show	(true)
+	self.dlg_video_shown = false
+	self.dlg_video_adv_shown = true
+end
+
+function options_dialog:OnSimplyGraphic()
+	self.dlg_video:Show		(true)
+	self.dlg_video:SetAlphaToZero()
+	self.dlg_video:UnsetIsQuit()
+	self.dlg_video_shown = true
+	self.dlg_video_adv:Show	(false)
+	self.dlg_video_adv_shown = false
+end
+
+function options_dialog:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+
+	if res==false then
+
+		local bind = dik_to_bind(dik)
+
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik == DIK_keys.DIK_ESCAPE then
+				if self.dlg_video_adv:IsShown() then
+					self.dlg_video_adv:Show	(false)
+					self.dlg_video:Show		(true)
+					self.dlg_video_shown = true
+					self.dlg_video_adv_shown = false
+					self.dlg_video:SetAlphaToZero()
+					self.dlg_video:UnsetIsQuit()
+				else
+					self.dlg_video:SetIsQuit()
+					self.dlg_sound:SetIsQuit()
+					self.dlg_video_adv:SetIsQuit()
+					self.dlg_controls:SetIsQuit()
+					self.is_quit = true
+				end
+			end
+
+		end
+	end
+
+	return res
+end
+
+function options_dialog:Update()
+
+	CUIScriptWnd.Update(self)
+
+	if self.dlg_gameplay_shown then
+		if (self.anim_gameplay_alpha < 255 and not self.is_quit) or (self.anim_gameplay_alpha > 0 and self.is_quit) then
+		
+			if (not self.is_quit) then
+				self.anim_gameplay_alpha = self.anim_gameplay_alpha + 1
+			else
+				self.anim_gameplay_alpha = self.anim_gameplay_alpha - 1
+			end
+			
+			for i=1, #self.elements_alpha do
+				self.elements_alpha[i]:SetTextureColor(GetARGB(self.anim_gameplay_alpha,255,255,255))
+				self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(self.anim_gameplay_alpha,255,255,255))
+			end
+			
+			if (self.anim_gameplay_alpha == 254) or (self.anim_gameplay_alpha == 1 and self.is_quit) then
+				
+				for i=1, #self.elements_noalpha do
+					self.elements_noalpha[i]:Show(not self.is_quit)
+				end
+				
+			end
+		
+		end
+	end
+	
+	if (self.anim_alpha < 255 and not self.is_quit) or (self.anim_alpha > 0 and self.is_quit) then
+		
+		if (not self.is_quit) then
+			self.anim_alpha = self.anim_alpha + 1
+		else
+			self.anim_alpha = self.anim_alpha - 1
+		end
+		
+		self.dialog:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+		self.dialog:TextControl():SetTextColor(GetARGB(self.anim_alpha,255,255,255))
+		
+		if self.is_quit and self.anim_alpha == 1 then
+			self.owner:ShowDialog(true)
+			self:HideDialog()
+			self.owner:Show(true)
+			self.dlg_video:UnsetIsQuit()
+			self.dlg_video_adv:UnsetIsQuit()
+			self.dlg_sound:UnsetIsQuit()
+			self.dlg_controls:UnsetIsQuit()
+			self.is_quit = false
+		end
+		
+		if (self.anim_alpha == 254) or (self.anim_alpha == 1 and self.is_quit) then
+		
+			self.cancel_button:Show(not self.is_quit)
+			self.tab:Show(not self.is_quit)
+			self.accept_button:Show(not self.is_quit)
+			
+		end
+	
+	end
+	
+	if self.dlg_sound_shown then
+		self.dlg_sound:UpdateSoundTab()
+	end
+	
+	if self.dlg_video_shown then
+		self.dlg_video:UpdateVideoTab()
+	end
+	
+	if self.dlg_video_adv_shown then
+		self.dlg_video_adv:UpdateVideoAdvTab()
+	end
+	
+	if self.dlg_controls_shown then
+		self.dlg_controls:UpdateControlsTab()
+	end
+
+	local mm = main_menu.get_main_menu()
+
+	if(self.b_discard_settings_shown) then
+		local tg = math.floor(time_global_async()/1000)
+		if(self.timer==nil) then
+			self.timer = tg
+		end
+		self.message_box:SetText(string.format("%s %d %s", game.translate_string("ui_mm_confirm_changes"), 15-(tg-self.timer), game.translate_string("mp_si_sec")))
+		if(tg-self.timer>=15) then
+			if (self.message_box:IsShown()) then
+				self.message_box:HideDialog()
+			end
+			self:OnDiscardChanges()
+		end
+	end
+	
+	if (self.dlg_video) then
+		if (self.dlg_video.fov_track) then 
+			self.dlg_video.fov_value:TextControl():SetText(tostring(self.dlg_video.fov_track:GetFValue()))
+		end
+		if (self.dlg_video.hud_fov_track) then 
+			self.dlg_video.hud_fov_value:TextControl():SetText( string.format("%.2f",self.dlg_video.hud_fov_track:GetFValue()) )
+		end
+		if (self.dlg_video.fps_limit_track) then 
+			self.dlg_video.fps_limit_value:TextControl():SetText(tostring(self.dlg_video.fps_limit_track:GetIValue()))
+		end
+	end
+end
+
+function options_dialog:OnApplyChanges()
+    self.timer = nil
+    self.b_discard_settings_shown = false
+
+	self.owner:ShowDialog(true)
+	if (self:IsShown()) then
+		self:HideDialog()
+	end
+	self.owner:Show(true)
+	get_console():execute("vid_restart")
+
+	if not (self.b_restart_system_shown and self.message_box:IsShown()) then
+		local opt = COptionsManager()
+		if (opt:NeedSystemRestart() or self.b__require_restart == true) then
+			self.b__require_restart = false
+			self.b_restart_system_shown = true
+			self.message_box:InitMessageBox("message_box_restart_game")
+			self.message_box:ShowDialog(true)
+		end
+	end
+end
+
+function options_dialog:OnDiscardChanges()
+    self.timer = nil
+    self.b_discard_settings_shown = false
+
+	local c = get_console()
+   	c:execute("cfg_load tmp")
+
+	self:SetCurrentValues()
+
+	c:execute("vid_restart")
+   	c:execute("cfg_save")
+end
+
+function options_dialog:OnMenuReloaded()
+	if(self.b_discard_settings_shown) then
+	    self.message_box:InitMessageBox("message_box_yes_no")
+	    self.message_box:SetText(string.format("%s %d% s", game.translate_string("ui_mm_confirm_changes"), 15, game.translate_string("mp_si_sec")))
+	    self.message_box:ShowDialog(true)
+	end
+end

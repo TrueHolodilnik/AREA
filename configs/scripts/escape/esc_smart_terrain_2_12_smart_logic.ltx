@@ -1,0 +1,523 @@
+[logic@walker_1]
+active = walker@walker_1
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 40
+
+[logic@walker_2]
+active = walker@walker_2
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 40
+
+[logic@walker_3]
+active = walker@walker_3
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 40
+
+[logic@walker_4]
+active = walker@walker_4
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 40
+
+[logic@walker_5]
+active = walker@walker_5
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 40
+
+[logic@guard_1]
+active = camper@guard_1
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 45
+
+[logic@guard_2]
+active = camper@guard_2
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 45
+
+[logic@guard_3]
+active = camper@guard_3
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 45
+
+[logic@guard_4]
+active = camper@guard_4
+suitable = {!check_smart_alarm_status(esc_smart_terrain_2_12)} true
+prior = 45
+
+[walker@walker_1]
+path_walk = walker_1_walk
+
+[walker@walker_2]
+path_walk = walker_2_walk
+
+[walker@walker_3]
+path_walk = walker_3_walk
+path_look = walker_3_look
+
+[walker@walker_4]
+path_walk = walker_4_walk
+path_look = walker_4_look
+
+[walker@walker_5]
+path_walk = walker_5_walk
+path_look = walker_5_look
+
+[camper@guard_1]
+path_walk = guard_1_walk
+path_look = guard_1_look
+
+[camper@guard_2]
+path_walk = guard_2_walk
+path_look = guard_2_look
+
+[camper@guard_3]
+path_walk = guard_3_walk
+path_look = guard_3_look
+
+[camper@guard_4]
+path_walk = guard_4_walk
+path_look = guard_4_look
+
+[walker@esc_smart_terrain_2_12_surge_def]
+def_state_standing = sit
+def_state_moving = assault
+
+[logic@esc_smart_terrain_2_12_surge_def]
+suitable = {=surge_started} true
+prior = 60
+
+[logic@esc_smart_terrain_2_12_surge_work_1]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_1
+
+[logic@esc_smart_terrain_2_12_surge_work_2]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_2
+
+[logic@esc_smart_terrain_2_12_surge_work_3]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_3
+
+[logic@esc_smart_terrain_2_12_surge_work_4]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_4
+
+[logic@esc_smart_terrain_2_12_surge_work_5]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_5
+
+[logic@esc_smart_terrain_2_12_surge_work_6]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_6
+
+[logic@esc_smart_terrain_2_12_surge_work_7]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_7
+
+[logic@esc_smart_terrain_2_12_surge_work_8]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_8
+
+[logic@esc_smart_terrain_2_12_surge_work_9]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_9
+
+[logic@esc_smart_terrain_2_12_surge_work_10]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_10
+
+[logic@esc_smart_terrain_2_12_surge_work_11]:logic@esc_smart_terrain_2_12_surge_def
+active = walker@esc_smart_terrain_2_12_surge_work_11
+
+[walker@esc_smart_terrain_2_12_surge_work_1]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_1_walk
+path_look = surge_hide_1_look
+out_restr = esc_base_surge_hide_a2
+
+[walker@esc_smart_terrain_2_12_surge_work_2]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_2_walk
+path_look = surge_hide_2_look
+out_restr = esc_base_surge_hide_a2
+
+[walker@esc_smart_terrain_2_12_surge_work_3]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_3_walk
+path_look = surge_hide_3_look
+out_restr = esc_base_surge_hide_a3
+
+[walker@esc_smart_terrain_2_12_surge_work_4]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_4_walk
+path_look = surge_hide_4_look
+out_restr = esc_base_surge_hide_a4
+
+[walker@esc_smart_terrain_2_12_surge_work_5]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_5_walk
+path_look = surge_hide_5_look
+out_restr = esc_base_surge_hide_a5
+
+[walker@esc_smart_terrain_2_12_surge_work_6]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_6_walk
+path_look = surge_hide_6_look
+out_restr = esc_base_surge_hide_a6
+
+[walker@esc_smart_terrain_2_12_surge_work_7]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_7_walk
+path_look = surge_hide_7_look
+out_restr = esc_base_surge_hide_a7
+
+[walker@esc_smart_terrain_2_12_surge_work_8]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_8_walk
+path_look = surge_hide_8_look
+out_restr = esc_base_surge_hide_a4
+
+[walker@esc_smart_terrain_2_12_surge_work_9]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_9_walk
+path_look = surge_hide_9_look
+out_restr = esc_base_surge_hide_a5
+
+[walker@esc_smart_terrain_2_12_surge_work_10]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_10_walk
+path_look = surge_hide_10_look
+out_restr = esc_base_surge_hide_a6
+
+[walker@esc_smart_terrain_2_12_surge_work_11]:walker@esc_smart_terrain_2_12_surge_def
+path_walk = surge_hide_11_walk
+path_look = surge_hide_11_look
+out_restr = esc_base_surge_hide_a7
+
+;camping
+[logic@esc_smart_terrain_2_12_camp_work_1]
+active = animpoint@esc_smart_terrain_2_12_camp_work_1
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_2]
+active = animpoint@esc_smart_terrain_2_12_camp_work_2
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_3]
+active = animpoint@esc_smart_terrain_2_12_camp_work_3
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_4]
+active = animpoint@esc_smart_terrain_2_12_camp_work_4
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_5]
+active = animpoint@esc_smart_terrain_2_12_camp_work_5
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_6]
+active = animpoint@esc_smart_terrain_2_12_camp_work_6
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_7]
+active = animpoint@esc_smart_terrain_2_12_camp_work_7
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_8]
+active = animpoint@esc_smart_terrain_2_12_camp_work_8
+suitable = {!surge_started} true
+prior = 41
+
+[logic@esc_smart_terrain_2_12_camp_work_9]
+active = animpoint@esc_smart_terrain_2_12_camp_work_9
+suitable = {!surge_started} true
+prior = 41
+
+[animpoint@esc_smart_terrain_2_12_camp_work_1]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_10
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_110
+
+[animpoint@esc_smart_terrain_2_12_camp_work_2]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_11
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_120
+
+[animpoint@esc_smart_terrain_2_12_camp_work_3]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp3
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_12
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_130
+
+[animpoint@esc_smart_terrain_2_12_camp_work_4]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp4
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_13
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_140
+
+[animpoint@esc_smart_terrain_2_12_camp_work_5]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp5
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_14
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_150
+
+[animpoint@esc_smart_terrain_2_12_camp_work_6]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp6
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_15
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_160
+
+[animpoint@esc_smart_terrain_2_12_camp_work_7]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp7
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_16
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_170
+
+[animpoint@esc_smart_terrain_2_12_camp_work_8]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp8
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_17
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_180
+
+[animpoint@esc_smart_terrain_2_12_camp_work_9]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp9
+use_camp = true
+turn_on_campfire = true
+on_info = {=is_rain} animpoint@esc_smart_terrain_2_12_camp_work_18
+on_info2 = {!surge_started =is_night ~50} animpoint@esc_smart_terrain_2_12_camp_work_190
+
+;camping rain
+
+[animpoint@esc_smart_terrain_2_12_camp_work_10]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp10
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_1
+
+[animpoint@esc_smart_terrain_2_12_camp_work_11]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp11
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_2
+
+[animpoint@esc_smart_terrain_2_12_camp_work_12]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp12
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_3
+
+[animpoint@esc_smart_terrain_2_12_camp_work_13]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp13
+use_camp = true
+meet = meet_random
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_4
+
+[animpoint@esc_smart_terrain_2_12_camp_work_14]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp14
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_5
+
+[animpoint@esc_smart_terrain_2_12_camp_work_15]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp15
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_6
+
+[animpoint@esc_smart_terrain_2_12_camp_work_16]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp16
+use_camp = true
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_7
+
+[animpoint@esc_smart_terrain_2_12_camp_work_17]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp17
+meet = meet_random
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_8
+
+[animpoint@esc_smart_terrain_2_12_camp_work_18]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp18
+meet = meet_random
+on_info = {!is_rain} animpoint@esc_smart_terrain_2_12_camp_work_9
+
+;camping sleep
+
+[animpoint@esc_smart_terrain_2_12_camp_work_110]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp1
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_1
+
+[animpoint@esc_smart_terrain_2_12_camp_work_120]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp2
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_2
+
+[animpoint@esc_smart_terrain_2_12_camp_work_130]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp3
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_3
+
+[animpoint@esc_smart_terrain_2_12_camp_work_140]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp4
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_4
+
+[animpoint@esc_smart_terrain_2_12_camp_work_150]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp5
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_5
+
+[animpoint@esc_smart_terrain_2_12_camp_work_160]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp6
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_6
+
+[animpoint@esc_smart_terrain_2_12_camp_work_170]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp7
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_7
+
+[animpoint@esc_smart_terrain_2_12_camp_work_180]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp8
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_8
+
+[animpoint@esc_smart_terrain_2_12_camp_work_190]
+cover_name = esc_smart_terrain_2_12_animpoint_kamp9
+avail_animations = sleep_sit, sleeping
+use_camp = true
+on_info = {!is_night} animpoint@esc_smart_terrain_2_12_camp_work_9
+
+[meet_random]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 6
+abuse           = false
+use = false
+allow_break = false
+meet_on_talking = false
+
+;------------------------------
+;------- Mutant swarm ----------
+;------------------------------
+
+[logic@faction_base_defense_enemy1]
+active = mob_home@faction_base_defense_enemy1
+suitable = {=target_squad_name(faction_base_defense_flesh_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy1]
+path_home = home_attackers
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+[logic@faction_base_defense_enemy2]
+active = mob_home@faction_base_defense_enemy2
+suitable = {=target_squad_name(faction_base_defense_boar_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy2]
+path_home = home_attackers
+aggressive = true
+home_min_radius = 1
+home_max_radius = 30
+panic = 0
+
+[logic@faction_base_defense_enemy3]
+active = mob_home@faction_base_defense_enemy3
+suitable = {=target_squad_name(faction_base_defense_dog_squad)} true
+monster_job = true
+prior = 200
+
+[mob_home@faction_base_defense_enemy3]
+path_home = home_attackers
+home_min_radius = 1
+home_max_radius = 30
+aggressive = true
+panic = 0
+
+
+	; Patrol
+
+[logic@esc_smart_terrain_2_12_camp_work_10]
+	active = beh@esc_2_12_patrol_01
+	suitable = {!surge_started} true
+	prior = 100
+	level_spot = quest_npc
+	relationship = neutral   
+
+[beh@general_01]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = true
+	help_wounded_enabled = true
+	corpse_detection_enabled = true
+	relationship = neutral
+
+	turn_on_campfire = true
+	
+	[beh@esc_2_12_patrol_01]:beh@general_01 ; Patrol
+	
+	pt1 = 25000, guard_chasovoy | pos:-226.76777648926,-20.423671722412,-152.76229858398 look:-226.39445495605,-20.332508087158,-149.75389099121 ;Test
+	pt2 = 35000, sit_ass | pos:-226.76777648926,-20.423671722412,-152.76229858398 look:-226.39445495605,-20.332508087158,-149.75389099121 ;Test
+	pt3 = 25000, guard_chasovoy | pos:-162.2901763916,-20.228994369507,-145.91123962402 look:-158.71969604492,-19.971496582031,-145.72067260742 ;Test
+	pt4 = 0, guard_chasovoy | pos:-167.75874328613,-20.212965011597,-169.53305053711 look:-182.89630126953,-20.328332901001,-169.76216125488 ;Test
+	pt5 = 0, guard_chasovoy | pos:-182.89630126953,-20.328332901001,-169.76216125488 look:-226.76777648926,-20.423671722412,-152.76229858398 ;Test
+	pt6 = 15000, use_pda | pos:-226.76777648926,-20.423671722412,-152.76229858398 look:-226.39445495605,-20.332508087158,-149.75389099121 ;Test
+
+	path_end = loop
+	
+[logic@esc_smart_terrain_2_12_camp_work_11]:logic@esc_smart_terrain_2_12_camp_work_10
+	active = beh@camp_rest_01
+
+	[beh@camp_rest_01]:beh@general_01 ; Rest
+	
+	pt1 = 10000, sit_ass | pos:-168.42190551758,-20.176782608032,-143.14651489258 look:-168.94665527344,-19.996427536011,-147.96409606934 ;Test
+
+	path_end = loop
+
+[logic@esc_smart_terrain_2_12_camp_work_12]:logic@esc_smart_terrain_2_12_camp_work_10
+	active = beh@camp_rest_02
+
+	[beh@camp_rest_02]:beh@general_01 ; Sleep
+	
+	pt1 = 10000, sleep | pos:-205.88424682617,-22.546201705933,-129.06723022461 look:-205.53199768066,-22.333097457886,-126.7261428833 ;Test
+
+	path_end = loop
+	
+[logic@esc_smart_terrain_2_12_camp_work_13]:logic@esc_smart_terrain_2_12_camp_work_10
+	active = beh@camp_rest_03
+	
+	[beh@camp_rest_03]:beh@general_01 ; Sleep
+	
+	pt1 = 10000, sleep | pos:-210.87983703613,-22.881084442139,-122.39737701416 look:-213.49743652344,-23.194932937622,-122.77336883545 ;Test
+
+	path_end = loop
+	
+[logic@esc_smart_terrain_2_12_camp_work_14]:logic@esc_smart_terrain_2_12_camp_work_10
+	active = beh@esc_2_12_patrol_02
+	
+	[beh@esc_2_12_patrol_02]:beh@general_01 ; Patrol
+	
+	pt1 = 0, guard_chasovoy | pos:-227.49813842773,-19.865604400635,-139.93418884277 look:-228.21185302734,-19.783420562744,-125.02765655518 ;Test
+	pt2 = 0, guard_chasovoy | pos:-228.02941894531,-19.832193374634,-128.15449523926 look:-212.27435302734,-19.859188079834,-125.01705932617 ;Test
+	pt3 = 0, guard_chasovoy | pos:-207.99725341797,-19.821195602417,-134.83473205566 look:-207.10261535645,-19.970907211304,-139.1604309082 ;Test
+	pt4 = 0, guard_chasovoy | pos:-198.99702453613,-19.879095077515,-128.39431762695 look:-181.85111999512,-20.076629638672,-128.17309570313 ;Test
+	pt5 = 0, guard_chasovoy | pos:-181.85111999512,-20.076629638672,-128.17309570313 look:-182.44125366211,-20.276678085327,-165.62231445313 ;Test
+	pt6 = 35000, eat_vodka | pos:-182.44125366211,-20.276678085327,-165.62231445313 look:-184.75054931641,-20.211534500122,-165.84996032715 ;Test
+	pt7 = 35000, drunk_sit_ass | pos:-182.44125366211,-20.276678085327,-165.62231445313 look:-184.75054931641,-20.211534500122,-165.84996032715 ;Test
+
+	path_end = loop

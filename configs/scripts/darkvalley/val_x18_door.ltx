@@ -1,0 +1,22 @@
+[logic]
+active = ph_door@locked
+
+[ph_door@locked]
+locked = true
+closed = true
+snd_open_start = trader_door_locked
+snd_close_start = no_sound
+snd_close_stop = trader_door_close_stop
+on_use = {-val_x18_doorlocked} %+val_x18_doorlocked%
+on_info = {+val_x18_codekey_unlock} ph_door@open %=play_sound(trader_door_open_start)%
+tip_open = jup_b205_tip_door_closed
+
+[ph_door@open]
+locked = false
+closed = false
+snd_open_start = no_sound
+snd_close_start = no_sound
+snd_close_stop = trader_door_close_stop
+heavy = true
+tip_open = none
+tip_close = none

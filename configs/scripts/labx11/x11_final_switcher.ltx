@@ -1,0 +1,35 @@
+; выключили пульт - логика этажа 3, логика пультов, x11_crash_door переходит во free, взрыв, спавн монолита на 3_1, дверь переходит в open
+
+[logic]
+active = ph_button@init
+
+[ph_button@init]
+on_info = {+x11_switcher_primary_off} ph_idle@nil
+anim = idle
+on_timer = 1 | ph_button@blocked ; %=x11_lamp_switch(green)%
+
+[ph_button@blocked]
+on_info = {-x11_switcher_primary_off} %=play_sound_looped(x16_engine1_run)%
+on_info2 = {+x11_switcher_primary_off} ph_idle@nil
+on_info3 = {=actor_has_item(x11_docs1) =actor_has_item(x11_key) +x11_monitor_disabled} ph_button@active
+anim = idle
+tooltip = st_switcher_blocked
+
+[ph_button@active]
+on_info = {-x11_switcher_primary_off} %=play_sound_looped(x16_engine1_run)%
+on_info2 = {+x11_switcher_primary_off} ph_idle@nil
+anim = idle
+on_press = ph_button@deactivate
+tooltip = st_switcher_stop
+
+[ph_button@deactivate]
+anim = off
+on_timer = 500 | {-x11_switcher_temp1} %+x11_switcher_temp1 =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:0)% ;=x11_lamp_switch(red:1) 
+on_timer2 = 1000 | {-x11_switcher_temp2} %+x11_switcher_temp2 =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:1)% ;=x11_lamp_switch(red:2)
+on_timer3 = 1500 | {-x11_switcher_temp3} %+x11_switcher_temp3 =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:2)% ;=x11_lamp_switch(red:3)
+on_timer4 = 2000 | {-x11_switcher_temp4} %+x11_switcher_temp4 =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:3)% ;=x11_lamp_switch(red:4)
+on_timer5 = 2500 | {-x11_switcher_temp5} %+x11_switcher_temp5 =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:4)% ;=x11_lamp_switch(red:5)
+on_timer6 = 3000 | ph_idle@nil %+x11_switcher_primary_off +bar_deactivate_radar_done =play_sound_at_pos(device\door_locked:x11_final_switcher_sound:5)% ; =x11_lamp_switch(red:6)
+
+[ph_idle@nil]
+on_info = nil %-x11_switcher_temp1 -x11_switcher_temp2 -x11_switcher_temp3 -x11_switcher_temp4 -x11_switcher_temp5 =play_sound_at_pos(ambient\x16\x16_engine1_stop:x11_final_switcher_sound:1) =stop_sound_looped%

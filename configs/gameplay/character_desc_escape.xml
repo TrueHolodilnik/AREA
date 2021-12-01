@@ -1,0 +1,254 @@
+﻿<?xml version='1.0' encoding="windows-1251"?>
+
+<!--===========================================================
+<
+< CHARACTER DESCRIPTIONS FOR ESCAPE (CORDON) MAP
+<	CoC 1.4.16 - DoctorX Questlines 1.16
+<
+<	Modified by: DoctorX
+<	Last revised: November 15, 2016
+<
+<===========================================================-->
+
+
+<xml>
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- Sidorovich (Loner Trader) Character Description
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.9
+	<!--	October 30, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="esc_2_12_stalker_trader" no_random = "1">
+    <name>escape_trader_name</name>
+    <icon>ui_inGame2_sid</icon>
+    <bio>escape_trader_bio</bio>
+    <class>trader</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <visual>actors\stalker_trader\stalker_trader_1</visual>
+    <rank>17846</rank>
+    <reputation>2302</reputation>
+    <money min="1000000" max="1000000" infinitive="1"/>
+    <supplies>
+
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+
+		<start_dialog>esc_2_12_stalker_trader_start_dialog</start_dialog>
+		<actor_dialog>dm_trade_add</actor_dialog>
+		<actor_dialog>change_faction_to_loner</actor_dialog>
+		<actor_dialog>drx_sl_esc_m_trader_game_start_dialog_1</actor_dialog>
+		<actor_dialog>drx_sl_cf_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_task_completed_dialog</actor_dialog>
+		<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_esc_m_trader_meet_dialog</actor_dialog>
+		<actor_dialog>dm_broker_dialog</actor_dialog>
+		<actor_dialog>dm_ordered_task_dialog</actor_dialog>
+		<actor_dialog>dm_orders_dialog</actor_dialog>
+		<actor_dialog>dm_orders_processing_dialog</actor_dialog>
+		<actor_dialog>buy_perehod_3</actor_dialog>
+		<actor_dialog>drx_sl_change_faction_dialog</actor_dialog>
+		<actor_dialog>sidor_let_me_out</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+		<actor_dialog>sidorovych_trader_vodka_trade</actor_dialog>
+
+    </specific_character>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- Nimble (Loner Trader) Character Description
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.13
+	<!--	November 10, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="esc_2_12_stalker_nimble" team_default="1">
+    <name>st_zat_a2_stalker_nimble_name</name>
+    <icon>ui_inGame2_nimble</icon>
+    <map_icon x="1" y="0">
+    </map_icon>
+    <bio>Îïûòíûé ñòàëêåð. Äåòàëüíàÿ èíôîðìàöèÿ îòñóòñòâóåò.</bio>
+    <class>esc_2_12_stalker_nimble</class>
+    <community>stalker</community>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <rank>32472</rank>
+    <reputation>2201</reputation>
+    <money min="1000000" max="1000000" infinitive="1" />
+    <visual>actors\stalker_neutral\stalker_nimble</visual>
+    <supplies>
+
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+
+    <start_dialog>esc_2_12_stalker_nimble_start</start_dialog>
+    <actor_dialog>dm_orders_dialog</actor_dialog>
+    <actor_dialog>dm_orders_processing_dialog</actor_dialog>
+    <actor_dialog>esc_2_12_stalker_nimble_about</actor_dialog>
+    <actor_dialog>esc_2_12_stalker_nimble_about_quest</actor_dialog>
+    <actor_dialog>dm_ordered_task_dialog</actor_dialog>
+    <actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+    <actor_dialog>dm_ordered_task_cancel_dialog</actor_dialog>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+
+    </specific_character>
+
+ 	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- Wolf (Loner Honcho) Character Description
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.7
+	<!--	October 25, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="esc_2_12_stalker_wolf" team_default = "1">
+    <name>esc_wolf_name</name>
+    <icon>ui_inGame2_wolf</icon>
+    <bio>esc_wolf_bio</bio>
+    <class>esc_2_12_stalker_wolf</class>
+    <community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>16568</rank>
+    <reputation>2453</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <visual>actors\stalker_neutral\stalker_neytral_balon_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_3.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+
+    <start_dialog>esc_2_12_stalker_wolf_start_dialog</start_dialog>
+    <actor_dialog>dm_ordered_task_dialog</actor_dialog>
+    <actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+    <actor_dialog>dm_ordered_task_dialog</actor_dialog>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+
+    </specific_character>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+    <!--------------------------------------- FANATIC GUARD --------------------------------------------------- -->
+    <specific_character id="esc_2_12_stalker_fanat" team_default = "1">
+    <name>esc_fanat_name</name>
+    <icon>ui_inGame2_fanatic</icon>
+    <bio>esc_fanat_bio</bio>
+    <class>esc_2_12_stalker_fanat</class>
+    <community>stalker</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>16206</rank>
+    <reputation>1725</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\csky_uk\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_neutral\stalker_neytral_rukzak_3</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+#include "gameplay\character_criticals.xml"
+	<actor_dialog>dm_trade_add</actor_dialog>
+	<actor_dialog>fanat_kmb_1_start_cancel</actor_dialog>
+    <actor_dialog>fanat_kmb_1_start1</actor_dialog>
+    <actor_dialog>fanat_kmb_1_start2</actor_dialog>
+    <actor_dialog>fanat_kmb_1_start3</actor_dialog>
+    <actor_dialog>fanat_kmb_1_start4</actor_dialog>
+    <actor_dialog>fanat_kmb_2_start</actor_dialog>
+    <actor_dialog>fanat_kmb_2_start1</actor_dialog>
+    <actor_dialog>fanat_kmb_3_start</actor_dialog>
+    <actor_dialog>fanat_kmb_3_start1</actor_dialog>
+    <actor_dialog>fanat_kmb_3_start2</actor_dialog>
+    <actor_dialog>dm_is_actor_companion_dialog</actor_dialog>
+    <actor_dialog>dm_companion_exchange</actor_dialog>
+    <actor_dialog>dm_companion_patrol</actor_dialog>
+    <actor_dialog>dm_companion_leave</actor_dialog>
+	<actor_dialog>dm_universal_dialog</actor_dialog>
+	<actor_dialog>dm_ordered_task_dialog</actor_dialog>
+    <actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+	<start_dialog>Fanat_Start_and_Hi</start_dialog>
+    <actor_dialog>fanat_drugs_start</actor_dialog>
+    <actor_dialog>fanat_drugs_complete</actor_dialog>
+    <actor_dialog>fanat_drugs_cancel</actor_dialog>
+	<actor_dialog>fanat_pred_start</actor_dialog>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- XENOTECH  (LONER MECHANIC) CHARACTER DESCRIPTION
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.0
+	<!--	July 16, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="esc_smart_terrain_5_7_loner_mechanic_stalker" team_default="1">
+    <name>esc_smart_terrain_5_7_loner_mechanic_stalker_name</name>
+    <icon>ui_inGame2_loner_tech</icon>
+    <bio>??????? ???????. ƒ???????¤ ?????????¤ ???????????.</bio>
+    <class>esc_smart_terrain_5_7_loner_mechanic_stalker</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <mechanic_mode>1</mechanic_mode>
+    <rank>6278</rank>
+    <reputation>784</reputation>
+    <visual>actors\stalker_neutral\loner_mechanic_stalker</visual>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+
+		<start_dialog>Klin_Hi_1</start_dialog>
+		<actor_dialog>drx_sl_task_completed_dialog</actor_dialog>
+		<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_meet_dialog</actor_dialog>
+		<actor_dialog>drx_sl_mechanic_task_dialog</actor_dialog>
+		<actor_dialog>detector_repair_uni</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+		<actor_dialog>dm_tech_repair</actor_dialog>
+		<actor_dialog>Klin_Guide</actor_dialog>
+		<actor_dialog>esc_stalker_upgrade_flashdisk</actor_dialog>
+		<actor_dialog>esc_stalker_klin_craft</actor_dialog>
+		<actor_dialog>tech_trade</actor_dialog>
+    </specific_character>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+	
+
+</xml>

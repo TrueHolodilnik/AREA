@@ -1,0 +1,272 @@
+[wpn_m249]:default_weapon_params
+$spawn							= "weapons\sig550"	; option for Level Editor
+$npc							= on				; option for Level Editor
+class							= WP_AK74
+visual							= dynamics\weapons\wpn_m249\wpn_m249.ogf
+inv_name						= st_wpn_m249
+inv_name_short					= st_wpn_m249
+description						= st_wpn_m249_descr
+parent_section					= wpn_m249
+heating_rates					= mgun
+ef_main_weapon_type				= 2
+ef_weapon_type					= 10
+default_to_ruck					= false
+sprint_allowed					= true
+repair_type						= rifle_5.56
+cost							= 60000
+weapon_class					= heavy_weapon
+inv_weight						= 7.68
+inv_volume						= 7.5
+ph_mass							= 8
+upgrades						= up_gr_firstab_m249, up_gr_seconab_m249, up_gr_thirdab_m249, up_gr_fourtab_m249, up_gr_fourtcd_m249, up_gr_fourtef_m249, up_gr_fifthab_m249, up_gr_fifthcd_m249
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_l85
+;--TTX----------------------------------------------------------------------------
+hit_power						= 0.56, 0.56, 0.56, 0.56
+hit_impulse						= 25
+hit_type						= fire_wound
+fire_distance					= 1500
+bullet_speed					= 920
+rpm								= 870
+rpm_empty_click					= 200
+time_to_aim						= 3.0
+hud								= wpn_m249_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.81
+misfire_end_condition			= 0.12
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.11
+condition_shot_dec				= 0.0008
+condition_queue_shot_dec		= 0.0008
+
+ammo_elapsed					= 100
+ammo_mag_size					= 100
+fire_modes						= -1, 1, 3
+magazine_sect					= mag_556_cnt_100_m249
+ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class					= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot							= 2
+animation_slot					= 10
+;--Дисперсия-----------------------------------------------------------------------------
+;базовая дисперсия
+fire_dispersion_base			= 0.35				; угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 2.8f
+crosshair_inertion				= 7.70
+
+;отдача
+cam_return						= 0
+cam_relax_speed					= 9					; скорость возврата в исходное положение
+cam_relax_speed_ai				= 360				; скорость возврата в исходное положение для AI
+cam_dispersion					= 0.72
+cam_dispersion_inc				= 0.31
+cam_dispersion_frac				= 1.0				; frac * angle + rand(-1,1)*(1-frac) * angle
+cam_max_angle					= 50.0				; максимальный угол отдачи
+cam_max_angle_horz				= 50.0				; (degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.65				; (degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 1.04
+PDM_disp_vel_factor				= 1.405
+PDM_disp_accel_factor			= 1.405
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 9
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 0.69
+zoom_cam_dispersion_inc			= 0.28
+zoom_cam_dispersion_frac		= 0.7
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 1.45
+
+fire_dispersion_condition_factor = 0.001
+;--DOF-------------------------------------------------------------------------
+zoom_dof						= 0.5, 1.0, 180
+reload_dof						= 0.0, 0.5, 5, 2
+reload_empty_dof				= 0.0, 0.5, 5, 2
+;------------------------------------------------------------------------------
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 45
+inv_grid_y						= 0
+
+upgr_icon_x						= 1750
+upgr_icon_y						= 1850
+upgr_icon_width					= 300
+upgr_icon_height				= 100
+
+kill_msg_x						= 80
+kill_msg_y						= 59
+kill_msg_width					= 87
+kill_msg_height					= 24
+;-------------------------------------------------------------------------------
+position						= -0.027, -0.120, 0.020
+orientation						= 5, 0, 8.0
+fire_point						= 0, 0.225, 0.660
+fire_point2						= 0, 0.097, 0.722
+
+flame_particles					= weapons\new_effects\pistol_9x18
+smoke_particles					= weapons\new_effects\smoke_silencer_sniper_rifle
+grenade_flame_particles			= weapons\generic_weapon01
+shell_3d_sect					= shell_762
+shell_point						= -0.020000,0.167000,0.082000
+shell_dir						= 0.0, 0.0, 0.4
+shell_particles					= weapons\556x45
+
+light_disabled					= false
+light_color						= 0.6,0.5,0.3
+light_range						= 5
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time						= 0.2
+
+scopes							= ac10632, acog, c-more, eot, pn23
+scope_status					= 2
+silencer_status					= 0
+grenade_launcher_status			= 0
+
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+scope_zoom_factor				= 1.03
+
+;silencer_flame_particles		= weapons\generic_weapon01
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_sniper_rifle
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time				= 0.2
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster						= weapons\m249\m249_holster
+snd_draw						= weapons\m249\m249_draw
+snd_empty						= weapons\m249\m249_empty
+snd_reload						= weapons\m249\m249_reload
+snd_reload_misfire				= weapons\m249\m249_reload,1,0,6.2
+snd_reload_detached				= weapons\m249\m249_reload,1,0,3.6
+snd_reload_detached_empty		= weapons\m249\m249_reload,1,0,3.6
+snd_shoot						= weapons\m249\m249_shoot_null
+snd_silencer_shot				= weapons\m249\m249_shot_sil_null
+snd_magazine_detach				= weapons\pkm\pkm_mag_detach
+snd_bore						= $no_sound
+;-------------------------------------------------------------------------------
+[mag_556_cnt_100_m249]
+magazine_name					= magazine_556_cnt_100
+magazine_x						= 108
+magazine_y						= 47
+custom_icon 					= 1,4,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_m249_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= 0.028,0.078,0.113
+shell_dir						= 0,1,0
+shell_bone						= wpn_body
+fire_point						= 0,0.096359,0.587885
+fire_bone						= wpn_body
+fire_point2						= 0,-0.009,0.601
+fire_bone2						= wpn_body
+
+hands_position					= -0.103975,-0.16631,0.027735
+hands_position_16x9				= -0.103975,-0.16631,0.027735
+hands_orientation				= -1.870043,-0.528786,0.15
+hands_orientation_16x9			= -1.870043,-0.528786,0.15
+
+aim_hud_offset_pos				= -0.047365,0.01371,-0.093238
+aim_hud_offset_pos_16x9			= -0.047365,0.01371,-0.093238
+aim_hud_offset_rot				= -0.012687,-0.033475,0
+aim_hud_offset_rot_16x9			= -0.012687,-0.033475,0
+
+anm_show						= lancew_m249_draw
+anm_hide						= lancew_m249_holster
+anm_idle						= lancew_m249_idle
+anm_idle_sprint					= lancew_m249_sprint
+anm_idle_moving					= lancew_m249_moving, moving
+anm_idle_moving_crouch			= lancew_m249_moving, moving, 0.5
+anm_shots						= lancew_m249_shoot, shoot
+anm_shots_empty					= lancew_m249_idle
+anm_reload						= lancew_m249_reload, reload
+anm_reload_detached				= lancew_m249_reload, reload, , 3.6
+anm_reload_detached_empty		= lancew_m249_reload, reload, , 3.6
+anm_reload_misfire				= m249_misfire, misfire
+anm_idle_aim					= lancew_m249_idle_aim, idle_aim
+anm_bore						= lancew_m249_no_reload
+;-----------------------------------------------------------------------------
+[wpn_m249_ac10632]:wpn_m249
+visual							= dynamics\weapons\wpn_m249\wpn_m249_ac10632.ogf
+scope_name						= ac10632
+scope_x							= 84
+scope_y							= -3
+hud								= wpn_m249_ac10632_hud
+
+[wpn_m249_ac10632_hud]:wpn_m249_hud
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_ac10632_hud.ogf
+anm_reload             	 		= lancew_m249_reload_eotech, reload
+anm_shots              			= lancew_m249_shoot_scope, shoot
+aim_hud_offset_pos				= -0.082250,0.016900,-0.201102
+aim_hud_offset_pos_16x9			= -0.082250,0.016900,-0.201102
+aim_hud_offset_rot				= 0.022063,-0.032975,0.000000
+aim_hud_offset_rot_16x9			= 0.022063,-0.032975,0.000000
+;-----------------------------------------------------------------------------
+[wpn_m249_acog]:wpn_m249
+scope_name						= acog
+scope_x							= 81
+scope_y							= 0
+hud								= wpn_m249_acog_hud
+
+[wpn_m249_acog_hud]:wpn_m249_hud
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_ac10632_hud.ogf
+anm_reload              		= lancew_m249_reload_acog, reload
+aim_hud_offset_pos				= -0.083250,0.004400,-0.28
+aim_hud_offset_pos_16x9			= -0.083250,0.004400,-0.28
+aim_hud_offset_rot				= -0.013187,-0.031725,0
+aim_hud_offset_rot_16x9			= -0.013187,-0.031725,0
+;-----------------------------------------------------------------------------
+[wpn_m249_c-more]:wpn_m249
+visual							= dynamics\weapons\wpn_m249\wpn_m249_c-more.ogf
+scope_name						= c-more
+scope_x							= 85
+scope_y							= 4
+hud								= wpn_m249_c-more_hud
+
+[wpn_m249_c-more_hud]:wpn_m249_hud
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_c-more_hud.ogf
+anm_reload						= lancew_m249_reload_eotech, reload
+anm_shots						= lancew_m249_shoot_scope, shoot
+aim_hud_offset_pos				= -0.083250,0.018900,-0.301100
+aim_hud_offset_pos_16x9			= -0.083250,0.018900,-0.301100
+aim_hud_offset_rot				= 0.016063,-0.031475,0
+aim_hud_offset_rot_16x9			= 0.016063,-0.031475,0
+;-----------------------------------------------------------------------------
+[wpn_m249_eot]:wpn_m249
+visual							= dynamics\weapons\wpn_m249\wpn_m249_eot.ogf
+scope_name						= eot
+scope_x							= 85
+scope_y							= 2
+hud								= wpn_m249_eot_hud
+
+[wpn_m249_eot_hud]:wpn_m249_hud
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_eot_hud.ogf
+anm_reload             	 		= lancew_m249_reload_eotech, reload
+anm_shots              			= lancew_m249_shoot_scope, shoot
+aim_hud_offset_pos				= -0.082250,0.010900,-0.310100
+aim_hud_offset_pos_16x9			= -0.082250,0.010900,-0.310100
+aim_hud_offset_rot				= 0.016563,-0.033725,0
+aim_hud_offset_rot_16x9			= 0.016563,-0.033725,0
+;-----------------------------------------------------------------------------
+[wpn_m249_pn23]:wpn_m249
+visual							= dynamics\weapons\wpn_m249\wpn_m249_pn23.ogf
+scope_name						= pn23
+scope_x							= 66
+scope_y							= 2
+hud								= wpn_m249_pn23_hud
+
+[wpn_m249_pn23_hud]:wpn_m249_hud
+item_visual						= dynamics\weapons\wpn_m249\wpn_m249_pn23_hud.ogf
+anm_reload						= lancew_m249_reload_acog, reload
+anm_shots_when_aim				= m249_shoot_scope
+aim_hud_offset_pos				= -0.083250,-0.007600,-0.191602
+aim_hud_offset_pos_16x9			= -0.083250,-0.007600,-0.191602
+aim_hud_offset_rot				= -0.012687,-0.032725,0
+aim_hud_offset_rot_16x9			= -0.012687,-0.032725,0
+;-----------------------------------------------------------------------------

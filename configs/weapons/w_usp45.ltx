@@ -1,0 +1,334 @@
+[wpn_usp]:default_weapon_params, strap_pistol
+visual						= dynamics\weapons\wpn_usp45\wpn_usp45.ogf
+$spawn						= "weapons\usp"				; option for Level Editor
+$npc						= on						; option for Level Editor
+class						= WP_PM
+inv_name					= st_wpn_usp
+inv_name_short				= st_wpn_usp
+description					= st_wpn_usp_descr
+ef_main_weapon_type			= 5
+ef_weapon_type				= 5
+heating_rates				= pistol3
+default_to_ruck				= false
+sprint_allowed				= true
+control_inertion_factor		= 1.0
+repair_type 				= pistol
+cost						= 10960
+inv_weight					= 0.88
+inv_volume					= 1.3
+ph_mass			 			= 1
+upgrades					= up_gr_firstab_usp, up_gr_seconab_usp, up_gr_thirdab_usp, up_gr_fourtab_usp, up_gr_fifthab_usp
+installed_upgrades			=
+upgrade_scheme				= upgrade_scheme_usp
+;--TTX----------------------------------------------------------------------------
+hit_power					= 0.39, 0.39, 0.39, 0.39
+hit_impulse					= 40
+hit_type 					= fire_wound
+fire_distance				= 200
+bullet_speed				= 260
+rpm							= 210
+rpm_empty_click				= 250
+time_to_aim					= 1.0
+hud							= wpn_usp45_hud
+
+misfire_probability			= 0.005
+misfire_start_condition		= 0.86
+misfire_end_condition		= 0.12
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec			= 0.0016
+condition_queue_shot_dec	= 0.0016
+
+ammo_elapsed				= 12
+ammo_mag_size				= 12
+fire_modes					= 1
+magazine_sect				= magazine_1143x23_cnt_12
+ammo_class		 			= ammo_11.43x23_fmj, ammo_11.43x23_fmj_bad, ammo_11.43x23_fmj_verybad, ammo_11.43x23_ap, ammo_11.43x23_ap_bad, ammo_11.43x23_ap_verybad, ammo_11.43x23_hydro, ammo_11.43x23_hydro_bad, ammo_11.43x23_hydro_verybad
+grenade_class				= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+single_handed				= 1
+slot						= 0
+animation_slot				= 1
+;--DOF--------------------------------------------------------------------------
+zoom_dof					= -1000, 1.0, 1000
+reload_dof					= 0.0, 0.5, 5, 1.7
+reload_empty_dof			= 0.0, 0.5, 5, 3
+;--дисперсия--------------------------------------------------------------------
+fire_dispersion_base		= 0.43						;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.0f
+crosshair_inertion			= 3.8
+
+cam_return 					= 0
+cam_relax_speed				= 7							;скорость возврата в исходное положение
+cam_relax_speed_ai			= 360
+cam_dispersion				= 1.18						;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 1.26						;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.1						;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 50.0						;максимальный угол отдачи
+cam_max_angle_horz			= 50.0						;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 1.0						;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.75
+PDM_disp_vel_factor 		= 1.05
+PDM_disp_accel_factor		= 1.055
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+fire_dispersion_condition_factor = 0.001				;увеличение дисперсии в процентах при максимальном износе
+;-------------------------------------------------------------------------------
+inv_grid_width				= 2
+inv_grid_height				= 1
+inv_grid_x					= 37
+inv_grid_y					= 79
+
+upgr_icon_x					= 1150
+upgr_icon_y					= 1000
+upgr_icon_width				= 150
+upgr_icon_height			= 100
+
+kill_msg_x					= 134
+kill_msg_y					= 177
+kill_msg_width				= 31
+kill_msg_height				= 25
+;-------------------------------------------------------------------------------
+position					= -0.021, -0.085, 0.0
+orientation 				= 0, 0, 0
+fire_point					= 0.0, 0.133, 0.161
+fire_point2					= 0.0, 0.133, 0.161
+flame_particles				= weapons\new_effects\pistol_9x18
+smoke_particles				= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles 	= weapons\generic_weapon01
+shell_point		 			= 0.0, 0.133, 0.047
+shell_dir		 			= 0.0, 0.0, 0.4
+shell_particles	 			= weapons\9x19
+shell_3d_sect				= shell_9
+light_disabled				= false
+light_color		 			= 0.6,0.5,0.3
+light_range		 			= 3.0
+light_var_color		 		= 0.05
+light_var_range		 		= 0.5
+light_time 		 			= 0.2
+
+;addons
+scope_status				= 0							; 0 - no addon
+silencer_status				= 0							; 1 - permanent
+grenade_launcher_status		= 0							; 2 - attachable
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor			= 1.03
+
+scope_name					= wpn_addon_scope
+scope_x						= 47
+scope_y						= 0
+silencer_name				= wpn_sil_45
+silencer_x					= 70
+silencer_y					= -14
+grenade_launcher_name		= wpn_addon_grenade_launcher
+grenade_launcher_x			= 126
+grenade_launcher_y			= 24
+
+;silencer_flame_particles	= weapons\generic_weapon01
+silencer_smoke_particles	= weapons\new_effects\smoke_silencer_pistol
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time 		= 0.2
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster					= weapons\usp\usp_holster
+snd_draw					= weapons\usp\usp_draw
+snd_empty					= weapons\usp\usp_empty
+snd_reload					= weapons\usp\usp_reload
+snd_reload_empty			= weapons\usp\usp_reload_empty
+snd_reload_misfire			= weapons\hpsa\hpsa_reload_empty,1,0,2.0
+snd_reload_detached			= weapons\usp\usp_reload,1,0,1.1
+snd_reload_detached_empty	= weapons\usp\usp_reload_empty,1,0,1.1
+snd_close					= weapons\usp\usp_close
+snd_shoot					= weapons\usp\usp_shoot_null
+snd_silencer_shot			= weapons\usp\usp_shot_sil_null
+;-------------------------------------------------------------------------------
+[wpn_usp45_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_usp45\wpn_usp45_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0,-0.003535,-0.196445
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone					= muzzle
+
+item_position				= 0.000746,-0.000321,0.003479
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+hands_position				= -0.102355,-0.1298,-0.08442
+hands_position_16x9			= -0.102355,-0.1298,-0.08442
+hands_orientation			= -0.5,1.0,1.15
+hands_orientation_16x9		= -0.5,1.0,1.15
+
+aim_hud_offset_pos			= -0.0273,0.01774,0.000315
+aim_hud_offset_pos_16x9		= -0.0273,0.01774,0.000315
+aim_hud_offset_rot			= 0.021663,0.013255,-0.015
+aim_hud_offset_rot_16x9		= 0.021663,0.013255,-0.015
+
+anm_show					= usp45_draw
+anm_show_empty				= usp45_draw, opened
+anm_hide					= lancew_cz75_holster						;usp45_holster
+anm_hide_empty				= lancew_cz75_holster, opened				;usp45_holster, opened
+anm_idle					= usp45_idle
+anm_idle_empty				= usp45_idle, opened
+anm_shots					= usp45_shoot, shoot
+anm_shots_empty				= usp45_shoot, shoot_last
+anm_shot_l					= usp45_shoot, shoot_last
+anm_idle_aim				= usp45_idle_aim
+anm_idle_aim_empty			= usp45_idle_aim, opened
+anm_reload					= usp45_reload, reload
+anm_reload_empty			= usp45_reload_empty, reload_empty
+anm_reload_misfire			= hpsa_reload_empty, reload_empty, , 1.8
+anm_reload_detached			= usp45_reload, reload, , 1.1
+anm_reload_detached_empty	= usp45_reload_empty, reload_empty, , 1.1
+anm_idle_moving				= usp45_idle_moving
+anm_idle_moving_empty		= usp45_idle_moving, opened
+anm_idle_moving_crouch		= usp45_idle_crouch
+anm_idle_moving_crouch_empty = usp45_idle_crouch, opened
+anm_idle_sprint				= cz75a_idle_sprint
+anm_idle_sprint_empty		= cz75a_idle_sprint, opened
+anm_bore					= usp45_idle_aim
+anm_bore_empty				= usp45_idle_aim, opened
+;-----------------------------------------------------------------------------
+[wpn_usp_custom]:wpn_usp
+inv_name					= st_wpn_usp_custom
+inv_name_short				= st_wpn_usp_custom
+cost						= 13580
+installed_upgrades			= up_fiftha_usp
+hit_power					= 0.4, 0.4, 0.4, 0.4
+bullet_speed				= 283
+rpm							= 248
+hud							= wpn_usp45_sk1_hud
+misfire_start_condition		= 0.82
+misfire_end_condition		= 0.1
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02 
+condition_shot_dec			= 0.00148
+condition_queue_shot_dec	= 0.00148
+fire_dispersion_base		= 0.38
+inv_grid_x					= 39
+upgr_icon_x					= 1300
+upgr_icon_y					= 1000
+upgr_icon_width				= 150
+upgr_icon_height			= 100
+visual						= dynamics\weapons\wpn_usp45\wpn_usp45_sk1.ogf
+
+[wpn_usp45_sk1_hud]:wpn_usp45_hud
+item_visual					= dynamics\weapons\wpn_usp45\wpn_usp45_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_usp_worn]:wpn_usp
+visual						= dynamics\weapons\wpn_usp45\wpn_usp45_sk2.ogf
+inv_name					= st_wpn_usp_worn
+inv_name_short				= st_wpn_usp_worn
+cost						= 7550
+upgrades					= up_gr_firstab_usp_worn, up_gr_seconab_usp_worn, up_gr_thirdab_usp_worn, up_gr_fourtab_usp_worn, up_gr_fifthab_usp_worn
+hit_power					= 0.34, 0.34, 0.34, 0.34
+bullet_speed				= 225
+rpm							= 195
+hud							= wpn_usp45_sk2_hud
+misfire_start_condition		= 0.9
+misfire_end_condition		= 0.16
+condition_shot_dec			= 0.00171
+condition_queue_shot_dec	= 0.00171
+fire_dispersion_base		= 0.5
+inv_grid_x					= 41
+
+[wpn_usp45_sk2_hud]:wpn_usp45_hud
+item_visual					= dynamics\weapons\wpn_usp45\wpn_usp45_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_usp_match]:wpn_usp
+visual						= dynamics\weapons\wpn_usp45\wpn_usp_match.ogf
+inv_name					= st_wpn_usp_match
+inv_name_short				= st_wpn_usp_match
+description					= st_wpn_usp_match_descr
+cost						= 15360
+inv_weight					= 1.18
+inv_volume					= 1.35
+upgrades					= up_gr_firstab_usp_match, up_gr_seconab_usp_match, up_gr_thirdab_usp_match, up_gr_fourtab_usp_match, up_gr_fifthab_usp_match
+hit_power					= 0.36, 0.36, 0.36, 0.36
+hit_impulse	 				= 25
+bullet_speed		 		= 388
+rpm							= 235
+hud							= wpn_usp_match_hud
+misfire_start_condition		= 0.8
+misfire_end_condition		= 0.1
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec			= 0.0015
+condition_queue_shot_dec	= 0.0015
+ammo_elapsed				= 15
+ammo_mag_size				= 15
+magazine_sect				= magazine_9x19_cnt_15
+ammo_class					= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+fire_dispersion_base		= 0.4
+
+cam_return 					= 0
+cam_relax_speed				= 8							;скорость возврата в исходное положение
+cam_relax_speed_ai			= 360
+cam_dispersion				= 0.82						;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 0.88						;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.1						;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 50.0						;максимальный угол отдачи
+cam_max_angle_horz			= 50.0						;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 0.42						;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base				= 0.65
+PDM_disp_vel_factor			= 1.05
+PDM_disp_accel_factor		= 1.055
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+
+inv_grid_x					= 43
+upgr_icon_x					= 1450
+upgr_icon_y					= 1000
+upgr_icon_width				= 150
+upgr_icon_height			= 100
+shell_particles				= weapons\9x19
+
+silencer_name  				= wpn_sil_gemtech
+silencer_x 					= 95
+silencer_y 					= -14
+
+[wpn_usp_match_hud]:wpn_usp45_hud
+item_visual					= dynamics\weapons\wpn_usp45\wpn_usp_match_hud.ogf
+shell_point					= -0.00404,-0.00909,-0.262095
+aim_hud_offset_pos			= -0.0273,0.022255,-0.03087
+aim_hud_offset_pos_16x9		= -0.0273,0.022255,-0.03087
+aim_hud_offset_rot			= 0.021136,0.013992,-0.015
+aim_hud_offset_rot_16x9		= 0.021136,0.013992,-0.015
+;-----------------------------------------------------------------------------
+; Уникальные
+;-----------------------------------------------------------------------------
+[wpn_usp_nimble]:wpn_usp_match
+$spawn               		= "weapons\wpn_usp_nimble"
+inv_name					= st_wpn_usp_nimble
+inv_name_short				= st_wpn_usp_nimble
+description					= st_wpn_usp_nimble_descr
+cost						= 17690
+inv_weight					= 1.16
+inv_grid_x					= 45
+upgrades                	= up_gr_firstab_usp_match, up_gr_seconab_usp_match, up_gr_thirdab_usp_match, up_gr_fourtab_usp_match, up_gr_fifthab_usp_match
+installed_upgrades      	= up_fiftha_usp_match
+;----TTX--------------------------------------------------------------------------
+hit_power           		= 0.35, 0.35, 0.35, 0.35
+bullet_speed		 		= 400
+rpm                     	= 255
+hud                     	= wpn_usp_nimble_hud
+misfire_start_condition		= 0.7
+misfire_end_condition		= 0.09
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.00143
+condition_queue_shot_dec	= 0.00143
+fire_dispersion_base		= 0.37
+upgr_icon_x					= 1450
+upgr_icon_y					= 1000
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_usp45\wpn_usp_nimble.ogf
+
+[wpn_usp_nimble_hud]:wpn_usp_match_hud
+item_visual             	= dynamics\weapons\wpn_usp45\wpn_usp_nimble_hud.ogf
+;-----------------------------------------------------------------------------

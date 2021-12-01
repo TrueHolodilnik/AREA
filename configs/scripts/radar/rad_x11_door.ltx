@@ -1,0 +1,23 @@
+[logic]
+active = ph_door@locked
+
+[ph_door@locked]
+locked = true
+closed = true
+snd_open_start = trader_door_locked
+snd_close_start = no_sound
+snd_close_stop = trader_door_close_stop
+on_use = {-rad_x11_door_decode_started =actor_has_item(maneken_decoder) =actor_has_af(electric)} %+rad_x11_door_decode_started =remove_af(electric)%, {-rad_x11_door_decode_started} %=hud_message(st_x27_timer_error)%
+on_info = {+rad_x11_door_open} ph_door@open
+
+tip_open = st_start_decoding
+
+[ph_door@open]
+locked = false
+closed = false
+snd_open_start = no_sound
+snd_close_start = no_sound
+snd_close_stop = trader_door_close_stop
+heavy = true
+tip_open = none
+tip_close = none

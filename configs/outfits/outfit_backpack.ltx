@@ -1,0 +1,610 @@
+[inventory_box]
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "devices\inventory box"
+class                                    = S_INVBOX
+cform                                    = skeleton
+visual                                   = dynamics\equipment_cache\equipment_box_01_case.ogf
+script_binding                           = bind_physic_object.init
+custom_data                              = scripts\actor_inventory_box.ltx
+inv_max_volume						= 100
+
+[inventory_box_fake]:inventory_box
+custom_data                              = scripts\inventory_box_fake.ltx
+
+[hidden_box]:inventory_box
+inv_max_volume						= 30
+
+[inv_backpack]:inventory_box
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+custom_data                              = scripts\treasure_inventory_box.ltx
+radius                                   = 1
+inv_max_volume						= 20
+
+[inv_actor_backpack]:inv_backpack
+
+[area_d_box]:inventory_box
+custom_data                              = scripts\area_inventory_box.ltx
+;script_binding                          = bind_physic_object.init
+
+[inv_st_box_blue_steel]:area_d_box
+visual                                   = dynamics\equipments\blue_box.ogf
+inv_max_volume						= 40
+inv_volume							= 41
+
+[inv_st_box_wood_small]:area_d_box
+visual                        			 = dynamics\box\box_1b.ogf
+inv_max_volume						= 15
+inv_volume							= 16
+
+;;[inv_st_box_blue_steel]:area_d_box
+;;visual                        			 = dynamics\box\box_1b.ogf
+
+[inv_st_box_metall]:area_d_box
+visual                        		= dynamics\equipments\green_box.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_st_box_case]:area_d_box
+visual                        			 = dynamics\equipments\case.ogf
+inv_max_volume						= 10
+inv_volume							= 11
+
+[inv_st_box_lab]:area_d_box
+visual                        			 = dynamics\equipments\box_lab_01.ogf
+inv_max_volume						= 10
+inv_volume							= 11
+
+[inv_st_box_green_steel]:area_d_box
+visual                        			 = dynamics\equipments\green_box.ogf
+inv_max_volume						= 40
+inv_volume							= 41
+
+[inv_backpack_pods]:area_d_box
+visual                        			 = dynamics\equipments\sumka1.ogf
+inv_max_volume						= 25
+inv_volume								 = 0.9
+
+[inv_backpack_nato]:area_d_box
+visual                        			 = dynamics\equipments\sumka2.ogf
+inv_max_volume						= 45
+inv_volume							= 2.9
+
+[inv_backpack_cloth]:area_d_box
+visual                        			 = dynamics\devices\dev_rukzak\dev_rukzak7.ogf
+inv_max_volume						= 25
+inv_volume								 = 0.9
+
+[inv_backpack_hunt]:area_d_box
+visual                        			 = dynamics\equipments\sumka3.ogf
+inv_max_volume						= 40
+inv_volume							= 2.3
+
+[inv_backpack_vesh]:area_d_box
+visual                        			 = dynamics\equipments\sumka7.ogf
+inv_max_volume						= 25
+inv_volume								 = 0.9
+	
+;;[inv_st_box_wood_small]:area_d_box
+;;visual                        			 = dynamics\box\box_1c.ogf
+
+[inv_armor_repair_pro_0]:area_d_box
+visual                        			 = dynamics\repair\armor_repair_pro.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_helmet_repair_kit_0]:area_d_box
+visual                        			 = dynamics\repair\helmet_repair.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_toolkit_r5_0]:area_d_box
+visual                        			 = dynamics\repair\toolkit_nato.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_toolkit_s_0]:area_d_box
+visual                        			 = dynamics\repair\toolkit_s.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_toolkit_r7_0]:area_d_box
+visual                        			 = dynamics\repair\toolkit_wp.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_backpack_pohod]:area_d_box
+visual                        			 = dynamics\equipments\sumka5.ogf
+inv_max_volume						= 55
+inv_volume							= 4.7
+
+[inv_backpack_camo]:area_d_box
+visual                        			 = dynamics\equipments\sumka9.ogf
+inv_max_volume						= 45
+inv_volume							= 2.9
+
+[inv_backpack_camp]:area_d_box
+visual                        			 = dynamics\equipments\sumka11.ogf
+inv_max_volume						= 40
+inv_volume							= 2.3
+
+[inv_st_box_wood_metall]:area_d_box
+visual                        			 = dynamics\equipments\amk2_arm_box_mini.ogf
+inv_max_volume						= 20
+inv_volume							= 21
+
+[inv_toolkit_u_0]:area_d_box
+visual                        			 = dynamics\equipments\dev_instrument_1.ogf
+inv_max_volume						= 30
+inv_volume							= 31
+
+[area_d_box_inv]:inventory_box
+custom_data                              = scripts\area_inventory_box.ltx
+visual                                   = dynamics\equipment_cache\equipment_box_01_case.ogf
+inv_max_volume						= 50
+;script_binding                           = bind_physic_object.init
+
+[inv_backpack_sport]:area_d_box
+visual								= dynamics\items\equipments\backpack_sport.ogf
+inv_weight							= 0.45
+inv_volume							= 0.9
+inv_max_volume						= 25
+
+[inv_backpack_sport_frame]:area_d_box
+visual								= dynamics\equipments\sumka7.ogf
+inv_weight							= 1.65
+inv_volume							= 2.4
+inv_max_volume						= 35
+
+[inv_backpack_small]:area_d_box
+visual								= dynamics\equipments\sumka10.ogf
+inv_weight							= 0.68
+inv_volume							= 1.24
+inv_max_volume						= 30
+
+[inv_backpack_compact]:area_d_box
+visual								= dynamics\devices\dev_rukzak\dev_rukzak_black.ogf
+inv_weight							= 0.78
+inv_volume							= 1.56
+inv_max_volume						= 35
+
+[inv_backpack_medium]:area_d_box
+visual								= dynamics\devices\dev_rukzak\dev_rukzak.ogf
+inv_weight							= 1.15
+inv_volume							= 2.3
+inv_max_volume						= 40
+
+[inv_backpack_military]:area_d_box
+visual								= dynamics\devices\dev_rukzak\dev_rukzak_camo.ogf
+inv_weight							= 1.45
+inv_volume							= 2.9
+inv_max_volume						= 45
+
+[inv_backpack_specops]:area_d_box
+visual								= dynamics\equipments\sumka8.ogf
+inv_weight							= 1.82
+inv_volume							= 3.75
+inv_max_volume						= 50
+
+[inv_backpack_voen]:area_d_box
+visual								= dynamics\devices\dev_rukzak\dev_rukzak4.ogf
+inv_weight							= 1.7
+inv_volume							= 3.2
+inv_max_volume						= 50
+
+[inv_backpack_tourist]:area_d_box
+visual								= dynamics\equipments\sumka4.ogf
+inv_weight							= 2.35
+inv_volume							= 4.7
+inv_max_volume						= 55
+
+[inv_backpack_heavy]:area_d_box
+visual								= dynamics\devices\dev_rukzak\dev_rukzak6.ogf
+inv_weight							= 2.52
+inv_volume							= 5.04
+inv_max_volume						= 60
+
+[inv_backpack_frame]:area_d_box
+visual								= dynamics\equipments\aa\frames.ogf
+inv_weight							= 1.2
+inv_volume							= 1.5
+inv_max_volume						= 10
+
+[inv_test_container]:area_d_box
+visual								= dynamics\equipments\sumka1.ogf
+inv_weight							= 2.50
+inv_volume							= 5.00
+inv_max_volume						= 3.0
+
+[inv_artefact_container]:area_d_box
+visual								= dynamics\box\konteyner_03b.ogf
+inv_weight							= 2.50
+inv_volume							= 5.00
+inv_max_volume						= 3.0
+
+[inv_artefact_container_1]:area_d_box
+visual								= objects\newmodels\3_art_box_door.ogf
+inv_weight							= 2.50
+inv_volume							= 5.00
+inv_max_volume						= 3.0
+
+[inv_artefact_container_2]:area_d_box
+visual								= objects\newmodels\8_art_box_door.ogf
+inv_weight							= 2.50
+inv_volume							= 5.00
+inv_max_volume						= 3.0
+
+[inv_delivery_storage_container]:area_d_box
+inv_weight							= 20.0
+inv_volume							= 40.0
+inv_max_volume						= 50.0
+inv_max_weight						= 100.0
+
+[inv_wallet_container]:area_d_box
+visual								= dynamics\equipments\sumka1.ogf
+inv_weight							= 0.015
+inv_volume							= 1.0
+inv_max_volume						= 0.25
+
+[inv_pouch_container]:area_d_box
+visual								= dynamics\equipments\sumka1.ogf
+inv_weight							= 0.85
+inv_volume							= 10
+inv_max_volume						= 10
+
+[inv_oxygen_tank_container]:area_d_box
+visual								= dynamics\item\oxygen_tank.ogf
+inv_weight							= 3.2
+inv_volume							= 1.5
+inv_max_volume						= 1.5
+;==========================================
+[no_backpack]
+visual								= dynamics\devices\dev_eat\invisible_item.ogf
+[no_backpack_sport]:inv_backpack_sport,no_backpack
+[no_backpack_sport_frame]:inv_backpack_sport_frame,no_backpack
+[no_backpack_pods]:inv_backpack_pods,no_backpack
+[no_backpack_cloth]:inv_backpack_cloth,no_backpack
+[no_backpack_vesh]:inv_backpack_vesh,no_backpack
+[no_backpack_small]:inv_backpack_small,no_backpack
+[no_backpack_compact]:inv_backpack_compact,no_backpack
+[no_backpack_hunt]:inv_backpack_hunt,no_backpack
+[no_backpack_medium]:inv_backpack_medium,no_backpack
+[no_backpack_camp]:inv_backpack_camp,no_backpack
+[no_backpack_military]:inv_backpack_military,no_backpack
+[no_backpack_nato]:inv_backpack_nato,no_backpack
+[no_backpack_camo]:inv_backpack_camo,no_backpack
+[no_backpack_specops]:inv_backpack_specops,no_backpack
+[no_backpack_voen]:inv_backpack_voen,no_backpack
+[no_backpack_tourist]:inv_backpack_tourist,no_backpack
+[no_backpack_pohod]:inv_backpack_pohod,no_backpack
+[no_backpack_heavy]:inv_backpack_heavy,no_backpack
+[no_backpack_frame]:inv_backpack_frame,no_backpack
+[no_artefact_container]:inv_artefact_container,no_backpack
+[no_artefact_container_1]:inv_artefact_container_1,no_backpack
+[no_artefact_container_2]:inv_artefact_container_2,no_backpack
+[no_delivery_storage_container]:inv_delivery_storage_container,no_backpack
+[no_wallet_container]:inv_wallet_container,no_backpack
+[no_pouch_container]:inv_pouch_container,no_backpack
+[no_oxygen_tank_container]:inv_oxygen_tank_container,no_backpack
+[no_test_container]:inv_test_container,no_backpack
+;==========================================
+
+[equ_backpack]
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "equipments\backpack"
+$prefetch                                = 32
+class                                    = EQ_BAKPK
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+inv_weight                               = 1
+inv_name                                 = st_backpack_medium_name
+inv_name_short                           = st_backpack_medium_name
+description							= st_backpack_desc
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 6
+inv_grid_y                               = 23
+cost                                     = 2500
+slot                                     = 12
+additional_inventory_weight				 = 10
+additional_inventory_weight2			 = 10
+additional_inventory_volume			= 0
+pickup_color						= 255, 0, 255, 255	; Violet
+position							= 0.35,0.25,0.0
+attach_position_offset				= 0.064, -0.017, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+attach_bone_name					= bip01_spine1
+use_condition						= true
+can_stack							= false
+default_to_ruck						= false
+sprint_allowed						= true
+highlight_equipped					= true
+container_volume_scale				= true
+sell_ignore_condition 				= true
+immunities_sect						= zero_immunities
+control_inertion_factor					 = 1.0
+power_loss								 = 0.04 ;NEW FORMULA - Power Restore (0.0 base) * (0.5 + outfit power loss + helmet power loss + backpack power loss)
+walk_accel							= 0.9  ;values > 1 items in slotted BP decrease movement
+use1_functor                             = actor_backpack.query_create_stash
+use1_action_functor                      = actor_backpack.action_create_stash
+script_binding						= bind_container.bind
+use2_action_functor					= bind_container.access_inventory
+use2_functor						= bind_container.can_access_inventory
+upgrades							= ;up_gr_firstab_backpack	; * Need upgrades *
+upgrade_scheme						= upgrade_scheme_backpack
+strap_position						= 0.23, 0.26, -0.2			; Weapon attachment offset
+strap_orientation					= 0.0, 0.0, 3.15
+strap_position_slot2				= -0.23, 0.26, -0.2
+strap_orientation_slot2				= 0.0, 0.0, 3.15
+strap_position_holster				= -0.23, 0.2, -0.2
+strap_orientation_holster			= 0.0, 0.0, 3.15
+;========================================================================
+[backpack_sport]:equ_backpack
+visual								= dynamics\items\equipments\backpack_sport.ogf
+description                              = st_backpack_sport_desc
+inv_weight                               = 0.45
+inv_volume								 = 0.9
+inv_name                                 = st_backpack_sport_name
+inv_name_short                           = st_backpack_sport_name
+cost                                     = 2526
+inv_grid_x                               = 2
+additional_inventory_weight				 = 5
+additional_inventory_weight2			 = 5
+power_loss							= 0.02
+
+[backpack_pods]:backpack_sport
+visual                                   = dynamics\equipments\sumka1.ogf
+description                              = st_backpack_pods_desc
+inv_name                                 = st_backpack_pods_name
+inv_name_short                           = st_backpack_pods_name
+inv_grid_x                               = 0
+inv_grid_y                               = 42
+attach_position_offset				= 0.234, -0.007, -0.100
+attach_angle_offset					= -1.704, -1.550, 1.510
+
+[backpack_cloth]:backpack_sport
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak7.ogf
+inv_name                                 = st_backpack_cloth_name
+inv_name_short                           = st_backpack_cloth_name
+description                              = st_backpack_cloth_desc
+inv_grid_x                               = 12
+inv_grid_y                               = 23
+attach_position_offset				= 0.144, -0.007, -0.110
+attach_angle_offset					= 1.438, 0.008, -1.632
+
+[backpack_vesh]:backpack_sport
+visual                                   = dynamics\equipments\sumka7.ogf
+description                              = st_backpack_vesh_desc
+inv_name                                 = st_backpack_vesh_name
+inv_name_short                           = st_backpack_vesh_name
+inv_grid_x                               = 2
+inv_grid_y                               = 25
+attach_position_offset				= 0.074, -0.007, -0.060
+attach_angle_offset					= 1.438, 0.108, -1.632
+
+[backpack_sport_frame]:backpack_sport
+description                         = st_backpack_sport_frame_desc
+inv_name                            = st_backpack_sport_frame_name
+inv_name_short                      = st_backpack_sport_frame_name
+inv_weight							= 1.65
+inv_volume							= 2.4
+cost								= 3026
+inv_grid_x							= 2
+inv_grid_y							= 49
+additional_inventory_weight			= 15
+additional_inventory_weight2		= 15
+power_loss							= 0.03
+1icon_layer							= backpack_sport
+1icon_layer_x						= 0	
+1icon_layer_y						= 0
+[backpack_small]:equ_backpack
+visual                                   = dynamics\equipments\sumka10.ogf
+description                              = st_backpack_small_desc
+inv_name                                 = st_backpack_small_name
+inv_name_short                           = st_backpack_small_name
+inv_grid_x                               = 14
+inv_grid_y                               = 21
+inv_weight                               = 0.68
+inv_volume								 = 1.24
+walk_accel							= 0.8
+cost                                     = 3128
+additional_inventory_weight				 = 10
+additional_inventory_weight2			 = 10
+inv_max_volume						= 30
+power_loss							= 0.03
+attach_position_offset				= 0.164, -0.017, -0.100
+attach_angle_offset					= -1.438, 0.008, -1.632
+
+[backpack_compact]:equ_backpack
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak_black.ogf
+description                              = st_backpack_compact_desc
+inv_weight                               = 0.78
+inv_volume							= 1.56
+inv_name                                 = st_backpack_compact_name
+inv_name_short                           = st_backpack_compact_name
+walk_accel							= 0.85
+cost                                     = 4558
+inv_grid_x							= 6
+additional_inventory_weight				 = 15
+additional_inventory_weight2			 = 15
+allow_take_volume					= 35
+power_loss							= 0.04
+attach_position_offset				= 0.144, -0.007, -0.110
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_hunt]:backpack_compact
+visual                                   = dynamics\equipments\sumka3.ogf
+inv_grid_x                               = 4
+inv_grid_y                               = 25
+attach_position_offset				= 0.094, -0.002, -0.070
+attach_angle_offset					= 1.562, -0.012, -1.572
+
+[backpack_medium]:equ_backpack
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+description                              = st_backpack_medium_desc
+inv_weight                               = 1.15
+inv_volume							= 2.3
+inv_name                                 = st_backpack_medium_name
+inv_name_short                           = st_backpack_medium_name
+cost                                     = 6042
+inv_grid_x                               = 8
+additional_inventory_weight				 = 20
+additional_inventory_weight2			 = 20
+inv_max_volume						= 40
+power_loss								 = 0.06
+attach_position_offset				= 0.134, -0.002, -0.120
+attach_angle_offset					= 1.562, -0.012, -1.552
+
+[backpack_camp]:backpack_medium
+visual                                   = dynamics\equipments\sumka4.ogf
+description                              = st_backpack_camp_desc
+inv_name                                 = st_backpack_camp_name
+inv_name_short                           = st_backpack_camp_name
+inv_grid_x                               = 14
+inv_grid_y                               = 25
+attach_position_offset				= 0.134, 0.003, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_military]:equ_backpack
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak_camo.ogf
+description                              = st_backpack_military_desc
+inv_weight                               = 1.45
+inv_volume							= 2.9
+walk_accel							= 0.75
+inv_name                                 = st_backpack_military_name
+inv_name_short                           = st_backpack_military_name
+cost                                     = 8268
+inv_grid_x                               = 10
+additional_inventory_weight				 = 25
+additional_inventory_weight2			 = 25
+inv_max_volume						= 45
+power_loss								 = 0.07
+attach_position_offset				= 0.127, -0.007, -0.120
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_nato]:backpack_military
+visual                                   = dynamics\equipments\sumka2.ogf
+inv_name                                 = st_backpack_nato_name
+inv_name_short                           = st_backpack_nato_name
+description                              = st_backpack_nato_desc
+inv_grid_x                               = 6
+inv_grid_y                               = 25
+attach_position_offset				= 0.114, -0.007, -0.090
+attach_angle_offset					= -1.680, -1.550, 1.510
+
+[backpack_camo]:backpack_military
+visual                                   = dynamics\equipments\sumka5.ogf
+inv_name                                 = st_backpack_pohod_name
+inv_name_short                           = st_backpack_pohod_name
+description                              = st_backpack_pohod_desc
+inv_grid_x                               = 16
+inv_grid_y                               = 25
+attach_position_offset				= 0.134, 0.003, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_specops]:equ_backpack
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak4.ogf
+description                              = st_backpack_specops_desc
+inv_weight                               = 1.82
+inv_volume							= 3.75
+walk_accel							= 0.7
+inv_name                                 = st_backpack_specops_name
+inv_name_short                           = st_backpack_specops_name
+cost                                     = 10884
+inv_grid_x                               = 12
+inv_grid_y                               = 25
+additional_inventory_weight				 = 30
+additional_inventory_weight2			 = 30
+inv_max_volume						= 50
+power_loss								 = 0.08
+attach_position_offset				= 0.134, 0.003, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_voen]:backpack_specops
+visual                                   = dynamics\equipments\sumka8.ogf
+inv_name                                 = st_backpack_voen_name
+inv_name_short                           = st_backpack_voen_name
+description                              = st_backpack_voen_desc
+inv_grid_x                               = 14
+inv_grid_y                               = 23
+attach_position_offset				= 0.134, 0.003, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_tourist]:equ_backpack
+visual                                   = dynamics\equipments\sumka11.ogf
+description                              = st_backpack_tourist_desc
+inv_weight                               = 2.35
+inv_volume							= 4.7
+walk_accel							= 0.65
+inv_name                                 = st_backpack_tourist_name
+inv_name_short                           = st_backpack_tourist_name
+cost                                     = 12482
+inv_grid_x                               = 12
+inv_grid_y                               = 21
+attach_position_offset				= 0.134, -0.002, -0.120
+attach_angle_offset					= 1.562, -0.012, -1.552
+additional_inventory_weight				 = 35
+additional_inventory_weight2			 = 35
+inv_max_volume						= 55
+power_loss								 = 0.09
+
+[backpack_pohod]:backpack_tourist
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak6.ogf
+description                              = st_backpack_heavy_desc
+inv_name                                 = st_backpack_heavy_name
+inv_name_short                           = st_backpack_heavy_name
+inv_grid_x                               = 16
+inv_grid_y                               = 23
+attach_position_offset				= 0.084, 0.013 -0.090
+attach_angle_offset					= 1.562, 0.008, -1.632
+
+[backpack_heavy]:equ_backpack
+visual                                   = dynamics\equipments\sumka9.ogf
+inv_name                                 = st_backpack_camo_name
+inv_name_short                           = st_backpack_camo_name
+description                              = st_backpack_camo_desc
+inv_weight                               = 2.52
+inv_volume							= 5.04
+walk_accel							= 0.6
+cost                                     = 15230
+inv_grid_x                               = 4
+inv_grid_y                               = 23
+attach_position_offset				= 0.124, -0.007, -0.130
+attach_angle_offset					= 1.562, 0.008, -1.632
+additional_inventory_weight				 = 40
+additional_inventory_weight2			 = 40
+inv_max_volume						= 60
+power_loss							= 0.10
+
+[backpack_frame]:equ_backpack
+visual								= dynamics\equipments\aa\frames.ogf
+inv_name							= st_af_frames_name
+inv_name_short						= st_af_frames_name
+description							= st_af_frames_descr
+inv_weight							= 1.2
+inv_volume							= 1.5
+cost								= 5000
+inv_grid_x							= 0
+inv_grid_y							= 49
+additional_inventory_weight			= 10
+additional_inventory_weight2		= 10
+power_loss							= 0.10
+attach_position_offset				= -0.176, -0.017, -0.200
+attach_angle_offset					= -0.138, 0.108, 1.668
+
+[backpack_oxygen_tank]:equ_backpack
+visual								= dynamics\equipments\oxygen_tank.ogf
+inv_name							= st_backpack_oxygen_tank_name
+inv_name_short						= st_backpack_oxygen_tank_name
+description							= st_backpack_oxygen_tank_desc
+inv_grid_width						= 2
+inv_grid_height						= 2
+inv_weight							= 15.80
+inv_volume							= 10.0
+cost								= 5000
+inv_grid_x							= 6
+inv_grid_y							= 49
+power_loss							= 0.10
+attach_position_offset				= 0.024, -0.017, -0.160
+attach_angle_offset					= 3.004, -0.050, -1.590

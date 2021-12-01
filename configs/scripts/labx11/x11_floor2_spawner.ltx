@@ -1,0 +1,13 @@
+; забрали доки - убрались forbidden_0000, forbidden_0001, forbidden_0005 и forbidden_0006, открылись двери на 1 и 2 этаже, спавн монолита на 2_1 и 2_2
+
+[logic]
+active = sr_idle@sound
+
+[sr_idle@sound]
+on_info = {=actor_has_item(x11_docs1)} %=play_sound_at_pos(device\door_start:x11_smart_terrain_1_2_walker_2_walk) =play_sound_at_pos(characters_voice\human_01\monolith\fight\attack\attack_7:x11_smart_terrain_1_2_walker_2_walk)% sr_idle@destroy
+
+[sr_idle@destroy]
+on_info = %=destroy_object(story:x11_forbidden_0000) =destroy_object(story:x11_forbidden_0001) =destroy_object(story:x11_forbidden_0005) =destroy_object(story:x11_forbidden_0006)% sr_idle@create
+
+[sr_idle@create]
+on_info = %=create_squad(monolith_sim_squad_veteran:x11_smart_terrain_1_1) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_2_1) =create_squad(monolith_sim_squad_veteran:x11_smart_terrain_2_2)% nil

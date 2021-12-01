@@ -1,0 +1,179 @@
+
+[logic@dasc_tech_mlr]
+suitable = {=check_npc_name(dasc_tech_mlr)} true
+prior = 200
+active = animpoint@sit_normal
+level_spot = mechanic
+can_select_weapon = true
+dont_keep_items = true
+trade = misc\trade\trade_tech_mlty.ltx
+
+[animpoint@sit_normal]
+cover_name = dasc_trade_mlr_cover_0000
+avail_animations = animpoint_sit_normal
+reach_movement = walk_noweap
+use_camp = false
+meet = meet
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet]
+close_snd_hello = meet_hello
+close_snd_bye = meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = true
+allow_break = false
+meet_on_talking = false
+
+[logic@dasc_trade_mlr]
+suitable = {=check_npc_name(dasc_trade_mlr)} true
+prior = 200
+trade = misc\trade\trade_stalker_mlty.ltx
+active = animpoint@sit
+level_spot = trader
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@sit]
+cover_name = dasc_trade_mlr_cover
+avail_animations = animpoint_sit_normal
+reach_movement = walk_noweap
+use_camp = false
+meet = meet
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet@bench]
+; close_snd_hello = stalker_medic_greet
+; close_snd_bye = stalker_medic_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+; close_snd_distance = 7
+; abuse           = false
+; use = true
+; allow_break = false
+; meet_on_talking = true
+
+[logic@kamp_1]
+suitable = true
+prior = 60
+active = animpoint@kamp_1
+
+[animpoint@kamp_1]
+cover_name = ds_smart_terrain_4_2_kamp_1
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_2]
+suitable = true
+prior = 60
+active = animpoint@kamp_2
+
+[animpoint@kamp_2]
+cover_name = ds_smart_terrain_4_2_kamp_2
+avail_animations = animpoint_sit_low
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_3]
+suitable = true
+prior = 60
+active = animpoint@kamp_3
+
+[animpoint@kamp_3]
+cover_name = ds_smart_terrain_4_2_kamp_3
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_4]
+suitable = true
+prior = 60
+active = animpoint@kamp_4
+
+[animpoint@kamp_4]
+cover_name = ds_smart_terrain_4_2_kamp_4
+avail_animations = animpoint_sit_low
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@bench_1]
+suitable = true
+prior = 30
+active = animpoint@bench_1
+
+[animpoint@bench_1]
+cover_name = ds_smart_terrain_4_2_bench_1
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@bench_2]
+suitable = true
+prior = 30
+active = animpoint@bench_2
+
+
+[animpoint@bench_2]
+cover_name = ds_smart_terrain_4_2_bench_2
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@bench_3]
+suitable = true
+prior = 30
+active = animpoint@bench_3
+
+[animpoint@bench_3]
+cover_name = ds_smart_terrain_4_2_bench_3
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@bench_4]
+suitable = true
+prior = 30
+active = animpoint@bench_4
+
+[animpoint@bench_4]
+cover_name = ds_smart_terrain_4_2_bench_4
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@bench_5]
+suitable = true
+prior = 30
+active = animpoint@bench_5
+
+[animpoint@bench_5]
+cover_name = ds_smart_terrain_4_2_bench_5
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+

@@ -1,0 +1,8 @@
+[logic]
+active = sr_idle@search
+
+[sr_idle@search]
+on_info = {=actor_inside_me} sr_idle@stop %+actor_in_water_zone_rad%
+
+[sr_idle@stop]
+on_info = {!actor_inside_me} sr_idle@search %-actor_in_water_zone_rad%

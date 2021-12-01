@@ -1,0 +1,535 @@
+;surge
+[walker@dt2_smart_terrain_1_2_surge_def]
+def_state_standing = sit
+def_state_moving = assault
+
+[logic@dt2_smart_terrain_1_2_surge_def]
+suitable = {=surge_started} true
+prior = 60
+
+[logic@dt2_smart_terrain_1_2_surge_work_1]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_1
+
+[logic@dt2_smart_terrain_1_2_surge_work_2]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_2
+
+[logic@dt2_smart_terrain_1_2_surge_work_3]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_3
+
+[logic@dt2_smart_terrain_1_2_surge_work_4]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_4
+
+[logic@dt2_smart_terrain_1_2_surge_work_5]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_5
+
+[logic@dt2_smart_terrain_1_2_surge_work_6]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_6
+
+[logic@dt2_smart_terrain_1_2_surge_work_7]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_7
+
+[logic@dt2_smart_terrain_1_2_surge_work_8]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_8
+
+[logic@dt2_smart_terrain_1_2_surge_work_9]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_9
+
+[logic@dt2_smart_terrain_1_2_surge_work_10]:logic@dt2_smart_terrain_1_2_surge_def
+active = walker@dt2_smart_terrain_1_2_surge_work_10
+
+[walker@dt2_smart_terrain_1_2_surge_work_1]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_1_walk
+path_look = surge_hide_1_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a1
+
+[walker@dt2_smart_terrain_1_2_surge_work_2]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_2_walk
+path_look = surge_hide_2_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a1
+
+[walker@dt2_smart_terrain_1_2_surge_work_3]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_3_walk
+path_look = surge_hide_3_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a1
+
+[walker@dt2_smart_terrain_1_2_surge_work_4]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_4_walk
+path_look = surge_hide_4_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_5]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_5_walk
+path_look = surge_hide_5_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_6]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_6_walk
+path_look = surge_hide_6_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_7]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_7_walk
+path_look = surge_hide_7_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_8]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_8_walk
+path_look = surge_hide_8_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_9]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_9_walk
+path_look = surge_hide_9_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+[walker@dt2_smart_terrain_1_2_surge_work_10]:walker@dt2_smart_terrain_1_2_surge_def
+path_walk = surge_hide_10_walk
+path_look = surge_hide_10_look
+out_restr = dt2_smart_terrain_1_1_surge_hide_a2
+
+;camping
+[logic@dt2_smart_terrain_1_2_camp_work_1]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_1
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_2]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_2
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_3]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_3
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_4]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_4
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_5]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_5
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_6]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_6
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_7]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_7
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_8]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_8
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_9]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_9
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_10]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_10
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_11]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_11
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_12]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_12
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_13]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_13
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_14]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_14
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_15]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_15
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_16]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_16
+suitable = {!surge_started} true
+prior = 45
+
+[logic@dt2_smart_terrain_1_2_camp_work_17]
+active = animpoint@dt2_smart_terrain_1_2_camp_work_17
+suitable = {!surge_started} true
+prior = 45
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_1]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp1
+avail_animations = animpoint_sit_normal
+meet = meet@sit
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_2]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp2
+avail_animations = animpoint_sit_normal
+meet = meet@sit
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_3]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp3
+avail_animations = animpoint_stay_bar_0
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_4]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp4
+on_game_timer = 1500|animpoint@smoke
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_5]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp5
+avail_animations = animpoint_sit_normal
+meet = meet@sit
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_6]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp6
+avail_animations = animpoint_sit_normal
+meet = meet@sit
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_7]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp7
+avail_animations = animpoint_sit_normal
+meet = meet@sit
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_8]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp8
+avail_animations = animpoint_stay_bar_2
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_9]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp9
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_10]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp10
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_11]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp11
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_12]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp12
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_13]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp13
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_14]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp14
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_15]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp15
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_16]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp16
+use_camp = true
+
+[animpoint@dt2_smart_terrain_1_2_camp_work_17]
+cover_name = dt2_smart_terrain_1_2_animpoint_kamp17
+use_camp = true
+
+[animpoint@smoke]:animpoint@dt2_smart_terrain_1_2_camp_work_4
+cover_name = dt2_smart_terrain_1_2_animpoint_smoke_1
+avail_animations = smoking_stand
+on_game_timer = 700|animpoint@dt2_smart_terrain_1_2_camp_work_4
+
+[meet@sit]
+close_anim 		= animpoint_sit_normal
+far_anim 		= animpoint_sit_normal
+
+
+;barman
+[logic@dt2_barman]
+suitable = {=check_npc_name(dt2_barman)} true
+prior = 200
+active = animpoint@dt2_barman
+level_spot = trader
+trade = misc\trade\trade_barman_dit.ltx
+can_select_weapon = false
+dont_keep_items = true
+
+[animpoint@dt2_barman]
+cover_name = dt2_barman_animpoint
+avail_animations = animpoint_stay_wait
+use_camp = false
+meet = meet@dt2_barman
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = true
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+enemy_ignore_cond = false
+
+[meet@dt2_barman]
+close_snd_hello = dt2_barman_meet
+close_snd_bye = dt2_barman_bye
+; close_anim 		= nil
+close_victim 	= actor
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 7
+; far_distance 	= 0
+; close_snd_distance = 3
+use = true
+meet_on_talking = true
+allow_break = false
+
+[meet@bandits]
+close_victim 	= actor
+far_victim 	    = actor
+close_distance 	= 8
+far_distance 	= 10
+far_anim 		= nil
+close_anim 		= nil
+allow_break = false
+trade_enable = false
+meet_dialog = {-dt2_band_first_warning -dt2_bandits_pass} dt2_bandits_camp, {-dt2_band_second_warning -dt2_bandits_pass} dt2_bandits_camp_1, {+dt2_band_second_warning} nil, nil
+use = {=dist_to_actor_le(5) -dt2_bandits_pass -dt2_band_second_warning} self, {+dt2_band_second_warning} false, false
+
+[logic@dt2_smart_terrain_1_2_bandit_1]
+active = animpoint@dt2_smart_terrain_1_2_bandit_1
+suitable = {=check_npc_name(dt2_bandit_1)} true
+prior = 200
+
+[animpoint@dt2_smart_terrain_1_2_bandit_1]
+cover_name = dt2_smart_terrain_1_2_animpoint_bandit1
+avail_animations = animpoint_stay_wall
+use_camp = false
+turn_on_campfire = false
+meet = meet@bandits
+
+[logic@dt2_smart_terrain_1_2_bandit_2]
+active = animpoint@dt2_smart_terrain_1_2_bandit_2
+suitable = {=check_npc_name(dt2_bandit_2)} true
+prior = 200
+
+[animpoint@dt2_smart_terrain_1_2_bandit_2]
+cover_name = dt2_smart_terrain_1_2_animpoint_bandit2
+avail_animations = animpoint_stay_ohrana
+use_camp = false
+turn_on_campfire = false
+meet = meet@bandits
+on_info = {+dt2_guiders_guide} walker@dt2_smart_terrain_1_2_bandit_2_exit_1
+
+[walker@dt2_smart_terrain_1_2_bandit_2_exit_1]
+path_walk = guide_band_exit_1
+path_look = guide_band_exit_2
+on_info = {=actor_in_zone(dt2_band_exit_sr_1)} walker@dt2_smart_terrain_1_2_bandit_2_exit_2
+
+[walker@dt2_smart_terrain_1_2_bandit_2_exit_2]
+path_walk = guide_band_exit_2
+path_look = guide_band_exit_3
+on_info = {=actor_in_zone(dt2_band_exit_sr_2)} walker@dt2_smart_terrain_1_2_bandit_2_exit_3
+
+[walker@dt2_smart_terrain_1_2_bandit_2_exit_3]
+path_walk = guide_band_exit_3
+path_look = guide_band_exit_4
+on_info = {=actor_in_zone(dt2_band_exit_sr_3)} %=dt2_open_transitions_band% walker@dt2_smart_terrain_1_2_bandit_2_exit_4
+
+[walker@dt2_smart_terrain_1_2_bandit_2_exit_4]
+path_walk = guide_band_exit_4
+path_look = dt2_space_restrictor_to_dasc_drop
+on_timer = 20000 | %-dt2_guiders_guide% walker@dt2_smart_terrain_1_2_bandit_2
+
+[logic@dt2_smart_terrain_1_2_bandit_3]
+active = animpoint@dt2_smart_terrain_1_2_bandit_3
+suitable = {=check_npc_name(dt2_bandit_3)} true
+prior = 200
+on_death = death@band
+
+[death@band]
+on_info = %+dt2_bandits_robbery -dt2_actor_started_fight_bandit%
+
+[animpoint@dt2_smart_terrain_1_2_bandit_3]
+cover_name = dt2_smart_terrain_1_2_animpoint_bandit3
+avail_animations = animpoint_stay_ohrana
+use_camp = false
+turn_on_campfire = false
+on_info = {+dt2_stash_searched} walker@dt2_smart_terrain_1_2_bandit_3_robbery
+; on_info = {+dt2_bandits_guard_out} walker@dt2_smart_terrain_1_2_bandit_3_out
+; meet = meet@0
+
+[walker@dt2_smart_terrain_1_2_bandit_3_robbery]
+path_walk = robbery_walk
+path_look = robbery_look
+meet = meet@bandit_3_robbery
+on_info = {+dt2_bandits_robbery} animpoint@dt2_smart_terrain_1_2_bandit_3
+
+[meet@bandit_3_robbery]
+close_victim 	= actor
+far_victim 	    = actor
+close_distance 	= 4
+far_distance 	= 10
+far_anim 		= nil
+close_anim 		= nil
+close_snd_distance = 3
+abuse           = true
+use = {=dist_to_actor_le(10) -dt2_bandits_robbery} self, nil
+meet_dialog = {-dt2_bandits_robbery} dt2_bandits_robbery, nil
+allow_break = false
+meet_on_talking = false
+
+[walker@dt2_smart_terrain_1_2_bandit_3_out]
+path_walk = walker_3_walk
+path_look = walker_3_look
+def_state_standing = ward
+def_state_moving1 = walk
+def_state_moving2 = walk
+def_state_moving3 = walk
+danger = danger_ignore
+on_game_timer = 2000 | %=dt2_enable_guard% animpoint@dt2_smart_terrain_1_2_bandit_3
+meet = meet@1
+
+[meet@1]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = false
+allow_break = false
+meet_on_talking = false
+
+[meet@0]
+close_victim 	= actor
+far_victim 	    = actor
+close_distance 	= 3
+far_distance 	= 5
+far_anim 		= nil
+close_anim 		= nil
+close_snd_distance = 3
+abuse           = true
+use = {=dist_to_actor_le(5)} self
+meet_dialog = dt2_bandits_guard
+allow_break = false
+meet_on_talking = false
+
+[danger_ignore]
+ignore_distance = 0
+
+[logic@dt2_smart_terrain_1_2_bandit_4]
+active = animpoint@dt2_smart_terrain_1_2_bandit_4
+suitable = {=check_npc_name(dt2_bandit_4)} true
+prior = 200
+
+[animpoint@dt2_smart_terrain_1_2_bandit_4]
+cover_name = dt2_smart_terrain_1_2_animpoint_bandit4
+use_camp = false
+turn_on_campfire = false
+meet = meet@bandits
+
+[logic@dt2_bandit_trader]
+suitable = {=check_npc_name(dt2_bandit_trader)} true
+prior = 200
+active = animpoint@dt2_bandit_trader
+level_spot = trader
+trade = misc\trade\trade_bandit_dit.ltx
+can_select_weapon = false
+dont_keep_items = true
+
+[animpoint@dt2_bandit_trader]
+cover_name = dt2_smart_terrain_1_2_animpoint_bandit_trader
+avail_animations = animpoint_sit_normal
+use_camp = false
+meet = meet@dt2_bandit_trader
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = false
+invulnerable = false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+enemy_ignore_cond = false
+
+[meet@dt2_bandit_trader]
+; close_anim 		= nil
+close_victim 	= actor
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 7
+; far_distance 	= 0
+; close_snd_distance = 3
+use = true
+meet_on_talking = true
+allow_break = false
+
+[logic@dt2_smart_terrain_1_2_cs_ambassador]
+active = animpoint@dt2_smart_terrain_1_2_cs_ambassador
+suitable = {=check_npc_name(dt2_cs_ambassador)} true
+prior = 200
+
+[animpoint@dt2_smart_terrain_1_2_cs_ambassador]
+cover_name = dt2_smart_terrain_1_2_cs_ambassador
+use_camp = false
+turn_on_campfire = false
+
+[logic@dt2_smart_terrain_1_2_bandit_ambassador]
+active = animpoint@dt2_smart_terrain_1_2_bandit_ambassador
+suitable = {=check_npc_name(dt2_bandit_ambassador)} true
+prior = 200
+
+[animpoint@dt2_smart_terrain_1_2_bandit_ambassador]
+cover_name = dt2_smart_terrain_1_2_bandit_ambassador
+use_camp = false
+turn_on_campfire = false
+meet = meet@dt2_bandit_ambassador
+
+[meet@dt2_bandit_ambassador]
+close_victim 	= actor
+far_victim 	    = actor
+close_distance 	= 8
+far_distance 	= 10
+far_anim 		= nil
+close_anim 		= nil
+allow_break = false
+trade_enable = false
+meet_dialog = {+dt2_bandit_amb_want_to_talk} dt2_bandit_ambassador, {+dt2_amb_p} dt2_bandit_ambassador_p, {+dt2_amb_get_bottle} dt2_bandit_ambassador_p_1, nil
+use = {=dist_to_actor_le(6) +dt2_bandit_amb_want_to_talk} self, {=dist_to_actor_le(2) +dt2_amb_p} self, {=dist_to_actor_le(2) +dt2_amb_get_bottle} self, {+dt2_after_drink} true, false
+
+[logic@dt2_bus_driver]
+active = animpoint@dt2_bus_driver
+suitable = {=check_npc_name(dt2_bus_driver)} true
+prior = 200
+
+[animpoint@dt2_bus_driver]
+cover_name = dt2_bus_driver
+use_camp = false
+turn_on_campfire = false
+on_info = {=is_rain} animpoint@dt2_bus_driver_rain
+
+[animpoint@dt2_bus_driver_rain]
+cover_name = dt2_bus_driver_rain
+use_camp = false
+turn_on_campfire = false
+on_info = {!is_rain} animpoint@dt2_bus_driver

@@ -1,0 +1,2033 @@
+<specific_character id="sim_default_killer_0_default_0" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>11894</rank>
+	
+	<reputation>1178</reputation>
+	<visual>actors\stalker_merc\stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_1" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+    <rank>5692</rank>
+	
+	<reputation>-752</reputation>
+    <visual>actors\stalker_merc\stalker_merc_novice_9</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_2" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>11386</rank>
+	
+	<reputation>1951</reputation>
+	<visual>actors\stalker_merc\stalker_merc2b</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_3" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>10668</rank>
+	
+	<reputation>1140</reputation>
+	<visual>actors\stalker_merc\stalker_merc2c</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_4" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>5366</rank>
+	
+	<reputation>-839</reputation>
+	<visual>actors\stalker_merc\stalker_mercen_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_5" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>5078</rank>
+	
+	<reputation>74</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_6" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>3932</rank>
+	
+	<reputation>-1056</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2b_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_7" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>4292</rank>
+	
+	<reputation>1400</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2c_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_8" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>1840</rank>
+	
+	<reputation>623</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_9" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>10390</rank>
+	
+	<reputation>2462</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_0_default_10" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_0</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>14294</rank>
+	
+	<reputation>1927</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_merc</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_0_default_11" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_0</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <rank>7147</rank>
+    
+    <reputation>-27</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_novice_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_0_default_12" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_0</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <rank>7147</rank>
+    
+    <reputation>-27</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_novice_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_0_default_13" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_0</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7147</rank>
+    
+    <reputation>-27</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_novice_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_0_default_14" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_0</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>7147</rank>
+    
+    <reputation>-27</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_novice_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+<specific_character id="sim_default_killer_1_default_0" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>12828</rank>
+	
+	<reputation>1012</reputation>
+	<visual>actors\stalker_merc\stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_1" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>11322</rank>
+	
+	<reputation>-67</reputation>
+	<visual>actors\stalker_merc\stalker_merc2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_2" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>12566</rank>
+	
+	<reputation>-1168</reputation>
+	<visual>actors\stalker_merc\stalker_merc2b</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_3" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>14724</rank>
+	
+	<reputation>1341</reputation>
+	<visual>actors\stalker_merc\stalker_merc2c</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_4" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>5516</rank>
+	
+	<reputation>-568</reputation>
+	<visual>actors\stalker_merc\stalker_mercen_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_5" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>5176</rank>
+	
+	<reputation>-2470</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_6" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>5738</rank>
+	
+	<reputation>-2294</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2b_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_7" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>3296</rank>
+	
+	<reputation>-974</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2c_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_8" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>1508</rank>
+	
+	<reputation>1594</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_9" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>11270</rank>
+	
+	<reputation>2380</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_10" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>14416</rank>
+	
+	<reputation>-1785</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_1_default_11" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>7208</rank>
+	
+	<reputation>-785</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_1_default_12" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>7208</rank>
+	
+	<reputation>-785</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_1_default_13" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>7208</rank>
+	
+	<reputation>-785</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_1_default_14" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>7208</rank>
+	
+	<reputation>-785</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_1_default_15" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_1</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>7208</rank>
+	
+	<reputation>-785</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_16" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\alternative_1\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_17" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_18" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_glasses_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_19" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_20" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02_uk\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_21" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_22" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_23" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_24" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_5</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_25" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_6</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_1_default_26" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_1</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>7208</rank>
+    
+    <reputation>-785</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_resp_7</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+<specific_character id="sim_default_killer_2_default_0" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>11550</rank>
+	
+	<reputation>319</reputation>
+	<visual>actors\stalker_merc\stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_1" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>12234</rank>
+	
+	<reputation>1215</reputation>
+	<visual>actors\stalker_merc\stalker_merc2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_2" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>10008</rank>
+	
+	<reputation>2219</reputation>
+	<visual>actors\stalker_merc\stalker_merc2b</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_3" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>12884</rank>
+	
+	<reputation>2139</reputation>
+	<visual>actors\stalker_merc\stalker_merc2c</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_4" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>5090</rank>
+	
+	<reputation>471</reputation>
+	<visual>actors\stalker_merc\stalker_mercen_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_5" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>4926</rank>
+	
+	<reputation>1128</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_6" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>5496</rank>
+	
+	<reputation>1985</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2b_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_7" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercen_2_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>3770</rank>
+	
+	<reputation>-1704</reputation>
+	<visual>actors\stalker_merc\stalker_mercen2c_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_8" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>2494</rank>
+	
+	<reputation>21</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_9" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercsun_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>11632</rank>
+	
+	<reputation>849</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_10" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_sun1_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>11364</rank>
+	
+	<reputation>-2404</reputation>
+	<visual>actors\stalker_merc\stalker_merc_sun1_merc</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_2_default_11" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>5682</rank>
+	
+	<reputation>-404</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_m40</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_2_default_12" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>5682</rank>
+	
+	<reputation>-404</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_m40_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_2_default_13" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>5682</rank>
+	
+	<reputation>-404</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_m40_traveller</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_2_default_14" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_2</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>5682</rank>
+	
+	<reputation>-404</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_m40_traveller_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_15" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_16" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\alternative_1\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill_open</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_17" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_clearsky</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_18" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_light_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_19" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_light_sfera</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_20" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_light_sfera_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_21" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_tactic</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_22" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_tactic_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_23" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_travel_pmk</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_24" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_travel_pmk_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_2_default_25" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_2</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>5682</rank>
+    
+    <reputation>-404</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_light_backpackmodern</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+<specific_character id="sim_default_killer_3_default_0" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercenary3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>12266</rank>
+	
+	<reputation>1108</reputation>
+	<visual>actors\stalker_merc\stalker_mercenary3</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_3_default_1" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercenary3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>13506</rank>
+	
+	<reputation>-163</reputation>
+	<visual>actors\stalker_merc\stalker_mercenary4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_3_default_2" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercenary3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>12624</rank>
+	
+	<reputation>1441</reputation>
+	<visual>actors\stalker_merc\stalker_mercenary3</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_3_default_3" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_mercenary3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>12930</rank>
+	
+	<reputation>527</reputation>
+	<visual>actors\stalker_merc\stalker_mercenary4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+	<specific_character id="sim_default_killer_3_default_4" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>13856</rank>
+	
+	<reputation>-1438</reputation>
+	<visual>actors\stalker_merc\stalker_merc_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_5" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>13782</rank>
+	
+	<reputation>-1276</reputation>
+	<visual>actors\stalker_merc\stalker_merc4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_6" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>7705</rank>
+	
+	<reputation>-1000</reputation>
+	<visual>actors\stalker_merc\stalker_mercexo_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_7" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\stalker_mercexo4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_8" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_voshod</visual>
+	<supplies></supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_9" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_voshod_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_10" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_voshod_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_11" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_12" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_13" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_1</visual>
+	<supplies></supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_14" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_1_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_15" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_16" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_17" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_killer_3_default_18" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_freedom_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_3</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\killer\</snd_config>
+	<rank>9124</rank>
+	
+	<reputation>-147</reputation>
+	<visual>actors\stalker_merc\n_stalker_merc_heavy_3_mask</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_19" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_3</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>9124</rank>
+    
+    <reputation>-147</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill_exo</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_20" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_3</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>9124</rank>
+    
+    <reputation>-147</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill_exo_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_21" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_3</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>9124</rank>
+    
+    <reputation>-147</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill_exo_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_22" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_3</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>9124</rank>
+    
+    <reputation>-147</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_berill_resp</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_3_default_23" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_3</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>9124</rank>
+    
+    <reputation>-147</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_travel_pmk_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+<specific_character id="sim_default_killer_4_default_0" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_4</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>24386</rank>
+	
+	<reputation>-1079</reputation>
+	<visual>actors\stalker_merc\stalker_merc_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_4_default_1" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_4</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>21462</rank>
+	
+	<reputation>-715</reputation>
+	<visual>actors\stalker_merc\stalker_merc4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_4_default_2" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_4</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>17622</rank>
+	
+	<reputation>743</reputation>
+	<visual>actors\stalker_merc\stalker_mercexo_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_killer_4_default_3" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_4a</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_killer_4</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+	<rank>20874</rank>
+	
+	<reputation>-635</reputation>
+	<visual>actors\stalker_merc\stalker_mercexo4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_killer_4_default_4" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>ui_inGame2_merc_proto_old</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_4</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>8637</rank>
+    
+    <reputation>-635</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_exoproto_modern</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_4_default_5" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>ui_inGame2_merc_proto_old</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_4</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer_uk\</snd_config>
+    <rank>8637</rank>
+    
+    <reputation>-635</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_exoproto_modern_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_4_default_6" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_4</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>8637</rank>
+    
+    <reputation>-635</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_exoprot</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_killer_4_default_7" team_default = "1">
+    <name>GENERATE_NAME_stalker</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_killer_4</class>
+    <community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\killer\</snd_config>
+    <rank>8637</rank>
+    
+    <reputation>-635</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_exoprot_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+<specific_character id="test_killer" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>test_killer</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>13938</rank>
+	
+	<reputation>488</reputation>
+	<visual>actors\stalker_merc\stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="test_silencer_character" team_default = "1">
+	<name>GENERATE_NAME_stalker</name>
+	<icon>ui_inGame2_merc_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>test_silencer_character</class>
+	<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\killer\</snd_config>
+	<rank>14794</rank>
+	<reputation>2407</reputation>
+	
+	<visual>actors\stalker_merc\stalker_merc_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\killer_base.ltx"
+	#include "gameplay\loadouts\killer_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>

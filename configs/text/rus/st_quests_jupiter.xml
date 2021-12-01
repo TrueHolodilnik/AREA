@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<
+< TEXT  STRINGS FOR TASKS ON JUPITER (YANOV) MAP
+<	CoC 1.4.08 - DoctorX Questlines 1.6
+<
+<	Modified by: DoctorX
+<	Last revised: October 07, 2016
+<
+<===========================================================-->
+
+<string_table>
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- STORYLINE TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev  (Ecologist Mechanic) Default Storyline Task -->
+
+	<string id="drx_sl_jup_b6_scientist_tech_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_default_task_about">
+		<text>Да, мой коллега нуждается в вашей помощи.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_default_task_finish">
+		<text>Удачи, сталкер.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev  (Ecologist Mechanic) Mutant Tissue Experiment Storyline Task -->
+
+	<string id="drx_sl_jup_b6_scientist_tech_task_1_name">
+		<text>%s - добыть этот трофей для Гарина</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_1_text">
+		<text>%s - добыть и принести Гарину этот трофей. Время выполнения - 3 суток.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_1_about">
+		<text>Нам для нужд лабаратории понадобились кое-какие образца. Надо, чтобы вы поохотились для меня.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_1_fetch_about">
+		<text>%s - добудьте мне этот трофей, и не затягивайте слишком долго, максимум что у вас есть - трое суток. Я обещаю хорошую награду.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_1_fetch_finish">
+		<text>Это именно то, что мне было нужно. Возьмите это в награду:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev  (Ecologist Mechanic) Find Missing Scientist Storyline Task -->
+
+	<string id="drx_sl_jup_b6_scientist_tech_task_2_name">
+		<text>Найти пропавшего эколога</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_2_text">
+		<text>Найти пропавшего эколога. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_2_about">
+		<text>Один из моих коллег пропал. Он отправился в исследовательский поход, с ним пропал сигнал и он не вернулся. Вот область, в которой он последний раз находился, ищите там. Найти его нужно как можно скорее, с ним может случиться всё что угодно. Больше чем на сутки не рассчитывайте, иначе я найду кого-нибудь другого. Надеюсь сможете найти его.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_2_finish">
+		<text>Спасибо, сталкер. Возьмите это в знак благодарности:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev  (Ecologist Mechanic) Recover Stolen PDA Storyline Task -->
+
+	<string id="drx_sl_jup_b6_scientist_tech_task_3_name">
+		<text>Вернуть КПК Гарину</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_3_text">
+		<text>КПК эколога украден. Нужно найти его и вернуть Гарину. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_3_about">
+		<text>Извините, конечно, но эти чёртовы бандиты обнаглели до того, что обобрали нашего сотрудника! Одна из вещей, которую они взяли - карманный компьютер с данными исследований, которые очень важны. Я получил информацию о том, где они могли спрятать его. Проверьте это место. На всё у вас не более суток, мало ли его перепрячут. Если найдёте КПК, я вознагражу за его возвращение.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_3_finish">
+		<text>Отлично! Держите:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev  (Ecologist Mechanic) Search Jupiter Underground Storyline Task -->
+
+	<string id="drx_sl_jup_b6_scientist_tech_task_4_name">
+		<text>Спуститься в Путепровод.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_4_text">
+		<text>Найти и вернуть утраченные документы. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_4_about">
+		<text>Один из наших коллег был убит в Путепроводе, когда возвращался из Припяти. Он нёс результаты одного очень важного исследования. Нужно найти и доставить мне эти материалы. Поймите, что теперь за ними охотится будем не только мы, и нам нельзя опоздать. Я даю вам не больше 2 суток.</text>
+	</string>
+	<string id="drx_sl_jup_b6_scientist_tech_task_4_finish">
+		<text>Неплохо, неплохо. Вот и ваша награда:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Loki  (Freedom Honcho) Default Storyline Task -->
+
+	<string id="drx_sl_jup_a6_freedom_leader_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_default_task_about">
+		<text>Мне нужно, чтобы ты встретился кое с кем. Спроси, что можешь сделать для него. Он хорошо заплатит.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_default_task_finish">
+		<text>Удачи, сталкер.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Loki  (Freedom Honcho) Arms Dealer Storyline Task -->
+
+	<string id="drx_sl_jup_a6_freedom_leader_task_1_name">
+		<text>%s для Локи</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_1_text">
+		<text>%s - добыть и доставить это Локи.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_1_about">
+		<text>Дела, конечно, скверные, у «Свободы» сейчас трудное время. Мне нужно достать кое-какое оружие, бойцам банально стрелять тут нечем.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_1_fetch_about">
+		<text>%s - именно такое оружие мне надо. Если сможешь притащить во время, то есть за максимум за шесть суток - я хорошо заплачу.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_1_fetch_finish">
+		<text>Хорошо поработал. Возьми, это оплата:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Loki  (Freedom Honcho) Clear Monolith Beachhead Storyline Task -->
+
+	<string id="drx_sl_jup_a6_freedom_leader_task_2_name">
+		<text>Уничтожить плацдарм «Монолита»</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_2_text">
+		<text>Очистить обозначенную область от любых бойцов «Монолита». Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_2_about">
+		<text>Здесь, на Юпитере, постоянно идёт война. Мы готовим вторжение на территорию «Монолита». Я хочу, чтобы ты зачистил для нашего клана одну область, но сделать это надо до того, как мы пойдём захватывать плацдарм, так что время тебе - сутки.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_2_finish">
+		<text>Отлично сработано! Теперь мы можем начать наше вторжение. Ну, не сейчас, позже... Может быть завтра. Во всяком случае, спасибо:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Loki  (Freedom Honcho) Hunt Artefact Storyline Task -->
+
+	<string id="drx_sl_jup_a6_freedom_leader_task_3_name">
+		<text>Артефакт %s для Локи</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_3_text">
+		<text>Нужно достать для Локи артефакт %s. Время выполнения - 6 суток.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_3_about">
+		<text>Я посылаю одного из моих людей на задание, где ему нужна более надёжная защита, чем могут предложить наши лучшие костюмы. Мне нужен конкретный артефакт для этого.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_3_fetch_about">
+		<text>%s - артефакт, который нам сейчас нужен. Если сможешь найти, я хорошо заплачу за него. Даю тебе не более шести суток.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_3_fetch_finish">
+		<text>Хорошая работа, мэн. Бери:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Loki  (Freedom Honcho) Search Monolith Control Center (Chernobyl) Storyline Task -->
+
+	<string id="drx_sl_jup_a6_freedom_leader_task_4_name">
+		<text>Проникнуть в секретный центр управления.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_4_text">
+		<text>Найти чертежи секретного оружия в секретной лаборатории.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_4_about">
+		<text>Есть сведения о чертежах нового оружия, хранящихся внутри одной секретной лаборатории в пределах Чернобыльской АЭС. Мы должны выкрасть их во что бы то ни стало, если хотим иметь шанс выстоять против «Монолита». Я знаю, насколько серьезен риск, но если ты сможешь захватить эти документы, я награжу более чем щедро.</text>
+	</string>
+	<string id="drx_sl_jup_a6_freedom_leader_task_4_finish">
+		<text>Отлично! Да ты просто мастер! Ну и честно заслуженные, конечно:</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- DYNAMIC TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev (Ecog Mechanic) Escort Jupiter Scientists Task -->
+
+	<string id="jup_b6_scientist_tech_task_1_name">
+		<text>Сопроводить экологов</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_1_text">
+		<text>Необходимо провести экологов к определенному месту и обеспечить их безопасность, пока те проводят исследования, а затем привести обратно в лабораторию.</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_1_about">
+		<text>Нам нужен опытный сталкер, который согласится провести наших коллег до места исследований и обеспечить их безопасность во время оных. Вы нам не поможете?</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_1_fetch_finish">
+		<text>Спасибо за вашу защиту, сталкер. Пожалуйста, примите это в знак нашей признательности.</text>
+	</string>
+
+	<string id="jup_b6_scientist_tech_task_2_name">
+		<text>Найти артефакт %s</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_2_text">
+		<text>Гарин поручил принести артефакт %s, чтобы экологи смогли провести над ним исследования. Время выполнения - 6 суток.</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_2_about">
+		<text>Экологам нужны некоторые виды артефактов, чтобы провести над ними исследования. Если интересует, расскажу подробнее.</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_2_fetch_about">
+		<text>К примеру, %s. Слышали о таком? Если принесёте, получите вознаграждение. Даю вам срок в шесть суток.</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_2_fetch_finish">
+		<text>Отличный образец, именно то, что нужно. Спасибо, сталкер, вот обещанная награда:</text>
+	</string>
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tukarev (Ecog Mechanic) Brains vs Brawn Dynamic Task -->
+
+	<string id="jup_b6_scientist_tech_task_3_name">
+		<text>Против бандитов</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_3_text">
+		<text>Возглавить отряд экологов.</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_3_about">
+		<text>Наши исследователи находятся в постоянном опасности. Я хочу, чтобы вы совместно с нашими людьми очистили местность от бандитов</text>
+	</string>
+	<string id="jup_b6_scientist_tech_task_3_finish">
+		<text>Отличная работа. Спасибо. Возьмите, не стесняйтесь:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Trapper (Loner Honcho) Lead Mutant Hunt Task -->
+
+	<string id="jup_b220_trapper_task_1_name">
+		<text>Зачистить логово мутантов</text>
+	</string>
+	<string id="jup_b220_trapper_task_1_text">
+		<text>Вблизи этого места было замечено скопление мутантов, что создает угрозу местным сталкерам. Зверобой поручил зачистить логово тварей.</text>
+	</string>
+	<string id="jup_b220_trapper_task_1_about">
+		<text>Хмм... Ты выглядишь довольно опытным. Я ищу опытного охотника, чтобы очистить территорию вокруг Янова от мутантов. И учти, что они могут мигрировать в другое место, поэтому не стоит ждать более суток. Не поможешь?</text>
+	</string>
+	<string id="jup_b220_trapper_task_1_finish">
+		<text>Спасибо, сталкер. Благодаря тебе здесь теперь будет намного безопаснее. Вот твоя награда:</text>
+	</string>
+
+	<string id="jup_b220_trapper_task_2_name">
+		<text>Покушение</text>
+	</string>
+	<string id="jup_b220_trapper_task_2_text">
+		<text>Зверобой просит устранить опасного сталкера. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="jup_b220_trapper_task_2_about">
+		<text>Есть опасность, которая должна быть устранена. На этот раз не мутант, а человек. Хотя неизвестно, кто из них хуже. Нужно устранить опасного сталкера. До него будет не легко добраться, но я обещаю хорошо заплатить. Он уже наверняка знает, что тут ему не рады, и попытается скрыться, поэтому даю тебе двое суток. Готов на работу?</text>
+	</string>
+	<string id="jup_b220_trapper_task_2_finish">
+		<text>Спасибо, сталкер. Вот твоя награда:</text>
+	</string>
+
+
+	<!-- FIND WEAPON FOR HUNTSMAN TASK -->
+	<string id="jup_b220_trapper_task_3_name">
+		<text>%s - оружие для Зверобоя</text>
+	</string>
+	<string id="jup_b220_trapper_task_3_text">
+		<text>Зверобой ищет конкретное оружие в отличном состоянии.</text>
+	</string>
+	<string id="jup_b220_trapper_task_3_about">
+		<text>Значит, такая тут история случилась. Примчался один тип - карманы от денег прямо топырятся! Начал народ себе в компанию нанимать, который не поопытней, а погоношистей, снаряжение пачками скупать... У меня ствол был - чудо, а не пушка! Так я сдуру ему и продал. По деньгам-то не прогадал, врать не буду... Только вся эта компания быстренько накрылась где-то в Зоне. Ну, жалко людей, конечно... Только вот другие теперь будут знать: одним баблом дорогу сквозь Зону не выстелешь. Да, так мне до сих пор ствол тот жалко - такой ствол, и где-то гниёт! Найди такой, а? Хороший гонорар за мной!</text>
+	</string>
+	<string id="jup_b220_trapper_task_3_fetch_about">
+		<text>%s - это то, что мне нужно. Для охоты на мутантов нужно только самое лучшее оружие. Я готов хорошо заплатить за него, если вдруг когда-нибудь его найдёшь.</text>
+	</string>
+	<string id="jup_b220_trapper_task_3_fetch_finish">
+		<text>Безупречно. Красота-то какая. Вот деньги, которые я обещал:</text>
+	</string>
+
+
+	<!-- FIND MUTANT PARTS FOR HUNTSMAN TASK -->
+	<string id="jup_b220_trapper_task_4_name">
+		<text>%s. Добыть трофей</text>
+	</string>
+	<string id="jup_b220_trapper_task_4_text">
+		<text>%s - за этот трофей Зверобой хорошо заплатит. Время выполнения - 3 суток.</text>
+	</string>
+	<string id="jup_b220_trapper_task_4_about">
+		<text>У меня есть заказ на трофеи определенного типа. Интересно?</text>
+	</string>
+	<string id="jup_b220_trapper_task_4_fetch_about">
+		<text>Так, посмотрим что у нас на сегодня... Нужно достать %s, срок - трое суток. Я хорошо заплачу.</text>
+	</string>
+	<string id="jup_b220_trapper_task_4_fetch_finish">
+		<text>Ага, ещё одна угроза устранена и заказчик доволен. Молодец!</text>
+	</string>
+
+
+	<!--- Call of Chernobyl -->
+
+
+	<string id="jup_b217_stalker_tech_task_1_name">
+		<text>Найти для Азота "%s"</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_1_text">
+		<text>Необходимо принести Азоту %s, чтобы он мог обеспечить более серьёзную модернизацию оружия или бронежилета.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_1_about">
+		<text>Мне нужны новые инструменты. В Зоне их сейчас днем с огнём не сыщешь, а снаряжение чинить чем-то надо. Если интересует, расскажу подробнее.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_1_fetch_about">
+		<text>Принеси мне хотя бы инструменты для грубой работы. В наборе должно быть всё, что мне нужно. Если найдешь, приноси, наградой не обижу.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_1_fetch_finish">
+		<text>Отлично! То, что мне нужно! Нужно будет улучшить снарягу - заходи, теперь я всё, что угодно сделать могу.</text>
+	</string>
+
+	<string id="jup_b217_stalker_tech_task_2_name">
+		<text>Найти для Азота "%s"</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_2_text">
+		<text>Необходимо принести Азоту %s, чтобы он мог обеспечить более серьёзную модернизацию оружия или бронежилета.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_2_about">
+		<text>Ты принес мне отличный ремнабор, но в нём оказалось не всё, что мне нужно. Как думаешь, сможешь найти набор получше?</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_2_fetch_about">
+		<text>Отлично, принеси мне %s, и я смогу сделать с твоей снарягой очень, очень многое.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_2_fetch_finish">
+		<text>Ого! Ты принес отличный набор, дружище. Вот, держи, ты это заслужил.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_3_name">
+		<text>Найти для Азота "%s"</text>
+	</string>
+
+	<string id="jup_b217_stalker_tech_task_3_text">
+		<text>Необходимо принести Азоту %s, чтобы он мог обеспечить более серьёзную модернизацию оружия или бронежилета.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_3_about">
+		<text>Ты принес мне отличный ремнабор, но в нём оказалось не всё, что мне нужно. Как думаешь, сможешь найти инструменты для калибровки?</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_3_fetch_about">
+		<text>Отлично, принеси мне %s, и я смогу сделать с твоей снарягой всё, что только пожелаешь.</text>
+	</string>
+	<string id="jup_b217_stalker_tech_task_3_fetch_finish">
+		<text>Ого! Ты принес отличный набор, дружище. Прямо глазам своим не верю. Вот, держи, ты это заслужил.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- Jup A6 Yar -->
+	<string id="jup_b19_freedom_yar_task_1_name">
+		<text>Курьер</text>
+	</string>
+	<string id="jup_b19_freedom_yar_task_1_text">
+		<text>Нужно доставить сообщение. И как Вы в это ввязались?</text>
+	</string>
+	<string id="jup_b19_freedom_yar_task_1_about">
+		<text>Хорошо, у меня есть очень простая работа. Мне нужно доставить сообщение моему приятелю, Ашоту. Он нуждается в своём отремонтированном КПК - скажи ему, пусть приходит и забирает.</text>
+	</string>
+	<string id="jup_b19_freedom_yar_task_1_finish">
+		<text>Ха-ха, мы просто разыграли малость тебя, сталкер. Я не могу поверить, что ты мирился с этим дерьмом так долго.</text>
+	</string>
+	
+	<string id="jup_b19_freedom_yar_task_1_dm_query">
+		<text>Я здесь, чтобы доставить сообщение</text>
+	</string>
+
+</string_table>

@@ -1,0 +1,2382 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+
+	<!-- ACTOR:  Meets honcho after being sent by another honcho: -->
+	<string id="st_drx_sl_meet_honcho_1">
+		<text>Si hay algun trabajo para mi, estoy listo.</text>
+	</string>
+	<string id="st_drx_sl_meet_honcho_2">
+		<text>?Dices que tienes un trabajo? Cuentame mas.</text>
+	</string>
+	<string id="st_drx_sl_meet_honcho_3">
+		<text>Estoy aqui para hacer un trabajo. ?Que hay ahi?</text>
+	</string>
+	<string id="st_drx_sl_meet_honcho_4">
+		<text>Listo para el trabajo, como se dice. ?Que hay ahi?</text>
+	</string>
+	<string id="st_drx_sl_meet_honcho_5">
+		<text>Tienes un trabajo, ?verdad? Estoy listo para trabajar.</text>
+	</string>
+
+	<!-- ACTOR: Accepts storyline task from honcho: -->
+	<string id="st_drx_sl_accept_task">
+		<text>Bien.</text>
+	</string>
+
+	<!-- HONCHO: Affirmation of task acceptance: -->
+	<string id="st_drx_sl_task_accepted_1">
+		<text>Buena suerte stalker.</text>
+	</string>
+	<string id="st_drx_sl_task_accepted">
+		<text>Buena suerte stalker.</text>
+	</string>
+
+	<!-- ACTOR: Leaves honcho: -->
+	<string id="st_drx_sl_actor_exit">
+		<text>Gracias.</text>
+	</string>
+
+	<!-- DEFAULT END GAME TEXT: -->
+	<string id="drx_sl_default_endgame">
+		<text> Tengo otra tarea. No solo me interesa a mi, sino a mucha gente. Eres un acosador experimentado, asi que puedes manejarlo. Tenemos que desactivar el incinerador de nuevo, y junto con el ajuste psi en Yantar. Tambien puedes hablar con el Doctor del Pantano, que sabe muchas cosas utiles. Buena suerte.</text>
+	</string>
+
+	<!-- SIDOROVICH STORYLINE START GAME 1 DIALOG -->
+	<string id="drx_sl_esc_m_trader_game_start_dialog_1_0">
+		<text>He oido que tienes un trabajo disponible</text>
+	</string>
+	<string id="drx_sl_esc_m_trader_game_start_dialog_1_1_1">
+		<text>Por supuesto. ?Quieres hacerte rico? Para eso no hace falta ni siquiera que se cumplan los deseos. Puedes ganar mucho dinero aqui en la Zona si no eres estupido. Pase por el campamento: aqui hay mucho trabajo. Incluso tengo un trabajo que aparece de vez en cuando. Tambien subire a tu PDA una lista de mis socios, incluidos los comerciales. Tambien pueden ayudarte, y con el trabajo.</text>
+	</string>
+	
+	<string id="drx_sl_dasc_trade_mlr_game_start_dialog_1_0">
+		<text>Bueno, ?que? Por cierto, necesito un trabajo.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_game_start_dialog_1_1_1">
+		<text>?Trabajo? Aqui no nos falta eso. Tengo una lista de socios que podrian servirte de empleadores. Puedes confiar en ellos. El primero de la lista es este hombre, ve a el.</text>
+	</string>
+
+	<!-- SIDOROVICH STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_esc_m_trader_start_game_1_endgame_1">
+		<text>Gracias, acosador. Escuche que viniste aqui buscando al Ejecutor de Deseos, ?verdad? Tengo grandes noticias para ti. El concededor de deseos existe realmente, no es solo una leyenda. Si eres lo suficientemente valiente, esta podria ser tu unica oportunidad. Tendras que desactivar la maquina psi en Radar y Amber, no soy el unico interesado. Asegurate de estar bien preparado. Eres un acosador experimentado, puedes hacerlo. Habla con el Doctor del Pantano, el tambien sabe muchas cosas utiles, puede ayudar. Bueno, buena suerte, acosador.</text>
+	</string>
+
+	
+	<string id="drx_sl_bar_dolg_general_petrenko_stalker_game_start_dialog_1_0">
+		<text>Coronel, hola. ?Dijiste algo sobre un trabajo? </text>
+	</string>
+	<string id="drx_sl_bar_dolg_general_petrenko_stalker_game_start_dialog_1_1">
+		<text>Si, lo hice. Mira, luchador, tenemos muchos amigos en toda la Zona que pueden ofrecer trabajo. Te enviare a ellos. Puedes trabajar para ellos en tu tiempo libre. Te diran lo que tienes que hacer. Eso es todo, eres libre de irte.</text>
+	</string>
+
+	
+	<string id="drx_sl_bar_dolg_general_petrenko_stalker_start_game_1_endgame_1">
+		<text>Buen trabajo. Hay una tarea mas, y debe ser completada. Es necesario encontrar al albacea de los deseos. "El Monolito" lo guarda en las entranas de la central nuclear de Chernobil. Debe ser destruido. Escucha con atencion, se exactamente lo que debes hacer. El cumplidor de deseos concede deseos, ?no es asi? Esa es su debilidad. Encuentralo y desea que sea destruido. No te dejes tentar por tus propios deseos egoistas: es por el bien comun. Eso es lo que debes hacer. Buena suerte para ti.</text>
+	</string>
+
+	
+	<string id="drx_sl_mil_smart_terrain_7_freedom_leader_stalker_game_start_dialog_1_0">
+		<text>?Quieres verme?</text>
+	</string>
+	<string id="drx_sl_mil_smart_terrain_7_freedom_leader_stalker_game_start_dialog_1_1">
+		<text>Si, tengo una mision muy importante. No podemos defender la Zona si nos sentamos en estos almacenes. Necesito ayudar a difundir nuestra influencia en la Zona. He cargado una lista de contactos en tu PDA. Visite a estas personas y vea lo que puede hacer por ellas. Esto fortalecera a nuestros aliados y ayudara a mantener la Zona libre. Y eso, por cierto, te dara la oportunidad de ganar un buen dinero.</text>
+	</string>
+
+	<!-- LUKASH STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_mil_smart_terrain_7_freedom_leader_stalker_start_game_1_endgame_1">
+		<text>Gracias. Mira, querias mantener la zona libre, ?no? Sus intenciones son correctas y las apoyo, tenemos que mantener este maravilloso lugar libre a toda costa. Ahora es el momento, tenemos que desactivar el Quemador, entonces el camino hacia el Concedente de los Deseos estara abierto. Puedes ser el primero en utilizarlo para el bien de la Zona. Encontrar el ejecutor de deseos, pero evitar la tentacion de utilizarlo para sus propios deseos... no es facil. Pero si realmente quieres salvar la Zona, esto es lo que debes hacer. Asegurate de hablar con el Doctor del Pantano, el sabe muchas cosas utiles, lo encontraras en los Pantanos. Tu puedes hacerlo. Buena suerte!"</text>
+	</string>
+
+	<!-- DIALOGO DE INICIO DE LA HISTORIA FRIA DEL JUEGO 1 -->
+	<string id="drx_sl_mar_smart_terrain_base_stalker_leader_marsh_game_start_dialog_1_0">
+		<text>Bueno, aqui estoy. ?Que quieres? </text>
+	</string>
+	<string id="drx_sl_mar_smart_terrain_base_stalker_leader_marsh_game_start_dialog_1_1">
+		<text>Asi que hay mucho trabajo que resolver. Todavia no necesitamos combatientes, esta tranquilo en los paramos, pero no te relajes demasiado. Tengo toda una lista de personas que necesitan "trabajadores". Asi que venga, vamos con una explosion. Una parte del dinero ira a parar a las arcas del grupo, porque nosotros lo creamos y lo supervisamos, todo por el bien del grupo. Pero no tiembla, el trabajo no se quema de inmediato, despues de todo, y no estas solo. Buena suerte.</text>
+	</string>
+
+	<!-- COLD STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_mar_smart_terrain_base_stalker_leader_marsh_start_game_1_endgame_1">
+		<text>Si, bien hecho, bien hecho. Pero tengo una tarea especial para ti. Tienes que desactivar los ajustes psi en Radar y Yantar. Tienes mucha experiencia, seguro que puedes hacerlo. Es importante para todos. El Doctor del Pantano puede ayudarte con la informacion, el vive en nuestros pantanos. Bueno, buena suerte.</text>
+	</string>
+
+	<!-- SAKHAROV STORYLINE START GAME 1 DIALOG -->
+	<string id="drx_sl_yan_stalker_sakharov_game_start_dialog_1_0">
+		<text> ?Queria verme, profesor?</text>
+	</string>
+	<string id="drx_sl_yan_stalker_sakharov_game_start_dialog_1_1">
+		<text>Ah, si, si. ?Bien! Me alegro de que estes aqui. Tengo una tarea importante para ti. Quiero que viajes por la Zona y aprendas todo lo que puedas. ?Hay tantas cosas que aun no hemos descubierto! Llamemoslo... investigacion de campo. Le he proporcionado una lista de contactos de personas que le atenderan durante su viaje. Visitalos, puede que te proporcionen trabajo, comida o refugio. Explora y se curioso, se audaz e ingenioso. Espero que su exploracion aumente en gran medida nuestra comprension de la Zona.</text>
+	</string>
+
+	<!-- SAKHAROV STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_yan_stalker_sakharov_start_game_1_endgame_1">
+		<text>Le agradezco... Pero todavia hay una tarea muy importante para ti. Eres un acosador muy experimentado. Podras desactivar los ajustes psi aqui en Yantar y en Radar. No seria mala idea hablar con el Doctor del Pantano, tal vez pueda ayudar con la informacion. Estoy seguro de que podras manejarlo. Buena suerte para ti.</text>
+	</string>
+
+	
+	<string id="drx_sl_cit_killers_merc_trader_stalker_game_start_dialog_1_0">
+		<text>?Hay algun pedido ahora?</text>
+	</string>
+	<string id="drx_sl_cit_killers_merc_trader_stalker_game_start_dialog_1_1">
+		<text>Entonces, veamos... Tengo toda una lista de contactos que necesitan algo. Te enviare a uno de ellos, lo resolveras en el momento. ?No lo arruines! </text>
+	</string>
+
+	<!-- DUSHMAN STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_cit_killers_merc_trader_stalker_start_game_1_endgame_1">
+		<text>OK, OK... Tengo un pedido especial. El cliente es serio, y no solo uno... Tenemos que desactivar las unidades psi en Yantar y Radar. Si, parece complicado. Pero eres un mercenario experimentado, puedes hacerlo. Buena suerte. </text>
+	</string>
+
+	<!-- KUZNETSOV STORYLINE START GAME 1 DIALOG -->
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_game_start_dialog_1_0">
+		<text>Sus pedidos han llegado.</text>
+	</string>
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_game_start_dialog_1_1_1">
+		<text>Bienvenidos al infierno. Tenias que cabrear mucho a alguien para conseguir este encargo. Bueno, escuchame, si quieres seguir vivo, manten la cola arriba. Todo y todos aqui estan tratando de matarte. En los tiroteos, agachate y busca una buena cobertura. No confies en nadie. Dispara primero y pregunta despues. Las llamadas de servicio te lanzaran por toda la Zona, la mayoria de las veces no habra nadie cerca para ayudar. Apoyate en el entrenamiento de supervivencia. Conoceras a personas cuyos contactos estan cargados en tu PDA, te daran ordenes. Completa tu viaje y mantente con vida y podras volver a casa. Ya esta, eres libre.</text>
+	</string>
+
+	<!-- KUZNETSOV STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_start_game_1_endgame_1">
+		<text>Gracias, soldado. Mision cumplida, y la recompensa encontrara a su heroe.  Quieres salir pronto de aqui, ?no? Me temo que el mando tiene otras ideas. El perimetro esta cerrado, nadie ni nada puede salir de la Zona, incluidos los militares. Se te deja aqui para que mueras, e incluso tu cadaver quedara para alimentar a los gusanos. Ni siquiera puedes escapar. Pero todavia hay esperanza, si tienes el valor. Solo hay una forma de salir de aqui, y es a traves de Chernobil. Enterrado en las profundidades de Chernobil esta el Ejecutor de Deseos. Si lo encuentras, y si sobrevives, podras salir de aqui. Es tu unica esperanza, soldado. Buena suerte para ti.</text>
+	</string>
+
+	<!-- SULTAN STORYLINE START GAME 1 DIALOG -->
+	<string id="drx_sl_zat_b7_bandit_boss_sultan_game_start_dialog_1_0">
+		<text>Bueno, Pahan, como que querias verme, y como que necesito un trabajo.</text>
+	</string>
+	<string id="drx_sl_zat_b7_bandit_boss_sultan_game_start_dialog_1_1">
+		<text>Que coincidencia. Queria ofrecerte un trabajo. Hay gente aqui en la Zona que paga pasta, y no esta mal. No por nada, por supuesto. Te mostrare donde y a quien, todo esta bien. Pero lo que necesito es el 20% de lo que pagan. Una parte tiene que ir a mi para el techo, ?me entiendes? Todo el dinero que ganes aparte es algo tuyo. Buen negocio, ?eh? Pero no intentes joderme, ?de acuerdo? Cualquiera que intente joderme se pudre en la Zona. No te asustes. Si va bien, solo te ayudare. Tenemos algo bueno. Bien, si lo consigues, entonces podemos terminar el bazar.</text>
+	</string>
+
+	<!-- SULTAN STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_zat_b7_bandit_boss_sultan_start_game_1_endgame_1">
+		<text>Que cono, ah-ah, eres tu... eek... bueno entonces, toma un trago. Veras, ahora, cuando el Quemacerebros... ick... es derribado, el camino hacia el concededor de deseos esta abierto. Todo lo que tengo que hacer es pasar por el Monolito, y entonces es una vida dulce... Deseare todos los chicos y la pasta y la bebida, pero solo shhhh...</text>
+	</string>
+
+	<!-- RABBIT STORYLINE START GAME 1 DIALOG -->
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_game_start_dialog_1_0">
+		<text>Predicador, ?que puedo hacer por el gran Monolito?</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_game_start_dialog_1_1">
+		<text>Mucho trabajo por hacer, mi hermano. La zona debe ser limpiada de infieles. Debemos mantener la poblacion mutante bajo control. Tus hermanos necesitan comida y armas. Te daremos tareas. Debes cumplir con tu destino. Alabado sea el Monolito y que El te bendiga.</text>
+	</string>
+
+	<!-- RABBIT STORYLINE START GAME 1 END GAME 1 TEXT: -->
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_start_game_1_endgame_1">
+		<text>Has demostrado tu fe por los muchos actos que has realizado -- que comprometen tu lealtad. Te has ganado el honor de conocer al gran Monolito. No muchos son lo suficientemente fuertes como para mirar a los ojos de Dios.  El viaje en el sarcofago no sera facil y deberas hacerlo solo. Pero si tu fe es pura, el Monolito te llamara y te mostrara el camino.</text>
+	</string>
+
+	<!-- ACTOR: Requests to change factions: -->
+	<string id="st_drx_sl_change_factions_request">
+		<text>Quiero cambiar de agrupacion.</text>
+	</string>
+
+	<!-- ACTOR: Accepts change factions task from npc -->
+	<string id="st_drx_sl_accept_change_factions_task">
+		<text>Yo lo hare.</text>
+	</string>
+
+	<!-- NPC: Affirmation of task acceptance: -->
+	<string id="st_drx_sl_change_factions_task_accepted">
+		<text>Vuelve cuando hayas terminado.</text>
+	</string>
+
+	<!-- ACTOR: Leaves npc: -->
+	<string id="st_drx_sl_change_factions_actor_exit">
+		<text>Bien.</text>
+	</string>
+<!-- GENERAL -->
+	<string id="st_task_exit_1">
+		<text>Adios.</text>
+	</string>
+	<string id="st_task_exit_2">
+		<text>Nos vemos.</text>
+	</string>
+	<string id="st_task_exit_3">
+		<text>Vamos, que nos encontremos de nuevo.</text>
+	</string>
+	<string id="st_task_exit_4">
+		<text>Hasta pronto.</text>
+	</string>
+	<string id="st_task_exit_5">
+		<text>Adios.</text>
+	</string>
+	<string id="st_task_more_info_1">
+		<text>Eso suena fascinante. Describa detalladamente lo que hay que hacer.</text>
+	</string>
+	<string id="st_task_more_info_2">
+		<text>Asi que, interesante... ?Podria ser mas especifico?</text>
+	</string>
+	<string id="st_task_more_info_3">
+		<text>Um... Mira, se mas especifico.</text>
+	</string>
+	<string id="st_task_more_info_4">
+		<text>Me intrigas. ?Puede ser mas especifico?</text>
+	</string>
+	<string id="st_task_more_info_5">
+		<text>Puede que lo haga, pero me gustaria tener mas detalles.</text>
+	</string>
+	<string id="dm_universal_actor_refuse_1">
+		<text>Sabes, he cambiado de opinion.</text>
+	</string>
+	<string id="dm_universal_actor_refuse_2">
+		<text>Asi que... Me lo estoy pensando mejor.</text>
+	</string>
+	<string id="dm_universal_actor_refuse_3">
+		<text>Mira, no me apetece en absoluto.</text>
+	</string>
+	<string id="dm_universal_actor_refuse_4">
+		<text>Si... lo he superado.</text>
+	</string>
+	<string id="dm_universal_actor_refuse_5">
+		<text>Lo pensare un poco mas. Tal vez mas tarde.</text>
+	</string>
+	<string id="dm_universal_actor_start">
+		<text>Quiero preguntarte algo.</text>
+	</string>
+	<string id="dm_universal_actor_start_1">
+		<text>Me gustaria obtener mas informacion.</text>
+	</string>
+	<string id="dm_universal_actor_start_2">
+		<text>Me gustaria saber algo.</text>
+	</string>
+	<string id="dm_universal_actor_start_3">
+		<text>?Puedo hacerle algunas preguntas?</text>
+	</string>
+	<string id="dm_universal_actor_exit">
+		<text>Vale, olvidalo.</text>
+	</string>
+	<string id="dm_universal_actor_exit_1">
+		<text>Vale, no importa.</text>
+	</string>
+	<string id="dm_universal_actor_exit_2">
+		<text>Ya veo, hablemos de otra cosa.</text>
+	</string>
+	<string id="dm_universal_actor_exit_3">
+		<text>Ya veo, pero esta bien.</text>
+	</string>
+	<string id="dm_universal_actor_exit_4">
+		<text>De acuerdo, no te emociones demasiado.</text>
+	</string>
+	<string id="dm_universal_actor_exit_5">
+		<text>Bien, hablemos de otra cosa.</text>
+	</string>
+	<string id="dm_universal_actor_agree">
+		<text>Bien.</text>
+	</string>
+	<string id="dm_universal_actor_agree_1">
+		<text>De acuerdo.</text>
+	</string>
+	<string id="dm_universal_actor_exit_thanks_1">
+		<text>Gracias.</text>
+	</string>
+	<string id="dm_universal_actor_exit_thanks_2">
+		<text>Gracias.</text>
+	</string>
+	<string id="dm_universal_actor_exit_thanks_3">
+		<text>Gracias.</text>
+	</string>
+	<string id="dm_universal_actor_exit_thanks_4">
+		<text>Bien.</text>
+	</string>
+	<string id="dm_universal_actor_exit_thanks_5">
+		<text>Gracias.</text>
+	</string>
+	<string id="dm_universal_actor_take_task">
+		<text>Se hara.</text>
+	</string>
+	<string id="dm_universal_actor_take_task_1">
+		<text>Entendido, lo hare.</text>
+	</string>
+	<string id="dm_universal_actor_take_task_2">
+		<text>De acuerdo.</text>
+	</string>
+	<string id="dm_universal_actor_take_task_3">
+		<text>Oferta.</text>
+	</string>
+	<string id="dm_universal_actor_take_task_4">
+		<text>Se hara.</text>
+	</string>
+	<string id="dm_universal_actor_take_task_5">
+		<text>Hecho.</text>
+	</string>
+	<string id="dm_universal_npc_start_1">
+		<text>?De que se trata?</text>
+	</string>
+	<string id="dm_universal_npc_start_2">
+		<text>Vamos..</text>
+	</string>
+	<string id="dm_universal_npc_start_3">
+		<text>?Y bien?</text>
+	</string>
+	<string id="dm_universal_npc_start_4">
+		<text>?Si?</text>
+	</string>
+	<string id="dm_no_more_1">
+		<text>Ya lo he dicho todo.</text>
+	</string>
+	<string id="dm_no_more_2">
+		<text>No se nada mas.</text>
+	</string>
+	<string id="dm_no_more_3">
+		<text>Preguntale a alguien mas.</text>
+	</string>
+	<string id="dm_no_more_4">
+		<text>Amigo, no te molestes, ?eh? Preguntale a alguien mas.</text>
+	</string>
+	<string id="dm_no_more_5">
+		<text>No dire nada mas.</text>
+	</string>
+	<string id="dm_no_more_6">
+		<text>No lo se.</text>
+	</string>
+	<string id="dm_no_more_7">
+		<text>Que se vaya a la mierda.</text>
+	</string>
+	<string id="dm_no_more_8">
+		<text>En otro momento, ?vale?</text>
+	</string>
+	<string id="dm_no_more_9">
+		<text>Preguntame mas tarde, quiza sepa algo para entonces.</text>
+	</string>
+	<string id="dm_no_more_10">
+		<text>Pregunta algo mas.</text>
+	</string>
+	<string id="dm_do_not_know_1">
+		<text>Hermano, si lo supiera todo, no estaria caminando por este basurero.</text>
+	</string>
+	<string id="dm_do_not_know_2">
+		<text>Esa es una buena pregunta. Si lo descubres, dimelo.</text>
+	</string>
+	<string id="dm_do_not_know_3">
+		<text>Hmm, no lo se.</text>
+	</string>
+	<string id="dm_do_not_know_4">
+		<text>Si lo hubiera sabido.</text>
+	</string>
+	<string id="dm_do_not_know_5">
+		<text>Siempre pasa algo en la Zona, pero no tengo nada que compartir con vosotros.</text>
+	</string>
+	<string id="dm_do_not_know_6">
+		<text>No lo se. Nadie me lo dijo.</text>
+	</string>
+	<string id="dm_do_not_know_7">
+		<text>No tengo ni idea.</text>
+	</string>
+	<string id="dm_do_not_know_8">
+		<text>Ojala alguien me lo hubiera dicho.</text>
+	</string>
+	<string id="dm_do_not_know_9">
+		<text>No puedo evitarlo.</text>
+	</string>
+	<string id="dm_do_not_know_10">
+		<text>Lo siento, no puedo ayudarte.</text>
+	</string>
+<!-- HELLO -->
+	<string id="dm_hello_general_1">
+		<text>?Como va todo?</text>
+	</string>
+	<string id="dm_hello_general_2">
+		<text>?Salud!</text>
+	</string>
+	<string id="dm_hello_general_3">
+		<text>Bueno, hola.</text>
+	</string>
+	<string id="dm_hello_general_4">
+		<text>Saludos.</text>
+	</string>
+	<string id="dm_hello_general_5">
+		<text>Buenas tardes.</text>
+	</string>
+	<string id="dm_hello_general_6">
+		<text>?Que es lo que quieres?</text>
+	</string>
+	<string id="dm_hello_general_7">
+		<text>Ah, ?que querias?</text>
+	</string>
+	<string id="dm_hello_general_8">
+		<text>Shalom.</text>
+	</string>
+	<string id="dm_hello_general_9">
+		<text>Hola.</text>
+	</string>
+	<string id="dm_hello_general_10">
+		<text>Bueno, hola, Stalker.</text>
+	</string>
+	<string id="dm_hello_1">
+		<text>?Que es lo que quieres, verde?</text>
+	</string>
+	<string id="dm_hello_2">
+		<text>?Que quieres?</text>
+	</string>
+	<string id="dm_hello_3">
+		<text>No te metas en esto, novato, ?de acuerdo? Estoy harto de ti.</text>
+	</string>
+	<string id="dm_hello_4">
+		<text>?Otra? ?Que haceis aqui los novatos? Si...</text>
+	</string>
+	<string id="dm_hello_5">
+		<text>?Que quieres de mi, mamon? Eres lo ultimo que necesitamos aqui.</text>
+	</string>
+	<string id="dm_hello_6">
+		<text>Hola, hermano.</text>
+	</string>
+	<string id="dm_hello_7">
+		<text>Saludos, hermano.</text>
+	</string>
+	<string id="dm_hello_8">
+		<text>Hermano, ?quieres algo?</text>
+	</string>
+	<string id="dm_hello_9">
+		<text>Alabado sea el Todopoderoso. ?Que quieres, hermano?</text>
+	</string>
+	<string id="dm_hello_10">
+		<text>Salve al Gran Monolito, hermano.</text>
+	</string>
+	<string id="dm_hello_11">
+		<text>Salud, hermano.</text>
+	</string>
+	<string id="dm_hello_12">
+		<text>Un saludo a la gente honrada.</text>
+	</string>
+	<string id="dm_hello_13">
+		<text>Hermano, ?que quieres?</text>
+	</string>
+	<string id="dm_hello_14">
+		<text>?Que querias?</text>
+	</string>
+	<string id="dm_hello_15">
+		<text>Bueno, hermano, ?que quieres?</text>
+	</string>
+	<string id="dm_hello_16">
+		<text>Que tenga un buen dia.</text>
+	</string>
+	<string id="dm_hello_17">
+		<text>Bueno, me alegro por ti.</text>
+	</string>
+	<string id="dm_hello_18">
+		<text>?Que querias?</text>
+	</string>
+	<string id="dm_hello_19">
+		<text>Saludos.</text>
+	</string>
+	<string id="dm_hello_20">
+		<text>Bueno, ?que querias preguntar?</text>
+	</string>
+	<string id="dm_hello_21">
+		<text>Te estoy escuchando.</text>
+	</string>
+	<string id="dm_hello_22">
+		<text>Saludos.</text>
+	</string>
+	<string id="dm_hello_23">
+		<text>Hola.</text>
+	</string>
+	<string id="dm_hello_24">
+		<text>Te escucho con atencion.</text>
+	</string>
+	<string id="dm_hello_25">
+		<text>?Quieres algo?</text>
+	</string>
+	<string id="dm_hello_26">
+		<text>Estoy sentado aqui vigilando el lugar, y de repente apareces tu. ?Que quieres?</text>
+	</string>
+	<string id="dm_hello_27">
+		<text>Mira, se supone que estoy de servicio, no hablando.</text>
+	</string>
+	<string id="dm_hello_28">
+		<text>Que tenga un buen dia.</text>
+	</string>
+	<string id="dm_hello_29">
+		<text>Bueno, te estoy escuchando.</text>
+	</string>
+	<string id="dm_hello_30">
+		<text>Ah, ?que quieres?</text>
+	</string>
+	<string id="dm_hello_31">
+		<text>Hola.</text>
+	</string>
+	<string id="dm_hello_32">
+		<text>Dejame.</text>
+	</string>
+	<string id="dm_hello_33">
+		<text>Hola, tio.</text>
+	</string>
+	<string id="dm_hello_34">
+		<text>Hola, hermano.</text>
+	</string>
+	<string id="dm_hello_35">
+		<text>Oye, tio.</text>
+	</string>
+	<string id="dm_hello_36">
+		<text>Hola, hermano.</text>
+	</string>
+	<string id="dm_hello_37">
+		<text>Hola.</text>
+	</string>
+	<string id="dm_hello_38">
+		<text>Saludos.</text>
+	</string>
+	<string id="dm_hello_39">
+		<text>Shalom.</text>
+	</string>
+	<string id="dm_hello_40">
+		<text>Salaam, hermano.</text>
+	</string>
+	<string id="dm_hello_41">
+		<text>?Que quieres?</text>
+	</string>
+	<string id="dm_hello_42">
+		<text>Bueno, ?que querias?</text>
+	</string>
+	<string id="dm_hello_43">
+		<text>?Quieres algo o que?</text>
+	</string>
+	<string id="dm_hello_44">
+		<text>El tiempo es oro, hazlo rapido.</text>
+	</string>
+	<string id="dm_hello_45">
+		<text>Bien, tengo pedidos que cumplir y no tengo tiempo para hablar. Hazlo rapido.</text>
+	</string>
+	<string id="dm_hello_46">
+		<text>Esto, hermano, los pantanos son una causa perdida. Es mejor no distraerse con la conversacion aqui.</text>
+	</string>
+	<string id="dm_hello_47">
+		<text>Esta tranquilo aqui en los pantanos, demasiado tranquilo... Bueno, ?por que te molestas en hablar conmigo?</text>
+	</string>
+	<string id="dm_hello_48">
+		<text>No me gustan estos pantanos. Y tampoco te aconsejo que te quedes aqui.</text>
+	</string>
+	<string id="dm_hello_49">
+		<text>Malditos sean estos pantanos. Carrizales y pantanos y nada mas. Estoy harto de todo esto.</text>
+	</string>
+	<string id="dm_hello_50">
+		<text>Oh, me gustaria tener un botin... ?Donde lo vas a encontrar en este pantano? Tenemos que salir de aqui. Tenemos que salir de aqui.</text>
+	</string>
+	<string id="dm_hello_51">
+		<text>Me gusta el Cordon. Es agradable y seguro. Excepto que no hay botin.</text>
+	</string>
+	<string id="dm_hello_52">
+		<text>Ojala pudiera conseguir un artefacto o algo util... Entonces, ?donde diablos esta, el Cordon?</text>
+	</string>
+	<string id="dm_hello_53">
+		<text>Si, deberiamos salir del Cordon. Aqui no hay beneficios. Dicen que hay un Klondike en medio de la Zona... Ahi es donde...</text>
+	</string>
+	<string id="dm_hello_54">
+		<text>No es una mala forma de ganarse la vida aqui, de que se quejan los demas. Haces recados para Sidor, haciendo recados. Consigues un artefacto barato, una cola de perro, es una belleza. Pero no te cuesta nada.</text>
+	</string>
+	<string id="dm_hello_55">
+		<text>Me gustaria ahuyentar a los bandidos, cerrarles la puerta, pero siempre hay caras nuevas en la TSA. Seria tan jodidamente increible sin ellos.</text>
+	</string>
+	<string id="dm_hello_56">
+		<text>La chatarreria, por supuesto, es buena en terminos de botin. Pero malditas sean esas caras de bandidos, les importa un bledo la vida aqui.</text>
+	</string>
+	<string id="dm_hello_57">
+		<text>El paisaje aqui no es bonito. Montanas de basura maloliente, restos de vehiculos, edificios en ruinas... No lo verias durante el resto de tu vida.</text>
+	</string>
+	<string id="dm_hello_58">
+		<text>Oi que un grupo de excavadores desenterro algo en el monton de basura aqui en el vertedero. Algo que Sidor les pago veinte mil dolares a cada uno. ?Puedes creerlo?</text>
+	</string>
+	<string id="dm_hello_59">
+		<text>Ayer desenterre un monton de cinescopios en la basura y se los lleve a Sidor. Pague mucho dinero por el, es precioso.</text>
+	</string>
+	<string id="dm_hello_60">
+		<text>Hace un par de dias, junto con los excavadores, encontraron una pieza encargada por el tabernero.Nos dio quince bofetadas por hocico, que vida.</text>
+	</string>
+	<string id="dm_hello_61">
+		<text>Agroprom... ?Que demonios me ha traido aqui? Si me hubiera quedado en Cordon...</text>
+	</string>
+	<string id="dm_hello_62">
+		<text>Ayer vi una especie de demonios estaban volando en el edificio del Instituto de Investigacion del Norte, en ese edificio con los electrodos. Y a partir de ahi hubo muchos y terribles gritos. Fuera de aqui, fuera de aqui...</text>
+	</string>
+	<string id="dm_hello_63">
+		<text>Era oficialmente un instituto de investigacion agricola, pero dicen que alli experimentaban con personas en la clandestinidad. Oh, bueno...</text>
+	</string>
+	<string id="dm_hello_64">
+		<text>Si, ojala nunca hubiera visto esas ruinas del instituto de investigacion. Solo con mirarlos se me ponen los pelos de punta.</text>
+	</string>
+	<string id="dm_hello_65">
+		<text>Hay un pantano al norte, un lugar sombrio. Nuestra gente dice que ha visto al hombre muerto alli una vez.</text>
+	</string>
+	<string id="dm_hello_66">
+		<text>He oido que hay un laboratorio en algun lugar bajo el complejo de la fabrica. Hay una especie de fantasmas ahi, que pueden fusionar cerebros incluso a traves de las paredes con su campo psiquico en un abrir y cerrar de ojos. Oh, si...</text>
+	</string>
+	<string id="dm_hello_67">
+		<text>Si, hay mucho botin en el Valle. Si no hubiera putas reglas...</text>
+	</string>
+	<string id="dm_hello_68">
+		<text>El otro dia, dicen, los militares volaron al complejo. Estaban rebuscando, buscando algo. Me gustaria poder conseguir algo para recaudar dinero.</text>
+	</string>
+	<string id="dm_hello_69">
+		<text>Este lugar esta muerto. Mutantes, bandidos y mercenarios y nada mas. Menuda concentracion de frikis.</text>
+	</string>
+	<string id="dm_hello_70">
+		<text>?Y por que a los mutantes les gustan estos pantanos de niebla frente al complejo? No se puede pasar por delante, no se puede pasar en coche.</text>
+	</string>
+	<string id="dm_hello_71">
+		<text>?Conoces el puente que se derrumbo? A veces he visto aparecer coches desde el lado de la Gran Tierra del tunel, trayendo a alguien. Excepto que no puedes llegar alli por ti mismo - esta en lo alto.</text>
+	</string>
+	<string id="dm_hello_72">
+		<text>Este maldito hueco... Me gustaria poder salir de aqui. Estoy harto.</text>
+	</string>
+	<string id="dm_hello_73">
+		<text>No soporto mas el paisaje de El Hueco, pero tengo que hacer un recado.</text>
+	</string>
+	<string id="dm_hello_74">
+		<text>Hay un campamento neutral en el aserradero, y alli hay un comerciante y un tecnico. Podemos pasar la noche con seguridad.</text>
+	</string>
+	<string id="dm_hello_75">
+		<text>Los tuneles cercanos a la gasolinera solian llevar mas alla del perimetro hasta que se derrumbaron. Ojala pudiera cavar un hoyo ahi ...</text>
+	</string>
+	<string id="dm_hello_76">
+		<text>Se esta bien aqui en el bar. Un trozo de civilizacion en la Zona. Si no fuera por Los de Deber, nada de esto habria ocurrido.</text>
+	</string>
+	<string id="dm_hello_77">
+		<text>Los de Deber son unos putos policias. Son tan malos como los mafiosos.</text>
+	</string>
+	<string id="dm_hello_78">
+		<text>?Y para que demonios son esos alces rojos y negros? Los stalkers podrian haberse quedado con el bar ellos mismos.</text>
+	</string>
+	<string id="dm_hello_79">
+		<text>No me gusta Deber, pero parece que lo controla todo aqui. Dificil, si ...</text>
+	</string>
+	<string id="dm_hello_80">
+		<text>Si... El bar es el unico lugar normal de la Zona. Si no estuviera ahi, no se que estaria haciendo.</text>
+	</string>
+	<string id="dm_hello_81">
+		<text>?Que quieres, Deber? Soy un hombre decente, no rompo las reglas del bar.</text>
+	</string>
+	<string id="dm_hello_82">
+		<text>?Que tal? Felicitaciones a Deber por mantener en orden un lugar como este, el unico en la Zona. No seria facil sin el.</text>
+	</string>
+	<string id="dm_hello_83">
+		<text>?Y bien? Solo mantente alejado de mi, ?de acuerdo? Respeto las Reglas del territorio, soy un hombre honesto ante la ley.</text>
+	</string>
+	<string id="dm_hello_84">
+		<text>Ah, se esta bien aqui en el Bar... Incluso estoy pensando en unirme a Deber.</text>
+	</string>
+	<string id="dm_hello_85">
+		<text>?Y ahora que? Ya le he pagado a tu jefe el dinero del transporte.</text>
+	</string>
+	<string id="dm_hello_86">
+		<text>Recuerde, nuestras leyes se aplican en el territorio y todos deben obedecerlas.</text>
+	</string>
+	<string id="dm_hello_87">
+		<text>Unete a Deber, stalker. Aqui, en el bar, Deber tiene todas las condiciones para la mejor vida posible.</text>
+	</string>
+	<string id="dm_hello_88">
+		<text>Tu cara de maricon me resulta familiar... ?Por que no volvemos a la base de garbage, eh? ?Que, tienes miedo? Tienes mala conciencia.</text>
+	</string>
+	<string id="dm_hello_89">
+		<text>Recuerda las reglas del bar, stalker. Si las rompes, podemos dispararte sin previo aviso.</text>
+	</string>
+	<string id="dm_hello_90">
+		<text>El Deber es la ley en el bar, ?de acuerdo? Y los disidentes acaban en la arena con los mutantes.</text>
+	</string>
+	<string id="dm_hello_91">
+		<text>No me gustan estas ruinas industriales. Tenemos que salir de aqui rapido.</text>
+	</string>
+	<string id="dm_hello_92">
+		<text>Es un poco espeluznante, los pasillos y los callejones sin salida estan todos aqui. Si pasa algo, no hay ningun sitio al que ir.</text>
+	</string>
+	<string id="dm_hello_93">
+		<text>El tunel hacia Ambar es espeluznante: un tunel con asadores y cometas. Es mejor ir por el lado del tunel de Agroprom que retroceder, por el amor de Dios.</text>
+	</string>
+	<string id="dm_hello_94">
+		<text>Los malditos mutantes en la Tierra Salvaje son un dolor de cabeza. No puedo pasar por culpa de ellos.</text>
+	</string>
+	<string id="dm_hello_95">
+		<text>?De donde vienen los poltergeist en el desierto? La maldita zona...</text>
+	</string>
+	<string id="dm_hello_96">
+		<text>Mas alla de la barrera esta el Radar, es un lugar mortal, te hierve el cerebro en poco tiempo. No vayas alli.</text>
+	</string>
+	<string id="dm_hello_97">
+		<text>Estos almacenes son una mierda.  ?Como es posible mantener una base aqui?</text>
+	</string>
+	<string id="dm_hello_98">
+		<text>Y los mutantes con los muertos y el monolito siguen saliendo de detras de la barrera...</text>
+	</string>
+	<string id="dm_hello_99">
+		<text>Hay un pueblo aqui, con chupasangres en lugar de habitantes. Mucha de nuestra gente ha desaparecido alli, y tu te mantienes al margen.</text>
+	</string>
+	<string id="dm_hello_100">
+		<text>Si, no hay mucho beneficio en los almacenes. Deberiamos salir de aqui, eso es lo que pienso.</text>
+	</string>
+<!-- HELP -->
+	<string id="dm_help_1">
+		<text>?Hermano, salvame, me estoy muriendo!</text>
+	</string>
+	<string id="dm_help_2">
+		<text>Ayudame, hermano... ?Ah, mierda! ?Duele!</text>
+	</string>
+	<string id="dm_help_3">
+		<text>Amigo, botiquin... Dame un botiquin...</text>
+	</string>
+	<string id="dm_help_4">
+		<text>Hermano... ?Hermano, salvame!</text>
+	</string>
+	<string id="dm_help_5">
+		<text>Amigo, el botiquin... ?El botiquin!</text>
+	</string>
+	<string id="dm_help_6">
+		<text>Stalker, ayuda... ?Dame el botiquin de primeros auxilios...!</text>
+	</string>
+	<string id="dm_help_7">
+		<text>Estoy herido... ?Ayudenme!</text>
+	</string>
+	<string id="dm_help_8">
+		<text>?Dame el botiquin de primeros auxilios!</text>
+	</string>
+	<string id="dm_help_9">
+		<text>Un botiquin de primeros auxilios.</text>
+	</string>
+	<string id="dm_help_10">
+		<text>?Necesitamos ayuda medica!</text>
+	</string>
+	<string id="dm_help_11">
+		<text>Un botiquin de primeros auxilios. ?Deprisa!</text>
+	</string>
+	<string id="dm_help_12">
+		<text>?Salvame! ?Me estoy muriendo!</text>
+	</string>
+	<string id="dm_help_13">
+		<text>?Necesitamos un botiquin de primeros auxilios! ?Deprisa!</text>
+	</string>
+	<string id="dm_help_14">
+		<text>?El botiquin de primeros auxilios! ?Ayuda!</text>
+	</string>
+	<string id="dm_help_15">
+		<text>?Medico!</text>
+	</string>
+	<string id="dm_help_16">
+		<text>Oh... Oye, hermano, ?te importa compartir el botiquin?</text>
+	</string>
+	<string id="dm_help_17">
+		<text>?Mierda! ?Medico! ?Por favor!</text>
+	</string>
+<!-- ANOMALIES -->
+	<string id="dm_anomalies_general_1">
+		<text>?Que pasa con las anomalias y los artefactos?</text>
+	</string>
+	<string id="dm_anomalies_general_2">
+		<text>?Que sabes de las anomalias y los artefactos?</text>
+	</string>
+	<string id="dm_anomalies_general_3">
+		<text>Hablando de anomalias y artefactos.</text>
+	</string>
+	<string id="dm_anomalies_0">
+		<text>No quiero hablar contigo.</text>
+	</string>
+	<string id="dm_anomalies_1">
+		<text>La "fiebre", por ejemplo, es muy dificil de detectar incluso durante el dia, y mucho menos por la noche. Lo unico que deja entrever es una tenue neblina por encima. Si le lanzas un rayo, dispara una enorme columna de fuego, asi que no te acerques demasiado.</text>
+	</string>
+	<string id="dm_anomalies_2">
+		<text>"Cometa" no es exactamente como "Asado". Ambos son ardientes, pero "Comet", a diferencia de "Roast", se asemeja a una enorme bola de fuego voladora que se mueve a lo largo de una trayectoria determinada. Si lo ves venir hacia ti, agachate, o mejor aun, tumbate si no quieres freirte el culo.</text>
+	</string>
+	<string id="dm_anomalies_3">
+		<text>"Vortice" es una especie de vortice invisible que atrae todo lo que lo perturba. Primero te atrae hacia si, luego te comprime con una fuerza terrible y te desgarra con solo una salpicadura volando. Un espectaculo espantoso, realmente.</text>
+	</string>
+	<string id="dm_anomalies_4">
+		<text>Las "trompetas" son orbes gravitacionales apenas perceptibles que se ciernen sobre el suelo. Una vez que los tocas y "wshhhh", estalla justo delante de tu cara. Se pueden encontrar en todas partes y son bastante faciles de identificar por su caracteristico silbido.</text>
+	</string>
+	<string id="dm_anomalies_5">
+		<text>Cuidado con el paso si no quieres quedar atrapado en el Carrusel. Afortunadamente, es bastante facil de detectar por las hojas que giran en el aire. Una vez vi como un trozo de carne quedaba atrapado en el: era arrastrado hacia el centro, se retorcia y luego se desgarraba en pequenos trozos. Brrr!"</text>
+	</string>
+	<string id="dm_anomalies_6">
+		<text>"Cholodets" es un charco verde brillante de algun tipo de mierda que no deja de intentar escupirte. Sin embargo, puedes encontrar algunos bonitos artefactos en el, si no tienes miedo de que este acido te coma hasta los huesos.</text>
+	</string>
+	<string id="dm_anomalies_7">
+		<text>La "pelusa ardiente" es el tipo de "alga" verdosa que cuelga de objetos metalicos como cortinas. Si te acercas lo suficiente a ellas y las molestas de alguna manera, toda tu cara se cubre instantaneamente de las esporas de esa mierda. Es su mecanismo de defensa. Asi que trata de evitar esa mierda si no quieres andar con un craneo desnudo en lugar de una cabeza.</text>
+	</string>
+	<string id="dm_anomalies_8">
+		<text>Intenta no meterte en la "soda". No hay casi nada que lo delate, salvo una niebla verdosa apenas perceptible sobre el suelo. Si lo pisas sin una proteccion fiable, estas muerto. Si tienes suerte, solo te corroera los pies, si no... no quieres saber lo que pasa.</text>
+	</string>
+	<string id="dm_anomalies_9">
+		<text>?Has oido hablar del Cometa? Bueno, hay otro tipo: el quimico. Se parece a su variante de fuego, solo que en lugar de una bola de fuego, es una enorme nube de acido. Y si del ardiente "Cometa" todavia se puede salvar, entonces es mejor no encontrarse con este - si el cuerpo no se corroe, entonces ciertamente entra en los pulmones, y ya es el infierno.</text>
+	</string>
+	<string id="dm_anomalies_10">
+		<text>?Has visto alguna vez esos enormes electricos... ?podria ser un charco o algo asi? Los cientificos los llaman "Electras". Normalmente, al igual que el resto de anomalias, solo se activan si algo las perturba, pero juro que he visto personalmente y en repetidas ocasiones que se descargan incluso cuando no hay nadie cerca. Tambien parece que se mueven constantemente, abriendo un pasillo y luego bloqueandolo, por lo que es casi imposible pasar por encima de ellos.</text>
+	</string>
+	<string id="dm_anomalies_11">
+		<text>Hace un par de dias me tope con este globo electrico volador, tambien fue bautizado por los cientificos como "Tesla", en honor a ese hombre electrico. De todos modos, me tope con el en un pasillo estrecho y volaba de arriba a abajo, a la izquierda y a la derecha, pero parecia seguir solo una trayectoria determinada. Gracias a Dios consegui pasarla, corriendo de refugio en refugio hasta que me alcanzo. Imagino lo que me habria pasado si me hubiera alcanzado.</text>
+	</string>
+	<string id="dm_anomalies_12">
+		<text>?Has oido hablar del Lenador? Dicen que se quedo atrapado en una de esas "burbujas espaciales" en su dia. Dicen que parecia un claro normal, pero donde quiera que vayas, vuelves. Habria perecido alli si no hubiera encontrado la Brujula, un artefacto. El artefacto le mostro la salida y le condujo fuera de la anomalia. Y entonces le robaron los renegados y se llevaron ese artefacto magico. ?Te lo crees? Yo tampoco me lo creo. Es mas una idiotez que la verdad.</text>
+	</string>
+	<string id="dm_anomalies_13">
+		<text>Hace un par de anos, Clear Skies persiguio a un acosador hasta Chernobyl. Todo el mundo sabe como termino eso, pero tambien habia un mercenario con ellos. Cicatriz, creo. Los pocos que sobrevivieron a ese infierno dicen que las anomalias seguian apareciendo en su camino y le teletransportaban mas cerca del tipo, como si la propia Zona le ayudara. Cosa extrana...</text>
+	</string>
+	<string id="dm_anomalies_14">
+		<text>?Has visto alguna vez rocas afiladas que sobresalen del suelo junto a un grupo de arboles torcidos? Yo tampoco. Pero dicen que hay algo asi en el bosque de secuoyas. Los cientificos los llaman "Simbiontes". Y son, por cierto, bastante ricos en artefactos, pudiendo encontrarse en ellos casi todo tipo de ellos.</text>
+	</string>
+	<string id="dm_anomalies_15">
+		<text>Los cientificos siguen devanandose los sesos con estas "grietas". Son una grieta en el suelo, muchas grietas, con un monton de anomalias de fuego por encima de ellas. "Incendios", "cometas", lo que sea. Los cientificos no pueden averiguar si son solo campos anomalos o algo mas... Por ejemplo, ?cuando fue el ultimo terremoto en esta parte del mundo?</text>
+	</string>
+	<string id="dm_anomalies_16">
+		<text>A veces no hace falta meterse en una anomalia para conseguir un artefacto. Escuche una historia sobre un acosador que encontro un artefacto en un campo despejado. Su detector empezo a volverse loco de la nada, el acosador penso que era solo un condensador fundido en el. Y solo el tipo reemplazado este detalle - justo debajo de sus pies cayo artefacto.</text>
+	</string>
+	<string id="dm_anomalies_17">
+		<text>Escucha, hombre, y recuerda. Que estes atrapado en un "vortice" o un "carrusel" no significa que estes muerto. Una vez vi a un tipo meterse en uno de esos. Pense que iba a matarlo, pero no. Empezo a correr lo mas rapido que pudo y se retiro en el ultimo momento, ?un segundo mas y habria volado en pedazos! Nunca lo hubiera creido si no lo hubiera visto yo mismo.</text>
+	</string>
+	<string id="dm_anomalies_18">
+		<text>?Has oido hablar alguna vez de Gravy? Parece una pseudo-mierda de perro, pero en realidad es metal. Los cientificos pagan un buen dinero por cosas asi. Sin embargo, yo en tu lugar no lo tocaria, a menos que quieras brillar por la noche. Tambien hay un artefacto similar llamado pez de colores. Propiedades de la misma, pero capturadas con menos frecuencia, por lo que si encuentras una, te aconsejo que la guardes para ti.</text>
+	</string>
+	<string id="dm_anomalies_19">
+		<text>Lo primero que debe tener un acosador es un artefacto antirradiacion. Al menos la Medusa. Un material muy util, y cuanto mas pueda absorber la radiacion, mejor. "Vortice" o "Burbuja" tambien serian geniales. He visto suficientes acosadores en mi vida, muriendo lentamente por la radiacion, sin poder arrastrarse hasta el campamento o simplemente demasiado pobres para comprar antiraad.</text>
+	</string>
+	<string id="dm_anomalies_20">
+		<text>No consigo entender que hacen los eggheads con los artefactos que compran a los stalkers. Lo unico que se es que estas cosas tienen tanto valor para los frikis que pagan una cantidad inimaginable. Y cuanto mas poderoso y raro es el artefacto, mas pagan por el.</text>
+	</string>
+	<string id="dm_anomalies_21">
+		<text>?Has oido hablar alguna vez de Firefly? Parece una bola amarilla sucia y brillante. Esta cosa puede curar cualquier herida. ?Cualquier cosa! Tiene un poco de fondo, pero aun asi te sugeriria que no lo vendieras si lo encuentras.</text>
+	</string>
+	<string id="dm_anomalies_22">
+		<text>He oido hablar de cosas como la Brujula mas de una vez. El artefacto perfecto. O mas bien lo seria si no tuviera tanto fondo. Se rumorea que protege al portador de las numerosas trampas de la Zona, y ayuda a encontrar la salida de los campos anomalos mas densos.</text>
+	</string>
+	<string id="dm_anomalies_23">
+		<text> Solo puedo contarte historias alrededor de la hoguera. Preguntale a alguien mas.</text>
+	</string>
+	<string id="dm_anomalies_24">
+		<text>He oido hablar mas de una vez de los vastos campos de artefactos sin tocar que pueden hacer millonario al mas pobre e inexperto acosador. Creo que todo son trampas. ?Piensalo, algunas personas incluso suben deliberadamente a las anomalias y mueren por una maldita "medusa" o "sangre de roca", pero aqui - un monton de artefactos, solo tienen tiempo para recoger! No, hombre, recuerda mis palabras, si ves un "Klondike" asi. La vida es mas valiosa que cualquier artefacto que exista.</text>
+	</string>
+	<string id="dm_anomalies_25">
+		<text>Todo lo que puedo decirte es que elijas bien tu equipo. No vayas a por los artefactos en un exoesqueleto fuertemente blindado, o se convertira en un enorme y potente conductor junto a las anomalias electricas, o se derretira justo encima de ti... en chem.</text>
+	</string>
+	<string id="dm_anomalies_26">
+		<text>Lo mas dificil de la caza de artefactos es empezar. Si consigues algun tipo de artefacto de proteccion, podras explorar el mismo tipo de anomalias mas facilmente. Luego vende los artefactos que encuentres, compra mejor equipo, etc. Ademas, cuanto mas los recorras, mas los conoceras, lo que significa que tendras menos posibilidades de perderte en uno. Solo trata de ser lo mas cuidadoso posible mientras seas un novato. Y como acosador experimentado, si te conviertes en uno, ten en cuenta que la Zona siempre puede tender una nueva trampa.</text>
+	</string>
+	<string id="dm_anomalies_27">
+		<text>Estar en buena forma. Es el unico consejo que puedo darte. La zona puede ser realmente dura y peligrosa a veces. Y tendras mas posibilidades de sobrevivir si tu cuerpo esta preparado para ello. Eso incluye las anomalias. ?Crees que puedes cruzar un campo quimico con una mochila llena a la espalda despues de un buen trago?</text>
+	</string>
+	<string id="dm_anomalies_28">
+		<text>Muchos acosadores no prestan atencion a los peligros mentales de la Zona. Asi que mueren, incapaces de salir del campo psiquico. Si no quieres repetir su destino, buscate una proteccion psi normal. "La luz de la luna, por ejemplo, es muy util. Y en el campo psi ayudara a no perder sus cerebros, y el controlador va a salvar, si tienes suerte.</text>
+	</string>
+	<string id="dm_anomalies_29">
+		<text>Tenga en cuenta que algunas personas aqui no estan detras de los artefactos. Estan cazando gente... De todas formas, desconfia de los bandidos, todo el mundo sabe desde hace tiempo que tienen algun tipo de encargo de artefactos para el mercado negro. Asi que intenta no hablar demasiado del botin que llevas.</text>
+	</string>
+	<string id="dm_anomalies_30">
+		<text>?Sabes que los artefactos son practicamente indestructibles? En otras palabras, a veces puedes disparar para sacarlo de una anomalia, y subir tu mismo.</text>
+	</string>
+	<string id="dm_anomalies_31">
+		<text>Sabes, echo de menos la Zona que tenia hace un par de anos. Desolado, vacio, los artefactos son una docena, y nadie los recoge... ?Y ahora que? ?Como te haces rico ahora? Ahora, despues de cada lanzamiento, un grupo de acosadores se abalanzan sobre las anomalias y se llevan todo lo que pueden, dejandote sin nada. Eh...</text>
+	</string>
+	<string id="dm_anomalies_32">
+		<text>?Por que iba a darte un consejo? Especialmente cuando se trata de un negocio con el que muchos aqui ganan dinero. Consigue un maldito detector, daselo a un cientifico si encuentras algo, no te acerques a la anomalia, no metas los dedos en el enchufe. En resumen, descubrira todo lo que necesita saber a tiempo.</text>
+	</string>
+	<string id="dm_anomalies_33">
+		<text>La mayoria de los novatos que vienen aqui fantasean con "el artefacto que te hace millonario". Seamos sinceros: aunque la Zona sea generosa con los artefactos, cazarlos requiere mucho tiempo y salud, y la mayor parte del dinero de su venta tienes que gastarlo en equipo para volver a subir a zonas ya mas peligrosas. Claro que puedes tener mucha suerte y pensar que puedes atravesar los campos de anomalias con una sola chaqueta, pero yo no contaria con ello.</text>
+	</string>
+	<string id="dm_anomalies_34">
+		<text>?Sabes donde esta la draga? Se gravianomalii korrezhilami, pero para un acosador experimentado no es demasiado dificil, simplemente no se olvide de lanzar pernos. Ademas, la radiacion dentro y fuera... Phonite - ?directamente a usted un pedazo de uranio enriquecido!</text>
+	</string>
+	<string id="dm_anomalies_35">
+		<text>?A veces no hace falta entrar en las anomalias para encontrar un artefacto! Me contaron una historia sobre como se encontro un artefacto en medio de un campo despejado. El detector de un acosador funcionaba mal, asi que decidio cambiar las pilas. Lo hizo... ?y de repente el detector se dispara y un artefacto vuela a las manos del hombre! ?Te imaginas que suerte? La zona es asi: a veces castiga y a veces incluso premia.</text>
+	</string>
+	<string id="dm_anomalies_36">
+		<text>Lo mas seguro es buscar en un pantano venenoso. Hay muchas gravi-anomalias, pero son faciles de detectar: dejan tales huellas en el agua que no puedes equivocarte. Pero es peor con los sodomitas; hacen que sea practicamente imposible respirar alli. Si, incluso mientras te salpican - bueno, tambien, no pasara lo suficiente: la armadura se come ante tus ojos.</text>
+	</string>
+	<string id="dm_anomalies_37">
+		<text>Hay una vieja subestacion aqui, la llaman el Bosque de Hierro. Si estas alli entenderas por que. Dicen que han encontrado algunos artefactos alli despues de la caida. Quiero decir, no es un gran peligro. Quiero decir, son electrones, es un poco de un fonon... Pero tambien hay poltergeists. Si no tienes tiempo para esconderte, te tiran todo tipo de trastos.</text>
+	</string>
+	<string id="dm_anomalies_38">
+		<text>Hay mucho "calor" en la granja quemada que esta en la colina. Bueno, y los artefactos se encuentran a menudo alli - artefactos de fuego, naturalmente. Buscalo en las casas: dicen que en que casa se formaron mas "fuegos" despues de la emision, se encontrara ese artefacto.</text>
+	</string>
+	<string id="dm_anomalies_39">
+		<text>En las cuevas debajo de la granja quemada, probablemente hay un monton de ellos. Si subes la colina con un detector en la mano, no deja de pitar. Llegar hasta alli es facil: se puede subir, a traves de una grieta, saltar. Pero salir sera mas dificil: ?hay muchas, muchisimas anomalias! Principalmente "vortices" y "soda"... tambien se ha visto que algo se mueve en la grieta, como un "cometa". Un conjunto tan variopinto. Por otra parte, es probable que los artefactos tambien sean diferentes alli.</text>
+	</string>
+	<string id="dm_anomalies_40">
+		<text>?Has visto la anomalia del Circo? Hay una gran anomalia "trampolin" con dos cometas dando vueltas a su alrededor... ...?es un espectaculo infernal! Pero es mejor admirarlo desde lejos: hacia el centro hace mucho calor. Los artefactos estan ahi, pero el poltergeist del fuego es un autentico cabron, ?ya sabes! ?Intenta freirte en cuanto te acercas a el!</text>
+	</string>
+	<string id="dm_anomalies_41">
+		<text>Bueno, hay un lugar donde el suelo se pica como un cuchillo - Rubez. Mas de una o dos veces se han encontrado artefactos alli, pero algo extrano les ocurre a los que van alli. Esa cosa da en los cerebros con tal fuerza que no solo para salir - para respirar y fuera de pensar a menudo no es suficiente.</text>
+	</string>
+	<string id="dm_anomalies_42">
+		<text>Si te interesan los artefactos gravitatorios, deberias buscar en la anomalia "Garra". Este lugar es dificil no notar - hay anomalias fuertemente pokoretilos suelo, parte de la colina solo completamente barrido. Y en las cuevas que se abrieron en la colina, los tiburones se instalaron enseguida. Pero fuera rara vez van.</text>
+	</string>
+	<string id="dm_anomalies_43">
+		<text>Hay un lugar en Zaton donde las "freidoras" surgieron bajo el agua. Lo llaman El Caldero, porque el vapor late desde el suelo, como desde un caldero de verdad. Si crees que el vapor no es nada, estas muy equivocado. Lo que dicen los acosadores experimentados: tal anomalia de vapor no es mas debil, si no mas fuerte que la "fritura" habitual. Puede que la temperatura sea un poco mas baja, pero la humedad es mayor. Y arde mas tiempo. Y los artefactos alli se encontraron como siempre, ardientes.</text>
+	</string>
+	<string id="dm_anomalies_44">
+		<text>Se dice que la cantera es un buen lugar: hay muchos artefactos. Pero ahi tambien hay muchas anomalias. En el fondo de la "soda" gorgotea, incluso con una mascara de gas hace que mis ojos lloren.</text>
+	</string>
+	<string id="dm_anomalies_45">
+		<text>Las cenizas estan en el antiguo cementerio cerca de Kopacz. Es muy peligroso alli: vienen muchos "paganos", a veces gente zombificada. Por lo general, la gente evita este lugar, pero si alguien se pasea por el, a veces encuentra artefactos. Si uno sigue vivo, por supuesto.</text>
+	</string>
+	<string id="dm_anomalies_46">
+		<text>Se rumorea que se encontraron artefactos en el antiguo aparcamiento. No hay mucho transporte ahi, pero incluso ese tiene mucha fonetica, y el contador se sale de la escala. Si, y hay muchos "electrones".</text>
+	</string>
+	<string id="dm_anomalies_47">
+		<text>La Arboleda Podrida es donde los arboles estan retorcidos por el acido. ?Quien fue alli, dijo: hay un monton de "soda", y en el aire tanto gas que ni siquiera se puede ver mucho de nada - la niebla! Pero si tienes experiencia, puedes encontrar alli artefactos.</text>
+	</string>
+	<string id="dm_anomalies_48">
+		<text>Si se buscan artefactos, los acidos son mejores. Y el lugar mas adecuado para buscarlos es el Bano de Hormigon. Alli no hay mucha competencia: esta la tienda Jupiter justo al lado, asi que ya sabes...</text>
+	</string>
+	<string id="dm_anomalies_49">
+		<text>Cerca de la fabrica de Jupiter el camino se cayo. El lugar ha recibido el apodo de "Bitumen": el firme se ha derretido alli. La brecha esta llena de anomalias: la "fritura" mezclada con la gravedad... Y como hay dos tipos de anomalias, los artefactos deben ser diferentes.</text>
+	</string>
+	<string id="dm_anomalies_50">
+		<text>Hay un lugar detras de la planta de cemento, tambien se llama Floats. La bahia es una cienaga apestosa, pero ?que quieres cuando el agua esta llena de "tepes"? Ya no hay agua, sino acido casi solido... Se han encontrado artefactos alli, si, pero tambien dicen que a los monstruos les gusta mucho el lugar.</text>
+	</string>
+	<string id="dm_anomalies_51">
+		<text>Sugiero buscar artefactos en la antigua fabrica de cemento. Hay muchas anomalias, pero vale la pena. No, por supuesto, hay lugares donde los artefactos son mas faciles de encontrar, pero ya hay una competencia con otros Stalkers. Y aqui la unica competencia que tienes son los tushkans, y eso solo si bajas a las bovedas.</text>
+	</string>
+	<string id="dm_anomalies_52">
+		<text> Hay que buscarlo cerca de Sosnodub - es lo mismo que crecia entre las colinas por encima de los "sodbusters". Asi es como lo llama todo el mundo aqui: algun tipo inteligente ha determinado que la corteza de ese arbol es en parte pino y en parte roble. Si quieres buscar un artefacto alli, necesitas una buena proteccion quimica... Lleva tambien mucha municion, pues a menudo veras perros en las colinas.</text>
+	</string>
+	<string id="dm_anomalies_53">
+		<text>Los Stalkers experimentados dicen que algunos artefactos pueden moverse dentro de las anomalias. Es decir, oyes el pitido del detector, lo sacas, pero no aparece nada. Esto significa que el artefacto simplemente paso por ti, pero no recomiendo perseguirlo, solo la Zona decide a quien premiar.</text>
+	</string>
+	<string id="dm_anomalies_54">
+		<text>En Pripyat nadie ha intentado buscar artefactos todavia. Todos los que conozco llevan muy poco tiempo alli y han preferido no arriesgarse.</text>
+	</string>
+	<string id="dm_anomalies_55">
+		<text>No se ni donde encontrar nada aqui. Pripyat sigue estando demasiado poco explorado.</text>
+	</string>
+	<string id="dm_anomalies_56">
+		<text>Se supone que las mazmorras tienen un monton de artefactos. Piensalo: las anomalias para engendrarlas estan ahi; las personas para recogerlas, no. Aunque quien sabe, la expulsion no llega al subsuelo, por lo que los artefactos no pueden ser revividos... Pero aun asi lo comprobaria.</text>
+	</string>
+	<string id="dm_anomalies_57">
+		<text>Poco se sabe de estos lugares - sobre todo lo que Garik me dijo. Dice, hay un lugar, donde de la anomalia acida crecio una enorme uva, del tamano de una casa de diez pisos. Tal vez este mintiendo... pero si no lo es, yo revisaria esa uva en busca de artefactos.</text>
+	</string>
+
+<!-- INFORMATION -->
+	<string id="dm_information_general_1">
+		<text>?Que hay de nuevo en la Zona?</text>
+	</string>
+	<string id="dm_information_general_2">
+		<text>?Que hay de interesante?</text>
+	</string>
+	<string id="dm_information_general_3">
+		<text>Tal vez hayas escuchado algun rumor interesante</text>
+	</string>
+	<string id="dm_information_0">
+		<text>No se nada.</text>
+	</string>
+	<string id="dm_information_1">
+		<text>?Has oido que los guerreros han establecido una base justo en el centro de Agroprom? El lugar esta lleno de mutantes peores que los perros ciegos, a los que nadie trata de exterminar. Nada especial a primera vista, pero se rumorea que hay enormes mazmorras llenas de anomalias debajo del instituto de investigacion. Seguro que si no estuvieran bajo los guerreros, habria suficientes artefactos para coleccionar toda una vida.</text>
+	</string>
+	<string id="dm_information_2">
+		<text>El metro de Agroprom esta justo debajo del edificio del Instituto de Investigacion. He oido diferentes cosas sobre el: algunos dicen que esta lleno de anomalias y artefactos alli incluso con una pala, otros - que en el interior no hay nada mas que mutantes, otros - que esta lleno de controladores y poltergeists. No se que creer, pero me importa una mierda, de todas formas no voy a llegar.</text>
+	</string>
+	<string id="dm_information_3">
+		<text>?Has estado alguna vez en el Bar? Antes del accidente era una zona industrial, ahora solo quedan los restos en ruinas. Hay un bar llamado "100 X-Ray" justo al lado de la entrada, y justo enfrente esta la Arena, donde puedes ganar algo de dinero extra luchando contra mutantes o el mismo tipo de acosadores. Ese es realmente el unico lugar normal en medio de este mundo de imbeciles, ?no crees? No muy lejos del "Duty Arena", se establecio una base y se colocaron barricadas alrededor del perimetro del bar. Pero no me quejo, estan haciendo un buen trabajo. No he visto ningun bandido o mutante.</text>
+	</string>
+	<string id="dm_information_4">
+		<text>Cordon es mucho mas seguro que otros lugares. La mayoria de los novatos se quedan en la Aldea, al norte de la barricada militar, hasta que encuentran el equipo adecuado para adentrarse en la Zona. Tambien encontrara a Shusty y Sidorovitch en el Village. Shusty puede encontrarte un equipo realmente bueno, el mejor de la Zona, se podria decir. Pero Sidorovitch esta sentado en su bunker, vendiendo todo tipo de contrabando: alimentos, medicinas, etc.</text>
+	</string>
+	<string id="dm_information_5">
+		<text>El Hueco Oscuro conecta el borde sur del Valle Oscuro con el tunel del este de Cordon. Esta lleno de bosques, mutantes, bandidos y anomalias, pero a veces se pueden encontrar solitarios vagando por alli por diversas razones. Y mi consejo es que no te acerques a la carretera a no ser que quieras brillar por la noche, o que te alimentes de los perros que siempre andan husmeando por alli.</text>
+	</string>
+	<string id="dm_information_6">
+		<text>El Valle Oscuro es un lugar sombrio, lleno de ruinas y escombros de edificios en ruinas. Esta lleno de anomalias, y puedes conseguir algunos bonitos artefactos. Sin embargo, su parte norte esta totalmente ocupada por los bandidos, incluso una especie de base organizada alli, asi que es mejor no ir a ellos, si no quieres que te roben hasta la piel.</text>
+	</string>
+	<string id="dm_information_7">
+		<text>Ciudad Muerta es un lugar justo entre Ambar y Limansk. Dicen que hay muchos mercenarios alli, que tienen una base o algo asi... Ademas, deberia haber un gran alijo de armas y equipo en algun lugar de la ciudad, deberian almacenar toda esa mierda en algun sitio. Si quieres atravesar la ciudad sin que te disparen en la cabeza, he oido que hay una alcantarilla que atraviesa la ciudad, pero no estoy seguro de que los mercenarios no lo sepan. Eso es todo lo que puedo decirte, hermano.</text>
+	</string>
+	<string id="dm_information_8">
+		<text>?Has oido hablar del Vertedero? Es el lugar en el que se arrojo todo tipo de basura radiactiva tras el accidente: maquinaria, coches, lo que sea. Esta plagado de mutantes y bandidos, que a menudo luchan con los acosadores locales por el control de los lugares mas malvados. Tambien hay todo un campo de anomalias en el campamento de vehiculos abandonados alli, donde casi siempre se pueden encontrar artefactos. Especialmente si miras justo despues de la expulsion.</text>
+	</string>
+	<string id="dm_information_9">
+		<text>?Has oido hablar de los Generadores? Estan en algun lugar del norte, detras de la ChAES. No es especialmente destacable, aparte de un antiguo laboratorio militar que se rumorea que esta directamente debajo de los generadores. La zona esta literalmente plagada de mutantes, asi que sin un buen arma, no subiria alli.</text>
+	</string>
+	<string id="dm_information_10">
+		<text> Hemos ocupado casi toda la zona del Hospital Abandonado y hemos colocado puntos de francotiradores y ametralladoras en todos los caminos que conducen al ChAES. ?Ningun acosador podra pasar!</text>
+	</string>
+	<string id="dm_information_11">
+		<text>Jupiter sigue desierta, al igual que Zaton propiamente dicha. Despues de que los fanaticos volvieran a encender el quemador, es casi imposible colarse. A menos que quieras freirte el cerebro, la unica forma de entrar es a traves del Bosque Rojo, que esta literalmente plagado de mutantes y anomalias. Asi que, como ves, colarse en los alrededores de Pripyat es practicamente imposible por ahora.</text>
+	</string>
+	<string id="dm_information_12">
+		<text>Si vas a bajar al subsuelo de Jupiter, busca un traje espacial como el de los cientificos, o SEVU para empezar. En definitiva, un traje con un sistema cerrado de respiracion, de lo contrario no duraras ni un minuto alli.</text>
+	</string>
+	<string id="dm_information_13">
+		<text>Limansk es un lugar desolado, lleno de edificios y equipos abandonados. He oido que los mercenarios intentaron atravesarla no hace mucho, pero no llegaron muy lejos: perdieron a casi todos los hombres en las aproximaciones. Quien sabe que los mato: mutantes, fanaticos o una anomalia... Pero no te aconsejo que vayas alli.</text>
+	</string>
+	<string id="dm_information_14">
+		<text>Las marismas son la zona al suroeste de Cordon. La mayor parte esta formada por pantanos, pero tambien puedes encontrarte con algun que otro edificio medio destruido, en el que se instalan acampados o bandidos. Tambien dicen que alguna nueva faccion se ha instalado alli. Puede ser cierto o no, pero personalmente lo dudo... ?Quien podria necesitar algo en medio de la nada?</text>
+	</string>
+	<string id="dm_information_15">
+		<text>Mas alla de los antiguos almacenes de Svoboda... los malditos drogadictos... "?Sostengan la barrera!" "?Defendiendo la Zona de los Monolitos!" Si, claro. Asi que si unos bandidos hace un par de anos consiguieron expulsarlos del Valle, no hay nada que hablar de los monolitos.</text>
+	</string>
+	<string id="dm_information_16">
+		<text>He oido que los Monolitos han tomado el centro de Pripyat. La ciudad esta literalmente plagada de fanaticos, emparejados con mutantes y anomalias. No se tu, pero yo no iria alli bajo ningun pretexto.</text>
+	</string>
+	<string id="dm_information_17">
+		<text>En las afueras de Pripyat, dicen, abundan las anomalias, y por lo tanto, y los artefactos pueden conseguir. Y lo mejor es que ni siquiera hay que atravesar a los fanaticos de Pripyat Central: se puede ir directamente a las afueras del paso elevado de Jupiter, del que el "Monolito" aun no sabe nada. Pondre mi equipo en orden y me ire para alla de inmediato. Es una mina de oro.</text>
+	</string>
+	<string id="dm_information_18">
+		<text>Estos bastardos volvieron a encender el Quemador cuando recuperaron el control de Radar. Ahora no puedes pasar al otro lado, acabaras como comida para los mutantes o como zombis, lo que es aun peor. Y esos acosadores, que en ese momento estaban en Zaton o Jupiter, ahora estan encerrados alli. No los envidio.</text>
+	</string>
+	<string id="dm_information_19">
+		<text>Muchos Stalkers murieron en el Bosque Rojo por las garras de criaturas o anomalias, desde que los monolitos se volvieron contra el Quemador. No era exactamente seguro alli antes, ahora... Por otro lado, hay un tipo que vive en algun lugar de las afueras del Bosque, un guardabosques que llaman. Puede hacer cualquier cosa con su arma. ?Es un maestro! Y sabe mas sobre la Zona que cualquier cientifico. Solo que ahora ?como llegar a el?</text>
+	</string>
+	<string id="dm_information_20">
+		<text>Acabamos de llegar del desierto. No te aconsejo que vayas alli, especialmente si estas solo. ?Quieres vivir? Entonces no vayas.</text>
+	</string>
+	<string id="dm_information_21">
+		<text> Has oido hablar del Ejecutor de Deseos, ?no? Dicen que hay una cosa en medio de la Zona que puede conceder cualquier deseo. Cualquier cosa, ahora que lo pienso. Ahora se lo que los fanaticos defienden con tanta pasion... Eh, aunque solo sea para llegar a el, y luego no tener que preocuparse de nada.</text>
+	</string>
+	<string id="dm_information_22">
+		<text>Amber es un lugar terrible. Cualquiera que se acerque demasiado a la planta se quema los sesos peor que en Radar. De snorks y zombies sin fin, todo pryut y pryut de la fabrica. Cuando un cientifico dispara a un mutante, lo reconoce como su colega, que se habia acercado demasiado a la planta sin darse cuenta. Todo apesta, hombre.</text>
+	</string>
+	<string id="dm_information_23">
+		<text>Cuando estes en Zaton, echa un vistazo a Skadovsk. Es un campamento de acosadores montado en un viejo barco oxidado por un acosador apodado Beard, bueno, eso es lo que el dice. Tiene de todo: un tecnico, un medico, un comerciante. Incluso hay un comerciante de informacion, lo llaman Sych. No es una mala tarifa para las PDAs encontradas, por cierto, si resultan ser algo valioso.</text>
+	</string>
+	<string id="dm_information_24">
+		<text>Escucha, ?has oido hablar de Black Digger? Dicen que era un tipo con mucha suerte, que hizo una fortuna vendiendo armas encontradas y otros objetos de valor. Dicen que incluso tenia su propio escondite secreto en algun lugar entre toda esa basura radiactiva. Me hubiera gustado hablar con el, o al menos obtener alguna informacion sobre el, pero parece que se llevo su secreto a la tumba.</text>
+	</string>
+	<string id="dm_information_25">
+		<text>Se rumorea que se ha encontrado toda una red de laboratorios secretos en la Zona. Los traficantes de informacion pagan ahora un buen dinero por cualquier documento de alli. Fiable hasta el momento conocido solo dos de los laboratorios - 16 y 18, pero, al parecer, no son los unicos aqui. ?Eso seria encontrar algunos, pero que tipo de papeles llevar con ellos - que es posible para la vida se hara rico!</text>
+	</string>
+	<string id="dm_information_26">
+		<text>Si quieres llegar a las afueras de Pripiat evitando las hordas de fanaticos que habitan en el centro de la ciudad, ve por el metro de Jupiter. "Parece que Monolith no se ha enterado, por lo que alli solo puedes encontrarte con mutantes y zombis. Tampoco es especialmente seguro, pero sigue siendo mejor que las hordas de fanaticos.</text>
+	</string>
+	<string id="dm_information_27">
+		<text>En la Zona ultimamente se utilizan cada vez mas las ametralladoras fijas. Si ves una cosa asi - no corras hacia ella y no intentes acercarte, corriendo en zigzag - sera derribada en poco tiempo. Sera mejor que lo flanquees y acabes con el ametrallador con un disparo certero. Y no te olvides de las granadas, por supuesto.</text>
+	</string>
+	<string id="dm_information_28">
+		<text>Si quieres ir al Valle Oscuro, pasando los "controles" de los bandidos, ve a Cordon, y luego al tunel que se dirige al Hueco. Alli los bandidos, y la gente en general, son mas pequenos, pero hay muchas anomalias, mutantes y radiacion. Asi que tu decides que te da mas miedo.</text>
+	</string>
+	<string id="dm_information_29">
+		<text>De alguna manera no estoy al dia</text>
+	</string>
+	<string id="dm_information_30">
+		<text>No se nada.</text>
+	</string>
+	<string id="dm_information_31">
+		<text>?Has visto alguna vez a un hombrecillo naranja brillante corriendo entre los juncos? A estos cientificos no parece importarles en absoluto el camuflaje. De todas formas, ?quien hace los trajes? Se pueden ver a una milla de distancia sin prismaticos. Es cierto que he oido que ultimamente tienen menos trajes de color vomito, pero la mayoria sigue prefiriendo ser blancos de colores brillantes, los idiotas.</text>
+	</string>
+	<string id="dm_information_32">
+		<text> Nadie en la Zona esta mas jodido que los monolitos. Creen en una puta piedra, la adoran, defienden la Zona de los "infieles", ?es ridiculo escucharlos! Malditos fanaticos, ?de donde vienen?</text>
+	</string>
+	<string id="dm_information_33">
+		<text>Ha habido un rumor sobre un grupo de topos con escorpiones en sus chaquetas dandole a unos tipos con pijamas azules una mierda desde hace tiempo. Creo que eran cientificos, pero eso no es lo importante. Todo el mundo bromea sobre su "camuflaje" todo el tiempo, destacan contra esa mierda tanto como esos cientificos naranjas de Amber. No es de extranar que estos cabezas de huevo no puedan ni siquiera sostener un arma en sus manos. Simplemente no entienden como utilizar lo que la Zona les da.</text>
+	</string>
+	<string id="dm_information_34">
+		<text> Llevo mucho tiempo deseando que alguna oleada de mutantes reviente el infierno del Bar. No importa cuantas veces hayamos intentado cogerlo, siempre nos han tumbado esos imbeciles rojinegros. Tienen un buen punto de apoyo alli, incluso desenterraron PCMs en algun lugar - no hay manera de acercarse. Estan bien armados, pero su estructura de mando... Je, je, no son tan honestos como dicen. Han hecho un monton de tratos secretos con la Deuda de los que prefieren no hablar, y no dejan que nuestras tropas se acerquen a menos de cien metros. ?Quien sabe cuando dejaran de estar tan preocupados por su "honor"?</text>
+	</string>
+	<string id="dm_information_35">
+		<text>La "Libertad" no deja de presumir de su "fuerza" y de la "heroica defensa de la Barrera". Les demostramos de lo que son capaces y les dimos una paliza en los almacenes. Por supuesto, ahora dicen, dicen, "Es mas facil luchar contra los mutantes aqui", "Alguien tiene que mantener a los fanaticos a raya, y en general, solo hemos mejorado. Jeje. Mentira todo esto, simplemente no quieren admitir que no pueden enfrentarse a nosotros.</text>
+	</string>
+	<string id="dm_information_36">
+		<text>Los militares salen cada vez menos ultimamente, se sientan en los puestos de control y envian helicopteros de reconocimiento. Dicen que una operacion en Pripyat salio mal, un grupo de fanaticos los mato. Y los numerosos fracasos, al parecer, no han afectado gravemente a la moral. Los soldados no quieren luchar. Esta claro, no me gustaria ser comandado por un asqueroso que me manda a matar mutantes y acosadores solo para su beneficio.</text>
+	</string>
+	<string id="dm_information_37">
+		<text>La aparicion y posterior estudio de los artefactos a veces me hace preguntarme que mal pueden traernos despues de todo. Pensandolo bien, los artefactos tienen propiedades simplemente sorprendentes. Tarde o temprano, su energia se utilizara para producir armas que superaran todo lo que se ha inventado hasta ahora. Imagina lo que podria hacer una bomba con la energia de un artefacto.</text>
+	</string>
+	<string id="dm_information_38">
+		<text>No lo entiendo, si la Libertad esta tan ardientemente a favor de explorar la Zona y utilizarla para el bien, ?por que el Deber ayuda a nuestras investigaciones, vigila nuestros laboratorios, trae artefactos? Una paradoja.</text>
+	</string>
+	<string id="dm_information_39">
+		<text>Los bandidos siguen tomando rehenes para exigir una recompensa por ellos. Y, naturalmente, rara vez cumplen su palabra y, tras tomar el dinero, matan al cautivo. Bastardos. Mi consejo es que ni se te ocurra hacer negocios con ellos. No dude en clavarles un cuchillo en la espalda a la primera oportunidad.</text>
+	</string>
+	<string id="dm_information_40">
+		<text>Si quieres dejar algun equipo extra en algun sitio, el mejor lugar para esconderlo es un lugar abandonado, donde nadie piense en ir. El subsuelo de Agroprom, por ejemplo. La mayoria de las vias alli estan ahora bloqueadas, por lo que casi no hay lugar para que los mutantes construyan guaridas. A menos que este lleno de anomalias... Y algun que otro soldado se pasea por alli... En cualquier caso, tu decides que arriesgar: la vida o el equipo.</text>
+	</string>
+	<string id="dm_information_41">
+		<text>Sabes, incluso la Zona puede ser hermosa a veces. De pie en la torre, observando los alrededores, como los Stalkers se disparan unos a otros muy por debajo, como los mutantes se cazan unos a otros, como las bellas anomalias se descargan. O sentarse en un bar con los colegas, escuchando musica y mirando al cielo despues de la expulsion... Eso es lo que me gusta de la Zona, es mortal y hermosa al mismo tiempo...</text>
+	</string>
+	<string id="dm_information_42">
+		<text>Si sigo sin hacer nada, disparando de vez en cuando a los perros callejeros, tendre que reconsiderar mi decision de unirme al "Deber". Todos los dias me persiguen de un lado a otro, "haz esto, haz aquello", como si fuera una especie de chico de los recados. ?Que consigo con ello? ?Nada! Llevo el tiempo suficiente para realizar tareas mas serias, pero tengo la impresion de que lo necesito mas que el mando. ?Cual es la diferencia entre ellos y los militares ahora? Se sientan en sus bases y actuan como si no pasara nada y ni siquiera piensan en hacer un movimiento a menos que una amenaza se acerque lo suficiente como para sacarlos de sus asientos.</text>
+	</string>
+	<string id="dm_information_43">
+		<text>"Libertad" puede parecer un grupo de lunaticos drogados, pero pueden ser bastante agiles cuando quieren. ?Sabes cuanta desinformacion han vertido en los oidos de los acosadores para decepcionarlos en el "Deber"? Tambien les gusta decir que protegen a los acosadores, incluidos nosotros, de la afluencia de monolitos al sostener la Barrera, mientras nosotros, supuestamente, no hacemos nada mientras tanto. Ni se te ocurra creer esta tonteria, no defienden la barrera tanto tiempo como dicen, y mientras la "sostienen" los fanaticos rompieron repetidamente y casi capturaron la mitad de los Almacenes. Esta bien, esta bien. Les mostraremos la eficacia de sus "defensas".</text>
+	</string>
+	<string id="dm_information_44">
+		<text>Muchas cosas he visto en la Zona durante mis andanzas, alla cuando no era miembro de la Dolga. Diablos, los guerreros son probablemente lo peor que se puede encontrar aqui, sin contar los lunaticos que llegan desde el norte. A diferencia de los guerreros habituales, que nunca ponen un pie fuera de sus puestos de avanzada, reciben un entrenamiento especial y se les proporciona el mejor equipo, ?y nunca van solos! Son adversarios muy fuertes en el combate. Por supuesto, puedes comprobarlo tu mismo si te repugna lo suficiente, aunque no te lo aconsejo. Aunque tenemos relaciones mas o menos normales con los soldados habituales, incluso con los militares no deben reunirse con los deudores - en un momento matarlos sin dudarlo.</text>
+	</string>
+	<string id="dm_information_45">
+		<text>Estoy cansado de que aqui se nos perciba como una panda de yonkis que no hacen mas que alabar a la Zona y sus creaciones. Eso no es cierto amigo, en realidad estamos tratando de difundir cualquier informacion que encontremos sobre la Zona y hacerla llegar a los necesitados. Contenemos la afluencia de fanaticos de Radar, y todos los dias nos encontramos con el tipo de basura espeluznante que la mayoria de la gente de aqui no sonaria. A diferencia de Dolga, que solo puede presumir, sin hacer nada y disparando de vez en cuando a algunos miserables bandidos y jabalies con perros. Pero en todas partes gritan que son "valientes cazadores" y "luchadores con la Zona".</text>
+	</string>
+	<string id="dm_information_46">
+		<text>La personalidad mas interesante de la Zona es probablemente el Lenador. Ha vivido aqui desde antes del accidente y conoce el Bosque Rojo como la palma de su mano. Dicen que incluso puede percibir las anomalias, ?y puede encontrar un camino seguro a traves del campo mas espeso de las anomalias! Es una pena que el tiempo no le haya perdonado; ahora pasa cada vez mas tiempo sin salir de su refugio, pero incluso ahora se las arregla para ayudar a los acosadores, reparando su equipo y compartiendo sus utiles consejos. Sabes, odio pensar que un dia se ira. Despues de todo, es un hombre de mundo.</text>
+	</string>
+	<string id="dm_information_47">
+		<text> Hace un par de anos nuestro lider era Lebedev. Teniamos una vida de mierda aqui hasta que un mercenario llego a nosotros en los Bogs. Con su ayuda conseguimos un buen punto de apoyo en los Fens, y en general... Y entonces empezo todo el asunto de Shooter. Lebedev y la mayoria del grupo y ese mercenario fueron al norte para destruirlo... Bueno, probablemente sabes como termino eso... De todos modos, seguimos oyendo de vez en cuando que Death Trucks va a traer de vuelta a nuestros viejos amigos. En raras ocasiones, nos las arreglamos para encontrar a alguien vivo, pero... Como puedo decirlo... Parece que tienen amnesia masiva.</text>
+	</string>
+	<string id="dm_information_48">
+		<text>?Nuevo en la zona? Por favor, ?que puede haber de nuevo aqui? ?Has oido hablar del Mayor Kuznetsov? Raro bastardo, realmente. Le enviaron para sustituir a Halecki, que habia hecho un flaco favor aqui. Entonces entro Kuznetsov y empezo a hacer exactamente lo mismo. Todos estos soldados, especialmente los que son enviados aqui a los puestos de control, son unos bastardos corruptos que, a la menor oportunidad, intentan inmediatamente lucrarse a escondidas. Escuche que se metio en un monton de problemas cuando se topo con un tipo... No recuerdo su nombre. Recuerdo su nombre, pero he oido que se metio en problemas con un tipo, no recuerdo su nombre.</text>
+	</string>
+	<string id="dm_information_49">
+		<text> Ultimamente desaparecen cada vez mas tipos... Solo tenemos que esperar. Esperar a que la Zona se calme y los helicopteros puedan finalmente recogernos. Dicen que estan enviando operativos extranjeros para la operacion de rescate. Esperemos que si...</text>
+	</string>
+	<string id="dm_information_50">
+		<text>Puede que nuestro equipamiento no sea el mas moderno, pero eso no significa que no podamos realizar investigaciones. Ademas, a lo largo de los anos hemos logrado grandes avances en la ciencia. Para su informacion, las enzimas de los tentaculos de los chupasangres se han utilizado durante mucho tiempo como anticoagulante, y el ojo de carne tambien se ha utilizado durante mucho tiempo para reparar lentes.</text>
+	</string>
+	<string id="dm_information_51">
+		<text>Cada vez son mas los acosadores que mueren tratando de abrirse paso detras del Quemador. Seguro que has oido hablar de los veteranos, que toman drogas psi y se ponen gorros de papel de aluminio para ir al Radar, donde intentan recoger el mayor numero de artefactos posible y volver antes de que sus cerebros se vuelvan papilla. Es dificil mirarlos despues: algunos pierden el habla, otros se vuelven locos. Y otros los miran, pero luego todos igual se suben por codicia...</text>
+	</string>
+	<string id="dm_information_52">
+		<text>Los cientificos, dicen, estan buscando a alguien lo suficientemente tonto como para aceptar probar sus medicamentos y equipos, que supuestamente protegen contra la radiacion psi. A este ritmo, encontraran la manera de ponerse detras de Radar mas rapido. Si, ?busca a los tontos! Conocemos sus medicamentos, pero no funcionan. Eso es todo, que te vaya bien. Deambularas por Amber como un perno sin cerebro, hasta que los mismos cientificos te derriben.</text>
+	</string>
+	<string id="dm_information_53">
+		<text>Quemador, hombre. Ahora, de repente, todo el mundo esta buscando un camino seguro a traves de el. Los Stalkers, los dolgari, los cientificos y los guerreros quieren llegar al centro, por asi decirlo. Todo el mundo quiere ser el primero en llegar a los montones de artefactos y otros secretos de la Zona, que los fanaticos custodian con tanta fiabilidad.</text>
+	</string>
+	<string id="dm_information_54">
+		<text>Sabes, tio, echo de menos nuestra antigua base en el Valle Oscuro. Si, a veces era muy jodido y daba miedo, pero tuvimos un campamento increible. Podrias pasar el rato en un bar y fumar un porro o dos sin que un mutante se te echara encima en un segundo. ?Pero aqui que? Pesadillas en la noche, y monolitos y mutantes saqueando del Radar. Eh...</text>
+	</string>
+	<string id="dm_information_55">
+		<text>?Has probado ya la cocina local? No se sabe nada de los otros bichos, pero la carne y el jabali hacen buenas chuletas. He oido que hay gente que incluso come brazos de snorkel. Pero... hombre, ?no crees que eso es canibalismo? Es decir, antes tambien eran humanos. ?Por que no comer un ojo de carne en su lugar, o un tentaculo chupasangre como minimo? De hecho, parece que los veteranos locales nunca han oido hablar de la comida enlatada.</text>
+	</string>
+	<string id="dm_information_56">
+		<text>El otro dia me encontre aqui con un viejo amigo de la Gran Tierra. Es un veterano aqui, lleva anos pisoteando la Zona. Entonces me conto una historia sobre su desprendimiento atrapado en una anomalia espacial. ?Has oido hablar de ello? No es como una freidora o un vortice que te mata al instante. No se puede salir del mismo claro donde quiera que vayas, vuelves. Estuvieron atrapados alli durante unos dias, hasta que se produjo otra explosion y la anomalia parecio disiparse. Asi es.</text>
+	</string>
+	<string id="dm_information_57">
+		<text>Hay patrullas militares por todo el lugar. Si vas a los pantanos, te perseguira un helicoptero todo el dia. Alli suele haber un tiroteo solitario con bandidos, asi que si tienes suerte, preferira dispararles a ellos en lugar de a ti. Y luego esta el hueco. Lleva directamente al Valle Oscuro, asi que hay muchos bandidos por ahi, y todos quieren tenderte una emboscada, asi que es mejor caminar por los matorrales que por el camino. Y en los arbustos suelen vagar los mutantes. Luego esta Agroprom, que combina todo lo anterior: la base militar, las emboscadas de los bandidos, los mutantes, las anomalias... ?un cuento de hadas! Asi que la moraleja de la historia es: es mejor no ir mas alla del Cordon.</text>
+	</string>
+	<string id="dm_information_58">.
+		<text>Cuando la Zona primero... erm, ?despedazado? Soliamos cuidar a esos malditos cientificos todo el tiempo. Los llevamos en helicoptero, intentando acercarnos a las instalaciones, aunque los jefes lo prohibieran. Y querian mas, mas investigacion, ?maldita sea! Bueno, esta bien, estarian sentados en estos basureros... bunkeres. ?Pero no! Salen a la Zona con sus estupidos trajes naranjas, pensando que si se les ve mejor, nadie les va a tocar, porque son cientificos, ?como no! Pero a los bandidos no les importa, a los mutantes no les importa, ?a nadie le importa! Y nuestros chicos se sacrificaron por esos bichos raros, fueron destrozados en las anomalias... Dios, todavia es dificil recordar... En el resultado incluso nuestras cabezas han mandado a estos gilipollas al infierno, les han dado pistolas, despues de todo estas alimanas no son capaces de llevar el arma mas grande, trajes de kevlar, y a nosotros - una litera diaria y vodka. Creo que eso es justicia.</text>
+	</string>
+	<string id="dm_information_59">
+		<text>Soy nuevo aqui, pero he conseguido aprender algunas cosas. Lleva siempre contigo un manojo de pernos, preferiblemente con una cinta de tela atada a cada uno. Y si el camino te parece sospechoso, suelta primero el perno y luego haz tu jugada. Suena ridiculo, pero a menudo puede salvar una vida aqui.</text>
+	</string>
+	<string id="dm_information_60">
+		<text>No dudes en recoger el material medico que encuentres en los cadaveres. Puede que no sean tan esteriles o de la misma calidad que los botiquines del ejercito o de la ciencia, pero aun asi pueden salvar a tu camarada si recibe un disparo. Y los amigos de la Zona son los mejores amigos que jamas tendras. Por ello, lleve siempre un botiquin de primeros auxilios adicional cuando se desplace.</text>
+	</string>
+	<string id="dm_information_61">
+		<text> Antes teniamos un gran problema con los renegados. Nos juntamos y con la ayuda de Scar conseguimos sacar sus culos del territorio de los pantanos. Y ahora los militares estan subiendo a los pantanos, y con apoyo aereo tambien. Sinceramente, no era tan malo como parecia antes. Los militares estan realmente cabreados.</text>
+	</string>
+	<string id="dm_information_62">
+		<text>Hay una gran demanda en la Zona de herramientas para mejorar las armas y los trajes. Encontre esto en un tipo al que dispare hace un par de meses. Seguro que los concesionarios te pueden dar las coordenadas de donde buscarlos si les haces algun trabajo.</text>
+	</string>
+<!-- JOB -->
+	<string id="dm_job_general_1">
+		<text>?Donde puedo encontrar trabajo aqui?</text>
+	</string>
+	<string id="dm_job_general_2">
+		<text>?Sabes quien puede ofrecer un trabajo aqui?</text>
+	</string>
+	<string id="dm_job_general_3">
+		<text>?Puede decirme donde encontrar un trabajo?</text>
+	</string>
+	<string id="dm_job_0">
+		<text>Lo siento, no se nada.</text>
+	</string>
+	<string id="dm_job_1">
+		<text>Thrush ofrece un trabajo de vez en cuando. Es un comerciante de informacion local. Si te enteras de que algo importante sucede o ha sucedido en la Zona - corre a el, pagara un buen dinero por ello.</text>
+	</string>
+	<string id="dm_job_2">
+		<text>Oye, Nalivaiko esta buscando un buen cazador para limpiar las guaridas de los mutantes en las Cienagas. No hay muchos cazadores nocturnos por aqui, aparentemente, asi que tienes mas posibilidades de conseguir el trabajo.</text>
+	</string>
+	<string id="dm_job_3">
+		<text>Pregunta s Sidorovich, siempre tiene algun trabajo entre manos.</text>
+	</string>
+	<string id="dm_job_4">
+		<text>Recorre el pueblo, a ver si alguien puede ofrecerte un trabajo adecuado.</text>
+	</string>
+	<string id="dm_job_5">
+		<text>Hay un comerciante en Skadovsk, llamado Sych. Vende todo tipo de informacion. Yo le preguntaria.</text>
+	</string>
+	<string id="dm_job_6">
+		<text>El sultan es el hombre con el que hay que hablar. Ve a la puta base, alli lo encontraras.</text>
+	</string>
+	<string id="dm_job_7">
+		<text>Si yo fuera tu, iria al bunker de los cientificos. Siempre te pueden ofrecer un trabajohay trabajo.</text>
+	</string>
+	<string id="dm_job_8">
+		<text>Ve a hablar con Zub, es una especie de negociante en nuestra base. Te conseguira un trabajo en poco tiempo.</text>
+	</string>
+	<string id="dm_job_9">
+		<text>Si, hay un trabajo. Camina hacia el oeste. Luego mas al oeste. Y no vuelvas aqui de nuevo.</text>
+	</string>
+	<string id="dm_job_10">
+		<text>No lo se.</text>
+	</string>	
+	<string id="dm_job_11">
+		<text>Preguntale a Novikov, necesita todas las herramientas que puedas conseguir.</text>
+	</string>
+	<string id="dm_job_12">
+		<text>Habla con el barman o con Petrenko, ellos te sugeriran algo.</text>
+	</string>
+<!-- TIPS -->
+	<string id="dm_tips_general_1">
+		<text>?Me vas a contar algo util?</text>
+	</string>
+	<string id="dm_tips_general_2">
+		<text>?Puedes darme algun consejo?</text>
+	</string>
+	<string id="dm_tips_general_3">
+		<text>Dime algo util.</text>
+	</string>
+	<string id="dm_tips_0">
+		<text>No tengo nada que aconsejarte.</text>
+	</string>	
+	<string id="dm_tips_1">
+		<text>Si quieres matar a alguien, disparale en la cabeza. Independientemente del equipo del enemigo, a menos que lleve un exoesqueleto, por supuesto.</text>
+	</string>	
+	<string id="dm_tips_2">
+		<text>Si quieres ahumar a un enemigo fuera de su cobertura, usa una granada. O preferiblemente dos. Al ver un limon a su lado, saldra al galope hacia el espacio abierto.</text>
+	</string>
+	<string id="dm_tips_3">
+		<text>No olvides que las escopetas de doble canon pueden dispararse por duplicado. Tenlo en cuenta si te encuentras con un chupasangre.</text>
+	</string>	
+	<string id="dm_tips_4">
+		<text>Lleva siempre contigo una pistola, por si te quedas sin municion para tu arma principal. Son ligeros, manejables y pueden derribar a alguien con armadura ligera con un par de disparos.</text>
+	</string>	
+	<string id="dm_tips_5">.
+		<text>Si quieres matar a alguien de forma silenciosa y segura, lleva un rifle de francotirador. Con un silenciador, preferiblemente. Para cuando te busquen por todas partes, habras tenido tiempo de retirarte unas cuantas veces.</text>
+	</string>	
+	<string id="dm_tips_6">
+		<text>No dispares a la carrera: solo desperdiciaras municion. Busca cobertura y dispara desde alli, seras mas preciso.</text>
+	</string>	
+	<string id="dm_tips_7">
+		<text>Manten tu equipo en buen estado y visita al mecanico de vez en cuando si no quieres andar con una armadura oxidada o que tu arma se atasque en el momento mas inoportuno</text>
+	</string>	
+	<string id="dm_tips_8">
+		<text>Cuando recientemente fui al tecnico, se nego a arreglar mi equipo. Dijo que no tenia las herramientas, que me lo trajera primero. ??Soy su chico de los recados?! </text>
+	</string>	
+	<string id="dm_tips_9">
+		<text>?Has visto alguna vez lo que les pasa a los que no tienen tiempo de esconderse de la expulsion? He visto... Ojala no lo hubiera hecho.</text>
+	</string>	
+	<string id="dm_tips_10">
+		<text>El otro dia casi pierdo las piernas. Puse minas para cubrirme en el camino de vuelta, pero me olvide de ellas en el camino de regreso. Por lo menos la carne corrio delante de mi y salio volando, o habria estado muerto. Si... no han inventado minas que no exploten bajo el huesped.</text>
+	</string>	
+	<string id="dm_tips_11">
+		<text>Si un comerciante no ofrece un trabajo, no significa que no lo haya. Puedes ayudar a los acosadores habituales, o cazar artefactos.</text>
+	</string>
+	<string id="dm_tips_12">
+		<text>Los medicamentos aqui valen su peso en oro. No hay medicamentos innecesarios aqui, todos ellos son utiles, ?que pasa si de repente se encuentra con un controlador, o la emision cubrira en un campo abierto? </text>
+	</string>
+	<string id="dm_tips_13">
+		<text>Lleva siempre contigo un par de cargadores extra, aunque creas que no los vas a necesitar. Es mejor cargar con unos kilos de mas que luchar despues contra hordas de mutantes con un solo cuchillo.</text>
+	</string>
+	<string id="dm_tips_14">
+		<text>Los artefactos no son tan faciles de encontrar ahora. Antes estaban justo en el camino, lo unico que tenian que conseguir para salir del campo de las anomalias, pero ahora sin dispositivos especiales esa mierda no se puede encontrar. Y estas cosas cuestan mucho, e incluso emiten un pitido para que toda la zona pueda oirlo. Al menos el precio de los artefactos subio, y eso es bueno.</text>
+	</string>
+	<string id="dm_tips_15">
+		<text>No seas idiota, no corras directamente hacia una anomalia. Mejor dejar que se coma el perno que tu, ?no?</text>
+	</string>
+	<string id="dm_tips_16">
+		<text>Lleva siempre suficiente comida contigo, pasar hambre para luchar no es nada bueno. La guerra es la guerra, pero la cena tiene un horario, ?entendido? </text>
+	</string>
+	<string id="dm_tips_17">
+		<text>Intenta no sembrar tu PDA. No es solo para presumir, tiene todo lo que un acosador necesita: un mapa para no perderse en la Zona, un libro de registro donde los escleroticos pueden anotar los trabajos que has realizado, y algun tipo de informacion de usuario, para que cuando acabes muerto, un transeunte junto a tu cuerpo pueda notificar a los demas tu perdicion, y asi evitar que se repita tu destino.</text>
+	</string>
+	<string id="dm_tips_18">
+		<text>Esconde el arma si quieres hablar con alguien. Ya sabes, la gente de aqui es nerviosa, no les gusta que les pongan armas en la cara.</text>
+	</string>
+	<string id="dm_tips_19">
+		<text>Lleva siempre un par de latas de bebida energetica cuando te desplaces. En la Zona, no se duerme mucho, pero para luchar con los ojos somnolientos - lo ultimo.</text>
+	</string>
+	<string id="dm_tips_20">
+		<text>Si tienes dinero, comprate un casco o un traje con un dispositivo de vision nocturna incorporado. Te permite ver mucho mejor y mas lejos, y no delata tu posicion, a diferencia de una linterna.</text>
+	</string>	
+	<string id="dm_tips_21">
+		<text>Mientras buscas artefactos, los mutantes y los bandidos no van a ninguna parte. En tu mano libre sera mejor que cojas una pistola si quieres vivir. Nunca se sabe lo que puede pasar.</text>
+	</string>	
+	<string id="dm_tips_22">
+		<text>Para ir a un raid de larga duracion hay que ir con un buen descanso nocturno. Es mejor dormir bien antes de la mudanza que dormirse a cada rato y tragarse una energia tras otra. </text>
+	</string>	
+	<string id="dm_tips_23">
+		<text>Ten cuidado con los artefactos, no todos tienen solo propiedades buenas. La mayoria suelen ser radiactivos, asi que, a menos que tengas la proteccion adecuada, piensatelo dos veces antes de coger uno.</text>
+	</string>	
+	<string id="dm_tips_24">
+		<text>El cuchillo es en realidad un arma muy util. No solo puede utilizarse para eliminar silenciosamente al enemigo, sino tambien para abrir varias cajas que puedan contener algo valioso.</text>
+	</string>	
+	<string id="dm_tips_25">
+		<text>No lleves demasiadas cosas encima, una mochila grande solo te resta movilidad y te cansa mas rapido. Es mejor guardar los trastos sobrantes en un alijo para tiempos mejores, o venderlos a un comerciante.</text>
+	</string>	
+	<string id="dm_tips_26">
+		<text>Algunos comerciantes solo se especializan en un determinado tipo de articulo, es decir, solo venden una cosa, pero de la mejor calidad. Si quiere un medicamento no caducado, vaya a un medico. Si no quieres drogarte, vete al bar, ?vale?</text>
+	</string>	
+	<string id="dm_tips_27">
+		<text>Las anomalias, al igual que los artefactos, cambian de ubicacion tras las emisiones. Tengalo en cuenta la proxima vez que se adentre en un campo de anomalias previamente explorado.</text>
+	</string>	
+	<string id="dm_tips_28">
+		<text>La zona vive su vida, acosador. Si has masacrado mutantes en un lugar determinado, ten por seguro que a la vuelta te encontraras con otros mas grandes alli.</text>
+	</string>	
+	<string id="dm_tips_29">
+		<text>Si estas irradiado y no tienes ningun antirradical contigo, toma un poco de vodka. No es tan efectivo como el vodka, pero le quitara algo de radiacion.</text>
+	</string>
+	<string id="dm_tips_30">
+		<text>Pregunta a otra persona.</text>
+	</string>	
+	<string id="dm_tips_31">
+		<text>No solo los artefactos hacen dinero en la Zona, ten en cuenta que el saqueo tambien hace estragos aqui, jeje. Si usted encuentra un cadaver no es bastante terminado arma, o municion extra - venderlo a un comerciante kakom. Muchos no daran, por supuesto, pero suficiente para la burbuja.</text>
+	</string>	
+	<string id="dm_tips_32">.
+		<text>No juegues al terminator, a la Zona no le gustan. En lugar de avanzar, acercate a tus enemigos por la espalda y matalos discretamente de uno en uno. Asi tienes menos posibilidades de tropezar con una bala.</text>
+	</string>	
+	<string id="dm_tips_33">
+		<text>No pongas un monton de basura en tu arma si no la vas a usar, solo hara que tu arma sea mas pesada e inutil. Por ejemplo, ?para que demonios necesitas un lanzagranadas vacio si no tienes granadas para el? ?Para presumir? Estos no suelen vivir mucho tiempo aqui.</text>
+	</string>	
+	<string id="dm_tips_34">
+		<text>No desperdicies la municion. Es mas facil huir de los mutantes resistentes pero torpes, pero las cosas pequenas como los tirones se pueden atropellar con el pie.</text>
+	</string>
+	<string id="dm_tips_35">
+		<text>Si decides ponerte a cubierto del fuego enemigo, elige un refugio mejor. Un mazo rancio, o una hoja de lata, no es el escondite mas seguro, ?entendido?</text>
+	</string>	
+	<string id="dm_tips_36">
+		<text>Lleva siempre contigo un par de vendas. Si te disparan, no llegaras muy lejos sangrando.</text>
+	</string>	
+	<string id="dm_tips_37">
+		<text>Si necesitas herramientas para modificar un arma o un traje, te sugiero que visites a Sidorovich. Dara las coordenadas a cambio de dinero o despues de hacer un determinado trabajo. Mas posibilidades de encontrar el equipo en los escondites, y no cogerlo del cadaver de algun bandido.</text>
+	</string>	
+	<string id="dm_tips_38">
+		<text> Presta atencion a las conversaciones de radio, es una maldita buena manera de saber lo que ocurre en los alrededores. Puedes ayudar en un tiroteo o en una pelea con mutantes.</text>
+	</string>
+<!-- Wounded -->
+	<string id="dm_wounded_general">
+		<text>Ayuda!</text>
+	</string>
+	<string id="dm_wounded_medkit">
+		<text>Coge el botiquin de primeros auxilios.</text>
+	</string>
+	<string id="dm_wounded_sorry">
+		<text>Lo siento, no tengo un botiquin de primeros auxilios.</text>
+	</string>
+	
+	<string id="dm_psy_wounded_medkit">
+		<text>?Entra en razon!</text>
+	</string>
+	<string id="dm_psy_wounded_sorry">
+		<text>Lo siento, no puedo ayudarte.</text>
+	</string>
+	<!-- Wounded -->
+	<string id="dm_psy_wounded">
+		<text>?Po... mo... mi cabeza!</text>
+	</string>
+
+	<string id="dm_traveler_bye">
+		<text>Bueno, adios.</text>
+	</string>
+	<string id="dm_traveler_what_are_you_doing">
+		<text>?Que estas haciendo ahora?</text>
+	</string>
+	<string id="dm_traveler_can_i_go_with_you">
+		<text>?Lo llevaras contigo?</text>
+	</string>
+	<string id="dm_traveler_stalker_actor_companion_yes">
+		<text>Por supuesto. Siempre es mas divertido en compania.</text>
+	</string>
+	<string id="dm_traveler_stalker_actor_companion_no">
+		<text>No, lo siento. Prefiero seguir mi propio camino.</text>
+	</string>
+	<string id="dm_traveler_actor_go_with_squad">
+		<text>Entonces vamos.</text>
+	</string>
+	<string id="dm_traveler_take_me_to">
+		<text>?Podrias llevarme a algun sitio? Por dinero?.</text>
+	</string>
+	<string id="dm_traveler_stalker_where_do_you_want">
+		<text>No hay problema. A donde quieres que te lleve, elige.</text>
+	</string>
+	<string id="dm_traveler_actor_agree">
+		<text>Estoy de acuerdo. Vamos.</text>
+	</string>
+	<string id="dm_traveler_actor_refuse">
+		<text>He cambiado de opinion.</text>
+	</string>
+	<string id="dm_traveler_stalker_i_cant_travel">
+		<text>No tengo tiempo para eso: tengo otras cosas que hacer.</text>
+	</string>
+	<string id="dm_stalker_doing_nothing_1">
+		<text>Solo estoy descansando.</text>
+	</string>
+	<string id="dm_stalker_doing_nothing_2">
+		<text>Nada. Relajandome un poco.</text>
+	</string>
+	<string id="dm_stalker_doing_nothing_3">
+		<text>?Que pinta tiene? Ocioso...</text>
+	</string>
+	<string id="dm_stalker_chasing_squad_monster">
+		<text>Rastreando a los mutantes.</text>
+	</string>
+	<string id="dm_stalker_chasing_squad_bandit">
+		<text>Estoy tras la pista de una escoria, un bandido.</text>
+	</string>
+	<string id="dm_stalker_chasing_squad_killer">
+		<text>Persiguiendo a los mercenarios... ?esos bastardos!</text>
+	</string>
+	<string id="dm_stalker_chasing_squad_monolith">
+		<text>Rastreando algunos mercenarios. Esos tipos son unos bastardos.</text>
+	</string>
+	<string id="dm_stalker_chasing_squad_zombied">
+		<text>Estamos persiguiendo a un zombi. Conchas vacias de los que una vez fueron grandes stalkers. Pobres desdichados...</text>
+	</string>
+	<string id="dm_traveler_travel_cost">
+		<text>De acuerdo. Te va a costar</text>
+	</string>
+	<string id="dm_traveler_actor_dont_go_with_squad">
+		<text>Sabes, he cambiado de opinion.</text>
+	</string>
+	<string id="dm_traveler_actor_has_no_money">
+		<text>No tengo esa cantidad.</text>
+	</string>
+	<string id="dm_freedom_doing_nothing_1">
+		<text>Nada, en realidad.</text>
+	</string>
+	<string id="dm_freedom_chasing_squad_monster">
+		<text>Estoy tras la pista de los mutantes. Tienen mucho descaro, necesitan un poco de mano dura.</text>
+	</string>
+	<string id="dm_freedom_chasing_squad_bandit">
+		<text>Estoy acechando a los vandidos locales, necesito hablar con ellos.</text>
+	</string>
+	<string id="dm_freedom_chasing_squad_killer">
+		<text>Estoy siguiendo a un grupo de mercenarios. Pagaran por atacarnos.</text>
+	</string>
+	<string id="dm_freedom_chasing_squad_monolith">
+		<text>Estamos buscando algunos chiflados del Monolito.</text>
+	</string>
+	<string id="dm_freedom_chasing_squad_duty">
+		<text>El Deber esta en algun lugar por aqui... Los bastardos no pueden estar muy lejos.</text>
+	</string>
+	<string id="dm_duty_doing_nothing_1">
+		<text>Si, estamos buscando algunas armas para el viaje. Tambien tenemos que conseguir mas municion para hacer frente al contrato.</text>
+	</string>
+	<string id="dm_duty_chasing_squad_monster">
+		<text>Estamos purgando esta area de mutantes.</text>
+	</string>
+	<string id="dm_duty_chasing_squad_bandit">
+		<text>Estoy en una mision para perseguir a un escuadron de bandidos.</text>
+	</string>
+	<string id="dm_duty_chasing_squad_killer">
+		<text>Mi objetivo son los mercenarios. Estoy siguiendo el rastro de su escuadron.</text>
+	</string>
+	<string id="dm_duty_chasing_squad_monolith">
+		<text>Estoy persiguiendo a un escuadron de Monolitos.</text>
+	</string>
+	<string id="dm_duty_chasing_squad_freedom">
+		<text>Estamos limpiando la basura llamada "Libertad".</text>
+	</string>
+	<string id="dm_stalker_searching_artefacts_1">
+		<text>Estoy buscando artefactos.</text>
+	</string>
+	<string id="dm_stalker_searching_artefacts_2">
+		<text>Estamos recolectando hongos... ?Que crees que estamos haciendo, idiota? Estamos buscando artefactos.</text>
+	</string>
+	<string id="dm_stalker_searching_artefacts_3">
+		<text>Estoy buscando artefactos.</text>
+	</string>
+
+
+    <!-- Technician -->
+	<string id="st_mechanic_query_items">
+		<text>?Ya esta listo mi equipo?</text>
+	</string>
+	<string id="st_mechanic_repair_done">
+		<text>Si, aqui tienes.</text>
+	</string>
+		<string id="st_mechanic_repair_not_done">
+		<text>Todavia no, vuelve mas tarde.</text>
+	</string>
+    <!-- Surrender -->
+	<string id="st_surrender_victim">
+		<text>Me rindo, no dispares.</text>
+	</string>
+	<string id="st_surrender_query_victim_1">
+		<text>Necesito informacion: lugares para esconderse, escondites, emboscadas planificadas, cualquier cosa. Si me lo dices, dejare que te vallas. - escondites, escondites, emboscadas planeadas, cualquier cosa. Si me lo dices,  dejare que te vallas.</text>
+	</string>
+	<string id="st_surrender_query_victim_2">
+		<text>?Donde escondes tu equipo? ?Dime! Y tal vez te deje marchar.</text>
+	</string>
+	<string id="st_surrender_query_victim_3">
+		<text>Quedate con el botiquin, pero me llevare tu arma.</text>
+	</string>
+	<string id="st_surrender_query_victim_4">
+		<text>Me prometieron una recompensa por tu cabeza. ?Que dices al final?</text>
+	</string>
+
+	<string id="st_surrender_actor_1">
+		<text>Viviras.</text>
+	</string>
+	<string id="st_surrender_actor_2">
+		<text>Buena suerte...</text>
+	</string>
+	<string id="st_surrender_actor_3">
+		<text>Es hora de acabar contigo.</text>
+	</string>
+	<string id="st_surrender_victim_answer_1">
+		<text>?Esta bien, esta bien, pero no me mates!</text>
+	</string>
+	<string id="st_surrender_victim_answer_2">
+		<text>?Mierda! ?Esta bien!</text>
+	</string>
+	<string id="st_surrender_victim_answer_3">
+		<text>?Hombre, no me mates, que te lo voy a contar todo!</text>
+	</string>
+	<string id="st_surrender_victim_answer_4">
+		<text>?Por favor, no me mates! ?Toma mi PDA! Tiene todo lo que necesitas.</text>
+	</string>
+	<string id="st_surrender_victim_answer_5">
+		<text>?Que te den por culo!</text>
+	</string>
+	<string id="st_surrender_victim_answer_6">
+		<text>Gracias!</text>
+	</string>
+	
+	<string id="st_surrender_victim_answer_default_bounty_1">
+		<text>?Esta bien, esta bien, pero no me mates!</text>
+	</string>
+	<string id="st_surrender_victim_answer_default_bounty_2">
+		<text>?Mierda! Vale! </text>
+	</string>
+	<string id="st_surrender_victim_answer_default_bounty_3">
+		<text>?Hombre, no me mates, te lo voy a contar todo!</text>
+	</string>
+	<string id="st_surrender_victim_answer_default_bounty_4">
+		<text>?Por favor, no me mates! ?Toma mi PDA! Tiene todo lo que necesitas! </text>
+	</string>
+	<string id="st_surrender_victim_answer_default_bounty_5">
+		<text>?Que te den!</text>
+	</string>
+	
+	<string id="st_surrender_victim_answer_esc_m_trader_bounty_1">
+		<text>Ese bastardo de Sidorovich te envio, ?verdad? Viejo bastardo... ?Que quieres? ?Dinero? ?Toma, coge mi PDA y el dinero, pero no me mates!</text>
+	</string>
+	<string id="st_surrender_victim_answer_esc_m_trader_bounty_2">
+		<text>?Sabes siquiera por que te an enviado a matarme? ?No te importa una mierda! ?Sidorovich Arde en el infierno, maricon!</text>
+	</string>
+	<string id="st_surrender_victim_answer_esc_m_trader_bounty_3">
+		<text>?Que te den! </text>
+	</string>
+	<string id="st_surrender_victim_answer_esc_m_trader_bounty_4">
+		<text>?Asi que matame! ?A que esperas?</text>
+	</string>
+	<string id="st_surrender_victim_answer_esc_m_trader_bounty_5">
+		<text>...</text>
+	</string>
+	<string id="st_surrender_victim_answer_zat_b7_bandit_boss_sultan_bounty_1">
+		<text>El Sultan te envio, ?no es asi? Maldito bastardo... ?Que quieres? ?Dinero? Toma, ten mi PDA y mi dinero, ?pero no me mates! </text>
+	</string>
+	<string id="st_surrender_victim_answer_zat_b7_bandit_boss_sultan_bounty_2">
+		<text>?Idiota sin alma! ?Sabe siquiera para que estaba reservado? ?No te importa una mierda?! ?Muerete, Sultan! </text>
+	</string>
+	<string id="st_surrender_victim_answer_zat_b7_bandit_boss_sultan_bounty_3">
+		<text>?Que te den! </text>
+	</string>
+	<string id="st_surrender_victim_answer_zat_b7_bandit_boss_sultan_bounty_4">
+		<text>?Asi que matame! ?A que esperas? </text>
+	</string>
+	<string id="st_surrender_victim_answer_zat_b7_bandit_boss_sultan_bounty_5">
+		<text>...</text>
+	</string>
+
+	<string id="st_drx_broker_finish_1">
+		<text>Lo comprare.</text>
+	</string>
+	<string id="st_drx_broker_finish_2">
+		<text>De acuerdo, lo acepto.</text>
+	</string>
+	<string id="st_drx_broker_finish_3">
+		<text>Se ajusta, lo cojo.</text>
+	</string>
+
+	<string id="st_broker_query">
+		<text>Tengo algo de informacion. ?Estas interesado?</text>
+	</string>
+	<string id="st_broker_query_more">
+		<text>Tengo algo mas que podria interesarle.</text>
+	</string>
+	<string id="st_broker_query_pda">
+		<text>Encontre una PDA, puede haber alguna informacion util en ella.</text>
+	</string>
+	<string id="st_broker_query_pdas">
+		<text>He encontrado %s PDAs, puede que haya algo util en ellas.</text>
+	</string>
+	<string id="st_broker_query_valuable">
+		<text>Creo que te puede interesar...</text>
+	</string>
+	<string id="st_broker_trade_valuable">
+		<text>Hmm, %s; muy valioso. Estoy interesado.</text>
+	</string>
+	<string id="st_broker_give_pda">
+		<text>Aqui tienes.</text>
+	</string>
+	<string id="st_broker_npc_start_1">
+		<text>Bueno, veamos.</text>
+	</string>
+	<string id="st_broker_npc_start_2">
+		<text>No me hagas perder el tiempo, ?que tienes ahi?</text>
+	</string>
+	<string id="st_broker_npc_start_3">
+		<text>Espero que realmente haya algo importante ahi, si no, me haces perder el tiempo.</text>
+	</string>
+		<string id="st_broker_npc_answer_pda_query">
+		<text>Bien, dejame echar un vistazo.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_1">
+		<text>Nada.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_2">
+		<text>Un par de escondites.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_3">
+		<text>Contactos para traficantes de drogas locales.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_4">
+		<text>Un diario..</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_5">
+		<text>Las coordenadas del escondite.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_6">
+		<text>Solo un poco mas de mierda.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_7">
+		<text>Nada interesante.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_8">
+		<text>Un par de contactos utiles.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_9">
+		<text>Una mierda, pero alguien podria comprarlo.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_10">
+		<text>En su mayoria basura. Puedo encontrar un comprador.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_11">
+		<text>Alguna informacion util.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_12">
+		<text>Lista de contrasenas.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_13">
+		<text>Oh, datos bancarios.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_14">
+		<text>Vacia.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_15">
+		<text>Informacion sobre un proximo encuentro.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_16">
+		<text>Observaciones sobre la flora local.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_17">
+		<text>Parece haber un juego increible en este.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_18">
+		<text>Observaciones detalladas con respecto a los Carnes.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_19">
+		<text>Observaciones detalladas con respecto a los Jabalies.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_common_20">
+		<text>Observaciones detalladas sobre las anomalias Remolino.</text>
+	</string>
+
+	<string id="st_broker_npc_about_pda_uncommon_1">
+		<text>Este menciona una reunion local que se esta llevando a cabo.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_2">
+		<text>Fotos de un miembro de Libertad tratando de deshuesar a un chupasangre...</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_3">
+		<text>Un contacto en un traficante de drogas.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_4">
+		<text>Encriptado. Puede ser valioso.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_5">
+		<text>Este menciona una ubicacion de escondite.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_6">
+		<text>Este esta encriptado.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_7">
+		<text>El diario de algun chiflado.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_8">
+		<text>Alguna informacion de contacto util.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_9">
+		<text>Informacion de ruta de contrabando.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_10">
+		<text>Podria encontrar un comprador para este aqui.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_11">
+		<text>Algo de informacion util en este.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_12">
+		<text>Informacion de cuenta bancaria.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_13">
+		<text>Esto menciona una reunion entre Deber y una banda local de matones.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_14">
+		<text>Aqui hay coordenadas para un punto de intercambio de suministros.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_15">
+		<text>Este menciona una reunion local en unos dias.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_16">
+		<text>Informacion detallada sobre ratas y hamsters.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_17">
+		<text>Informacion sobre un atajo a traves del Bosque Rojo.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_18">
+		<text>Porno... Este esta lleno de porno.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_19">
+		<text>Observaciones detalladas sobre una variedad de anomalias.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_uncommon_20">
+		<text>Muchos registros de chat pueden tener algo util.</text>
+	</string>
+
+	<string id="st_broker_npc_about_pda_rare_1">
+		<text>Fantastico. Un poco de suciedad en Barbas.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_2">
+		<text>Menciones de un alijo enorme... Tomare esto seguro.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_3">
+		<text>?Excelente! Esto menciona a un contrabandista de drogas haciendo tratos con los militares.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_4">
+		<text>Encriptado. Podria ser valioso; me quedare con este.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_5">
+		<text>Este menciona la ubicacion de un escondite.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_6">
+		<text>Encriptado. Si tienen algo que esconder, puede ser algo que yo quiera.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_7">
+		<text>Como bonus, aqui hay algunas coordenadas de los alijos que no me interesa obtener.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_8">
+		<text>Informacion de cuenta bancaria y tarjeta de credito.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_9">
+		<text>Supuesta ubicacion del Oasis.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_10">
+		<text>Podria encontrar un comprador para este aqui.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_11">
+		<text>Algo de informacion util en este.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_12">
+		<text>Contrasenas sin encriptar e informacion de cuenta bancaria.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_13">
+		<text>Esto menciona una reunion entre algunos mercenarios y matones locales.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_14">
+		<text>Aqui hay coordenadas para un punto de intercambio de suministros.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_15">
+		<text>Este menciona una reunion que pasara en algunos dias.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_16">
+		<text>?Mapas! ?Un cartografo comun! Este es muy util.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_17">
+		<text>Informacion de una acceso rapido a traves de un campo de anomalias.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_18">
+		<text>Proximo punto de intercambio de suministros aqui.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_19">
+		<text>Los cientificos pueden querer este.</text>
+	</string>
+	<string id="st_broker_npc_about_pda_rare_20">
+		<text>?Que demo...? Este solo dice "Matar a Strelok".</text>
+	</string>
+
+	<string id="st_broker_npc_about_pda_bonus_coords">
+		<text>Como extra, aqui estan algunas coordenadas de los alijos que no me interesa obtener.</text>
+	</string>
+<!-- TASK -->
+	<string id="st_ordered_task_query">
+		<text>?Hay algun trabajo que quieras que haga?</text>
+	</string>
+	<string id="st_ordered_task_query_1">
+		<text>?Hay algun trabajo para mi?</text>
+	</string>
+	<string id="st_ordered_task_query_2">
+		<text>Tienes trabajo?</text>
+	</string>
+	<string id="st_ordered_task_query_3">
+		<text>Mira, quiero ganar algo de dinero. ?Tienes algo?</text>
+	</string>
+	<string id="st_ordered_task_query_4">
+		<text>?Hay algun trabajo para mi?</text>
+	</string>
+	<string id="st_ordered_task_query_5">
+		<text>Me gustaria ganar algo de dinero. ?Tienes un trabajo?</text>
+	</string>
+	<string id="st_ordered_task_query_finished">
+		<text>El trabajo esta hecho.</text>
+	</string>
+	<string id="st_ordered_task_query_finished_1">
+		<text>Hice lo que me pediste.</text>
+	</string>
+	<string id="st_ordered_task_query_finished_2">
+		<text>Ya esta hecho, dame lo que es debido.</text>
+	</string>
+	<string id="st_ordered_task_query_finished_3">
+		<text>Ya esta, todo hecho.</text>
+	</string>
+	<string id="st_ordered_task_query_finished_4">
+		<text>Has completado tu tarea.</text>
+	</string>
+	<string id="st_ordered_task_query_finished_5">
+		<text>Bueno, el trabajo esta hecho.</text>
+	</string>
+	<string id="st_ordered_task_not_given_task">
+		<text>?Que? Todavia no has hecho todo lo que te pedi.</text>
+	</string>
+	<string id="st_ordered_task_accept">
+		<text>Lo hare.</text>
+	</string>
+	<string id="st_ordered_task_next_1">
+		<text>?Hay algo mas?</text>
+	</string>
+	<string id="st_ordered_task_next_2">
+		<text>Tendria algo mas.</text>
+	</string>
+	<string id="st_ordered_task_next_3">
+		<text>?Hay algun otro trabajo?</text>
+	</string>
+	<string id="st_ordered_task_next_4">
+		<text>No, eso no funcionara, ?hay otras tareas?</text>
+	</string>
+	<string id="st_ordered_task_next_5">
+		<text>Dame otra cosa.</text>
+	</string>
+	<string id="st_accepted_task_1">
+		<text>Muy bien, entonces. Vuelve cuando lo hayas terminado.</text>
+	</string>
+	<string id="st_accepted_task_2">
+		<text>Vuelve cuando hayas terminado. Buena suerte.</text>
+	</string>
+	<string id="st_accepted_task_3">
+		<text>Vamos, te estoy esperando.</text>
+	</string>	
+	<string id="st_accepted_task_4">
+		<text>Bueno, la recompensa espera al heroe, jeje. Vamos, buena suerte.</text>
+	</string>
+	<string id="st_accepted_task_5">
+		<text>Muy bien, no lo arruines. Buena suerte con eso.</text>
+	</string>
+	<string id="st_default_task_finished_1">
+		<text>Gracias. Aqui tienes tu recompensa:</text>
+	</string>
+	<string id="st_default_task_finished_2">
+		<text>Gracias por su ayuda. Aqui tienes, como te prometi:</text>
+	</string>
+	<string id="st_default_task_finished_3">
+		<text>Bien, aqui esta tu recompensa:</text>
+	</string>
+	<string id="st_no_available_task">
+		<text>Nada hasta ahora.</text>
+	</string>
+	<string id="st_no_available_task_1">
+		<text>No hay nada.</text>
+	</string>
+	<string id="st_no_available_task_2">
+		<text>Todo el trabajo ya ha sido realizado.</text>
+	</string>
+	<string id="st_no_available_task_3">
+		<text>Todavia no, pero definitivamente habra manana.</text>
+	</string>
+	<string id="st_no_available_task_4">
+		<text>Dejame en paz, hombre, yo mismo necesito un trabajo.</text>
+	</string>
+	<string id="st_no_available_task_5">
+		<text>Stalker, retrocede.</text>
+	</string>
+	<string id="st_skipped_tasks_1">
+		<text>?Que quieres de mi? Ya te he ofrecido un trabajo.</text>
+	</string>
+	<string id="st_skipped_tasks_2">
+		<text>?Hay algun problema con tu memoria? Rechazaste lo que te sugeri.</text>
+	</string>
+	<string id="st_skipped_tasks_3">
+		<text>Tio, me has puesto palote.</text>
+	</string>
+	<string id="st_skipped_tasks_4">
+		<text>Mira, no te gusta esto, no te gusta aquello, mejor buscate un curro de manporrero, o, vete de aqui amablemente, a tomar por culo ?vale?</text>
+	</string>
+	<string id="st_skipped_tasks_5">
+		<text>?No lo querias antes? Bueno, no consigues el trabajo, asi que pierdete o, vete ala mierda, ?ok?.</text>
+	</string>
+	<string id="st_about_fetch_task_default">
+		<text>Um... No puedo recordar lo que iba a decir...</text>
+	</string>
+	<string id="st_return_for_reward">
+		<text>Vuelve por la recompensa.</text>
+	</string>
+	<string id="st_nevermind">
+		<text>Pero olvidalo. Vuelve mas tarde.</text>
+	</string>
+
+	<!-- Task cancelling -->
+	<string id="dm_universal_actor_exit_sorry">
+		<text>Siento no haber podido ayudar.</text>
+	</string>
+	<string id="st_ordered_task_query_cancel">
+		<text>No pude completar el trabajo.</text>
+	</string>
+	<string id="st_task_none_active">
+		<text>?Que trabajo?</text>
+	</string>
+	<string id="st_ordered_task_query_cancel_next_job">
+		<text>No, todavia estoy trabajando en eso.</text>
+	</string>
+	<string id="st_task_default_excuse_cancel_job">
+		<text>Si, estoy ocupado con otros trabajos.</text>
+	</string>
+	<string id="st_default_task_cancel_1">
+		<text>Me decepcionas, stalker.</text>
+	</string>
+	<string id="st_default_task_cancel_2">
+		<text>Habia pensado mejor de ti, stalker.</text>
+	</string>
+	<string id="st_default_task_cancel_3">
+		<text>Supongo que eso es lo que deberia haber esperado de un novato.</text>
+	</string>
+
+	<!-- Repair -->
+	<string id="st_inventory_upgrade_reply_1">
+		<text>Tus %s estaran listos en %s minutos. Vuelve parar entonces.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_2">
+		<text>Pronto, tus %s estaran listos. Vuelve en unos minutos.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_3">
+		<text>Urgh, largate o, vete a la mierda. No estoy borracho todavia.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_4">
+		<text>Tus malditos %s estaran listos en una hora y %s minutos. Estare borracho para entonces.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_5">
+		<text>No es facil reparar algo cuando tienes temblores... Vuelve en una hora por tus %s.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_6">
+		<text>?Que...? Mierda, diablos, olvide que estaba reparando tu equipo. Vuelve a por tus %s en una hora y %s minutos.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_7">
+		<text>Tus %s estaran listos en una hora y %s, asi que vuelve mas tarde, ?si?</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_8">
+		<text>Tus %s estaran listos en unas %s horas y %s. Vuelve para entonces.</text>
+	</string>
+	<string id="st_inventory_upgrade_reply_9">
+		<text>Esta casi listo.</text>
+	</string>
+	<string id="st_task_placement">
+		<text>Puedo darte una ubicacion aproximada: ubicacion</text>
+	</string>
+	<string id="st_task_placement_1">
+		<text>No hay mucho mas que contar... Puedo darle una ubicacion aproximada: ubicacion</text>
+	</string>
+	<string id="st_task_placement_2">
+		<text>?Mas detalles? Bueno, la ubicacion aproximada es -</text>
+	</string>
+	<string id="st_task_placement_3">
+		<text>Es posible que haya mas detalles. Puedo decirte donde esta -</text>
+	</string>
+	<string id="st_task_placement_4">
+		<text>Bien, puedo darte una guia aproximada. La ubicacion es... -</text>
+	</string>
+	<string id="st_task_placement_5">
+		<text>Solo se en que lugar se encuentra -</text>
+	</string>
+	<string id="st_task_placement_no_more_1">
+		<text>Tambien mire aqui, un poco de informacion de mi PDA:</text>
+	</string>
+	<string id="st_task_placement_no_more_2">
+		<text>Bien, puedo mostrarte la informacion que tengo escondida en mi PDA. Compruebalo:</text>
+	</string>
+	<string id="st_task_placement_no_more_3">
+		<text>Tengo mas detalles en mi PDA, mira:</text>
+	</string>
+	<string id="st_task_placement_no_more_4">
+		<text>Aqui, echa un vistazo, un poco mas de detalles en mi PDA:</text>
+	</string>
+	<string id="st_task_placement_no_more_5">
+		<text>Ademas, mira en mi PDA, ahi guardo informacion util:</text>
+	</string>
+	<string id="st_task_placement_nothing">
+		<text>Te he dicho todo lo que se.</text>
+	</string>
+	<string id="st_task_placement_nothing_1">
+		<text>No hay mucho mas que contar.</text>
+	</string>
+	<string id="st_task_placement_nothing_2">
+		<text>?Por que no me cuentas mas? Ya lo he dicho todo.</text>
+	</string>
+	<string id="st_task_placement_nothing_3">
+		<text>?Cuantos detalles mas hay? Ya te lo he dicho todo.</text>
+	</string>
+	<string id="st_task_placement_nothing_4">
+		<text>Ya te lo he contado todo.</text>
+	</string>
+	<string id="st_task_placement_nothing_5">
+		<text>No tengo nada mas que decir.</text>
+	</string>
+	<string id="st_camp_member">
+		<text>Situado en el campamento</text>
+	</string>
+	<string id="st_camp_member_mutant">
+		<text>Situado en la guarida</text>
+	</string>
+	<string id="st_task_money_1">
+		<text>. Asi que para ser mas especificos, hay que quitar la cantidad de</text>
+	</string>
+	<string id="st_task_money_2">
+		<text>. Bien, le debo -</text>
+	</string>
+	<string id="st_task_money_3">
+		<text>. Todo lo que me debe</text>
+	</string>
+	<string id="st_task_money_4">
+		<text>. Esta mal pagado -</text>
+	</string>
+	<string id="st_task_money_5">
+		<text>. Y mas concretamente, esta mal pagado en</text>
+	</string>
+	<string id="st_task_money_no_more_1">
+		<text>UAH. Bueno, eso es todo. ?Lo haras? Ademas, mira mi PDA, ese es su perfil:</text>
+	</string>
+	<string id="st_task_money_no_more_2">
+		<text>UAH. Creo que lo he dicho todo. Bueno, ?te interesa? Toma, echa un vistazo a mi PDA, es informacion util:</text>
+	</string>
+	<string id="st_task_money_no_more_3">
+		<text>UAH. Ahora, aqui hay otro... Oh, eso es diferente, me confundi. En resumen, te lo he contado todo. Mira aqui en mi PDA:</text>
+	</string>
+	<string id="st_task_money_no_more_4">
+		<text>UAH. Bueno, y su perfil con informacion del PDA, sacada de fuentes verificadas:</text>
+	</string>
+	<string id="st_task_money_no_more_5">
+		<text>UAH. No parece que haya mucho mas que anadir. Y, casi lo olvido, mira en mi PDA:</text>
+	</string>
+	<string id="st_debt_task_dialog_start_1">
+		<text>Oye, hombre, le debes dinero a alguien, ?recuerdas?</text>
+	</string>
+	<string id="st_debt_task_dialog_start_2">
+		<text>Mira, no queremos meter a nadie en problemas, ?verdad? Quieres que tu fianza este bien, ?no? Entonces, dame el dinero que prometiste.</text>
+	</string>
+	<string id="st_debt_task_dialog_start_3">
+		<text>Oye, ?cuando vas a devolver a las personas honestas su dinero? Te dan un prestamo, ?y tu tambien eres una rata? Esa es la zona, hermano, uno, dos y muerto. Devuelvelo todo.</text>
+	</string>
+	<string id="st_debt_task_dialog_start_4">
+		<text>Hombre, lo unico que puedo decir es que estas jodido. La gente seria me envio a ti por el dinero prometido. Es hora de pagar tus deudas, o sera peor.</text>
+	</string>
+	<string id="st_debt_task_dialog_start_5">
+		<text>Hermano, estas jodido. He llegado a ti de la mano de gente reputada y honesta. Me dicen que si no entregas el dinero impagado, estaras acabado.</text>
+	</string>
+	<string id="st_debt_task_dialog_good_1">
+		<text>No seas tan capullo, estuve a punto de dartelo yo mismo. Aqui tienes, no quiero mas problemas. Dejame enviar un mensaje de texto con el numero de tu PDA al prestamista, ya sabes, por si acaso... Muy bien, buena suerte.</text>
+	</string>
+	<string id="st_debt_task_dialog_good_2">
+		<text>Espera, aguanta los pedos. Te juro que iba a devolverlo todo, con intereses. Ya que estas aqui, tomalo, tomalo todo. No te ofendas, pero enviare tu numero de PDA al prestamista. Asegurate de que estan a salvo.</text>
+	</string>
+	<string id="st_debt_task_dialog_good_3">
+		<text>?Pregunta de mierda! Aqui tienes. Pero le dare el numero de tu PDA al prestamista, por si acaso. No lo pierdas, colega.</text>
+	</string>
+	<string id="st_debt_task_dialog_good_4">
+		<text>No hay problema, no tengo que tratar con prestatarios, pero les enviare el numero de su PDA. Tomalo. Si el dinero no llega a donde tiene que llegar, no soy yo quien tendria problemas.</text>
+	</string>
+	<string id="st_debt_task_dialog_good_5">
+		<text>Si... Te lo devolvere, tomalo. Pero no puedo apostar por mi palabra de honor, enviare un mensaje de texto con tu pin al prestamista. Si el dinero desaparece, se acabo.</text>
+	</string>
+	<string id="st_debt_task_dialog_bad_1">
+		<text>?Que? ?Quien demonios eres tu? Oye, sal de aqui antes de que te meta una patada en los huevos.</text>
+	</string>
+	<string id="st_debt_task_dialog_bad_2">
+		<text>?Por que me hablas a mi, grandullon hijo de puta? Tu trabajo es gorronear en el cordon, no cobrar deudas, lo llevas escrito. Vete a la mierda.</text>
+	</string>
+	<string id="st_debt_task_dialog_bad_3">
+		<text>?Que dinero me estas dando? No le debo nada a nadie. Enrolla la salchicha, hombre.</text>
+	</string>
+	<string id="st_debt_task_dialog_bad_4">
+		<text>?Quien es usted? No me importa quien quiere que. Pierdete, hermano.</text>
+	</string>
+	<string id="st_debt_task_dialog_bad_5">
+		<text>?Que? ?Por que me hablas, hijo de puta? Sal de aqui antes de que te reviente esa cara de idiota que tienes.</text>
+	</string>
+	<string id="st_debt_task_dialog_actor_bad_1">
+		<text>No, lo tienes, hijo de puta. Te voy a disparar ahora mismo, ?me oyes?</text>
+	</string>
+	<string id="st_debt_task_dialog_actor_bad_2">
+		<text>Soy una putisima impaciente. Llevo una pistola, y boy a dispararte como a un perro , ?de acuerdo?</text>
+	</string>
+	<string id="st_debt_task_dialog_actor_bad_3">
+		<text>Pero ?que es lo que quieres decirme? ?Estas harto de vivir, rata asquerosa? ?Acabare contigo aqui y nadie te rascara!</text>
+	</string>
+	<string id="st_debt_task_dialog_actor_bad_4">
+		<text>?Eres un degenerado! ?Tienes mucha vida? ?Crees que me cuesta algo abofetearte esa cara de jilipollas que tienes?</text>
+	</string>
+	<string id="st_debt_task_dialog_actor_bad_5">
+		<text>Oye, imbecil, ?y si te mato aqui, eh? ?Dame el dinero!</text>
+	</string>
+	<string id="st_debt_task_dialog_fight_1">
+		<text>?Te voy a matar yo mismo, imbecil!</text>
+	</string>
+	<string id="st_debt_task_dialog_fight_2">
+		<text>Te has pasado de la raya, ?me voy a correr yo mismo en tu puta boca!</text>
+	</string>
+	<string id="st_debt_task_dialog_fight_3">
+		<text>?Te voy a enterrar, joder!</text>
+	</string>
+	<string id="st_debt_task_dialog_fight_4">
+		<text>?Coleccionista de mierda, vere como agarras el campo con los dientes!</text>
+	</string>
+	<string id="st_debt_task_dialog_fight_5">
+		<text>?Pues bien, coger el vertedero, fraer!</text>
+	</string>
+	<string id="st_corpse_debtor_1">
+		<text>El cadaver del de Deber</text>
+	</string>
+	<string id="st_corpse_debtor_2">
+		<text>El cuerpo del de Deber</text>
+	</string>
+	<string id="st_corpse_debtor_3">
+		<text>Deber muerto</text>
+	</string>
+	<string id="st_corpse_debt_1">
+		<text>Cojio una deuda por la cantidad</text>
+	</string>
+	<string id="st_corpse_debt_2">
+		<text>Una deuda encontrada:</text>
+	</string>
+	<string id="st_corpse_debt_3">
+		<text>Deuda prometida recibida:</text>
+	</string>
+	<string id="st_debt_task_dialog_kill_1">
+		<text>?La proxima vez te hare correr como aun perro! ?Que tal si lo hacemos ahora?</text>
+	</string>
+	<string id="st_debt_task_dialog_kill_2">
+		<text>?Deberias haberlo hecho desde el principio! Si te luce, te disparare, ?me oyes? ?Largate de aqui!</text>
+	</string>
+	<string id="st_debt_task_dialog_kill_3">
+		<text>Eres un imbecil, por supuesto. La proxima vez... Tal vez no haya una proxima vez, ?eh?</text>
+	</string>
+	<string id="st_debt_task_dialog_kill_4">
+		<text>No, eres un maldito marica. ?Quitate de mi vista, si aun valoras tu vida!</text>
+	</string>
+	<string id="st_debt_task_dialog_kill_5">
+		<text>De todos modos, mientras soy amable, huye mientras puedas ante de que te cagues en los pantalones, ?me entiendes?</text>
+	</string>
+	<string id="st_debt_task_dialog_retreat_1">
+		<text>?Por que estas tan excitado? Esta bien, esta bien, quedatelo todo, ?dejame en paz!</text>
+	</string>
+	<string id="st_debt_task_dialog_retreat_2">
+		<text>?Estas completamente loco! Toma todo, pero no me mates, por favor.</text>
+	</string>
+	<string id="st_debt_task_dialog_retreat_3">
+		<text>?No me arruines, no me arruines! ?Te dare todo, hermano, todo! Tomalo y no me toques, ?de acuerdo?</text>
+	</string>
+	<string id="st_debt_task_dialog_retreat_4">
+		<text>?Que es lo que... No me mates, ?quieres? Toma, aqui esta el dinero, no lo arruines por nada.</text>
+	</string>
+	<string id="st_debt_task_dialog_retreat_5">
+		<text>?Vamos, hombre, relajate! Toma el dinero, pero no me toques, ?de acuerdo?</text>
+	</string>
+	<string id="st_text_npc_giving_reward_1">
+		<text>Oh, ?ya? Bueno, eso es bueno, ahora, espera...</text>
+	</string>
+	<string id="st_text_npc_giving_reward_2">
+		<text>Solo tienes que esperar a que tenga mi recompensa...</text>
+	</string>
+	<string id="st_text_npc_giving_reward_3">
+		<text>Claro, hermano, un minuto...</text>
+	</string>
+	<string id="st_text_npc_giving_reward_4">
+		<text>Ahora, espera mientras reviso mis bolsillos...</text>
+	</string>
+	<string id="st_text_npc_giving_reward_5">
+		<text>Eres rapido, vuelvo enseguida, en cuanto encuentre la cantidad prometida...</text>
+	</string>
+	<string id="st_waiting_for_reward_1">
+		<text>Vamos, vamos.</text>
+	</string>
+	<string id="st_waiting_for_reward_2">
+		<text>No hay problema, esperare.</text>
+	</string>
+	<string id="st_waiting_for_reward_3">
+		<text>Vamos, que el tiempo es oro.</text>
+	</string>
+	<string id="st_waiting_for_reward_4">
+		<text>No te preocupes, puedo esperar un minuto.</text>
+	</string>
+	<string id="st_waiting_for_reward_5">
+		<text>Esta bien, me aguantare.</text>
+	</string>
+	<string id="st_dont_need_money_1">
+		<text>Mira, no quiero ningun dinero en absoluto. Dame algo a cambio.</text>
+	</string>
+	<string id="st_dont_need_money_2">
+		<text>No, espera, no necesito el dinero. Dame eso.</text>
+	</string>
+	<string id="st_dont_need_money_3">
+		<text>Tio, me importan un carajo tus monedas. Solo dame algo mas.</text>
+	</string>
+	<string id="st_dont_need_money_4">
+		<text>Oye, no necesito tus monedas. Dame algo mas.</text>
+	</string>
+	<string id="st_dont_need_money_5">
+		<text>Espera, no necesito el dinero. Dame algo mas.</text>
+	</string>
+	<string id="st_text_task_no_money_1">
+		<text>?No lo quieres? Como quieras. Toma esto, entonces:</text>
+	</string>
+	<string id="st_text_task_no_money_2">
+		<text>Depende de ti, solo puedo darte esto a cambio:</text>
+	</string>
+	<string id="st_text_task_no_money_3">
+		<text>Que raro, no necesitas el dinero. Toma esto, entonces:</text>
+	</string>
+	<string id="st_text_task_no_money_4">
+		<text>?Lo has pensado bien? Muy bien, toma esto entonces:</text>
+	</string>
+	<string id="st_text_task_no_money_5">
+		<text>El jefe es el jefe, te dare esto entonces:</text>
+	</string>
+	<string id="st_task_reward_1">
+		<text>Dinero en efectivo o botin que te dare sobre</text>
+	</string>
+	<string id="st_task_reward_2">
+		<text>Se te recompensara con dinero u otra cosa por un valor aproximado de</text>
+	</string>
+	<string id="st_task_reward_3">
+		<text>Si haces el trabajo, te dare algo de dinero o algo util en total</text>
+	</string>
+	<string id="st_task_reward_4">
+		<text>Cuando lo hagas, recibiras una cuantiosa suma de dinero o algo mas en general por</text>
+	</string>
+	<string id="st_task_reward_5">
+		<text>Como pago, dare mi dinero ganado con esfuerzo o un articulo por la suma de</text>
+	</string>
+	<string id="st_fake_inv_1">
+		<text>[logica]</text>
+	</string>
+	<string id="st_fake_inv_2">
+		<text>cfg = scripts\inventory_box_fake.ltx</text>
+	</string>
+	<string id="st_universal_agree_1">
+		<text>Trato.</text>
+	</string>
+	<string id="st_universal_agree_2">
+		<text>Ir a.</text>
+	</string>
+	<string id="st_universal_agree_3">
+		<text>Bien.</text>
+	</string>
+	<string id="st_universal_agree_4">
+		<text>Vamos.</text>
+	</string>
+	<string id="st_universal_agree_5">
+		<text>Bien, Vamos.</text>
+	</string>
+	<string id="st_one_piece">
+		<text>articulo</text>
+	</string>
+	<string id="st_two_four_pieces">
+		<text>articulos</text>
+	</string>
+	<string id="st_five_pieces">
+		<text>piezas</text>
+	</string>
+	<string id="st_package_task_dialog_start_1">
+		<text>Me pidieron que te diera un mensaje.</text>
+	</string>
+	<string id="st_package_task_dialog_start_2">
+		<text>Tengo una informacion para ti de un stalker.</text>
+	</string>
+	<string id="st_package_task_dialog_start_3">
+		<text>Me enviaron a traerte provisiones.</text>
+	</string>
+	<string id="st_package_task_dialog_start_4">
+		<text>Bien, toma la mercancia.</text>
+	</string>
+	<string id="st_package_task_dialog_start_5">
+		<text>Bueno, aqui tienes tu paquete, ya sabes de quien.</text>
+	</string>
+	<string id="st_package_task_dialog_good_1">
+		<text>Si, ya era hora. Gracias.</text>
+	</string>
+	<string id="st_package_task_dialog_good_2">
+		<text>Date prisa, llevo mucho tiempo esperando.</text>
+	</string>
+	<string id="st_package_task_dialog_good_3">
+		<text>Aja, martillo, trae mis tesoros aqui.</text>
+	</string>
+	<string id="st_package_task_dialog_good_4">
+		<text>Que bien que me lo traigas a tiempo. Le quitaras tu dinero..</text>
+	</string>
+	<string id="st_package_task_dialog_good_5">
+		<text>He estado esperando, ?no podrias hacermelo llegar mas rapido? Muy bien, puedes conseguir el dinero donde tienes el trabajo.</text>
+	</string>
+	<string id="st_package_task_dialog_bad_1">
+		<text>Bueno, ?donde esta? No lo veo, ve a buscarlo.</text>
+	</string>
+	<string id="st_package_task_dialog_bad_2">
+		<text>?Y donde esta el paquete en si? ?Lo has perdido? Bueno, ve a buscarlo ahora.</text>
+	</string>
+	<string id="st_package_task_dialog_bad_3">
+		<text>Oye, ?vas a hacer bromas por aqui? O me das el dinero o te vas a la mierda.</text>
+	</string>
+	<string id="st_package_task_dialog_bad_4">
+		<text>No un hombre, eso no lo hara. Sera mejor que encuentres nuestra bondad primero.</text>
+	</string>
+	<string id="st_package_task_dialog_bad_5">
+		<text>Bueno, ?donde esta? No lo veo, ve a buscarlo.</text>
+	</string>
+	<string id="st_task_item_1">
+		<text>- esto es lo que tendra que entregar</text>
+	</string>
+	<string id="st_task_item_2">
+		<text>, Si, creo que se trataba de eso, de traerlo</text>
+	</string>
+	<string id="st_task_item_3">
+		<text>necesitas traer al stalker solo</text>
+	</string>
+	<string id="st_task_item_4">
+		<text>- dichos suministros deben ser recibidos por el cliente</text>
+	</string>
+	<string id="st_task_item_5">
+		<text>entregar esto</text>
+	</string>
+	<string id="st_task_num_1">
+		<text>en numero</text>
+	</string>
+	<string id="st_task_num_2">
+		<text>cantidad</text>
+	</string>
+	<string id="st_task_num_3">
+		<text>alrededor de</text>
+	</string>
+	<string id="st_task_num_4">
+		<text>numericamente en</text>
+	</string>
+	<string id="st_task_num_5">
+		<text>en total</text>
+	</string>
+	<string id="st_task_weight_1">
+		<text>peso</text>
+	</string>
+	<string id="st_task_weight_2">
+		<text>y el peso en total</text>
+	</string>
+	<string id="st_task_weight_3">
+		<text>peso total</text>
+	</string>
+	<string id="st_task_weight_4">
+		<text>, puede ser un poco pesado para ti, pero el peso</text>
+	</string>
+	<string id="st_task_weight_5">
+		<text>, el peso de toda la carga sera</text>
+	</string>
+	<string id="st_task_volume_1">
+		<text>, volumen total sobre</text>
+	</string>
+	<string id="st_task_volume_2">
+		<text>, volumen</text>
+	</string>
+	<string id="st_task_volume_3">
+		<text>dimensiones -</text>
+	</string>
+	<string id="st_task_volume_4">
+		<text>, volumen -</text>
+	</string>
+	<string id="st_task_volume_5">
+		<text>y si se calcula el conjunto, el volumen es</text>
+	</string>
+</string_table>

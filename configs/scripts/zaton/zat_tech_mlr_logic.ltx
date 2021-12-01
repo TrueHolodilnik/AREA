@@ -1,0 +1,32 @@
+[logic@zat_tech_mlr]
+suitable = {=check_npc_name(zat_tech_mlr)} true
+prior = 200
+active = animpoint@base
+can_select_weapon = false
+level_spot = mechanic
+dont_keep_items = true
+
+[animpoint@base]
+cover_name = zat_a2_sc_tech
+avail_animations = zat_b3_tech_idle
+use_camp = false
+meet = meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+  	<string id="area_default_char_name">
+    	<text>Nombre del Personaje</text>
+  	</string>
+	<string id="st_mm_new_game_rank">
+		<text>Rango:</text>
+	</string>
+	<string id="st_faction_stalker">
+		<text>Solo</text>
+	</string>
+	<string id="st_faction_stalker_desc">
+		<text>%c[0,150,150,150A pesar de los frecuentes ataques de los mutantes y del acoso de los bandidos y los militares, pequenos grupos de stalkers han conseguido establecer puestos comerciales en toda la Zona..</text>
+	</string>
+	<string id="st_faction_bandit">
+		<text>Bandidos</text>
+	</string>
+	<string id="st_faction_bandit_desc">
+		<text>%c[0,150,150,150]Submundo que ha llegado a la Zona por diversas razones: para ganar dinero con la venta de artefactos, para escapar de la ley, para comprar o vender armas. \n - Para evitar la perdida de un tigre en particular o de un determinado tipo de mando, se ven obligados a establecer su base en una aldea abandonada en el lado norte del Valle Oscuro.</text>
+	</string>
+	<string id="st_faction_dolg">
+		<text>"Deuda"</text>
+	</string>
+	<string id="st_faction_dolg_desc">
+		<text>%c[0,150,150,150]Un grupo paramilitar que no se lleva bien con nadie que pretenda utilizar la Zona y, segun el "Deber", contribuir a su propagacion.\nEl grupo ha mantenido durante mucho tiempo una feroz disputa con el grupo "Libertad" por ideales completamente opuestos.\nEl grupo ha ocupado una fortaleza situada al este del Territorio Salvaje, cerca del bar "100 Rayos X".</text>
+	</string>
+	<string id="st_faction_freedom">
+		<text>"Libertad"</text>
+	</string>
+	<string id="st_faction_freedom_desc">
+		<text>%c[0,150,150,150]Anarquistas y temerarios que dicen ser luchadores por la libertad en la Zona, por lo que entran en constante conflicto con las unidades del Ejercito y la faccion del "Deber".{nSu base principal esta en los Depositos del Ejercito, pero tambien pueden verse unidades mas pequenas en cualquier lugar de la Zona.</text>
+	</string>
+	<string id="st_faction_army">
+		<text>Militar</text>
+	</string>
+	<string id="st_faction_army_desc">
+		<text>%c[0,150,150,150]Soldados de unidades del ejercito regular. Vigilan los accesos al Perimetro, patrullan el perimetro, disparan a los mutantes y capturan a los merodeadores. Tambien ocupan muchas posiciones dentro del Perimetro, sobre todo el Instituto de Investigacion Agroprom y el puesto de control del cordon sur.</text>
+	</string>
+	<string id="st_faction_ecolog">
+		<text>Cientificos</text>
+	</string>
+	<string id="st_faction_ecolog_desc">
+		<text>%c[0,150,150]Los ecologistas son una organizacion patrocinada por el gobierno que se dedica a explorar la Zona para explotar adecuadamente su potencial en beneficio de la humanidad. Los dos laboratorios moviles situados en la Zona consisten en dos bunkeres casi identicos, uno situado en el lago Yantar, al sur del complejo de la fabrica, y otro situado cerca de la fabrica Jupiter.</text>
+	</string>
+	<string id="st_faction_killer">
+		<text>Mercenarios</text>
+	</string>
+	<string id="st_faction_killer_desc">
+		<text>%c[0,150,150]Los mercenarios son luchadores experimentados de todo tipo que ofrecen sus servicios como soldados mercenarios. Se desconoce quienes son sus empleadores y cuales son sus objetivos en la Zona. Su entrenamiento y disciplina es la envidia de los ejercitos, mientras que los acechadores de libre albedrio prefieren evitarlos. Se cree que la mayoria de sus fuerzas tienen su base en Ciudad Muerta, sin contar con pequenas unidades dispersas por la Zona.</text>
+	</string>
+	<string id="st_faction_monolith">
+		<text>"Monolito"</text>
+	</string>
+	<string id="st_faction_monolith_desc">
+		<text>%c[0,150,150]"Monolito" es un culto religioso fanatico cuyos miembros son hostiles a todos los demas grupos. \n - A pesar de la destruccion de la O-Conciencia y su posterior caida, han resurgido como una faccion resurgente y han tomado el control de Pripyat, Chernobyl, los Generadores y el Radar. Reactivando su Quemador de Cerebros, el Monolito sigue guardando de forma fiable los misterios de la Zona.</text>
+	</string>
+	<string id="st_faction_csky">
+		<text>"Cielos despejados"</text>
+	</string>
+	<string id="st_faction_csky_desc">
+		<text>%c[0,150,150,150]"Cielo Claro" es una organizacion militar y de investigacion independiente dedicada al estudio de la Zona.\n \nEl clan quedo casi completamente destruido tras el fallido avance, que consumio muchos recursos, en la central de Chernobyl, pero el punado de supervivientes ha conseguido revivir el grupo e incluso devolverlo a su estado anterior.{nLos principales intereses y fuerzas de "Cielo Claro" se centran en las Tierras de Barro.</text>
+	</string>
+	<string id="st_faction_zombied">
+		<text>Zombied</text>
+	</string>
+	<string id="st_faction_zombied_desc">
+		<text>%c[0,150,150,150]Los stalkers zombis son stalkers cuyas mentes han sido perturbadas por stalkers psi o por un controlador. Solo tienen instintos basicos y atacan a todo y a todos.</text>
+	</string>
+	<string id="st_mm_faction_back">
+		<text>volver</text>
+	</string>
+	<string id="st_mm_faction_submit">
+		<text>Inicio</text>
+	</string>
+	<string id="st_mm_faction_rand">
+		<text>Al azar</text>
+	</string>
+	<string id="st_mm_faction_cap_character_name">
+		<text>Nombre:</text>
+	</string>
+	<string id="st_mm_faction_cap_faction">
+		<text>Clan:</text>
+	</string>
+
+	<!-- Hint -->
+	<string id="st_mm_ck_story_desc">
+		<text>%c[0,150,150,150]Anade la historia de la "Zona Misteriosa" al juego, con la desactivacion del Quemacerebros y la Unidad Psi en Yantar.\n \Se tomaron prestados y se recrearon elementos de la trama de la trilogia S.T.A.L.K.E.R., manteniendo una estricta continuidad argumental. \n - El argumento "Misterio de la Zona" es incompatible con el modo "Vida despues de la vida".</text>
+	</string>
+	<string id="st_mm_ck_hardcore_desc">
+		<text>%c[0,150,150]Al igual que en la realidad, solo tienes una oportunidad, solo una vida.\nTodos los guardados que hagas mientras juegas con este personaje seran destruidos al morir.</text>
+	</string>
+	<string id="st_mm_ck_hardcore_aim_desc">
+		<text>%c[0,150,150,150]Punteria avanzada de personajes controlada por inteligencia artificial (NPS). Los enemigos son mejores para disparar a los objetivos en movimiento: incluso maniobrando, es dificil evitar que te den.</text>
+	</string>
+	<string id="st_mm_ck_survival_desc">
+		<text>%c[0,150,150,150]El modo de supervivencia es una opcion que reemplaza todos los NPCs generados por los zombificados. Hordas de muertos te perseguiran, ?a ver cuanto aguantas!</text>
+	</string>
+	<string id="st_mm_ck_azazel_mode_desc">
+		<text>%c[0,150,150]La muerte no es el final.\Como el demonio Azazel, recibiras un nuevo cuerpo cuando mueras. Tu alma se transferira a otro acosador aleatorio que realmente existe en la Zona.\Si tienes companeros, te convertiras en uno de ellos. Esta opcion complementa bien los modos Una vida y/o Supervivencia.\Este modo no es compatible con la historia de la "Zona Misteriosa".</text>
+	</string>
+	<string id="st_mm_faction_random_location">
+		<text>Localizacion aleatoria</text>
+	</string>
+	<string id="st_mm_list_hardcore_lives_desc">
+		<text>%c[0,150,150]Opcion adicional para el modo de una vida, que permite elegir el numero de muertes antes de empezar.\Cada vez que pierdes una vida.\Una vez que te quedas sin vidas, todas tus partidas guardadas se borran.\n - %c[200,200,50,50]- %c[0,150,150,150]El modo de vida individual debe estar activo.</text>
+	</string>
+	<string id="st_mm_list_timer_desc">
+		<text>%c[0,150,150,150]Este modo permite realizar un guardado despues de un periodo de tiempo determinado. \n-Cuando haces un guardado, tienes que esperar un tiempo antes de poder hacer otro.\{n}{n%c[200,50,200,50]- %c[0,150,150,150]Compatible con otros modos.</text>
+	</string>
+
+	<!-- Static Text -->
+	<string id="st_mm_new_game_character">
+		<text>caracteres</text>
+	</string>
+	<string id="st_mm_new_game_faction">
+		<text>Selecciona una faccion</text>
+	</string>
+	<string id="st_mm_new_game_icon">
+		<text>Selecciona el retrato</text>
+	</string>
+	<string id="st_mm_new_game_options">
+		<text>Opciones</text>
+	</string>
+	<string id="st_mm_new_game_inventory">
+		<text>Inventario</text>
+	</string>
+	<string id="st_mm_new_game_loadout">
+		<text>Estados</text>
+	</string>
+	<string id="st_mm_new_game_name">
+		<text>Nombre:</text>
+	</string>
+	<string id="st_mm_new_game_money">
+		<text>Precio:</text>
+	</string>
+	<string id="st_mm_new_game_money_left">
+		<text>Dinero restante:</text>
+	</string>
+	<string id="st_mm_new_game_money_used">
+		<text>Dinero gastado:</text>
+	</string>
+	<string id="st_mm_new_game_cond">
+		<text>Caracteristicas</text>
+	</string>
+	<string id="st_mm_new_game_cond_added">
+		<text>Seleccionado</text>
+	</string>
+	<string id="st_mm_new_game_cond_left">
+		<text>Puntos seleccionados</text>
+	</string>
+	<string id="st_mm_new_game_cond_used">
+		<text>Perdido:</text>
+	</string>
+
+	<!-- Elementos de descripcion -->
+	<string id="st_mm_new_game_relations">
+		<text>relaciones</text>
+	</string>
+	<string id="st_mm_new_game_description">
+		<text>Descripcion</text>
+	</string>
+	<string id="st_mm_new_game_points">
+		<text>Puntos de juego:</text>
+	</string>
+	<string id="st_mm_new_game_essential">
+		<text>Esenciales del juego:</text>
+	</string>
+	
+    <!-- Pista -->
+	<string id="st_mm_itm_desc_unknown">
+		<text>Sin informacion</text>
+	</string>
+	
+	<!-- Opciones -->
+	<string id="st_cap_list_timer">
+		<text>Modo temporizador</text>
+	</string>
+	<string id="st_cap_list_hardcore_lives">
+		<text>Las vidas cuentan</text>
+	</string>
+	<string id="st_cap_list_economy">
+		<text>economia</text>
+	</string>
+	
+	<string id="st_off">
+		<text>apagado</text>
+	</string>
+	<string id="st_new_game_min">
+		<text>minuto</text>
+	</string>
+	<string id="st_new_game_mins">
+		<text>minutos</text>
+	</string>
+	<string id="st_new_game_hour">
+		<text>Hora</text>
+	</string>
+	<string id="st_new_game_hours">
+		<text>horas</text>
+	</string>
+	<string id="st_new_game_day">
+		<text>dia</text>
+	</string>
+	<string id="st_new_game_days">
+		<text>dias</text>
+	</string>
+	<string id="st_new_game_life">
+		<text>nueva vida de juego</text>
+	</string>
+	<string id="st_new_game_lives">
+		<text>nuevas vidas de juego</text>
+	</string>
+	
+	<!-- Buttons -->
+	<string id="st_mm_btn_new_game_faction">
+		<text>Faccion</text>
+	</string>
+
+	<string id="st_mm_btn_new_game_icon">
+		<text>Retrato</text>
+	</string>
+	<string id="st_mm_btn_new_game_back">
+		<text>Volver</text>
+	</string>
+	<string id="st_mm_btn_new_game_submit">
+		<text>Vamos</text>
+	</string>
+	<string id="st_mm_btn_new_game_rand">
+		<text>Al azar</text>
+	</string>
+	<string id="st_mm_btn_new_game_faction_">
+		<text>Faccion:</text>
+	</string>
+	
+	<!-- Condition -->
+	<string id="st_athlete">
+		<text>Atleta</text>
+	</string>
+	<string id="st_athlete_descr">
+		<text>En la Gran Tierra, eras un atleta de pista y campo, y podias dar ventaja a cualquier oficial del personal militar.\n %c[0,153,255,255] - %c[0,140,140,140] tiene un 15% mas de resistencia maxima\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Wimpy, Weak, Asthmatic</text>
+	</string>
+	
+	<string id="st_feeble">
+		<text>Debil</text>
+	</string>
+	<string id="st_feeble_descr">
+		<text>Nunca has practicado un deporte y lo odias. \n %c[0,204,0,51] - %c[0,140,140,140] ha reducido la resistencia maxima, la velocidad de correr y la de caminar\%c[0,204,0,51] - %c[0,140,140,140] incompatible con: Atleta, Forzudo, Arpia</text>
+	</string>
+	
+	<string id="st_survivor">
+		<text>Superviviente</text>
+	</string>
+	<string id="st_survivor_descr">
+		<text> Has sobrevivido a situaciones en las que cualquier otra persona habria muerto al instante.\n - %c[0,153,255,255] - %c[0,140,140,140] ha aumentado la tolerancia maxima al dolor y la tasa de eliminacion de toxinas</text>
+	</string>
+	
+	<string id="st_agile">
+		<text>Agilidad</text>
+	</string>
+	<string id="st_agile_descr">
+		<text>Desde muy joven te ha gustado correr, y en el colegio has quedado primero en carreras de larga y corta distancia.\n - %c[0,153,255,255] - %c[0,140,140,140] aumenta ligeramente la velocidad al correr y al caminar\n %c[0,204,0,51] - %c[0,140,140,140] posibilidad de lesiones al chocar con obstaculos a gran velocidad\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Asmatico, Cojea</text>
+	</string>
+	
+	<string id="st_steel_stomach">
+		<text>Estomago de acero</text>
+	</string>
+	<string id="st_steel_stomach_descr">
+		<text>Puedes comer algo que hace que la gente normal tenga arcadas con solo verlo.\n - %c[0,153,255,255] - %c[0,140,140,140] dosis reducidas de radiacion y toxinas por comer alimentos en mal estado.</text>
+	</string>
+	
+	<string id="st_pharmacist">
+		<text>Farmaceutico</text>
+	</string>
+	<string id="st_pharmacist_descr">
+		<text>El conocimiento avanzado de los medicamentos le ayuda a sacar el maximo provecho de ellos.\n - %c[0,153,255,255] - %c[0,140,140,140] aumenta la velocidad y la eficacia de la eliminacion de la radiacion y las toxinas al tomar la medicacion</text>
+	</string>
+	
+	<string id="st_nervous">
+		<text>Nervioso</text>
+	</string>
+	<string id="st_nervous_descr">
+		<text> Te resulta dificil hacer frente a la agitacion mental.\n - %c[0,204,0,51] - %c[0,140,140,140] la exposicion psi causa mas dano a la mente\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Nervio de Hierro, Merodeador</text>
+	</string>
+	
+	<string id="st_iron_nerves">
+		<text>Nervios de Acero</text>
+	</string>
+	<string id="st_iron_nerves_descr">
+		<text>Puedes soportar la vision de cualquier cosa: sangre, entranas humanas, mutantes repugnantes e incluso zombis putrefactos.\n - %c[0,153,255,255] - %c[0,140,140,140] la exposicion a psi causa menos dano a la mente\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Debilitante</text>
+	</string>
+	
+	<string id="st_strong">
+		<text>Forzudo</text>
+	</string>
+	<string id="st_strong_descr">
+		<text>Las frecuentes visitas al gimnasio en mi juventud me hacian sentir como un autentico atleta.\n - %c[0,153,255,255] - %c[0,140,140,140] aumento de peso\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Debilucho, Debil</text>
+	</string>
+	
+	<string id="st_weak">
+		<text>Debilucho</text>
+	</string>
+	<string id="st_weak_descr">
+		<text>No has levantado nada mas pesado que un raton de ordenador en tu vida.\n %c[0,204,0,51] - %c[0,140,140,140] peso reducido\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Hombre fuerte, Atleta</text>
+	</string>
+	
+	<string id="st_asthmatic">
+		<text>Asmatico</text>
+	</string>
+	<string id="st_asthmatic_descr">
+		<text>Una vez notaste que te faltaba el aire al correr y tu inhalador se convirtio en tu amigo durante muchos anos hasta hace poco.\n %c[0,204,0,51] - %c[0,140,140,140] indice de recuperacion reducido\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Shuster, Atleta, Ultimo Aliento</text>
+	</string>
+	
+	<string id="st_energetico">
+		<text>energetico</text>
+	</string>
+	<string id="st_energetic_descr">
+		<text>No recuerdas la ultima vez que te sentiste cansado y fuera de tono.\n - %c[0,153,255,255] - %c[0,140,140,140] redujo la somnolencia en un 15%\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Lento</text>
+	</string>
+	
+	<string id="st_lethargic">
+		<text>Alejamiento</text>
+	</string>
+	<string id="st_lethargic_descr">
+		<text>El silencio te abandona al menor esfuerzo, siempre te ha gustado dormir mas tiempo.\n - %c[0,153,255,255] - %c[0,140,140,140] aumenta la somnolencia en un 15%\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Vigoroso</text>
+	</string>
+	
+	<string id="st_hunger">
+		<text>Estrella</text>
+	</string>
+	<string id="st_hunger_descr">
+		<text>Un metabolismo alto siempre hace que se sienta hambre.\n - %c[0,204,0,51] - %c[0,140,140,140] aumento de la necesidad de alimentos</text>
+	</string>
+	
+	<string id="st_thirst">
+		<text>Hambre</text>
+	</string>
+	<string id="st_thirst_descr">
+		<text>Absorbes el agua como una esponja, cualquier accion te hace sentir sed.\n - %c[0,204,0,51] - %c[0,140,140,140] mayor necesidad de agua</text>
+	</string>
+	
+	<string id="st_bruised_arm">
+		<text>abrasion en el brazo</text>
+	</string>
+	<string id="st_bruised_arm_descr">
+		<text>Caminando por la Zona, accidentalmente te hiciste una abrasion bastante profunda.\n %c[0,204,0,51] - %c[0,140,140,140] -25% a la salud de un brazo.</text>
+	</string>
+	
+	<string id="st_bruised_leg">
+		<text>Pierna magullada</text>
+	</string>
+	<string id="st_bruised_leg_descr">
+		<text>El otro dia, corriendo por la hierba alta, te tropezaste y te diste un fuerte golpe en la pierna.\n %c[0,204,0,51] - %c[0,140,140,140] -25% a la salud de una de sus piernas</text>
+	</string>
+	
+	<string id="st_bruised_torso">
+		<text>Herida con hemorragia</text>
+	</string>
+	<string id="st_bruised_torso_descr">
+		<text>Un gamberro local te ha pasado a cuchillo, pero tus organos no estan lesionados y la herida no es tan profunda.\n %c[0,204,0,51] - %c[0,140,140,140] -15% a la salud del torso</text>
+	</string>
+	
+	<string id="st_bruised_head">
+		<text>Lesion en la cabeza</text>
+	</string>
+	<string id="st_bruised_head_descr">
+		<text> Hace poco estabas vadeando una madera a la deriva y tropezaste, golpeandote fuertemente la cabeza.\n %c[0,204,0,51] - %c[0,140,140,140] -10% a la salud de la cabeza</text>
+	</string>
+	
+	<string id="st_merchant">
+		<text>comerciante</text>
+	</string>
+	<string id="st_merchant_descr">
+		<text>En la Gran Tierra, regateas en el mercado, lo que afecta a tu capacidad de vender algo al hombre comun.\n - %c[0,153,255,255] - %c[0,140,140,140] El comercio con los acosadores es mas rentable</text>
+	</string>
+	
+	<string id="st_blademaster">
+		<text> Maestro de la cuchilla</text>
+	</string>
+	<string id="st_blademaster_descr">
+		<text>A menudo has tenido que empunar un cuchillo, a veces contra personas.\n %c[0,153,255,255] - %c[0,140,140,140] el cuchillo hace mas dano\n - %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Lenador</text>
+	</string>
+	
+	<string id="st_lumberjack">
+		<text>Lenador</text>
+	</string>
+	<string id="st_lumberjack_descr">
+		<text>En 5 anos como lenador has aprendido a manejar un hacha.\n - %c[0,153,255,255] - %c[0,140,140,140] todas las armas cuerpo a cuerpo excepto los cuchillos hacen mas dano\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Knife Master</text>
+	</string>
+	
+	<string id="st_smoker">
+		<text>fumador</text>
+	</string>
+	<string id="st_smoker_descr">
+		<text> Llevas fumando desde el instituto y no puedes dejarlo, sobre todo en la Zona.\n %c[0,153,255,255] - %c[0,140,140,140] fumar tiene menos efectos negativos\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: no fumador</text>
+	</string>
+	
+	<string id="st_non_smoker">
+		<text>fumador</text>
+	</string>
+	<string id="st_non_smoker_descr">
+		<text>Nunca has fumado y no quieres ni intentarlo.\n %c[0,204,0,51] - %c[0,140,140,140] fumar tiene muchos mas efectos negativos\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Un avido fumador</text>
+	</string>
+	
+	<string id="st_adrenaline_rush">
+		<text>subidon de adrenalina</text>
+	</string>
+	<string id="st_adrenaline_rush_descr">
+		<text>Cuando las cosas se ponen francamente mal, todo a tu alrededor se ralentiza y hay un ultimo suspiro.\n - %c[0,153,255,255] - %c[0,140,140,140] con poca salud, el tiempo se ralentiza unos segundos y aumenta el tiempo de reaccion\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Asmatico</text>
+	</string>
+	
+	<string id="st_depressed">
+		<text>Depresion</text>
+	</string>
+	<string id="st_depressed_descr">
+		<text>Toda tu vida esta llena de interminables desesperanzas y de una profunda desesperacion.\n - %c[0,204,0,51] - %c[0,140,140,140] requiere mas sueno y pasa mas lentamente el dolor\n - %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Nervios de Hierro</text>
+	</string>
+	
+	<string id="st_hamhanded">
+		<text>manos a la obra</text>
+	</string>
+	<string id="st_hamhanded_descr">
+		<text>Sea lo que sea lo que emprendas, todo sale mal.\n %c[0,204,0,51] - %c[0,140,140,140] aumento de las habilidades lentas\%c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Mecanico, Orfebre, Armero.</text>
+	</string>
+	
+	<string id="st_marauder">
+		<text>Marauder</text>
+	</string>
+	<string id="st_marauder_descr">
+		<text>No hay nada malo en llevarse un objeto que el propietario ya no necesitara.\n %c[0,153,255,255] - %c[0,140,140,140] la habilidad de saqueo crece mas rapido\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Debilidad</text>
+	</string>
+	
+	<string id="st_gunlover">
+		<text>Amante de las armas</text>
+	</string>
+	<string id="st_gunlover_descr">
+		<text>Disparar tu propia pistola en algun lugar en medio de la nada te dio mucho placer.\n %c[0,153,255,255] - %c[0,140,140,140] la habilidad de disparo crece mas rapido\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Crooked</text>
+	</string>
+	
+	<string id="st_mechanic">
+		<text>Mecanico</text>
+	</string>
+	<string id="st_mechanic_descr">
+		<text>A menudo has tenido que lidiar con maquinaria, mecanismos diversos e incluso armas en la Gran Tierra.\n - %c[0,153,255,255] - %c[0,140,140,140] tus habilidades de desmontaje y de artesania crecen mas rapido\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Crooked</text>
+	</string>
+	
+	<string id="st_claustrofobia">
+		<text>claustrofobia</text>
+	</string>
+	<string id="st_claustrofobia_descr">
+		<text>Cuando estas bajo tierra, la sensacion de que las paredes estan a punto de aplastarte nunca se pierde.\n - %c[0,204,0,51] - %c[0,140,140,140] su ritmo cardiaco sube en lugares subterraneos\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Agorafobia</text>
+	</string>
+	
+	<string id="st_agoraphobia">
+		<text>agorafobia</text>
+	</string>
+	<string id="st_agoraphobia_descr">
+		<text>Cuando estas en espacios abiertos, sientes que algo malo puede pasar en cualquier momento.\n - %c[0,204,0,51] - %c[0,140,140,140] en zonas abiertas su ritmo cardiaco aumenta considerablemente\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Claustrofobia</text>
+	</string>
+	
+	<string id="st_handyman">
+		<text>Manos de oro</text>
+	</string>
+	<string id="st_handyman_descr">
+		<text> Hace tiempo, en la Gran Tierra, eras un hombre de lo mas variopinto y podias hacer cualquier cosa incluso con un monton de chatarra.\n %c[0,153,255,255] - %c[0,140,140,140] la habilidad artesanal crece mas rapido\n %c[0,204,0,51] - %c[0,140,140,140] es incompatible con: Crooked</text>
+	</string>
+	
+	<string id="st_radiophobia">
+		<text>radiofobia</text>
+	</string>
+	<string id="st_radiophobia_descr">
+		<text>Mientras que en la Gran Tierra se llego al punto de comprobar la comida con un dosimetro.\n - %c[0,204,0,51] - %c[0,140,140,140] aumento del pulso de radiacion</text>
+	</string>
+	
+	<string id="st_radio_lover">
+		<text>amante de la radio</text>
+	</string>
+	<string id="st_radio_lover_descr">
+		<text>En casa, en la Gran Tierra, a menudo te gustaba escuchar la radio e incluso te dormias con ella.\n %c[0,153,255,255] - %c[0,140,140,140] leve disminucion del dolor y del pulso al escuchar la radio</text>
+	</string>
+	
+	<string id="st_alcoholic">
+		<text>alcoholica</text>
+	</string>
+	<string id="st_alcoholic_descr">
+		<text> Irte de juerga durante semanas y beber hasta desmayarte es lo tuyo.\n %c[0,153,255,255] - %c[0,140,140,140] menos efectos negativos del alcohol\n %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Sober</text>
+	</string>
+	
+	<string id="st_teetotaler">
+		<text>Toberman</text>
+	</string>
+	<string id="st_teetotaler_descr">
+		<text>Nunca has tomado una copa y no quieres hacerlo, porque nunca te ha gustado el alcohol.\n %c[0,204,0,51] - %c[0,140,140,140] mas efectos negativos del alcohol\n - %c[0,204,0,51] - %c[0,140,140,140] incompatible con: Alcohol</text>
+	</string>
+	
+	<string id="st_resistent">
+		<text>estable</text>
+	</string>
+	<string id="st_resistent_descr">
+		<text>Tienes una estructura corporal muy fuerte por naturaleza.\n - %c[0,153,255,255] - %c[0,140,140,140] la resistencia a todos los tipos de dano ha aumentado un 10%.</text>
+	</string>
+</string_table>

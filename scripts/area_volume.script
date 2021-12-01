@@ -1,0 +1,257 @@
+--local weapon_hide_volume = false
+local OV_List = {}
+local show_log = false
+local slotBPID
+local containers = bind_container.containers
+function on_game_start()
+	local function actor_on_first_update()
+		RegisterScriptCallback("actor_on_item_take",vol_take)
+		RegisterScriptCallback("actor_item_to_ruck",to_ruck)
+		RegisterScriptCallback("actor_item_to_slot",to_slot)
+		RegisterScriptCallback("actor_on_item_drop",vol_drop)
+		RegisterScriptCallback("actor_menu_mode_changed",mode_change)
+		RegisterScriptCallback("actor_on_wpn_state",on_wpn_state)
+		local backpack = db.actor:item_in_slot(13)
+		slotBPID = backpack and backpack:id()
+		BP_update(backpack)
+		update_volume_drop()
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+end
+
+function load_state(m_data)
+	OV_List = m_data.drop_item_list or {}
+end
+
+function save_state(m_data)
+	m_data.drop_item_list = OV_List
+end
+
+local start_wpn_state = false
+function on_wpn_state(wpn, old_state, new_state)
+	if wpn and not TableAnimHands().AnmCheck(wpn) and start_wpn_state then
+		drop_OV(true)
+	elseif old_state == 2 and new_state == 3 then
+		drop_OV(false)
+		start_wpn_state = true
+	end
+end
+
+function get_max()
+	local outfit = db.actor:item_in_slot(7)
+	outfit = outfit and outfit:get_additional_max_volume() or 0
+	local pack = db.actor:item_in_slot(13)
+	pack = pack and pack:get_additional_max_volume() or 0
+	return db.actor:get_actor_max_volume() + outfit + pack
+end
+
+function update_volume_drop()
+	local vol = db.actor:cast_InventoryOwner():inventory():CalcTotalVolume()
+		
+	if vol > get_max() then
+		local function OV_ListSize()
+			local size = 0
+			for id,vol in pairs(OV_List) do
+				size = size + vol
+			end
+			return size
+		end
+		local function itr(dummy,item)
+			if TableAnimHands().AnmCheck(item) then return end
+			local volume = item:volume()
+			if not IsSlotted(item) and (db.actor:cast_InventoryOwner():inventory():CalcTotalVolume() - OV_ListSize()) > get_max() then
+				OV_List[item:id()] = item:volume()
+			end
+		end		
+		db.actor:iterate_inventory(itr)
+	end
+	db.actor:cast_InventoryOwner():inventory()
+end
+
+function list_check(obj)
+	local inv_box = slotBPID and containers[slotBPID] and containers[slotBPID].id and level.object_by_id(containers[slotBPID].id)
+	local id = obj:id()
+	--if show_log then
+	--	printf("list id:%s box:%s",id, inv_box and inv_box:section())
+	--end
+	local r_item
+	if inv_box then
+		local function search(inv_box, item)
+			if TableAnimHands().AnmCheck(item) then return end
+			if id == item:id() then
+				r_item = true
+				return true
+			end
+		end
+		inv_box:iterate_inventory_box(search, inv_box)
+	end
+	
+	if is_empty(OV_List) then return end
+	if r_item then
+		local function itr(dummy,item)
+			if TableAnimHands().AnmCheck(item) then return end
+			if not IsSlotted(item) then
+				OV_List[item:id()] = item:volume()
+				r_item = nil
+				return true
+			end
+		end
+		db_actor:iterate_inventory(itr)
+	end
+	if OV_List[id] then
+		OV_List[id] = nil
+	end
+	--if show_log then
+	--	printf("list remove:%s Vol: total:%s max:%s object:%s", id, db.actor:get_total_volume(), get_max(),obj:volume())
+	--end
+	if (db.actor:get_total_volume() - obj:volume()) < get_max() then
+		empty_table(OV_List)
+	end
+	--if show_log then
+	--	alun_utils.print_table(OV_List,"OV_List post drop")
+	--end
+end
+
+function BP_update(obj)
+	if slotBPID then
+		if obj then
+			obj:set_volume(system_ini():r_float_ex(obj:section(),"inv_volume") or 0)
+		else
+			local inv_box = containers[slotBPID] and containers[slotBPID].id and level.object_by_id(containers[slotBPID].id)
+			if inv_box and not (inv_box:inv_box_closed_status()) then
+				local BP = db.actor:item_in_slot(13)
+				if BP then
+					BP:set_volume(system_ini():r_float_ex(BP:section(),"inv_volume") or 0)
+				end
+			end
+		end
+	elseif obj then
+		local bpid = obj:id()
+		local inv_box = containers[bpid] and containers[bpid].id and level.object_by_id(containers[bpid].id)
+		if inv_box then
+			obj:set_volume(inv_box:box_volume())
+			--obj:set_condition(inv_box:box_volume()-(system_ini():r_float_ex(obj:section(),"inv_volume") or 0)/(inv_box:get_box_max_volume()))
+		end
+	end
+	db.actor:cast_InventoryOwner():inventory()
+end
+
+local max_volume_items = 2	--total volume of all small items that the character can carry in his hands
+local max_coint_items = 5	--max items number that the character can hold in his hands when exceeding the volume
+function drop_OV(throw_everything)
+	local actor_menu = ActorMenu.get_actor_menu()
+	if is_empty(OV_List) or (actor_menu and actor_menu:IsShown()) or GodMode() then return end
+
+	if throw_everything then
+		for id,vol in pairs(OV_List) do
+			local item = level.object_by_id(id)
+			if item then
+				db.actor:drop_item(item)
+			end
+		end
+		OV_List = {}
+	else
+		local volume_items = 0
+		local items = 0
+		for id,vol in pairs(OV_List) do
+			local item = level.object_by_id(id)
+			if vol and item then
+				volume_items = volume_items+vol
+				items = items+1	
+				if volume_items > max_volume_items and items > 1 or items > max_coint_items then
+					db.actor:drop_item(item)
+					vol = nil
+				end
+			end
+		end
+		if items == 0 then OV_List = {} end
+	end
+end
+
+function vol_take(itm)
+	if TableAnimHands().AnmCheck(itm) or not itm then return end
+
+	list_check(itm)
+	if IsBackpack(itm) and itm:condition() == 1 then
+		local bpid = itm:id()
+		local inv_box = containers[bpid] and containers[bpid].id and level.object_by_id(containers[bpid].id)
+		local maxsize = inv_box and inv_box:get_box_max_volume()
+		local volume = inv_box and bind_container.calculate_volume(inv_box) --inv_box:box_volume()
+		local size = system_ini():r_float_ex(itm:section(), "inv_volume",0)
+		if maxsize and volume then
+			itm:set_condition((volume-size)/(maxsize))
+		else
+			itm:set_condition(0)
+		end
+	end
+	BP_update()
+	local vol = db.actor:cast_InventoryOwner():inventory():CalcTotalVolume()
+	if vol > get_max() then
+		if not IsSlotted(itm) then
+			OV_List[itm:id()] = itm:volume()
+			local active_item = db.actor:active_item()
+			drop_OV(active_item and not TableAnimHands().AnmCheck(active_item))
+		end
+	end
+	-- printf("take::delay:%s total:%s max:%s",itm:id(), db.actor:get_total_volume(), get_max())
+end
+
+function vol_drop(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	BP_update(obj)
+	list_check(obj)
+end
+
+function mode_change(mode,last)
+	if last == 4 or mode == 1 then
+		BP_update()
+	end
+	
+	if mode == 0 and last == 1 then
+		drop_OV(false)
+	end
+end
+
+function to_slot(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+	--if show_log then
+	--	printf("to_slot:%s(%s)", obj:section(), obj:id())
+	--end
+	if IsBackpack(obj) then
+		slotBPID = obj:id()
+		BP_update(obj)
+	end
+	if IsOutfit(obj) then
+		list_check(obj)
+	end
+end
+
+function to_ruck(obj)
+	if TableAnimHands().AnmCheck(obj) then return end
+
+	if IsOutfit(obj) or IsBackpack(obj) then
+		if not (db.actor:item_in_slot(13)) and obj:id() == slotBPID then
+			slotBPID = nil
+			BP_update(obj)
+		end
+		update_volume_drop()
+	end
+end
+--[[
+function vol_update(obj)
+	if db.actor.afterFirstUpdate ~= true then return end
+	if db.actor:get_total_volume() > get_max() then
+		if weapon_hide_volume == false then
+			db.actor:hide_weapon()
+			weapon_hide_volume = true
+		end
+	else
+		if weapon_hide_volume == true then
+			db.actor:restore_weapon()
+			weapon_hide_volume = false
+		end
+	end
+end
+--]]

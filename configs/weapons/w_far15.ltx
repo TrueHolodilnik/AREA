@@ -1,0 +1,275 @@
+;----------------------------------------------------------------------------------------
+; Far-15, remade by Surs for A.R.E.A. (18.07.2018)
+;----------------------------------------------------------------------------------------
+[wpn_far15]:default_weapon_params
+$spawn							= "weapons\far15"	; option for Level Editor
+$npc							= on				; option for Level Editor
+visual							= dynamics\weapons\wpn_far15\wpn_far15.ogf
+class							= WP_AK74
+inv_name						= st_wpn_far15
+inv_name_short					= st_wpn_far15
+description						= st_wpn_far15_descr
+scopes							= acog, ac10632, ac11090, c-more, eot
+heating_rates 					= nato2
+ef_main_weapon_type				= 2
+ef_weapon_type					= 8
+repair_type 					= rifle_5.56
+parent_section					= wpn_far15
+hud								= wpn_far15_hud
+weapon_class					= assault_rifle
+inv_weight						= 3.4
+inv_volume						= 4.2
+ph_mass							= 3
+cost							= 38000
+upgrade_scheme					= upgrade_scheme_lr300
+upgrades						= up_gr_firstab_lr300, up_gr_seconab_lr300, up_gr_thirdab_lr300, up_gr_fourtab_lr300, up_gr_fifthab_lr300
+;--TTX----------------------------------------------------------------------------
+hit_power						= 0.62, 0.62, 0.62, 0.62
+hit_impulse						= 25
+hit_type						= fire_wound
+fire_distance					= 800
+bullet_speed					= 832
+rpm								= 940
+rpm_empty_click					= 200
+time_to_aim						= 2.0
+time_to_aim						= 2.0
+hud								= wpn_far15_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.86
+misfire_end_condition			= 0.12
+misfire_start_prob 				= 0.007
+misfire_end_prob 				= 0.11
+condition_shot_dec				= 0.0009
+condition_queue_shot_dec		= 0.0009
+
+ammo_elapsed					= 30
+ammo_mag_size					= 30
+ammo_current					= 180
+ammo_limit						= 210
+fire_modes						= -1, 3, 1
+magazine_sect					= magazine_556_cnt_30, magazine_556_cnt_30_2, magazine_556_cnt_30_g36, magazine_556_cnt_60
+ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class					= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot							= 2
+animation_slot					= 2
+;---DOF-------------------------------------------------------------------------
+reload_dof						= 0.0, 0.5, 5, 2
+zoom_dof						= 0.5, 1.0, 180
+;-------------------------------------------------------------------------------
+cam_return						= 0
+cam_relax_speed					= 9						;скорость возврата в исходное положение
+cam_relax_speed_ai				= 360
+cam_dispersion					= 0.86
+cam_dispersion_inc				= 0.76
+cam_dispersion_frac				= 1.0					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0					;максимальный угол отдачи
+cam_max_angle_horz				= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.84					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 0.9
+PDM_disp_vel_factor				= 2.3
+PDM_disp_accel_factor			= 2.3
+PDM_disp_crouch					= 1.0 
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 9						; scope & ironsight
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 0.76
+zoom_cam_dispersion_inc			= 0.66
+zoom_cam_dispersion_frac		= 1.0
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 1.69
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+
+crosshair_inertion				= 5.3
+control_inertion_factor			= 1.2f
+fire_dispersion_base			= 0.28
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+position						= -0.026, -0.10, 0.009
+orientation						= 0.0, 0.0, 0.0
+fire_point						= 0.0, 0.175, 0.420
+fire_point2						= 0.0, 0.199, 0.500
+shell_point						= 0.01,0.15,0.07
+shell_dir						= 0.0, 0.0, 0.4
+shell_particles					= weapons\556x45
+flame_particles					= weapons\new_effects\akmsl
+smoke_particles					= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles			= weapons\new_effects\glauncher
+;-------------------------------------------------------------------------------
+inv_grid_width					= 4
+inv_grid_height					= 2
+inv_grid_x						= 65
+inv_grid_y						= 12
+
+kill_msg_height					= 28
+kill_msg_width					= 82
+kill_msg_x						= 175
+kill_msg_y						= 0
+
+upgr_icon_height				= 100
+upgr_icon_width					= 250
+upgr_icon_x						= 2600
+upgr_icon_y						= 1000
+;-------------------------------------------------------------------------------
+light_color						= 0.6,0.5,0.3
+light_disabled					= false
+light_range						= 5
+light_time						= 0.2
+light_var_color					= 0.05
+light_var_range					= 0.1
+
+grenade_launcher_name			= wpn_addon_grenade_launcher_m203
+grenade_launcher_status			= 2
+grenade_launcher_x				= 126
+grenade_launcher_y				= 20
+
+scope_status					= 2
+scope_zoom_factor				= 1.03
+
+silencer_status					= 1
+silencer_x						= 205
+silencer_y						= 14
+silencer_bullet_speed			= 830
+silencer_fire_distance			= 1000
+silencer_hit_impulse			= 20
+silencer_hit_power				= 0.4
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_time				= 0.2
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_name					= wpn_sil_nato
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster						= weapons\lr300\lr300_holster
+snd_draw						= weapons\lr300\lr300_draw
+snd_empty						= weapons\lr300\lr300_empty	
+snd_reload						= weapons\lr300\lr300_reload
+snd_shoot_grenade				= weapons\lr300\lr300_grenshoot
+snd_reload_grenade				= weapons\lr300\lr300_grenreload
+snd_switch						= weapons\lr300\lr300_switch 
+snd_shoot						= weapons\lr300\lr300_shoot_null
+snd_silencer_shot				= weapons\lr300\lr300_shot_sil_null
+snd_bore						= $no_sound
+;-------------------------------------------------------------------------------
+[wpn_far15_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_hud.ogf
+zoom_hide_crosshair				= true
+fire_bone						= muzzle
+fire_bone2						= grenade
+fire_point						= 0,0,0
+fire_point2						= 0,0,0
+item_orientation				= 0,0,0
+item_position					= 0,-0.005,0
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+shell_bone						= eject
+shell_dir						= 0.0, 1.0, 0.0
+shell_point						= 0.012180,-0.023940,0.000000
+
+hands_position					= 0.04006,0.00687,-0.052455
+hands_position_16x9				= 0.04006,0.00687,-0.052455
+hands_orientation				= 1.509976,2.4,0.15
+hands_orientation_16x9			= 1.509976,2.4,0.15
+
+aim_hud_offset_pos				= -0.03717,0.009875,-0.088481
+aim_hud_offset_pos_16x9			= -0.03717,0.009875,-0.088481
+aim_hud_offset_rot				= 0.0362,0.023107,0
+aim_hud_offset_rot_16x9			= 0.0362,0.023107,0
+
+aim_hud_offset_pos_alt			= -0.013125,-0.012915,0
+aim_hud_offset_pos_alt_16x9		= -0.013125,-0.012915,0
+aim_hud_offset_rot_alt			= 0.002526,-0.008084,0.502720
+aim_hud_offset_rot_alt_16x9		= 0.002526,-0.008084,0.502720
+
+gl_hud_offset_pos				= -0.090,0.0955,-0.2000
+gl_hud_offset_pos_16x9 			= -0.090,0.0955,-0.2000
+gl_hud_offset_rot				= 0.0362,0.00795,0.0000
+gl_hud_offset_rot_16x9 			= 0.0362,0.00795,0.0000
+
+anm_bore						= lr301_idle_bore
+anm_bore_g						= lr301_idle_bore_w_gl, lr301_idle_gl
+anm_bore_w_gl					= lr301_idle_bore_w_gl, lr301_idle_gl
+anm_hide						= lr301_holster
+anm_hide_g						= lr301_holster_w_gl, lr301_idle_gl ;lr300_holster_grenade
+anm_hide_w_gl					= lr301_holster_w_gl, lr301_idle_gl
+anm_idle						= lr301_idle
+anm_idle_aim					= lr301_idle_aim
+anm_idle_g						= lr301_idle_w_gl, lr301_idle_gl ;lr300_idle_grenade
+anm_idle_g_aim					= lr301_idle_aim_w_gl, lr301_idle_gl ;lr300_idle_grenade
+anm_idle_moving					= lr301_idle_moving
+anm_idle_moving_g				= lr301_idle_moving_w_gl, lr301_idle_gl ;lr300_idle_moving_grenade
+anm_idle_moving_w_gl			= lr301_idle_moving_w_gl, lr301_idle_gl
+anm_idle_sprint					= lr301_idle_sprint
+anm_idle_sprint_g				= lr301_idle_sprint_w_gl, lr301_idle_gl ;lr300_idle_sprint_grenade
+anm_idle_sprint_w_gl			= lr301_idle_sprint_w_gl, lr301_idle_gl
+anm_idle_w_gl					= lr301_idle_w_gl, lr301_idle_gl
+anm_idle_w_gl_aim				= lr301_idle_aim_w_gl, lr301_idle_gl
+anm_reload						= lr301_reload, lr301_reload_w
+anm_reload_g					= lr301_reload_grenade
+anm_reload_w_gl					= lr301_reload_w_gl, lr301_reload_w_gl_w
+anm_shots						= lr301_shoot, lr301_shoot_w
+anm_shots_empty					= lr301_idle
+anm_shots_g						= lr301_shoot_grenade, lr301_idle_gl
+anm_shots_w_gl					= lr301_shoot_w_gl, lr301_shoot_w_gl_w
+anm_shots_w_gl_empty			= lr301_idle_w_gl, lr301_idle_gl
+anm_show						= lr301_draw
+anm_show_g						= lr301_draw_w_gl, lr301_idle_gl ;lr300_draw_grenade
+anm_show_w_gl					= lr301_draw_w_gl, lr301_idle_gl
+anm_switch						= lr301_switch_off, lr301_idle_gl
+anm_switch_g					= lr301_switch_on, lr301_idle_gl
+;-------------------------------------------------------------------------------
+[wpn_far15_ac10632]:wpn_far15
+visual							= dynamics\weapons\wpn_far15\wpn_far15_ac10632.ogf
+scope_name						= ac10632
+scope_x							= 90
+scope_y							= -7
+hud								= wpn_far15_ac10632_hud
+
+[wpn_far15_ac10632_hud]:wpn_far15_hud
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_ac10632_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_far15_ac11090]:wpn_far15
+visual							= dynamics\weapons\wpn_far15\wpn_far15_ac11090.ogf
+scope_name						= ac11090
+scope_x							= 90
+scope_y							= -9
+hud								= wpn_far15_ac11090_hud
+
+[wpn_far15_ac11090_hud]:wpn_far15_hud
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_ac11090_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_far15_c-more]:wpn_far15
+visual							= dynamics\weapons\wpn_far15\wpn_far15_c-more.ogf
+scope_name						= c-more
+scope_x							= 85
+scope_y							= -9
+hud								= wpn_far15_c-more_hud
+
+[wpn_far15_c-more_hud]:wpn_far15_ac10632_hud
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_c-more_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_far15_eot]:wpn_far15
+visual							= dynamics\weapons\wpn_far15\wpn_far15_eot.ogf
+scope_name						= eot
+scope_x							= 70
+scope_y							= -5
+hud								= wpn_far15_eot_hud
+
+[wpn_far15_eot_hud]:wpn_far15_ac10632_hud
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_eot_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_far15_acog]:wpn_far15
+visual							= dynamics\weapons\wpn_far15\wpn_far15_acog.ogf
+scope_name						= acog
+scope_x							= 70
+scope_y							= -5
+hud								= wpn_far15_acog_hud
+
+[wpn_far15_acog_hud]:wpn_far15_ac10632_hud
+item_visual						= dynamics\weapons\wpn_far15\wpn_far15_acog_hud.ogf
+;-------------------------------------------------------------------------------

@@ -1,0 +1,349 @@
+; A.R.E.A. Alma Mater
+[hud_base]
+attach_place_idx			= 0
+item_position				= 0,0,0
+item_orientation			= 0,0,0
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
+lhand_device_offset			= 0.1, -0.05, 0.25	;Left Hand position offset
+
+; This does work
+;hud_ui_xml_tag_name 		= test
+;hud_ui_attach_bone 		= wpn_body
+;hud_ui_pos 				= -0.03, 0.1, -0.06
+;hud_ui_rot 				= 0, 0, 0
+;hud_ui_size				= 0.0576, 0.029
+
+[base_immunities]
+burn_immunity				= 1.0
+strike_immunity				= 1.0
+shock_immunity				= 1.0
+wound_immunity				= 1.0
+wound_2_immunity			= 1.0
+radiation_immunity			= 1.0
+telepatic_immunity			= 1.0
+chemical_burn_immunity		= 1.0
+explosion_immunity			= 1.0
+fire_wound_immunity			= 1.0
+
+[zero_immunities]
+burn_immunity				= 0.0
+strike_immunity				= 0.0
+shock_immunity				= 0.0
+wound_immunity				= 0.0
+wound_2_immunity			= 0.0
+radiation_immunity			= 0.0
+telepatic_immunity			= 0.0
+chemical_burn_immunity		= 0.0
+explosion_immunity			= 0.0
+fire_wound_immunity			= 0.0
+
+[base_section]
+GroupControlSection			= spawn_group
+discovery_dependency		=
+$spawn						= "devices\pda"
+$prefetch					= 16
+visual						= dynamics\devices\dev_aptechka\dev_aptechka_low.ogf
+class						= II_ATTCH
+cform						= skeleton
+immunities_sect				= base_immunities
+slot 						= -1
+inv_name					= no_name
+inv_name_short				= no_name
+description					= no_description
+default_to_ruck				= false
+sprint_allowed				= true
+quest_item					= false
+can_stack					= false
+control_inertion_factor		= 1.0
+zoom_rotate_time			= 0.25
+inv_grid_width				= 1
+inv_grid_height				= 1
+inv_grid_x					= 10
+inv_grid_y					= 0
+inv_weight					= 0.01
+inv_volume					= 0.1
+cost						= 0
+pickup_color				= 50, 150, 255, 255 ; Light Blue
+attach_angle_offset			= 0.000000, 0.000000, 0.000000
+attach_position_offset		= 0.087266, -0.078540, 0.052360
+attach_bone_name			= bip01_r_hand
+auto_attach					= false
+bone_name					= bip01_r_hand
+position_offset				= 0.0, 0.0, 0.0
+angle_offset				= 1.570790, 1.570790, 3.92699
+
+[booster]:base_section
+$prefetch					= 8
+$spawn						= "food and drugs\antirad"
+class						= II_FOOD			; Change to S_FOOD to use se_item.eatable_item script binding!
+
+eat_health					= 0
+eat_thirst					= 0
+eat_satiety					= 0
+eat_power					= 0
+eat_max_power				= 0
+eat_radiation				= 0
+eat_alcohol					= 0
+eat_sleepiness				= 0
+;eat_toxicity				= 0
+;eat_pulse					= 0
+;eat_pain					= 0
+;eat_temperature			= 0
+;eat_fracture				= 0
+;eat_psyhealth				= 0
+wounds_heal_perc			= 0
+
+boost_time					= 0.0
+boost_max_weight			= 0.0
+boost_health_restore		= 0.0
+boost_power_restore			= 0.0
+boost_radiation_restore		= 0.0
+boost_bleeding_restore		= 0.0
+boost_fracture_restore		= 0.0
+boost_slowed_pulse			= 0.0
+boost_toxicity				= 0.0
+boost_temperature			= 0.0
+boost_pain					= 0.0
+boost_psy_health			= 0.0
+boost_satiety				= 0.0
+boost_thirst				= 0.0
+boost_alcohol				= 0.0
+
+boost_radiation_protection	= 0.0
+boost_telepat_protection	= 0.0
+boost_chemburn_protection	= 0.0
+
+boost_burn_immunity			= 0.0
+boost_shock_immunity		= 0.0
+boost_radiation_immunity	= 0.0
+boost_telepat_immunity		= 0.0
+boost_chemburn_immunity		= 0.0
+boost_strike_immunity		= 0.0
+boost_wound_immunity		= 0.0
+boost_explosion_immunity	= 0.0
+boost_fire_wound_immunity	= 0.0
+
+;NEW PARAMETERS
+use_condition				= false
+max_uses					= 1
+remove_after_use			= true
+empty_weight				= 0.1
+empty_volume				= 0.1
+allow_repair				= false
+;volume_scale				= true 				; Enabled by default
+pickup_color				= 50, 250, 30, 255 	; Bright Green
+[can_divide]
+use1_action_functor			= area_utils.action_divid_item_parts
+use1_functor				= area_utils.divid_item_parts
+
+;USE THIS IF YOU WANT ITEM TO HAVE STORY ID
+[booster_script]:booster
+class						= S_FOOD
+
+[ver_qs]
+ignore_size					= true
+belt_adj_width				= 1.4
+belt_adj_height				= 1.6
+belt_adj_pos_x				= 4
+belt_adj_pos_y				= -14
+
+[hor_qs]:ver_qs
+belt_adj_pos_x				= -8
+belt_adj_pos_y				= 4
+
+[default_weapon_params]:base_section
+scheduled					= off			; option for ALife Simulator
+use_aim_bullet				= false
+use_first_bullet			= false
+can_stack					= false
+shell_3d					= true			; Оружие будет использовать 3Д гильзы
+;shell_3d_sect				= shell_12		; Секция 3Д гильзы
+;shell_drop_left			= true			; Направление вылета гильзы влево, можеть быть _up и _down, по умолчанию вправо.
+;shell_drop_on_reload		= true			; Отчёт задержки падения будет начинатся после начала перезарядки, если без флага будет начинатся после начала выстрела
+;shell_drop_time			= 1300			; Время до вылета гильзы
+;shell_drop_silent			= true			; Падение гильзы без отображения в HUD-e
+;shell_drop_count			= 1 			; Колличество вылетающих одновременно гильз
+;available_particles		= true			; Разрешить все частицы после выстрела
+k_hit_critical				= 0
+frag_hit_critical			= 0
+hit_power					= 0.50, 0.50, 0.50, 0.50
+hit_power_critical			= 1.00, 1.00, 1.00, 1.00
+silencer_hit_power			= 0.45, 0.45, 0.45, 0.45
+pickup_color				= 230, 30, 30, 255 	; Red
+hit_type					= fire_wound
+hit_impulse					= 10			; size of physic impulse by bullet
+grenade_vel 				= 76
+launch_speed				= 76
+silencer_hit_impulse	 	= 9
+slot 						= -1
+description					= weapon_no_description
+snd_add_cartridge			= weapons\bullet_load
+snd_bullet_unload			= weapons\bullet_unload
+snd_magazine_detach			= weapons\pistol_magazine_detach
+hand_dependence				= 1
+single_handed				= 0
+default_to_ruck				= false
+sprint_allowed				= true
+control_inertion_factor		= 1.0
+zoom_rotate_time			= 0.25
+ironsight_zoom_factor		= 1.25			; Really only used for Grenade Launcher Attachments
+light_disabled				= false
+light_color					= 0.6,0.5,0.3
+light_range                 = 3.0
+light_time					= 0.2
+light_var_color				= 0.05
+light_var_range				= 0.5
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_time			= 0.2
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+;---------------------------------------------------------------------------------
+holder_range_modifier		= 1.0			; во сколько раз увеличивается eye_range
+holder_fov_modifier			= 1.0			; во сколько раз увеличивается eye_fov
+;--For AI scope weapons-----------------------------------------------------------
+hit_probability_gd_novice	= 1
+hit_probability_gd_stalker	= 1
+hit_probability_gd_veteran	= 1
+hit_probability_gd_master	= 1
+;--Strap Parameters---------------------------------------------------------------
+strap_position				= -0.34, 0.20, 0.15
+strap_orientation			= 0.0, 0.0, 94.0
+strap_position_slot2		= -0.34, -0.20, 0.15
+strap_orientation_slot2		= 0.0, 0.0, 84.0
+strap_bone0					= bip01_spine2
+strap_bone1					= bip01_spine1
+;--Scope battery------------------------------------------------------------------
+use2_action_functor			= area_battery_discharge.scope_battery_action_functor
+use2_functor				= area_battery_discharge.scope_battery_functor
+battery_decay_rate			= 0.001
+battery_type				= battery_1_5v_aa
+;--Pistol strap parameters--------------------------------------------------------
+[strap_pistol]
+strap_position					= 0.10, 0.105, 0.14
+strap_orientation				= 0.0, -5.0, -95.0
+strap_position_slot2			= -0.12, 0.06, 0.12
+strap_orientation_slot2			= -15.0, 2.0, 180.0
+strap_position_holster			= 0.06, 0.092, 0
+strap_orientation_holster		= 0.0, -5.0, -95.0
+strap_bone0						= bip01_r_thigh
+strap_bone1						= bip01_r_calf
+;---------------------------------------------------------------------------------
+[weapon_base]:default_weapon_params
+catch_snd                                = detectors\DA-2_beep1
+class                                    = WP_BINOC
+ammo_class                               = ammo_12x76_zhekan_heli
+ammo_current                             = 0
+ammo_elapsed                             = 0
+ammo_limit                               = 0
+ammo_mag_size                            = 0
+single_handed                            = 0
+inv_weight                               = 0.0
+inv_volume                               = 0.0
+normal                                   = 0, 1, 0
+orientation                              = 0 , -90, 70
+ph_mass                                  = 1
+position                                 = -0.08 , -0.05 , 0.05
+reload_dof                               = 0.0, 0.5, 5, 1.7
+smoke_particles                          = weapons\generic_shoot_00
+use_condition                            = false
+vis_frame_color                          = 0.7,0.7,0.7,1.0
+vis_frame_speed                          = 4
+vision_present                           = false
+max_radius                               = 0
+min_radius                               = 0
+flame_particles                          = weapons\generic_weapon05
+found_snd                                = detectors\DA-2_beep1
+direction                                = 0, 0, 1
+disp_crouch_factor                       = 0.75
+disp_jump_factor                         = 3
+disp_vel_factor                          = 0.0
+ef_main_weapon_type                      = 5
+ef_weapon_type                           = 0
+highlight_equipped                       = true	;New CoC field, shows item as equipped in rucksack
+grenade_launcher_status                  = 0
+silencer_status                          = 0
+scope_status                             = 0
+scope_name								= none
+scope_texture                            = wpn_crosshair_bino
+rpm                                      = 1
+rpm_empty_click                          = 1
+bullet_speed                             = 1
+cam_dispersion                           = 0.0
+cam_max_angle                            = 0.01
+cam_max_angle_horz                       = 0.01
+cam_relax_speed                          = 1.0
+cam_step_angle_horz                      = 0.0
+fire_dispersion_base                     = 0.0
+fire_dispersion_condition_factor         = 1
+fire_distance                            = 1
+fire_point                               = 0.0, 0.0, 0.0
+PDM_disp_accel_factor                    = 1.0
+PDM_disp_base                            = 1.0
+PDM_disp_crouch                          = 1.0
+PDM_disp_crouch_no_acc                   = 1.0
+PDM_disp_vel_factor                      = 1.0
+misfire_end_condition                    = 0.0
+misfire_end_prob                         = 0.0
+misfire_probability                      = 0.0
+misfire_start_condition                  = 0.0
+misfire_start_prob                       = 0.0
+condition_queue_shot_dec                 = 0.0
+condition_shot_dec                       = 0.0
+zoom_enabled                             = false
+snd_close						= $no_sound
+snd_draw						= $no_sound
+snd_empty						= $no_sound
+snd_gyro						= $no_sound
+snd_holster						= $no_sound
+snd_reload						= $no_sound
+snd_shoot						= $no_sound
+snd_zoomin						= $no_sound
+snd_zoomout						= $no_sound
+shell_dir                                = 0.0, 0.0, 0.0
+shell_particles                          = weapons\generic_shells
+shell_point                              = 0.0, 0.0, 0.0
+show_ammo						= true
+;---------------------------------------------------------------------------------
+[common_ph_friction_params_on_npc_death]	; Parameters for setting change of friction at the time of the death of a character
+ph_skeleton_airr_lin_factor 	= 2.0		; Precisely because of the fact that the multiplication factor of 0.002 removed from the code
+ph_skeleton_airr_ang_factor 	= 0.0		; Precisely because of the fact that removed the multiplication by a factor of 0.3 from the code (0.0 * 0.3 = 0.0)
+ph_skeleton_hinger_factor1  	= 1.0		; Because of the fact that the multiplication factor removed from the code 5.0
+ph_skeleton_ddelay				= 15.0		; Time changes in friction values ??in the joint since the inception of the shell
+
+ph_skel_fatal_impulse_factor  	= 6.0
+ph_after_death_velocity_factor	= 0.75
+ph_skel_shot_up_factor        	= 0.25
+
+ph_skeleton_skin_friction_start	= 0.0		; The starting value for the shell friction
+ph_skeleton_skin_friction_end	= 2.0		; The final value for the shell friction
+ph_skeleton_skin_ddelay			= 6.0		; Time changes in friction values since the inception of the shell, s.
+ph_skeleton_skin_ddelay_after_wound = 2.0	; Changes in the friction values time since the creation of shell, s (for the character after injury).
+ph_pelvis_factor_low_pose_detect = 0.3		; Length of the beam in the collision with the ground from the center pelvisa
+											; If the collision, the character is in the lower position (or hurt) in this case need to set other params for him.
+											; Friction and no pulse multiplication for the first hit.
+ph_character_have_wounded_state = false		; имеет ли персонаж состояние раненый
+
+[monster_base]:common_ph_friction_params_on_npc_death
+actor_hit_effect 				= effector_monster_hit
+custom_data						= default_custom_data.ltx	; option for Level Editor
+feel_enemy_who_made_sound_max_distance = 30
+feel_enemy_who_just_hit_max_distance = 200
+feel_enemy_max_distance = 50
+;---------------------------------------------------------------------------------
+;;	OTHERS
+;---------------------------------------------------------------------------------
+[wpn_vodka_hud]:hud_base
+visual						= dynamics\devices\dev_vodka\dev_vodka.ogf
+fire_point					= 0.0, 0.0, 0.06
+fire_bone					= bip01_head
+orientation					= 0, 0, 0
+position					= 0, 0, 0
+
+anim_idle					= vodka_2
+anim_show					= vodka_1
+anim_hide                                = vodka_4
+anim_play                                = vodka_5
+anim_prepare                             = vodka_5
+anim_eat                                 = vodka_3

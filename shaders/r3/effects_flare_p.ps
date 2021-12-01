@@ -1,0 +1,10 @@
+#include "common.h"
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Pixel
+float4 main(p_TL I) : Sv_Target
+{
+	float4 final = s_base.Sample(smp_base, I.Tex0);
+	final *= saturate(sunpos_screen());
+	return final * float4(L_sun_color.rgb, I.Color.w / 3);
+}

@@ -1,0 +1,459 @@
+;----------------------------------------------------------------------------------------
+; VSK-94 from STCOP 3.3, remade by Surs for A.R.E.A. (21.09.2020)
+;----------------------------------------------------------------------------------------
+[wpn_vsk94]:default_weapon_params
+$spawn								= "weapons\val"			; option for Level Editor
+$npc								= off					; option for Level Editor
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94.ogf
+class								= WP_VAL
+inv_name							= st_wpn_vsk94
+inv_name_short						= st_wpn_vsk94
+description							= st_wpn_vsk94_descr
+heating_rates						= ak3
+parent_section						= wpn_vsk94
+cost								= 33960
+inv_weight							= 2.8
+inv_volume							= 5
+ph_mass								= 3
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_9x39
+weapon_class						= assault_rifle
+;-------------------------------------------------------------------------------
+upgrades							= up_gr_firstab_vsk94, up_gr_seconab_vsk94, up_gr_thirdab_vsk94, up_gr_fourtab_vsk94, up_gr_fifthab_vsk94
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_val
+;--TTX--------------------------------------------------------------------------
+hit_power							= 0.6, 0.6, 0.6, 0.6
+hit_impulse							= 33
+hit_type							= fire_wound
+fire_distance						= 400
+bullet_speed						= 270
+rpm									= 700
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_vsk94_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.9
+misfire_end_condition				= 0.15
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0015
+condition_queue_shot_dec			= 0.0020
+
+ammo_elapsed						= 20
+ammo_mag_size						= 20
+fire_modes							= 1, -1
+magazine_sect						= mag_9x39_cnt_20_vsk94
+ammo_class							= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, ammo_9x39_ap, ammo_9x39_ap_bad, ammo_9x39_ap_verybad
+slot								= 2
+animation_slot						= 2
+;--Дисперсия-------------------------------------------------------------------
+fire_dispersion_base				= 0.245 ;0.15			;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.18f
+crosshair_inertion					= 4.8
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 10					;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.84
+cam_dispersion_inc					= 0.73
+cam_dispersion_frac					= 0.9					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 44.0					;максимальный угол отдачи
+cam_max_angle_horz					= 44.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.61					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.73
+PDM_disp_vel_factor					= 1.745
+PDM_disp_accel_factor				= 1.745
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 0.79
+zoom_cam_dispersion_inc				= 0.67
+zoom_cam_dispersion_frac			= 0.9
+zoom_cam_max_angle					= 44.0
+zoom_cam_max_angle_horz				= 44.0
+zoom_cam_step_angle_horz			= 0.43
+fire_dispersion_condition_factor	= 0.001					;увеличение дисперсии в процентах при максимальном износе
+;--DOF--------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 2.5
+;-------------------------------------------------------------------------------
+inv_grid_width						= 4
+inv_grid_height						= 2
+inv_grid_x							= 20
+inv_grid_y							= 28
+
+upgr_icon_x							= 900
+upgr_icon_y							= 1600
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 154
+kill_msg_width						= 78
+kill_msg_height						= 21
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.131, 0
+orientation							= 0, 0, 0
+fire_point							= 0,0.174,0.562
+fire_point2							= 0, 0.097, 0.722
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= -0.02,0.167,0.082
+shell_dir							= 0, 1, 0
+shell_particles						= weapons\9x39
+
+light_disabled						= true
+light_color							= 0.6,0.5,0.3
+light_range							= 0.01
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+scopes								= 1p29, 1p78, 1pn34, 1pn93, ekp, kobra, okp, pso, pso1m21
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 145
+grenade_launcher_y					= 32
+
+silencer_name						= wpn_sil_9a91
+silencer_x							= 186
+silencer_y							= 12
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\vsk94\vsk94_holster
+snd_draw							= weapons\vsk94\vsk94_draw
+snd_empty							= weapons\vsk94\vsk94_empty
+snd_reload							= weapons\vsk94\vsk94_reload
+snd_reload_empty					= weapons\vsk94\vsk94_reload_empty
+snd_reload_misfire					= weapons\vsk94\vsk94_reload_empty, , ,1.9
+snd_reload_detached					= weapons\vsk94\vsk94_reload, , ,0.7
+snd_reload_detached_empty			= weapons\vsk94\vsk94_reload_empty, , ,0.7
+snd_switch							= $no_sound
+snd_bore							= $no_sound
+snd_shoot							= weapons\vsk94\vsk94_shoot_null
+snd_silencer_shot					= weapons\vsk94\vsk94_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_9x39_cnt_20_vsk94]
+magazine_name						= magazine_9x39_cnt_20
+magazine_x							= 112
+magazine_y							= 39
+custom_icon 						= 8,3,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_vsk94_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.02,0.03706,0.056765
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.045854,0.498059
+fire_bone							= wpn_body
+fire_point2							= -0.014,0.01,-0.037
+fire_bone2							= wpn_body
+grenade_bone						= grenade
+
+hands_position						= -0.10942,-0.10258,-0.043394
+hands_position_16x9					= -0.10942,-0.10258,-0.043394
+hands_orientation					= 0.85744,1.384962,0
+hands_orientation_16x9				= 0.85744,1.384962,0
+
+aim_hud_offset_pos					= -0.037285,0.00604,-0.13982
+aim_hud_offset_pos_16x9				= -0.037285,0.00604,-0.13982
+aim_hud_offset_rot					= -0.003796,0.014492,0
+aim_hud_offset_rot_16x9				= -0.003796,0.014492,0
+
+aim_hud_offset_pos_alt				= -0.027260,-0.008845,0
+aim_hud_offset_pos_alt_16x9			= -0.027260,-0.008845,0
+aim_hud_offset_rot_alt				= -0,0.011115,0.396619
+aim_hud_offset_rot_alt_16x9			= -0,0.011115,0.396619
+
+anm_show							= vihr_draw
+anm_hide							= vihr_hide
+anm_idle							= vihr_idle
+anm_idle_sprint						= vihr_idle_sprint
+anm_idle_moving						= vihr_idle_moving
+anm_idle_moving_crouch				= vihr_idle_moving_crouch
+anm_shots							= vihr_shoot, shoot
+anm_shots_empty						= vihr_idle
+anm_reload							= vihr_reload, reload
+anm_reload_misfire					= vihr_misfire, misfire
+anm_reload_empty					= vihr_reload_empty, reload_empty
+anm_reload_detached					= vihr_reload, reload, , 1.05
+anm_reload_detached_empty			= vihr_reload_empty, reload_empty, ,1.05
+anm_idle_aim						= vihr_idle_aim
+anm_bore							= vihr_idle_aim
+;-----------------------------------------------------------------------------
+;	Scopes
+;-----------------------------------------------------------------------------
+[wpn_vsk94_1p29]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p29.ogf
+scope_name							= 1p29
+scope_x								= 80
+scope_y								= -3
+hud									= wpn_vsk94_1p29_hud
+
+[wpn_vsk94_1p29_hud]:wpn_vsk94_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p29_hud.ogf
+aim_hud_offset_pos					= -0.044315,-0.02581,-0.116427
+aim_hud_offset_pos_16x9				= -0.044315,-0.02581,-0.116427
+aim_hud_offset_pos_alt				= 0.000735,0.03088,0
+aim_hud_offset_pos_alt_16x9			= 0.000735,0.03088,0
+aim_hud_offset_rot_alt				= 0.005473,-0.000211,0
+aim_hud_offset_rot_alt_16x9			= 0.005473,-0.000211,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_1p78]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p78.ogf
+scope_name							= 1p78
+scope_x								= 80
+scope_y								= -5
+hud									= wpn_vsk94_1p78_hud
+
+[wpn_vsk94_1p78_hud]:wpn_vsk94_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p78_hud.ogf
+aim_hud_offset_pos					= -0.035575,-0.01336,-0.127962
+aim_hud_offset_pos_16x9				= -0.035575,-0.01336,-0.127962
+aim_hud_offset_pos_alt				= -0.01394,0.023985,0
+aim_hud_offset_pos_alt_16x9			= -0.01394,0.023985,0
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_1pn34]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn34.ogf
+scope_name							= 1pn34
+scope_x								= 80
+scope_y								= -3
+hud									= wpn_vsk94_1pn34_hud
+
+[wpn_vsk94_1pn34_hud]:wpn_vsk94_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn34_hud.ogf
+aim_hud_offset_pos					= -0.038825,-0.0425,-0.11651
+aim_hud_offset_pos_16x9				= -0.038825,-0.0425,-0.11651
+aim_hud_offset_pos_alt				= 0.001435,0.04920,0
+aim_hud_offset_pos_alt_16x9			= 0.001435,0.04920,0
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_1pn93]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn93.ogf
+scope_name							= 1pn93
+scope_x								= 84
+scope_y								= 0
+hud									= wpn_vsk94_1pn93_hud
+
+[wpn_vsk94_1pn93_hud]:wpn_vsk94_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn93_hud.ogf
+aim_hud_offset_pos					= -0.02811,-0.017415,-0.146945
+aim_hud_offset_pos_16x9				= -0.02811,-0.017415,-0.146945
+aim_hud_offset_pos_alt				= -0.00943,0.023575,0
+aim_hud_offset_pos_alt_16x9			= -0.00943,0.023575,0
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_ekp]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_ekp.ogf
+scope_name							= ekp
+scope_x								= 84
+scope_y								= -2
+hud									= wpn_vsk94_ekp_hud
+
+[wpn_vsk94_ekp_hud]:wpn_vsk94_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_ekp_hud.ogf
+aim_hud_offset_pos					= -0.03681,-0.03301,-0.13982
+aim_hud_offset_pos_16x9				= -0.03681,-0.03301,-0.13982
+aim_hud_offset_pos_alt				= -0.000615,0.045305,0
+aim_hud_offset_pos_alt_16x9			= -0.000615,0.045305,0
+aim_hud_offset_rot_alt				= 0.004631,0,0
+aim_hud_offset_rot_alt_16x9			= 0.004631,0,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_kobra]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_kobra.ogf
+scope_name							= kobra
+scope_x								= 84
+scope_y								= 2
+hud									= wpn_vsk94_kobra_hud
+
+[wpn_vsk94_kobra_hud]:wpn_vsk94_1p29_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_kobra_hud.ogf
+aim_hud_offset_pos					= -0.03664,-0.027865,-0.139835
+aim_hud_offset_pos_16x9				= -0.03664,-0.027865,-0.139835
+aim_hud_offset_pos_alt				= -0.00082,0.03895,0
+aim_hud_offset_pos_alt_16x9			= -0.00082,0.03895,0
+aim_hud_offset_rot_alt				= -0.000421,0.000526,0
+aim_hud_offset_rot_alt_16x9			= -0.000421,0.000526,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_okp]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_okp.ogf
+scope_name							= okp
+scope_x								= 86
+scope_y								= -2
+hud									= wpn_vsk94_okp_hud
+
+[wpn_vsk94_okp_hud]:wpn_vsk94_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_okp_hud.ogf
+aim_hud_offset_pos					= -0.031015,-0.010515,-0.13982
+aim_hud_offset_pos_16x9				= -0.031015,-0.010515,-0.13982
+aim_hud_offset_pos_alt				= -0.00656,0.0164,0
+aim_hud_offset_pos_alt_16x9			= -0.00656,0.0164,0
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_pso]:wpn_vsk94
+scope_name							= pso
+scope_x								= 56
+scope_y								= 1
+hud									= wpn_vsk94_pso_hud
+
+[wpn_vsk94_pso_hud]:wpn_vsk94_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_hud.ogf
+aim_hud_offset_pos					= -0.027615,-0.01043,-0.083596
+aim_hud_offset_pos_16x9				= -0.027615,-0.01043,-0.083596
+aim_hud_offset_pos_alt				= -0.014145,0.020295,0.043665
+aim_hud_offset_pos_alt_16x9			= -0.014145,0.020295,0.043665
+aim_hud_offset_rot_alt				= 0.006105,-0.000211,0
+aim_hud_offset_rot_alt_16x9			= 0.006105,-0.000211,0
+;-----------------------------------------------------------------------------
+[wpn_vsk94_pso1m21]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_pso1m21.ogf
+scope_name							= pso1m21
+scope_x								= 56
+scope_y								= 1
+hud									= wpn_vsk94_pso1m21_hud
+
+[wpn_vsk94_pso1m21_hud]:wpn_vsk94_pso_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_pso1m21_hud.ogf
+aim_hud_offset_pos					= -0.02805,-0.010705,-0.083596
+aim_hud_offset_pos_16x9				= -0.02805,-0.010705,-0.083596
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn]:wpn_vsk94
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_sk1.ogf
+inv_name							= st_wpn_vsk94_worn
+inv_name_short						= st_wpn_vsk94_worn
+parent_section						= wpn_vsk94_worn
+upgrades							= up_gr_firstab_vsk94_worn, up_gr_seconab_vsk94_worn, up_gr_thirdab_vsk94_worn, up_gr_fourtab_vsk94_worn, up_gr_fifthab_vsk94_worn
+cost								= 24580
+hit_power							= 0.46, 0.46, 0.46, 0.46
+bullet_speed						= 255
+rpm									= 665
+hud									= wpn_vsk94_sk1_hud
+misfire_start_condition				= 0.93
+misfire_end_condition				= 0.18
+condition_shot_dec					= 0.0018
+condition_queue_shot_dec			= 0.0023
+fire_dispersion_base				= 0.288
+inv_grid_x							= 25
+
+[wpn_vsk94_sk1_hud]:wpn_vsk94_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_1p29]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p29_sk1.ogf
+scope_name							= 1p29
+scope_x								= 79
+scope_y								= 7
+hud									= wpn_vsk94_1p29_sk1_hud
+
+[wpn_vsk94_1p29_sk1_hud]:wpn_vsk94_1p29_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p29_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_1p78]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p78_sk1.ogf
+scope_name							= 1p78
+scope_x								= 73
+scope_y								= 2
+hud									= wpn_vsk94_1p78_sk1_hud
+
+[wpn_vsk94_1p78_sk1_hud]:wpn_vsk94_1p78_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1p78_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_1pn34]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn34_sk1.ogf
+scope_name							= 1pn34
+scope_x								= 80
+scope_y								= -3
+hud									= wpn_vsk94_1pn34_sk1_hud
+
+[wpn_vsk94_1pn34_sk1_hud]:wpn_vsk94_1pn34_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn34_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_1pn93]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn93_sk1.ogf
+scope_name							= 1pn34
+scope_x								= 80
+scope_y								= -3
+hud									= wpn_vsk94_1pn93_sk1_hud
+
+[wpn_vsk94_1pn93_sk1_hud]:wpn_vsk94_1pn93_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_1pn93_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_ekp]:wpn_vsk94_ekp
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_ekp_sk1.ogf
+scope_name							= ekp
+scope_x								= 59
+scope_y								= 9
+hud									= wpn_vsk94_ekp_sk1_hud
+
+[wpn_vsk94_ekp_sk1_hud]:wpn_vsk94_ekp_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_ekp_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_kobra]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_kobra_sk1.ogf
+scope_name							= kobra
+scope_x								= 87
+scope_y								= 14
+hud									= wpn_vsk94_kobra_sk1_hud
+
+[wpn_vsk94_kobra_sk1_hud]:wpn_vsk94_kobra_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_kobra_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_okp]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_okp_sk1.ogf
+scope_name							= ekp
+scope_x								= 88
+scope_y								= 10
+hud									= wpn_vsk94_okp_sk1_hud
+
+[wpn_vsk94_okp_sk1_hud]:wpn_vsk94_okp_hud
+item_visual                			= dynamics\weapons\wpn_vsk94\wpn_vsk94_okp_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_pso]:wpn_vsk94_worn
+scope_name							= pso
+scope_x								= 59
+scope_y								= 9
+hud									= wpn_vsk94_pso_sk1_hud
+
+[wpn_vsk94_pso_sk1_hud]:wpn_vsk94_pso_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_vsk94_worn_pso1m21]:wpn_vsk94_worn
+visual								= dynamics\weapons\wpn_vsk94\wpn_vsk94_pso1m21_sk1.ogf
+scope_name							= pso1m21
+scope_x								= 59
+scope_y								= 9
+hud									= wpn_vsk94_pso1m21_sk1_hud
+
+[wpn_vsk94_pso1m21_sk1_hud]:wpn_vsk94_pso1m21_hud
+item_visual							= dynamics\weapons\wpn_vsk94\wpn_vsk94_sk1_hud.ogf
+;-----------------------------------------------------------------------------

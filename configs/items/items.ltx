@@ -1,0 +1,841 @@
+[guitar_a]:base_section
+$spawn                                   = "food and drugs\guitar_a"
+visual                                   = dynamics\devices\dev_guitar\dev_guitar.ogf
+inv_name                                 = st_guitar_name
+inv_name_short                           = st_guitar_name
+description                              = st_guitar_descr
+inv_weight                               = 1.5
+inv_volume								 = 5.5
+inv_grid_width                           = 4
+inv_grid_height                          = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 21
+cost									= 1220
+attach_angle_offset						 = -1.651084, -1.341824, 1.200789
+attach_position_offset					 = 0.077492, -0.030020, 0.090059
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+can_trade                                = true
+quest_item								 = false
+
+; necessary for animpoint sit low and high
+[guitar_a2]:guitar_a
+attach_angle_offset                      = -0.415, -1.262, 0.808
+attach_position_offset                   = -0.014, 0.010, 0.020
+
+[harmonica_a]:base_section
+$spawn                                   = "food and drugs\harmonica_a"
+visual                                   = dynamics\devices\dev_harmonica\dev_harmonica.ogf
+inv_name                                 = st_harmonica_name
+inv_name_short                           = st_harmonica_name
+description                              = st_harmonica_descr
+inv_weight                               = 0.35
+inv_grid_x								= 0
+inv_grid_y								= 5
+cost									= 655
+attach_angle_offset                      = 0.000000, -1.204452, -1.262921
+attach_position_offset                   = 0.081856, -0.035081, 0.011694
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+can_trade                                = true
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	Scaner B6
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[anomaly_scaner]:base_section
+$spawn                                   = "equipment\anomaly_scaner"
+visual                                   = dynamics\devices\dev_datchik_2\dev_datchik_2.ogf
+inv_name                                 = "hand_radio"
+inv_name_short                           = "hand_radio"
+inv_weight                               = 0.5
+inv_volume								 = 1.0
+inv_grid_width                           = 2
+inv_grid_x                               = 14
+inv_grid_y                               = 7
+inv_category							= 7
+cost									= 0
+attach_angle_offset                      = -1.571,-1.308,-1.458	  ;onoaiaaeeaaaons a ?aaeaiao Angle*PI/180
+attach_position_offset                   = 0.105, -0.004, 0.003
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+can_trade								 = false 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;	DEVICES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[device_pda]:base_section
+class                                    = D_PDA	;Change to S_PDA if you want to use se_item.se_explosive script binding!
+visual                                   = dynamics\devices\dev_pda\dev_pda2.ogf
+inv_name                                 = st_pda_name
+inv_name_short                           = st_pda_name
+description                              = st_pda_descr
+radius                                   = 68
+slot                                     = 7
+default_to_ruck                          = false
+sprint_allowed                           = true
+script_binding                           = bind_physic_object.init
+inv_weight                               = 0.150
+inv_volume								 = 0.1
+inv_grid_x                               = 6
+inv_grid_y                               = 39
+inv_category							= 6
+cost                                     = 5000
+control_inertion_factor					 = 1.0
+pickup_color							= 255, 255, 30, 255		; Yellow
+attach_angle_offset						= -1.303,0.107,-1.702	; Angle*PI/180
+attach_position_offset                   = 0.14,0.001,0.02
+attach_bone_name                         = bip01_l_hand
+auto_attach                              = false
+can_trade								 = true
+use_condition							 = true
+battery_decay_rate						 = 0.0005
+battery_type							 = battery_4200mah
+use1_action_functor						 = area_battery_discharge.battery_action_functor
+use1_functor							 = area_battery_discharge.battery_functor
+
+; For information brokers.
+[device_pda_common]:device_pda
+inv_name                                 = st_pda_uncommon_name
+inv_name_short                           = st_pda_uncommon_name
+description                              = st_pda_uncommon_descr
+inv_weight                               = 0.14
+inv_volume                             	 = 0.1
+inv_grid_x                               = 7
+inv_grid_y                               = 39
+cost                                     = 5600
+battery_decay_rate						 = 0.0004
+battery_type							 = battery_4000mah
+
+[device_pda_uncommon]:device_pda
+inv_name                                 = st_pda_uncommon_name
+inv_name_short                           = st_pda_uncommon_name
+description                              = st_pda_uncommon_descr
+inv_weight                               = 0.15
+inv_volume                             	 = 0.1
+inv_grid_x                               = 8
+inv_grid_y                               = 39
+cost                                     = 5800
+battery_decay_rate						 = 0.0004
+battery_type							 = battery_4200mah
+
+[device_pda_rare]:device_pda
+inv_name                                 = st_pda_rare_name
+inv_name_short                           = st_pda_rare_name
+description                              = st_pda_rare_descr
+inv_weight                               = 0.13  
+inv_volume                             	 = 0.1
+inv_grid_x                               = 9
+inv_grid_y                               = 39
+cost                                     = 6200
+battery_decay_rate						 = 0.00035
+battery_type							 = battery_4500mah
+
+[dev_flash_1]:base_section
+$spawn                                   = "devices\dev_flash_1"
+visual                                   = dynamics\devices\dev_flash_1\dev_flash_1.ogf
+inv_grid_x                               = 8
+inv_grid_y                               = 3
+inv_weight                               = 0.05
+inv_volume								 = 0.05
+inv_name                                 = flash_1
+inv_name_short                           = flash_1
+description                              = flash_1
+cost                                     = 0
+can_trade                                = true
+
+[dev_flash_2]:base_section
+$spawn                                   = "devices\dev_flash_2"
+visual                                   = dynamics\devices\dev_flash_2\dev_flash_2.ogf
+inv_grid_x                               = 9
+inv_grid_y                               = 3
+inv_weight                               = 0.05
+inv_volume								 = 0.05
+inv_name                                 = flash_2
+inv_name_short                           = flash_2
+description                              = flash_1
+cost                                     = 0
+can_trade                                = true
+
+[sd_hacking_soft]:booster
+$spawn									= "devices\sd_hacking_soft"
+visual                                   = dynamics\devices\dev_flash_1\dev_flash_1.ogf
+inv_weight                               = 0.010  
+inv_volume                             	 = 0.010
+description								 = st_sd_hacking_soft_descr
+inv_name								 = st_sd_hacking_soft_title
+inv_name_short	               		 	 = st_sd_hacking_soft_title
+inv_grid_x                               = 7
+inv_grid_y                               = 41
+inv_category							= 7
+cost                                     = 50000
+
+; For encyclopedia.
+[itm_guide_usb_1]:booster
+visual                                   = dynamics\devices\dev_flash_1\dev_flash_1.ogf
+inv_name                                 = st_memory_stick_name
+inv_name_short                           = st_memory_stick_name
+description                              = st_memory_stick_descr
+class                                    = II_ATTCH
+inv_weight                             	 = 0.025
+inv_volume                             	 = 0.025
+inv_grid_x                               = 8
+inv_grid_y                               = 3
+inv_category							= 7
+cost									 = 3000
+use1_action_functor                      = dxr_encyclopedia.context_action_functor
+use1_functor                             = dxr_encyclopedia.context_functor
+next_use_item							 = usb_flash
+
+[itm_guide_usb_2]:booster
+visual                                   = dynamics\devices\dev_flash_2\dev_flash_2.ogf
+inv_name                                 = st_memory_stick_name
+inv_name_short                           = st_memory_stick_name
+description                              = st_memory_stick_descr
+class                                    = II_ATTCH
+inv_weight                             	 = 0.025
+inv_volume                             	 = 0.025
+inv_grid_x                               = 9
+inv_grid_y                               = 3
+cost									 = 3000
+use1_action_functor                      = dxr_encyclopedia.context_action_functor2
+use1_functor                             = dxr_encyclopedia.context_functor
+next_use_item							 = usb_flash_2
+
+[usb_flash]:booster
+visual                                   = dynamics\devices\dev_flash_1\dev_flash_1.ogf
+inv_name                                 = st_memory_stick_empty_name
+inv_name_short                           = st_memory_stick_empty_name
+description                              = st_memory_stick_empty_descr
+can_trade                                = true
+class									 = II_DOC
+inv_weight                             	 = 0.025
+inv_volume                             	 = 0.025
+cost									 = 50
+inv_grid_x                               = 8
+inv_grid_y                               = 3
+
+[usb_flash_2]:usb_flash
+visual                                   = dynamics\devices\dev_flash_2\dev_flash_2.ogf
+inv_grid_x                               = 9
+inv_grid_y                               = 3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[stick_bred]:base_section
+$spawn									= "equipments\stick_bred"
+visual									= equipments\stick_bred.ogf
+inv_name								= "stick_bred"
+inv_name_short                           = "stick_bred"
+inv_weight                               = 0.5
+inv_volume								 = 0.5
+inv_grid_width                           = 2
+inv_grid_x                               = 11
+inv_grid_y                               = 9
+attach_angle_offset                      = 4.3,0.3,0
+attach_position_offset                   = -0.2,-0.32,0.235
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+bone_name                                = bip01_r_hand
+position_offset                          = 0.0,0.0,0.0
+angle_offset							= 0,0,0
+can_trade								= false
+
+[stick_kolbasa]:stick_bred
+$spawn									= "equipments\stick_kolbasa"
+visual									= equipments\stick_kolbasa.ogf
+inv_name								= "stick_kolbasa"
+inv_name_short							= "stick_kolbasa"
+inv_weight								= 0.5
+inv_volume								= 0.5
+inv_grid_x								= 16
+inv_grid_y								= 12
+
+[stick_kolbasa_bred]:stick_bred
+$spawn									= "equipments\stick_kolbasa_bred"
+visual									= equipments\stick_kolbasa_bred.ogf
+inv_name								= "stick_kolbasa_bred"
+inv_name_short							= "stick_kolbasa_bred"
+inv_weight								= 0.5
+inv_volume								= 0.5
+inv_grid_x								= 11
+inv_grid_y								= 9
+
+[stick_rat]:stick_bred
+$spawn									= "equipments\stick_kolbasa_bred"
+visual									= equipments\stick_rat.ogf
+inv_name								= "stick_kolbasa_bred"
+inv_name_short							= "stick_kolbasa_bred"
+inv_weight								= 0.5
+inv_volume								= 0.5
+inv_grid_x								= 11
+inv_grid_y								= 9
+
+[stalker_patch]:base_section
+$spawn									= "devices\stalker_patch"
+visual									= dynamics\tfw_badges\tfw_badge_defiance.ogf
+inv_name								= st_stalker_fp
+inv_name_short							= st_stalker_fp
+description								= st_stalker_fp_descr
+class									= II_ATTCH
+inv_weight								= 0.01
+inv_volume								= 0.01
+highlight_equipped						= true
+use_condition							= false
+can_stack								= true
+default_to_ruck							= true
+can_trade								= true
+slot									= 13
+inv_grid_x								= 0
+inv_grid_y								= 0
+inv_category							= 3
+cost									= 400
+power_loss								= 0.0
+repair_part_bonus						= 0.01
+disguise_time							= 10
+pickup_color							= 255, 0, 255, 255	; Violet
+
+[army_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_military.ogf
+inv_name								= st_army_fp
+inv_name_short							= st_army_fp
+description								= st_army_fp_descr
+inv_grid_x								= 1
+
+[bandit_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_bandit.ogf
+inv_name								= st_bandit_fp
+inv_name_short							= st_bandit_fp
+description								= st_bandit_fp_descr
+inv_grid_x								= 2
+
+[csky_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_csky.ogf
+inv_name								= st_clearsky_fp
+inv_name_short							= st_clearsky_fp
+description								= st_clearsky_fp_descr
+inv_grid_x								= 3
+
+[duty_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_dolg.ogf
+inv_name								= st_dolg_fp
+inv_name_short							= st_dolg_fp
+description								= st_dolg_fp_descr
+inv_grid_x								= 4
+
+[ecolog_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_ecolog.ogf
+inv_name								= st_ecolog_fp
+inv_name_short							= st_ecolog_fp
+description								= st_ecolog_fp_descr
+inv_grid_x								= 5
+
+[freedom_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_freedom.ogf
+inv_name								= st_freedom_fp
+inv_name_short							= st_freedom_fp
+description								= st_freedom_fp_descr
+inv_grid_x								= 6
+
+[merc_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_merc.ogf
+inv_name								= st_merc_fp
+inv_name_short							= st_merc_fp
+description								= st_merc_fp_descr
+inv_grid_x								= 7
+
+[monolith_patch]:stalker_patch
+visual									= dynamics\tfw_badges\tfw_badge_monolith.ogf
+inv_name								= st_monolith_fp
+inv_name_short							= st_monolith_fp
+description								= st_monolith_fp_descr
+disguise_time							= 2
+inv_grid_x								= 8
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;	Toolkits
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[itm_gunsmith_toolkit]:booster
+$spawn									= "devices\repair_kit_10"
+visual									= dynamics\devices\dev_instrument_1\dev_instrument_1.ogf
+description                              = st_itm_gunsmith_toolkit_descr
+inv_name                                 = st_itm_gunsmith_toolkit
+inv_name_short                           = st_itm_gunsmith_toolkit
+can_trade                                = true
+cost                                     = 2400
+inv_weight                               = 3.65
+inv_volume								 = 1.5
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 14
+inv_grid_y                               = 10
+inv_category							= 7
+repair_min_condition                     = 0.00	          ;Min required condition to use
+repair_max_condition                     = 0.75	          ;Max required condition to use
+repair_add_condition                     = 0.25	          ;Amount of condition added to repaired item
+repair_part_bonus                        = 0.10	          ;Amount bonus to add_condition if parts are used
+repair_use_parts                         = true	          ;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to repair
+repair_type                              = weapon	      ;weapon or outfit
+repair_refuse                            =	              ;Add sections separated by commas that cannot be repaired by this item
+repair_only                              =	              ;Add sections separated by commas that exclude all sections but these
+repair_parts_include                     =	              ;Add sections of items to include to be considered repair parts
+repair_parts_exclude                     =	              ;Add sections of items to exclude from being considered repair parts
+
+use_condition                            = true
+max_uses                                 = 3
+remove_after_use                         = false
+empty_weight                             = 1.65
+
+[itm_outfit_toolkit]:itm_gunsmith_toolkit
+visual									= dynamics\equipments\item_sewingkit.ogf
+description                              = st_itm_outfit_toolkit_descr
+inv_name                                 = st_itm_outfit_toolkit
+inv_name_short                           = st_itm_outfit_toolkit
+inv_weight                               = 1.65
+inv_volume								 = 1.6
+inv_grid_x                               = 18
+inv_grid_y                               = 23
+inv_grid_width							= 1
+repair_type                              = outfit	      ;weapon or outfit
+max_uses                                 = 3
+empty_weight                             = 0.8
+
+[itm_repairkit_tier_1]:itm_gunsmith_toolkit
+visual									= dynamics\equipments\quest\box_toolkit_1.ogf
+description								= st_itm_repairkit_tier_1_descr
+inv_name								= st_itm_repairkit_tier_1_name
+inv_name_short							= st_itm_repairkit_tier_1_name
+inv_grid_x                               = 6
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 2.5
+inv_volume								 = 1.5
+cost                                     = 2000
+use_condition                            = false
+
+[itm_repairkit_tier_2]:itm_repairkit_tier_1
+visual									= dynamics\equipments\quest\box_toolkit_2.ogf
+description								= st_itm_repairkit_tier_2_descr
+inv_name								= st_itm_repairkit_tier_2_name
+inv_name_short							= st_itm_repairkit_tier_2_name
+inv_grid_x                               = 8
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 3
+inv_volume								 = 1.7
+cost                                     = 2500
+
+[itm_repairkit_tier_3]:itm_repairkit_tier_2
+visual									= dynamics\equipments\quest\box_toolkit_3.ogf
+description								= st_itm_repairkit_tier_3_descr
+inv_name								= st_itm_repairkit_tier_3_name
+inv_name_short							= st_itm_repairkit_tier_3_name
+inv_grid_x                               = 10
+inv_grid_y                               = 7
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_weight                               = 3.5
+inv_volume								 = 1.9
+cost                                     = 3500
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[pouch_container]:base_section
+visual                                   = dynamics\equipments\sumka1.ogf
+class 									 = II_DOC
+description			                     = st_pouch_descr
+inv_name			                     = st_pouch
+inv_name_short		                     = st_pouch
+script_binding                           = bind_container.bind
+use1_action_functor                      = bind_container.access_inventory
+use1_functor                             = bind_container.can_access_inventory
+remove_after_use                         = false
+can_trade                             	 = true
+inv_weight								 = 0.85
+inv_volume								 = 1
+can_stack								 = false
+container_volume_scale					 = true
+inv_category							= 3
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 42
+cost                                     = 3800
+allow_take_list							 = obj_antirad, obj_bandage, obj_bottle, obj_document, obj_medkit, obj_food, obj_food_s, wpn_ammo, wpn_ammo_s, wpn_grenade_f1, wpn_grenade_rgd5_s, obj_explosive_s, obj_pda_s, wpn_ammo_vog25_s, wpn_ammo_og7b_s, wpn_ammo_m209_s, obj_attachable
+allow_take_volume						 = 10
+
+[wallet_container]:pouch_container
+visual                                   = dynamics\equipments\sumka1.ogf
+description                              = st_wallet_descr
+inv_name                                 = st_wallet
+inv_name_short                           = st_wallet
+inv_grid_x                               = 12
+inv_grid_y                               = 55
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+cost                                     = 1500
+inv_weight                               = 0.05
+inv_volume								 = 0.3
+allow_take_list							 = obj_document, wpn_ammo, wpn_ammo_s
+allow_take_volume						 = 0.25
+
+[delivery_storage_container]:pouch_container
+inv_name                                 = st_delivery_container_name
+inv_name_short                           = st_delivery_container_name
+description			                     = st_delivery_container_descr
+inv_weight								 = 50.00
+inv_volume								 = 30.0
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 9
+inv_grid_y                               = 51
+
+[itm_sleepbag]:booster
+visual                                   = dynamics\equipments\item_sleepbag.ogf
+inv_weight                               = 2.28
+inv_volume								 = 2.2
+description                              = st_itm_sleepbag_descr
+inv_name                                 = st_itm_sleepbag_name
+inv_name_short                           = st_itm_sleepbag_name
+inv_grid_width							 = 2
+inv_grid_height							 = 2
+inv_grid_x								 = 18
+inv_grid_y							 	 = 10
+inv_category							= 7
+cost                                     = 1580
+placeable_section                        = ph_sleepbag ;Section of placeable physics object
+
+[itm_deployable_mgun]:booster
+$spawn									= "equipments\itm_deployable_mgun"
+visual                                   = dynamics\weapons\wpn_mounted\wpn_mounted_pkm_trenoga.ogf
+description                              = st_itm_deployable_mgun_desc
+inv_name                                 = st_itm_deployable_mgun_name
+inv_name_short                           = st_itm_deployable_mgun_name
+inv_weight                               = 11.5
+inv_volume								 = 12
+inv_grid_height                          = 2
+inv_grid_width                           = 6
+inv_grid_x                               = 6
+inv_grid_y                               = 31
+inv_category							= 1
+cost                                     = 23700
+slot                                     = -1
+
+[itm_tent]:booster
+$spawn									= "equipments\itm_tent"
+visual									= dynamics\equipments\sumka7.ogf
+inv_name								= st_itm_tent_name
+inv_name_short							= st_itm_tent_name
+description								= st_itm_tent_descr
+inv_weight								= 2.48
+inv_volume								= 8.0
+inv_grid_width							= 3
+inv_grid_height							= 2
+inv_grid_x								= 11
+inv_grid_y								= 45
+inv_category							= 7
+cost									= 12580
+animation_slot							= 4
+placeable_section						= ph_tent
+
+[itm_firewood]:booster
+$spawn									= "equipments\itm_firewood"
+visual									= dynamics\equipments\campfire.ogf
+inv_name								= st_firewood
+inv_name_short							= st_firewood
+description								= st_firewood_descr
+inv_weight								= 0.5
+inv_volume								= 1.0
+inv_grid_width							= 2
+inv_grid_x								= 14
+inv_grid_y								= 46
+inv_category							= 7
+cost									= 1580
+placeable_section						= ph_campfire
+
+[packet_bolts]:booster
+visual                                  = dynamics\equipments\sumka1.ogf
+inv_name			        			= packet_bolts_name
+inv_name_short		        			= packet_bolts_name
+description								= packet_bolts_descr
+inv_weight								= 1.875
+inv_volume								= 0.6
+inv_grid_x								= 5
+inv_grid_y								= 9
+inv_category							= 7
+cost									= 325
+self_release							= true
+transform_to							= bolt
+transform_minmax						= 20, 25
+
+[st_box]:base_section
+class                                    = S_PDA
+GroupControlSection                      = spawn_group
+discovery_dependency                     =
+$spawn                                   = "equipments\backpack"
+$prefetch                                = 32
+radius                                   = 68 ; 50      
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_rukzak\dev_rukzak.ogf
+description                              = st_backpack_desc
+inv_weight                               = 1
+inv_volume								 = 1
+inv_name                                 = st_backpack_medium_name
+inv_name_short                           = st_backpack_medium_name
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 6
+inv_grid_y                               = 23
+cost                                     = 2500
+use_condition							 = false
+can_stack 								 = false
+use1_functor                             = actor_backpack.query_create_stash
+use1_action_functor                      = actor_backpack.action_create_stash
+attach_angle_offset                      = -0.287979, 1.560923, 1.544060
+attach_position_offset                   = 0.096910, -0.013594, 0.107925
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+
+[st_box_wood_small]:st_box
+visual                                   = dynamics\box\box_1b.ogf
+description                              = st_box_wood_small_desc
+inv_weight                               = 5.2
+inv_volume								 = 17
+inv_name                                 = st_box_wood_small_name
+inv_name_short                           = st_box_wood_small_name
+cost                                     = 2450
+inv_grid_x                               = 9
+inv_grid_y                               = 25
+inv_grid_width                           = 3
+inv_grid_height                          = 1
+
+[st_box_blue_steel]:st_box
+visual                                   = dynamics\equipments\blue_box.ogf
+description                              = st_box_blue_steel_desc
+inv_weight                               = 8.52
+inv_volume								 = 41
+inv_name                                 = st_box_blue_steel_name
+inv_name_short                           = st_box_blue_steel_name
+cost                                     = 4320
+inv_grid_x                               = 11
+inv_grid_y                               = 22
+inv_grid_width                           = 3
+inv_grid_height                          = 2
+
+[st_box_case]:st_box
+visual                                   = dynamics\equipments\case.ogf
+description                              = st_box_case_desc
+inv_weight                               = 3.8
+inv_volume								 = 11
+inv_name                                 = st_box_case_name
+inv_name_short                           = st_box_case_name
+cost                                     = 3850
+inv_grid_x                               = 0
+inv_grid_y                               = 23
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+
+[st_box_lab]:st_box
+visual                                   = dynamics\equipments\box_lab_01.ogf
+description                              = st_box_lab_desc
+inv_weight                               = 4.52
+inv_volume								 = 11
+inv_name                                 = st_box_lab_name
+inv_name_short                           = st_box_lab_name
+cost                                     = 3210
+inv_grid_x                               = 0
+inv_grid_y                               = 24
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+
+[st_box_green_steel]:st_box
+visual                                   = dynamics\equipments\green_box.ogf
+description                              = st_box_green_steel_desc
+inv_weight                               = 8.82
+inv_volume								 = 41
+inv_name                                 = st_box_green_steel_name
+inv_name_short                           = st_box_green_steel_name
+cost                                     = 4620
+inv_grid_x                               = 0
+inv_grid_y                               = 27
+inv_grid_width                           = 3
+inv_grid_height                          = 2
+
+[st_box_metall]:st_box
+visual                                   = dynamics\box\box_metall_01.ogf
+description                              = st_box_metall_desc
+inv_weight                               = 6.75
+inv_volume								 = 21
+inv_name                                 = st_box_metall_name
+inv_name_short                           = st_box_metall_name
+cost                                     = 2560
+inv_grid_x                               = 9
+inv_grid_y                               = 21
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+
+[st_box_wood_metall]:st_box
+visual                                   = dynamics\equipments\amk2_arm_box_mini.ogf
+description                              = st_box_wood_metall_desc
+inv_weight                               = 4.75
+inv_volume								 = 21
+inv_name                                 = st_box_wood_metall_name
+inv_name_short                           = st_box_wood_metall_name
+cost                                     = 4560
+inv_grid_x                               = 9
+inv_grid_y                               = 26
+inv_grid_width                           = 3
+inv_grid_height                          = 1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;  Money
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_hrivni_50]:base_section
+$spawn									= "devices\roubles"
+visual									= dynamics\items\item_hrivni_50.ogf
+description								= st_money_hrivni_50_descr
+inv_name								= st_money_hrivni_50
+inv_name_short							= st_money_hrivni_50
+class									= II_DOC
+inv_grid_width							= 2
+inv_grid_x								= 0
+inv_grid_y								= 55
+cost									= 50
+inv_weight								= 0.005
+inv_volume								= 0.002
+box_size								= 1
+can_stack								= true
+take_sound								= paper_take
+
+[money_hrivni_50_bad]:money_hrivni_50
+inv_name								= st_money_hrivni_50_bad
+inv_name_short							= st_money_hrivni_50_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_hrivni_100]:money_hrivni_50
+visual									= dynamics\items\item_hrivni_100.ogf
+description								= st_money_hrivni_100_descr
+inv_name								= st_money_hrivni_100
+inv_name_short							= st_money_hrivni_100
+inv_grid_x								= 2
+inv_grid_y								= 55
+cost									= 100
+
+[money_hrivni_100_bad]:money_hrivni_100
+inv_name								= st_money_hrivni_100_bad
+inv_name_short							= st_money_hrivni_100_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_hrivni_200]:money_hrivni_50
+visual									= dynamics\items\item_hrivni_200.ogf
+description								= st_money_hrivni_200_descr
+inv_name								= st_money_hrivni_200
+inv_name_short							= st_money_hrivni_200
+inv_grid_x								= 4
+inv_grid_y								= 55
+cost									= 200
+
+[money_hrivni_200_bad]:money_hrivni_200
+inv_name								= st_money_hrivni_200_bad
+inv_name_short							= st_money_hrivni_200_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_roubles_500]:money_hrivni_50
+visual									= dynamics\items\item_roubles_500.ogf
+description								= st_money_roubles_500_descr
+inv_name								= st_money_roubles_500
+inv_name_short							= st_money_roubles_500
+inv_grid_x								= 0
+inv_grid_y								= 56
+cost									= 200
+
+[money_roubles_500_bad]:money_roubles_500
+inv_name								= st_money_roubles_500_bad
+inv_name_short							= st_money_roubles_500_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_roubles_1000]:money_hrivni_50
+visual									= dynamics\items\item_roubles_1000.ogf
+description								= st_money_roubles_1000_descr
+inv_name								= st_money_roubles_1000
+inv_name_short							= st_money_roubles_1000
+inv_grid_x								= 2
+inv_grid_y								= 56
+cost									= 400
+
+[money_roubles_1000_bad]:money_roubles_1000
+inv_name								= st_money_roubles_1000_bad
+inv_name_short							= st_money_roubles_1000_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_roubles_5000]:money_hrivni_50
+visual									= dynamics\items\item_roubles_5000.ogf
+description								= st_money_roubles_5000_descr
+inv_name								= st_money_roubles_5000
+inv_name_short							= st_money_roubles_5000
+inv_grid_x								= 4
+inv_grid_y								= 56
+cost									= 2000
+
+[money_roubles_5000_bad]:money_roubles_5000
+inv_name								= st_money_roubles_5000_bad
+inv_name_short							= st_money_roubles_5000_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_dollars_10]:money_hrivni_50
+visual									= dynamics\items\item_dollars_10.ogf
+description								= st_money_dollars_10_descr
+inv_name								= st_money_dollars_10
+inv_name_short							= st_money_dollars_10
+inv_grid_x								= 6
+inv_grid_y								= 55
+cost									= 480
+
+[money_dollars_10_bad]:money_dollars_10
+inv_name								= st_money_dollars_10_bad
+inv_name_short							= st_money_dollars_10_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_dollars_50]:money_hrivni_50
+visual									= dynamics\items\item_dollars_50.ogf
+description								= st_money_dollars_50_descr
+inv_name								= st_money_dollars_50
+inv_name_short							= st_money_dollars_50
+inv_grid_x								= 8
+inv_grid_y								= 55
+cost									= 1400
+
+[money_dollars_50_bad]:money_dollars_50
+inv_name								= st_money_dollars_50_bad
+inv_name_short							= st_money_dollars_50_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[money_dollars_100]:money_hrivni_50
+visual									= dynamics\items\item_dollars_100.ogf
+description								= st_money_dollars_100_descr
+inv_name								= st_money_dollars_100
+inv_name_short							= st_money_dollars_100
+inv_grid_x								= 10
+inv_grid_y								= 55
+cost									= 2800
+
+[money_dollars_100_bad]:money_dollars_100
+inv_name								= st_money_dollars_100_bad
+inv_name_short							= st_money_dollars_100_bad
+can_trade								= false
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#include "items_anim.ltx"
+#include "items_artefacts.ltx"
+#include "items_area_craft.ltx"
+#include "items_area_flash.ltx"
+#include "items_cooking.ltx"
+#include "items_devices.ltx"
+#include "items_drinks.ltx"
+#include "items_explosives.ltx"
+#include "items_fieldcraft.ltx"
+#include "items_food.ltx"
+#include "items_letters.ltx"
+#include "items_medical.ltx"
+#include "items_mlr.ltx"
+#include "items_repair.ltx"
+#include "items_smoking.ltx"
+#include "items_trash.ltx"
+#include "items_quest.ltx"

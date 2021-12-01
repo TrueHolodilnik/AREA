@@ -1,0 +1,37 @@
+[logic]
+active = sr_idle
+
+[sr_idle]
+on_actor_inside = {-esc_sidor_atp_vas_zametili -esc_sidor_atp_fail -esc_sidor_after_atp -esc_sidor_army_quest_3 +esc_sidor_army_quest_1} sr_cutscene@cam %=create_squad(esc_atp_army_gonec_squad:esc_smart_terrain_7_11) =teleport_npc_by_story_id(esc_atp_army_commader:esc_smart_terrain_7_11_army_commander_1_walk)%
+
+[sr_cutscene@cam]
+cam_effector = scenario_cam\escape\esc_atp_army_cam
+global_cameffect = true
+on_signal = cameff_start | %+esc_sidor_atp_inv%
+on_signal2 = cameff_end | nil %+esc_sidor_after_atp -esc_sidor_atp_inv -st_esc_atp_army_quest_message_1 -st_esc_atp_army_quest_message_2 -st_esc_atp_army_quest_message_3 -st_esc_atp_army_quest_message_4 -st_esc_atp_army_quest_message_5 -st_esc_atp_army_quest_message_6 -st_esc_atp_army_quest_message_7 =del_subtitles_actor%
+; on_info = {=squad_exist(esc_atp_army_gonec_squad)} %=teleport_squad(esc_atp_army_gonec_squad:esc_smart_terrain_7_11_surge_8_walk)%
+; on_timer = 4000 | {-st_esc_atp_army_quest_message_1} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_1) =give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_1:esc_atp_army_gonec) +st_esc_atp_army_quest_message_1%
+; on_timer2 = 6000 | {-st_esc_atp_army_quest_message_2} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_2) =give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_2:esc_atp_army_commader) +st_esc_atp_army_quest_message_2%
+; on_timer3 = 7000 | {-st_esc_atp_army_quest_message_3} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_3) =give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_3:esc_atp_army_gonec:0:9000) +st_esc_atp_army_quest_message_3%
+; on_timer4 = 16000 | {-st_esc_atp_army_quest_message_4} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_4) =give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_4:esc_atp_army_commader) +st_esc_atp_army_quest_message_4%
+; on_timer5 = 20000 | {-st_esc_atp_army_quest_message_5} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_5) =give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_5:esc_atp_army_gonec:0:6000) +st_esc_atp_army_quest_message_5%
+; on_timer6 = 26000 | {-st_esc_atp_army_quest_message_6} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_6) =give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_6:esc_atp_army_commader:0:12000) +st_esc_atp_army_quest_message_6%
+; on_timer7 = 38000 | {-st_esc_atp_army_quest_message_7} %=play_sound_on_actor(characters_voice\doll_scenario\esc_atp_army_message_7) =give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_7:esc_atp_army_gonec) +st_esc_atp_army_quest_message_7%
+
+; on_info = {=squad_exist(esc_atp_army_gonec_squad)} %=teleport_squad(esc_atp_army_gonec_squad:esc_smart_terrain_7_11_surge_8_walk)%
+; on_timer = 4000 | {-st_esc_atp_army_quest_message_1} %=give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_1:esc_atp_army_gonec) +st_esc_atp_army_quest_message_1%
+; on_timer2 = 6000 | {-st_esc_atp_army_quest_message_2} %=give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_2:esc_atp_army_commader) +st_esc_atp_army_quest_message_2%
+; on_timer3 = 7000 | {-st_esc_atp_army_quest_message_3} %=give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_3:esc_atp_army_gonec:0:9000) +st_esc_atp_army_quest_message_3%
+; on_timer4 = 16000 | {-st_esc_atp_army_quest_message_4} %=give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_4:esc_atp_army_commader) +st_esc_atp_army_quest_message_4%
+; on_timer5 = 20000 | {-st_esc_atp_army_quest_message_5} %=give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_5:esc_atp_army_gonec:0:6000) +st_esc_atp_army_quest_message_5%
+; on_timer6 = 26000 | {-st_esc_atp_army_quest_message_6} %=give_news(esc_atp_army_commader_name:st_esc_atp_army_quest_message_6:esc_atp_army_commader:0:12000) +st_esc_atp_army_quest_message_6%
+; on_timer7 = 38000 | {-st_esc_atp_army_quest_message_7} %=give_news(esc_atp_army_gonec_name:st_esc_atp_army_quest_message_7:esc_atp_army_gonec) +st_esc_atp_army_quest_message_7%
+
+on_info = {=squad_exist(esc_atp_army_gonec_squad)} %=teleport_squad(esc_atp_army_gonec_squad:esc_smart_terrain_7_11_surge_8_walk)%
+on_timer = 4000 | {-st_esc_atp_army_quest_message_1} %=add_subtitles_actor(st_esc_atp_army_quest_message_1) +st_esc_atp_army_quest_message_1%
+on_timer2 = 6000 | {-st_esc_atp_army_quest_message_2} %=add_subtitles_npc(st_esc_atp_army_quest_message_2) =del_subtitles_actor +st_esc_atp_army_quest_message_2%
+on_timer3 = 7000 | {-st_esc_atp_army_quest_message_3} %=add_subtitles_actor(st_esc_atp_army_quest_message_3) =del_subtitles_npc +st_esc_atp_army_quest_message_3%
+on_timer4 = 16000 | {-st_esc_atp_army_quest_message_4} %=add_subtitles_npc(st_esc_atp_army_quest_message_4) =del_subtitles_actor +st_esc_atp_army_quest_message_4%
+on_timer5 = 20000 | {-st_esc_atp_army_quest_message_5} %=add_subtitles_actor(st_esc_atp_army_quest_message_5) =del_subtitles_npc +st_esc_atp_army_quest_message_5%
+on_timer6 = 26000 | {-st_esc_atp_army_quest_message_6} %=add_subtitles_npc(st_esc_atp_army_quest_message_6) =del_subtitles_actor +st_esc_atp_army_quest_message_6%
+on_timer7 = 38000 | {-st_esc_atp_army_quest_message_7} %=add_subtitles_actor(st_esc_atp_army_quest_message_7) =del_subtitles_npc +st_esc_atp_army_quest_message_7%

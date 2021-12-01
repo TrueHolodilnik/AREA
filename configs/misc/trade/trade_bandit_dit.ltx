@@ -1,0 +1,32 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition			= trade_generic_buy
+sell_condition			= trade_generic_sell
+buy_supplies			= supplies_generic
+
+buy_item_condition_factor = 0.9
+
+discounts				= discount_8
+ 
+[trade_generic_buy]:buy_barman_set
+
+[trade_generic_sell]:sell_barman_set
+
+[supplies_generic]
+cigarettes_marlboro					= 2, 0.33
+cigarettes_lucky					= 2, 0.33
+cigarettes_russian					= 5, 0.33
+cigarettes_slava					= 3, 0.33
+cigarettes_cigar					= 1, 0.33
+caffeine					= 6, 1
+cocaine						= 2, 0.66
+salicidic_acid				= 4, 0.45
+morphine					= 2, 1
+adrenalin					= 2, 0.5
+amphetamines				= 3, 0.75
+drug_engine					= 1, 0.33
+
+money_dollars_10              = 5, 1
+money_dollars_50              = 10, 1
+money_dollars_100             = 10, 1

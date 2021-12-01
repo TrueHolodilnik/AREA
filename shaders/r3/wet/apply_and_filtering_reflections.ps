@@ -1,0 +1,257 @@
+
+uniform float4 ogse_c_screen;
+uniform float4 ogse_c_rain;	
+uniform float4 screen_res;
+uniform float4 ssr_control_params;
+
+#if defined(USE_MSAA)
+	Texture2DMS <float4> s_dtssr;
+#else
+	Texture2D s_dtssr;
+#endif
+#if defined(USE_MSAA)
+	Texture2DMS <float4> s_pptemp;
+#else
+	Texture2D <float4> s_pptemp;
+#endif
+#ifdef USE_MSAA
+	Texture2DMS <float4> s_frame;
+#else
+	Texture2D s_frame;
+#endif
+
+#include "common.h"
+#include "hmodel.h"
+#include "common_gbuffer.h"
+#include "infrared.h"
+#include "blur.h"
+
+#define InvFocalLen float2(tan(0.5f*radians(ogse_c_screen.x)) / (float)screen_res.y * (float)screen_res.x, tan(0.5f*radians(ogse_c_screen.x)))
+
+float2 ss_tc_from_wo_posi(float3 wo_posi)
+{
+	float4	p_posi	   = mul(m_VP, float4(wo_posi, 1));
+	float4	ss_tc 	   = proj_to_screen(p_posi);
+			ss_tc.xy  /= ss_tc.w;
+
+	return ss_tc.xy;
+}
+
+float3 gbuf_unpack_position(float2 uv, float eye_z)
+{
+	uv = (uv * float2(2.0, -2.0) - float2(1.0, -1.0));
+	
+	float3 pos = float3(uv * InvFocalLen * eye_z, eye_z);
+	
+	return pos;
+}
+
+float gbuf_get_depth(float2 texcoord)
+{
+	#if defined(USE_MSAA)
+		return s_position.Load(int3(texcoord * screen_res.xy, 0), 0).z;
+	#else
+		return s_position.Sample(smp_nofilter, texcoord).z;
+	#endif
+}
+
+float gbuf_get_true_depth(float2 texcoord)
+{
+	float depth = gbuf_get_depth(texcoord);
+
+	return (depth > 0.0025) ? (depth) : (1000);
+}
+
+float3 gbuf_get_normal( float2 texcoord )
+{
+	#if defined(USE_MSAA)
+		float2 nxy	= s_position.Load(int3(texcoord * screen_res.xy, 0), 0).xy;
+	#else
+		float2 nxy	= s_position.Sample(smp_nofilter, texcoord).xy;
+	#endif
+
+	return gbuf_unpack_normal(nxy);
+}
+
+#ifdef USE_MSAA
+	#ifdef GBUFFER_OPTIMIZATION
+		float4 main ( float4 tc:TEXCOORD0, float4 pos2d : SV_Position, uint iSample : SV_SAMPLEINDEX ) : SV_Target
+	#else
+		float4 main ( float4 tc:TEXCOORD0, uint iSample : SV_SAMPLEINDEX ) : SV_Target
+	#endif
+#else
+	#ifdef GBUFFER_OPTIMIZATION
+		float4 main ( float4 tc:TEXCOORD0, float4 pos2d : SV_Position ) : SV_Target
+	#else
+		float4 main ( float4 tc:TEXCOORD0 ) : SV_Target
+	#endif
+#endif
+{
+
+	#ifndef USE_MSAA
+		float3 img = s_frame.Sample( smp_nofilter, tc).rgb;
+	#else
+		float3 img = s_frame.Load( int3(tc * pos_decompression_params2.xy, 0 ), iSample ).rgb;
+	#endif
+	
+	//if (1) return float4(img,1);	
+
+	#ifdef GBUFFER_OPTIMIZATION
+		gbuffer_data gbd = gbuffer_load_data( tc, pos2d );
+	#else
+		gbuffer_data gbd = gbuffer_load_data( tc );
+	#endif
+	
+	float mtl = gbd.mtl;
+	
+	float objMat = mcls(mtl);
+
+	if (objMat == 3) return float4(img,1);	
+	
+	float df = smoothstep(40, 60, length(gbd.P));
+	if (df == 1 || gbd.P.z < 0.001) return float4(img,1);
+	df = 1 - df;
+	
+	float hemi = gbd.hemi;
+	
+	float wet_factor = hemi*hemi*hemi*(ogse_c_rain.w + control_params.z)*2;
+	
+	float2 tc_r = saturate(tc.xy);	
+	
+	//#ifndef USE_MSAA
+	//	float ref_depth = s_pptemp.Sample(smp_nofilter, tc_r).a;
+	//#else
+	//	float ref_depth = s_pptemp.Load( int3(tc * pos_decompression_params2.xy, 0 ), iSample ).a;
+	//#endif
+	
+	float puddles = s_puddles.Sample(smp_base,mul(m_v2w, float4(gbd.P, 1.f)).xz*0.05).g;
+	float brightness = ((img.r + img.b + img.g)/3);
+	float hemi_factor = 1 - hemi*hemi*hemi;
+	
+	if ((objMat == 2 && (((1 - brightness)*0.25*wet_factor*puddles) < 0.001)) && ((1 - brightness)*(1 + mtl)*0.25*wet_factor < 0.001) && (objMat >= 4 && ((1 + mtl*(1 + mtl*(1 + mtl)))*brightness*0.5 < 0.001)) && (objMat < 4 && (hemi_factor*brightness*(1 + mtl)*0.35 < 0.001)) && ((gbd.gloss*5 + 0.5)*(mtl + 0.5)*4.75*(1 + brightness) < 0.001)) {
+		return float4(img,1);
+	}
+	
+	#ifndef USE_MSAA
+		float4 	reflection	= s_dtssr.Sample(smp_nofilter, tc);
+	#else // USE_MSAA
+		float4 	reflection	= s_dtssr.Load( int3(tc * pos_decompression_params2.xy, 0 ), iSample );
+	#endif // USE_MSAA
+	
+	float4 refl_orig = reflection;
+	
+	float3 flat_norm = gbd.N.xyz;
+	if (mtl > 0.85) {
+		flat_norm.y *= 4;
+	}
+	else if (objMat == 2 && puddles > 0.1) {
+		flat_norm.xz /= 10;
+		flat_norm.y *= 10;
+		//wsnormal.xz /= 1 + (1 - smoothstep(0, 0.2, gbd.hemi))*9 + mtl;
+		//wsnormal.y *= 1 + (1 - smoothstep(0, 0.2, gbd.hemi))*9 + mtl;
+	}
+	else {
+		//wsnormal.xz /= 1.5;
+		flat_norm.y *= 15;
+	}
+
+	float3 Ndir = normalize(flat_norm) - gbd.N.xyz;
+	float3 vs = gbd.P.xyz + Ndir;
+	float2 tc_new_or = (vs.xy / vs.zz + pos_decompression_params.xy) / pos_decompression_params.zw / pos_decompression_params2.xy;
+	
+	#ifndef USE_MSAA
+		float4 light = s_pptemp.Sample(smp_nofilter, tc_new_or);
+	#else
+		float4 light = s_pptemp.Load( int3(tc_new_or * pos_decompression_params2.xy, 0 ), iSample );
+		//{
+		//	float factor = (0.6 - mtl*0.5);
+		//	float2 uv = tc_r;
+		//	float discRadiusLow;
+		//
+		//	discRadiusLow=(float)radiusScale*15*factor;
+		//
+		//	float2 texsize_low = pixelSizes.zw * discRadiusLow;
+		//
+		//	#ifdef D3D10
+		//	[unroll]
+		//	#endif
+		//	for(int t=0; t < 21; t++) { 	
+		//
+		//		#ifndef USE_MSAA
+		//			light.rgb += s_pptemp.Sample(smp_nofilter, uv + poisson[t]*texsize_low);
+		//		#else // USE_MSAA
+		//			light.rgb += s_pptemp.Load( int3((uv + poisson[t]*texsize_low) * pos_decompression_params2.xy, 0 ), iSample );
+		//		#endif // USE_MSAA
+		//
+		//	}
+		//	
+		//	light.rgb /= 21;  
+		//}
+	#endif
+	
+	
+	
+	float2 bias=float2(.5f/screen_res.x,.5f/screen_res.y);
+	float2 scale = bias * 4;
+	if (objMat <= 5 && objMat != 2) scale *= (2 - mtl) * 16;
+	float2 o[12];
+	o[0]=float2(-0.326212f,-0.405810f)*scale;
+	o[1]=float2(-0.840144f,-0.073580f)*scale;
+	o[2]=float2(-0.695914f,0.457137f)*scale;
+	o[3]=float2(-0.203345f,0.620716f)*scale;
+	o[4]=float2(0.962340f,-0.194983f)*scale;
+	o[5]=float2(0.473434f,-0.480026f)*scale;
+	o[6]=float2(0.519456f,0.767022f)*scale;
+	o[7]=float2(0.185461f,-0.893124f)*scale;
+	o[8]=float2(0.507431f,0.064425f)*scale;
+	o[9]=float2(0.896420f,0.412458f)*scale;
+	o[10]=float2(-0.321940f,-0.932615f)*scale;
+	o[11]=float2(-0.791559f,-0.597710f)*scale;	
+		
+	int j = 0;
+	
+	for (int i=0; i < 11; i++)
+	{	
+		float2 tap=tc+o[j];
+		#ifndef USE_MSAA
+			reflection += s_dtssr.Sample(smp_nofilter, tap);
+			light += s_pptemp.Sample(smp_nofilter, tc_new_or + o[j]);
+		#else // USE_MSAA
+			reflection += s_dtssr.Load( int3(tap * pos_decompression_params2.xy, 0 ), iSample );
+			light += s_pptemp.Load( int3((tc_new_or + o[j]) * pos_decompression_params2.xy, 0 ), iSample );
+		#endif // USE_MSAA
+		j++; 
+		if (j > 11) j=0;
+	}
+	
+	reflection *= df*0.045;
+	
+	light *= df*0.045;
+	
+	float rbrightness = ((reflection.r + reflection.b + reflection.g)/3);
+	
+	float rgray = rbrightness*0.5;
+	
+	float3 desaturated = float3(reflection.r*0.5 + rgray, reflection.g*0.5 + rgray, reflection.b*0.5 + rgray);
+	
+	float sun_br = (L_sun_color.r + L_sun_color.g + L_sun_color.b)/3;
+	
+	
+	if (objMat == 2) {
+		img += (refl_orig.rgb + light.rgb + light.a)*(1 - brightness)*0.25*wet_factor*puddles*(sun_br + 0.3); //+float3(0.155, 0.135, 0.075)
+	}
+	else {
+		img += (refl_orig.rgb + light.rgb + light.a)*(1 - brightness)*(1 + mtl)*0.25*wet_factor*sun_br;
+		if (objMat >= 4) img = (img*0.85 + reflection.rgb*(1 + mtl*(1 + mtl*(1 + mtl)))*brightness*rbrightness*0.5);
+		else img += hemi_factor*(1 - refl_orig.a)*brightness*desaturated*(1 + mtl)*0.35;
+		float3 blended_light = (gbd.gloss*5 + 0.5)*(mtl + 0.5)*(light.rgb + light.a)*0.5*(1 + brightness);
+		img += blended_light*blended_light;
+	}
+	
+	//brightness = ((img.r + img.b + img.g)/3);
+	if (objMat == 1 || objMat >= 4) {
+		img = img*clamp(((1.41 - pow(brightness - 0.11, 3))/1.4), 4.75, 0.9999);
+	}
+
+	return float4(img.rgb, 1);
+}

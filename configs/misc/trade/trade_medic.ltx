@@ -1,0 +1,57 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition				= trade_generic_buy 
+sell_condition				= trade_generic_sell
+buy_supplies				= supplies_generic
+buy_item_condition_factor 	= 0.99
+discounts					= discount_0
+ 
+[trade_generic_buy]:buy_medic_set
+
+[trade_generic_sell]:sell_medic_set
+
+[supplies_generic]
+caffeine					= 2, 0.40
+drug_sleepingpills			= 1, 0.20
+drug_hangover				= 1, 0.20
+drug_absorbent				= 1, 0.20
+drug_booster				= 1, 0.10
+drug_coagulant				= 1, 0.20
+drug_psy_blockade			= 1, 0.20
+drug_antidot				= 1, 0.15
+drug_radioprotector			= 1, 0.10
+drug_anabiotic				= 1, 0.10
+akvatab						= 1, 0.20
+pot_permanganate			= 1, 0.20
+deactivate_mix				= 1, 0.10
+antirad						= 2, 0.25
+antirad_iodid				= 2, 0.25
+bandage						= 5, 0.25
+bandage_enhanced			= 3, 0.15
+bandage_special				= 1, 0.10
+stimpack					= 3, 0.15
+stimpack_empty				= 1, 0.15
+novocaine					= 4, 0.75
+medkit						= 4, 0.30
+medkit_army					= 3, 0.15
+medkit_scientic				= 2, 0.10
+medkit_elite				= 1, 0.05
+survival_kit				= 3, 0.40
+rebirth						= 1, 0.15
+tetanus						= 1, 0.10
+glucose						= 1, 0.10
+glucose_s					= 1, 0.20
+cocaine						= 2, 0.35
+salicidic_acid				= 4, 0.45
+morphine					= 2, 0.30
+adrenalin					= 2, 0.30
+amphetamines				= 3, 0.40
+diazepam					= 1, 0.10
+psy_complex					= 1, 0.15
+drug_engine					= 1, 0.10
+drug_cat_eye				= 1, 0.15
+bag_medkit_1				= 1, 0.05
+bag_medkit_2				= 1, 0.05
+bag_medkit_3				= 1, 0.05
+bag_medkit_4				= 1, 0.05

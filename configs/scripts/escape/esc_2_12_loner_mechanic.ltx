@@ -1,0 +1,55 @@
+[logic@esc_smart_terrain_5_7_loner_mechanic] ; Klin
+active = beh@klin_job_1
+suitable = {=check_npc_name(esc_smart_terrain_5_7_loner_mechanic_stalker)} true
+prior = 140
+level_spot = mechanic
+relationship = neutral   
+trade = misc\trade\trade_tech_mlty.ltx
+
+[beh@general_01]
+behavior_state = beh_move
+target = waypoint
+walk_dist = 100
+jog_dist = 220
+wait_anim = guard_chasovoy
+walk_anim = patrol
+jog_anim = rush
+run_anim = rush    
+delay_anim = guard
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+invulnerable = {!actor_enemy} true, false 
+relationship = neutral
+turn_on_campfire = true
+on_info = {=surge_started} beh@klin_job_4
+on_info2 = {=is_night} beh@klin_job_5
+
+[beh@klin_job_1]:beh@general_01 ; Podval
+	pt1 = 25000, use_pda | pos:-241.49078369141,-20.032451629639,-157.25628662109 look:-238.7448425293,-20.051904678345,-153.94345092773 ;+
+	path_end = loop
+	gather_items_enabled = false
+	on_timer = 250000 |{~50} beh@klin_job_2, beh@klin_job_3	
+
+[beh@klin_job_2]:beh@general_01 ; Search_Vodka
+	pt1 = 35000, search | pos:-202.95472717285,-19.906820297241,-163.29479980469 look:-199.85313415527,-19.386533737183,-163.3235168457 ;+
+	path_end = loop
+	on_timer = 100000 |{~50} beh@klin_job_1, beh@klin_job_3
+
+[beh@klin_job_3]:beh@general_01 ; Look_Bino
+	pt1 = 150000, binocular | pos:-219.2188873291,-16.041938781738,-188.41647338867 look:-215.78427124023,-17.160612106323,-197.27838134766 ;+
+	path_end = loop
+	on_timer = 120000 |{~50} beh@klin_job_1, beh@klin_job_2	
+	
+[beh@klin_job_4]:beh@general_01 ; Surge_Cover
+	pt1 = 250000, pri_a25_psy_medic_idle | pos:-241.49078369141,-20.032451629639,-157.25628662109 look:-238.7448425293,-20.051904678345,-153.94345092773 ;+
+	path_end = loop
+	walk_anim = sprint
+	jog_anim = sprint
+	on_info = {!surge_started} beh@klin_job_1
+	
+[beh@klin_job_5]:beh@general_01 ; Sleep
+	pt1 = 150000, sleep | pos:-176.01013183594,-19.942611694336,-165.48870849609 look:-173.98651123047,-19.942363739014,-165.46957397461 ;+
+	path_end = loop
+	on_info = {!is_night} animpoint@klin_job_1
+	meet = no_meet

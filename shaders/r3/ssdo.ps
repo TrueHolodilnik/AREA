@@ -1,0 +1,78 @@
+/*	Screen-Space Directional Occlusion.
+Based on Tobias Ritschel tech paper.
+Implemented by K.D. (OGSE team)
+*/
+#include "common.h"
+
+#define SSDO_BLEND_FACTOR float(1.2)
+#define SSDO_RADIUS float(0.25)				// радиус семплирования в игровых метрах. Чем выше, тем более заметен эффект, но тем больше нежелательных наложений теней
+#define SSDO_GRASS_TUNING float(0.95)		// коррекция затенения травы. Чем больше, тем меньше затеняется.
+#define SSDO_DISCARD_THRESHOLD float(1.10)	// максимальная разница в глубине пикселей, при которой пиксель еще учитывается в расчете затенения. Уменьшение убирает "шлейф" в некоторых случаях.
+#define SSDO_COLOR_BLEEDING float(20.0)		// сила цвета семплов. Дает более цветные тени, но уменьшает интенсивность эффекта в целом. Для компенсации увеличивайте SSDO_BLEND_FACTOR.
+
+static const float3 arr[7] = 
+{
+	float3(	0.8113	,	0.0000	,	-0.4	),
+	float3(	0.3183	,	0.6913	,	-0.3	),
+	float3(	-0.2074	,	0.5981	,	-0.5	),
+	float3(	-0.5497	,	0.3373	,	-0.5	),
+	float3(	-0.8652	,	-0.4010	,	-1.0	),
+	float3(	-0.1994	,	-0.5347	,	-0.5	),
+	float3(	0.4934	,	-0.5759	,	-0.8	),
+};
+
+#ifndef SSAO_QUALITY
+float3 calc_ssdo (float4 P, float3 N, float2 tc, float4 pos2d, uint iSample)
+{
+	return 1;
+}
+#else // SSAO_QUALITY
+float3 calc_ssdo (float4 P, float3 N, float2 tc, float4 pos2d, uint iSample)
+{
+	int quality = SSAO_QUALITY + 1;
+	float3 occ = float3(0,0,0);
+	float scale = P.z/10.f * SSDO_RADIUS;
+	float grass_tuning = 1 + SSDO_GRASS_TUNING*is_in_range(float3(P.w, 0.360, 0.365));
+	
+	[unroll(SSAO_QUALITY + 1)]
+	for (int a = 1; a < quality; ++a)
+	{
+		scale *= a;
+		[unroll(5)]
+		for (int i = 0; i < 5;  i++)
+		{
+			float3 occ_pos_view = P.xyz + (arr[i] + N) * scale;
+			float4 occ_pos_screen = proj_to_screen(mul(m_P, float4(occ_pos_view, 1.0)));
+			occ_pos_screen.xy /= occ_pos_screen.w;
+			
+			#if defined(USE_MSAA)
+				float screen_occ = s_position.Load(int3(occ_pos_screen.xy * screen_res.xy, 0), 0).z;
+			#else
+				float screen_occ = s_position.Sample(smp_nofilter, occ_pos_screen.xy).z;
+			#endif
+
+			screen_occ = lerp(screen_occ, 0.f, is_sky(screen_occ));
+			float is_occluder = step(occ_pos_view.z, screen_occ);
+			float occ_coeff = saturate(is_occluder + saturate(2.1 - screen_occ) + step(SSDO_DISCARD_THRESHOLD, abs(P.z-screen_occ)));
+			occ += float3(occ_coeff, occ_coeff, occ_coeff);
+
+			#ifndef USE_MSAA
+				float3 sample_normal	= s_normal.Sample( smp_nofilter, occ_pos_screen.xy ).rgb;
+			#else
+				float3 sample_normal	= s_normal.Load( int3( occ_pos_screen.xy * pos_decompression_params2.xy, 0 ), iSample ).rgb;
+			#endif
+			
+			#ifndef USE_MSAA
+   				float3 sample_diffuse	= s_diffuse.Sample( smp_nofilter, occ_pos_screen.xy ).rgb;
+			#else
+   				float3 sample_diffuse	= s_diffuse.Load( int3( occ_pos_screen.xy * pos_decompression_params2.xy, 0 ), iSample ).rgb;
+			#endif
+			
+			occ += (1 - is_occluder) * saturate(-dot(sample_normal, N)) * sample_diffuse * SSDO_COLOR_BLEEDING;
+		}
+	}
+	occ /= (7 * SSAO_QUALITY);
+	occ = saturate(occ);
+	return (occ + (1 - occ)*(1 - SSDO_BLEND_FACTOR));
+}
+#endif // SSAO_QUALITY

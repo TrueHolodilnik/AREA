@@ -1,0 +1,17 @@
+[smart_terrain]
+squad_id = 1
+max_population = 6
+respawn_idle = 86400
+respawn_params = respawn@cit_bandits
+
+[respawn@cit_bandits]
+spawn_zombie
+spawn_zombied_novices
+
+[spawn_zombie]
+spawn_squads = simulation_zombie
+spawn_num = 2
+
+[spawn_zombied_novices]
+spawn_squads = simulation_zombied_novices
+spawn_num = 2

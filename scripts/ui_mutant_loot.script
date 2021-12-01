@@ -1,0 +1,814 @@
+-- ui_loot
+-- Alundaio
+-------------------------------------------------------------------
+
+
+function get_item_axis (sec)
+	local a = {}
+	local inv_grid_x = system_ini():r_float_ex (sec,"inv_grid_x") or 0
+	local inv_grid_y = system_ini():r_float_ex (sec,"inv_grid_y") or 0
+	local inv_grid_width = system_ini():r_float_ex (sec,"inv_grid_width") or 0
+	local inv_grid_height = system_ini():r_float_ex (sec,"inv_grid_height") or 0
+	
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+	
+	a.x1 = x1
+	a.y1 = y1
+	a.x2 = x2
+	a.y2 = y2
+	a.w = w
+	a.h = h
+	
+	return a
+end
+
+local last_row = 0
+function set_grid_element(p, grid, ...)
+	local ele = {...}
+	local pos = { x = 1 , y = 1 }
+	local ignore,stop
+	local functor = function(t,a,b) return a < b end		-- smallest -> biggest
+	for y,v1 in spairs(grid, functor) do 					-- scan all grid rows
+		for x,v2 in spairs(v1, functor) do 					-- scan all grid coloumns
+			--printf("~Inv UI (%s)| scanning grid x:[%s] y:[%s]", p.id, x, y)
+			if (v2 == true) then							-- if unoccupied grid is found
+				for _y = y, (y + (p.h-1)) do				-- scan item rows in this grid
+					for _x = x, (x + (p.w-1)) do 			-- scan item coloumns in this grid
+						--printf("~Inv UI (%s)| scanning item grid x:[%s] y:[%s]", p.id, _x, _y)
+						if not (grid[_y] and grid[_y][_x]) then
+							--printf("!Inv UI (%s)| item grid x:[%s] y:[%s] is occupied! break", p.id, _x, _y)
+							ignore = true
+						end
+						if ignore then break end
+					end
+					if ignore then break end
+				end
+				
+				-- if grid is not occupied, put item here and occupy
+				if (not ignore) then
+					--printf("-Inv UI (%s)| found good pos - x:[%s] y:[%s], break", p.id, x, y)
+					pos = { x = x , y = y }
+					for _y = y, (y + (p.h-1)) do		
+						for _x = x, (x + (p.w-1)) do 
+							--printf("-Inv UI (%s)| occupying item grid x:[%s] y:[%s]! break", p.id, _x, _y)
+							grid[_y][_x] = false
+						end
+					end
+					stop = true
+				end
+				ignore = false
+			end
+			if stop then break end
+		end
+		if stop then break end
+	end
+	
+	-- clean totally occupied rows
+	for y,v1 in spairs(grid, functor) do 
+		local remov = true
+		for x,v2 in spairs(v1, functor) do 
+			if v2 then
+				remov = false
+			end
+		end
+		if remov then
+			grid[y] = nil
+			--printf("-Inv UI (%s)| cleaned occupied row: %s", p.id, y)
+		end
+		last_row = y
+	end
+	
+	-- add more rows if needed
+	if (last_row - pos.y < 4) then
+		for y=1,3 do
+			for x=1,p.g_row do
+				grid[last_row + y] = grid[last_row + y] or {}
+				grid[last_row + y][x] = true
+			end
+			--printf("-Inv UI (%s)| added new row: %s", p.id, last_row + y)
+		end
+	end
+	
+	-- set item in its new pos and size
+	for i=1,#ele do
+		ele[i]:SetWndSize(vector2():set( p.g_w * p.w , p.g_h * p.h ))
+		--printf("-Inv UI (%s)| set item size w:[%s] h:[%s]", p.id,  p.g_w * p.w , p.g_h * p.h)
+		ele[i]:SetWndPos(vector2():set( p.g_w * (pos.x - 1) , p.g_h * (pos.y - 1)))
+		--printf("-Inv UI (%s)| set item in pos x:[%s] y:[%s]", p.id, p.g_w * (pos.x - 1) , p.g_h * (pos.y - 1))
+	end
+	
+	return last_row
+end
+
+
+local ico_size, rw, rh, _le = 0.7,1,1,50
+local ico_width
+function set_up_icon(sec, hidden, XML_temp, XML_box, XML_box_small)
+	ico_width = ico_width or (utils.is_widescreen() and 0.8 or 1)
+	
+	if not (XML_temp and XML_box) then
+		callstack()
+	end
+	
+	-- Icon
+	local ico = get_item_axis(sec)
+	XML_box:InitTexture("ui\\ui_icon_equipment")
+	XML_box:SetTextureRect(Frect():set(ico.x1, ico.y1, ico.x2, ico.y2))
+	XML_box:SetStretchTexture(true)
+	
+	local pos = XML_temp:GetWndPos()
+	local _w = XML_temp:GetWidth()
+	local _h = XML_temp:GetHeight()
+	
+	local ratio = ico.w/ico.h
+	local h, w
+	ico.w = ico.w * ico_size * ico_width
+	ico.h = ico.h * ico_size
+	
+	for i=1,2 do
+		local w_t, h_t = 0, 0
+		local resize = false
+		if (ico.w > _w) then -- if icon width is bigger than frame width
+			w_t = ico.w - _w
+			resize = true	
+		end 
+		if (ico.h > _h) then -- if icon height is bigger than frame height
+			h_t = ico.h - _h 
+			resize = true	
+		end 
+		
+		if resize then -- resize is required
+			if (w_t >= h_t) then -- if icon width is the big number (or square), use it as a base for resizing
+				w = _w
+				h = w / ratio
+			elseif (w_t < h_t) then -- if icon width is the big number, use it as a base for resizing
+				h = _h
+				w = h * ratio
+			end
+		else -- no resize
+			w = ico.w
+			h = ico.h
+		end
+	end
+	
+	local offset_x = (_w - w)/2
+	local offset_y = (_h - h)/2
+	XML_box:SetWndSize(vector2():set(w , h))
+	XML_box:SetWndPos(vector2():set(pos.x + offset_x , pos.y + offset_y))
+	
+	local ico_layer = system_ini():r_string_ex(sec,"1icon_layer")
+	if XML_box_small and ico_layer then
+		local ico_layer_x = system_ini():r_float_ex(sec,"1icon_layer_x")
+		local ico_layer_y = system_ini():r_float_ex(sec,"1icon_layer_y")
+		local ico_layer_scale = system_ini():r_float_ex(sec,"1icon_layer_scale")
+		if (ico_layer_x == 0) and (ico_layer_y == 0) and (ico_layer_scale == 1) then
+			set_up_icon(ico_layer, hidden, XML_temp, XML_box_small)
+		end
+	end
+end
+
+local mf,mc,sf,uc
+local killed_mutant_tbl = {
+
+	snork				= {file="ui\\ui_actor_monsters_pda",x="393",y="0",special="0"},
+	dog					= {file="ui\\ui_actor_monsters_pda",x="0",y="800",special="0"},
+	pseudodog			= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	psy_dog				= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	poltergeist			= {file="ui\\ui_actor_monsters_pda",x="0",y="400",special="0"},
+	bloodsucker			= {file="ui\\ui_actor_monsters_pda",x="393",y="400",special="0"},
+	controller			= {file="ui\\ui_actor_monsters_pda",x="393",y="800",special="0"},
+	chimera				= {file="ui\\ui_actor_monsters_pda",x="0",y="600",special="0"},
+	tushkano			= {file="ui\\ui_actor_monsters_pda",x="0",y="0",special="0"},
+	flesh				= {file="ui\\ui_actor_monsters_pda",x="393",y="600",special="0"},
+
+	burer				= {file="ui\\ui_actor_monsters_pda_1",x="0",y="0",special="0"},
+	boar				= {file="ui\\ui_actor_monsters_pda_1",x="393",y="0",special="0"},
+	giant				= {file="ui\\ui_actor_monsters_pda_1",x="0",y="200",special="0"},
+	
+	cat					= {file="ui\\ui_actor_monsters_pda_2",x="0",y="0",special="0"},
+	fracture			= {file="ui\\ui_actor_monsters_pda_2",x="393",y="200",special="0"},
+	bird				= {file="ui\\ui_actor_monsters_pda_2",x="393",y="0",special="0"},
+	zombie				= {file="ui\\ui_actor_monsters_pda_2",x="0",y="200",special="0"},
+	medwed				= {file="ui\\ui_actor_monsters_pda_3",x="0",y="0",special="0"},
+	rat					= {file="ui\\ui_actor_monsters_pda_3",x="0",y="200",special="0"},
+	karlik				= {file="ui\\ui_actor_monsters_pda_3",x="393",y="200",special="0"},
+	leshyi				= {file="ui\\ui_actor_monsters_pda_3",x="0",y="400",special="0"},
+	polterbuild			= {file="ui\\ui_actor_monsters_pda_3",x="393",y="400",special="0"},
+	stronglav			= {file="ui\\ui_actor_monsters_pda_3",x="0",y="600",special="0"},
+	vodianoy			= {file="ui\\ui_actor_monsters_pda_3",x="393",y="600",special="0"},
+	
+	bloodsucker_arena	= {file="ui\\ui_actor_monsters_pda",x="393",y="400",special="0"},
+	burer_arena			= {file="ui\\ui_actor_monsters_pda_1",x="0",y="0",special="0"},
+	pseudodog_arena		= {file="ui\\ui_actor_monsters_pda",x="393",y="200",special="0"},
+	snork_arena			= {file="ui\\ui_actor_monsters_pda",x="393",y="0",special="0"}
+	}
+class "loot_ui" (CUIScriptWnd)
+
+function loot_ui:__init(owner,obj,loot) super()
+	self.owner = owner
+	
+	mf = math.floor
+	mc = math.ceil
+	sf = string.find
+	uc = utils.clamp
+	
+	self.inv = {}
+	
+	if obj then
+		self.section = obj:section()
+		self.clsid = obj:clsid()
+		self.id = obj:id()
+		self.obj = obj
+	else
+		self.section = nil
+		self.clsid = nil
+		self.id = nil
+		self.obj = nil
+	end
+	if loot then
+		self.loot = loot
+	end
+
+	self:InitControls()
+	self:InitCallBacks()
+
+	self:FillList()
+end
+
+function loot_ui:__finalize()
+end
+
+function loot_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+
+	self.xml				= CScriptXmlInit()
+	self.xml:ParseFile			("ui_mutant_loot.xml")
+	local xml = self.xml
+	
+	self.dialog				= xml:InitStatic("mutant_loot:background",self)
+
+	-- Mutant image
+	self:SetMutantImage()
+
+	-- Inv
+	self.frame 			= xml:InitStatic("mutant_loot:frame",self.dialog)
+	self.scroll_inv = xml:InitScrollView("mutant_loot:scrollbar_inv", self.dialog)
+
+	
+	-- Button Cancel
+	self.btn_cancel = xml:Init3tButton("mutant_loot:btn_cancel",self.dialog)
+	self:Register(self.btn_cancel, "button_cancel")
+	
+	-- Hint Window
+	self.hint_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = xml:InitTextWnd("hint_wnd:text",self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	-- Message Window 
+	self.msg_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.msg_wnd:SetAutoDelete(false)
+	self.msg_wnd_text = xml:InitTextWnd("hint_wnd:text",self.msg_wnd)
+	self.msg_wnd_text:SetTextAlignment(2)
+	
+	self.msg_wnd:Show(false)
+	self.msg_wnd:SetColor(GetARGB(255,0,0,0))
+	
+end
+
+function loot_ui:Update()
+	CUIScriptWnd.Update(self)
+	
+	if db.actor:has_info("actor_filling_water") then
+		disable_info("actor_filling_water")
+		self:OnButton_quit()
+		return
+	end
+	
+	-- Warning messages timer 
+	if (self.msg_wnd_timer and time_global() > self.msg_wnd_timer) then 
+		self.msg_wnd_timer = nil
+		self.msg_wnd:Show(false)
+	end
+	
+	for k1,v1 in pairs(self.inv) do
+		if (v1.btn and v1.btn:IsCursorOverWindow()) then
+			local name = game.translate_string(system_ini():r_string_ex(v1.sec,"inv_name"))
+			local str = "%c[0,200,200,200]" .. name
+			self:SetHint(str)
+			return
+		end
+	end
+	
+	self.hint_wnd:Show(false)
+end 
+
+function loot_ui:SetMsg(text,tmr)
+	if (text == "") then 
+		return 
+	end
+	self.msg_wnd:Show(true)
+	self.msg_wnd_text:SetText(text)
+	self.msg_wnd_text:AdjustHeightToText()
+	self.msg_wnd_text:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+10))
+	self.msg_wnd_text:SetWndPos(vector2():set(0,20))
+	
+	self.msg_wnd:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+44))
+	self.msg_wnd:SetWndPos(vector2():set(0,80))
+
+	self.msg_wnd_timer = time_global() + 1000*tmr
+end
+
+function loot_ui:SetHint(text,pos)
+	if (text == "") then
+		return
+	end
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(text)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos = pos or GetCursorPosition()
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+end
+function loot_ui:SetMutantImage()
+
+	if not self.section then return end
+	local mutant_id = game.translate_string(system_ini():r_string_ex(self.section,"species") or "")
+
+	local mutant_f = "ui\\ui_actor_monsters_pda_1"
+	local mutant_x = 0
+	local mutant_y = 0
+
+	mutant_f = tostring(killed_mutant_tbl[mutant_id].file)
+	mutant_x = tostring(killed_mutant_tbl[mutant_id].x)
+	mutant_y = tostring(killed_mutant_tbl[mutant_id].y)
+
+	local x1 = mutant_x
+	local y1 = mutant_y
+	local mutant_width = 393
+	local mutant_height = 200
+
+	local x2 = x1 + mutant_width
+	local y2 = y1 + mutant_height
+
+	self.image			= self.xml:InitStatic("mutant_loot:image",self.dialog)
+	self.image:InitTexture(tostring(mutant_f))
+	self.image:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	self.image:SetStretchTexture(true)
+end
+
+function loot_ui:InitCallBacks()
+	self:AddCallback("button_cancel",ui_events.BUTTON_CLICKED,self.OnButton_quit,self)
+end
+
+function loot_ui:FillList()
+	self.scroll_inv:Clear()
+
+	self.loot = self.loot or utils.se_obj_load_var( self.id, self.name, "loot" )
+	if is_empty(self.loot) then
+		local hud = get_hud()
+		if (hud) then
+			hud:AddCustomStatic( "can_use_weapon_now", true )
+			hud:GetCustomStatic("can_use_weapon_now"):wnd():TextControl():SetTextST("st_body_useless")
+		end
+		itms_manager.ShowMessage = true
+		itms_manager.ShowMessageInit = game.get_game_time()
+		itms_manager.ShowMessageTime = 20
+	else
+		local inv = {}
+		for sec,t in pairs(self.loot) do
+			for i=1,t do
+				inv[#inv + 1] = sec
+			end
+		end
+		self:ShowDialog(true)
+		self:InitInventory(inv)
+	end
+end
+
+
+function loot_ui:InitInventory(tbl)
+	local xml = self.xml
+
+	local inv = {}
+	for i=1,#tbl do
+		local w = system_ini():r_float_ex(tbl[i],"inv_grid_width")
+		local h = system_ini():r_float_ex(tbl[i],"inv_grid_height")
+		inv[i] = { sec = tbl[i] , w = w , h = h }
+	end
+
+	local function count_grids_num(t)
+		local cnt = 0
+		for _,v in pairs(t) do
+			cnt = cnt + (v.w * v.h)
+		end
+		return cnt
+	end
+	
+	empty_table(self.inv)
+	self.scroll_inv:Clear()
+	local _st = xml:InitStatic("mutant_loot:inv_form", nil)
+	
+	local grid = xml:InitStatic("inv_grid", nil)
+	local grid_w = grid:GetWidth()
+	local grid_h = grid:GetHeight()
+	local tot_grid_w = math.floor(_st:GetWidth() / grid_w)
+	local tot_grid_h = math.floor(_st:GetHeight() / grid_h)
+	local tot_grid_num = math.max( count_grids_num(inv) , (tot_grid_w * tot_grid_h))
+	local tot_grid_ind = {}
+	for i=1,tot_grid_num do
+		local row = mc(i/tot_grid_w)
+		tot_grid_ind[row] = tot_grid_ind[row] or {}
+		tot_grid_ind[row][#tot_grid_ind[row] + 1] = true
+	end
+
+	for k,v in pairs(inv) do
+		self.inv[k] = {}
+		self.inv[k].ico_tmp = xml:InitStatic("inv_grid", _st)
+		self.inv[k].btn = xml:InitCheck("inv_btn_" .. tostring(v.w) .. "_" .. tostring(v.h), _st)
+		self.inv[k].ico = xml:InitStatic("inv_grid", _st)
+		self.inv[k].ico_s = xml:InitStatic("inv_grid", _st)
+		self.inv[k].sec = v.sec
+		
+		self:Register(self.inv[k].btn, "button_part_" .. k)
+		self:AddCallback("button_part_" .. k,ui_events.BUTTON_CLICKED,self.OnButton_ok,self)
+		
+		tot_grid_h = set_grid_element(
+			{ id = k , sec = v.sec , g_w = grid_w , g_h = grid_h , w = v.w , h = v.h , g_row = tot_grid_w },
+			tot_grid_ind,
+			self.inv[k].btn, self.inv[k].ico, self.inv[k].ico_tmp
+		)
+		set_up_icon(v.sec, nil, self.inv[k].ico_tmp, self.inv[k].ico, self.inv[k].ico_s)
+	end
+	
+	_st:SetWndSize(vector2():set(_st:GetWidth(),tot_grid_h * grid_h))
+	self.scroll_inv:AddWindow(_st, true)
+end
+
+-- A.R.E.A. Skills
+function loot_ui:OnButton_ok()
+
+	local h = hit()
+	h.direction = device().cam_dir
+	h.draftsman = db.actor
+	h.type = hit.wound
+	h:bone("bip01_head")
+	h.power = 0.6
+	h.impulse = 0.6
+	
+	local bpart = {"hit_fx\\hit_flesh_01", "hit_fx\\hit_flesh_02", "hit_fx\\hit_flesh_02a"}
+	local bones_parts = {
+		["mutant_part_boar_meat"]        	= {"bip01_spine"},
+		["mutant_part_boar_leg"]         	= {"bip01_r_foot","bip01_l_foot","bip01_l_hand","bip01_r_hand"},
+		["mutant_part_boar_tusk"]        	= {"bone01"},
+		["mutant_part_burer_brain"]      	= {"hood"},
+		["mutant_part_burer_hand"]       	= {"left_hand","right_hand"},
+		["mutant_part_cat_thyroid"]      	= {"bip01_neck"},
+		["mutant_part_cat_claw"]         	= {"bip01_r_foot","bip01_l_foot","bip01_l_hand","bip01_r_hand"},
+		["mutant_part_cat_tail"]         	= {"bip01_tail1"},
+		["mutant_part_chimera_claw"]     	= {"hand_r", "hand_l", "r_foot", "l_foot"},
+		["mutant_part_chimera_heart"]    	= {"spine_1"},
+		["mutant_part_chimera_tooth"]    	= {"boss_jaw"},
+		["mutant_part_chimera_meat"]     	= {"sholder_r","sholder_l"},
+		["mutant_part_controller_hand"]  	= {"bip01_l_hand","bip01_r_hand"},
+		["mutant_part_controller_brain"] 	= {"bip01_head"},
+		["mutant_part_crow_beak"]        	= {"bip01_head"},
+		["mutant_part_crow_egg"]         	= {"bip01_pelvis"},
+		["mutant_part_dog_heart"]        	= {"bip01_spine2"},
+		["mutant_part_dog_liver"]        	= {"bip01_spine"},
+		["mutant_part_dog_meat"]         	= {"bip01_neck"},
+		["mutant_part_dog_tail"]         	= {"bip01_tail1"},
+		["mutant_part_flesh_meat"]       	= {"bip01_spine"},
+		["mutant_part_flesh_eye"]        	= {"bip01_ponytail1"},
+		["mutant_part_fracture_hand"]    	= {"bip01_l_hand","bip01_r_hand"},
+		["mutant_part_bloodsucker_heart"]	= {"bip01_spine1"},
+		["mutant_part_karlik_ear"]       	= {"leye","reye"},
+		["mutant_part_bloodsucker_jaw"]  	= {"bip01_head"},
+		["mutant_part_krovosos_meat"]    	= {"bip01_spine3"},
+		["mutant_part_fang_psevdodog"]   	= {"bip01_r_foot","bip01_l_foot","bip01_l_hand","bip01_r_hand"},
+		["mutant_part_psevdodog_tail"]   	= {"bip01_tail"},
+		["mutant_part_psevdodog_meat"]   	= {"bip01_spine1"},
+		["mutant_part_psevdodog_fang"]   	= {"bip01_r_foot","bip01_l_foot","bip01_l_hand","bip01_r_hand"},
+		["mutant_part_pseudogigant_eye"] 	= {"lefteye","righteye"},
+		["mutant_part_pseudogigant_hand"]	= {"lefthand","righthand"},
+		["mutant_part_psy_dog_brain"]    	= {"bip01_head"},
+		["mutant_part_rat_spleen"]       	= {"bip01_head"},
+		["mutant_part_rat_meat"]         	= {"bip01_head"},
+		["mutant_part_snork_hand"]       	= {"lefthand","righthand"},
+		["mutant_part_snork_leg"]        	= {"rightfoot","leftfoot"},
+		["mutant_part_snork_mask"]       	= {"bip01_head"},
+		["mutant_part_stronglav_jaw"]    	= {"bip01_head"},
+		["mutant_part_stronglav_meat"]   	= {"bip01_spine3"},
+		["mutant_part_stronglav_heart"]  	= {"bip01_spine1"},
+		["mutant_part_tushkano_meat"]    	= {"bip01_head"},
+		["mutant_part_tushkano_head"]    	= {"bip01_spine"},
+		["mutant_part_zombie_hand"]      	= {"bip01_l_hand","bip01_r_hand"},
+		["hide_boar"]                    	= {"bip01_spine"},
+		["hide_burer"]                   	= {"hood"},
+		["hide_chimera"]                 	= {"spine_1"},
+		["hide_controller"]              	= {"bip01_head"},
+		["hide_flesh"]                   	= {"bip01_spine"},
+		["hide_bloodsucker"]             	= {"bip01_spine"},
+		["hide_pseudogiant"]             	= {"bip01_spine1"},
+		["hide_psy_dog"]                 	= {"bip01_head"},
+		["hide_pseudodog"]               	= {"bip01_head"},
+		["hide_vodianoy"]             		= {"bip01_spine"}
+	}
+	
+	local wat_sec = {
+		["bottle_water"] = "mineral_water_empty",
+		["bottle_glass_water"] = "bottle_empty",
+		["bottle_glass_water2"] = "bottle_empty_2",
+		["termos_water"] = "termos_empty",
+		["flask"] = "flask_empty",
+		["flask_2_water"] = "flask_2_empty",
+		["bottle_metal_water"] = "bottle_metal_empty",
+		["bottle_glass_water3"] = "beer_empty",
+		["bottle_water_radiated"] = "mineral_water_empty",
+		["bottle_glass_water_radiated"] = "bottle_empty",
+		["bottle_glass_water2_radiated"] = "bottle_empty_2",
+		["termos_water_radiated"] = "termos_empty",
+		["flask_radiated"] = "flask_empty",
+		["flask_2_water_radiated"] = "flask_2_empty",
+		["bottle_metal_water_radiated"] = "bottle_metal_empty",
+		["bottle_glass_water3_radiated"] = "beer_empty"
+	}
+	
+	if db.actor:has_info("anim_hands_status") then return end
+
+	for k1,v1 in pairs(self.inv) do
+		if v1.btn:GetCheck() then	
+		local item = v1
+		if wat_sec[item.sec] then
+			local itm = db.actor:object(wat_sec[item.sec])
+			alife():release(alife():object(itm:id()),true)
+			actor_effects.use_item("fill_saucepan")
+			give_info("actor_filling_water")
+		end
+		self:OnButton_quit()
+		if not item or not self.loot[item.sec] then 
+			return 
+		end
+		local kithunt = db.actor:object("kit_hunt") and 7 or 0
+		local welldressed = has_alife_info("achieved_well_dressed") and 10 or 0
+		if system_ini():line_exist(item.sec, "harvest_anim") then
+			local knife_section = "anm_harv_"
+			local kn = db.actor:active_item()
+			kn = kn and kn:section()
+			if kn then 
+				if kn:find("wpn_knife") or kn:find("wpn_axe") then
+					-- Start the animation of skinning monsters
+					local sped_anim_hand = level.Actor():getHudAnimSpeed()
+					local boost = area_skills and area_skills.skills_table.hunting_skill / 100 or 0
+					boost = kithunt ~= 0 and boost + 0.3 or boost
+					boost = has_alife_info("achieved_well_dressed") and boost + 0.4 or boost
+					boost = utils.clamp(boost,0,1)
+
+					knife_section = knife_section .. kn
+					if not system_ini():section_exist(knife_section) then
+						knife_section = "anm_harv_wpn_knife"
+					end
+					
+					if self.id then
+						local monster_obj = level.object_by_id(self.id)
+	
+						StartAnimHands(true,false,false,{
+							use = "knife",
+							section = knife_section,
+							item_pickup_pos = monster_obj and monster_obj:position()
+						}).return_the_weapon()
+	
+						level.Actor():setHudAnimSpeed(sped_anim_hand+boost)
+						CallbackAnimHands("stop_anim", function(table)
+							level.Actor():setHudAnimSpeed(sped_anim_hand)
+						end)
+					end
+				end
+			end
+			if (math.random(1,100) < (40 + math.floor(area_skills.skills_table.hunting_skill/3) + kithunt + welldressed)) then
+				self.is_succeed = true
+				give_object_to_actor(item.sec)
+				self.loot[item.sec] = self.loot[item.sec] - 1
+				if (self.loot[item.sec] == 0) then
+					self.loot[item.sec] = nil
+				end
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.25)
+				end
+				dxr_statistics.increment_statistic("field_dressings")
+				--if self.obj then
+				--	self.obj:hit(h)
+				--	local part = bpart[math.random(1, #bpart)]
+				--	local bone = bones_parts[item.sec][math.random(1, #bones_parts[item.sec])]
+				--	xr_effects.defer_action("start_particles", 3, "s", {self.obj:id(), part, bone})
+				--end
+			elseif (math.random(1,100) < (50 + math.floor(area_skills.skills_table.hunting_skill/3) + kithunt + welldressed)) then
+				self.is_succeed = false
+				CallbackAnimHands("stop_anim", function(table)
+					area_sounds.screwing()
+					SetHudMsg(game.translate_string("st_bad_looting"),5)
+				end)
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.15)
+				end
+				--if self.obj then
+				--	self.obj:hit(h)
+				--	local part = bpart[math.random(1, #bpart)]
+				--	local bone = bones_parts[item.sec][math.random(1, #bones_parts[item.sec])]
+				--	xr_effects.defer_action("start_particles", 3, "s", {self.obj:id(), part, bone})
+				--end
+			else
+				self.is_succeed = false
+				CallbackAnimHands("stop_anim", function(table)
+					area_sounds.screwing()
+					SetHudMsg(game.translate_string("st_failed_looting"),5)
+				end)
+				self.loot[item.sec] = self.loot[item.sec] - 1
+				if (self.loot[item.sec] == 0) then
+					self.loot[item.sec] = nil
+				end
+				if area_skills.skills_table.hunting_skill < area_skills.max_skills_level then
+					area_skills.raise_skill("hunting_skill",0.10)
+				end
+				--if self.obj then
+				--	self.obj:hit(h)
+				--	local part = bpart[math.random(1, #bpart)]
+				--	local bone = bones_parts[item.sec][math.random(1, #bones_parts[item.sec])]
+				--	xr_effects.defer_action("start_particles", 3, "s", {self.obj:id(), part, bone})
+				--end
+			end
+			area_knife_manager.wearout()
+		else
+			give_object_to_actor(item.sec)
+			self.loot[item.sec] = self.loot[item.sec] - 1
+			if (self.loot[item.sec] == 0) then
+				self.loot[item.sec] = nil
+			end
+			if self.id then
+				local monster_obj = level.object_by_id(self.id)
+				StartAnimHands(true,false,false,{
+					use = "take_monster_loot",
+					section = "anm_pickup",
+					action_delay = {take_monster_loot = function(table)
+						xr_sound.set_sound_play(0, table.item_snd)
+					end},
+					item_pickup_pos = monster_obj and monster_obj:position()
+				}).return_the_weapon()
+				end
+			end
+		end
+		end
+	
+		local clsid_to_section = {
+			[clsid.bloodsucker_s] 	= "bloodsucker",
+			[clsid.stronglav_s] 	= "stronglav",
+			[clsid.boar_s] 			= "boar",
+			[clsid.burer_s] 		= "burer",
+			[clsid.cat_s]			= "cat",
+			[clsid.chimera_s]		= "chimera",
+			[clsid.controller_s]	= "controller",
+			[clsid.crow]			= "crow",
+			[clsid.dog_s]			= "dog",
+			[clsid.flesh_s]			= "flesh",
+			[clsid.fracture_s]		= "fracture",
+			[clsid.gigant_s]		= "gigant",
+			[clsid.karlik_s]		= "karlik",
+			[clsid.poltergeist_s]	= "poltergeist",
+			[clsid.poltergeist_s]	= "polterbuild",
+			[clsid.psy_dog_s]		= "psy_dog",
+			[clsid.psy_dog_phantom_s] = "psy_dog",
+			[clsid.pseudodog_s]		= "pseudodog",
+			[clsid.rat_s]			= "rat",
+			[clsid.snork_s]			= "snork",
+			[clsid.vodianoy_s]		= "vodianoy",
+			[clsid.tushkano_s]		= "tushkano",
+			[clsid.zombie_s]		= "zombie"
+		}
+	
+		--local ini = ini_file("plugins\\itms_manager.ltx")
+		--local loot_table = alun_utils.collect_section(ini,clsid_to_section[self.obj:clsid()])
+		--local full_loot = {}
+		--
+		--for i=1,#loot_table do
+		--	loot = alun_utils.str_explode(loot_table[i],",")
+		--	if (loot and loot[1]) then
+		--		table.insert(full_loot, {tostring(loot[1]), 0, loot[2]})
+		--	end
+		--end
+		--
+		--local curr_loot = self.loot
+		--for sec,t in pairs(curr_loot) do
+		--	for j=1, #full_loot do
+		--		if sec == full_loot[j][1] then
+		--			full_loot[j][2] = full_loot[j][2] + 1
+		--		end
+		--	end	
+		--end
+		
+		local item_types  = {
+			--["mutant_part_boar_leg"]         	= "leg",
+			--["mutant_part_boar_tusk"]        	= "tusk",
+			--["mutant_part_burer_brain"]      	= "brain",
+			--["mutant_part_burer_hand"]       	= "hand",
+			--["mutant_part_cat_claw"]         	= "claw",
+			--["mutant_part_cat_tail"]         	= "tail",
+			--["mutant_part_chimera_claw"]     	= "claw",
+			--["mutant_part_chimera_tooth"]    	= "tusk",
+			--["mutant_part_controller_hand"]  	= "hand",
+			--["mutant_part_controller_brain"] 	= "brain",
+			--["mutant_part_crow_beak"]        	= "tusk",
+			--["mutant_part_dog_tail"]         	= "tail",
+			--["mutant_part_flesh_eye"]        	= "eye",
+			--["mutant_part_fracture_hand"]    	= "hand",
+			--["mutant_part_karlik_ear"]       	= "ear",
+			--["mutant_part_bloodsucker_jaw"]  	= "jaw",
+			--["mutant_part_psevdodog_tail"]   	= "tail",
+			--["mutant_part_psevdodog_fang"]   	= "claw",
+			--["mutant_part_pseudogigant_eye"] 	= "eye",
+			--["mutant_part_pseudogigant_hand"]	= "hand",
+			--["mutant_part_psy_dog_brain"]    	= "brain",
+			--["mutant_part_snork_hand"]       	= "hand",
+			--["mutant_part_snork_leg"]        	= "leg",
+			--["mutant_part_snork_mask"]       	= "mask",
+			--["mutant_part_stronglav_jaw"]    	= "jaw",
+			--["mutant_part_tushkano_head"]    	= "brain",
+			--["mutant_part_zombie_hand"]      	= "hand",
+			["hide_boar"]                    	= "flay",
+			--["hide_burer"]                   	= "flay",
+			--["hide_chimera"]                 	= "flay",
+			--["hide_controller"]              	= "flay",
+			--["hide_flesh"]                   	= "flay",
+			--["hide_bloodsucker"]             	= "flay",
+			--["hide_pseudogiant"]             	= "flay",
+			--["hide_psy_dog"]                 	= "flay",
+			--["hide_pseudodog"]               	= "flay"
+		}
+		
+		--local visual_name = self.obj:get_visual_name()
+		--local final_visual = visual_name
+		--local is_flayed = false
+		--for i=1, #full_loot do
+		--	if item_types[full_loot[i][1]] and (full_loot[i][2] ~= full_loot[i][3]) then
+		--		printf("curr items n %s sec %s", tostring(full_loot[i][2]), item_types[full_loot[i][1]])
+		--		if item_types[full_loot[i][1]] == "flay" then
+		--			is_flayed = true
+		--		else
+		--			final_visual = final_visual .. "_" .. tostring(full_loot[i][2]) .. item_types[full_loot[i][1]]
+		--		end
+		--	end
+		--end
+		--if is_flayed then
+		--	final_visual = final_visual .. "_flay"
+		--end
+		--
+		--printf("final vis %s", final_visual)
+		--self.obj:set_visual_name(visual_name)
+		
+	
+		if is_empty(self.loot) and self.id then
+			utils.se_obj_save_var(self.id,self.name,"looted",true)
+		else
+			CallbackAnimHands("stop_anim", function(table)
+				if is_empty(table.skinned_items) then
+					self:FillList()
+				else
+					AddUniqueCall(function()
+						if db.actor:has_info("anim_hands_status") then 
+							CallbackAnimHands("stop_anim", function()
+								self:FillList()
+							end)
+							return true
+						end
+					end)
+				end
+			end)
+		end
+end
+
+function loot_ui:OnButton_quit()
+	self:HideDialog()
+		DefaultDOF()
+end
+
+function loot_ui:OnKeyboard(dik, keyboard_action)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_ESCAPE) then
+			self:HideDialog()
+		end
+	end
+	return true
+end

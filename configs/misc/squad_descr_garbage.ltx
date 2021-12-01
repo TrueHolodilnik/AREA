@@ -1,0 +1,48 @@
+
+[gar_3_5_taras_squad]:online_offline_group
+faction = stalker
+npc = gar_3_5_stalker_taras
+target_smart = gar_smart_terrain_6_3
+story_id = gar_3_5_taras_squad
+
+[gar_3_5_paton_squad]:online_offline_group
+faction = stalker
+npc = gar_3_5_stalker_paton
+target_smart = gar_smart_terrain_6_3
+story_id = gar_3_5_paton_squad
+
+[hunter_gar_trader_squad]:online_offline_group
+faction = stalker
+npc = hunter_gar_trader
+target_smart = gar_smart_terrain_6_3
+story_id = hunter_gar_trader_squad
+npc_in_squad = 1, 1
+
+[gar_lohotron_squad]:online_offline_group
+faction = stalker
+npc = gar_bandit_lohotron_1, gar_bandit_lohotron_2
+npc_in_squad = 2
+target_smart = {+gar_butcher_firstmeet_1 +gar_lohotron_1_reject} gar_smart_terrain_6_1, gar_smart_terrain_6_3
+story_id = gar_lohotron_squad
+
+[gar_stalker_bald_squad]:online_offline_group
+faction = stalker
+npc = gar_stalker_bald
+npc_in_squad = 1, 1
+; target_smart = {+x27_go_to_lab_with_bald} gar_smart_terrain_1_5, gar_smart_terrain_6_3
+target_smart = {+x27_go_to_lab_with_bald -gar_stalker_bald_labx27_6} gar_smart_terrain_1_5, gar_smart_terrain_6_3
+story_id = gar_stalker_bald_squad
+
+[gar_stalker_lottery_squad]:online_offline_group
+faction = stalker
+npc = gar_stalker_lottery
+npc_in_squad = 1
+target_smart = gar_smart_terrain_6_3
+story_id = gar_stalker_lottery_squad
+
+[gar_smart_terrain_5_4_main_dolg_soldier_squad]:online_offline_group
+faction = dolg
+npc = gar_smart_terrain_5_4_main_dolg_soldier, sim_default_duty_3, sim_default_duty_3
+npc_in_squad = 3, 5
+target_smart = gar_smart_terrain_5_2
+on_death = %+gar_smart_terrain_5_4_main_dolg_soldier_squad_nil%

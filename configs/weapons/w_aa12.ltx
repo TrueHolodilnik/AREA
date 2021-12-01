@@ -1,0 +1,240 @@
+;----------------------------------------------------------------------------------------
+; AA-12 from TAZ 2.0, remade by Surs for A.R.E.A. (24.06.2019)
+;----------------------------------------------------------------------------------------
+[wpn_aa12]:default_weapon_params
+$spawn								= "weapons\aa12"		; name and section in level editor
+$npc								= on
+visual								= dynamics\weapons\wpn_aa12\wpn_aa12.ogf
+class								= WP_ASHTG
+inv_name							= st_wpn_aa12
+inv_name_short						= st_wpn_aa12
+description							= st_wpn_aa12_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+weapon_class						= assault_rifle
+parent_section						= wpn_aa12
+repair_type							= shotgun
+inv_weight							= 5.2
+inv_volume							= 5.2
+ph_mass								= 5
+cost								= 140000
+hud									= wpn_aa12_hud
+upgrades							= up_gr_firstab_ak74_rusty, up_gr_seconab_ak74_rusty, up_gr_thirdab_ak74_rusty, up_gr_fourtab_ak74_rusty, up_gr_fifthab_ak74_rusty, up_gr_fifthcd_ak74_rusty
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_ak74
+;-ТТХ---------------------------------------------------------------------------
+hit_power							= 0.92, 0.92, 0.92, 0.92
+hit_impulse							= 20
+hit_type							= fire_wound
+fire_distance						= 300
+bullet_speed						= 350
+rpm									= 370
+rpm_empty_click						= 120
+time_to_aim							= 3.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.84
+misfire_end_condition				= 0.10
+misfire_start_prob					= 0.003
+misfire_end_prob					= 0.075
+condition_shot_dec					= 0.0020
+condition_queue_shot_dec			= 0.0020
+
+ammo_elapsed						= 20
+ammo_mag_size						= 20
+fire_modes							= 1, -1
+magazine_sect						= mag_12x76_cnt_20_aa12
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot								= 2
+animation_slot						= 8
+;--Доф----------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2;1.7
+reload_empty_dof					= 0.0, 0.5, 5, 3.6
+;--Дисперсия----------------------------------------------------------------------
+fire_dispersion_base				= 0.8					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.76f
+crosshair_inertion					= 7.4
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 2
+cam_relax_speed_ai					= 360
+cam_dispersion						= 1.5
+cam_dispersion_inc					= 1.4
+cam_dispersion_frac					= 1.1					;cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.3					;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 0.85
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 1.5
+zoom_cam_dispersion_inc				= 1.4
+zoom_cam_dispersion_frac			= 1.1
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.3
+
+PDM_disp_base						= 1.5
+PDM_disp_vel_factor					= 1.65
+PDM_disp_accel_factor				= 1.655
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+fire_dispersion_condition_factor	= 0.015
+;-------------------------------------------------------------------------------
+position							= -0.024, -0.145, 0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.24, 0.62
+fire_point2							= 0.0, 0.103, 0.62
+flame_particles						= weapons\new_effects\a1_type_ar15 
+smoke_particles						= weapons\new_effects\smoke_muzzle_00
+grenade_flame_particles				= weapons\generic_weapon01
+shell_3d_sect						= shell_12
+shell_point							= 0.0, 0.138, 0.07
+shell_particles						= weapons\12ga
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 35
+inv_grid_y							= 58
+
+upgr_icon_x							= 1724
+upgr_icon_y							= 802
+upgr_icon_width						= 167
+upgr_icon_height					= 150
+
+kill_msg_x							= 0
+kill_msg_y							= 28
+kill_msg_width						= 84
+kill_msg_height						= 28
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 0						; 0 - no addon ; UPGRADABLE
+silencer_status						= 0						; 1 - permanent
+grenade_launcher_status				= 0						; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 116
+grenade_launcher_y					= 18
+
+silencer_name						= wpn_addon_silencer_545x39
+silencer_x							= 224
+silencer_y							= 13
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\effects\kyky_smoke
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\vepr12\vepr12_holster
+snd_draw							= weapons\vepr12\vepr12_draw
+snd_reload							= weapons\aa12\aa12_reload
+snd_reload_detached					= weapons\aa12\aa12_reload,1,0,1.8
+snd_reload_detached_empty			= weapons\aa12\aa12_reload,1,0,1.2
+snd_empty							= weapons\vepr12\vepr12_empty
+snd_shoot							= weapons\aa12\aa12_shoot
+snd_silencer_shot					= weapons\vepr12\vepr12_shot_sil_null
+snd_check_magazine                  = weapons\aa12\aa12_reload
+;-------------------------------------------------------------------------------
+[mag_12x76_cnt_20_aa12]
+magazine_name						= magazine_12x76_cnt_20_aa12
+magazine_x							= 102
+magazine_y							= 45
+custom_icon							= 2,4,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_aa12_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_aa12\wpn_aa12_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.028,0.05679,-0.05365
+shell_dir							= 0, 1, 0
+shell_bone							= wpn_body
+fire_point							= -0.011,0.041578,0.680409
+fire_bone							= wpn_body
+fire_point2							= 0.0,-0.028,0.678
+fire_bone2							= wpn_body
+
+hands_position						= -0.095346,-0.149661,-0.017736
+hands_position_16x9					= -0.095346,-0.149661,-0.017736
+hands_orientation					= 0.519999,2.409999,0.149999
+hands_orientation_16x9				= 0.519999,2.409999,0.149999
+
+aim_hud_offset_pos					= -0.052545,-0.008165,-0.00998
+aim_hud_offset_pos_16x9				= -0.052545,-0.008165,-0.00998
+aim_hud_offset_rot					= 0.013788,0.00721,-0.006204
+aim_hud_offset_rot_16x9				= 0.013788,0.00721,-0.006204
+
+gl_hud_offset_pos					= -0.05,-0.03,-0.005
+gl_hud_offset_pos_16x9				= -0.05,-0.03,-0.005
+gl_hud_offset_rot					= -0.095,-0.004,-0.02
+gl_hud_offset_rot_16x9				= -0.095,-0.004,-0.02
+
+anm_show							= aa12_draw_0
+anm_hide							= lancew_ak12_holster ;aa12_holster
+anm_idle							= aa12_idle
+anm_idle_sprint						= lancew_usas12_sprint
+anm_idle_moving						= aa12_idle_moving
+anm_idle_moving_crouch				= aa12_idle_moving_crouch
+;anm_shots							= aa12_shoot_kyky, shoot
+anm_shots							= aa12_shoot1, shoot
+anm_shots_empty						= aa12_idle
+anm_reload							= aa12_reload_empty, reload_empty
+anm_reload_empty					= aa12_reload_empty, reload_empty
+anm_reload_detached					= aa12_reload_empty, reload_empty, , 1.9
+anm_reload_detached_empty			= aa12_reload_empty, reload_empty, , 1.9
+anm_idle_aim						= aa12_idle_aim
+anm_bore							= aa12_idle_aim
+anm_check_magazine                  = aa12_reload_empty, reload_empty
+anm_use_start                       = lancew_ak12_holster, ,0.4
+anm_use_end                         = aa12_draw_0, ,0.66
+anm_jump                            = aa12_draw_0, ,1.6
+;-------------------------------------------------------------------------------
+[wpn_aa12_cust]:wpn_aa12
+visual								= dynamics\weapons\wpn_aa12\wpn_aa12_custom
+inv_name							= st_wpn_aa12_custom
+inv_name_short						= st_wpn_aa12_custom
+parent_section						= wpn_aa12_cust
+cost								= 97890
+rpm									= 390
+scope_zoom_factor					= 1.15
+silencer_name						= wpn_addon_silencer_9x39
+silencer_status						= 2
+silencer_x							= 221
+silencer_y							= 11
+hud									= wpn_aa12_cust_hud
+
+[wpn_aa12_cust_hud]:wpn_aa12_hud
+item_visual							= dynamics\weapons\wpn_aa12\wpn_aa12_custom_hud.ogf
+aim_hud_offset_pos					= -0.051514,-0.007130,-0.030985
+aim_hud_offset_pos_16x9				= -0.051514,-0.007130,-0.030985
+aim_hud_offset_rot					= 0.044500,0.009900,-0.014204
+aim_hud_offset_rot_16x9				= 0.044500,0.009900,-0.014204
+;-------------------------------------------------------------------------------
+[wpn_aa12_camo]:wpn_aa12
+visual								= dynamics\weapons\wpn_aa12\wpn_aa12_camo
+inv_name							= st_wpn_aa12_camo
+inv_name_short						= st_wpn_aa12_camo
+parent_section						= wpn_aa12_camo
+inv_weight							= 5.05
+rpm									= 425
+cost								= 99540
+fire_dispersion_base				= 0.75
+hud									= wpn_aa12_camo_hud
+
+[wpn_aa12_camo_hud]:wpn_aa12_hud
+item_visual							= dynamics\weapons\wpn_aa12\wpn_aa12_camo_hud.ogf
+;-------------------------------------------------------------------------------

@@ -1,0 +1,14 @@
+[logic]
+active = ph_idle@on
+
+[ph_idle@on]
+on_info = ph_idle@stop %=play_sound(fal_station_01)%
+
+[ph_idle@stop]
+on_use = ph_idle@off %=stop_sound%
+tips = radio_off
+on_info = {!is_playing_sound} ph_idle@on
+
+[ph_idle@off]
+on_use = ph_idle@stop %=play_sound(fal_station_01)%
+tips = radio_on

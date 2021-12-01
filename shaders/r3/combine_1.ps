@@ -1,0 +1,324 @@
+
+//
+// Reworked by Holodilnik for A.R.E.A.
+// Puddles, material based specular, wetness, gloss, fog, etc.
+//
+
+uniform float4 screen_res;
+uniform float4 ogse_c_screen;
+#define InvFocalLen float2(tan(0.5f*radians(ogse_c_screen.x)) / (float)screen_res.y * (float)screen_res.x, tan(0.5f*radians(ogse_c_screen.x)))
+
+#include "lmodel.h"
+#include "hmodel.h"
+#include "infrared.h"
+#include "common_functions.h"
+#include "blur.h"
+
+TextureCube		cube_chrome;
+TextureCube		cube_env;
+
+float3 gbuf_unpack_position(float2 uv, float eye_z)
+{
+	uv = (uv * float2(2.0, -2.0) - float2(1.0, -1.0));
+	
+	float3 pos = float3(uv * InvFocalLen * eye_z, eye_z);
+	
+	return pos;
+}
+
+uniform	Texture2D					s_half_depth;
+
+float ssao_noise_tile_factor;
+float ssao_kernel_size;
+
+sampler		smp_jitter;
+Texture2D	jitter0;
+
+uniform float4 ogse_c_rain;	
+
+//#include "ssao_blur.ps"
+
+#ifdef HDAO
+#define USE_HDAO 1
+#endif
+#define SSR_ROAD
+#ifdef SM_5
+Texture2D<float> s_occ;
+#endif // SM_5
+
+//#ifdef SSAO_QUALITY
+//#undef SSAO_QUALITY
+//#define SSAO_QUALITY 4
+//#endif
+
+#if SSAO_QUALITY <=3
+#include "ssdo.ps"
+
+#else
+#ifndef USE_HDAO
+#define USE_HDAO
+#endif
+#endif
+
+#ifdef USE_HDAO
+	#if SSAO_QUALITY > 3
+		#include "ssao_hdao_new.ps"
+	#endif
+	#define USE_HDAO_CODE
+	#if SSAO_QUALITY <=3
+		#define  g_f2RTSize ( pos_decompression_params2.xy )
+		//#define  g_f2RTSize float2( 1280.0f, 1024.0f )
+		#ifdef GBUFFER_OPTIMIZATION
+			#define g_txDepth s_position
+			#define g_txNormal s_position
+		#else
+			#define g_txDepth s_position
+			#define g_txNormal s_normal
+		#endif
+		#include "ssao_hdao.ps"
+	#endif
+#else // USE_HDAO
+	#ifdef	USE_HBAO
+		#include "ssao_hbao.ps"
+	#endif	//	USE_HBAO
+#endif // USE_HDAO
+
+struct	_input
+{
+	float4	tc0	: TEXCOORD0;	// tc.xy, tc.w = tonemap scale
+	float2	tcJ	: TEXCOORD1;	// jitter coords
+	float4 pos2d : SV_Position;
+};
+
+struct	_out
+{
+	float4	low		: SV_Target0;
+	float4	high	: SV_Target1;
+};
+
+//	TODO:	DX10: Replace Sample with Load
+#ifndef USE_MSAA
+_out main ( _input I )
+#else
+_out main ( _input I, uint iSample : SV_SAMPLEINDEX )
+#endif
+{
+	#ifdef USE_MSAA
+		gbuffer_data gbd = gbuffer_load_data( GLD_P(I.tc0, I.pos2d, iSample) );
+	#else
+		gbuffer_data gbd = gbuffer_load_data( GLD_P(I.tc0, I.pos2d, ISAMPLE) );
+	#endif
+	
+	float3        	pos        		= gbd.P.xyz;
+    float         	distance		= length		(pos);
+    float         	fog				= saturate		(distance*fog_params.w + fog_params.x); 
+	
+	fog = pow(fog, 6);		
+	float w_pos = mul(float4(gbd.P.xyz,1),(m_WV)).y;
+	float n_factor = (1 - pow(clamp(w_pos, 0, 1), 2));
+	
+	_out        	o;
+	if (fog * n_factor >= 1 || gbd.P.z < 0.001) {
+		o.high.rgb = fog_color;
+		o.low.rgb = fog_color;
+		
+		o.low.a = fog;
+		o.high.a = fog;
+	
+		return        	o;
+	}
+	
+	float3 sky;
+	float3 chrome;
+	float3 env;
+	float3 wnorm = normalize(mul(m_v2w, float4(gbd.N.xyz, 0)));
+	{	
+		float tdepth = (gbd.P.z > 0.0025) ? (gbd.P.z) : (1000);
+		#ifdef USE_MSAA
+			float3 wposi = mul(m_v2w, float4(gbuf_unpack_position(I.tc0, tdepth), 1));
+		#else
+			float3 wposi = mul(m_v2w, float4(gbuf_unpack_position(I.tc0, tdepth), 1));
+		#endif
+		float3 to_point = normalize(wposi - eye_position);
+		float3 flat_norm = wnorm;
+		//flat_norm.y *= 10;
+		flat_norm = normalize(flat_norm);
+		float3 vreflect = normalize(reflect(to_point, flat_norm));
+		//chrome = cube_chrome.SampleLevel(smp_base, vreflect.xyz, 0).xyz;
+		//env = cube_env.SampleLevel(smp_base, vreflect.xyz, 0).xyz;
+		//float3 s_vreflect = vreflect / max(abs(vreflect.x), max(abs(vreflect.y), abs(vreflect.z)));
+		//if(s_vreflect.y < 0.99) {s_vreflect.y = s_vreflect.y * 2 - 1;}
+		//float3 env0 = sky_s0.SampleLevel(smp_base, s_vreflect.xyz, 0).xyz;
+		//float3 env1 = sky_s1.SampleLevel(smp_base, s_vreflect.xyz, 0).xyz;
+		sky = sky_true_reflection(sky_s0, sky_s1, vreflect);
+	}
+	
+	
+	// Sample the buffers:
+	float4	P = float4( gbd.P, gbd.mtl );	// position.(mtl or sun)
+	float4	N = float4( gbd.N, gbd.hemi );		// normal.hemi
+	float4	D = float4( gbd.C, gbd.gloss );		// rgb.gloss
+#ifndef USE_MSAA
+	float4	L = s_accumulator.Sample( smp_nofilter, I.tc0);	// diffuse.specular
+#else
+#	ifdef GBUFFER_OPTIMIZATION
+	float4	L = s_accumulator.Load( int3( I.pos2d.xy, 0 ), iSample);	// diffuse.specular
+#	else
+	float4   L = s_accumulator.Load( int3( I.tc0 * pos_decompression_params2.xy, 0 ), iSample );
+#	endif
+#endif
+
+if (abs(P.w - MAT_FLORA) <= 0.05) {
+		// Reapply distance factor to fix overtly glossy plants in distance
+		// Unfortunately some trees etc don't seem to use the same detail shader
+		float	fAtten = 1 - smoothstep(0, 50, P.z);
+		D.a	*= (fAtten * fAtten);
+}
+
+#ifdef FORCE_GLOSS
+	D.w = FORCE_GLOSS;
+#endif
+
+
+	D.rgb = SRGBToLinear(D.rgb);
+	float objMat = mcls(gbd.mtl);
+
+        // static sun
+	float mtl = P.w;
+
+#ifdef USE_R2_STATIC_SUN
+	float sun_occ = P.w*2;
+
+	//mtl = xmaterial;
+	
+	#ifndef GBUFFER_OPTIMIZATION
+		//L += Ldynamic_color * sun_occ * plight_infinity	(mtl, P.xyz, N.xyz, D.xyzw, Ldynamic_dir, tc);
+	#else
+		//L += Ldynamic_color * sun_occ * plight_infinity	(mtl, P.xyz, N.xyz, D.xyzw, Ldynamic_dir, pos2d);
+	#endif
+#endif
+
+	// hemisphere
+	float3 hdiffuse, hspecular;
+
+	//  Calculate SSAO
+
+//#ifdef USE_MSAA
+//#	ifdef GBUFFER_OPTIMIZATION
+//	int2	texCoord = I.pos2d;
+//#	else
+//	int2	texCoord = int2( I.tc0 * pos_decompression_params2.xy );
+//#	endif
+//#endif
+	
+/*#ifdef USE_SSAO_BLUR	
+#	ifndef USE_MSAA
+	float	occ = ssao_blur_ps(I.tc0);
+#	else
+	float   occ = ssao_blur_ps( texCoord, ISAMPLE );
+#	endif*/
+
+#ifdef USE_HDAO
+	#ifdef SM_5
+		#if SSAO_QUALITY > 3
+			float occ = s_occ.Sample( smp_nofilter, I.tc0);	
+		#else // SSAO_QUALITY > 3
+			float occ = calc_hdao( CS_P(P, N, I.tc0, I.tcJ, I.pos2d, ISAMPLE ) );
+		#endif // SSAO_QUALITY > 3
+	#else // SM_5
+		#if SSAO_QUALITY > 3
+			float occ = calc_new_hdao( CS_P(P, N, I.tc0, I.tcJ, I.pos2d, ISAMPLE ) );
+		#else // SSAO_QUALITY > 3
+			float occ = calc_hdao( CS_P(P, N, I.tc0, I.tcJ, I.pos2d, ISAMPLE ) );
+		#endif // SSAO_QUALITY > 3
+	#endif // SM_5
+#else // USE_HDAO
+	#ifdef USE_HBAO
+		float occ = calc_hbao( P.z, N, I.tc0, I.pos2d );
+	#else // USE_HBAO
+		float occ = calc_ssdo(P, N, I.tc0, I.pos2d, ISAMPLE);
+	#endif
+#endif // USE_HDAO
+	
+	occ = compute_colored_ao(occ.x, D.xyz);
+	
+	float wet_factor = N.w*N.w*N.w*(ogse_c_rain.w + control_params.z)*2;
+	
+	if (objMat == 2) sky /= 3;
+	
+	//float diffuse_reflection_power = (1.5 - ((D.r + D.g + D.b)/6))*N.w*(D.w/1.75 + 0.25);
+	float diffuse_reflection_power = N.w*((gbd.mtl*D.w)/1.75 + 0.25); //
+	
+	if (ogse_c_rain.w > 0.05) {
+		if (objMat >= 4) D.w = 0.01 + objMat/100 + wet_factor/3;
+		else if (objMat <= 2) D.w += wet_factor/3;
+		else D.w += wet_factor/4;
+	}
+	
+	float3 Pw = mul((float3x4)m_v2w, float4(gbd.P, 1));
+	float factor = pow(N.w, 6)*smoothstep( 1.0, 1.05, length(gbd.P.xyz))*smoothstep( 0.3, 0.4, dot(float3(0,1,0), wnorm.xyz));  //Winter
+	if (objMat == 2) {  //Winter
+		D.rgb = D.rgb*(1 - factor) + (float3(0.4,0.4,0.4) + sky/4)*factor;
+	}
+	else if (objMat == 3) {  //Winter
+		float tbr = (D.r + D.g + D.b)/3;
+		D.rgb = D.rgb*(1 - factor) + (float3(0.4,0.4,0.4))*factor*(tbr + 0.11)*5;
+	}
+	
+	hmodel	(hdiffuse, hspecular, mtl, diffuse_reflection_power, D, P.xyz, N.xyz);
+	
+	hdiffuse *= occ;
+	float sky_brightness = (sky.r + sky.g + sky.b)/3;
+	hspecular = (sky_brightness*sky*N.w/3.5 + hspecular)*max(L_sun_color.r + L_sun_color.g + L_sun_color.b, 0.2)/6;
+	hspecular *= occ;
+	
+	float true_brightness = (D.r + D.g + D.b)/3;
+	
+	float4         light       = pow(float4(L.rgb + hdiffuse, L.w), 0.5);
+	
+	float l_brightness = (L.r + L.g + L.b)/3;
+	
+	float wet_factor_puddles = 0;
+	if (objMat == 2 && ogse_c_rain.w > 0.05) wet_factor_puddles = normalize(dot(float3(0,3,0), wnorm.xyz))*(1 - wnorm.y)*wet_factor*occ;
+    
+    float4         C           = D*light       ;                             // rgb.gloss * light(diffuse.specular)
+	float3         spec        = C.www * L.rgb + hspecular * C.rgba ;              // replicated specular
+
+	float3       color     = C.rgb + spec + hspecular*(0.20 + gbd.mtl*gbd.mtl)*true_brightness;
+		
+	float brightness = (color.r + color.g + color.b)/3;
+	
+	if (objMat >= 5) {
+		color += (pow(N.w, 4)*occ*sky*(D.w + mtl*mtl*2)*0.5)*true_brightness*max(L_sun_color.r + L_sun_color.g + L_sun_color.b, 0.1);
+	}
+
+	if (ogse_c_rain.w > 0.05) {
+		if (objMat >= 4) color += wet_factor*(hspecular*(gbd.mtl + 0.1));
+		else if (objMat == 1) color += wet_factor*(hspecular/2);
+		else if (objMat == 2) {
+			float3 puddles = clamp(lerp(color, sky*(1 + (L.rgb*hspecular)/6), wet_factor_puddles), 0, 0.6);
+			if ((puddles.r + puddles.g + puddles.b)/3 > 0.4) puddles = color;
+			color = puddles + wet_factor*(hspecular/8);
+		}
+	}
+	
+	if (objMat > 3) {  //Winter
+		D.rgb = D.rgb*(1 - factor) + (float3(0.4,0.4,0.4))*factor;
+	}
+	
+	if (objMat == 1 || objMat >= 4) {
+		color = color*clamp(((1.41 - pow(brightness - 0.11, 3))/1.4), 0.75, 0.9999);
+	}
+	
+	color = LinearTosRGB(color);
+	float          	tm_scale        = I.tc0.w;                // interpolated from VS
+    tonemap        	(o.low, o.high, color, tm_scale );
+	
+	o.high.rgb = lerp(o.high.rgb, sky.rgb*fog_color, fog * n_factor);
+	o.low.rgb = lerp(o.low.rgb, sky.rgb*fog_color, fog * n_factor);
+	
+    o.low.a         = fog;
+	o.high.a		= fog;
+
+	return        	o;
+}

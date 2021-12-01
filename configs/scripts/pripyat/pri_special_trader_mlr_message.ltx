@@ -1,0 +1,4 @@
+[logic]
+active = sr_idle
+[sr_idle]
+on_actor_inside = {!actor_community(actor_killer)} %=set_squad_goodwill(merc_pri_a18_mech_mlr_squad:0) =set_squad_goodwill(merc_pri_grifon_mlr_squad:0) =set_squad_goodwill(merc_hide_squad_on_book_store:0) =send_tip(st_pri_special_trader_mlr_message:infopreneur)% nil

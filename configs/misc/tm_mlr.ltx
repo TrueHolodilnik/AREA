@@ -1,0 +1,2377 @@
+[dasc_trade_mlr_task_1]
+
+icon = ui_icons_kill_monster34
+storyline = false
+prior = 35
+repeat_timeout = 86400
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monster)} true, false
+type = assault
+
+title = dasc_trade_mlr_task_1_name
+descr = dasc_trade_mlr_task_1_text
+job_descr = dasc_trade_mlr_task_1_about
+task_complete_descr = dasc_trade_mlr_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monster
+condlist_0 = {!task_giver_alive(dasc_trade_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=find_smart_under_faction_control(dasc_trade_mlr_task_1_id:monster)%
+on_complete = %=complete_task_inc_goodwill(50:stalker) =reward_random_money(8000:10000:hrivni) =reward_stash(true) =inc_task_stage(dasc_trade_mlr_task_1) =pstor_reset(dasc_trade_mlr_task_1_id) =pstor_reset(dasc_trade_mlr_task_1_target_id)%
+on_fail = %=pstor_reset(dasc_trade_mlr_task_1_id) =pstor_reset(dasc_trade_mlr_task_1_target_id) =fail_task_dec_goodwill(100:stalker)%
+on_cancel = %=pstor_reset(dasc_trade_mlr_task_1_id) =pstor_reset(dasc_trade_mlr_task_1_target_id) =fail_task_dec_goodwill(25:stalker)%
+on_reversed = %=pstor_reset(dasc_trade_mlr_task_1_id) =pstor_reset(dasc_trade_mlr_task_1_target_id)%
+
+quest_timeout = 172800
+
+[dasc_trade_mlr_task_2]
+icon = ui_iconsTotal_artefact
+storyline = false
+prior = 35
+repeat_timeout = 86400
+precondition = true
+
+title = dasc_trade_mlr_task_2_name
+title_functor = general_fetch_task
+descr = dasc_trade_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = dasc_trade_mlr_task_2_fetch_about
+fetch_descr = dasc_trade_mlr_task_2_fetch_about
+task_complete_descr = dasc_trade_mlr_task_2_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(dasc_trade_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(dasc_trade_mlr_task_2_fetch)%
+on_complete = %=drx_sl_fetch_reward_money(dasc_trade_mlr_task_2_fetch:1.2) =complete_task_inc_goodwill(50:stalker) =reward_stash(true) =inc_task_stage(dasc_trade_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker)%
+
+quest_timeout = 518400
+
+[dasc_trade_mlr_task_3]
+icon = ui_icons_base_attack24
+storyline = false
+prior = 25
+repeat_timeout = 86400
+precondition = {=drx_sl_is_enemy(bandit) =all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:bandit)} true, false
+type = assault
+
+title = dasc_trade_mlr_task_3_name
+descr = dasc_trade_mlr_task_3_text
+job_descr = dasc_trade_mlr_task_3_about
+task_complete_descr = dasc_trade_mlr_task_3_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_specific_smart_under_faction_control_staged
+status_functor_params = bandit
+condlist_0 = {!task_giver_alive(dasc_trade_mlr_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=find_smart_under_faction_control_ex(dasc_trade_mlr_task_3_id:bandit)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_stash(true) =inc_task_stage(dasc_trade_mlr_task_3) =complete_task_inc_goodwill(50:stalker) =pstor_reset(dasc_trade_mlr_task_3_id) =drx_sl_unregister_task_giver(dasc_trade_mlr_task_3) =drx_sl_reset_stored_task(dasc_trade_mlr_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(dasc_trade_mlr_task_3_id) =drx_sl_unregister_task_giver(dasc_trade_mlr_task_3) =drx_sl_reset_stored_task(dasc_trade_mlr_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(dasc_trade_mlr_task_3_id) =drx_sl_unregister_task_giver(dasc_trade_mlr_task_3) =drx_sl_reset_stored_task(dasc_trade_mlr_task_3)%
+on_reversed = %=pstor_reset(dasc_trade_mlr_task_3_id) =drx_sl_unregister_task_giver(dasc_trade_mlr_task_3) =drx_sl_reset_stored_task(dasc_trade_mlr_task_3)%
+
+[main_monolith_mlr_task_5_1]
+icon = ui_icons_monolith_sign38
+prior = 100
+storyline = false
+title = {=actor_has_item(sar_crystal_pda_mlr) =actor_has_item(sar_crystal_pda_mlr_1) =actor_has_item(sar_crystal_pda_mlr_2) =actor_has_item(sar_crystal_pda_mlr_3) =actor_has_item(sar_crystal_pda_mlr_4) =actor_has_item(sar_crystal_pda_mlr_5)} main_monolith_mlr_task_5_1_name_3, {+main_monolith_mlr_task_5_1_dlg_1_in_sar} main_monolith_mlr_task_5_1_name_2, main_monolith_mlr_task_5_1_name_1
+descr = main_monolith_mlr_task_5_1_descr
+target = {=actor_has_item(sar_crystal_pda_mlr) =actor_has_item(sar_crystal_pda_mlr_1) =actor_has_item(sar_crystal_pda_mlr_2) =actor_has_item(sar_crystal_pda_mlr_3) =actor_has_item(sar_crystal_pda_mlr_4) =actor_has_item(sar_crystal_pda_mlr_5)} main_monolith_mlr_task_5_attack_squad_leader, {+main_monolith_mlr_task_5_1_dlg_1_in_sar} nil, sar_center_spot
+condlist_0 = {=story_object_exist(main_monolith_mlr_task_5_attack_squad_leader) =is_dead(main_monolith_mlr_task_5_attack_squad_leader)} fail, {+main_monolith_mlr_task_5_1_dlg_2} complete
+
+[zat_a2_stalker_mechanic_task_1_1]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = zat_a2_stalker_mechanic_task_1_1_name
+title_functor = general_fetch_task
+descr = zat_a2_stalker_mechanic_task_1_1_text
+descr_functor = general_fetch_task
+job_descr = zat_a2_stalker_mechanic_task_1_1_about
+fetch_descr = zat_a2_stalker_mechanic_task_1_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(zat_a2_stalker_mechanic_task_1_1_fetch:1:wpn_gauss)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_a2_stalker_mechanic_task_1_1_fetch_finish
+on_complete = %+zat_a2_stalker_mechanic_task_1_1_done =complete_task_inc_goodwill(100:stalker) =remove_fetch_item(zat_a2_stalker_mechanic_task_1_1_fetch) =inc_task_stage(zat_a2_stalker_mechanic_task_1_1)%
+precondition = {-zat_a2_stalker_mechanic_task_1_1_done} true, false
+condlist_0 = {!task_giver_alive(zat_a2_stalker_mechanic)} reversed
+reward_item = ammo_gauss_cardan:ammo_gauss_cardan:ammo_gauss_cardan
+										   
+[esc_2_12_medic_mlr_save_task_mlr]
+icon = ui_icons_first_help39
+prior = 25
+storyline = false
+on_init = %=create_squad(esc_2_12_medic_mlr_squad:esc_smart_terrain_9_7) =create_squad(esc_2_12_medic_mlr_save_task_mlr_snork:esc_smart_terrain_11_5)%
+title = {+esc_2_12_medic_mlr_save_task_mlr_home_here_is} esc_2_12_medic_mlr_save_task_mlr_name_5, {+esc_2_12_medic_mlr_save_task_mlr_3} esc_2_12_medic_mlr_save_task_mlr_name_4, {=actor_has_item(esc_2_12_medic_mlr_medbag)} esc_2_12_medic_mlr_save_task_mlr_name_3, {+esc_2_12_medic_mlr_save_task_mlr_2} esc_2_12_medic_mlr_save_task_mlr_name_2, esc_2_12_medic_mlr_save_task_mlr_name_1
+descr = esc_2_12_medic_mlr_save_task_mlr_text_descr
+target = {+esc_2_12_medic_mlr_save_task_mlr_home_here_is} esc_2_12_medic_mlr, {+esc_2_12_medic_mlr_save_task_mlr_3} esc_2_12_medic_mlr_save_task_mlr_home, {=actor_has_item(esc_2_12_medic_mlr_medbag)} esc_2_12_medic_mlr, {+esc_2_12_medic_mlr_save_task_mlr_2} esc_snork_ruined_tonnel_spot, esc_2_12_medic_mlr
+condlist_0 = {+esc_2_12_medic_mlr_ignor} fail, {+esc_2_12_medic_mlr_dead} fail, {+esc_2_12_medic_mlr_save_task_mlr_4} complete
+reward_money = 4350
+
+[baraholka_trader_task_1]
+icon = ui_icons_find_item35
+storyline = false
+prior = 35
+repeat_timeout = 259200
+precondition = {+baraholka_trader_task_1_fail} false, {=request_to_escort_task} true, false
+
+title = baraholka_trader_task_1_name
+descr = baraholka_trader_task_1_text
+job_descr = baraholka_trader_task_1_about
+task_complete_descr = baraholka_trader_task_1_finish
+
+stage_complete = 1
+target_functor = task_targets_mlr_all
+status_functor = special_steps_for_mlr_tasks
+condlist_0 = {!task_giver_alive(baraholka_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=give_container_with_an_artefacts_baraholka +baraholka_trader_task_sacharov_talk%
+on_complete = %=reward_random_item(bandage:matches:glucose_s:salicidic_acid:caffeine:drug_coagulant) -baraholka_trader_task_sacharov_talk_done -baraholka_trader_task_sacharov_talk -baraholka_trader_task_1_done =take_container_with_an_artefacts_baraholka =complete_task_inc_goodwill(100:stalker:ecolog) =reward_random_money(9000:11000:roubles) =reward_stash(true) =inc_task_stage(baraholka_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(200:stalker:ecolog)%
+on_cancel = %=fail_task_dec_goodwill(50:stalker:ecolog)%
+condlist_0 = {+baraholka_trader_task_1_fail} fail, {+baraholka_trader_task_1_done} complete
+
+quest_timeout = 172800
+
+[baraholka_trader_task_2]
+icon = ui_iconsTotal_artefact
+storyline = false
+prior = 25
+repeat_timeout = 518400
+precondition = true
+
+title = baraholka_trader_task_2_name
+title_functor = general_fetch_task
+descr = baraholka_trader_task_2_text
+descr_functor = general_fetch_task
+job_descr = baraholka_trader_task_2_about
+fetch_descr = baraholka_trader_task_2_fetch_about
+task_complete_descr = baraholka_trader_task_2_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(baraholka_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_artefact(baraholka_trader_task_2_fetch)%
+on_complete = %=drx_sl_fetch_reward_money(baraholka_trader_task_2_fetch:1.2) =reward_stash(true) pstor_reset(baraholka_trader_task_2_fetch) =inc_task_stage(baraholka_trader_task_2)%
+on_fail = %=pstor_reset(baraholka_trader_task_2_fetch)%
+on_cancel = %=pstor_reset(baraholka_trader_task_2_fetch)%
+on_reversed = %=pstor_reset(baraholka_trader_task_2_fetch)%
+
+
+quest_timeout = 518400
+
+[esc_factory_smart_terrain_10_bandit_trader_task_1]
+icon = ui_icons_kill_monster34
+storyline = false
+prior = 25
+repeat_timeout = 86400
+precondition = {-esc_factory_smart_terrain_10_bandit_trader_task_1_done} true, false
+
+title = esc_factory_smart_terrain_10_bandit_trader_task_1_name
+descr = esc_factory_smart_terrain_10_bandit_trader_task_1_text
+job_descr = esc_factory_smart_terrain_10_bandit_trader_task_1_about
+task_complete_descr = esc_factory_smart_terrain_10_bandit_trader_task_1_finish
+
+stage_complete = 1
+status_functor = special_steps_for_mlr_tasks
+target_functor = task_targets_mlr_all
+condlist_0 = {!task_giver_alive(esc_factory_smart_terrain_10_bandit_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=create_squad(esc_factory_smart_terrain_10_bandit_trader_task_1_squad:esc_smart_terrain_5_7)%
+on_complete = % =reward_random_item(af_fuzz_kolobok_lead_box:af_baloon_lead_box:af_mincer_meat_lead_box) =reward_stash(true) =inc_task_stage(esc_factory_smart_terrain_10_bandit_trader_task_1) =complete_task_inc_goodwill(50:bandit) +esc_factory_smart_terrain_10_bandit_trader_task_1_done%
+on_fail = %=fail_task_dec_goodwill(100:bandit)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit)%
+
+[esc_factory_smart_terrain_10_bandit_trader_task_3]
+icon = ui_icons_kill_stalker6
+storyline = false
+prior = 35
+repeat_timeout = 86400
+precondition = {=check_available_targets(bandit)} true, false
+type = bounty
+
+title = esc_factory_smart_terrain_10_bandit_trader_task_3_name
+descr = esc_factory_smart_terrain_10_bandit_trader_task_3_text
+job_descr = esc_factory_smart_terrain_10_bandit_trader_task_3_about
+task_complete_descr = esc_factory_smart_terrain_10_bandit_trader_task_3_finish
+
+
+stage_complete = 1
+status_functor = bounty_task
+target_functor = general_bounty_task
+condlist_0 = {!task_giver_alive(esc_factory_smart_terrain_10_bandit_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=on_init_bounty_hunt(esc_factory_smart_terrain_10_bandit_trader_task_3:stalker:army:dolg)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_stash(true) =inc_task_stage(esc_factory_smart_terrain_10_bandit_trader_task_3) =complete_task_inc_goodwill(50:bandit)%
+on_fail = %=fail_task_dec_goodwill(50:bandit)%
+on_cancel = %=fail_task_dec_goodwill(15:bandit)%
+
+quest_timeout = 86400
+
+[esc_factory_smart_terrain_10_bandit_trader_task_2]
+icon = ui_icons_kill_monster34
+storyline = false
+prior = 35
+repeat_timeout = 86400
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monster)} true, false
+type = assault
+
+title = esc_factory_smart_terrain_10_bandit_trader_task_2_name
+descr = esc_factory_smart_terrain_10_bandit_trader_task_2_text
+job_descr = esc_factory_smart_terrain_10_bandit_trader_task_2_about
+task_complete_descr = esc_factory_smart_terrain_10_bandit_trader_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monster
+condlist_0 = {!task_giver_alive(esc_factory_smart_terrain_10_bandit_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=find_smart_under_faction_control(esc_factory_smart_terrain_10_bandit_trader_task_2_id:monster)%
+on_complete = %=complete_task_inc_goodwill(50:bandit) =reward_random_money(8000:10000:roubles) =reward_stash(true) =inc_task_stage(esc_factory_smart_terrain_10_bandit_trader_task_2) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_id) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_id)%
+on_fail = %=pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_id) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_target_id) =fail_task_dec_goodwill(100:bandit)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_id) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_target_id)%
+on_reversed = %=pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_id) =pstor_reset(esc_factory_smart_terrain_10_bandit_trader_task_2_target_id)%
+
+quest_timeout = 86400
+
+[esc_factory_smart_terrain_10_bandit_mechanic_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = esc_factory_smart_terrain_10_bandit_mechanic_task_1_name
+title_functor = general_fetch_task
+descr = esc_factory_smart_terrain_10_bandit_mechanic_task_1_text
+descr_functor = general_fetch_task
+job_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_1_about
+fetch_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_factory_smart_terrain_10_bandit_mechanic_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_1_fetch_finish
+on_complete = %+esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_1 =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_factory_smart_terrain_10_bandit_mechanic_task_1_fetch) =inc_task_stage(esc_factory_smart_terrain_10_bandit_mechanic_task_1)%
+precondition = {-esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_1} true, false
+
+[esc_factory_smart_terrain_10_bandit_mechanic_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = esc_factory_smart_terrain_10_bandit_mechanic_task_2_name
+title_functor = general_fetch_task
+descr = esc_factory_smart_terrain_10_bandit_mechanic_task_2_text
+descr_functor = general_fetch_task
+job_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_2_about
+fetch_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_factory_smart_terrain_10_bandit_mechanic_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_2_fetch_finish
+on_complete = %+esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_2 =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_factory_smart_terrain_10_bandit_mechanic_task_2_fetch) =inc_task_stage(esc_factory_smart_terrain_10_bandit_mechanic_task_2)%
+precondition = {+esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_1 -esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_2} true, false
+
+[esc_factory_smart_terrain_10_bandit_mechanic_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = esc_factory_smart_terrain_10_bandit_mechanic_task_3_name
+title_functor = general_fetch_task
+descr = esc_factory_smart_terrain_10_bandit_mechanic_task_3_text
+descr_functor = general_fetch_task
+job_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_3_about
+fetch_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_factory_smart_terrain_10_bandit_mechanic_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_factory_smart_terrain_10_bandit_mechanic_task_3_fetch_finish
+on_complete = %+esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_3 =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_factory_smart_terrain_10_bandit_mechanic_task_3_fetch) =inc_task_stage(esc_factory_smart_terrain_10_bandit_mechanic_task_3)%
+precondition = {+esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_2 -esc_factory_smart_terrain_10_bandit_mechanic_upgrade_tier_3} true, false
+
+[bandit_tech_gar_hangr_mlr_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = bandit_tech_gar_hangr_mlr_task_1_name
+title_functor = general_fetch_task
+descr = bandit_tech_gar_hangr_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = bandit_tech_gar_hangr_mlr_task_1_about
+fetch_descr = bandit_tech_gar_hangr_mlr_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(bandit_tech_gar_hangr_mlr_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = bandit_tech_gar_hangr_mlr_task_1_fetch_finish
+on_complete = %+bandit_tech_gar_hangr_mlr_upgrade_tier_1 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(bandit_tech_gar_hangr_mlr_task_1_fetch) =inc_task_stage(bandit_tech_gar_hangr_mlr_task_1)%
+precondition = {+bandit_tech_gar_hangr_mlr_upgrade_tier_1 -bandit_tech_gar_hangr_mlr_upgrade_tier_1true} false
+
+[bandit_tech_gar_hangr_mlr_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = bandit_tech_gar_hangr_mlr_task_2_name
+title_functor = general_fetch_task
+descr = bandit_tech_gar_hangr_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = bandit_tech_gar_hangr_mlr_task_2_about
+fetch_descr = bandit_tech_gar_hangr_mlr_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(bandit_tech_gar_hangr_mlr_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = bandit_tech_gar_hangr_mlr_task_2_fetch_finish
+on_complete = %+bandit_tech_gar_hangr_mlr_upgrade_tier_2 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(bandit_tech_gar_hangr_mlr_task_2_fetch) =inc_task_stage(bandit_tech_gar_hangr_mlr_task_2)%
+precondition = {+bandit_tech_gar_hangr_mlr_upgrade_tier_1 -bandit_tech_gar_hangr_mlr_upgrade_tier_2} true, false
+
+[bandit_tech_gar_hangr_mlr_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = bandit_tech_gar_hangr_mlr_task_3_name
+title_functor = general_fetch_task
+descr = bandit_tech_gar_hangr_mlr_task_3_text
+descr_functor = general_fetch_task
+job_descr = bandit_tech_gar_hangr_mlr_task_3_about
+fetch_descr = bandit_tech_gar_hangr_mlr_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(bandit_tech_gar_hangr_mlr_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = bandit_tech_gar_hangr_mlr_task_3_fetch_finish
+on_complete = %+bandit_tech_gar_hangr_mlr_upgrade_tier_3 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(bandit_tech_gar_hangr_mlr_task_3_fetch) =inc_task_stage(bandit_tech_gar_hangr_mlr_task_3)%
+precondition = {+bandit_tech_gar_hangr_mlr_upgrade_tier_3 -bandit_tech_gar_hangr_mlr_upgrade_tier_3} true, false
+
+[bandit_barman_gar_hangr_mlr_task_1]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+repeat_timeout = 86400
+precondition = {-bandit_barman_gar_hangr_mlr_task_1_done} true, false
+
+title = bandit_barman_gar_hangr_mlr_task_1_name
+title_functor = general_fetch_task
+descr = bandit_barman_gar_hangr_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = bandit_barman_gar_hangr_mlr_task_1_about
+fetch_descr = bandit_barman_gar_hangr_mlr_task_1_fetch_about
+task_complete_descr = bandit_barman_gar_hangr_mlr_task_1_fetch_finish
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+condlist_0 = {!task_giver_alive(bandit_barman_gar_hangr_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+
+on_init = %=spawn_random_bandit_barman_gar_hangr_mlr_task_1%
+fetch_func = %=setup_generic_fetch_task(bandit_barman_gar_hangr_mlr_task_1_fetch:1:wpn_svd_bandit_depo_task_1)%
+on_complete = %+bandit_barman_gar_hangr_mlr_task_1_done =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(bandit_barman_gar_hangr_mlr_task_1_fetch) =reward_random_money(7000:9000:hrivni) =inc_task_stage(bandit_barman_gar_hangr_mlr_task_1)%
+
+
+[main_monolith_mlr_task_5]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+on_init = %=create_squad(stalker_defenders_pri_a16_mlr_mon_task_5:pri_a16)%
+title = {+neutral_killer_sim_mlr_squad_nil +stalker_defenders_pri_a16_mlr_mon_task_5_nil +jup_b19_freedom_yar_squad_nil +merc_pri_a16_trader_mlr_squad_nil +merc_pri_a16_tesak_mlr_squad_nil} main_monolith_mlr_task_5_n_3, {+main_monolith_mlr_task_5_dlg_1} main_monolith_mlr_task_5_n_2, main_monolith_mlr_task_5_n_1
+descr = main_monolith_mlr_task_5_descr
+target = {+neutral_killer_sim_mlr_squad_nil +stalker_defenders_pri_a16_mlr_mon_task_5_nil +jup_b19_freedom_yar_squad_nil +merc_pri_a16_trader_mlr_squad_nil +merc_pri_a16_tesak_mlr_squad_nil} main_monolith_mlr_task_5_attack_squad_leader, {+actor_in_mon_inquisitor_wait_restrictor} pri_a16_spot, {+main_monolith_mlr_task_5_dlg_1} mon_inquisitor_wait_restrictor, pri_monolith_teacher_mlr
+condlist_0 = {=story_object_exist(main_monolith_mlr_task_5_attack_squad_leader) =is_dead(main_monolith_mlr_task_5_attack_squad_leader)} fail, {+main_monolith_mlr_task_5_dlg_2} complete
+reward_item = wpn_rpk74_kobra:ammo_5.45x39_ap:ammo_5.45x39_ap:ammo_5.45x39_ap
+
+[gar_smart_terrain_5_4_main_dolg_soldier_task_1]
+icon = ui_icons_base_attack24
+prior = 25
+storyline = false
+repeat_timeout = 86400
+precondition = {-gar_smart_terrain_5_4_main_dolg_soldier_task_1_done} true, false
+
+title = gar_smart_terrain_5_4_main_dolg_soldier_task_1_name
+descr = gar_smart_terrain_5_4_main_dolg_soldier_task_1_text
+job_descr = gar_smart_terrain_5_4_main_dolg_soldier_task_1_about
+task_complete_descr = gar_smart_terrain_5_4_main_dolg_soldier_task_1_finish
+
+stage_complete = 1
+target_functor = task_targets_mlr_all
+status_functor = special_steps_for_mlr_tasks
+condlist_0 = {!task_giver_alive(gar_smart_terrain_5_4_main_dolg_soldier_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+on_init = %=create_squad(gar_smart_terrain_5_4_main_dolg_soldier_task_1_squad:gar_smart_terrain_4_2) +gar_smart_terrain_5_4_main_dolg_soldier_task_1_start%
+on_complete = %+gar_smart_terrain_5_4_main_dolg_soldier_task_1_done =reward_stash(true) =reward_random_money(7000:9000:roubles) =inc_task_stage(gar_smart_terrain_5_4_main_dolg_soldier_task_1) =complete_task_inc_goodwill(50:dolg) -mil_smart_terrain_4_8_monolith_attackers_squad_wave_1_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_2_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_3_death -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_2 -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_3 -gar_smart_terrain_5_4_main_dolg_soldier_task_1_start%
+on_fail = %=fail_task_dec_goodwill(50:dolg)%
+on_cancel = %=fail_task_dec_goodwill(15:dolg)%
+
+quest_timeout = 86400
+
+[killer_task_to_lim_on_the_bridge]
+icon = ui_icons_forest_bridge_30
+prior = 25
+storyline = false
+title = {+chimera_killer_task_to_lim_on_the_bridge_dead} killer_task_to_lim_on_the_bridge_2, killer_task_to_lim_on_the_bridge_1
+descr = killer_task_to_lim_on_the_bridge_descr
+target = {+chimera_killer_task_to_lim_on_the_bridge_dead} killer_bridge_trader_mlr, red_smart_terrain_tonnel_lair_mlr
+condlist_0 = {+killer_task_to_lim_on_the_bridge_done} complete, {!task_giver_alive(killer_bridge_trader_mlr)} fail
+
+[pri_monolith_teacher_mlr_task_3]
+icon = ui_icons_base_attack24
+prior = 25
+storyline = false
+repeat_timeout = 259200
+precondition = true
+
+title = pri_monolith_teacher_mlr_task_3_name
+descr = pri_monolith_teacher_mlr_task_3_text
+job_descr = pri_monolith_teacher_mlr_task_3_about
+task_complete_descr = pri_monolith_teacher_mlr_task_3_finish
+
+stage_complete = 1
+target_functor = task_targets_mlr_all
+status_functor = special_steps_for_mlr_tasks
+condlist_0 = {!task_giver_alive(pri_monolith_teacher_mlr_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+on_init = %=create_squad(pri_smart_neutral_stalker1_attackers_squad:pri_smart_neutral_stalker1) +pri_monolith_teacher_mlr_task_3_start%
+on_complete = %=reward_random_money(7000:9000:roubles) -pri_smart_neutral_stalker1_attackers_squad_dead =reward_stash(true) =reward_random_item(stimpack:medkit_army:ration_ru_4) =inc_task_stage(pri_monolith_teacher_mlr_task_3) =complete_task_inc_goodwill(50:monolith) -mil_smart_terrain_4_8_monolith_attackers_squad_wave_1_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_2_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_3_death -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_2 -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_3 -pri_monolith_teacher_mlr_task_3_start =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_3) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_3)%
+on_fail = %=fail_task_dec_goodwill(50:monolith) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_3) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_3)%
+on_cancel = %=fail_task_dec_goodwill(15:monolith) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_3) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_3) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_3)%
+
+quest_timeout = 86400
+
+[main_monolith_mlr_task_4]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+on_init = %=create_squad(sim_snork_mon_main_task_4:rad2_loner_0002)%
+title = {+main_monolith_mlr_task_4_dlg_1_over +heart_of_station_bloodsucker_wave_1_nil +heart_of_station_bloodsucker_wave_2_nil +heart_of_station_bloodsucker_wave_3_nil} main_monolith_mlr_task_4_name_5, {+main_monolith_mlr_task_4_dlg_2} main_monolith_mlr_task_4_name_4, {+main_monolith_mlr_task_4_dlg_1_in_heart_of_station} main_monolith_mlr_task_4_name_3, {+main_monolith_mlr_task_4_dlg_1_in_bun} main_monolith_mlr_task_4_name_2, main_monolith_mlr_task_4_name_1
+descr = main_monolith_mlr_task_4_descr
+target = {+main_monolith_mlr_task_4_dlg_1_over +heart_of_station_bloodsucker_wave_1_nil +heart_of_station_bloodsucker_wave_2_nil +heart_of_station_bloodsucker_wave_3_nil} wings_leader_mon_mlr, {+main_monolith_mlr_task_4_dlg_2} bun_space_restrictor_in_heart_of_station, {+main_monolith_mlr_task_4_dlg_1_in_heart_of_station} wings_leader_mon_mlr, {+main_monolith_mlr_task_4_dlg_1_in_bun} nil, bun_space_restrictor_actor_with_wings_inside
+condlist_0 = {+main_monolith_mlr_task_4_dlg_3} complete, {=story_object_exist(wings_leader_mon_mlr) =is_dead(wings_leader_mon_mlr)} fail
+
+[main_monolith_mlr_task_3_3]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+on_init = %=create_squad(wings_special_squad_mlr:rad2_loner_0001) +main_monolith_mlr_task_3_1_dlg_final_message_to_rad%
+title = {+main_monolith_mlr_task_3_dlg_talk_to_wings} main_monolith_mlr_task_3_name_3, main_monolith_mlr_task_3_name_2
+descr = main_monolith_mlr_task_3_descr
+target = {+main_monolith_mlr_task_3_dlg_talk_to_wings} wings_leader_mon_mlr, rad_talk_to_mon_rozvidka
+condlist_0 = {+main_monolith_mlr_task_4_dlg_1} complete, {+squad_pri_monolith_teacher_mlr_dead} fail, {=story_object_exist(wings_leader_mon_mlr) =is_dead(wings_leader_mon_mlr)} fail
+
+[main_monolith_mlr_task_3_2]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+title = {+newbee_monolith_stalker_4_dlg} main_monolith_mlr_task_3_2_name_5, {+newbee_monolith_stalker_3_dlg} main_monolith_mlr_task_3_2_name_4, {+newbee_monolith_stalker_2_dlg} main_monolith_mlr_task_3_2_name_3, {+newbee_monolith_stalker_1_dlg} main_monolith_mlr_task_3_2_name_2, main_monolith_mlr_task_3_2_name_1
+descr = main_monolith_mlr_task_3_2_descr
+on_complete = %=kill_npc(newbee_monolith_stalker_3)%
+target = {+newbee_monolith_stalker_4_dlg} pri_monolith_teacher_mlr, {+newbee_monolith_stalker_3_dlg} newbee_monolith_stalker_4, {+newbee_monolith_stalker_2_dlg} newbee_monolith_stalker_3, {+newbee_monolith_stalker_1_dlg} newbee_monolith_stalker_2, newbee_monolith_stalker_1
+condlist_0 = {+newbee_monolith_stalker_5_dlg} complete, {+squad_pri_monolith_teacher_mlr_dead} fail
+
+[main_monolith_mlr_task_3_1]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+title = {+main_monolith_mlr_task_3_dlg_talk_to_wings} main_monolith_mlr_task_3_name_3, {+border_freedom_keeper_max_squad_dead +mil_smart_terrain_3_8_barrier_freedom_squad_dead} main_monolith_mlr_task_3_1_name_2, main_monolith_mlr_task_3_1_name_1
+descr = main_monolith_mlr_task_3_1_descr
+target = {+main_monolith_mlr_task_3_1_dlg_talk_to_wings} wings_leader_mon_mlr, {+main_monolith_mlr_task_3_dlg_final_message_to_rad} rad_talk_to_mon_rozvidka, mil_smart_terrain_border_spot
+condlist_0 = {+main_monolith_mlr_task_4_dlg_1} complete, {+squad_pri_monolith_teacher_mlr_dead} fail, {=story_object_exist(wings_leader_mon_mlr) =is_dead(wings_leader_mon_mlr)} fail
+
+[main_monolith_mlr_task_3]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+on_init = %=set_squad_goodwill(bar_zastava_2_commander_squad:0)%
+title = {+main_monolith_mlr_task_3_dlg_talk_to_wings} main_monolith_mlr_task_3_name_3, {+main_monolith_mlr_task_3_dlg_final_message_to_rad} main_monolith_mlr_task_3_name_2, {+main_monolith_mlr_task_3_dlg_1} main_monolith_mlr_task_3_name_1
+descr = main_monolith_mlr_task_3_descr
+target = {+main_monolith_mlr_task_3_dlg_talk_to_wings} wings_leader_mon_mlr, {+main_monolith_mlr_task_3_dlg_final_message_to_rad} rad_talk_to_mon_rozvidka, bar_zastava_2_commander
+condlist_0 = {+main_monolith_mlr_task_4_dlg_1} complete, {=is_dead_one(pri_monolith_teacher_mlr)} fail
+
+[main_monolith_mlr_task_2]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+on_init = %=create_squad(main_monolith_mlr_task_2_dlg_prisoners:pri_monolith)%
+title = {+main_monolith_mlr_task_2_dlg_prisoners_dead} main_monolith_mlr_task_2_name_4, {+main_monolith_mlr_task_2_dlg_2} main_monolith_mlr_task_2_name_3, {+main_monolith_mlr_task_2_dlg_talk_to_teacher} main_monolith_mlr_task_2_name_2, {+main_monolith_mlr_task_2_dlg_1} main_monolith_mlr_task_2_name_1
+descr = main_monolith_mlr_task_2_descr
+target = {+main_monolith_mlr_task_2_dlg_prisoners_dead} pri_monolith_teacher_mlr, {+main_monolith_mlr_task_2_dlg_2} pri_space_restrictor_killing_place, {+main_monolith_mlr_task_2_dlg_1} pri_monolith_teacher_mlr, pri_monolith_teacher_mlr
+condlist_0 = {+main_monolith_mlr_task_2_dlg_3} complete, {+squad_pri_monolith_teacher_mlr_dead} fail
+
+[main_monolith_mlr_task_1]
+icon = ui_icons_monolith_sign38
+prior = 200
+storyline = true
+title = {+monolith_main_task_pseudogiant_die} main_monolith_mlr_task_1_name_5, {+main_monolith_mlr_task_1_dlg_1} main_monolith_mlr_task_1_name_4, {+talk_to_teacher_monolith_mlr} main_monolith_mlr_task_1_name_3, {+meet_to_teacher_monolith_mlr} main_monolith_mlr_task_1_name_2, main_monolith_mlr_task_1_name_1
+descr = main_monolith_mlr_task_1_descr
+target = {+monolith_main_task_pseudogiant_die} pri_monolith_teacher_mlr, {+main_monolith_mlr_task_1_dlg_1} pri_space_restrictor_und_garage_spot, {+talk_to_teacher_monolith_mlr} pri_monolith_teacher_mlr, {+meet_to_teacher_monolith_mlr} pri_monolith_teacher_mlr, pri_space_restrictor_start_story_mon_actor_place
+condlist_0 = {+main_monolith_mlr_task_1_dlg_2} complete, {+squad_pri_monolith_teacher_mlr_dead} fail
+on_complete = % =reward_random_item(wpn_ak74_worn:wpn_akms_worn) =reward_random_item(ammo_5.45x39_ap:ammo_5.45x39_fmj)%
+
+[rookie_pole_task_3]
+icon = ui_icons_kill_stalker6
+prior = 25
+storyline = false
+on_init = %=create_squad(fat_rookie_in_the_house_pole_purpose_squad:pol_smart_terrain_1_1)%
+title = {+rookie_pole_task_3_dlg_1} rookie_pole_task_3_name_1, rookie_pole_task_3_name
+descr = rookie_pole_task_3_text
+target = fat_rookie_in_the_house_pole_purpose
+condlist_0 = {+fat_rookie_in_the_house_pole_squad_destroyed} fail, {+fat_rookie_in_the_house_pole_purpose_squad_dead} complete
+
+[rookie_pole_task_2]
+icon = ui_icons_pole_factory37
+prior = 10
+storyline = false
+title = {+can_talk_to_fat_stalker} rookie_pole_task_2_name_3, {+boss_controller_pole_dead} rookie_pole_task_2_name_3_0, {+boss_controller_pole_spawn} rookie_pole_task_2_name_2, {=actor_has_item(pole_factory_doc_1) =actor_has_item(pole_factory_doc_2) =actor_has_item(pole_factory_doc_3) =actor_has_item(pole_factory_doc_4)} rookie_pole_task_2_name_1, rookie_pole_task_2_name
+descr = rookie_pole_task_2_text
+target = {+can_talk_to_fat_stalker} fat_rookie_in_the_house_pole, {+boss_controller_pole_dead} pol_spot_house_fat_stalker, {+boss_controller_pole_spawn} pole_factory_complex_spot, {=actor_has_item(pole_factory_doc_1) =actor_has_item(pole_factory_doc_2) =actor_has_item(pole_factory_doc_3) =actor_has_item(pole_factory_doc_4)} pol_spot_house_fat_stalker, pole_factory_complex_spot
+condlist_0 = {+fat_rookie_in_the_house_pole_squad_destroyed} fail, {+morning_here_is_wake_up_pole_task_2} fail, {+take_barman_doc_from_factory_pole} fail, {+take_barman_doc_from_factory_pole} fail, {+rookie_pole_task_2_dlg_2} complete
+
+[rookie_pole_task_1]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+precondition = {-rookie_pole_task_1_done} true, false
+
+title = rookie_pole_task_1_name
+descr = rookie_pole_task_1_text
+
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target = {=actor_has_item(wpn_mossberg590_camo)} fat_rookie_in_the_house_pole, pol_smart_terrain_1_2_anomaly_spot
+
+task_complete_descr = rookie_pole_task_1_fetch_finish
+
+fetch_func = %=setup_generic_fetch_task(rookie_pole_task_1_fetch:1:wpn_mossberg590_camo)%
+on_init = %=spawn_wpn_mossberg590_camo_rookie_pole%
+on_complete = %=reward_random_item(medkit_elite:drug_engine:stimpack_scientic) +rookie_pole_task_1_done =remove_fetch_item(rookie_pole_task_1_fetch) =inc_task_stage(rookie_pole_task_1)%
+condlist_0 = {+fat_rookie_in_the_house_pole_squad_destroyed} fail, {+rookie_pole_task_1_dlg_1} complete
+
+[job_guide_main_task]
+icon = ui_icons_red_line_way36
+title = jg_task_name
+descr = jg_task_text
+prior = 20
+storyline = false
+repeat_timeout = 259200
+on_complete = %-job_guider_task_complete%
+on_fail = %-cancel_job_guide_task%
+status_functor = special_steps_for_mlr_tasks
+target_functor = task_targets_mlr_all
+stage_complete = 1
+condlist_0 = {+job_guider_task_complete} complete, {=job_guide_main_task_friends_dead} fail, {+cancel_job_guide_task} fail
+
+[mil_freedom_barman_mlr_task_1]
+icon = ui_icons_water_tower33
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = {+mil_freedom_barman_mlr_task_1_end} mil_freedom_barman_mlr_task_1_name_end, {+mil_freedom_barman_mlr_task_1_wait} mil_freedom_barman_mlr_task_1_name_wait, mil_freedom_barman_mlr_task_1_name
+descr = mil_freedom_barman_mlr_task_1_text
+job_descr = mil_freedom_barman_mlr_task_1_about
+task_complete_descr = mil_freedom_barman_mlr_task_1_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 2
+target_functor = task_targets_mlr_all
+on_init = %+mil_freedom_barman_mlr_task_1_begin =give_mil_freedom_barman_mlr_task_1_notebook -mil_freedom_barman_mlr_task_1_reload =create_squad(bloodsucker_mil_freedom_barman_mlr_task_1:mil_smart_terrain_4_3)%
+on_complete = %=take_mil_freedom_barman_mlr_task_1_notebook -mil_freedom_barman_mlr_task_1_wait_1 -mil_freedom_barman_mlr_task_1_outside -mil_freedom_barman_mlr_task_1_wait -mil_freedom_barman_mlr_task_1_begin -mil_freedom_barman_mlr_task_1_end =reward_random_money(7000:9000:hrivni) =reward_stash(true) =inc_task_stage(mil_freedom_barman_mlr_task_1) =complete_task_inc_goodwill(50:freedom) +mil_freedom_barman_mlr_task_1_reload =drx_sl_unregister_task_giver(mil_freedom_barman_mlr_task_1) =drx_sl_reset_stored_task(mil_freedom_barman_mlr_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:freedom) =drx_sl_unregister_task_giver(mil_freedom_barman_mlr_task_1) =drx_sl_reset_stored_task(mil_freedom_barman_mlr_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:freedom) =drx_sl_unregister_task_giver(mil_freedom_barman_mlr_task_1) =drx_sl_reset_stored_task(mil_freedom_barman_mlr_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(mil_freedom_barman_mlr_task_1) =drx_sl_reset_stored_task(mil_freedom_barman_mlr_task_1)%
+;condlist_0 = {=drx_sl_is_enemy(monolith)} cancel
+condlist_1 = {!task_giver_alive(mil_freedom_barman_mlr_task_1)} reversed
+precondition = true
+
+[zat_b7_bandit_boss_sultan_task_4]
+icon = ui_iconsTotal_find_item
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = zat_b7_bandit_boss_sultan_task_4_name
+title_functor = general_fetch_task
+descr = zat_b7_bandit_boss_sultan_task_4_text
+descr_functor = general_fetch_task
+job_descr = zat_b7_bandit_boss_sultan_task_4_about
+fetch_descr = zat_b7_bandit_boss_sultan_task_4_fetch_about
+fetch_func = %=setup_supplies_fetch_task_patch(zat_b7_bandit_boss_sultan_task_4_fetch)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_b7_bandit_boss_sultan_task_4_fetch_finish
+precondition = {-bandit_order_refused} true, false
+on_complete = %=complete_task_inc_goodwill(50:bandit) =reward_stash(true) =reward_random_money(6000:8000:roubles) =remove_fetch_item(zat_b7_bandit_boss_sultan_task_4_fetch) =inc_task_stage(zat_b7_bandit_boss_sultan_task_4) =pstor_reset(zat_b7_bandit_boss_sultan_task_4_fetch) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_4) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_4)%
+on_fail = %=pstor_reset(zat_b7_bandit_boss_sultan_task_4_fetch) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_4) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_4)%
+on_cancel = %=pstor_reset(zat_b7_bandit_boss_sultan_task_4_fetch) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_4) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_4)%
+on_reversed = %=pstor_reset(zat_b7_bandit_boss_sultan_task_4_fetch) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_4) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_4)%
+condlist_0 = {!task_giver_alive(zat_b7_bandit_boss_sultan_task_4)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+condlist_2 = {+bandit_order_refused} cancel
+
+[zat_b7_bandit_boss_sultan_task_5]
+icon = ui_icons_more_money1
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = zat_b7_bandit_boss_sultan_task_5_name
+descr = zat_b7_bandit_boss_sultan_task_5_text
+job_descr = zat_b7_bandit_boss_sultan_task_5_about
+task_complete_descr = zat_b7_bandit_boss_sultan_task_5_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %+zat_b7_bandit_boss_sultan_task_5_begin%
+on_complete = %=zat_b7_bandit_boss_sultan_task_5_money_from_actor -zat_b7_bandit_boss_sultan_task_5_trader_night_1 -zat_b7_bandit_boss_sultan_task_5_trader_day_1 -zat_b7_bandit_boss_sultan_task_5_begin =reward_random_money(3000:4500:hrivni) =reward_stash(true) =inc_task_stage(zat_b7_bandit_boss_sultan_task_5) =complete_task_inc_goodwill(50:bandit) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_5) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_5)%
+on_fail = %=fail_task_dec_goodwill(100:bandit) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_5) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_5)%
+on_cancel = %=fail_task_dec_goodwill(25:bandit) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_5) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_5)%
+on_reversed = %=drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_5) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_5)%
+condlist_0 = {!task_giver_alive(zat_b7_bandit_boss_sultan_task_5)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+condlist_2 = {+bandit_order_refused} cancel
+precondition = {-bandit_order_refused} true, false
+
+quest_timeout = 86400
+
+[zat_b7_bandit_boss_sultan_task_6]
+icon = ui_icons_base_attack24
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = zat_b7_bandit_boss_sultan_task_6_name
+descr = zat_b7_bandit_boss_sultan_task_6_text
+job_descr = zat_b7_bandit_boss_sultan_task_6_about
+task_complete_descr = zat_b7_bandit_boss_sultan_task_6_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(boss_sultan_task_2_stalkers:val_smart_terrain_4_0) =setup_companion_task(boss_sultan_task_2_bandits:val_smart_terrain_7_4)%
+on_complete = %=reward_random_money(8000:9000:hrivni) =remove_special_task_squad(boss_sultan_task_2_bandits) =reward_stash(true) =inc_task_stage(zat_b7_bandit_boss_sultan_task_6) =complete_task_inc_goodwill(50:bandit) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_6) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_6)%
+on_fail = %=remove_special_task_squad(boss_sultan_task_2_bandits) =fail_task_dec_goodwill(100:bandit) =drx_sl_unregister_task_giver(zat_b7_bandit_boss_sultan_task_6) =drx_sl_reset_stored_task(zat_b7_bandit_boss_sultan_task_6)%
+condlist_0 = {!task_giver_alive(zat_b7_bandit_boss_sultan_task_6)} reversed
+condlist_1 = {=drx_sl_is_enemy(bandit)} cancel
+condlist_2 = {+bandit_order_refused} cancel
+precondition = {-bandit_order_refused} true, false
+
+[border_freedom_keeper_max_task_1]
+icon = ui_icons_freedom_wolf_28
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = {+mil_smart_terrain_4_8_monolith_attackers_squad_wave_3_death} border_freedom_keeper_max_task_1_name_3, {+mil_smart_terrain_4_8_monolith_attackers_squad_wave_2_death} border_freedom_keeper_max_task_1_name_2, {+mil_smart_terrain_4_8_monolith_attackers_squad_wave_1_death} border_freedom_keeper_max_task_1_name_1, border_freedom_keeper_max_task_1_name
+descr = border_freedom_keeper_max_task_1_text
+job_descr = border_freedom_keeper_max_task_1_about
+task_complete_descr = border_freedom_keeper_max_task_1_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 3
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(mil_smart_terrain_4_8_monolith_attackers_squad_wave_1:mil_smart_terrain_3_8_monolith_side) +border_freedom_keeper_max_task_1_start%
+on_complete = %=reward_stash(true) =reward_random_money(7000:8000:roubles) =reward_random_item(drug_psy_blockade:stimpack_scientic:drug_engine:medkit_elite) =inc_task_stage(border_freedom_keeper_max_task_1) =complete_task_inc_goodwill(150:freedom) -mil_smart_terrain_4_8_monolith_attackers_squad_wave_1_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_2_death -mil_smart_terrain_4_8_monolith_attackers_squad_wave_3_death -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_2 -spawn_mil_smart_terrain_4_8_monolith_attackers_squad_wave_3 -border_freedom_keeper_max_task_1_start =drx_sl_unregister_task_giver(border_freedom_keeper_max_task_1) =drx_sl_reset_stored_task(border_freedom_keeper_max_task_1)%
+on_fail = %=fail_task_dec_goodwill(50:freedom) =drx_sl_unregister_task_giver(border_freedom_keeper_max_task_1) =drx_sl_reset_stored_task(border_freedom_keeper_max_task_1)%
+on_cancel = %=fail_task_dec_goodwill(15:freedom) =drx_sl_unregister_task_giver(border_freedom_keeper_max_task_1) =drx_sl_reset_stored_task(border_freedom_keeper_max_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(border_freedom_keeper_max_task_1) =drx_sl_reset_stored_task(border_freedom_keeper_max_task_1)%
+condlist_0 = {!task_giver_alive(border_freedom_keeper_max_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+precondition = true
+
+[mil_smart_terrain_7_7_freedom_leader_stalker_task_7]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = mil_smart_terrain_7_7_freedom_leader_stalker_task_7_name
+title_functor = general_fetch_task
+descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_7_text
+descr_functor = general_fetch_task
+job_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_7_about
+fetch_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_7_fetch_about
+fetch_func = %=setup_generic_fetch_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_7_fetch:2:dosimeter)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_7_fetch_finish
+on_complete = %=reward_random_money(7000:8000:dollars) =pstor_reset(mil_smart_terrain_7_7_freedom_leader_stalker_task_7_fetch) +mil_smart_terrain_7_7_freedom_leader_stalker_task_7_done =complete_task_inc_goodwill(50:freedom) =remove_fetch_item(mil_smart_terrain_7_7_freedom_leader_stalker_task_7_fetch) =inc_task_stage(mil_smart_terrain_7_7_freedom_leader_stalker_task_7) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_7) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_7)%
+precondition = {-mil_smart_terrain_7_7_freedom_leader_stalker_task_7_done} true, false
+on_fail = %=fail_task_dec_goodwill(25:freedom) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_7) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_7)%
+on_cancel = %=fail_task_dec_goodwill(10:freedom) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_7) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_7)%
+on_reversed = %=drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_7) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_7)%
+condlist_0 = {!task_giver_alive(mil_smart_terrain_7_7_freedom_leader_stalker_task_7)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+
+[mil_smart_terrain_7_7_freedom_leader_stalker_task_6]
+icon = ui_icons_base_attack24
+prior = 25
+storyline = false
+title = mil_smart_terrain_7_7_freedom_leader_stalker_task_6_name
+descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_6_text
+job_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_6_about
+task_complete_descr = mil_smart_terrain_7_7_freedom_leader_stalker_task_6_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(freedom_leader_stalker_task_6_duty_squad:mil_smart_terrain_7_4) =setup_companion_task(freedom_leader_stalker_task_6_freedom_squad:mil_smart_terrain_7_7)%
+on_complete = %=reward_random_item(wpn_kiparis_worn) =reward_random_item(ammo_9x18_fmj) =remove_special_task_squad(freedom_leader_stalker_task_6_freedom_squad) =reward_stash(true) =inc_task_stage(mil_smart_terrain_7_7_freedom_leader_stalker_task_6) =complete_task_inc_goodwill(50:freedom) +mil_smart_terrain_7_7_freedom_leader_stalker_task_6_done =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_6) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_6)%
+on_fail = %=remove_special_task_squad(freedom_leader_stalker_task_6_freedom_squad) =fail_task_dec_goodwill(25:freedom) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_6) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_6)%
+on_cancel = %=remove_special_task_squad(freedom_leader_stalker_task_6_freedom_squad) =fail_task_dec_goodwill(10:freedom) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_6) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_6)%
+on_reversed = %=remove_special_task_squad(freedom_leader_stalker_task_6_freedom_squad) =drx_sl_unregister_task_giver(mil_smart_terrain_7_7_freedom_leader_stalker_task_6) =drx_sl_reset_stored_task(mil_smart_terrain_7_7_freedom_leader_stalker_task_6)%
+condlist_0 = {!is_night} reversed, {!task_giver_alive(mil_smart_terrain_7_7_freedom_leader_stalker_task_6)} reversed
+condlist_1 = {=drx_sl_is_enemy(freedom)} cancel
+precondition = {=is_night -mil_smart_terrain_7_7_freedom_leader_stalker_task_6_done} true, false
+
+quest_timeout = 86400
+
+[bar_visitors_sad_veteran_task_1]
+icon = ui_icons_dolgsquad14
+prior = 25
+storyline = false
+title = bar_visitors_sad_veteran_task_1_name
+descr = bar_visitors_sad_veteran_task_1_text
+job_descr = bar_visitors_sad_veteran_task_1_about
+task_complete_descr = bar_visitors_sad_veteran_task_1_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 2
+target_functor = task_targets_mlr_all
+on_init = %=spawn_object(bar_visitors_sad_veteran_friend_1:bar_visitors_sad_veteran_friend_1_deadway) =spawn_object(bar_visitors_sad_veteran_friend_2:bar_visitors_sad_veteran_friend_2_deadway)%
+on_complete = %=reward_random_item(ration_ru:ration_ukr) =reward_stash(true) =inc_task_stage(bar_visitors_sad_veteran_task_1) =complete_task_inc_goodwill(50:dolg) +bar_visitors_sad_veteran_task_1_done =drx_sl_unregister_task_giver(bar_visitors_sad_veteran_task_1) =drx_sl_reset_stored_task(bar_visitors_sad_veteran_task_1)%
+on_fail = %=fail_task_dec_goodwill(25:dolg) =drx_sl_unregister_task_giver(bar_visitors_sad_veteran_task_1) =drx_sl_reset_stored_task(bar_visitors_sad_veteran_task_1)%
+on_cancel = %=fail_task_dec_goodwill(10:dolg) =drx_sl_unregister_task_giver(bar_visitors_sad_veteran_task_1) =drx_sl_reset_stored_task(bar_visitors_sad_veteran_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(bar_visitors_sad_veteran_task_1) =drx_sl_reset_stored_task(bar_visitors_sad_veteran_task_1)%
+precondition = {-bar_visitors_sad_veteran_task_1_done} true, false
+condlist_0 = {!task_giver_alive(bar_visitors_sad_veteran)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+[hunter_gar_trader_task_5]
+icon = ui_icons_dolgsquad14
+prior = 25
+storyline = false
+title = hunter_gar_trader_task_5_name
+descr = hunter_gar_trader_task_5_text
+job_descr = hunter_gar_trader_task_5_about
+target_functor = task_targets_mlr_all
+task_complete_descr = hunter_gar_trader_task_5_finish
+on_init = %=setup_companion_task(ecolog_companion_task_mlr_2:gar_smart_terrain_3_5) =setup_task_target_anomaly -ecolog_companion_task_mlr_2_started -ecolog_companion_task_mlr_2_force_started%
+precondition = {!squad_exist(ecolog_companion_task_mlr_2) =request_to_escort_task} true, false
+repeat_timeout = 259200
+on_complete = %=complete_task_inc_goodwill(50:dolg) =remove_special_task_squad(ecolog_companion_task_mlr_2) =reward_stash(true) =reset_task_target_anomaly =reward_random_money(8000:9000:roubles) =drx_sl_unregister_task_giver(hunter_gar_trader_task_5) =drx_sl_reset_stored_task(hunter_gar_trader_task_5)%
+on_fail = %=fail_task_dec_goodwill(50:dolg) =remove_special_task_squad(ecolog_companion_task_mlr_2) =reset_task_target_anomaly =drx_sl_unregister_task_giver(hunter_gar_trader_task_5) =drx_sl_reset_stored_task(hunter_gar_trader_task_5)%
+on_cancel = %=fail_task_dec_goodwill(15:dolg) =remove_special_task_squad(ecolog_companion_task_mlr_2) =reset_task_target_anomaly =drx_sl_unregister_task_giver(hunter_gar_trader_task_5) =drx_sl_reset_stored_task(hunter_gar_trader_task_5)%
+on_reversed = %=remove_special_task_squad(ecolog_companion_task_mlr_2) =reset_task_target_anomaly =drx_sl_unregister_task_giver(hunter_gar_trader_task_5) =drx_sl_reset_stored_task(hunter_gar_trader_task_5)%
+condlist_0 = {!squad_exist(ecolog_companion_task_mlr_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+[hunter_gar_trader_task_4]
+icon = ui_icons_kill_monster34
+repeat_timeout = 259200
+prior = 25
+storyline = false
+title = hunter_gar_trader_task_4_name
+descr = hunter_gar_trader_task_4_text
+job_descr = hunter_gar_trader_task_4_about
+task_complete_descr = hunter_gar_trader_task_4_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(zombies_hunter_gar_trader_task_4:gar_smart_terrain_4_2)%
+on_complete = %=reward_random_item(tea:wine) =reward_random_money(7500:9500:hrivni) =reward_stash(true) =inc_task_stage(hunter_gar_trader_task_4) =complete_task_inc_goodwill(50:stalker:dolg) +hunter_gar_trader_task_4_done =drx_sl_unregister_task_giver(hunter_gar_trader_task_4) =drx_sl_reset_stored_task(hunter_gar_trader_task_4)%
+on_fail = %=fail_task_dec_goodwill(25:stalker:dolg) =drx_sl_unregister_task_giver(hunter_gar_trader_task_4) =drx_sl_reset_stored_task(hunter_gar_trader_task_4)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker:dolg) =drx_sl_unregister_task_giver(hunter_gar_trader_task_4) =drx_sl_reset_stored_task(hunter_gar_trader_task_4)%
+on_reversed = %=drx_sl_unregister_task_giver(hunter_gar_trader_task_4) =drx_sl_reset_stored_task(hunter_gar_trader_task_4)%
+condlist_0 = {!task_giver_alive(hunter_gar_trader_task_4)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+precondition = {-hunter_gar_trader_task_4_done} true, false
+
+quest_timeout = 86400
+
+[hunter_gar_trader_task_3]
+icon = ui_icons_burer16
+repeat_timeout = 259200
+prior = 25
+storyline = false
+title = hunter_gar_trader_task_3_name
+descr = hunter_gar_trader_task_3_text
+job_descr = hunter_gar_trader_task_3_about
+task_complete_descr = hunter_gar_trader_task_3_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(burer_firelovers_task_squad:gar_smart_terrain_3_7) =setup_companion_task(hunter_gar_trader_task_3_stalkers:gar_smart_terrain_3_5)%
+on_complete = %=reward_random_money(12000:13000:hrivni) =reward_stash(true) =inc_task_stage(hunter_gar_trader_task_3) =complete_task_inc_goodwill(100:stalker:dolg) =remove_special_task_squad(hunter_gar_trader_task_3_stalkers) +hunter_gar_trader_task_3_done =drx_sl_unregister_task_giver(hunter_gar_trader_task_3) =drx_sl_reset_stored_task(hunter_gar_trader_task_3)%
+on_fail = %=remove_special_task_squad(hunter_gar_trader_task_3_stalkers) =fail_task_dec_goodwill(25:stalker:dolg) =drx_sl_unregister_task_giver(hunter_gar_trader_task_3) =drx_sl_reset_stored_task(hunter_gar_trader_task_3)%
+on_cancel = %=remove_special_task_squad(hunter_gar_trader_task_3_stalkers) =fail_task_dec_goodwill(10:stalker:dolg) =drx_sl_unregister_task_giver(hunter_gar_trader_task_3) =drx_sl_reset_stored_task(hunter_gar_trader_task_3)%
+on_reversed = %=remove_special_task_squad(hunter_gar_trader_task_3_stalkers) =drx_sl_unregister_task_giver(hunter_gar_trader_task_3) =drx_sl_reset_stored_task(hunter_gar_trader_task_3)%
+precondition = {-hunter_gar_trader_task_3_done =is_night} true, false
+condlist_0 = {!is_night} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+[merc_pri_a18_mech_mlr_task_4]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = merc_pri_a18_mech_mlr_task_4_name
+title_functor = general_fetch_task
+descr = merc_pri_a18_mech_mlr_task_4_text
+descr_functor = general_fetch_task
+job_descr = merc_pri_a18_mech_mlr_task_4_about
+fetch_descr = merc_pri_a18_mech_mlr_task_4_fetch_about
+fetch_func = %=drx_sl_setup_fetch_supplies(merc_pri_a18_mech_mlr_task_4_fetch:5:10)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = merc_pri_a18_mech_mlr_task_4_fetch_finish
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(75:killer) =drx_sl_fetch_reward_money(merc_pri_a18_mech_mlr_task_4_fetch:1.2) =remove_fetch_item(merc_pri_a18_mech_mlr_task_4_fetch) =inc_task_stage(merc_pri_a18_mech_mlr_task_4) =pstor_reset(merc_pri_a18_mech_mlr_task_4_fetch) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_4) =drx_sl_reset_stored_task(merc_pri_a18_mech_mlr_task_4)%
+on_fail = %=pstor_reset(merc_pri_a18_mech_mlr_task_4_fetch) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_4) =drx_sl_reset_stored_task(merc_pri_a18_mech_mlr_task_4)%
+on_cancel = %=pstor_reset(merc_pri_a18_mech_mlr_task_4_fetch) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_4) =drx_sl_reset_stored_task(merc_pri_a18_mech_mlr_task_4)%
+on_reversed = %=pstor_reset(merc_pri_a18_mech_mlr_task_4_fetch) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_4) =drx_sl_reset_stored_task(merc_pri_a18_mech_mlr_task_4)%
+condlist_0 = {!task_giver_alive(merc_pri_a18_mech_mlr_task_4)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+precondition = true
+
+[zat_b18_noah_task_3]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = zat_b18_noah_task_3_name
+title_functor = general_fetch_task
+descr = zat_b18_noah_task_3_text
+descr_functor = general_fetch_task
+job_descr = zat_b18_noah_task_3_about
+fetch_descr = zat_b18_noah_task_3_fetch_about
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(zat_b18_noah_task_3_fetch:3:6)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_b18_noah_task_3_fetch_finish
+precondition = true
+on_complete = %=reward_stash(true) =drx_sl_fetch_reward_money(merc_pri_a18_mech_mlr_task_4_fetch:1.3) =remove_fetch_item(zat_b18_noah_task_3_fetch) =inc_task_stage(zat_b18_noah_task_3) =pstor_reset(zat_b18_noah_task_3_fetch) =drx_sl_unregister_task_giver(zat_b18_noah_task_3) =drx_sl_reset_stored_task(zat_b18_noah_task_3)%
+on_fail = %=pstor_reset(zat_b18_noah_task_3_fetch) =drx_sl_unregister_task_giver(zat_b18_noah_task_3) =drx_sl_reset_stored_task(zat_b18_noah_task_3)%
+on_cancel = %=pstor_reset(zat_b18_noah_task_3_fetch) =drx_sl_unregister_task_giver(zat_b18_noah_task_3) =drx_sl_reset_stored_task(zat_b18_noah_task_3)%
+on_reversed = %=pstor_reset(zat_b18_noah_task_3_fetch) =drx_sl_unregister_task_giver(zat_b18_noah_task_3) =drx_sl_reset_stored_task(zat_b18_noah_task_3)%
+condlist_0 = {!task_giver_alive(zat_b18_noah_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 259200
+
+[zat_b18_noah_task_2]
+icon = ui_icons_face_snork5
+prior = 25
+storyline = false
+title = zat_b18_noah_task_2_name
+descr = zat_b18_noah_task_2_text
+job_descr = zat_b18_noah_task_2_about
+task_complete_descr = zat_b18_noah_task_2_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(simulation_south_snork_task:zat_b28)%
+on_complete = %=reward_random_item(medkit_army:ration_ukr) =reward_stash(true) =inc_task_stage(zat_b18_noah_task_2) +zat_b18_noah_task_2_done =drx_sl_unregister_task_giver(zat_b18_noah_task_2) =drx_sl_reset_stored_task(zat_b18_noah_task_2)%
+precondition = {-zat_b18_noah_task_2_done} true, false
+on_fail = %=fail_task_dec_goodwill(50:stalker) =drx_sl_unregister_task_giver(zat_b18_noah_task_2) =drx_sl_reset_stored_task(zat_b18_noah_task_2)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =drx_sl_unregister_task_giver(zat_b18_noah_task_2) =drx_sl_reset_stored_task(zat_b18_noah_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(zat_b18_noah_task_2) =drx_sl_reset_stored_task(zat_b18_noah_task_2)%
+condlist_0 = {!task_giver_alive(zat_b18_noah_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+[zat_b18_noah_task_1]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = zat_b18_noah_task_1_name
+title_functor = general_fetch_task
+descr = zat_b18_noah_task_1_text
+descr_functor = general_fetch_task
+job_descr = zat_b18_noah_task_1_about
+fetch_descr = zat_b18_noah_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(zat_b18_noah_task_1_fetch:1:wpn_protecta)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_b18_noah_task_1_fetch_finish
+on_complete = %=pstor_reset(zat_b18_noah_task_1) +zat_b18_noah_task_1_done =remove_fetch_item(zat_b18_noah_task_1_fetch) =inc_task_stage(zat_b18_noah_task_1) =drx_sl_unregister_task_giver(zat_b18_noah_task_1) =drx_sl_reset_stored_task(zat_b18_noah_task_1)%
+precondition = {-zat_b18_noah_task_1_done} true, false
+on_fail = %=fail_task_dec_goodwill(50:stalker) =drx_sl_unregister_task_giver(zat_b18_noah_task_1) =drx_sl_reset_stored_task(zat_b18_noah_task_1)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =drx_sl_unregister_task_giver(zat_b18_noah_task_1) =drx_sl_reset_stored_task(zat_b18_noah_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(zat_b18_noah_task_1) =drx_sl_reset_stored_task(zat_b18_noah_task_1)%
+condlist_0 = {!task_giver_alive(zat_b18_noah_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+[mar_smart_terrain_base_stalker_leader_marsh_task_3]
+icon = ui_icons_black_chimera17
+prior = 25
+storyline = false
+title = mar_smart_terrain_base_stalker_leader_marsh_task_3_name
+descr = mar_smart_terrain_base_stalker_leader_marsh_task_3_text
+job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_3_about
+task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_3_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(special_chimera_task_squad:mar_smart_terrain_doc_2)%
+on_complete = %=reward_stash(true) =reward_random_money(15000:17000:roubles) =inc_task_stage(mar_smart_terrain_base_stalker_leader_marsh_task_3) =complete_task_inc_goodwill(150:csky) +mar_smart_terrain_base_stalker_leader_marsh_task_3_done =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_3) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_3)%
+on_fail = %=fail_task_dec_goodwill(25:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_3) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_3)%
+on_cancel = %=fail_task_dec_goodwill(10:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_3) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_3) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_3)%
+precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_3_done =is_night} true, false
+condlist_0 = {!is_night} cancel
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+condlist_2 = {!task_giver_alive(zat_b18_noah_task_1)} reversed
+
+[mar_smart_terrain_base_stalker_leader_marsh_task_2]
+
+icon = ui_icons_kill_stalker6
+storyline = false
+prior = 35
+repeat_timeout = 259200
+precondition = {=check_available_targets(csky)} true, false
+type = bounty
+
+title = mar_smart_terrain_base_stalker_leader_marsh_task_2_name
+descr = mar_smart_terrain_base_stalker_leader_marsh_task_2_text
+job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_2_about
+task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_2_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(mar_smart_terrain_base_stalker_leader_marsh_task_2:csky)%
+on_complete = %=reward_random_money(11000:12000:hrivni) =reward_stash(true) =inc_task_stage(mar_smart_terrain_base_stalker_leader_marsh_task_2) =complete_task_inc_goodwill(50:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_2) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_2)%
+on_fail = %=fail_task_dec_goodwill(50:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_2) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_2)%
+on_cancel = %=fail_task_dec_goodwill(15:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_2) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_2) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_2)%
+
+quest_timeout = 86400
+
+[mar_smart_terrain_base_stalker_leader_marsh_task_1]
+
+icon = ui_icons_base_attack24
+storyline = false
+prior = 25
+precondition = {-mar_smart_terrain_base_stalker_leader_marsh_task_1_done =is_night =sim_avail(mar_smart_terrain_3_3) =smart_stayed_squad_count_ge_by_faction(mar_smart_terrain_3_3:1:nil:false:bandit)} true, false
+type = assault
+
+title = mar_smart_terrain_base_stalker_leader_marsh_task_1_name
+descr = mar_smart_terrain_base_stalker_leader_marsh_task_1_text
+job_descr = mar_smart_terrain_base_stalker_leader_marsh_task_1_about
+task_complete_descr = mar_smart_terrain_base_stalker_leader_marsh_task_1_finish
+
+stage_complete = 1
+target_functor = task_targets_mlr_all
+status_functor = check_specific_smart_under_faction_control_staged
+status_functor_params = bandit, army, monolith
+condlist_0 = {!sim_avail(mar_smart_terrain_3_3)} reversed, {!is_night} cancel, {+csky_companion_task_elim_base_death} cancel
+condlist_1 = {=drx_sl_is_enemy(csky)} cancel
+condlist_2 = {!task_giver_alive(mar_smart_terrain_base_stalker_leader_marsh_task_1)} reversed
+
+on_init = %=setup_companion_task(csky_companion_task_elim_base:mar_smart_terrain_base)%
+on_complete = %=reward_stash(true) =inc_task_stage(mar_smart_terrain_base_stalker_leader_marsh_task_1) =complete_task_inc_goodwill(50:csky) =remove_special_task_squad(csky_companion_task_elim_base) =reward_random_money(12000:13000:roubles)  +mar_smart_terrain_base_stalker_leader_marsh_task_1_done =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_1) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_1)%
+on_fail = %=remove_special_task_squad(csky_companion_task_elim_base) =fail_task_dec_goodwill(75:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_1) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_1)%
+on_cancel = %=remove_special_task_squad(csky_companion_task_elim_base) =fail_task_dec_goodwill(20:csky) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_1) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_1)%
+on_reversed = %=remove_special_task_squad(csky_companion_task_elim_base) =drx_sl_unregister_task_giver(mar_smart_terrain_base_stalker_leader_marsh_task_1) =drx_sl_reset_stored_task(mar_smart_terrain_base_stalker_leader_marsh_task_1)%
+
+quest_timeout = 259200
+
+[esc_m_trader_task_7]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = esc_m_trader_task_7_name
+title_functor = general_fetch_task
+descr = esc_m_trader_task_7_text
+descr_functor = general_fetch_task
+job_descr = esc_m_trader_task_7_about
+fetch_descr = esc_m_trader_task_7_fetch_about
+fetch_func = %=drx_sl_setup_fetch_mutant_parts(esc_m_trader_task_7_fetch:2:3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_m_trader_task_7_fetch_finish
+precondition = true
+on_complete = %=reward_stash(true) =drx_sl_fetch_reward_money(esc_m_trader_task_7_fetch:1.1) =remove_fetch_item(esc_m_trader_task_7_fetch) =inc_task_stage(esc_m_trader_task_7) =pstor_reset(esc_m_trader_task_7_fetch) =drx_sl_unregister_task_giver(esc_m_trader_task_7) =drx_sl_reset_stored_task(esc_m_trader_task_7)%
+on_fail = %=pstor_reset(esc_m_trader_task_7_fetch) =drx_sl_unregister_task_giver(esc_m_trader_task_7) =drx_sl_reset_stored_task(esc_m_trader_task_7)%
+on_cancel = %=pstor_reset(esc_m_trader_task_7_fetch) =drx_sl_unregister_task_giver(esc_m_trader_task_7) =drx_sl_reset_stored_task(esc_m_trader_task_7)%
+on_reversed = %=pstor_reset(esc_m_trader_task_7_fetch) =drx_sl_unregister_task_giver(esc_m_trader_task_7) =drx_sl_reset_stored_task(esc_m_trader_task_7)%
+;condlist_0 = {!task_giver_alive(esc_m_trader_task_7)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+quest_timeout = 259200
+
+[esc_m_trader_task_6]
+icon = ui_icons_rookies_32
+prior = 25
+storyline = false
+title = esc_m_trader_task_6_name
+descr = esc_m_trader_task_6_text
+job_descr = esc_m_trader_task_6_about
+task_complete_descr = esc_m_trader_task_6_finish
+target_functor = task_targets_mlr_all
+on_init = %=setup_companion_task(stalker_companion_task_mlr_1:esc_smart_terrain_2_12) -stalker_companion_task_mlr_1_started -stalker_companion_task_mlr_1_force_started%
+precondition = {!squad_exist(stalker_companion_task_mlr_1) =request_to_escort_task} true, false
+repeat_timeout = 259200
+on_complete = %=reward_random_money(8000:9000:hrivni) =complete_task_inc_goodwill(50:stalker) =reward_stash(true) =remove_special_task_squad(stalker_companion_task_mlr_1) =drx_sl_unregister_task_giver(esc_m_trader_task_6) =drx_sl_reset_stored_task(esc_m_trader_task_6)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =remove_special_task_squad(stalker_companion_task_mlr_1) =drx_sl_unregister_task_giver(esc_m_trader_task_6) =drx_sl_reset_stored_task(esc_m_trader_task_6)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =remove_special_task_squad(stalker_companion_task_mlr_1) =drx_sl_unregister_task_giver(esc_m_trader_task_6) =drx_sl_reset_stored_task(esc_m_trader_task_6)%
+on_reversed = %=remove_special_task_squad(stalker_companion_task_mlr_1) =drx_sl_unregister_task_giver(esc_m_trader_task_6) =drx_sl_reset_stored_task(esc_m_trader_task_6)%
+condlist_0 = {!squad_exist(stalker_companion_task_mlr_1)} cancel
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+[esc_m_trader_task_5]
+icon = ui_icons_kill_monster34
+prior = 35
+storyline = false
+title = esc_m_trader_task_5_name
+descr = esc_m_trader_task_5_text
+job_descr = esc_m_trader_task_5_about
+task_complete_descr = esc_m_trader_task_5_finish
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monster
+on_init = %=find_smart_under_faction_control(esc_m_trader_task_5_id:monster)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monster)} true, false
+repeat_timeout = 259200
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:stalker) =reward_random_money(10000:11000:hrivni) =reward_stash(true) =inc_task_stage(esc_m_trader_task_5) =pstor_reset(esc_m_trader_task_5_id) =pstor_reset(esc_m_trader_task_5_target_id) =drx_sl_unregister_task_giver(esc_m_trader_task_5) =drx_sl_reset_stored_task(esc_m_trader_task_5)%
+on_fail = %=pstor_reset(esc_m_trader_task_5_id) =pstor_reset(esc_m_trader_task_5_target_id) =fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_m_trader_task_5) =drx_sl_reset_stored_task(esc_m_trader_task_5)%
+on_cancel = %=pstor_reset(esc_m_trader_task_5_id) =pstor_reset(esc_m_trader_task_5_target_id) =fail_task_dec_goodwill(10:stalker) =drx_sl_unregister_task_giver(esc_m_trader_task_5) =drx_sl_reset_stored_task(esc_m_trader_task_5)%
+on_reversed = %=pstor_reset(esc_m_trader_task_5_id) =pstor_reset(esc_m_trader_task_5_target_id) =drx_sl_unregister_task_giver(esc_m_trader_task_5) =drx_sl_reset_stored_task(esc_m_trader_task_5)%
+;condlist_0 = {!task_giver_alive(esc_m_trader_task_5)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+type = assault
+quest_timeout = 172800
+
+[esc_m_trader_task_4]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = esc_m_trader_task_4_name
+title_functor = general_fetch_task
+descr = esc_m_trader_task_4_text
+descr_functor = general_fetch_task
+job_descr = esc_m_trader_task_4_about
+fetch_descr = esc_m_trader_task_4_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_m_trader_task_4_fetch:3:mutant_part_cat_tail)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_m_trader_task_4_fetch_finish
+on_complete = %=reward_random_item(bandage_enhanced:medkit) +esc_m_trader_task_4_done =reward_random_money(5000:6000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_m_trader_task_4_fetch) =inc_task_stage(esc_m_trader_task_4) =drx_sl_unregister_task_giver(esc_m_trader_task_4) =drx_sl_reset_stored_task(esc_m_trader_task_4)%
+precondition = {-esc_m_trader_task_4_done} true, false
+on_fail = % =drx_sl_unregister_task_giver(esc_m_trader_task_4) =drx_sl_reset_stored_task(esc_m_trader_task_4)%
+on_cancel = % =drx_sl_unregister_task_giver(esc_m_trader_task_4) =drx_sl_reset_stored_task(esc_m_trader_task_4)%
+on_reversed = % =drx_sl_unregister_task_giver(esc_m_trader_task_4) =drx_sl_reset_stored_task(esc_m_trader_task_4)%
+;condlist_0 = {!task_giver_alive(esc_m_trader_task_4)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 259200
+
+[esc_m_trader_task_3]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = esc_m_trader_task_3_name
+title_functor = general_fetch_task
+descr = esc_m_trader_task_3_text
+descr_functor = general_fetch_task
+job_descr = esc_m_trader_task_3_about
+fetch_descr = esc_m_trader_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_m_trader_task_3_fetch:5:mutant_part_dog_tail)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_m_trader_task_3_fetch_finish
+on_complete = %=reward_random_item(ammo_12x70_buck:ammo_12x70_buck_bad) =reward_random_item(ammo_12x70_buck:ammo_12x70_buck_bad) +esc_m_trader_task_3_done =reward_stash(true) =reward_random_money(4000:5000) =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_m_trader_task_3_fetch) =inc_task_stage(esc_m_trader_task_3) =drx_sl_unregister_task_giver(esc_m_trader_task_3) =drx_sl_reset_stored_task(esc_m_trader_task_3)%
+precondition = {-esc_m_trader_task_3_done} true, false
+on_fail = % =drx_sl_unregister_task_giver(esc_m_trader_task_3) =drx_sl_reset_stored_task(esc_m_trader_task_3)%
+on_cancel = % =drx_sl_unregister_task_giver(esc_m_trader_task_3) =drx_sl_reset_stored_task(esc_m_trader_task_3)%
+on_reversed = % =drx_sl_unregister_task_giver(esc_m_trader_task_3) =drx_sl_reset_stored_task(esc_m_trader_task_3)%
+;condlist_0 = {!task_giver_alive(esc_m_trader_task_3)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 172900
+
+[yan_stalker_sakharov_task_3]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = yan_stalker_sakharov_task_3_name
+title_functor = general_fetch_task
+descr = yan_stalker_sakharov_task_3_text
+descr_functor = general_fetch_task
+job_descr = yan_stalker_sakharov_task_3_about
+fetch_descr = yan_stalker_sakharov_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(yan_stalker_sakharov_task_3_fetch:2:mutant_part_controller_brain)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = yan_stalker_sakharov_task_3_fetch_finish
+on_complete = %=reward_random_item(bag_medkit_3) +yan_stalker_sakharov_task_3_done =reward_random_money(9000:11000:dollars) =reward_stash(true)  =complete_task_inc_goodwill(50:ecolog) =remove_fetch_item(yan_stalker_sakharov_task_3_fetch) =inc_task_stage(yan_stalker_sakharov_task_3) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_3) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_3)%
+precondition = {-yan_stalker_sakharov_task_3_done} true, false
+on_fail = % =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_3) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_3)%
+on_cancel = % =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_3) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_3)%
+on_reversed = % =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_3) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_3)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_3)} fail
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+quest_timeout = 259200
+
+[yan_stalker_sakharov_task_4]
+icon = ui_icons_base_attack24
+prior = 35
+storyline = false
+title = yan_stalker_sakharov_task_4_name
+descr = yan_stalker_sakharov_task_4_text
+job_descr = yan_stalker_sakharov_task_4_about
+task_complete_descr = yan_stalker_sakharov_task_4_finish
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = zombied
+on_init = %=find_smart_under_faction_control_ex(yan_stalker_sakharov_task_4_id:zombied)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:zombied)} true, false
+repeat_timeout = 259200
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:ecolog) =complete_task_inc_goodwill(50:army) =reward_random_item(af_fusion:af_bead:af_black_spray:af_medusa_lead_box:af_cristall_lead_box) =reward_stash(true) =inc_task_stage(yan_stalker_sakharov_task_4) =pstor_reset(yan_stalker_sakharov_task_4_id) =pstor_reset(yan_stalker_sakharov_task_4_id) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_4) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_4)%
+on_fail = %=pstor_reset(yan_stalker_sakharov_task_4_id) =pstor_reset(yan_stalker_sakharov_task_4_target_id) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_4) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_4)%
+on_cancel = %=pstor_reset(yan_stalker_sakharov_task_4_id) =pstor_reset(yan_stalker_sakharov_task_4_target_id) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_4) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_4)%
+on_reversed = %=pstor_reset(yan_stalker_sakharov_task_4_id) =pstor_reset(yan_stalker_sakharov_task_4_target_id) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_4) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_4)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_5)} fail
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+type = assault
+
+[yan_stalker_sakharov_task_5]
+icon = ui_iconsTotal_artefact
+prior = 10
+storyline = false
+title = yan_stalker_sakharov_task_5_name
+title_functor = general_fetch_task
+descr = yan_stalker_sakharov_task_5_text
+descr_functor = general_fetch_task
+job_descr = yan_stalker_sakharov_task_5_about
+fetch_descr = yan_stalker_sakharov_task_5_fetch_about
+fetch_func = %=setup_generic_fetch_task(yan_stalker_sakharov_task_5_fetch:1:af_elektron)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = yan_stalker_sakharov_task_5_fetch_finish
+on_complete = %=reward_random_item(bag_medkit_4) +yan_stalker_sakharov_task_5_done =reward_random_money(6000:7500:roubles) =reward_stash(true) =complete_task_inc_goodwill(150:ecolog) =remove_fetch_item(yan_stalker_sakharov_task_5_fetch) =inc_task_stage(yan_stalker_sakharov_task_5) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_5) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_5)%
+precondition = {-yan_stalker_sakharov_task_5_done} true, false
+on_fail = %=fail_task_dec_goodwill(50:ecolog) =remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_5) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_5)%
+on_cancel = %=fail_task_dec_goodwill(15:ecolog) =remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_5) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_5)%
+on_reversed = %=remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_5) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_5)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_5)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+[yan_stalker_sakharov_task_6]
+icon = ui_icons_scientists12
+prior = 2
+storyline = false
+title = yan_stalker_sakharov_task_6_name
+descr = yan_stalker_sakharov_task_6_text
+job_descr = yan_stalker_sakharov_task_6_about
+target_functor = task_targets_mlr_all
+task_complete_descr = yan_stalker_sakharov_task_6_finish
+on_init = %=setup_companion_task(ecolog_companion_task_mlr_1:yan_smart_terrain_6_4) =setup_task_target_anomaly -ecolog_companion_task_mlr_1_started -ecolog_companion_task_mlr_1_force_started%
+precondition = {!squad_exist(ecolog_companion_task_mlr_1) =request_to_escort_task} true, false
+repeat_timeout = 259200
+on_complete = %=complete_task_inc_goodwill(50:ecolog) =remove_special_task_squad(ecolog_companion_task_mlr_1) =reward_stash(true) =reset_task_target_anomaly =reward_random_item(ration_ru:mre) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_6) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_6)%
+on_fail = %=fail_task_dec_goodwill(50:ecolog) =remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_6) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_6)%
+on_cancel = %=fail_task_dec_goodwill(15:ecolog) =remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_6) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_6)%
+on_reversed = %=remove_special_task_squad(ecolog_companion_task_mlr_1) =reset_task_target_anomaly =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_6) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_6)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_6)} fail
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+[yan_stalker_sakharov_task_7]
+icon = ui_icons_red_forest_trees_31
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = yan_stalker_sakharov_task_7_name
+descr = yan_stalker_sakharov_task_7_text
+job_descr = yan_stalker_sakharov_task_7_about
+task_complete_descr = yan_stalker_sakharov_task_7_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %+yan_stalker_sakharov_task_7_begin%
+on_complete = %+yan_stalker_sakharov_task_7_done =reward_random_money(11000:12000:roubles) =reward_stash(true) =inc_task_stage(yan_stalker_sakharov_task_7) =complete_task_inc_goodwill(50:ecolog) -yan_stalker_sakharov_task_7_begin -disgusting_tree_search_1 -disgusting_tree_search_2 -disgusting_tree_search_3 -disgusting_tree_search_4 -yan_stalker_sakharov_task_7_done =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_7) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_7)%
+on_fail = %=fail_task_dec_goodwill(50:ecolog) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_7) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_7)%
+on_cancel = %=fail_task_dec_goodwill(15:ecolog) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_7) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_7)%
+on_reversed = %=drx_sl_unregister_task_giver(yan_stalker_sakharov_task_7) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_7)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_7)} fail
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+precondition = true
+
+quest_timeout = 259200
+
+[task_look_for_cs_history_part_4]
+icon = ui_icons_forest_bridge_30
+prior = 35
+storyline = false
+title = {+look_for_cs_history_part_4_1_give} task_look_for_cs_history_part_4_4, {+look_for_cs_history_part_4_give} task_look_for_cs_history_part_4_3, task_look_for_cs_history_part_4_1
+descr = task_look_for_cs_history_part_descr_4_1
+target = {+look_for_cs_history_part_4_1_give} killer_bridge_trader_mlr, {+look_for_cs_history_part_4_give} red_bridge_csky_restr, mil_freedom_guid
+condlist_0 = {+look_for_cs_history_part_4_2_give} complete, {+killer_bridge_trader_mlr_squad_die} reversed
+
+[task_look_for_cs_history_part_3]
+icon = ui_icons_forest_bridge_30
+prior = 35
+storyline = false
+title = {+look_for_cs_history_part_3_give} task_look_for_cs_history_part_3_2, task_look_for_cs_history_part_3_1
+descr = {+look_for_cs_history_part_3_give} task_look_for_cs_history_part_descr_3_2, task_look_for_cs_history_part_descr_3_1
+target = {+look_for_cs_history_part_3_give} mil_freedom_guid, mil_smart_terrain_7_7_freedom_leader_stalker
+condlist_0 = {+look_for_cs_history_part_3_2_give} complete
+
+[task_look_for_cs_history_part_2]
+icon = ui_icons_forester_29
+prior = 35
+storyline = false
+title = task_look_for_cs_history_part_2_1
+descr = task_look_for_cs_history_part_descr_2_1
+target = red_forester_tech
+condlist_0 = {+give_look_for_cs_history_part_2} complete, {+give_look_for_cs_history_part_2_fail} fail
+
+[task_look_for_cs_history_part_1]
+icon = ui_icons_bloodsucker15
+prior = 35
+storyline = false
+title = {+marsh_bs_lfchp1_squad_die} task_look_for_cs_history_part_1_2, task_look_for_cs_history_part_1_1
+descr = task_look_for_cs_history_part_1_3
+target = {+marsh_bs_lfchp1_squad_die} mar_smart_terrain_base_stalker_leader_marsh, hunt_for_marsh_bs_restr
+condlist_0 = {+look_for_cs_history_part_2_give} complete
+reward_money = 6500
+
+[hunter_gar_trader_task_2]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = hunter_gar_trader_task_2_name
+title_functor = general_fetch_task
+descr = hunter_gar_trader_task_2_text
+descr_functor = general_fetch_task
+job_descr = hunter_gar_trader_task_2_about
+fetch_descr = hunter_gar_trader_task_2_fetch_about
+fetch_func = %=drx_sl_setup_fetch_mutant_meat(hunter_gar_trader_task_2_fetch:5:15)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = hunter_gar_trader_task_2_fetch_finish
+precondition = true
+on_complete = %=reward_stash(true) =complete_task_inc_goodwill(50:stalker:dolg) =drx_sl_fetch_reward_money(hunter_gar_trader_task_2_fetch:1.4) =remove_fetch_item(hunter_gar_trader_task_2_fetch) =inc_task_stage(hunter_gar_trader_task_2) =pstor_reset(hunter_gar_trader_task_2_fetch) =drx_sl_unregister_task_giver(hunter_gar_trader_task_2) =drx_sl_reset_stored_task(hunter_gar_trader_task_2)%
+on_fail = %=pstor_reset(hunter_gar_trader_task_2_fetch) =drx_sl_unregister_task_giver(hunter_gar_trader_task_2) =drx_sl_reset_stored_task(hunter_gar_trader_task_2)%
+on_cancel = %=pstor_reset(hunter_gar_trader_task_2_fetch) =drx_sl_unregister_task_giver(hunter_gar_trader_task_2) =drx_sl_reset_stored_task(hunter_gar_trader_task_2)%
+on_reversed = %=pstor_reset(hunter_gar_trader_task_2_fetch) =drx_sl_unregister_task_giver(hunter_gar_trader_task_2) =drx_sl_reset_stored_task(hunter_gar_trader_task_2)%
+condlist_0 = {!task_giver_alive(hunter_gar_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 259200
+
+[jup_b6_scientist_nuclear_physicist_task_1]
+icon = ui_iconsTotal_artefact
+prior = 45
+storyline = false
+title = jup_b6_scientist_nuclear_physicist_task_1_name
+title_functor = general_fetch_task
+descr = jup_b6_scientist_nuclear_physicist_task_1_text
+descr_functor = general_fetch_task
+job_descr = jup_b6_scientist_nuclear_physicist_task_1_about
+fetch_descr = jup_b6_scientist_nuclear_physicist_task_1_fetch_about
+fetch_func = %=drx_sl_setup_fetch_artefact(jup_b6_scientist_nuclear_physicist_task_1_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_b6_scientist_nuclear_physicist_task_1_fetch_finish
+precondition = true
+repeat_timeout = 259200
+on_complete = %=drx_sl_fetch_reward_money(jup_b6_scientist_nuclear_physicist_task_1_fetch:1.2) =pstor_reset(jup_b6_scientist_nuclear_physicist_task_1_fetch) =complete_task_inc_goodwill(50:ecolog) =remove_fetch_item(jup_b6_scientist_nuclear_physicist_task_1_fetch) =inc_task_stage(jup_b6_scientist_nuclear_physicist_task_1) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_1) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_1)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_1) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_1)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_1) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_1) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_1)%
+condlist_0 = {!task_giver_alive(jup_b6_scientist_nuclear_physicist_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+[jup_b6_scientist_nuclear_physicist_task_2]
+icon = ui_icons_red_forest_trees_31
+prior = 25
+storyline = false
+repeat_timeout = 259200
+title = jup_b6_scientist_nuclear_physicist_task_2_name
+descr = jup_b6_scientist_nuclear_physicist_task_2_text
+job_descr = jup_b6_scientist_nuclear_physicist_task_2_about
+task_complete_descr = jup_b6_scientist_nuclear_physicist_task_2_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %+jup_b6_scientist_nuclear_physicist_task_2_begin%
+on_complete = %+jup_b6_scientist_nuclear_physicist_task_2_done =reward_random_money(8000:10000:roubles) =reward_stash(true) =inc_task_stage(jup_b6_scientist_nuclear_physicist_task_2) =complete_task_inc_goodwill(50:ecolog) -jup_b6_scientist_nuclear_physicist_task_2_begin -disgusting_tree_search_1 -disgusting_tree_search_2 -disgusting_tree_search_3 -disgusting_tree_search_4 -yan_stalker_sakharov_task_7_done =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_2) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_2)%
+on_fail = %=pstor_reset(jup_b6_scientist_nuclear_physicist_task_2) =fail_task_dec_goodwill(25:ecolog) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_2) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_2)%
+on_cancel = %=pstor_reset(jup_b6_scientist_nuclear_physicist_task_2) =fail_task_dec_goodwill(10:ecolog) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_2) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_2)%
+on_reversed = %=pstor_reset(jup_b6_scientist_nuclear_physicist_task_2) =drx_sl_unregister_task_giver(jup_b6_scientist_nuclear_physicist_task_2) =drx_sl_reset_stored_task(jup_b6_scientist_nuclear_physicist_task_2)%
+condlist_0 = {!task_giver_alive(jup_b6_scientist_nuclear_physicist_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+precondition = true
+
+quest_timeout = 259200
+
+[task_noah_2]
+icon = ui_icons_face_snork5
+prior = 20
+storyline = false
+title = {+simulation_snork_task_noah_2_death} task_noah_2_3, {+task_noah_2_target} task_noah_2_2, task_noah_2_1
+descr = task_noah_2_descr
+target = {+simulation_snork_task_noah_2_death} zat_b18_noah, {+task_noah_2_target} snork_noah_task_1_restr, zat_b20_teleport_mapspot
+condlist_0 = {+task_2_noah_done} complete, {+zat_b18_noah_squad_death} reversed
+
+[task_noah_1]
+icon = ui_icons_cordon22
+prior = 20
+storyline = false
+title = {=actor_has_item(wpn_protecta)} task_noah_1_2, task_noah_1_1
+descr = task_noah_1_descr
+target = {=actor_has_item(wpn_protecta)} zat_b18_noah, nil
+condlist_0 = {+task_1_noah_done} complete, {+zat_b18_noah_squad_death} reversed
+
+-- Задания Фаната --
+[task_fanat_kmb_1]
+icon = ui_icons_cordon22
+prior = 20
+storyline = false
+title = {+visit_esc_2_12_village_kmb_restr} fanat_kmb_1_7, {+fanat_kmb_1_give3} fanat_kmb_1_6, {=actor_has_item(af_medusa)} fanat_kmb_1_8, {+fanat_kmb_1_give2} fanat_kmb_1_9, {+visit_esc_1_11_kmb_restr} fanat_kmb_1_5, {+fanat_kmb_1_give1} fanat_kmb_1_4, {+esc_2_14_boars_kmb_death} fanat_kmb_1_3, fanat_kmb_1_1
+descr = task_fanat_kmb_1_descr
+target = {+visit_esc_2_12_village_kmb_restr} esc_2_12_stalker_fanat, {+fanat_kmb_1_give3} esc_2_14_village_kmb_restr, {=actor_has_item(af_medusa)} esc_2_12_stalker_fanat, {+fanat_kmb_1_give2} nil, {+visit_esc_1_11_kmb_restr} esc_2_12_stalker_fanat, {+fanat_kmb_1_give1} esc_1_11_kmb_restr, {+esc_2_14_boars_kmb_death} esc_2_12_stalker_fanat, esc_2_14_boars_kmb_restr
+condlist_0 = {+fanat_kmb_1_give4} complete, {+esc_2_12_stalker_fanat_death} reversed
+on_complete = %=remove_item(detector_simple_fanat)% %=remove_item(wpn_knife_fanat)% %=remove_item(mutant_part_boar_meat:3)% %=remove_item(af_medusa)% %=reward_random_item(samogon:sharpening_stones:vodka)%
+
+[task_fanat_kmb_2]
+icon = ui_icons_cordon22
+prior = 20
+storyline = false
+title = {+fanat_kmb_2_open} fanat_kmb_2_2, fanat_kmb_2_1
+descr = task_fanat_kmb_2_descr
+target = {+fanat_kmb_2_open} esc_2_12_stalker_fanat, nil
+condlist_0 = {+fanat_kmb_2_give1} complete
+
+[task_fanat_kmb_3]
+icon = ui_icons_cordon22
+prior = 20
+storyline = false
+title = {+visit_esc_5_9_atp_kmb} fanat_kmb_3_4, {+fanat_kmb_3_give1} fanat_kmb_3_3, {+esc_5_9_atp_kmb_death} fanat_kmb_3_2, fanat_kmb_3_1
+descr = task_fanat_kmb_3_descr
+target = {+visit_esc_5_9_atp_kmb} esc_2_12_stalker_fanat, {+fanat_kmb_3_give1} esc_2_14_village_kmb_restr, {+esc_5_9_atp_kmb_death} esc_2_12_stalker_fanat,  esc_5_9_atp_kmb_restr
+condlist_0 = {+fanat_kmb_3_give2} complete, {+esc_2_12_stalker_fanat_death} reversed
+on_complete = %=reward_random_money(4000:5000:hrivni)%
+reward_item = stalker_patch
+
+[esc_2_12_stalker_fanat_task_1]
+icon = ui_icons_kill_monster34
+prior = 35
+storyline = false
+title = esc_2_12_stalker_fanat_task_1_name
+descr = esc_2_12_stalker_fanat_task_1_text
+job_descr = esc_2_12_stalker_fanat_task_1_about
+task_complete_descr = esc_2_12_stalker_fanat_task_1_finish
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+on_init = %=drx_sl_setup_assault_mutant(esc_2_12_stalker_fanat_task_1_id)%
+precondition = {=drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+repeat_timeout = 259200
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:stalker) =reward_random_money(9000:11000:hrivni) =reward_stash(true) =inc_task_stage(esc_2_12_stalker_fanat_task_1) =pstor_reset(esc_2_12_stalker_fanat_task_1_id) =pstor_reset(esc_2_12_stalker_fanat_task_1_target_id) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_1)%
+on_fail = %=pstor_reset(esc_2_12_stalker_fanat_task_1_id) =pstor_reset(esc_2_12_stalker_fanat_task_1_target_id) =fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_1)%
+on_cancel = %=pstor_reset(esc_2_12_stalker_fanat_task_1_id) =pstor_reset(esc_2_12_stalker_fanat_task_1_target_id) =fail_task_dec_goodwill(10:stalker) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_1)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_fanat_task_1_id) =pstor_reset(esc_2_12_stalker_fanat_task_1_target_id) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_1)%
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_fanat_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+type = assault
+
+[esc_2_12_stalker_fanat_task_2]
+icon = ui_iconsTotal_artefact
+prior = 10
+storyline = false
+title = esc_2_12_stalker_fanat_task_2_name
+title_functor = general_fetch_task
+descr = esc_2_12_stalker_fanat_task_2_text
+descr_functor = general_fetch_task
+job_descr = esc_2_12_stalker_fanat_task_2_about
+fetch_descr = esc_2_12_stalker_fanat_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(esc_2_12_stalker_fanat_task_2_fetch:1:af_dummy_battery)%
+precondition = {-esc_2_12_stalker_fanat_task_2_done} true, false
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_2_12_stalker_fanat_task_2_fetch_finish
+on_complete = %=pstor_reset(esc_2_12_stalker_fanat_task_2) +esc_2_12_stalker_fanat_task_2_done =reward_random_money(13500:15000) =reward_stash(true)  =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_2_12_stalker_fanat_task_2_fetch) =inc_task_stage(esc_2_12_stalker_fanat_task_2) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_2)%
+on_fail = %=pstor_reset(esc_2_12_stalker_fanat_task_2_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_2)%
+on_cancel = %=pstor_reset(esc_2_12_stalker_fanat_task_2_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_2)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_fanat_task_2_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_2)%
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_fanat_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 691200
+
+[esc_2_12_stalker_fanat_task_3]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = esc_2_12_stalker_fanat_task_3_name
+title_functor = general_fetch_task
+descr = esc_2_12_stalker_fanat_task_3_text
+descr_functor = general_fetch_task
+job_descr = esc_2_12_stalker_fanat_task_3_about
+fetch_descr = esc_2_12_stalker_fanat_task_3_fetch_about
+on_init = %=spawn_random_esc_2_12_stalker_fanat_task_3%
+fetch_func = %=setup_generic_fetch_task(esc_2_12_stalker_fanat_task_3_fetch:1:wpn_pm_esc_2_12_stalker_fanat_task_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = task_targets_mlr_all
+task_complete_descr = esc_2_12_stalker_fanat_task_3_fetch_finish
+on_complete = %=pstor_reset(esc_2_12_stalker_fanat_task_3) =reward_random_money(5000:6000:roubles) +esc_2_12_stalker_fanat_task_3_done =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(esc_2_12_stalker_fanat_task_3_fetch) =inc_task_stage(esc_2_12_stalker_fanat_task_3) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_3) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_3)%
+precondition = {-esc_2_12_stalker_fanat_task_3_done} true, false
+on_fail = %=pstor_reset(esc_2_12_stalker_fanat_task_3) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_3) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_3)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_fanat_task_3) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_3) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_3)%
+on_cancel = %=pstor_reset(esc_2_12_stalker_fanat_task_3) =drx_sl_unregister_task_giver(esc_2_12_stalker_fanat_task_3) =drx_sl_reset_stored_task(esc_2_12_stalker_fanat_task_3)%
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_fanat_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 86400
+
+[merc_pri_grifon_mlr_task_3]
+icon = ui_icons_kill_monster34
+prior = 25
+storyline = false
+title = merc_pri_grifon_mlr_task_3_name
+descr = merc_pri_grifon_mlr_task_3_text
+job_descr = merc_pri_grifon_mlr_task_3_about
+task_complete_descr = merc_pri_grifon_mlr_task_3_finish
+status_functor = check_specific_smart_under_faction_control_staged
+status_functor_params = pri_b304_monsters_smart_terrain, monster
+stage_complete = 1
+target_functor = pri_b304_monsters_smart_terrain_target
+on_complete = %=pstor_reset(merc_pri_grifon_mlr_task_3) +merc_pri_grifon_mlr_task_3_done =reward_random_money(8000:9000:dollars) =reward_stash(true) =inc_task_stage(merc_pri_grifon_mlr_task_3) =complete_task_inc_goodwill(50:killer) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_3) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_3)%
+on_fail = %=fail_task_dec_goodwill(25:killer) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_3) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_3)%
+on_cancel = %=fail_task_dec_goodwill(10:killer) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_3) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_3) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_3)%
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+precondition = {-merc_pri_grifon_mlr_task_3_done =sim_avail(pri_b304_monsters_smart_terrain) =smart_stayed_squad_count_ge_by_faction(pri_b304_monsters_smart_terrain:1:nil:false:monster)} true, false
+condlist_0 = {!sim_avail(pri_b304_monsters_smart_terrain)} reversed
+condlist_2 = {!task_giver_alive(merc_pri_grifon_mlr_task_3)} reversed
+
+quest_timeout = 86400
+
+[merc_pri_grifon_mlr_task_2]
+icon = ui_iconsTotal_artefact
+prior = 10
+storyline = false
+title = merc_pri_grifon_mlr_task_2_name
+title_functor = general_fetch_task
+descr = merc_pri_grifon_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = merc_pri_grifon_mlr_task_2_about
+fetch_descr = merc_pri_grifon_mlr_task_2_fetch_about
+fetch_func = %=drx_sl_setup_fetch_artefact(merc_pri_grifon_mlr_task_2_fetch:1:af_soul)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = merc_pri_grifon_mlr_task_2_fetch_finish
+on_complete = %=drx_sl_fetch_reward_money(merc_pri_grifon_mlr_task_2_fetch:1.4) =reward_stash(true) =pstor_reset(merc_pri_grifon_mlr_task_1) +merc_pri_grifon_mlr_task_2_done   =complete_task_inc_goodwill(50:killer) =remove_fetch_item(merc_pri_grifon_mlr_task_2_fetch) =inc_task_stage(merc_pri_grifon_mlr_task_2) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_2) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_2)%
+on_fail = %=pstor_reset(merc_pri_grifon_mlr_task_2) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_2) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_2)%
+on_cancel = %=pstor_reset(merc_pri_grifon_mlr_task_2) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_2) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_2)%
+on_reversed = %=pstor_reset(merc_pri_grifon_mlr_task_2) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_2) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_2)%
+condlist_0 = {!task_giver_alive(merc_pri_grifon_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+precondition = {-merc_pri_grifon_mlr_task_2_done} true, false
+
+[merc_pri_grifon_mlr_task_1]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = merc_pri_grifon_mlr_task_1_name
+title_functor = general_fetch_task
+descr = merc_pri_grifon_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = merc_pri_grifon_mlr_task_1_about
+fetch_descr = merc_pri_grifon_mlr_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(merc_pri_grifon_mlr_task_1_fetch:10:monolith_patch)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = merc_pri_grifon_mlr_task_1_fetch_finish
+on_complete = %=reward_random_item(medkit_elite:bandage_special) =reward_random_item(stimpack:bandage_special) =reward_random_money(6500:7000:dollars) =pstor_reset(merc_pri_grifon_mlr_task_1) +merc_pri_grifon_mlr_task_1_done =reward_stash(true)  =complete_task_inc_goodwill(50:ecolog) =remove_fetch_item(merc_pri_grifon_mlr_task_1_fetch) =inc_task_stage(merc_pri_grifon_mlr_task_1) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_1) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_1)%
+precondition = {-merc_pri_grifon_mlr_task_1_done} true, false
+on_fail = %=pstor_reset(merc_pri_grifon_mlr_task_1_fetch) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_1) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_1)%
+on_cancel = %=pstor_reset(merc_pri_grifon_mlr_task_1_fetch) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_1) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_1)%
+on_reversed = %=pstor_reset(merc_pri_grifon_mlr_task_1_fetch) =drx_sl_unregister_task_giver(merc_pri_grifon_mlr_task_1) =drx_sl_reset_stored_task(merc_pri_grifon_mlr_task_1)%
+condlist_0 = {!task_giver_alive(merc_pri_grifon_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+[zat_stancia_trader_merc_task_1]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = zat_stancia_trader_merc_task_1_name
+title_functor = general_fetch_task
+descr = zat_stancia_trader_merc_task_1_text
+descr_functor = general_fetch_task
+job_descr = zat_stancia_trader_merc_task_1_about
+fetch_descr = zat_stancia_trader_merc_task_1_fetch_about
+fetch_func = %=setup_supplies_fetch_task_patch(zat_stancia_trader_merc_task_1_fetch)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_stancia_trader_merc_task_1_fetch_finish
+precondition = true
+on_complete = %=complete_task_inc_goodwill(50:killer) =reward_stash(true) =drx_sl_fetch_reward_money(zat_stancia_trader_merc_task_1_fetch:2) =inc_task_stage(zat_stancia_trader_merc) =pstor_reset(zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(zat_stancia_trader_merc_task_1) =drx_sl_reset_stored_task(zat_stancia_trader_merc_task_1)%
+on_fail = %=pstor_reset(zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(zat_stancia_trader_merc_task_1) =drx_sl_reset_stored_task(zat_stancia_trader_merc_task_1)%
+on_cancel = %=pstor_reset(zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(zat_stancia_trader_merc_task_1) =drx_sl_reset_stored_task(zat_stancia_trader_merc_task_1)%
+on_reversed = %=pstor_reset(zat_stancia_trader_merc_task_1_fetch) =drx_sl_unregister_task_giver(zat_stancia_trader_merc_task_1) =drx_sl_reset_stored_task(zat_stancia_trader_merc_task_1)%
+condlist_0 = {!task_giver_alive(zat_stancia_trader_merc_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+[pri_monolith_teacher_mlr_task_2]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = pri_monolith_teacher_mlr_task_2_name
+title_functor = general_fetch_task
+descr = pri_monolith_teacher_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = pri_monolith_teacher_mlr_task_2_about
+fetch_descr = pri_monolith_teacher_mlr_task_2_fetch_about
+fetch_func = %=setup_supplies_fetch_task_patch(pri_monolith_teacher_mlr_task_2_fetch)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = pri_monolith_teacher_mlr_task_2_fetch_finish
+precondition = true
+on_complete = %=complete_task_inc_goodwill(50:monolith) =reward_stash(true) =reward_random_item(af_electra_moonlight:af_soul:af_fireball:af_vyvert:af_night_star) =remove_fetch_item(pri_monolith_teacher_mlr_task_2_fetch) =inc_task_stage(pri_monolith_teacher_mlr_task_2) =pstor_reset(pri_monolith_teacher_mlr_task_2_fetch) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_2) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_2)%
+on_fail = %=pstor_reset(pri_monolith_teacher_mlr_task_2_fetch) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_2) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_2)%
+on_cancel = %=pstor_reset(pri_monolith_teacher_mlr_task_2_fetch) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_2) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_2)%
+on_reversed = %=pstor_reset(pri_monolith_teacher_mlr_task_2_fetch) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_2) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_2)%
+condlist_0 = {!task_giver_alive(pri_monolith_teacher_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(monolith)} cancel
+
+[esc_3_16_military_trader_task_3]
+icon = ui_icons_kill_monster34
+prior = 25
+repeat_timeout = 259200
+storyline = false
+title = esc_3_16_military_trader_task_3_name
+descr = esc_3_16_military_trader_task_3_text
+job_descr = esc_3_16_military_trader_task_3_about
+task_complete_descr = esc_3_16_military_trader_task_3_finish
+status_functor = special_steps_for_mlr_tasks
+stage_complete = 1
+target_functor = task_targets_mlr_all
+on_init = %=create_squad(pseudodog_esc_3_16_military_trader_task_3:esc_smart_terrain_4_11)%
+on_complete = %-pseudodog_esc_3_16_military_trader_task_3_death %=reward_random_money(8000:8000:hrivni) =reward_stash(true) =inc_task_stage(esc_3_16_military_trader_task_3) =complete_task_inc_goodwill(50:army) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_3) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_3)%
+on_fail = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_3) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_3)%
+on_cancel = %=fail_task_dec_goodwill(10:army) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_3) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(esc_3_16_military_trader_task_3) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_3)%
+condlist_0 = {!task_giver_alive(esc_3_16_military_trader_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+precondition = true
+quest_timeout = 86400
+
+[esc_3_16_military_trader_task_2]
+icon = ui_icons_find_item35
+prior = 10
+storyline = false
+title = esc_3_16_military_trader_task_2_name
+title_functor = general_fetch_task
+descr = esc_3_16_military_trader_task_2_text
+descr_functor = general_fetch_task
+job_descr = esc_3_16_military_trader_task_2_about
+fetch_descr = esc_3_16_military_trader_task_2_fetch_about
+on_init = %=spawn_random_esc_3_16_military_trader_task_2%
+fetch_func = %=setup_generic_fetch_task(esc_3_16_military_trader_task_2_fetch:1:wpn_ak74_jurov)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_3_16_military_trader_task_2_fetch_finish
+on_complete = % =reward_random_money(5000:7000:roubles) +esc_3_16_military_trader_task_2_done =complete_task_inc_goodwill(50:army) =remove_fetch_item(esc_3_16_military_trader_task_2_fetch) =inc_task_stage(esc_3_16_military_trader_task_2) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_2) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_2)%
+precondition = {-esc_3_16_military_trader_task_2_done} true, false
+on_fail = %=pstor_reset(esc_3_16_military_trader_task_2_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_2) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_2)%
+on_cancel = %=pstor_reset(esc_3_16_military_trader_task_2_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_2) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_2)%
+on_reversed = %=pstor_reset(esc_3_16_military_trader_task_2_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_2) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_2)%
+condlist_0 = {!task_giver_alive(esc_3_16_military_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+quest_timeout = 86400
+
+[esc_3_16_military_trader_task_1]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = esc_3_16_military_trader_task_1_name
+title_functor = general_fetch_task
+descr = esc_3_16_military_trader_task_1_text
+descr_functor = general_fetch_task
+job_descr = esc_3_16_military_trader_task_1_about
+fetch_descr = esc_3_16_military_trader_task_1_fetch_about
+fetch_func = %=setup_supplies_fetch_task_patch(esc_3_16_military_trader_task_1_fetch)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = esc_3_16_military_trader_task_1_fetch_finish
+precondition = true
+on_complete = %=complete_task_inc_goodwill(50:army) =reward_stash(true) =reward_random_money(3000:4000:hrivni) =drx_sl_fetch_reward_money(esc_3_16_military_trader_task_1_fetch:2.5) =remove_fetch_item(esc_3_16_military_trader_task_1_fetch) =inc_task_stage(esc_3_16_military_trader_task_1) =pstor_reset(esc_3_16_military_trader_task_1_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_1) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_1)%
+on_fail = %=pstor_reset(esc_3_16_military_trader_task_1_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_1) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_1)%
+on_cancel = %=pstor_reset(esc_3_16_military_trader_task_1_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_1) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_1)%
+on_reversed = %=pstor_reset(esc_3_16_military_trader_task_1_fetch) =drx_sl_unregister_task_giver(esc_3_16_military_trader_task_1) =drx_sl_reset_stored_task(esc_3_16_military_trader_task_1)%
+condlist_0 = {!task_giver_alive(esc_3_16_military_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+[baraholka_trader_night_task_1]
+icon = ui_iconsTotal_artefact
+prior = 45
+storyline = false
+title = baraholka_trader_night_task_1_name
+title_functor = general_fetch_task
+descr = baraholka_trader_night_task_1_text
+descr_functor = general_fetch_task
+job_descr = baraholka_trader_night_task_1_about
+fetch_descr = baraholka_trader_night_task_1_fetch_about
+fetch_func = %=drx_sl_setup_fetch_artefact(baraholka_trader_night_task_1_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = baraholka_trader_night_task_1_fetch_finish
+precondition = true
+repeat_timeout = 518400
+on_complete = %=drx_sl_fetch_reward_money(baraholka_trader_night_task_1_fetch:1.4) =reward_stash(true) =pstor_reset(baraholka_trader_night_task_1_fetch) =complete_task_inc_goodwill(50:stalker)  =inc_task_stage(baraholka_trader_night_task_1) =drx_sl_unregister_task_giver(baraholka_trader_night_task_1) =drx_sl_reset_stored_task(baraholka_trader_night_task_1)%
+on_fail = %=fail_task_dec_goodwill(25:ecolog) =drx_sl_unregister_task_giver(baraholka_trader_night_task_1) =drx_sl_reset_stored_task(baraholka_trader_night_task_1)%
+on_cancel = %=fail_task_dec_goodwill(10:ecolog) =drx_sl_unregister_task_giver(baraholka_trader_night_task_1) =drx_sl_reset_stored_task(baraholka_trader_night_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(baraholka_trader_night_task_1) =drx_sl_reset_stored_task(baraholka_trader_night_task_1)%
+condlist_0 = {!task_giver_alive(baraholka_trader_night_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 518400
+
+[yan_stalker_sakharov_task_2]
+icon = ui_iconsTotal_artefact
+prior = 45
+storyline = false
+title = yan_stalker_sakharov_task_2_name
+title_functor = general_fetch_task
+descr = yan_stalker_sakharov_task_2_text
+descr_functor = general_fetch_task
+job_descr = yan_stalker_sakharov_task_2_about
+fetch_descr = yan_stalker_sakharov_task_2_fetch_about
+fetch_func = %=drx_sl_setup_fetch_artefact(yan_stalker_sakharov_task_2_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = yan_stalker_sakharov_task_2_fetch_finish
+precondition = true
+repeat_timeout = 259200
+on_complete = %=drx_sl_fetch_reward_money(yan_stalker_sakharov_task_2_fetch:1.5 =reward_stash(true) =complete_task_inc_goodwill(50:ecolog) =pstor_reset(yan_stalker_sakharov_task_2_fetch) =inc_task_stage(yan_stalker_sakharov_task_2) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_2) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:ecolog) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_2) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:ecolog) =drx_sl_unregister_task_giver(yan_stalker_sakharov_task_2) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(yan_stalker_sakharov_task_2) =drx_sl_reset_stored_task(yan_stalker_sakharov_task_2)%
+condlist_0 = {!task_giver_alive(yan_stalker_sakharov_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(ecolog)} cancel
+
+[bar_dolg_general_petrenko_stalker_task_4]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = bar_dolg_general_petrenko_stalker_task_4_name
+title_functor = general_fetch_task
+descr = bar_dolg_general_petrenko_stalker_task_4_text
+descr_functor = general_fetch_task
+job_descr = bar_dolg_general_petrenko_stalker_task_4_about
+fetch_descr = bar_dolg_general_petrenko_stalker_task_4_fetch_about
+fetch_func = %=setup_rare_mutant_fetch_task(bar_dolg_general_petrenko_stalker_task_4_fetch:1:2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = bar_dolg_general_petrenko_stalker_task_4_fetch_finish
+precondition = true
+on_complete = %=reward_stash(true) =drx_sl_fetch_reward_money(bar_dolg_general_petrenko_stalker_task_4_fetch:1.5) =complete_task_inc_goodwill(50:dolg) =remove_fetch_item(bar_dolg_general_petrenko_stalker_task_4_fetch) =inc_task_stage(bar_dolg_general_petrenko_stalker_task_4) =pstor_reset(bar_dolg_general_petrenko_stalker_task_4_fetch) =drx_sl_unregister_task_giver(bar_dolg_general_petrenko_stalker_task_4) =drx_sl_reset_stored_task(bar_dolg_general_petrenko_stalker_task_4)%
+on_fail = %=pstor_reset(bar_dolg_general_petrenko_stalker_task_4_fetch) =drx_sl_unregister_task_giver(bar_dolg_general_petrenko_stalker_task_4) =drx_sl_reset_stored_task(bar_dolg_general_petrenko_stalker_task_4)%
+on_cancel = %=pstor_reset(bar_dolg_general_petrenko_stalker_task_4_fetch) =drx_sl_unregister_task_giver(bar_dolg_general_petrenko_stalker_task_4) =drx_sl_reset_stored_task(bar_dolg_general_petrenko_stalker_task_4)%
+on_reversed = %=pstor_reset(bar_dolg_general_petrenko_stalker_task_4_fetch) =drx_sl_unregister_task_giver(bar_dolg_general_petrenko_stalker_task_4) =drx_sl_reset_stored_task(bar_dolg_general_petrenko_stalker_task_4)%
+condlist_0 = {!task_giver_alive(bar_dolg_general_petrenko_stalker_task_4)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+
+[killer_bridge_trader_mlr_task_1]
+icon = ui_icons_find_item35
+prior = 90
+repeat_timeout = 259200
+storyline = false
+title = killer_bridge_trader_mlr_task_1_name
+title_functor = general_fetch_task
+descr = killer_bridge_trader_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = killer_bridge_trader_mlr_task_1_about
+fetch_descr = killer_bridge_trader_mlr_task_1_fetch_about
+fetch_func = %=drx_sl_setup_fetch_weapon(killer_bridge_trader_mlr_task_1_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = killer_bridge_trader_mlr_task_1_fetch_finish
+precondition = true
+on_complete = %=complete_task_inc_goodwill(50:killer) =reward_stash(true) =drx_sl_fetch_reward_money(killer_bridge_trader_mlr_task_1_fetch:1.7) =remove_fetch_item(killer_bridge_trader_mlr_task_1_fetch) =inc_task_stage(killer_bridge_trader_mlr_task_1) =pstor_reset(killer_bridge_trader_mlr_task_1_fetch) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_1) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_1)%
+on_fail = %=pstor_reset(killer_bridge_trader_mlr_task_1_fetch) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_1) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_1)%
+on_cancel = %=pstor_reset(killer_bridge_trader_mlr_task_1_fetch) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_1) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_1)%
+on_reversed = %=pstor_reset(killer_bridge_trader_mlr_task_1_fetch) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_1) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_1)%
+condlist_0 = {!task_giver_alive(killer_bridge_trader_mlr_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+quest_timeout = 172800
+
+[killer_bridge_trader_mlr_task_2]
+icon = ui_iconsTotal_artefact
+prior = 45
+storyline = false
+title = killer_bridge_trader_mlr_task_2_name
+title_functor = general_fetch_task
+descr = killer_bridge_trader_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = killer_bridge_trader_mlr_task_2_about
+fetch_descr = killer_bridge_trader_mlr_task_2_fetch_about
+fetch_func = %=drx_sl_setup_fetch_artefact(killer_bridge_trader_mlr_task_2_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = killer_bridge_trader_mlr_task_2_fetch_finish
+precondition = true
+repeat_timeout = 518400
+on_complete = %=drx_sl_fetch_reward_money(killer_bridge_trader_mlr_task_2_fetch:1.1) =pstor_reset(killer_bridge_trader_mlr_task_2_fetch) =complete_task_inc_goodwill(50:killer) =reward_random_item(toolkit_u:af_aac) =remove_fetch_item(killer_bridge_trader_mlr_task_2_fetch) =reward_stash(true) =inc_task_stage(killer_bridge_trader_mlr_task_2) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_2) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:killer) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_2) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:killer) =drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_2) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(killer_bridge_trader_mlr_task_2) =drx_sl_reset_stored_task(killer_bridge_trader_mlr_task_2)%
+condlist_0 = {!task_giver_alive(killer_bridge_trader_mlr_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(killer)} cancel
+
+quest_timeout = 518400
+
+[bar_visitors_barman_stalker_trader_task_1]
+icon = ui_iconsTotal_artefact
+storyline = false
+prior = 65
+repeat_timeout = 518400
+precondition = true
+
+title = bar_visitors_barman_stalker_trader_task_1_name
+title_functor = general_fetch_task
+descr = bar_visitors_barman_stalker_trader_task_1_text
+descr_functor = general_fetch_task
+job_descr = bar_visitors_barman_stalker_trader_task_1_about
+fetch_descr = bar_visitors_barman_stalker_trader_task_1_fetch_about
+task_complete_descr = bar_visitors_barman_stalker_trader_task_1_fetch_finish
+
+fetch_func = %=drx_sl_setup_fetch_artefact(bar_visitors_barman_stalker_trader_task_1_fetch:1:1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+on_complete = %=drx_sl_fetch_reward_money(bar_visitors_barman_stalker_trader_task_1_fetch:1.1) =reward_stash(true) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_fetch) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(bar_visitors_barman_stalker_trader_task_1) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_1) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_fetch) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_1) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(bar_visitors_barman_stalker_trader_task_1_fetch) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_1) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_1)%
+on_reversed = %=pstor_reset(bar_visitors_barman_stalker_trader_task_1_fetch) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_1) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_1)%
+condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+quest_timeout = 518400
+
+[bar_visitors_barman_stalker_trader_task_2]
+icon = ui_inGame2_Odin_vistrel
+prior = 35
+storyline = false
+title = bar_visitors_barman_stalker_trader_task_2_name
+descr = bar_visitors_barman_stalker_trader_task_2_text
+job_descr = bar_visitors_barman_stalker_trader_task_2_about
+task_complete_descr = bar_visitors_barman_stalker_trader_task_2_finish
+repeat_timeout = 259200
+status_functor = bounty_task
+target_functor = general_bounty_task
+stage_complete = 1
+on_init = %=drx_sl_setup_bounty_hunt(bar_visitors_barman_stalker_trader_task_2:stalker)%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_stash(true) =inc_task_stage(bar_visitors_barman_stalker_trader_task_2) =complete_task_inc_goodwill(50:stalker) =complete_task_inc_goodwill(50:dolg) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_2) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_2)%
+precondition = {=check_available_targets(stalker)} true, false
+on_fail = %=fail_task_dec_goodwill(50:stalker) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_2) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_2)%
+on_cancel = %=fail_task_dec_goodwill(15:stalker) =drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_2) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(bar_visitors_barman_stalker_trader_task_2) =drx_sl_reset_stored_task(bar_visitors_barman_stalker_trader_task_2)%
+condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+type = bounty
+quest_timeout = 172800
+
+[bar_visitors_barman_stalker_trader_task_3]
+icon = ui_icons_kill_monster34
+prior = 35
+storyline = false
+type = assault
+repeat_timeout = 259200
+title = bar_visitors_barman_stalker_trader_task_3_name
+descr = bar_visitors_barman_stalker_trader_task_3_text
+job_descr = bar_visitors_barman_stalker_trader_task_3_about
+task_complete_descr = bar_visitors_barman_stalker_trader_task_3_finish
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monster
+condlist_0 = {!task_giver_alive(bar_visitors_barman_stalker_trader_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(dolg)} cancel
+on_init = %=find_smart_under_faction_control(bar_visitors_barman_stalker_trader_task_3_id:monster)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monster)} true, false
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:stalker) =reward_random_money(8000:9000:hrivni) =reward_stash(true) =inc_task_stage(bar_visitors_barman_stalker_trader_task_3) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_target_id)%
+on_fail = %=pstor_reset(bar_visitors_barman_stalker_trader_task_3_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_target_id) =fail_task_dec_goodwill(50:stalker)%
+on_cancel = %=pstor_reset(bar_visitors_barman_stalker_trader_task_3_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_target_id) =fail_task_dec_goodwill(15:stalker)%
+on_reversed = %=pstor_reset(bar_visitors_barman_stalker_trader_task_3_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_target_id)%
+on_cancel = %=pstor_reset(bar_visitors_barman_stalker_trader_task_3_id) =pstor_reset(bar_visitors_barman_stalker_trader_task_3_target_id)%
+quest_timeout = 86400
+
+[pri_monolith_teacher_mlr_task_1]
+icon = ui_icons_base_attack24
+prior = 35
+storyline = false
+type = assault
+title = pri_monolith_teacher_mlr_task_1_name
+descr = pri_monolith_teacher_mlr_task_1_text
+job_descr = pri_monolith_teacher_mlr_task_1_about
+task_complete_descr = pri_monolith_teacher_mlr_task_1_finish
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, army, freedom, dolg, killer, bandit
+on_init = %=find_smart_under_faction_control_ex(pri_monolith_teacher_mlr_task_1_id:stalker:army:freedom:dolg:killer:bandit)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_ex(1:nil:false:stalker:army:freedom:dolg:killer:bandit)} true, false
+repeat_timeout = 259200
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:monolith) =reward_random_money(11000:12000:roubles) =reward_stash(true) =inc_task_stage(pri_monolith_teacher_mlr_task_1) =pstor_reset(pri_monolith_teacher_mlr_task_1_id) =pstor_reset(pri_monolith_teacher_mlr_task_1_target_id)  =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_1) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_1)%
+on_fail = %=pstor_reset(pri_monolith_teacher_mlr_task_1_1_id) =pstor_reset(pri_monolith_teacher_mlr_task_1_target_id) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_1) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_1)%
+on_cancel = %=pstor_reset(pri_monolith_teacher_mlr_task_1_1_id) =pstor_reset(pri_monolith_teacher_mlr_task_1_target_id) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_1) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_1)%
+on_reversed = %=pstor_reset(pri_monolith_teacher_mlr_task_1_1_id) =pstor_reset(pri_monolith_teacher_mlr_task_1_target_id) =drx_sl_unregister_task_giver(pri_monolith_teacher_mlr_task_1) =drx_sl_reset_stored_task(pri_monolith_teacher_mlr_task_1)%
+type = assault
+
+[hunter_gar_trader_task_1]
+icon = ui_icons_kill_monster34
+prior = 35
+storyline = false
+repeat_timeout = 259200
+title = hunter_gar_trader_task_1_name
+descr = hunter_gar_trader_task_1_text
+job_descr = hunter_gar_trader_task_1_about
+task_complete_descr = hunter_gar_trader_task_1_finish
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = monster
+on_init = %=find_smart_under_faction_control(hunter_gar_trader_task_1_id:monster)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:monster)} true, false
+stage_complete = 1
+on_complete = %=complete_task_inc_goodwill(50:stalker) =reward_random_money(9000:10000:hrivni) =reward_stash(true) =inc_task_stage(hunter_gar_trader_task_1) =pstor_reset(hunter_gar_trader_task_1_id) =pstor_reset(hunter_gar_trader_task_1_target_id) =drx_sl_unregister_task_giver(hunter_gar_trader_task_1) =drx_sl_reset_stored_task(hunter_gar_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(hunter_gar_trader_task_1_id) =pstor_reset(hunter_gar_trader_task_1_target_id) =drx_sl_unregister_task_giver(hunter_gar_trader_task_1) =drx_sl_reset_stored_task(hunter_gar_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =pstor_reset(hunter_gar_trader_task_1_id) =pstor_reset(hunter_gar_trader_task_1_target_id) =drx_sl_unregister_task_giver(hunter_gar_trader_task_1) =drx_sl_reset_stored_task(hunter_gar_trader_task_1)%
+on_reversed = %=pstor_reset(hunter_gar_trader_task_1_id) =pstor_reset(hunter_gar_trader_task_1_target_id) =drx_sl_unregister_task_giver(hunter_gar_trader_task_1) =drx_sl_reset_stored_task(hunter_gar_trader_task_1)%
+condlist_0 = {!task_giver_alive(hunter_gar_trader_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+type = assault
+
+;-----------------------------------------------------------------------------------
+; FIND LEVEL 1 TOOLKIT FOR MONOLITH MLR TASK
+;-----------------------------------------------------------------------------------
+[mechanic_monolith_kbo_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_kbo_task_1_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_kbo_task_1_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_kbo_task_1_about
+fetch_descr = mechanic_monolith_kbo_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_kbo_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_kbo_task_1_fetch_finish
+on_complete = %+mechanic_monolith_kbo_upgrade_tier_1 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_kbo_task_1_fetch) =inc_task_stage(mechanic_monolith_kbo_task_1) =drx_sl_unregister_task_giver(mechanic_monolith_kbo_task_1)%
+precondition = {-mechanic_monolith_kbo_upgrade_tier_1} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 2 TOOLKIT FOR MONOLITH MLR TASK-
+
+[mechanic_monolith_kbo_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_kbo_task_2_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_kbo_task_2_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_kbo_task_2_about
+fetch_descr = mechanic_monolith_kbo_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_kbo_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_kbo_task_2_fetch_finish
+on_complete = %+mechanic_monolith_kbo_upgrade_tier_2 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_kbo_task_2_fetch) =inc_task_stage(mechanic_monolith_kbo_task_2) =drx_sl_unregister_task_giver(mechanic_monolith_kbo_task_2)%
+precondition = {+mechanic_monolith_kbo_upgrade_tier_1 -mechanic_monolith_kbo_upgrade_tier_2} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 3 TOOLKIT FOR MONOLITH MLR TASK-
+
+[mechanic_monolith_kbo_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_kbo_task_3_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_kbo_task_3_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_kbo_task_3_about
+fetch_descr = mechanic_monolith_kbo_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_kbo_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_kbo_task_3_fetch_finish
+on_complete = %+mechanic_monolith_kbo_upgrade_tier_3 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_kbo_task_3_fetch) =inc_task_stage(mechanic_monolith_kbo_task_3) =drx_sl_unregister_task_giver(mechanic_monolith_kbo_task_3)%
+precondition = {+mechanic_monolith_kbo_upgrade_tier_2 -mechanic_monolith_kbo_upgrade_tier_3} true, false
+
+[jup_b19_freedom_yar_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = jup_b19_freedom_yar_task_2_name
+title_functor = general_fetch_task
+descr = jup_b19_freedom_yar_task_2_text
+descr_functor = general_fetch_task
+job_descr = jup_b19_freedom_yar_task_2_about
+fetch_descr = jup_b19_freedom_yar_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(jup_b19_freedom_yar_task_2_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_b19_freedom_yar_task_2_fetch_finish
+on_complete = %+jup_b19_freedom_yar_upgrade_tier_1 =complete_task_inc_goodwill(50:freedom) =remove_fetch_item(jup_b19_freedom_yar_task_2_fetch) =inc_task_stage(jup_b19_freedom_yar_task_2)%
+precondition = {-jup_b19_freedom_yar_upgrade_tier_1} true, false
+
+[jup_b19_freedom_yar_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = jup_b19_freedom_yar_task_3_name
+title_functor = general_fetch_task
+descr = jup_b19_freedom_yar_task_3_text
+descr_functor = general_fetch_task
+job_descr = jup_b19_freedom_yar_task_3_about
+fetch_descr = jup_b19_freedom_yar_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(jup_b19_freedom_yar_task_3_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_b19_freedom_yar_task_3_fetch_finish
+on_complete = %+jup_b19_freedom_yar_upgrade_tier_2 =complete_task_inc_goodwill(50:freedom) =remove_fetch_item(jup_b19_freedom_yar_task_3_fetch) =inc_task_stage(jup_b19_freedom_yar_task_3)%
+precondition = {+jup_b19_freedom_yar_upgrade_tier_1 -jup_b19_freedom_yar_upgrade_tier_2} true, false
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 1 TOOLKIT FOR MONOLITH MLR2 TASK-
+
+[mechanic_monolith_jup_depo_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_jup_depo_task_1_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_jup_depo_task_1_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_jup_depo_task_1_about
+fetch_descr = mechanic_monolith_jup_depo_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_jup_depo_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_jup_depo_task_1_fetch_finish
+on_complete = %+mechanic_monolith_jup_depo_upgrade_tier_1 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_jup_depo_task_1_fetch) =inc_task_stage(mechanic_monolith_jup_depo_task_1) =drx_sl_unregister_task_giver(mechanic_monolith_jup_depo_task_1)%
+precondition = {-mechanic_monolith_jup_depo_upgrade_tier_1} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 2 TOOLKIT FOR MONOLITH MLR2 TASK-
+
+[mechanic_monolith_jup_depo_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_jup_depo_task_2_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_jup_depo_task_2_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_jup_depo_task_2_about
+fetch_descr = mechanic_monolith_jup_depo_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_jup_depo_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_jup_depo_task_2_fetch_finish
+on_complete = %+mechanic_monolith_jup_depo_upgrade_tier_2 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_jup_depo_task_2_fetch) =inc_task_stage(mechanic_monolith_jup_depo_task_2) =drx_sl_unregister_task_giver(mechanic_monolith_jup_depo_task_2)%
+precondition = {+mechanic_monolith_jup_depo_upgrade_tier_1 -mechanic_monolith_jup_depo_upgrade_tier_2} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 3 TOOLKIT FOR MONOLITH MLR2 TASK-
+
+[mechanic_monolith_jup_depo_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = mechanic_monolith_jup_depo_task_3_name
+title_functor = general_fetch_task
+descr = mechanic_monolith_jup_depo_task_3_text
+descr_functor = general_fetch_task
+job_descr = mechanic_monolith_jup_depo_task_3_about
+fetch_descr = mechanic_monolith_jup_depo_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(mechanic_monolith_jup_depo_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = mechanic_monolith_jup_depo_task_3_fetch_finish
+on_complete = %+mechanic_monolith_jup_depo_upgrade_tier_3 =complete_task_inc_goodwill(50:monolith) =remove_fetch_item(mechanic_monolith_jup_depo_task_3_fetch) =inc_task_stage(mechanic_monolith_jup_depo_task_3) =drx_sl_unregister_task_giver(mechanic_monolith_jup_depo_task_3)%
+precondition = {+mechanic_monolith_jup_depo_upgrade_tier_2 -mechanic_monolith_jup_depo_upgrade_tier_3} true, false
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 1 TOOLKIT FOR BANDIT MLR TASK-
+
+[trucks_cemetery_bandit_mechanic_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = trucks_cemetery_bandit_mechanic_task_1_name
+title_functor = general_fetch_task
+descr = trucks_cemetery_bandit_mechanic_task_1_text
+descr_functor = general_fetch_task
+job_descr = trucks_cemetery_bandit_mechanic_task_1_about
+fetch_descr = trucks_cemetery_bandit_mechanic_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(trucks_cemetery_bandit_mechanic_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = trucks_cemetery_bandit_mechanic_task_1_fetch_finish
+on_complete = %+trucks_cemetery_bandit_mechanic_upgrade_tier_1 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(trucks_cemetery_bandit_mechanic_task_1_fetch) =inc_task_stage(trucks_cemetery_bandit_mechanic_task_1) =drx_sl_unregister_task_giver(trucks_cemetery_bandit_mechanic_task_1)%
+precondition = {-trucks_cemetery_bandit_mechanic_upgrade_tier_1} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 2 TOOLKIT FOR BANDIT MLR TASK-
+
+[trucks_cemetery_bandit_mechanic_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = trucks_cemetery_bandit_mechanic_task_2_name
+title_functor = general_fetch_task
+descr = trucks_cemetery_bandit_mechanic_task_2_text
+descr_functor = general_fetch_task
+job_descr = trucks_cemetery_bandit_mechanic_task_2_about
+fetch_descr = trucks_cemetery_bandit_mechanic_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(trucks_cemetery_bandit_mechanic_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = trucks_cemetery_bandit_mechanic_task_2_fetch_finish
+on_complete = %+trucks_cemetery_bandit_mechanic_upgrade_tier_2 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(trucks_cemetery_bandit_mechanic_task_2_fetch) =inc_task_stage(trucks_cemetery_bandit_mechanic_task_2) =drx_sl_unregister_task_giver(trucks_cemetery_bandit_mechanic_task_2)%
+precondition = {+trucks_cemetery_bandit_mechanic_upgrade_tier_1 -trucks_cemetery_bandit_mechanic_upgrade_tier_2} true, false
+
+
+;------------------------------------------------------------------------------------------
+; FIND LEVEL 3 TOOLKIT FOR BANDIT MLR TASK-
+
+[trucks_cemetery_bandit_mechanic_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = trucks_cemetery_bandit_mechanic_task_3_name
+title_functor = general_fetch_task
+descr = trucks_cemetery_bandit_mechanic_task_3_text
+descr_functor = general_fetch_task
+job_descr = trucks_cemetery_bandit_mechanic_task_3_about
+fetch_descr = trucks_cemetery_bandit_mechanic_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(trucks_cemetery_bandit_mechanic_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = trucks_cemetery_bandit_mechanic_task_3_fetch_finish
+on_complete = %=reward_random_money(4000:4000) +trucks_cemetery_bandit_mechanic_upgrade_tier_3 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(trucks_cemetery_bandit_mechanic_task_3_fetch) =inc_task_stage(trucks_cemetery_bandit_mechanic_task_3) =drx_sl_unregister_task_giver(trucks_cemetery_bandit_mechanic_task_3)%
+precondition = {+trucks_cemetery_bandit_mechanic_upgrade_tier_2 -trucks_cemetery_bandit_mechanic_upgrade_tier_3} true, false
+
+[army_south_mechan_mlr_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = army_south_mechan_mlr_task_1_name
+title_functor = general_fetch_task
+descr = army_south_mechan_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = army_south_mechan_mlr_task_1_about
+fetch_descr = army_south_mechan_mlr_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(army_south_mechan_mlr_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = army_south_mechan_mlr_task_1_fetch_finish
+on_complete = %+army_south_mechan_mlr_upgrade_tier_1 =complete_task_inc_goodwill(50:army) =remove_fetch_item(army_south_mechan_mlr_task_1_fetch) =inc_task_stage(army_south_mechan_mlr_task_1) =drx_sl_unregister_task_giver(army_south_mechan_mlr_task_1)%
+precondition = {-army_south_mechan_mlr_upgrade_tier_1} true, false
+
+[army_south_mechan_mlr_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = army_south_mechan_mlr_task_2_name
+title_functor = general_fetch_task
+descr = army_south_mechan_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = army_south_mechan_mlr_task_2_about
+fetch_descr = army_south_mechan_mlr_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(army_south_mechan_mlr_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = army_south_mechan_mlr_task_2_fetch_finish
+on_complete = %+army_south_mechan_mlr_upgrade_tier_2 =complete_task_inc_goodwill(50:army) =remove_fetch_item(army_south_mechan_mlr_task_2_fetch) =inc_task_stage(army_south_mechan_mlr_task_2) =drx_sl_unregister_task_giver(army_south_mechan_mlr_task_2)%
+precondition = {+army_south_mechan_mlr_upgrade_tier_1 -army_south_mechan_mlr_upgrade_tier_2} true, false
+
+[army_south_mechan_mlr_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = army_south_mechan_mlr_task_3_name
+title_functor = general_fetch_task
+descr = army_south_mechan_mlr_task_3_text
+descr_functor = general_fetch_task
+job_descr = army_south_mechan_mlr_task_3_about
+fetch_descr = army_south_mechan_mlr_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(army_south_mechan_mlr_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = army_south_mechan_mlr_task_3_fetch_finish
+on_complete = %+army_south_mechan_mlr_upgrade_tier_3 =complete_task_inc_goodwill(50:army) =remove_fetch_item(army_south_mechan_mlr_task_3_fetch) =inc_task_stage(army_south_mechan_mlr_task_3) =drx_sl_unregister_task_giver(army_south_mechan_mlr_task_3)%
+precondition = {+army_south_mechan_mlr_upgrade_tier_2 -army_south_mechan_mlr_upgrade_tier_3} true, false
+
+[zat_stancia_mech_merc_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = zat_stancia_mech_merc_task_1_name
+title_functor = general_fetch_task
+descr = zat_stancia_mech_merc_task_1_text
+descr_functor = general_fetch_task
+job_descr = zat_stancia_mech_merc_task_1_about
+fetch_descr = zat_stancia_mech_merc_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(zat_stancia_mech_merc_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_stancia_mech_merc_task_1_fetch_finish
+on_complete = %+zat_stancia_mech_merc_upgrade_tier_1 =complete_task_inc_goodwill(50:killer) =remove_fetch_item(zat_stancia_mech_merc_task_1_fetch) =inc_task_stage(zat_stancia_mech_merc_task_1) =drx_sl_unregister_task_giver(zat_stancia_mech_merc_task_1)%
+precondition = {-zat_stancia_mech_merc_upgrade_tier_1} true, false
+
+[zat_stancia_mech_merc_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = zat_stancia_mech_merc_task_2_name
+title_functor = general_fetch_task
+descr = zat_stancia_mech_merc_task_2_text
+descr_functor = general_fetch_task
+job_descr = zat_stancia_mech_merc_task_2_about
+fetch_descr = zat_stancia_mech_merc_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(zat_stancia_mech_merc_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_stancia_mech_merc_task_2_fetch_finish
+on_complete = %+zat_stancia_mech_merc_upgrade_tier_2 =complete_task_inc_goodwill(50:killer) =remove_fetch_item(zat_stancia_mech_merc_task_2_fetch) =inc_task_stage(zat_stancia_mech_merc_task_2) =drx_sl_unregister_task_giver(zat_stancia_mech_merc_task_2)%
+precondition = {+zat_stancia_mech_merc_upgrade_tier_1 -zat_stancia_mech_merc_upgrade_tier_2} true, false
+
+[zat_stancia_mech_merc_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = zat_stancia_mech_merc_task_3_name
+title_functor = general_fetch_task
+descr = zat_stancia_mech_merc_task_3_text
+descr_functor = general_fetch_task
+job_descr = zat_stancia_mech_merc_task_3_about
+fetch_descr = zat_stancia_mech_merc_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(zat_stancia_mech_merc_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = zat_stancia_mech_merc_task_3_fetch_finish
+on_complete = %+zat_stancia_mech_merc_upgrade_tier_3 =complete_task_inc_goodwill(50:killer) =remove_fetch_item(zat_stancia_mech_merc_task_3_fetch) =inc_task_stage(zat_stancia_mech_merc_task_3) =drx_sl_unregister_task_giver(zat_stancia_mech_merc_task_3)%
+precondition = {+zat_stancia_mech_merc_upgrade_tier_2 -zat_stancia_mech_merc_upgrade_tier_3} true, false
+
+[jup_cont_mech_bandit_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = jup_cont_mech_bandit_task_1_name
+title_functor = general_fetch_task
+descr = jup_cont_mech_bandit_task_1_text
+descr_functor = general_fetch_task
+job_descr = jup_cont_mech_bandit_task_1_about
+fetch_descr = jup_cont_mech_bandit_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(jup_cont_mech_bandit_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_cont_mech_bandit_task_1_fetch_finish
+on_complete = %+jup_cont_mech_bandit_upgrade_tier_1 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(jup_cont_mech_bandit_task_1_fetch) =inc_task_stage(jup_cont_mech_bandit_task_1) =drx_sl_unregister_task_giver(jup_cont_mech_bandit_task_1)%
+precondition = {-jup_cont_mech_bandit_upgrade_tier_1} true, false
+
+[jup_cont_mech_bandit_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = jup_cont_mech_bandit_task_2_name
+title_functor = general_fetch_task
+descr = jup_cont_mech_bandit_task_2_text
+descr_functor = general_fetch_task
+job_descr = jup_cont_mech_bandit_task_2_about
+fetch_descr = jup_cont_mech_bandit_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(jup_cont_mech_bandit_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_cont_mech_bandit_task_2_fetch_finish
+on_complete = %+jup_cont_mech_bandit_upgrade_tier_2 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(jup_cont_mech_bandit_task_2_fetch) =inc_task_stage(jup_cont_mech_bandit_task_2) =drx_sl_unregister_task_giver(jup_cont_mech_bandit_task_2)%
+precondition = {+jup_cont_mech_bandit_upgrade_tier_1 -jup_cont_mech_bandit_upgrade_tier_2} true, false
+
+[jup_cont_mech_bandit_task_3]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = jup_cont_mech_bandit_task_3_name
+title_functor = general_fetch_task
+descr = jup_cont_mech_bandit_task_3_text
+descr_functor = general_fetch_task
+job_descr = jup_cont_mech_bandit_task_3_about
+fetch_descr = jup_cont_mech_bandit_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(jup_cont_mech_bandit_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = jup_cont_mech_bandit_task_3_fetch_finish
+on_complete = %+jup_cont_mech_bandit_upgrade_tier_3 =complete_task_inc_goodwill(50:bandit) =remove_fetch_item(jup_cont_mech_bandit_task_3_fetch) =inc_task_stage(jup_cont_mech_bandit_task_3) =drx_sl_unregister_task_giver(jup_cont_mech_bandit_task_3)%
+precondition = {+jup_cont_mech_bandit_upgrade_tier_2 -jup_cont_mech_bandit_upgrade_tier_3} true, false
+
+[merc_pri_a18_mech_mlr_task_1]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = merc_pri_a18_mech_mlr_task_1_name
+title_functor = general_fetch_task
+descr = merc_pri_a18_mech_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = merc_pri_a18_mech_mlr_task_1_about
+fetch_descr = merc_pri_a18_mech_mlr_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(merc_pri_a18_mech_mlr_task_1_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = merc_pri_a18_mech_mlr_task_1_fetch_finish
+on_complete = %+merc_pri_a18_mech_mlr_upgrade_tier_1 =complete_task_inc_goodwill(50:killer) =remove_fetch_item(merc_pri_a18_mech_mlr_task_1_fetch) =inc_task_stage(merc_pri_a18_mech_mlr_task_1) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_1)%
+precondition = {-merc_pri_a18_mech_mlr_upgrade_tier_1} true, false
+
+[merc_pri_a18_mech_mlr_task_2]
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = merc_pri_a18_mech_mlr_task_2_name
+title_functor = general_fetch_task
+descr = merc_pri_a18_mech_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = merc_pri_a18_mech_mlr_task_2_about
+fetch_descr = merc_pri_a18_mech_mlr_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(merc_pri_a18_mech_mlr_task_2_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = merc_pri_a18_mech_mlr_task_2_fetch_finish
+on_complete = %+merc_pri_a18_mech_mlr_upgrade_tier_2 =reward_random_money(9500:15500) =complete_task_inc_goodwill(50:killer) =remove_fetch_item(merc_pri_a18_mech_mlr_task_2_fetch) =inc_task_stage(merc_pri_a18_mech_mlr_task_2) =drx_sl_unregister_task_giver(merc_pri_a18_mech_mlr_task_2)%
+precondition = {+merc_pri_a18_mech_mlr_upgrade_tier_1 -merc_pri_a18_mech_mlr_upgrade_tier_2} true, false
+
+[dasc_tech_mlr_task_1]
+precondition = {-dasc_tech_mlr_upgrade_tier_1} true, false
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = dasc_tech_mlr_task_1_name
+title_functor = general_fetch_task
+descr = dasc_tech_mlr_task_1_text
+descr_functor = general_fetch_task
+job_descr = dasc_tech_mlr_task_1_about
+fetch_descr = dasc_tech_mlr_task_1_fetch_about
+fetch_func = %=setup_generic_fetch_task(dasc_tech_mlr_task_1_fetch:1:itm_repairkit_tier_1)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = dasc_tech_mlr_task_1_fetch_finish
+on_complete = %+dasc_tech_mlr_upgrade_tier_1 =complete_task_inc_goodwill(50:stalker) =reward_random_money(7500:9500) =remove_fetch_item(dasc_tech_mlr_task_1_fetch) =inc_task_stage(dasc_tech_mlr_task_1) =drx_sl_unregister_task_giver(dasc_tech_mlr_task_1)% 
+precondition = {-dasc_tech_mlr_upgrade_tier_1} true, false
+
+[dasc_tech_mlr_task_2]
+precondition = {+dasc_tech_mlr_upgrade_tier_1 -dasc_tech_mlr_upgrade_tier_2} true, false
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = dasc_tech_mlr_task_2_name
+title_functor = general_fetch_task
+descr = dasc_tech_mlr_task_2_text
+descr_functor = general_fetch_task
+job_descr = dasc_tech_mlr_task_2_about
+fetch_descr = dasc_tech_mlr_task_2_fetch_about
+fetch_func = %=setup_generic_fetch_task(dasc_tech_mlr_task_2_fetch:1:itm_repairkit_tier_2)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = dasc_tech_mlr_task_2_fetch_finish
+on_complete = %+dasc_tech_mlr_upgrade_tier_2 =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(dasc_tech_mlr_task_2_fetch) =inc_task_stage(dasc_tech_mlr_task_2) =drx_sl_unregister_task_giver(dasc_tech_mlr_task_2)%
+precondition = {+dasc_tech_mlr_upgrade_tier_1 -dasc_tech_mlr_upgrade_tier_2} true, false
+
+[dasc_tech_mlr_task_3]
+precondition = {+dasc_tech_mlr_upgrade_tier_2 -dasc_tech_mlr_upgrade_tier_3} true, false
+icon = ui_inGame2_Instrumenti
+prior = 10
+storyline = false
+title = dasc_tech_mlr_task_3_name
+title_functor = general_fetch_task
+descr = dasc_tech_mlr_task_3_text
+descr_functor = general_fetch_task
+job_descr = dasc_tech_mlr_task_3_about
+fetch_descr = dasc_tech_mlr_task_3_fetch_about
+fetch_func = %=setup_generic_fetch_task(dasc_tech_mlr_task_3_fetch:1:itm_repairkit_tier_3)%
+stage_complete = 1
+status_functor = actor_has_fetch_item
+target_functor = general_fetch_task
+task_complete_descr = dasc_tech_mlr_task_3_fetch_finish
+on_complete = %+dasc_tech_mlr_upgrade_tier_3 =complete_task_inc_goodwill(50:stalker) =remove_fetch_item(dasc_tech_mlr_task_3_fetch) =inc_task_stage(dasc_tech_mlr_task_3) =drx_sl_unregister_task_giver(dasc_tech_mlr_task_3)%
+precondition = {+dasc_tech_mlr_upgrade_tier_2 -dasc_tech_mlr_upgrade_tier_3} true, false

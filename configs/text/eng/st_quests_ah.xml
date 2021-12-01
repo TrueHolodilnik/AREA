@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="kovalev_name">
+		<text>Assistant Kovalev</text>
+ 	</string>
+
+	<string id="markov_name">
+		<text>Professor Markov</text>
+ 	</string>
+
+	<string id="pirogov_name">
+		<text>Candidate Pirogov</text>
+ 	</string>
+
+	<string id="chernov_name">
+		<text>Senior Researcher Chernov</text>
+ 	</string>
+
+	<string id="juk_name">
+		<text>Professor Vladislav Zhuk</text>
+ 	</string>
+
+	<string id="vorobushkin_name">
+		<text>Professor Vorobushkin</text>
+ 	</string>
+
+	<string id="skabinsky_name">
+		<text>Academician Skabinsky</text>
+ 	</string>
+
+	<string id="sarik_name">
+		<text>Sarik Twilight</text>
+ 	</string>
+
+    <string id="ah_ecolog">
+        <text>Researchers</text>
+    </string>
+
+    <string id="Quest1_desc">
+        <text>Job Description</text>
+    </string>
+    <string id="Quest1_title">
+        <text>Title of the first job</text>
+    </string>
+	
+    <string id="ah_redirect_to_kovalev_quest_title">
+        <text>Researchers: Find Kovalev's assistant.</text>
+    </string>
+    <string id="ah_redirect_to_kovalev_quest_desc">
+        <text>Find scientist Kovalev, who is on the marshes.</text>
+    </string>
+
+    <string id="ah_redirect_to_markov_quest_title">
+        <text>Researchers: Find Associate Professor Markov</text>
+    </string>
+    <string id="ah_redirect_to_markov_quest_desc">
+        <text>My help is needed by Associate Professor Markov, who is near the scientists' base on Amber.</text>
+    </string>
+
+    <string id="ah_redirect_to_pirogov_quest_title">
+        <text>Researchers: Find candidate Pirogov</text>
+    </string>
+    <string id="ah_redirect_to_pirogov_quest_desc">
+        <text>Candidate of Sciences Pirogov needs my help in finding the artifacts. He's in the Dark Valley now.</text>
+    </string>
+
+    <string id="ah_redirect_to_chernov_quest_title">
+        <text>Researchers: Find employee Chernov</text>
+    </string>
+    <string id="ah_redirect_to_chernov_quest_desc">
+        <text>Find a senior researcher Chernov, who is in one of the abandoned houses near the military warehouses.</text>
+    </string>
+
+    <string id="ah_redirect_to_juk_quest_title">
+        <text>Researchers: Find Professor Zhuk</text>
+    </string>
+    <string id="ah_redirect_to_juk_quest_desc">
+        <text>Professor Vladislav Zhuk needs my help. I can find him somewhere near the Yanov station, on Jupiter.</text>
+    </string>	
+
+    <string id="ah_redirect_to_vorobushkin_quest_title">
+        <text>Researchers: Find Associate Professor Vorobushkin</text>
+    </string>
+    <string id="ah_redirect_to_vorobushkin_quest_desc">
+        <text>Associate Professor Vorobushka is somewhere on Zaton. I need to find him to continue helping the research team.</text>
+    </string>	
+
+    <string id="ah_redirect_to_skabinsky_quest_title">
+        <text>Researchers: Find Academician Skabinsky</text>
+    </string>
+    <string id="ah_redirect_to_skabinsky_quest_desc">
+        <text>Academician Skabinsky advanced to the giga-anomaly meeting. Now he is probably somewhere in the northern part of the Chernobyl NPP. I don't know how he managed to get there, but I need to find him.</text>
+    </string>		
+
+    <string id="ah_fail_skabinsky_quest_title">
+        <text>Researchers: Find Academician Skabinsky</text>
+    </string>
+    <string id="ah_fail_skabinsky_quest_desc">
+        <text>The calculations are not accurate, but the attempt is not torture. Scabinsky thinks their research led to the anomaly of the Ashes. Find him there to see if he needs help.</text>
+    </string>	
+	
+    <string id="ah_kovalev_quest1_title">
+        <text>Researchers: Bring Kovalev three anomalous samples</text>
+    </string>
+    <string id="ah_kovalev_quest1_desc">
+        <text>A team of researchers is searching for anomalous formations in the swamps. Assistant Kovalev asked me to look for three samples.</text>
+    </string>	
+    <string id="ah_bol_o1_title">
+        <text>Find the artifact in the anomaly Lower Ash</text>
+    </string>
+    <string id="ah_bol_o1_desc">
+        <text>One of the samples is in the Lower Ashes anomaly.</text>
+    </string>		
+	<string id="ah_bol_o2_title">
+        <text>Find the artifact in the anomaly Swamp Dissolution</text>
+    </string>
+    <string id="ah_bol_o2_desc">
+        <text>One of the samples is in an anomaly Swampy Decay.</text>
+    </string>		
+	<string id="ah_bol_g1_title">
+        <text>Find the artifact in the anomaly of the Western Thaw.</text>
+    </string>
+    <string id="ah_bol_g1_desc">
+        <text>One of the samples is in the Western Fog anomaly.</text>
+    </string>		
+	
+	<string id="ah_bol_e1_title">
+        <text>Find the artifact in the anomaly Clearance.</text>
+    </string>
+    <string id="ah_bol_e1_desc">
+        <text>One of the samples is in the anomaly of the arrester.</text>
+    </string>	
+
+    <string id="ah_kovalev_quest2_title">
+        <text>Researchers: Find out why the Dubrov group isn't getting in touch.</text>
+    </string>
+    <string id="ah_kovalev_quest2_desc">
+        <text>Location of the bearing of the Dubrov laptop.</text>
+    </string>	
+    <string id="ah_agr_pda_title">
+        <text>Get to the bearing</text>
+    </string>
+    <string id="ah_agr_pda_desc">
+        <text>Find out why the Dubrov group isn't getting in touch.</text>
+    </string>	
+	<string id="ah_agr_none_title">
+        <text>Find the artifact. Location unknown.</text>
+    </string>
+    <string id="ah_agr_none_desc">
+        <text>We need to find artifacts in the agricultural industry. You can find the exact location by finding Dubrov's laptop.</text>
+    </string>		
+	<string id="ah_agr_g1_title">
+        <text>Find the artifact in the anomaly. Old claws.</text>
+    </string>
+    <string id="ah_agr_g1_desc">
+        <text>The artifact is in the anomaly of the Old Claws.</text>
+    </string>		
+	<string id="ah_agr_g2_title">
+        <text>Find the artifact in Anomalous hollow.</text>
+    </string>
+    <string id="ah_agr_g2_desc">
+        <text>The artifact is located in Anomalous hollow.</text>
+    </string>	
+	<string id="ah_agr_h1_title">
+        <text>Find the artifact in Bird Carousel anomaly.</text>
+    </string>
+    <string id="ah_agr_h1_desc">
+        <text>The artifact is in Carousel Bird Anomaly.</text>
+    </string>	
+
+    <string id="ah_markov_quest1_title">
+        <text>Researchers: Bring Markov three samples from Amber.</text>
+    </string>
+    <string id="ah_markov_quest1_desc">
+        <text>Professor Markov works separately from the group of scientists at Amber. He's asked to look for abnormal samples that have not yet been found.</text>
+    </string>	
+    <string id="ah_yan_o1_title">
+        <text>Find the artifact in the anomalies Wornting Hands</text>
+    </string>
+    <string id="ah_yan_o1_desc">
+        <text>One of the samples is in the anomaly of the Wornting Hands.</text>
+    </string>		
+	<string id="ah_yan_h1_title">
+        <text>Find the artifact in the anomaly Poisoned lake.</text>
+    </string>
+    <string id="ah_yan_h1_desc">
+        <text>One of the samples is in the anomaly Poisoned lake..</text>
+    </string>		
+	<string id="ah_yan_h2_title">
+        <text>Find the artifact in the anomaly Concrete Junkyard</text>
+    </string>
+    <string id="ah_yan_h2_desc">
+        <text>One of the samples is in the anomaly Concrete Junkyard.</text>
+    </string>		
+	
+    <string id="ah_markov_quest2_title">
+        <text>Researchers: Bring Markov three artifacts from the Wild Territory</text>
+    </string>
+    <string id="ah_markov_quest2_desc">
+        <text>We need to expand the search area. Not far from Amber is the Wilderness Area. There are abnormal formations there as well.</text>
+    </string>	
+    <string id="ah_dt_o1_title">
+        <text>Find the artifact in the Radioactive Shop.</text>
+    </string>
+    <string id="ah_dt_o1_desc">
+        <text>This anomaly is not shown on the map, but be careful, the area is extremely radioactive.</text>
+    </string>		
+	<string id="ah_dt_e1_title">
+        <text>Find the artifact in the electrical anomaly.</text>
+    </string>
+    <string id="ah_dt_e1_desc">
+        <text>The object of the search is somewhere in the area of the Electric Anomaly.</text>
+    </string>		
+	<string id="ah_dt_e2_title">
+        <text>Find the artifact in the anomaly Sparkling Twilight.</text>
+    </string>
+    <string id="ah_dt_e2_desc">
+        <text>An anomaly in a tunnel near Rostock, also known as Sparkling Dusk.</text>
+    </string>	
+
+    <string id="ah_markov_quest3_title">
+        <text>Researchers: Bring Markov three artifacts from the territory of Amber plant.</text>
+    </string>
+    <string id="ah_markov_quest3_desc">
+        <text>Jokes aside. This next assignment's not gonna be an easy one. We need to find three artifacts at the Amber plant closed by psi radiation. It's impossible without a psy helmet.</text>
+    </string>	
+    <string id="ah_yan_e1_title">
+        <text>Find the artifact in St. Elmo's Lights anomaly.</text>
+    </string>
+    <string id="ah_yan_e1_desc">
+        <text>The object is in the anomaly of St. Elmo's Lights.</text>
+    </string>		
+	<string id="ah_yan_e2_title">
+        <text>Find the artifact in the anomaly Wandering lights</text>
+    </string>
+    <string id="ah_yan_e2_desc">
+        <text>The object is in anomaly Wandering lights</text>
+    </string>		
+	<string id="ah_yan_g1_title">
+        <text>Find the artifact somewhere in the factory.</text>
+    </string>
+    <string id="ah_yan_g1_desc">
+        <text>No one's ever gone this far. But quite a clear signal comes from somewhere in the Amber plant.</text>
+    </string>	
+
+    <string id="ah_pirogov_quest1_title">
+        <text>Researchers: Bring candidate Pirogov three samples from the Dark Valley.</text>
+    </string>
+    <string id="ah_pirogov_quest1_desc">
+        <text>The Dark Valley is dangerous for the peaceful search for artifacts. Mutants and bandits can lurk around any corner. However, you must bring three abnormal samples from there.</text>
+    </string>	
+    <string id="ah_td_o1_title">
+        <text>Find the artifact in Comet anomalies.</text>
+    </string>
+    <string id="ah_td_o1_desc">
+        <text>A curious anomaly that few people have investigated. But there must be some samples we need.</text>
+    </string>		
+	<string id="ah_td_o2_title">
+        <text>Find the artifact in the Dark Rift anomaly.</text>
+    </string>
+    <string id="ah_td_o2_desc">
+        <text>The abnormal specimen is somewhere in the Dark Rift anomaly.</text>
+    </string>		
+	<string id="ah_td_e1_title">
+        <text>Find the artifact in the Lethal Cloud anomaly.</text>
+    </string>
+    <string id="ah_td_e1_desc">
+        <text>The Lethal Cloud Anomaly is on a gangbanger base, but I think you won't have any trouble finding an artifact there.</text>
+    </string>		
+	
+    <string id="ah_pirogov_quest2_title">
+        <text>Researchers: Bring candidate Pirogov three samples from the Truck Cemetery</text>
+    </string>
+    <string id="ah_pirogov_quest2_desc">
+        <text>Let's move on, deep into the zone. Now our interest is in the Truck Technology. We need to investigate the anomalies there for the samples we need.</text>
+    </string>	
+    <string id="ah_kt_g1_title">
+        <text>Find an artifact in the ravine anomaly</text>
+    </string>
+    <string id="ah_kt_g1_desc">
+        <text>Find an artifact in the ravine anomaly.</text>
+    </string>		
+	<string id="ah_kt_o1_title">
+        <text>Find an artifact in the anomaly Roadside Picnic</text>
+    </string>
+    <string id="ah_kt_o1_desc">
+        <text>Find an artifact in the anomaly Picnic on the side of the road, just don't think about having a picnic there.</text>
+    </string>		
+	<string id="ah_kt_h1_title">
+        <text>Find an artifact in the Bad Earth anomaly</text>
+    </string>
+    <string id="ah_kt_h1_desc">
+        <text>Find the artifact in the Bad Earth anomaly.</text>
+    </string>	
+
+    <string id="ah_pirogov_quest3_title">
+        <text>Researchers: Bring Candidate KPK and two experimental samples</text>
+    </string>
+    <string id="ah_pirogov_quest3_desc">
+        <text>The stalker who studied anomalies before you disappeared. He also lost valuable information about the studied anomalies in the landfill. It is necessary to find his PDA with the necessary information, and then remove objects from the anomalies for study.</text>
+    </string>	
+    <string id="ah_sv_pda_title">
+        <text>Find the PDA of the missing stalker</text>
+    </string>
+    <string id="ah_sv_pda_desc">
+        <text>Most likely the stalker fell into bandit hands. But we are primarily interested in important information on his PDA.</text>
+    </string>		
+	<string id="ah_sv_g1_title">
+        <text>Find an artifact in the Witcher Circle anomaly</text>
+    </string>
+    <string id="ah_sv_g1_desc">
+        <text>Find the artifact in the Witcher Circle anomaly.</text>
+    </string>		
+	<string id="ah_sv_h1_title">
+        <text>Find an artifact in the soda anomaly</text>
+    </string>
+    <string id="ah_sv_h1_desc">
+        <text>Find the artifact in the soda anomaly.</text>
+    </string>		
+	<string id="ah_sv_none_title">
+        <text>Find an artifact by coordinates from a missing PDA</text>
+    </string>
+    <string id="ah_sv_none_desc">
+        <text>The location of the sample sought is unknown. First you need to find a PDA stalker, who acted on behalf of Pirogov before me.</text>
+    </string>		
+	
+    <string id="ah_chernov_quest1_title">
+        <text>Researchers: Bring Chernov three artifacts from the territory of the Army Warehouses</text>
+    </string>
+    <string id="ah_chernov_quest1_desc">
+        <text>Test test for a real stalker. Find 3 unique artifacts in anomalies near Army Warehouses.</text>
+    </string>	
+    <string id="ah_mil_h1_title">
+        <text>Find the artifact in the anomaly Acid Swamp</text>
+    </string>
+    <string id="ah_mil_h1_desc">
+        <text>Find the artifact in the Acid Swamp anomaly.</text>
+    </string>		
+	<string id="ah_mil_g1_title">
+        <text>Find the artifact in Carousel anomaly.</text>
+    </string>
+    <string id="ah_mil_g1_desc">
+        <text>Find the artifact in Carousel anomaly.</text>
+    </string>		
+	<string id="ah_mil_o1_title">
+        <text>Find the artifact in Steam-room anomaly.</text>
+    </string>
+    <string id="ah_mil_o1_desc">
+        <text>Find the artifact in the Steam-Room anomaly.</text>
+    </string>	
+	
+    <string id="ah_chernov_quest3_title">
+        <text>Researchers: Bring Chernov PDA Arrow and two artifacts</text>
+    </string>
+    <string id="ah_chernov_quest3_desc">
+        <text>The shooter is an experienced stalker who went along and across the Zone. Legends now add up about him. We have the exact data that he personally provided. He kept the exact map of the Red Forest anomalies in the CCP. She will help us to find the following samples of interest to us. Unfortunately, the CCP itself was lost, most likely in the tunnel that the shooter blew up, running away from his pursuers.</text>
+    </string>	
+    <string id="ah_les_pda_title">
+        <text>Find PDA Arrow</text>
+    </string>
+    <string id="ah_les_pda_desc">
+        <text>Fleeing from Clear Sky, the Shooter dropped his PDA in the tunnels, trying to confuse the pursuers. We need data from this CCP to continue research.</text>
+    </string>		
+	<string id="ah_les_o1_title">
+        <text>Find an artifact in the Symbiont anomaly</text>
+    </string>
+    <string id="ah_les_o1_desc">
+        <text>After analyzing the map in Gunslinger's PDA, it was possible to identify the Symbiont anomaly as necessary for the examination.</text>
+    </string>		
+	<string id="ah_les_e1_title">
+        <text>Find an artifact in the Underground Storm anomaly</text>
+    </string>
+    <string id="ah_les_e1_desc">
+        <text>Having analyzed the map in Gunslinger's PDA, it was possible to isolate the Underground Thunderstorm anomaly as necessary for the examination.</text>
+    </string>	
+	<string id="ah_les_none_title">
+        <text>Find an artifact somewhere in the Red Forest</text>
+    </string>
+    <string id="ah_les_none_desc">
+        <text>The Red Forest is dangerous and treacherous. Fortunately, a map was saved on the lost Gunslinger's PDA, with the anomalies we need. To find artifacts, you must first find this PDA.</text>
+    </string>		
+	
+    <string id="ah_chernov_quest4_title">
+        <text>Researchers: Find Artifact Artifact</text>
+    </string>
+    <string id="ah_chernov_quest4_desc">
+        <text>According to Chernov, artifacts can be obtained artificially. It is worth searching the house of a scientist who could do this even before the disaster. Apparently his house was not far from the place where the Generator anomaly is now indicated. Perhaps this is no accident.</text>
+    </string>	
+	
+    <string id="ah_chernov_quest5_title">
+        <text>Researchers: Find X-19 Documents and Artifacts</text>
+    </string>
+    <string id="ah_chernov_quest5_desc">
+        <text>Laboratory X-19 was engaged in the creation of artificial artifacts. Now this laboratory is destroyed, but perhaps the documents could be preserved. Find them. Perhaps from them you will find out where you can find the "artifact farm."</text>
+    </string>	
+    <string id="ah_rad_pda_title">
+        <text>Search the entrance to the X-19</text>
+    </string>
+    <string id="ah_rad_pda_desc">
+        <text>Perhaps it was here that there was anything left pointing to the famous "beds of artifacts."</text>
+    </string>		
+	<string id="ah_rad_r_title">
+        <text>Find an artifact in the Dead Forest</text>
+    </string>
+    <string id="ah_rad_r_desc">
+        <text>Judging by the documents, artifacts were grown in the forest like mushrooms. There are approximate coordinates of trees that are worth examining for the presence of abnormal objects.</text>
+    </string>		
+
+    <string id="ah_chernov_quest6_title">
+        <text>Researchers: Find two artifacts in Dead City</text>
+    </string>
+    <string id="ah_chernov_quest6_desc">
+        <text>For the full matrix of the Zone, scientists need to cover all territories. Our goal now is the Dead City.</text>
+    </string>	
+    <string id="ah_mg_o1_title">
+        <text>Find an artifact in the City Committee</text>
+    </string>		
+	<string id="ah_mg_o1_desc">
+        <text>Find the artifact at City Committee.</text>
+    </string>
+	<string id="ah_mg_g1_title">
+        <text>Find an artifact in an abandoned school.</text>
+    </string>
+    <string id="ah_mg_g1_desc">
+        <text>Find an artifact in an abandoned school.</text>
+    </string>		
+
+    <string id="ah_juk_quest1_title">
+        <text>Researchers: Find artifacts for the Beetle in the vicinity of the Jupiter plant.</text>
+    </string>
+    <string id="ah_juk_quest1_desc">
+        <text>A group of scientists are compiling a spectrogram of the Zone. To do this, they collect abnormal samples from all territories. In this task, 3 samples from anomalies around the Jupiter plant must be collected.</text>
+    </string>	
+    <string id="ah_up_g1_title">
+        <text>Find the artifact in the Bitumen anomaly.</text>
+    </string>
+    <string id="ah_up_g1_desc">
+        <text>Find the artifact in the bitumen anomaly.</text>
+    </string>		
+	<string id="ah_up_h1_title">
+        <text>Find the artifact in the anomaly Concrete bath</text>
+    </string>
+    <string id="ah_up_h1_desc">
+        <text>Find the artifact in the anomaly Concrete bath.</text>
+    </string>		
+	<string id="ah_up_h2_title">
+        <text>Find the artifact in Anomalous Grove.</text>
+    </string>
+    <string id="ah_up_h2_desc">
+        <text>Find the artifact in Anomalous Grove.</text>
+    </string>
+
+    <string id="ah_juk_quest2_title">
+        <text>Researchers: Find artifacts for the Beetle in the vicinity of the Jupiter plant.</text>
+    </string>
+    <string id="ah_juk_quest2_desc">
+        <text>A group of scientists are compiling a spectrogram of the Zone. To do this, they collect abnormal samples from all territories. In this task, 3 samples from anomalies around the Jupiter plant must be collected.</text>
+    </string>	
+    <string id="ah_up_e2_title">
+        <text>Find the artifact in the Train anomaly</text>
+    </string>
+    <string id="ah_up_e2_desc">
+        <text>Unmarked Train anomaly. Nobody's looking for artifacts there, but that doesn't mean there's no samples of interest.</text>
+    </string>		
+	<string id="ah_up_e1_title">
+        <text>Find an artifact in an abandoned tunnel.</text>
+    </string>
+    <string id="ah_up_e1_desc">
+        <text>There's a lot of dead places around here that everybody's avoiding. But where there's abnormal activity, there are artifacts we need.</text>
+    </string>		
+	<string id="ah_up_g2_title">
+        <text>Find the artifact at the Volkhov complex.</text>
+    </string>
+    <string id="ah_up_g2_desc">
+        <text>The old anti-aircraft missile system has been abandoned due to an abundance of underground anomalies. There must be some samples there... and mutants.</text>
+    </string>
+
+    <string id="ah_juk_quest3_title">
+        <text>Researchers: Find 4 artifacts in Pripyat</text>
+    </string>
+    <string id="ah_juk_quest3_desc">
+        <text>One of the most challenging tasks for scientists. Without your help, they can't do it. Find four artifacts in the ghost town of Pripyat.</text>
+    </string>	
+    <string id="ah_p_h1_title">
+        <text>Find the artifact in Vine's anomaly.</text>
+    </string>
+    <string id="ah_p_h1_desc">
+        <text>Vine - the most amazing anomalous formation in the eastern part of Pripyat. A sample from this anomaly is required for our collection.</text>
+    </string>		
+	<string id="ah_p_g1_title">
+        <text>Find an artifact in the School</text>
+    </string>
+    <string id="ah_p_g1_desc">
+        <text>Giant gravitational anomaly in the School area. For some reason, it is not marked on the map. However, given these wild places, this is not surprising.</text>
+    </string>		
+	<string id="ah_p_g2_title">
+        <text>Find an artifact in Vanguard anomalies</text>
+    </string>
+    <string id="ah_p_g2_desc">
+        <text>Instrument readings are off scale. Even a few kilometers away, many anomalous formations are found in the area of the Vanguard stadium. Samples from that territory are required.</text>
+    </string>
+	<string id="ah_p_e1_title">
+        <text>Find an artifact in the Anomaly Energetik</text>
+    </string>
+    <string id="ah_p_e1_desc">
+        <text>Find an artifact in the Power Engineer anomaly.</text>
+    </string>	
+	
+    <string id="ah_vorobushkin_quest1_title">
+        <text>Researchers: Find a memory module and 2 artifacts at Zaton for associate professor Vorobushkin</text>
+    </string>
+    <string id="ah_vorobushkin_quest1_desc">
+        <text>In order to complete the assignment of Associate Professor Vorobushkin, you must first take readings from the Krug Circle memory module, and then, having the necessary data, search the necessary anomalies for the presence of the necessary anomalous samples.</text>
+    </string>	
+    <string id="ah_zat_pda_title">
+        <text>Find the memory module VNZ "Circle"</text>
+    </string>
+    <string id="ah_zat_pda_desc">
+        <text>Associate Professor Vorobushki placed scanning equipment at the Krug sounding station. So he collected all the necessary information about the anomalies in the Zaton territory. Vorobushkin is now in a safe place, and the memory module remains at the station. To obtain the coordinates of the anomalies needed for the study, you need to return this module to the scientist.</text>
+    </string>		
+	<string id="ah_zat_h1_title">
+        <text>Find the artifact in the Swamp anomaly</text>
+    </string>
+    <string id="ah_zat_h1_desc">
+        <text>Find the artifact in Swamp anomaly.</text>
+    </string>		
+	<string id="ah_zat_h2_title">
+        <text>Find an artifact in Pineoak anomaly</text>
+    </string>
+    <string id="ah_zat_h2_desc">
+        <text>Find an artifact in Pineoak anomaly.</text>
+    </string>
+	<string id="ah_zat_none_title">
+        <text>Find the artifact somewhere in Zaton territory.</text>
+    </string>
+    <string id="ah_zat_none_desc">
+        <text>In order to know the exact location of the anomalies to be examined, it is necessary to take scan readings from the memory modules of the VNZ "Circle".</text>
+    </string>
+	
+    <string id="ah_vorobushkin_quest2_title">
+        <text>Researchers: Find 3 more artifacts on Zaton for Associate Professor Vorobushkin.</text>
+    </string>
+    <string id="ah_vorobushkin_quest2_desc">
+        <text>A group of scientists are compiling a spectrogram of the Zone. To do this, they collect abnormal samples from all territories. In this task, 3 samples from anomalies in the Zaton area must be collected.</text>
+    </string>	
+    <string id="ah_zat_o1_title">
+        <text>Find the artifact in the Boiler anomaly.</text>
+    </string>
+    <string id="ah_zat_o1_desc">
+        <text>Find the artifact in the Boiler anomaly.</text>
+    </string>		
+	<string id="ah_zat_g1_title">
+        <text>Find the artifact in the anomaly claw.</text>
+    </string>
+    <string id="ah_zat_g1_desc">
+        <text>Find the artifact in Claw Anomaly.</text>
+    </string>		
+	<string id="ah_zat_g2_title">
+        <text>Find the artifact on the bridge. Preobrazhensky</text>
+    </string>
+    <string id="ah_zat_g2_desc">
+        <text>Not all anomalies are marked on the map. The bridge of Preobrazhensky, though a whole, is impassable because of the strong anomalies. It is necessary to find there samples of artifacts.</text>
+    </string>
+
+    <string id="ah_skabinsky_quest1_title">
+        <text>Researchers: Bring the Last Artefact to Academician Skabinsky.</text>
+    </string>
+    <string id="ah_skabinsky_quest1_desc">
+        <text>The last phase. For this moment, we have trampled the entire Zone. An artifact that dreams of getting a group of researchers led by Academician Skabinsky. I hope it's worth it.</text>
+    </string>	
+    <string id="ah_gen_f1_title">
+        <text>Find the artifact in the Giga Anomaly Anomalous Canyon.</text>
+    </string>
+    <string id="ah_gen_f1_desc">
+        <text>Perhaps this place can be called the center of the zone. It's where all the noosphere disturbances begin. No one's ever explored this place. The artifact that scientists say will uncover the mystery of the Zone is there.</text>
+    </string>
+</string_table>

@@ -1,0 +1,147 @@
+[beh@general]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+turn_on_campfire = false
+on_info = {=surge_started} %=stop_surge%
+
+[hit]
+on_info = {=hit_by_actor} %=set_squad_neutral_to_actor() =play_sound(friendly_fire)%
+
+[logic@defender_1]
+suitable = {=check_npc_name(kymis)} true
+prior = 200
+active = camper@defender_1
+post_combat_time = 0,0
+on_hit = hit
+
+[camper@defender_1]:beh@general
+path_walk = camper_1_walk
+path_look = camper_1_look
+radius = 10
+def_state_moving = assault
+meet = meet@kymis
+invulnerable = true
+
+[meet@kymis]
+close_anim 		= {=actor_enemy} nil, {=all_docents_are_dead} guard, {+ano_kymis_work_1_done +ano_kymis_work_1_2 -ano_kymis_work_1_2_on_spot} nil, {+ano_kymis_work_1 -ano_kymis_work_1_on_spot} nil, {+ano_kymis_work_1_1 -ano_kymis_work_1_done} nil, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot =dist_to_actor_le(5)} guard, {-ano_kymis_work_1_2 +ano_kymis_work_1_done =dist_to_actor_le(5)} guard, guard
+close_victim 	= {=actor_enemy} nil, {=all_docents_are_dead} actor, {+ano_kymis_work_1_done +ano_kymis_work_1_2 -ano_kymis_work_1_2_on_spot} nil, {+ano_kymis_work_1 -ano_kymis_work_1_on_spot} actor, {+ano_kymis_work_1_1 -ano_kymis_work_1_done} nil, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot =dist_to_actor_le(5)} actor, {-ano_kymis_work_1_2 +ano_kymis_work_1_done =dist_to_actor_le(5)} actor, actor
+close_distance  = {=actor_enemy} 0, {=all_docents_are_dead} 3, {+ano_kymis_work_1_done +ano_kymis_work_1_2 -ano_kymis_work_1_2_on_spot} 0, {+ano_kymis_work_1 -ano_kymis_work_1_on_spot} 3, {+ano_kymis_work_1_1 -ano_kymis_work_1_done} 0, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot =dist_to_actor_le(5)} 3, {-ano_kymis_work_1_2 +ano_kymis_work_1_done =dist_to_actor_le(5)} 3, 3
+close_snd_distance = {=actor_enemy} 0, {=all_docents_are_dead} 5, {+ano_kymis_work_1_done +ano_kymis_work_1_2 -ano_kymis_work_1_2_on_spot} 0, {+ano_kymis_work_1 -ano_kymis_work_1_on_spot} 5, {+ano_kymis_work_1_1 -ano_kymis_work_1_done} 0, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot =dist_to_actor_le(5)} 5, {-ano_kymis_work_1_2 +ano_kymis_work_1_done +ano_kymis_work_1_2 =dist_to_actor_le(5)} 5, 5
+use = {=actor_enemy} false, {=all_docents_are_dead} true, {+ano_kymis_work_1_done +ano_kymis_work_1_2 -ano_kymis_work_1_2_on_spot} false, {+ano_kymis_work_1 -ano_kymis_work_1_on_spot} false, {+ano_kymis_work_1_1 -ano_kymis_work_1_done} false, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot =dist_to_actor_le(5)} self, {-ano_kymis_work_1_2 +ano_kymis_work_1_done =dist_to_actor_le(5)} self, true
+allow_break = false
+trade_enable = true
+meet_dialog = {=all_docents_are_dead} ano_kymis_work_if_docents_are_dead, {-ano_kymis_work_1_1 +ano_kymis_work_1_on_spot -ano_kymis_work_1_done} ano_kymis_work_1_1, {-ano_kymis_work_1_2 +ano_kymis_work_1_done} ano_kymis_work_1_2, nil
+
+[logic@defender_2]
+suitable = {=check_npc_name(broker) +ano_kymis_work_1_on_spot} true
+prior = 200
+active = camper@defender_2
+post_combat_time = 0,0
+on_hit = hit
+
+[camper@defender_2]:camper@defender_1
+path_walk = camper_3_walk
+path_look = camper_3_look
+meet = no_meet
+
+[logic@defender_3]
+suitable = {=check_npc_name(lopuh) +ano_kymis_work_1_on_spot} true
+prior = 200
+active = camper@defender_3
+post_combat_time = 0,0
+on_hit = hit
+
+[camper@defender_3]:camper@defender_1
+path_walk = camper_2_walk
+path_look = camper_2_look
+meet = no_meet
+
+[logic@collector_1]
+suitable = {=check_npc_name(docent) +ano_kymis_work_1_on_spot} true
+prior = 200
+active = walker@collector_1
+post_combat_time = 0,0
+on_hit = hit
+
+[walker@collector_1]:beh@general
+path_walk = collector_1_walk
+path_look = collector_1_look
+def_state_moving = assault
+meet = no_meet
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+
+[logic@collector_2]
+suitable = {=check_npc_name(docent) +ano_kymis_work_1_on_spot} true
+prior = 200
+active = walker@collector_2
+post_combat_time = 0,0
+on_hit = hit
+
+[walker@collector_2]:walker@collector_1
+path_walk = collector_2_walk
+path_look = collector_2_look
+
+[logic@collector_3]
+suitable = {=check_npc_name(docent) +ano_kymis_work_1_on_spot} true
+prior = 200
+active = walker@collector_3
+post_combat_time = 0,0
+on_hit = hit
+
+[walker@collector_3]:walker@collector_1
+path_walk = collector_3_walk
+path_look = collector_3_look
+
+[logic@follow_leader_1]
+suitable = {=check_npc_name(broker) -ano_kymis_work_1_on_spot} true
+prior = 200
+active = beh@follow_leader_1
+post_combat_time = 0,0
+on_hit = hit
+
+[logic@follow_leader_2]
+suitable = {=check_npc_name(lopuh) -ano_kymis_work_1_on_spot} true
+prior = 200
+active = beh@follow_leader_1
+post_combat_time = 0,0
+on_hit = hit
+
+[logic@follow_leader_3]
+suitable = {=check_npc_name(docent) -ano_kymis_work_1_on_spot} true
+prior = 200
+active = beh@follow_leader_2
+post_combat_time = 0,0
+on_hit = hit
+
+[logic@follow_leader_4]
+suitable = {=check_npc_name(docent) -ano_kymis_work_1_on_spot} true
+prior = 200
+active = beh@follow_leader_2
+post_combat_time = 0,0
+on_hit = hit
+
+[logic@follow_leader_5]
+suitable = {=check_npc_name(docent) -ano_kymis_work_1_on_spot} true
+prior = 200
+active = beh@follow_leader_2
+post_combat_time = 0,0
+on_hit = hit
+
+[beh@follow_leader]:beh@general
+run_anim = panic
+walk_anim = assault
+jog_anim = assault
+sprint_anim = assault
+sound_idle = state
+meet = no_meet
+
+[beh@follow_leader_1]:beh@follow_leader
+invulnerable = true
+
+[beh@follow_leader_2]:beh@follow_leader
+; TODO: временно, пока не придумаю альтернативу
+invulnerable = true
+
+; Так, мужики, собрались, действуем аналогично: лопух сзади, я у дороги, аспирант на холме, безымянный неподалеку. Остальные не спим, делаем свои дела и валим обратно как только закончим.

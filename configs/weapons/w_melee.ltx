@@ -1,0 +1,752 @@
+;-------------------------------------------------------------------------------------
+; Штык нож
+;-------------------------------------------------------------------------------------
+[wpn_knife]:default_weapon_params
+$spawn							= "weapons\knife"
+$npc							= on
+visual							= dynamics\weapons\wpn_knife\wpn_knife.ogf
+class							= WP_KNIFE
+inv_name						= st_knife_6x4
+inv_name_short					= st_knife_6x4
+description						= st_knife_6x4_descr
+ef_weapon_type					= 1
+repair_type						= knife
+zoom_dof						= 0.5, 1.0, 180
+reload_dof						= 0.0, 0.5, 5, 1.7
+cost							= 1390
+inv_weight						= 0.282
+inv_volume        				= 0.8
+ph_mass							= 1
+quest_item						= false
+can_trade						= true
+ammo_class						= ammo_fake
+ammo_current					= 1
+ammo_elapsed					= 1
+ammo_limit						= 1
+ammo_mag_size					= 1
+hand_dependence					= 1
+single_handed					= 1
+highlight_equipped				= true
+slot							= 0
+animation_slot					= 5
+default_to_ruck					= false
+sprint_allowed					= true
+control_inertion_factor			= 1
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 8
+inv_grid_y						= 10
+inv_category					= 1
+upgr_icon_x						= 1750
+upgr_icon_y						= 1950
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+kill_msg_x						= 197
+kill_msg_y						= 177
+kill_msg_width					= 53
+kill_msg_height					= 16
+show_ammo						= false
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+cam_max_angle_horz				= 10.0
+cam_step_angle_horz				= 0.9
+fire_dispersion_base			= 0.5
+fire_dispersion_condition_factor = 0.001
+misfire_probability				= 0.001
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.005
+condition_queue_shot_dec		= 0.0002
+hit_power						= 0.305, 0.305, 0.305, 0.305
+hit_impulse						= 0.1
+hit_type						= wound
+hit_power_2						= 0.525, 0.525, 0.525, 0.525
+hit_power_critical_2			= 0.75, 0.75, 0.75, 0.75
+hit_impulse_2					= 0.1
+hit_type_2						= wound
+PDM_disp_base					= 1.0
+PDM_disp_vel_factor				= 0.8
+PDM_disp_accel_factor			= 0.8
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+time_to_aim						= 1.0
+fire_distance					= 3.75
+bullet_speed					= 5000
+rpm								= 1000
+rpm_empty_click					= 1000
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position					= 0.03, -0.092, 0.0
+strap_orientation				= 0.0, 180.0, 95.0
+strap_position_slot2			= -0.10, -0.065, 0.1
+strap_orientation_slot2			= 0.0, 180.0, 95.0
+strap_position_holster			= -0.03, -0.092, 0.0
+strap_orientation_holster		= 0.0, 180.0, 95.0
+strap_bone0						= bip01_l_thigh
+strap_bone1						= bip01_l_calf
+;-------------------------------------------------------------------------------
+splash1_direction				= 0.0, -0.3, 1.0
+splash2_direction				= 0.0, 0.0, 1.0
+spash1_dist						= 1.0		; fire_distance / 2
+spash2_dist						= 1.0
+spash1_radius					= 0.5
+spash2_radius					= 0.4
+splash1_hits_count				= 3
+splash1_pervictim_hcount		= 1
+splash2_hits_count				= 2
+splash_hit_divide_factor		= 0.75
+hud								= wpn_knife_hud
+position						= -0.021, -0.080, 0.024
+orientation						= 0, 90, 0
+fire_point						= 0.0, 0.133, 0.161
+flame_particles					=
+smoke_particles					=
+shell_point						= 0.0, 0.133, 0.047
+shell_dir						= 0.0, 0.0, 0.4
+shell_particles					= weapons\generic_shells
+wm_size							= 0.064
+light_disabled					= true
+scope_status					= 0
+silencer_status					= 0
+grenade_launcher_status			= 0
+zoom_enabled					= false
+can_disassemble					= true
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light, dis_textile, dis_devices
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw						= weapons\melee\knife_draw 
+snd_holster						= weapons\melee\knife_holster
+snd_shoot						= weapons\melee\knife_1
+snd_shoot1						= weapons\melee\knife_2
+snd_shoot2						= weapons\melee\knife_3
+snd_empty						= weapons\pistol_empty
+snd_reload						= weapons\pm_reload, 0.8
+snd_close						= weapons\generic_close
+;-------------------------------------------------------------------------------
+[wpn_knife_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hud.ogf
+zoom_hide_crosshair				= true
+attach_place_idx				= 0
+shell_point						= 0,0,0
+shell_bone						= wpn_body
+fire_point						= 0.004500,0.062500,-0.178499
+fire_bone						= knife
+
+item_position					= 0,0,0
+item_orientation				= 10,0,0
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+
+hands_position					= 0.033,-0.155,0.1
+hands_position_16x9				= 0.033,-0.155,0.1
+hands_orientation				= 0,0,0
+hands_orientation_16x9			= 0,0,0
+
+aim_hud_offset_pos				= -0.0770,0.0220,0.0000
+aim_hud_offset_rot				= 0.0000,0.0050,-0.0150
+
+anm_show						= knife_draw
+anm_show_empty					= knife_draw
+anm_hide						= knife_holster
+anm_idle						= knife_idle
+anm_idle_aim					= knife_idle
+anm_attack						= knife_kick
+anm_attack_e					= knife_kick_end1
+anm_attack2						= knife_kick_2
+anm_attack2_e					= knife_kick_end2
+anm_idle_moving					= knife_idle_moving
+anm_idle_sprint					= knife_idle_sprint
+anm_bore						= knife_idle_bore
+;-------------------------------------------------------------------------------
+[wpn_knife2]:wpn_knife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_nr40.ogf
+$spawn							= "weapons\knife2"
+inv_name						= st_knife_needle
+inv_name_short					= st_knife_needle
+description						= st_knife_needle_descr
+hud								= wpn_knife2_hud
+cost							= 3440
+inv_weight						= 0.363
+inv_volume        				= 0.75
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 0
+inv_grid_y						= 10
+upgr_icon_x						= 1950
+upgr_icon_y						= 1950
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+repair_type						= knife
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+misfire_probability				= 0.0
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.005
+condition_queue_shot_dec		= 0.0002
+hit_power						= 0.45, 0.45, 0.45, 0.45
+hit_impulse						= 4.0
+hit_type						= wound
+hit_power_2						= 0.55, 0.55, 0.55, 0.55
+hit_power_critical_2			= 0.67, 0.67, 0.67, 0.67
+hit_impulse_2					= 9.0
+hit_type_2						= wound
+time_to_aim						= 1.0
+fire_distance					= 6
+wm_size							= 0.074
+
+[wpn_knife2_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_nr40_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_knife3]:wpn_knife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_hunting.ogf
+$spawn							= "weapons\knife3"
+inv_name						= st_knife_hunting
+inv_name_short					= st_knife_hunting
+description						= st_knife_hunting_descr
+hud								= wpn_knife3_hud
+cost							= 4550
+inv_weight						= 0.402
+inv_volume        				= 0.8
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 2
+inv_grid_y						= 10
+upgr_icon_x						= 2150
+upgr_icon_y						= 1950
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+misfire_probability				= 0.0
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.005
+condition_queue_shot_dec		= 0.0002
+hit_power						= 0.42, 0.42, 0.42, 0.42
+hit_impulse						= 4.5
+hit_type						= wound
+hit_power_2						= 0.71, 0.71, 0.71, 0.71
+hit_power_critical_2			= 1.04, 1.04, 1.04, 1.04
+hit_impulse_2					= 11.5
+hit_type_2						= wound
+time_to_aim						= 1.0
+fire_distance					= 6
+wm_size							= 0.068					
+
+[wpn_knife3_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_hunting_hud.ogf
+
+[wpn_knife_fanat]:wpn_knife3
+inv_name						= st_knife_fanat
+;-------------------------------------------------------------------------------
+[wpn_knife4]:wpn_knife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_swat.ogf
+$spawn							= "weapons\knife4"
+inv_name						= st_knife_swat
+inv_name_short					= st_knife_swat
+description						= st_knife_swat_descr
+hud								= wpn_knife4_hud
+cost							= 10250
+inv_weight						= 0.466
+inv_volume        				= 0.6
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 4
+inv_grid_y						= 10
+upgr_icon_x						= 2350
+upgr_icon_y						= 1950
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+misfire_probability				= 0.0
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.005
+condition_queue_shot_dec		= 0.0002
+hit_power						= 0.54, 0.54, 0.54, 0.54
+hit_impulse						= 10.5
+hit_type						= wound
+hit_power_2						= 0.78, 0.78, 0.78, 0.78
+hit_power_critical_2			= 1.09, 1.09, 1.09, 1.09
+hit_impulse_2					= 11
+hit_type_2						= wound
+time_to_aim						= 1.0
+fire_distance					= 6
+wm_size							= 0.065
+
+[wpn_knife4_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_swat_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_knife5]:wpn_knife
+visual							= dynamics\weapons\wpn_knife\wpn_knife_combat.ogf
+$spawn							= "weapons\knife5"
+inv_name						= st_knife_combat
+inv_name_short					= st_knife_combat
+description						= st_knife_combat_descr
+hud								= wpn_knife5_hud
+cost							= 10390
+inv_weight						= 0.379
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 6
+inv_grid_y						= 10
+upgr_icon_x						= 2750
+upgr_icon_y						= 1400
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+misfire_probability				= 0.0
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.005
+condition_queue_shot_dec		= 0.0002
+hit_power						= 0.48, 0.48, 0.48, 0.48
+hit_impulse						= 10.5
+hit_type						= wound
+hit_power_2						= 0.87, 0.87, 0.87, 0.87
+hit_power_critical_2			= 1.22, 1.22, 1.22, 1.22
+hit_impulse_2					= 11.5
+hit_type_2						= wound
+time_to_aim						= 1.0
+fire_distance					= 6
+wm_size							= 0.072
+
+[wpn_knife5_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_combat_hud.ogf
+;-------------------------------------------------------------------------------------
+[wpn_knife_swiss]:wpn_knife
+$spawn							= "weapons\wpn_knife_swiss"
+visual							= dynamics\weapons\wpn_knife\wpn_knife_swiss.ogf
+hud 							= wpn_knife_swiss_hud
+position						= -0.021, -0.030, 0.024
+description						= st_swiss_descr
+inv_name						= st_swiss
+inv_name_short					= st_swiss
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 18
+inv_grid_y						= 53
+cost							= 1230
+inv_weight						= 0.150
+inv_volume						= 0.4
+repair_part_bonus				= 0.08
+hit_power						= 0.20, 0.20, 0.20, 0.20
+hit_power_2						= 0.25, 0.25, 0.25, 0.25
+hit_power_critical_2			= 0.30, 0.30, 0.30, 0.30
+condition_shot_dec				= 0.008
+wm_size							= 0.05
+can_disassemble					= true
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light, dis_textile, dis_devices
+
+[wpn_knife_swiss_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_knife\wpn_knife_swiss_hud.ogf
+
+;-------------------------------------------------------------------------------------
+; Small axe, modified by Surs
+;-------------------------------------------------------------------------------------
+[wpn_axe]:wpn_knife
+visual							= dynamics\weapons\wpn_axe\wpn_axe.ogf
+$spawn							= "weapons\axe"
+inv_name						= st_axe
+inv_name_short					= st_axe
+description						= st_axe_descr
+cost							= 9550
+inv_weight						= 1.1
+inv_volume						= 1.4
+ph_mass			 				= 1
+inv_grid_width					= 3
+inv_grid_height					= 1
+inv_grid_x						= 0
+inv_grid_y						= 68
+upgr_icon_x						= 750
+upgr_icon_y						= 1800
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+slot							= 0
+animation_slot					= 5	        	; Тип анимации, которая будет использоваться
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position					= 0.03, -0.1, 0.25
+strap_orientation				= -20.0, 180.0, 95.0
+strap_position_slot2			= 0.07, 0.34, 0.20
+strap_orientation_slot2			= 0.0, 180.0, 95.0
+strap_position_holster			= 0.10, -0.1, 0.25
+strap_orientation_holster		= -20.0, 180.0, 95.0
+strap_bone0						= bip01_l_thigh
+strap_bone1						= bip01_l_calf
+;-------------------------------------------------------------------------------
+cam_relax_speed					= 8				; скорость возврата в исходное положение
+cam_relax_speed_ai				= 360.0
+cam_dispersion					= 0.65			; увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc				= 0.0			; увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac				= 1.0			; ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 20.0			; максимальный угол отдачи
+
+; Сила удара
+hit_power						= 0.8
+hit_impulse						= 30
+hit_type						= strike
+hit_power_2						= 0.9
+hit_impulse_2					= 40
+hit_type_2						= strike
+hit_power_critical_2			= 1.0
+condition_shot_dec				= 0.004			; Снижение состояния при ударе о поверхность
+condition_queue_shot_dec		= 0.0002		
+
+; Отдача (прицеливание)
+fire_distance					= 3.5			; Дистанция, после которой пуля исчезает
+splash1_direction				= 0.0, -0.3, 1.0
+splash2_direction				= 0.0, 0.0, 1.0
+spash1_dist						= 1.0
+spash2_dist						= 1.0
+spash1_radius					= 0.5
+spash2_radius					= 0.5
+splash1_hits_count				= 3
+splash1_pervictim_hcount		= 1
+splash2_hits_count				= 2
+splash_hit_divide_factor		= 0.75
+wm_size                  		= 0.08
+hud								= wpn_axe_hud
+position						= -0.015, 0.085, 0.005
+orientation						= 0, 100, -50
+fire_point						= 0.0, 0.133, 0.161
+fire_point2						= 0, 0, 0
+can_disassemble					= true
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw						= weapons\melee\axe_draw 
+snd_holster						= weapons\melee\axe_holster
+snd_shoot						= weapons\melee\axe_1
+snd_shoot1						= weapons\melee\axe_2
+snd_shoot2						= weapons\melee\axe_3
+;-------------------------------------------------------------------------------
+[wpn_axe_hud]:wpn_knife_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe_hud.ogf
+shell_point						= 0,0,0
+shell_bone						= wpn_body
+fire_point						= 0.004500,0.062500,-0.178499
+fire_bone						= knife
+item_position					= 0.003164,0.00775,-0.000906
+item_orientation				= 0, 180, 180
+
+hands_position					= -0.021000,-0.180000,-0.025
+hands_position_16x9				= -0.021000,-0.180000,-0.025
+hands_orientation				= -0.500000,1.000000,10
+hands_orientation_16x9			= -0.500000,1.000000,10
+
+anm_show						= lancew_knife1_draw
+anm_show_empty					= lancew_knife1_draw
+anm_hide						= lancew_knife1_holster
+anm_idle						= lancew_knife1_idle
+anm_idle_aim					= lancew_knife1_idle
+anm_attack						= lancew_knife1_kick_2
+anm_attack2						= lancew_knife1_kick_1
+anm_idle_moving					= lancew_knife1_moving
+anm_idle_sprint					= lancew_knife1_sprint
+anm_bore						= lancew_knife1_no_reload
+
+[axe_pickable]:wpn_axe
+;[axe]:wpn_axe
+
+;-------------------------------------------------------------------------------------
+; Fire Axe, modified by Surs
+;-------------------------------------------------------------------------------------
+[wpn_axe2]:wpn_axe
+visual							= dynamics\weapons\wpn_axe\wpn_axe2.ogf
+$spawn							= "weapons\axe2"
+cam_dispersion					= 0.65			;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_frac				= 1.0			;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_dispersion_inc				= 0.0			;увеличениe cam_dispersion с каждым выстрелом
+cam_step_angle_horz				= 0.9			;насколько сильна горизонтальная отдача
+cost							= 10455					
+inv_name						= st_axe2
+inv_name_short					= st_axe2
+description						= st_axe2_descr
+inv_weight						= 1.210
+inv_volume						= 2.2
+fire_distance					= 3.5			; Дистанция, после которой пуля исчезает
+
+; Сила удара
+hit_power						= 0.9
+hit_impulse						= 34
+hit_type						= strike
+hit_power_2						= 1.0
+hit_impulse_2					= 44
+hit_type_2						= strike
+hit_power_critical_2			= 1.1
+condition_shot_dec				= 0.0035		; Снижение состояния при ударе о поверхность
+spash1_dist						= 1.1
+spash2_dist						= 1.1
+wm_size                  		= 0.085
+hud								= wpn_axe2_hud
+inv_grid_width					= 3
+inv_grid_height					= 1
+inv_grid_x						= 0
+inv_grid_y						= 69
+upgr_icon_x						= 750
+upgr_icon_y						= 1800
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+cam_relax_speed_ai				= 360.0
+zoom_dof						= 0.5, 1.0, 180
+fire_point2						= 0, 0, 0		; Позиция огня из подствола
+position						= -0.011, 0.125, 0.004	
+
+[wpn_axe2_hud]:wpn_axe_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe2_hud.ogf
+item_position					= 0.003164,0.01475,-0.09
+item_orientation				= 0, 170, 180
+;-------------------------------------------------------------------------------------
+; Hunting Axe from Misery 2.2, modified by Surs
+;-------------------------------------------------------------------------------------
+[wpn_axe3]:wpn_axe2
+visual							= dynamics\weapons\wpn_axe\wpn_axe3.ogf
+$spawn							= "weapons\axe3"
+inv_name						= st_axe3
+inv_name_short					= st_axe3
+description						= st_axe3_descr
+ef_main_weapon_type				= 2
+cost							= 12455	
+inv_weight						= 1.279
+inv_volume						= 1.8
+can_trade						= true
+hand_dependence					= 1
+control_inertion_factor			= 1
+inv_grid_width					= 3
+inv_grid_height					= 1
+inv_grid_x						= 0
+inv_grid_y						= 70
+upgr_icon_x						= 750
+upgr_icon_y						= 1800
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+;-------------------------------------------------------------------------------
+; Сила удара
+hit_power						= 1.0
+hit_impulse						= 36
+hit_type						= strike
+hit_power_2						= 1.1
+hit_impulse_2					= 46
+hit_type_2						= strike
+hit_power_critical_2			= 1.2
+condition_shot_dec				= 0.0003		;Снижение состояния при ударе о поверхность
+condition_queue_shot_dec		= 0.0002
+spash1_dist						= 1.15
+spash2_dist						= 1.15
+;-------------------------------------------------------------------------------
+;отдача
+cam_relax_speed					= 8
+cam_dispersion					= 0.65
+cam_dispersion_inc				= 0.0
+cam_dispersion_frac				= 1.0
+cam_max_angle					= 20.0
+
+fire_dispersion_condition_factor = 0.015
+misfire_probability				= 0.001
+misfire_start_condition			= 0.002
+misfire_end_condition			= 0.001
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.085
+;-------------------------------------------------------------------------------
+splash1_direction				= 0.0, -0.3, 1.0
+splash2_direction				= 0.0, 0.0, 1.0
+spash1_dist						= 1.1
+spash2_dist						= 1.1
+spash1_radius					= 0.5
+spash2_radius					= 0.5
+splash1_hits_count				= 3
+splash1_pervictim_hcount		= 1
+splash2_hits_count				= 2
+splash_hit_divide_factor		= 0.75
+;-------------------------------------------------------------------------------
+hud								= wpn_axe3_hud
+fire_point						= 0.0, 0.133, 0.161	; Позиция огня из основного ствола
+fire_point2						= 0, 0, 0
+wm_size                  		= 0.09
+;-------------------------------------------------------------------------------
+[wpn_axe3_hud]:wpn_axe2_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_axe3_hud.ogf
+zoom_hide_crosshair				= true
+attach_place_idx				= 0
+shell_point						= 0,0,0
+shell_bone						= wpn_body
+fire_point						= 0.004500,0.062500,-0.178499
+fire_bone						= knife
+item_position					= 0.003164,0.002989,-0.042906
+item_orientation				= 175, 0, -360
+aim_hud_offset_pos				= -0.077000,0.022000,0.000000
+aim_hud_offset_rot				= 0.000000,0.005000,-0.017000
+;-------------------------------------------------------------------------------
+; Hammer by Surs
+;-------------------------------------------------------------------------------
+[wpn_hammer]:wpn_axe3
+visual							= dynamics\weapons\wpn_axe\wpn_hammer.ogf
+$spawn							= "weapons\hammer"
+inv_name						= st_hammer
+inv_name_short					= st_hammer
+description						= st_hammer_descr
+hud								= wpn_hammer_hud
+inv_weight						= 1.25
+inv_volume						= 1.2
+cost							= 3470
+inv_grid_width					= 3
+inv_grid_height					= 1
+inv_grid_x						= 3
+inv_grid_y						= 70
+upgr_icon_x						= 3950
+upgr_icon_y						= 650
+upgr_icon_width					= 150
+upgr_icon_height				= 100
+fire_distance					= 3.2
+position                		= -0.012, 0.055, 0.008
+orientation             		= 190, 76, 30
+can_disassemble					= false
+
+; Сила удара
+hit_power						= 0.5
+hit_impulse						= 34
+hit_type						= shock
+hit_power_2						= 0.6
+hit_impulse_2					= 44
+hit_type_2						= shock
+hit_power_critical_2			= 0.7
+condition_shot_dec				= 0.003
+wm_size                  		= 0.010
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw						= weapons\melee\crowbar_draw 
+snd_holster						= weapons\melee\crowbar_holster
+;-------------------------------------------------------------------------------
+[wpn_hammer_hud]:wpn_axe3_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_hammer_hud.ogf
+zoom_hide_crosshair				= true
+attach_place_idx				= 0
+shell_point						= 0,0,0
+shell_bone						= wpn_body
+fire_point						= 0.004500,0.062500,-0.178499
+fire_bone						= knife
+item_position					= 0.003164,0.002989,-0.042906
+item_orientation				= 181, -3, 360
+
+[hammer_pickable]:wpn_hammer
+$spawn                        = "pickable_objects\workshop_room\hammer"
+visual                        = dynamics\workshop_room\hammer.ogf
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 51
+inv_grid_y         = 57
+
+;[hammer]:hammer_pickable
+
+;-------------------------------------------------------------------------------
+; Crowbar by Surs
+;-------------------------------------------------------------------------------
+[wpn_crowbar]:wpn_hammer
+visual							= dynamics\weapons\wpn_axe\wpn_crowbar.ogf
+inv_name						= st_crowbar
+inv_name_short					= st_crowbar
+description						= st_crowbar_descr
+inv_weight						= 2.5
+inv_volume						= 1.4
+ph_mass							= 3
+cost							= 2590
+inv_grid_x						= 6
+upgr_icon_x						= 3900
+upgr_icon_y						= 750
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+hud								= wpn_crowbar_hud
+fire_distance					= 4
+hit_power						= 0.4
+hit_impulse						= 22
+hit_type						= shock
+hit_power_2						= 0.5
+hit_impulse_2					= 32
+hit_type_2						= shock
+hit_power_critical_2			= 0.6
+condition_shot_dec				= 0.003
+position                		= 0.0, 0.105, -0.048
+orientation             		= 190, 70, 30
+wm_size                  		= 0.025
+can_disassemble					= false
+
+[wpn_crowbar_hud]:wpn_axe3_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_crowbar_hud.ogf
+item_position					= 0.003164,0.002989,0.0089
+item_orientation				= 181, -3, 360
+;-------------------------------------------------------------------------------
+; Shovel by Surs
+;-------------------------------------------------------------------------------
+[wpn_shovel]:wpn_hammer
+$spawn							= "weapons\shovel"
+visual							= dynamics\weapons\wpn_axe\wpn_shovel.ogf
+inv_name						= st_shovel
+inv_name_short					= st_shovel
+description						= st_shovel_descr
+inv_weight						= 3.0
+inv_volume						= 4.0
+ph_mass							= 3
+cost							= 5220
+inv_grid_y						= 69
+upgr_icon_x						= 3900
+upgr_icon_y						= 850
+upgr_icon_width					= 200
+upgr_icon_height				= 100
+repair_part_bonus				= 0.12
+hud								= wpn_shovel_hud
+fire_distance					= 7
+
+; Сила удара
+hit_power						= 0.8
+hit_impulse						= 35
+hit_type						= strike
+hit_power_2						= 0.9
+hit_impulse_2					= 45
+hit_type_2						= strike
+hit_power_critical_2			= 1.0
+condition_shot_dec				= 0.004
+position                		= -0.07, -0.065, 0.01
+orientation             		= 285, -100, 55
+wm_size                  		= 0.135
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position					= -0.15, 0.20, 0.20
+strap_orientation				= 0.0, 360.0, 94.0
+strap_position_slot2			= -0.15, -0.20, 0.20
+strap_orientation_slot2			= 0.0, 360.0, 84.0
+strap_position_holster			= -0.20, -0.20, 0.20
+strap_orientation_holster		= 0.0, 360.0, 84.0
+strap_bone0						= bip01_spine2
+strap_bone1						= bip01_spine1
+;-------------------------------------------------------------------------------
+
+[wpn_shovel_hud]:wpn_axe3_hud
+item_visual						= dynamics\weapons\wpn_axe\wpn_shovel_hud.ogf
+item_position					= -0.000756,0.001682,-0.038760
+item_orientation				= 180.0,-6.0,-360.0
+;-------------------------------------------------------------------------------		  

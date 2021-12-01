@@ -1,0 +1,99 @@
+[logic@merc_pri_a18_mech_mlr]
+suitable = {=check_npc_name(merc_pri_a18_mech_mlr)} true
+prior = 200
+active = animpoint@base1
+can_select_weapon = true
+level_spot = mechanic
+dont_keep_items = true
+
+[animpoint@base1]
+cover_name = pripyat_smart_cover_mlr_tech_merc
+avail_animations = animpoint_stay_wall
+use_camp = true
+meet = meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@merc_pri_grifon_mlr]
+suitable = {=check_npc_name(merc_pri_grifon_mlr)} true
+prior = 200
+active = animpoint@base
+can_select_weapon = true
+level_spot = quest_npc
+dont_keep_items = true
+
+[animpoint@base]
+cover_name = pripyat_smart_cover_mlr_merc_grifon
+avail_animations = animpoint_stay_ohrana
+use_camp = false
+meet = meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+abuse           = false
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false
+
+;camping
+[logic@pri_a18_smart_terrain_camp_work_1]
+active = animpoint@pri_a18_smart_terrain_animpoint_kamp1
+prior = 45
+
+[logic@pri_a18_smart_terrain_camp_work_2]
+active = animpoint@pri_a18_smart_terrain_animpoint_kamp2
+prior = 45
+
+[logic@pri_a18_smart_terrain_camp_work_3]
+active = animpoint@pri_a18_smart_terrain_animpoint_kamp3
+prior = 45
+
+[logic@pri_a18_smart_terrain_camp_work_4]
+active = animpoint@pri_a18_smart_terrain_animpoint_kamp4
+prior = 45
+
+[logic@pri_a18_smart_terrain_camp_work_5]
+active = animpoint@pri_a18_smart_terrain_animpoint_kamp5
+prior = 45
+
+[animpoint@pri_a18_smart_terrain_animpoint_kamp1]
+cover_name = pri_a18_smart_terrain_animpoint_kamp1
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@pri_a18_smart_terrain_animpoint_kamp2]
+cover_name = pri_a18_smart_terrain_animpoint_kamp2
+use_camp = true
+turn_on_campfire = true
+
+[animpoint@pri_a18_smart_terrain_animpoint_kamp3]
+cover_name = pri_a18_smart_terrain_animpoint_kamp3
+avail_animations = animpoint_stay_wall
+use_camp = true
+
+[animpoint@pri_a18_smart_terrain_animpoint_kamp4]
+cover_name = pri_a18_smart_terrain_animpoint_kamp4
+avail_animations = animpoint_stay_ohrana
+use_camp = true
+
+[animpoint@pri_a18_smart_terrain_animpoint_kamp5]
+cover_name = pri_a18_smart_terrain_animpoint_kamp5
+use_camp = true

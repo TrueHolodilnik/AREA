@@ -1,0 +1,197 @@
+-----------------------------------
+-- actor_menu_mode 				 --
+-- Modified by Surs and Holodilnik for A.R.E.A. --
+-----------------------------------
+-- int mode:
+-- 0 = 	Undefined = закрыто
+-- 1 = 	Inventory
+-- 2 = 	Trade
+-- 3 = 	Upgrade
+-- 4 = 	DeadBodySearch
+-- 10 = Talk dialog show
+-- 11 = Talk dialog hide
+-- 12 = PDA dialog show
+-- 13 = PDA dialog hide
+local last_mode = 0
+xr_meet_dialog_closed = true
+xr_meet_trade_closed = false
+xr_meet_upgrade_closed = false
+dead_body_searching = false
+
+function actor_menu_mode(mode)
+	SendScriptCallback("actor_menu_mode_changed",mode,last_mode)
+	if last_mode == 4 then
+		level.Actor():ChangeStateCrouch(3)
+	end
+	if(mode==0) then
+		if(last_mode==1) then
+			inventory_wnd_closed()
+		elseif(last_mode==2) then
+			trade_wnd_closed()
+		elseif(last_mode==3) then
+			upgrade_wnd_closed()
+		elseif(last_mode==4) then
+			dead_body_search_wnd_closed()
+		end
+		last_mode = 0
+	elseif(mode==1) then
+		last_mode = 1
+		inventory_wnd_opened()
+	elseif(mode==2) then
+		last_mode = 2
+		trade_wnd_opened()
+	elseif(mode==3) then
+		last_mode = 3
+		upgrade_wnd_opened()
+	elseif(mode==4) then
+		last_mode = 4
+		dead_body_search_wnd_opened()
+	elseif(mode==10) then
+        	dialog_wnd_showed()
+	elseif(mode==11) then
+        	dialog_wnd_closed()
+	elseif(mode==12) then
+        	pda_wnd_showed()
+	elseif(mode==13) then
+        	pda_wnd_closed()
+	end
+end
+
+active_slot = 0
+function inventory_wnd_opened()
+	active_slot = db.actor:active_slot()
+	SendScriptCallback("InvWndOpened")
+	AddDOF({
+		kernel = 10,
+		far = 1.5,
+		sky = 10000
+	})
+	actor_hide_wpn(true)
+	ActorMenu.get_actor_menu():HealthProgressUI(axr_main.config:r_value("mm_options","enable_health_progressbar",1,true))
+	actor_effects.use_item("inventory_open")
+	-- printf("---:>Inventory opened")
+end
+
+function inventory_wnd_closed()
+	DefaultDOF()
+	actor_hide_wpn(false)
+	SendScriptCallback("InvWndClosed")
+	actor_effects.use_item("inventory_close")
+	CreateTimeEvent("inventory_wnd_closed",0,0.2,function()
+		active_slot = 0
+		return true
+	end)
+end
+
+function trade_wnd_opened()
+	SendScriptCallback("TrdWndOpened")
+	xr_meet_dialog_closed = false
+	actor_hide_wpn(true)
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+	give_info("trade_wnd_open")
+end
+
+function trade_wnd_closed()
+	--printf("---:>Trade closed")
+	SendScriptCallback("TrdWndClosed")
+	xr_meet_trade_closed = true
+	actor_hide_wpn(false)
+	disable_info("trade_wnd_open")
+end
+
+function upgrade_wnd_opened()
+	xr_meet_dialog_closed = false
+	actor_hide_wpn(false)
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+	actor_effects.use_item("inventory_close2")
+	give_info("upgrade_wnd_open")
+end
+
+function upgrade_wnd_closed()
+	xr_meet_upgrade_closed = true
+	actor_hide_wpn(false)
+	--printf("---:>Upgrade closed")
+end
+
+function dead_body_search_wnd_opened()
+	--printf("---:>DeadBodySearch opened")
+	dead_body_searching = true
+	level.Actor():ChangeStateCrouch(1)
+	AddDOF({
+		kernel = 6,
+		far = 1.5,
+		sky = 10000
+	})
+	actor_hide_wpn(true)
+	actor_effects.use_item("inventory_open")
+end
+
+function dead_body_search_wnd_closed()
+	--printf("---:>DeadBodySearch closed")
+	DefaultDOF()
+	actor_hide_wpn(false)
+	bind_container.curBoxID = nil
+	actor_effects.use_item("inventory_close")
+end
+
+function dialog_wnd_showed()
+	AddDOF({
+		kernel = 6,
+		far = 1.5,
+		sky = 10000
+	})
+	actor_hide_wpn(true)
+	--printf("---:>Talk Dialog show")
+	-- use pda.script for dialog_wnd
+end
+
+function dialog_wnd_closed()
+	--printf("---:>Talk Dialog hide")
+	DefaultDOF()
+	actor_hide_wpn(false)
+	-- use pda.script for dialog_wnd
+end
+
+function pda_wnd_showed()
+	give_info("pda_open")
+	actor_hide_wpn(true)
+end
+
+function pda_wnd_closed()
+	disable_info("pda_open")
+	actor_hide_wpn(false)
+end
+
+-- Called from engine! return CUIWindow or nil
+local obj_text_CUIWindow = {}
+local tg_2 = 0
+function inventory_hint_init_item(itm1,itm2)
+	-- if (itm1:cast_EatableItem()) then
+		local time = time_global()
+		--area_radiation_items.block_item_trading(itm1)
+		local ui = ui_actor_hint_wnd_ext.get_ui(itm1,itm2)
+		if time > tg_2 then
+			tg_2 = time + 1000--update every 2 seconds
+			obj_text_CUIWindow[1] = area_item_degrade.HintWnd(itm1,itm2)
+			--obj_text_CUIWindow[2] = area_radiation_items.HintWnd(itm1,itm2)
+		end
+		local text = ""
+		for i,value in pairs(obj_text_CUIWindow) do
+			if value then
+				if text == "" then
+					text = string.format("[%s]",value)
+				else
+					text = string.format("%s // [%s]",text,value)
+				end		
+			end
+		end
+		ui:Reinit(item,itm2,text)
+		return ui
+	-- end
+end

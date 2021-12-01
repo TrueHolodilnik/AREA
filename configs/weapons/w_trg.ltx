@@ -1,0 +1,330 @@
+;----------------------------------------------------------------------------------------
+; SAKO TRG from AO 3.1, remade by Surs for A.R.E.A. (24.08.2020)
+;----------------------------------------------------------------------------------------
+[wpn_trg]:default_weapon_params
+visual								= dynamics\weapons\wpn_trg\wpn_trg.ogf
+$spawn								= "weapons\svd"			; option for Level Editor
+$npc								= on					; option for Level Editor
+inv_name							= st_trg_sako
+inv_name_short						= st_trg_sako
+description							= st_wpn_trg_descr
+class                   			= WP_SVU
+scopes								= ac10632, ac11090, acog, c-more, coyote, eot, pks, tars101
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+default_to_ruck						= false
+sprint_allowed						= true
+heating_rates						= sniper2
+repair_type							= rifle_7.62
+cost								= 74880
+weapon_class						= sniper_rifle
+inv_weight							= 4.68
+inv_volume							= 6
+ph_mass								= 5
+upgrades							= up_gr_firstab_sv98, up_gr_seconab_sv98, up_gr_thirdab_sv98, up_gr_fourtab_sv98, up_gr_fourtcd_sv98, up_gr_fourtef_sv98
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_svd
+;--TTX-----------------------------------------------------------------------------
+hit_power							= 0.86, 0.86, 0.86, 0.86
+hit_impulse							= 45
+hit_type							= fire_wound
+fire_distance						= 1500
+bullet_speed						= 841
+rpm									= 23
+rpm_empty_click						= 200
+time_to_aim							= 1.0
+hud									= wpn_trg_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.9
+misfire_end_condition				= 0.2
+misfire_start_prob					= 0.03
+misfire_end_prob					= 0.09
+condition_shot_dec					= 0.0045
+condition_queue_shot_dec			= 0.0045
+
+ammo_elapsed						= 5
+ammo_mag_size						= 5
+fire_modes							= 1
+magazine_sect						= mag_338_cnt_5_trg
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad
+slot								= 2
+animation_slot						= 2
+;-------------------------------------------------------------------------------
+fire_dispersion_base				= 0.029					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 2.44f
+crosshair_inertion					= 9.8
+
+cam_return							= 0
+cam_relax_speed						= 3.1					;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360					;скорость возврата в исходное положение
+cam_dispersion						= 2.72					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 2.72					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					;максимальный угол отдачи
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.48					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.55
+PDM_disp_vel_factor					= 3.05
+PDM_disp_accel_factor				= 3.05
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 0.75
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 2.24
+zoom_cam_dispersion_inc				= 2.24
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.03
+fire_dispersion_condition_factor	= 8
+;--DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 350
+reload_dof							= 0.0, 0.5, 5, 2.2
+reload_empty_dof					= 0.0, 0.5, 5, 2.6
+holder_range_modifier				= 2.15					; во сколько раз увеличивается eye_range
+;-------------------------------------------------------------------------------
+inv_grid_width						= 6
+inv_grid_height						= 2
+inv_grid_x							= 75
+inv_grid_y							= 73
+
+upgr_icon_x							= 600
+upgr_icon_y							= 1100
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 0
+kill_msg_width						= 98
+kill_msg_height						= 23
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.25, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.25, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.077, 0.00
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.169, 0.902
+fire_point2							= 0.0, 0.169, 0.902
+flame_particles						= weapons\new_effects\ak74
+smoke_particles						= weapons\new_effects\smoke_muzzle_00
+shell_3d_sect						= shell_762
+shell_point							= 0.0, 0.129, 0.192
+shell_dir							= 0.0, 0.0, 0.4
+shell_drop_time						= 1300
+shell_drop_silent					= true
+;-------------------------------------------------------------------------------
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 4.0
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 4.2
+
+scope_texture						= wpn_crosshair_mark4
+scope_name							= wpn_addon_scope
+scope_x								= 60
+scope_y								= -2
+
+silencer_name						= wpn_sil_57
+silencer_x							= 280
+silencer_y							= -8
+
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw							= weapons\trg\trg_draw
+snd_holster							= weapons\trg\trg_holster
+snd_empty							= weapons\trg\trg_empty
+snd_close							= weapons\generic_close
+snd_reload							= weapons\trg\trg_reload
+snd_reload_empty					= weapons\trg\trg_reload_empty
+snd_reload_misfire					= weapons\trg\trg_reload_empty,1,0,2.1
+snd_reload_detached					= weapons\trg\trg_reload,1,0,0.8
+snd_reload_detached_empty			= weapons\trg\trg_reload_empty,1,0,0.8
+snd_bore							= $no_sound
+snd_shoot							= trg_shoot
+snd_silencer_shot					= trg_silencer_shot
+
+[trg_shoot]
+snd_1_layer							= weapons\trg\trg_shoot_null
+snd_2_layer							= weapons\trg\trg_bolt
+
+[trg_silencer_shot]
+snd_1_layer							= weapons\trg\trg_shoot_silencer
+snd_2_layer							= weapons\trg\trg_bolt
+;--Магазины---------------------------------------------------------------------
+[mag_338_cnt_5_trg]
+magazine_name						= magazine_338_cnt_5_trg
+magazine_x							= 89
+magazine_y							= 36
+custom_icon 						= 11,1,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_trg_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_hud
+zoom_hide_crosshair					= true
+shell_point							= 0,0,0
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+
+hands_position						= -0.110386,-0.116021,-0.050234
+hands_position_16x9					= -0.110386,-0.116021,-0.050234
+hands_orientation					= 0.435068,1.708195,0
+hands_orientation_16x9				= 0.435068,1.708195,0
+
+aim_hud_offset_pos					= -0.039375,0.014270,-0.201199
+aim_hud_offset_pos_16x9				= -0.039375,0.014270,-0.201199
+aim_hud_offset_rot					= 0.033514,0.006467,0	
+aim_hud_offset_rot_16x9				= 0.033514,0.006467,0
+
+aim_hud_offset_pos_alt				= -0.032320,-0.007070,0
+aim_hud_offset_pos_alt_16x9			= -0.032320,-0.007070,0
+aim_hud_offset_rot_alt				= 0,-0.001516,0.310729
+aim_hud_offset_rot_alt_16x9			= 0,-0.001516,0.310729
+
+anm_bore							= sako_aim_v2
+anm_hide							= sako_holster_v2
+anm_idle							= sako_idle_v2
+anm_idle_aim						= sako_aim_v2
+anm_idle_moving						= sako_move_v2
+anm_idle_moving_crouch				= sako_crouch
+anm_idle_sprint						= sako_sprint_v2
+anm_reload							= sako_reload_v2_short, reload_short
+anm_reload_empty					= sako_reload_v2, reload
+anm_reload_misfire					= sako_reload_v2, reload, , 2.1
+anm_reload_detached					= sako_reload_v2_short, reload_short, , 0.8
+anm_reload_detached_empty			= sako_reload_v2, , , 0.8
+anm_shots							= sako_shoot_v2, shoot
+anm_shots_empty						= sako_idle_v2
+anm_show							= sako_draw_v2
+;-------------------------------------------------------------------------------
+;	Scopes
+;-------------------------------------------------------------------------------
+[wpn_trg_ac10632]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 90
+scope_y								= 0
+hud									= wpn_trg_ac10632_hud
+
+[wpn_trg_ac10632_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.038769,0.001165,-0.235
+aim_hud_offset_rot_16x9				= 0.071149,0.004342,0
+;-------------------------------------------------------------------------------
+[wpn_trg_ac11090]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 90
+scope_y								= 0
+hud									= wpn_trg_ac11090_hud
+
+[wpn_trg_ac11090_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.039189,-0.017105,-0.190692
+aim_hud_offset_pos_16x9				= -0.039189,-0.017105,-0.190692
+;-------------------------------------------------------------------------------
+[wpn_trg_acog]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_acog.ogf
+scope_name							= acog
+scope_x								= 90
+scope_y								= 0
+hud									= wpn_trg_acog_hud
+
+[wpn_trg_acog_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_acog_hud.ogf
+aim_hud_offset_pos					= -0.039239,-0.01334,-0.211785
+aim_hud_offset_rot_16x9				= 0.033514,0.006467,0
+;-------------------------------------------------------------------------------
+[wpn_trg_c-more]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_c-more.ogf
+scope_name							= c-more
+scope_x								= 90
+scope_y								= 0
+hud									= wpn_trg_c-more_hud
+
+[wpn_trg_c-more_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_c-more_hud.ogf
+aim_hud_offset_pos					= -0.037129,-0.002185,-0.235
+aim_hud_offset_pos_16x9				= -0.037129,-0.002185,-0.235
+aim_hud_offset_rot					= 0.060414,-0.0008,0
+aim_hud_offset_rot_16x9				= 0.060414,-0.0008,0
+;-------------------------------------------------------------------------------
+[wpn_trg_coyote]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_coyote.ogf
+scope_name							= coyote
+scope_x								= 90
+scope_y								= 0
+hud									= wpn_trg_coyote_hud
+
+[wpn_trg_coyote_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_coyote_hud.ogf
+aim_hud_offset_pos					= -0.037444,0.003605,-0.226705
+aim_hud_offset_pos_16x9				= -0.037444,0.003605,-0.226705
+aim_hud_offset_rot					= 0.070412,0.000884,0
+aim_hud_offset_rot_16x9				= 0.070412,0.000884,0
+;-------------------------------------------------------------------------------
+[wpn_trg_eot]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_eot.ogf
+scope_name							= eot
+scope_x								= 90
+scope_y								= 0
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos						= -0.0002, 0.117, 0.180
+scope_dot_scale						= 2.0
+hud									= wpn_trg_eot_hud
+
+[wpn_trg_eot_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_eot_hud.ogf
+aim_hud_offset_pos					= -0.037065,0.002510,-0.201199
+aim_hud_offset_pos_16x9				= -0.037065,0.002510,-0.201199
+aim_hud_offset_rot					= 0.063571,-0.000905,0
+aim_hud_offset_rot_16x9				= 0.063571,-0.000905,0
+;-------------------------------------------------------------------------------
+[wpn_trg_pks]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_pks.ogf
+scope_name							= pks
+scope_x								= 60
+scope_y								= -1
+hud									= wpn_trg_pks_hud
+
+[wpn_trg_pks_hud]:wpn_trg_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_pks_hud.ogf
+aim_hud_offset_pos					= -0.06732,0.021815,-0.144089
+aim_hud_offset_pos_16x9				= -0.06732,0.021815,-0.144089
+;-------------------------------------------------------------------------------
+[wpn_trg_tars101]:wpn_trg
+visual								= dynamics\weapons\wpn_trg\wpn_trg_tars101.ogf
+scope_name							= tars101
+scope_x								= 65
+scope_y								= -3
+hud									= wpn_trg_tars101_hud
+
+[wpn_trg_tars101_hud]:wpn_trg_pks_hud
+item_visual							= dynamics\weapons\wpn_trg\wpn_trg_tars101_hud.ogf
+aim_hud_offset_pos					= -0.038934,-0.016645,-0.165639
+aim_hud_offset_pos_16x9				= -0.038934,-0.016645,-0.165639
+;-------------------------------------------------------------------------------

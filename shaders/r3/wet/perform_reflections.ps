@@ -1,0 +1,217 @@
+
+
+	#define REFLS
+	#include "common.h"
+	#include "common_gbuffer.h"
+	#include "lmodel.h"
+	#include "infrared.h"
+	
+	uniform float4 ogse_c_rain;	
+	
+	struct refl_prep
+	{
+		float3 wposi;
+		float3 wnorm;
+		float3 ssposi;
+	};
+	
+	struct	_out
+	{
+		float4	color	: SV_Target0;
+		float4	accum	: SV_Target1;
+	};
+	
+	#ifdef USE_MSAA
+		Texture2DMS <float4> s_frame;
+	#else
+		Texture2D s_frame;
+	#endif
+	
+	#define SSR_HQ_JITTER_SCALE 0.25 // Интенсивность шума
+	#define SSR_HQ_JITTER_SEARCH_RANGE 3 // Радиус поиска шума
+	#define SSR_HQ_JITTER_THRESHOLD 0.25 // Антишумовой порог
+	
+	#define SSR_HQ_INC_SAMPLES 2 // Кол-во разнодлинный векторов
+	#define SSR_HQ_RAY_INCREASE 1.75 // Отношение длины каждого вектора из SSR_HQ_INC_SAMPLES к предыдущему
+	//#define SSR_HQ_RAY_STEPS 10 // Количество шагов по вектору одной длины
+	#define SSR_HQ_RAY_BASE_LENGTH 3 // Величина самого маленького вектора * кол-во шагов / корень из фактора глубины
+	#define SSR_HQ_DIFF_THRESHOLD 1.5 // Максимальный допуск погрешности, от 1
+	#define SSR_HQ_RAY_REFINE 2 // Количество семплов уточнения отражения
+	#define SSR_HQ_MARCH_MIN_DIST 1 // Минимальная дистанция, влияет на SSR_HQ_RAY_BASE_LENGTH
+	#define SSR_HQ_MARCH_MAX_DIST 30 // Максимальная дистанция (вряд ли отражение до неё дойдёт)
+	#define SSR_START_TAP			0.25
+	#define SSR_OUTRANGE_TC_CUTER 0.001
+
+	#define SSR_ROAD
+	#include "depth_traced_ssr.h"
+	#define SSR_NORMAL_RECONSTRUCTOR_MM 0.5 // Virtual sharpness
+	#define SSR_NORMAL_RECONSTRUCTOR_VF 1.1 // Vertical|horizontal offset [1..2]
+	
+	#include "blur.h"
+	
+	float3 gbuf_unpack_position(float2 uv, float eye_z)
+	{
+		uv = (uv * float2(2.0, -2.0) - float2(1.0, -1.0));
+		
+		float3 pos = float3(uv * InvFocalLen * eye_z, eye_z);
+		
+		return pos;
+	}
+
+	
+	#if defined(USE_MSAA)
+		float3 gbuf_get_normal( float2 texcoord, uint iSample)
+	#else
+		float3 gbuf_get_normal( float2 texcoord)
+	#endif
+	{
+		#if defined(USE_MSAA)
+			float2 nxy	= s_position.Load(int3(texcoord * screen_res.xy, 0), iSample).xy; 
+		#else
+			float2 nxy	= s_position.Sample(smp_nofilter, texcoord).xy;
+		#endif
+
+		return gbuf_unpack_normal(nxy);
+	}
+
+	#ifdef USE_MSAA
+		#ifdef GBUFFER_OPTIMIZATION
+			_out main ( float4 tc:TEXCOORD0, float4 pos2d : SV_Position, uint iSample : SV_SAMPLEINDEX ) : SV_Target
+		#else
+			_out main ( float4 tc:TEXCOORD0, uint iSample : SV_SAMPLEINDEX ) : SV_Target
+		#endif
+	#else
+		#ifdef GBUFFER_OPTIMIZATION
+			_out main ( float4 tc:TEXCOORD0, float4 pos2d : SV_Position ) : SV_Target
+		#else
+			_out main ( float4 tc:TEXCOORD0 ) : SV_Target
+		#endif
+	#endif
+	{
+
+			#ifdef GBUFFER_OPTIMIZATION
+				gbuffer_data gbd = gbuffer_load_data( tc.xy, pos2d.xy );
+			#else
+				gbuffer_data gbd = gbuffer_load_data( tc.xy );
+			#endif
+			
+			if (gbd.P.z > 60) {
+				_out o;
+				o.color = float4(0,0,0,0);
+				o.accum = o.color;
+				return o;
+			};
+			
+			float objMat = mcls(gbd.mtl);
+			
+			if (objMat == 3) {
+				_out o;
+				o.color = float4(0,0,0,0);
+				o.accum = o.color;
+				return o;
+			};
+			
+			float brightness = ((gbd.C.r + gbd.C.b + gbd.C.g)/3);
+			float puddles = s_puddles.Sample(smp_base,mul(m_v2w, float4(gbd.P, 1.f)).xz*0.05).g;
+			float wet_factor = gbd.hemi*gbd.hemi*gbd.hemi*(ogse_c_rain.w + control_params.z)*2;
+			float mtl = gbd.mtl;
+			float hemi_factor = 1 - gbd.hemi*gbd.hemi*gbd.hemi;
+			
+			if ((objMat == 2 && (((1 - brightness)*0.25*wet_factor*puddles) < 0.001)) && ((1 - brightness)*(1 + mtl)*0.25*wet_factor < 0.001) && (objMat >= 4 && ((1 + mtl*(1 + mtl*(1 + mtl)))*brightness*0.5 < 0.001)) && (objMat < 4 && (hemi_factor*brightness*(1 + mtl)*0.35 < 0.001)) && ((gbd.gloss*5 + 0.5)*(mtl + 0.5)*4.75*(1 + brightness) < 0.001)) {
+				_out o;
+				o.color = float4(0,0,0,0);
+				o.accum = o.color;
+				return o;
+			}
+			
+			float3 vsposition = float3(tc.xy * pos_decompression_params2.xy * pos_decompression_params.zw - pos_decompression_params.xy, 1) * gbd.P.z;
+			float3 wsnormal = mul(gbd.N.xyz, (float3x3)m_V);
+			float3 scvreflect = 0;
+			float3 wsvreflect = 0;
+			
+			//bool need_reflection = false;
+			//{
+			//	// Нужные мировые векторы
+			//	float3 wscompvec = float3(0.000005, 0.9999, 1000000);
+			//	float3 wscompnormal = wsnormal; 
+			//	wscompnormal.y = wscompnormal.y * wscompvec.z / vsposition.z; 
+			//	wscompnormal = normalize(wscompnormal);
+			//				
+			//	need_reflection = (
+			//							(wscompnormal.y > wscompvec.y) 
+			//						&&	(wscompnormal.x - wscompvec.x < 0) 
+			//						&&	(wscompnormal.x + wscompvec.x > 0) 
+			//						&&	(wscompnormal.z - wscompvec.x < 0) 
+			//						&&	(wscompnormal.z + wscompvec.x > 0)
+			//						);
+			//}
+			//
+			//if(need_reflection)
+			{
+				
+				if (gbd.mtl > 0.85) {
+					//wsnormal.xz /= 2.5;
+					wsnormal.y *= 4;
+				}
+				else if (objMat == 2 && puddles > 0.1) {
+					wsnormal.xz /= 10;
+					wsnormal.y *= 10;
+					//wsnormal.xz /= 1 + (1 - smoothstep(0, 0.2, gbd.hemi))*9 + gbd.mtl;
+					//wsnormal.y *= 1 + (1 - smoothstep(0, 0.2, gbd.hemi))*9 + gbd.mtl;
+				}
+				else {
+					//wsnormal.xz /= 1.5;
+					wsnormal.y *= 15;
+				}
+				
+				wsnormal		= normalize(wsnormal);
+				
+				float3 vsnormal = mul((float3x4)m_V, float4(wsnormal, 0));
+				wsnormal = normalize(wsnormal);
+				
+				float3 vsposition_s = vsposition;
+				if(vsposition_s.z <= 0.01) vsposition_s.z = 998;
+	
+				float3 vsggvec = normalize(vsposition_s);
+				float3 vsvreflect = normalize(reflect(vsggvec, vsnormal));
+				
+				scvreflect = vsvreflect;
+				scvreflect.xy = (vsvreflect.xy + pos_decompression_params.xy * vsvreflect.zz) / pos_decompression_params.zw / pos_decompression_params2.xy;
+				wsvreflect =  normalize(reflect(mul(m_v2w, float4(gbd.P.xyz, 1)) - eye_position, normalize(mul(m_v2w, float4(gbd.N.xyz, 0)))));
+				
+				float frenel = saturate(dot(vsggvec, vsvreflect) * 1.5);
+	
+				//float attenutation = saturate(1 - dot(-vsggvec, vsnormal));
+				
+				//float light = plight_infinity(gbd.mtl, vsposition, vsnormal, float4(gbd.C, 1), mul((float3x4)m_V, float4(L_sun_dir_w, 0))).w;
+			
+				// depth_traced_ssr(scposition, scvreflect, wsvreflect, ...)
+				float3 scposition = float3(tc.xy, 1) * gbd.P.z; // - position for ssr
+				// scvreflect - reflected vector for ssr
+				// wsvreflect - reflected vector for sky boxes
+			
+			#ifdef USE_MSAA
+				#ifdef GBUFFER_OPTIMIZATION
+					_out o = depth_traced_ssr(scposition, scvreflect, wsvreflect, iSample, pos2d, gbd, tc.xy, frenel);
+				#else
+					_out o = depth_traced_ssr(scposition, scvreflect, wsvreflect, iSample, gbd, tc.xy, frenel);
+				#endif
+			#else
+				#ifdef GBUFFER_OPTIMIZATION
+					_out o = depth_traced_ssr(scposition, scvreflect, wsvreflect, pos2d, gbd, tc.xy, frenel);
+				#else
+					_out o = depth_traced_ssr(scposition, scvreflect, wsvreflect, gbd, tc.xy, frenel);
+				#endif
+			#endif
+			
+			//o.color += light;
+			return o;
+		}
+		_out o;
+		o.color = float4(0,0,0,0);
+		o.accum = o.color;
+		return o;
+		
+		}
+	
+	

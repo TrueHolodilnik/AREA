@@ -1,0 +1,1310 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ZONE-PRODUCED FOOD ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mushroom]:booster
+$spawn									= "food and drugs\mushroom"
+visual									= objects\newmodels\mushroom.ogf
+inv_name								= st_mushroom
+inv_name_short							= st_mushroom
+description								= st_mushroom_descr
+inv_weight								= 0.230, 0.280
+inv_volume								= 0.3, 0.64
+inv_grid_x								= 19
+inv_grid_y								= 60
+cost									= 500
+eat_satiety								= 0.050
+eat_thirst								= -0.200
+eat_alcohol								= 0.190
+eat_radiation							= 0.150
+eat_sleepiness							= 1
+eat_health								= -0.025
+eat_toxicity							= 0.125
+can_be_cooked							= mushroom_fried
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+
+[mushroom_str]:mushroom
+visual									= objects\newmodels\mushroom_strange.ogf
+inv_name								= st_mushroom
+inv_name_short							= st_mushroom
+description								= st_mushroom_descr
+inv_grid_x								= 18
+inv_grid_y								= 60
+eat_thirst								= -0.180
+
+[mushroom_1]:mushroom
+visual									= objects\newmodels\mushroom_1.ogf
+inv_weight								= 0.180,0.230
+inv_volume								= 0.45, 0.54
+cost									= 500
+inv_grid_x								= 17
+eat_satiety								= 0.210
+eat_thirst								= -0.190
+eat_toxicity							= 0.130
+
+[mushroom_fried]:booster
+$spawn									= "food and drugs\mushroom"
+visual									= objects\newmodels\mushroom.ogf
+description								= st_mushroom_fried_descr
+inv_name								= st_mushroom_fried
+inv_name_short							= st_mushroom_fried
+inv_weight								= 0.180, 0.230
+inv_grid_x								= 16
+inv_grid_y								= 60
+cost									= 850
+eat_satiety								= 0.240
+eat_thirst								= -0.250
+eat_radiation							= 0.030
+eat_sleepiness							= 1
+eat_toxicity							= 0.030
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+
+[mushroom_muh]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= objects\newmodels\mushroom_muh.ogf
+description								= st_mushroom_muh_descr
+inv_name								= st_mushroom_muh
+inv_name_short							= st_mushroom_muh
+inv_weight								= 0.170
+inv_grid_x								= 18
+inv_grid_y								= 60
+cost									= 1000
+eat_satiety								= 0.050
+eat_thirst								= -0.220
+eat_radiation							= 0.175
+eat_sleepiness							= 5
+eat_toxicity							= 0.500
+eat_alcohol								= 0.500
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_tushkano]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_tushkano.ogf
+description								= st_meat_tushkano_descr
+inv_name								= st_meat_tushkano
+inv_name_short							= st_meat_tushkano
+inv_weight								= 0.074, 0.124
+inv_volume								= 0.35, 0.44
+item_degrade							= 72
+inv_grid_x								= 15
+inv_grid_y								= 57
+cost									= 15
+eat_satiety								= 0.183
+eat_thirst								= -0.225
+eat_radiation							= 0.011
+eat_sleepiness							= 1
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_rat]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_tushkano.ogf
+description								= st_meat_rat_descr
+inv_name								= st_meat_rat
+inv_name_short							= st_meat_rat
+inv_weight								= 0.064, 0.114
+inv_volume								= 0.1, 0.3
+item_degrade							= 72
+inv_grid_x								= 18
+inv_grid_y								= 57
+cost									= 15
+eat_satiety								= 0.163
+eat_thirst								= -0.225
+eat_radiation							= 0.011
+eat_sleepiness							= 1
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_dog]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_dog.ogf
+description								= st_meat_dog_descr
+inv_name								= st_meat_dog
+inv_name_short							= st_meat_dog
+inv_weight								= 0.139, 0.189
+inv_volume								= 0.1, 0.4
+item_degrade							= 72
+inv_grid_x								= 17
+inv_grid_y								= 57
+cost									= 30
+eat_satiety								= 0.305
+eat_thirst								= -0.225
+eat_radiation							= 0.041
+eat_sleepiness							= 1
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_pseudodog]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_pseudodog.ogf
+description								= st_meat_pseudodog_descr
+inv_name								= st_meat_pseudodog
+inv_name_short							= st_meat_pseudodog
+inv_weight								= 0.184, 0.234
+inv_volume								= 0.5, 0.59
+item_degrade							= 72
+inv_grid_x								= 16
+inv_grid_y								= 57
+cost									= 35
+eat_satiety								= 0.350
+eat_thirst								= -0.250
+eat_radiation							= 0.053
+eat_sleepiness							= 1
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_flesh]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_flesh.ogf
+description								= st_meat_flesh_descr
+inv_name								= st_meat_flesh
+inv_name_short							= st_meat_flesh
+inv_weight								= 0.364, 0.414
+inv_volume								= 0.5, 0.59
+item_degrade							= 72
+inv_grid_x								= 18
+inv_grid_y								= 57
+cost									= 350
+eat_satiety								= 1.1
+eat_thirst								= -0.300
+eat_radiation							= 0.114
+eat_sleepiness							= 1.5
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_boar]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_boar.ogf
+description								= st_meat_boar_descr
+inv_name								= st_meat_boar
+inv_name_short							= st_meat_boar
+inv_weight								= 0.420, 0.470
+inv_volume								= 0.6, 0.69
+inv_grid_x								= 19
+inv_grid_y								= 57
+cost									= 70
+eat_satiety								= 0.514
+eat_thirst								= -0.325
+eat_radiation							= 0.119
+eat_sleepiness							= 1.5
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_bloodsucker]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_bloodsucker.ogf
+description								= st_meat_bloodsucker_descr
+inv_name								= st_meat_bloodsucker
+inv_name_short							= st_meat_bloodsucker
+inv_weight								= 0.346, 0.396
+inv_volume								= 0.4, 0.6
+item_degrade							= 72
+inv_grid_x								= 12
+inv_grid_y								= 58
+cost									= 90
+eat_satiety								= 0.900
+eat_thirst								= -0.350
+eat_radiation							= 0.106
+eat_sleepiness							= 1.5
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_stronglav]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\meat_bloodsucker.ogf
+description								= st_meat_bloodsucker_descr
+inv_name								= st_meat_bloodsucker
+inv_name_short							= st_meat_bloodsucker
+inv_weight								= 0.626, 0.676
+inv_volume								= 0.5, 0.7
+item_degrade							= 72
+inv_grid_x								= 12
+inv_grid_y								= 58
+cost									= 150
+eat_satiety								= 1
+eat_thirst								= -0.360
+eat_radiation							= 0.106
+eat_sleepiness							= 1.5
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_snork]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\snork_food.ogf
+description								= st_meat_snork_descr
+inv_name								= st_meat_snork
+inv_name_short							= st_meat_snork
+inv_weight								= 0.247, 0.297
+inv_volume								= 0.2, 0.4
+item_degrade							= 72
+inv_grid_x								= 14
+inv_grid_y								= 58
+cost									= 50
+eat_satiety								= 0.320
+eat_thirst								= -0.250
+eat_radiation							= 0.039
+eat_sleepiness							= 1
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[meat_chimera]:booster
+$spawn									= "food and drugs\kolbasa"
+visual									= dynamics\zpf\chimera_food.ogf
+description								= st_meat_chimera_descr
+inv_name								= st_meat_chimera
+inv_name_short							= st_meat_chimera
+inv_weight								= 0.892, 0.942
+inv_volume								= 1.0, 1.09
+item_degrade							= 72
+inv_grid_x								= 13
+inv_grid_y								= 58
+cost									= 120
+eat_satiety								= 0.928
+eat_thirst								= -0.380
+eat_radiation							= 0.132
+eat_sleepiness							= 1.5
+use_sound								= interface\inv_eat_paperwrap_2
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;; NON-EATABLE MONSTER PARTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_general]:base_section
+$spawn									= "devices\monster_items\mutant_part_general"
+class									= II_ATTCH
+visual									= monsters\mutant_parts\item_pseudodog_tail.ogf
+inv_weight								= 0.2
+inv_volume								= 0.5
+inv_category							= 5
+can_trade								= true
+take_sound								= meat_take
+harvest_anim							= anm_harv_meat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_bloodsucker_heart]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_bloodsucker_heart"
+visual									= monsters\mutant_parts\item_it_heart.ogf
+inv_weight								= 0.4
+inv_volume								= 0.7
+inv_name								= mutant_bloodsucker_heart
+inv_name_short							= mutant_bloodsucker_heart
+description								= mutant_bloodsucker_heart_description
+inv_grid_x								= 2
+inv_grid_y								= 1
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 2540
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_bloodsucker_jaw]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_bloodsucker_jaw"
+visual									= monsters\mutant_parts\item_krovosos_jaw.ogf
+inv_weight								= 0.324
+inv_volume								= 0.7
+inv_name								= mutant_krovosos_jaw
+inv_name_short							= mutant_krovosos_jaw
+description								= mutant_krovosos_jaw_description
+inv_grid_x								= 3
+inv_grid_y								= 1
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 2000
+harvest_anim							= anm_harv_bloodsucker
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_boar_leg]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_boar_leg"
+visual									= monsters\mutant_parts\item_boar_leg.ogf
+inv_weight								= 0.468
+inv_volume								= 0.8
+inv_name								= mutant_boar_leg
+inv_name_short							= mutant_boar_leg
+description								= mutant_boar_leg_description
+inv_grid_x								= 4
+inv_grid_y								= 1
+inv_grid_width							= 2
+inv_grid_height							= 2
+cost									= 670
+harvest_anim							= anm_harv_boar_hoof
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_boar_tusk]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_boar_tusk"
+visual									= monsters\mutant_parts\item_boar_tusk.ogf
+inv_weight								= 0.1
+inv_volume								= 0.2
+inv_name							 	= mutant_boar_tusk
+inv_name_short							= mutant_boar_tusk
+description								= mutant_boar_tusk_description
+inv_grid_x								= 6
+inv_grid_y								= 1
+cost									= 650
+harvest_anim							= anm_harv_boar_tusk
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_burer_brain]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_psevdodog_tail"
+visual								 	= monsters\mutant_parts\item_it_brain.ogf
+inv_weight								= 2.5
+inv_volume								= 1.5
+inv_name								= mutant_brain_burer
+inv_name_short							= mutant_brain_burer
+description								= mutant_brain_burer_description
+inv_grid_x								= 7
+inv_grid_y								= 1
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 4500
+harvest_anim							= anm_harv_brain
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_burer_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_burer_hand"
+visual									= monsters\mutant_parts\item_burer_hand.ogf
+inv_weight								= 0.234
+inv_volume								= 0.6
+inv_name								= mutant_burer_hand
+inv_name_short							= mutant_burer_hand
+description								= mutant_burer_hand_description
+inv_grid_x								= 6
+inv_grid_y								= 2
+cost									= 2940
+harvest_anim							= anm_harv_burer_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_cat_tail]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_psevdodog_tail"
+visual									= monsters\mutant_parts\item_cat_tail.ogf
+inv_name								= mutant_cat_tail
+inv_name_short							= mutant_cat_tail
+description								= mutant_cat_tail_description
+inv_weight								= 0.262
+inv_volume								= 0.4
+inv_grid_x								= 0
+inv_grid_y								= 1
+inv_grid_width							= 2
+inv_grid_height							= 1
+cost									= 690
+harvest_anim							= anm_harv_cat_tail
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_cat_thyroid]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_cat_thyroid"
+visual									= monsters\mutant_parts\item_cat_thyroid.ogf
+inv_weight								= 0.18
+inv_volume								= 0.2
+inv_name								= mutant_cat_thyroid
+inv_name_short							= mutant_cat_thyroid
+description								= mutant_cat_thyroid_description
+inv_grid_x								= 8
+inv_grid_y								= 1
+cost									= 830
+harvest_anim							= anm_harv_cat_thyroid
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_cat_claw]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_cat_claw"
+visual									= monsters\mutant_parts\item_chimera_cogot.ogf
+inv_weight								= 0.02
+inv_volume								= 0.1
+inv_name								= mutant_cat_claw
+inv_name_short							= mutant_cat_claw
+description								= mutant_cat_claw_description
+inv_grid_x								= 8
+inv_grid_y								= 2
+cost									= 550
+harvest_anim							= anm_harv_chimera_claw
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_crow_beak]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_crow_beak"
+visual									= monsters\mutant_parts\item_crow_beak.ogf
+inv_name								= st_mutant_part_crow_beak
+inv_name_short							= st_mutant_part_crow_beak
+description								= st_mutant_part_crow_beak_description
+inv_weight								= 0.023
+inv_volume								= 0.1
+inv_grid_x								= 9
+inv_grid_y								= 1
+cost									= 1550
+can_be_cooked							= drink_crow
+harvest_anim							= anm_harv_crow_beak
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_chimera_claw]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_chimera_claw"
+visual									= monsters\mutant_parts\item_chimera_cogot.ogf
+inv_weight								= 0.244
+inv_volume								= 0.3
+inv_name								= mutant_chimera_claw
+inv_name_short							= mutant_chimera_claw
+description								= mutant_chimera_claw_description
+inv_grid_x								= 10
+inv_grid_y								= 1
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 1890
+harvest_anim							= anm_harv_chimera_claw
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_chimera_heart]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_chimera_heart"
+visual									= monsters\mutant_parts\item_it_heart.ogf
+inv_weight								= 2.5
+inv_volume								= 1.5
+inv_name								= mutant_chimera_heart
+inv_name_short							= mutant_chimera_heart
+description								= mutant_chimera_heart_description
+inv_grid_x         						= 11
+inv_grid_y         						= 1
+inv_grid_width							= 2
+inv_grid_height							= 2
+cost									= 4400
+harvest_anim							= anm_harv_dog_heart
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_chimera_tooth]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_chimera_tooth"
+visual									= monsters\mutant_parts\item_chimera_cogot.ogf
+inv_weight								= 0.244
+inv_volume								= 0.3
+inv_name								= mutant_chimera_tooth
+inv_name_short							= mutant_chimera_tooth
+description								= mutant_chimera_tooth_description
+inv_grid_x								= 9
+inv_grid_y								= 2
+cost									= 3740
+harvest_anim							= anm_harv_chimera_tooth
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_controller_brain]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_controller_glas"
+visual									= monsters\mutant_parts\item_it_brain.ogf
+inv_weight								= 3.095
+inv_volume								= 0.3
+inv_name								= mutant_part_controller_brain_tissue
+inv_name_short							= mutant_part_controller_brain_tissue
+description								= mutant_part_controller_brain_tissue_description
+inv_grid_x								= 13
+inv_grid_y								= 1
+inv_grid_width							= 2
+inv_grid_height							= 2
+cost									= 5790
+harvest_anim							= anm_harv_brain
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_controller_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_controller_hand"
+visual									= monsters\mutant_parts\item_controller_hand.ogf
+inv_weight								= 0.212
+inv_volume								= 0.4
+inv_name								= mutant_controller_hand
+inv_name_short							= mutant_controller_hand
+description								= mutant_controller_hand_description
+inv_grid_x								= 0
+inv_grid_y								= 4
+cost									= 4180
+harvest_anim							= anm_harv_controler_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_dog_heart]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_dog_heart"
+visual									= monsters\mutant_parts\item_dog_heart.ogf
+inv_weight								= 0.3
+inv_volume								= 0.3
+inv_name								= mutant_dog_heart
+inv_name_short							= mutant_dog_heart
+description								= mutant_dog_heart_description
+inv_grid_x								= 1
+inv_grid_y								= 4
+cost									= 721
+harvest_anim							= anm_harv_dog_heart
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_dog_liver]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_dog_liver"
+visual									= monsters\mutant_parts\item_dog_liver.ogf
+inv_weight								= 0.45
+inv_volume								= 0.25
+inv_name								= mutant_dog_liver
+inv_name_short							= mutant_dog_liver
+description								= mutant_dog_liver_description
+inv_grid_x								= 2
+inv_grid_y								= 4
+cost									= 645
+harvest_anim							= anm_harv_dog_liver
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_dog_tail]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_dog_tail"
+visual									= monsters\mutant_parts\item_dog_tail.ogf
+inv_weight								= 0.174
+inv_volume								= 0.3
+inv_name								= mutant_dog_tail
+inv_name_short							= mutant_dog_tail
+description								= mutant_dog_tail_description
+inv_grid_x								= 3
+inv_grid_y								= 4
+inv_grid_width							= 2
+inv_grid_height							= 1
+cost									= 620
+harvest_anim							= anm_harv_dog_tail
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_flesh_eye]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_flesh_eye"
+visual									= monsters\mutant_parts\item_flesh_eye.ogf
+inv_weight								= 0.046
+inv_volume								= 0.15
+inv_name								= mutant_flesh_eye
+inv_name_short							= mutant_flesh_eye
+description								= mutant_flesh_eye_description
+inv_grid_x								= 5
+inv_grid_y								= 4
+cost									= 640
+harvest_anim							= anm_harv_eye
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_fracture_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_controller_hand"
+visual									= monsters\mutant_parts\item_fracture_hand.ogf
+inv_name								= mutant_fracture_hand
+inv_name_short							= mutant_fracture_hand
+description								= mutant_fracture_hand_description
+inv_weight								= 0.243
+inv_volume								= 0.5
+inv_grid_x								= 9
+inv_grid_y								= 4
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 560
+harvest_anim							= anm_harv_fracture_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_karlik_ear]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_karlik_ear"
+visual									= monsters\mutant_parts\item_karlik_ear.ogf
+inv_weight								= 0.075
+inv_volume								= 0.15
+inv_name								= mutant_karlik_ear
+inv_name_short							= mutant_karlik_ear
+description								= mutant_karlik_ear_description
+inv_grid_x								= 6
+inv_grid_y								= 4
+cost									= 2000
+harvest_anim							= anm_harv_ear
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_poltergeist_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_poltergeist_hand"
+visual									= monsters\mutant_parts\item_zombie_hand.ogf
+inv_weight								= 0.212
+inv_volume								= 0.3
+inv_name								= mutant_poltergeist_hand
+inv_name_short							= mutant_poltergeist_hand
+description								= mutant_poltergeist_hand_description
+inv_grid_x								= 7
+inv_grid_y								= 4
+cost									= 2560
+harvest_anim							= anm_harv_pseudogiant_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_poltergeist_powder]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_poltergeist_powder"
+visual									= monsters\mutant_parts\item_poltergeist_powder.ogf
+inv_grid_x								= 6
+inv_grid_y								= 4
+inv_weight								= 0.324
+inv_volume								= 0.15
+inv_name								= st_poltergeist_powder
+inv_name_short							= st_poltergeist_powder
+description								= st_poltergeist_powder_descr
+cost									= 6560
+repair_part_bonus						= 0.28
+harvest_anim							= anm_harv_poltergeist_powder
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_psevdodog_fang]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_psevdodog_tail"
+visual									= monsters\mutant_parts\item_it_canine.ogf
+inv_weight								= 0.25
+inv_volume								= 0.2
+inv_name								= mutant_psevdodog_fang
+inv_name_short							= mutant_psevdodog_fang
+description								= mutant_psevdodog_fang_description
+inv_grid_x								= 10
+inv_grid_y								= 4
+cost									= 720
+harvest_anim							= anm_harv_chimera_tooth
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_psevdodog_tail]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_psevdodog_tail"
+visual									= monsters\mutant_parts\item_psevdodog_tail.ogf
+inv_weight								= 0.213
+inv_volume								= 0.3
+inv_name								= mutant_psevdodog_tail
+inv_name_short							= mutant_psevdodog_tail
+description								= mutant_psevdodog_tail_description
+inv_grid_x								= 10
+inv_grid_y								= 5
+inv_grid_width							= 2
+inv_grid_height							= 1
+cost									= 1150
+harvest_anim							= anm_harv_pseudodog_tail
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_pseudogigant_eye]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_pseudogigant_hand"
+visual									= monsters\mutant_parts\item_flesh_eye.ogf
+inv_weight								= 0.068
+inv_volume								= 0.2
+inv_name								= mutant_pseudogiant_eye
+inv_name_short							= mutant_pseudogiant_eye
+description								= mutant_pseudogiant_eye_description
+inv_grid_x								= 12
+inv_grid_y								= 4
+inv_grid_width							= 2
+inv_grid_height							= 2
+cost									= 5620
+harvest_anim							= anm_harv_eye
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_pseudogigant_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_pseudogigant_hand"
+visual									= monsters\mutant_parts\item_pseudogiant_hand.ogf
+inv_weight								= 3.568
+inv_volume								= 3.0
+inv_name								= mutant_pseudogiant_hand
+inv_name_short							= mutant_pseudogiant_hand
+description								= mutant_pseudogiant_hand_description
+inv_grid_x								= 18
+inv_grid_y								= 3
+inv_grid_width							= 2
+inv_grid_height							= 2
+cost									= 6240
+harvest_anim							= anm_harv_pseudogiant_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_psy_dog_brain]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_controller_glas"
+visual									= monsters\mutant_parts\item_it_brain.ogf
+inv_weight								= 1.395
+inv_volume								= 1.8
+inv_name								= mutant_part_psy_dog_brain
+inv_name_short							= mutant_part_psy_dog_brain
+description								= mutant_part_psy_dog_brain_description
+inv_grid_x								= 11
+inv_grid_y								= 4
+cost									= 3350
+harvest_anim							= anm_harv_brain
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_snork_leg]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_snork_leg"
+visual									= monsters\mutant_parts\item_snork_leg.ogf
+inv_weight								= 0.446
+inv_volume								= 0.5
+inv_name								= mutant_snork_leg
+inv_name_short							= mutant_snork_leg
+description								= mutant_snork_leg_description
+inv_grid_x								= 14
+inv_grid_y								= 3
+cost									= 890
+repair_part_bonus						= 0.03
+harvest_anim							= anm_harv_snork_leg
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_snork_mask]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_snork_leg"
+visual									= monsters\mutant_parts\item_snork_mask.ogf
+inv_weight								= 0.798
+inv_volume								= 1.2
+inv_name								= mutant_snork_mask
+inv_name_short							= mutant_snork_mask
+description								= mutant_snork_mask_description
+inv_grid_width							= 2
+inv_grid_height							= 2
+inv_grid_x								= 12
+inv_grid_y								= 13
+cost									= 1060
+repair_part_bonus						= 0.04
+harvest_anim							= anm_harv_snork_mask
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_stronglav_heart]:mutant_part_general
+$spawn 									= "devices\monster_items\mutant_psevdodog_tail"
+visual									= monsters\mutant_parts\item_it_heart.ogf
+inv_weight								= 0.74
+inv_volume								= 1.1
+inv_name								= mutant_stronglav_heart
+inv_name_short							= mutant_stronglav_heart
+description								= mutant_stronglav_heart_description
+inv_grid_x								= 17
+inv_grid_y								= 3
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 8440
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_stronglav_jaw]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_krovosos_jaw"
+visual									= monsters\mutant_parts\item_krovosos_jaw.ogf
+inv_weight								= 0.624
+inv_volume								= 1.2
+inv_name								= mutant_stronglav_jaw
+inv_name_short							= mutant_stronglav_jaw
+description								= mutant_stronglav_jaw_description
+inv_grid_x								= 3
+inv_grid_y								= 1
+inv_grid_width							= 1
+inv_grid_height							= 2
+cost									= 6280
+harvest_anim							= anm_harv_bloodsucker
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_tushkano_head]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_tushkano_head"
+visual									= monsters\mutant_parts\item_tushkano_head.ogf
+inv_weight								= 0.112
+inv_volume								= 0.3
+inv_name								= mutant_tushkano_head
+inv_name_short							= mutant_tushkano_head
+description								= mutant_tushkano_head_description
+inv_grid_x								= 14
+inv_grid_y								= 4
+cost									= 510
+harvest_anim							= anm_harv_tushkano_head
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_zombie_hand]:mutant_part_general
+$spawn									= "devices\monster_items\mutant_burer_hand"
+visual									= monsters\mutant_parts\item_zombie_hand.ogf
+inv_name								= mutant_zombi_hand
+inv_name_short							= mutant_zombi_hand
+description								= mutant_zombi_hand_description
+inv_weight								= 0.184
+inv_grid_x								= 14
+inv_grid_y								= 5
+cost									= 620
+harvest_anim							= anm_harv_zombie_hand
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; EATABLE MONSTER PARTS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_flesh_meat]:booster
+$spawn									= "devices\monster_items\mutant_flesh_meat"
+visual									= dynamics\zpf\raw_flesh.ogf
+inv_weight								= 0.150
+inv_volume								= 0.3
+inv_name								= mutant_flesh_meat
+inv_name_short							= mutant_flesh_meat
+description								= mutant_flesh_meat_description
+inv_grid_x								= 15
+inv_grid_y								= 2
+cost									= 140
+eat_satiety								= 1.2
+eat_thirst								= -0.300
+eat_radiation							= 0.151
+eat_sleepiness							= 2
+eat_health								= -0.049
+repair_part_bonus						= 0.03
+can_be_cooked							= meat_flesh
+take_sound								= meat_take
+use_sound								= interface\inv_eat_mutant_food
+harvest_anim							= anm_harv_meat
+consume_type							= eat
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_boar_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_boar_meat"
+visual									= dynamics\zpf\raw_boar.ogf
+inv_weight								= 0.389
+inv_volume								= 0.5
+inv_name								= mutant_boar_meat
+inv_name_short							= mutant_boar_meat
+description								= mutant_boar_meat_description
+inv_grid_x								= 15
+inv_grid_y								= 4
+cost									= 100
+eat_satiety								= 0.510
+eat_thirst								= -0.320
+eat_radiation							= 0.143
+eat_sleepiness							= 2
+eat_health								= -0.047
+repair_part_bonus						= 0.02
+can_be_cooked							= meat_boar
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_dog_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_dog_meat"
+visual									= dynamics\zpf\raw_dog.ogf
+inv_weight								= 0.146
+inv_volume								= 0.4
+inv_name								= mutant_dog_meat
+inv_name_short							= mutant_dog_meat
+description								= mutant_dog_meat_description
+inv_grid_x								= 16
+inv_grid_y								= 3
+cost									= 50
+eat_satiety								= 0.306
+eat_thirst								= -0.280
+eat_radiation							= 0.051
+eat_sleepiness							= 1
+eat_health								= -0.017
+repair_part_bonus						= 0.01
+can_be_cooked							= meat_dog
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_psevdodog_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_psevdodog_meat"
+visual									= dynamics\zpf\raw_dog.ogf
+inv_weight								= 0.321
+inv_volume								= 0.4
+inv_name								= mutant_psevdodog_meat
+inv_name_short							= mutant_psevdodog_meat
+description								= mutant_psevdodog_meat_description
+inv_grid_x								= 16
+inv_grid_y								= 2
+cost									= 100
+eat_satiety								= 0.612
+eat_thirst								= -0.290
+eat_radiation							= 0.058
+eat_sleepiness							= 1
+eat_health								= -0.018
+repair_part_bonus						= 0.01
+can_be_cooked							= meat_pseudodog
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_krovosos_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_krovosos_meat"
+visual									= dynamics\zpf\raw_tushkano.ogf
+inv_weight								= 0.351
+inv_volume								= 0.5
+inv_name								= mutant_krovosos_meat
+inv_name_short							= mutant_krovosos_meat
+description								= mutant_krovosos_meat_description
+inv_grid_x								= 17
+inv_grid_y								= 2
+inv_grid_width							= 2
+inv_grid_height							= 1
+cost									= 110
+eat_satiety								= 0.920
+eat_thirst								= -0.350
+eat_radiation							= 0.139
+eat_sleepiness							= -1
+eat_health								= -0.027
+repair_part_bonus						= 0.01
+can_be_cooked							= meat_bloodsucker
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_stronglav_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_krovosos_meat"
+visual									= dynamics\zpf\meat_chimera.ogf
+inv_weight								= 0.351
+inv_volume								= 0.5
+inv_name								= mutant_stronglav_meat
+inv_name_short							= mutant_stronglav_meat
+description								= mutant_stronglav_meat_description
+inv_grid_x								= 17
+inv_grid_y								= 2
+inv_grid_width							= 2
+inv_grid_height							= 1
+cost									= 2417
+eat_satiety								= 0.920
+eat_thirst								= -0.380
+eat_radiation							= 0.139
+eat_sleepiness							= -2
+eat_health								= -0.025
+repair_part_bonus						= 0.01
+can_be_cooked							= meat_stronglav
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_snork_hand]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_snork_hand"
+visual									= monsters\mutant_parts\item_snork_hand.ogf
+inv_weight								= 0.136
+inv_volume								= 0.3
+inv_name								= mutant_snork_hand
+inv_name_short							= mutant_snork_hand
+description								= mutant_snork_hand_description
+inv_grid_x								= 14
+inv_grid_y								= 5
+cost									= 60
+eat_satiety								= 0.320
+eat_thirst								= -0.250
+eat_radiation							= 0.074
+eat_sleepiness							= 1
+eat_health								= -0.019
+can_be_cooked							= meat_snork
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_chimera_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_chimera_meat"
+visual									= dynamics\zpf\meat_chimera.ogf
+inv_weight								= 0.519
+inv_volume								= 0.7
+inv_name								= mutant_chimera_meat
+inv_name_short							= mutant_chimera_meat
+description								= mutant_chimera_meat_description
+inv_grid_x								= 18
+inv_grid_y								= 0
+inv_grid_height							= 2
+inv_grid_width							= 2
+cost									= 1408
+eat_satiety								= 0.770
+eat_thirst								= -0.350
+eat_radiation							= 0.168
+eat_sleepiness							= 1
+eat_health								= -0.038
+repair_part_bonus						= 0.04
+can_be_cooked							= meat_chimera
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_tushkano_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_tushkano_meat"
+visual									= dynamics\zpf\raw_tushkano.ogf
+inv_weight								= 0.086
+inv_volume								= 0.2
+inv_name								= mutant_tushkano_meat
+inv_name_short							= mutant_tushkano_meat
+description								= mutant_tushkano_meat_description
+inv_grid_x								= 17
+inv_grid_y								= 1
+cost									= 166
+eat_satiety								= 0.190
+eat_thirst								= -0.240
+eat_radiation							= 0.036
+eat_sleepiness							= 1
+eat_health								= -0.006
+can_be_cooked							= meat_tushkano
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_rat_spleen]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_spleen_rat"
+visual									= dynamics\zpf\raw_flesh.ogf
+inv_weight								= 0.105
+inv_volume								= 0.2
+inv_name								= mutant_rat_spleen
+inv_name_short							= mutant_rat_spleen
+description								= mutant_rat_spleen_description
+inv_grid_x								= 17
+inv_grid_y								= 0
+cost									= 784
+eat_satiety								= 0.045
+eat_thirst								= -0.150
+eat_radiation							= 0.020
+eat_sleepiness							= 0.5
+eat_health								= -0.004
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_rat_meat]:mutant_part_flesh_meat
+$spawn									= "devices\monster_items\mutant_spleen_rat"
+visual									= dynamics\zpf\raw_tushkano.ogf
+inv_weight								= 0.128
+inv_volume								= 0.3
+inv_name								= mutant_rat_meat
+inv_name_short							= mutant_rat_meat
+description								= mutant_rat_meat_description
+inv_grid_x								= 17
+inv_grid_y								= 1
+cost									= 166
+eat_satiety								= 0.278
+eat_thirst								= -0.200
+eat_radiation							= 0.020
+eat_sleepiness							= 0.5
+eat_health								= -0.005
+can_be_cooked							= meat_rat
+use_sound								= interface\inv_eat_mutant_food
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[mutant_part_crow_egg]:mutant_part_flesh_meat
+$spawn									= "food and drugs\сrow_egg"
+visual									= monsters\mutant_parts\item_crow_egg.ogf
+description								= st_crow_egg_descr
+inv_name								= st_crow_egg
+inv_name_short							= st_crow_egg
+inv_weight								= 0.050
+inv_volume								= 0.2
+inv_grid_x								= 4
+inv_grid_y								= 45
+cost									= 100
+item_degrade							= 96
+eat_toxicity							= 0.0025
+eat_satiety								= 0.080
+eat_thirst								= 0.050
+eat_sleepiness							= 1
+eat_radiation							= 0.0025
+can_be_cooked							= crow_boiled_egg
+harvest_anim							= anm_harv_crow_beak
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[crow_boiled_egg]:mutant_part_crow_egg
+description								= st_crow_boiled_egg_descr
+inv_name								= st_crow_boiled_egg
+inv_name_short							= st_crow_boiled_egg
+inv_weight								= 0.050
+item_degrade							= 24
+cost									= 120
+eat_thirst								= -0.100
+eat_toxicity							= 0.0
+eat_satiety								= 0.180
+eat_sleepiness							= 1
+eat_radiation							= 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; MONSTER SKINS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_bloodsucker]:af_base
+$spawn									= "artefacts\hide_bloodsucker"
+visual									= monsters\mutant_parts\hide_bloodsucker.ogf
+description								= st_hide_bloodsucker_descr
+inv_name								= st_hide_bloodsucker_name
+inv_name_short							= st_hide_bloodsucker_name
+inv_weight								= 2.344
+inv_volume								= 3
+inv_grid_x								= 7
+inv_grid_y								= 59
+inv_category							= 4
+cost									= 2020
+jump_height								= 0.0
+;particles								= artefact\af_thermal_idle
+det_show_particles						= artefact\af_thermal_show
+det_hide_particles						= artefact\af_thermal_hide
+particles_bone							= joint2
+lights_enabled							= false
+trail_light_color						= 0.9,0.4,0.2
+trail_light_range						= 2.0
+attach_angle_offset						= 1.922,1.551,-0.740
+attach_position_offset					= 0.15,0.002,0.25
+attach_bone_name						= bip01_r_hand
+auto_attach								= false
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_bloodsucker_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.06
+harvest_anim							= anm_harv_hide_bloodsucker
+
+[hide_bloodsucker_absorbation]
+burn_immunity							= -0.00026 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0126
+wound_immunity							= 0.0221
+radiation_immunity						= 0.00012
+telepatic_immunity						= 0
+chemical_burn_immunity					= 0.00014
+explosion_immunity						= 0.0146 ; 4 sheets of kevlar
+fire_wound_immunity						= 0.0155 ; 4 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_boar]:hide_bloodsucker
+$spawn									= "artefacts\hide_boar"
+visual									= monsters\mutant_parts\hide_boar.ogf
+description								= st_hide_boar_descr
+inv_name								= st_hide_boar_name
+inv_name_short							= st_hide_boar_name
+inv_weight								= 3.304
+inv_volume								= 4.0
+inv_grid_x								= 8
+inv_grid_y								= 59
+cost									= 730
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_boar_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.03
+harvest_anim							= anm_harv_hide_boar
+
+[hide_boar_absorbation]
+burn_immunity							= 0.00037 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0272
+wound_immunity							= 0.008
+radiation_immunity						= -0.00036
+telepatic_immunity						= 0
+chemical_burn_immunity					= -0.00005
+explosion_immunity						= 0.0061 ; 1.5 sheets of kevlar
+fire_wound_immunity						= 0.0068 ; 1.5 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_burer]:hide_bloodsucker
+$spawn									= "artefacts\hide_burer"
+visual									= monsters\mutant_parts\hide_burer.ogf
+description								= st_hide_burer_descr
+inv_name								= st_hide_burer_name
+inv_name_short							= st_hide_burer_name
+inv_weight								= 2.762
+inv_volume								= 3.3
+inv_grid_x								= 5
+inv_grid_y								= 59
+cost									= 2540
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_burer_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.03
+harvest_anim							= anm_harv_hide_burer
+
+[hide_burer_absorbation]
+burn_immunity							= 0.00034 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= -0.0223
+wound_immunity							= 0.0065
+radiation_immunity						= 0.00006
+telepatic_immunity						= 0.00044
+chemical_burn_immunity					= 0.00011
+explosion_immunity						= 0.0091 ; 2.5 sheets of kevlar
+fire_wound_immunity						= 0.0097 ; 2.5 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_controller]:hide_bloodsucker
+$spawn									= "artefacts\hide_controller"
+visual									= monsters\mutant_parts\hide_controller.ogf
+description								= st_hide_controller_descr
+inv_name								= st_hide_controller_name
+inv_name_short							= st_hide_controller_name
+inv_weight								= 2.523
+inv_volume								= 3
+inv_grid_x								= 6
+inv_grid_y								= 59
+cost									= 3040
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_controller_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.03
+harvest_anim							= anm_harv_hide_controler
+
+[hide_controller_absorbation]
+burn_immunity							= 0.00022 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= -0.0302
+wound_immunity							= 0.0046
+radiation_immunity						= 0.00006
+telepatic_immunity						= 0.00057
+chemical_burn_immunity					= 0.00005
+explosion_immunity						= 0.0066 ; 2 sheets of kevlar
+fire_wound_immunity						= 0.0061 ; 2 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_chimera]:hide_bloodsucker
+$spawn									= "artefacts\hide_chimera"
+visual									= monsters\mutant_parts\hide_chimera.ogf
+description								= st_hide_chimera_descr
+inv_name								= st_hide_chimera_name
+inv_name_short							= st_hide_chimera_name
+inv_weight								= 2.771
+inv_volume								= 4
+inv_grid_x								= 0
+inv_grid_y								= 59
+cost									= 3284
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_chimera_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.08
+harvest_anim							= anm_harv_hide_chimera
+
+[hide_chimera_absorbation]
+burn_immunity							= 0.00011 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= -0.0331
+wound_immunity							= 0.0218
+radiation_immunity						= 0.00018
+telepatic_immunity						= 0
+chemical_burn_immunity					= 0.00002
+explosion_immunity						= 0.0182 ; 7 sheets of kevlar
+fire_wound_immunity						= 0.0193 ; 7 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_flesh]:hide_bloodsucker
+$spawn									= "artefacts\hide_flesh"
+visual									= monsters\mutant_parts\hide_flesh.ogf
+description								= st_hide_flesh_descr
+inv_name								= st_hide_flesh_name
+inv_name_short							= st_hide_flesh_name
+inv_weight								= 2.966
+inv_volume								= 3.6
+inv_grid_x								= 9
+inv_grid_y								= 59
+cost									= 640
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_flesh_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.02
+harvest_anim							= anm_harv_hide_flesh
+
+[hide_flesh_absorbation]
+burn_immunity							= 0.00032 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0326
+wound_immunity							= 0.0032
+radiation_immunity						= 0.00024
+telepatic_immunity						= 0
+chemical_burn_immunity					= 0.00013
+explosion_immunity						= 0.0025 ; 0.5 sheet of kevlar
+fire_wound_immunity						= 0.0028 ; 0.5 sheet of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_pseudogiant]:hide_bloodsucker
+$spawn									= "artefacts\hide_pseudogiant"
+visual									= monsters\mutant_parts\hide_pseudogiant.ogf
+description								= st_hide_pseudogiant_descr
+inv_name								= st_hide_pseudogiant_name
+inv_name_short							= st_hide_pseudogiant_name
+inv_weight								= 4.384
+inv_volume								= 5.2
+inv_grid_x								= 2
+inv_grid_y								= 59
+cost									= 4090
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_pseudogiant_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.09
+harvest_anim							= anm_harv_hide_pseudogiant
+
+[hide_pseudogiant_absorbation]
+burn_immunity							= 0.00048 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0046
+wound_immunity							= 0.037
+radiation_immunity						= 0.00094
+telepatic_immunity						= 0
+chemical_burn_immunity					= 0.00023
+explosion_immunity						= 0.026 ; 10 sheets of kevlar
+fire_wound_immunity						= 0.0295 ; 10 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_pseudodog]:hide_bloodsucker
+$spawn									= "artefacts\hide_pseudodog"
+visual									= monsters\mutant_parts\hide_pseudodog.ogf
+description								= st_hide_pseudodog_descr
+inv_name								= st_hide_pseudodog_name
+inv_name_short							= st_hide_pseudodog_name
+inv_weight								= 2.221
+inv_volume								= 3
+inv_grid_x								= 4
+inv_grid_y								= 59
+cost									= 940
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_pseudodog_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.05
+harvest_anim							= anm_harv_hide_pseudodog
+
+[hide_pseudodog_absorbation]
+burn_immunity							= 0.00028 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0096
+wound_immunity							= 0.0085
+radiation_immunity						= -0.00048
+telepatic_immunity						= 0
+chemical_burn_immunity					= -0.00008
+explosion_immunity						= 0.0119 ; 7 sheets of kevlar
+fire_wound_immunity						= 0.0149 ; 7 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_psy_dog]:hide_bloodsucker
+$spawn									= "artefacts\hide_psy_dog"
+visual									= monsters\mutant_parts\hide_psy_dog.ogf
+description								= st_hide_psy_dog_descr
+inv_name								= st_hide_psy_dog_name
+inv_name_short							= st_hide_psy_dog_name
+inv_weight								= 2.321
+inv_volume								= 3
+inv_grid_x								= 3
+inv_grid_y								= 59
+cost									= 1570
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_psy_dog_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.07
+harvest_anim							= anm_harv_hide_pseudodog
+
+[hide_psy_dog_absorbation]
+burn_immunity							= 0.00036 ;коэффициенты иммунитета
+strike_immunity							= 0
+shock_immunity							= 0.0126
+wound_immunity							= 0.012
+radiation_immunity						= -0.00066
+telepatic_immunity						= 0.00028
+chemical_burn_immunity					= -0.00009
+explosion_immunity						= 0.0171 ; 6 sheets of kevlar
+fire_wound_immunity						= 0.0186 ; 6 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[hide_vodianoy]:hide_bloodsucker
+$spawn									= "artefacts\hide_vodianoy"
+visual									= monsters\mutant_parts\hide_chimera.ogf
+description								= st_hide_vodianoy_descr
+inv_name								= st_hide_vodianoy_name
+inv_name_short							= st_hide_vodianoy_name
+inv_weight								= 2.151
+inv_volume								= 3
+inv_grid_x								= 2
+inv_grid_y								= 59
+cost									= 2874
+degrade_rate							= 0.05
+hit_absorbation_sect					= hide_vodianoy_absorbation
+artefact_activation_seq					= af_activation_bold
+repair_part_bonus						= 0.08
+
+[hide_vodianoy_absorbation]
+burn_immunity							= 0.00016 ;коэффициенты иммунитета
+strike_immunity							= 0.00002
+shock_immunity							= -0.0357
+wound_immunity							= 0.0150
+radiation_immunity						= 0.00032
+telepatic_immunity						= 0
+chemical_burn_immunity					= 0.00004
+explosion_immunity						= 0.0150 ; 7 sheets of kevlar
+fire_wound_immunity						= 0.0175 ; 7 sheets of kevlar
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

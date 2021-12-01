@@ -1,0 +1,18 @@
+[logic]
+active = sr_idle@knock
+
+[sr_idle@knock]
+on_actor_inside = {=counter_greater(x11_kolba_destroyed:7)} %=play_sound_on_actor(affects\hit_fist) =run_cam_effector(fusker:1010:false) =run_pp_effector(black)% sr_idle@clear
+
+[sr_idle@clear]
+on_info = %=clear_smart_terrain(x11_smart_terrain_1_1:true) =clear_smart_terrain(x11_smart_terrain_1_2:true) =clear_smart_terrain(x11_smart_terrain_2_1:true) =clear_smart_terrain(x11_smart_terrain_2_2:true) =clear_smart_terrain(x11_smart_terrain_3_1:true) =clear_smart_terrain(x11_smart_terrain_3_2:true) =clear_smart_terrain(x11_smart_terrain_4_1:true) =clear_smart_terrain(x11_smart_terrain_4_2:true)% sr_idle@dialog
+
+[sr_idle@dialog]
+on_info = %=create_squad(x11_broker_squad:x11_smart_terrain_4_1) =teleport_actor(x11_smart_terrain_4_1_actor_point:x11_smart_terrain_4_1_enemy_2)% sr_idle@altruist
+
+; [sr_idle@dialog2]
+; on_info = {=squad_exist(x11_broker_squad)} %=teleport_npc(x11_monolith_broker_1:x11_smart_terrain_4_1_enemy_2) =teleport_npc(x11_monolith_broker_2:x11_smart_terrain_4_1_enemy_1) =teleport_npc(x11_monolith_broker_3:x11_smart_terrain_4_1_enemy_3)% sr_idle@altruist
+
+[sr_idle@altruist]
+on_info = {+x11_altruist_1} %=clear_smart_terrain(rad2_prip_teleport) =teleport_squad(x11_altruist_squad:rad2_prip_teleport_surge_5_walk) =remove_squad(x11_broker_squad) =change_level(rad_prip_teleport_cache_quard1_look:rad2_prip_teleport_surge_5_walk)% nil
+; on_info = {+x11_altruist_1} %=clear_smart_terrain(rad2_prip_teleport) =teleport_squad(x11_altruist_squad:rad2_prip_teleport_surge_5_walk)%

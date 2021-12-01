@@ -1,0 +1,222 @@
+[wpn_binoc]:default_weapon_params
+$npc								= on
+$spawn								= "weapons\binocular"
+visual								= dynamics\devices\dev_binoculars\dev_binoculars.ogf
+inv_name							= st_binocular_name
+inv_name_short						= st_binocular_name
+description							= st_binocular_descr
+inv_weight							= 1.3
+inv_volume							= 1.5
+inv_category						= 6
+PDM_disp_accel_factor				= 1.0
+PDM_disp_base						= 1.0
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+PDM_disp_vel_factor					= 1.0
+ammo_class							= ammo_fake
+ammo_current						= 0
+ammo_elapsed						= 0
+ammo_limit							= 0
+ammo_mag_size						= 0
+animation_slot						= 13
+pickup_color						= 250, 235, 12, 255	; Yellow
+attach_angle_offset					= 3.080506,-1.493053,-1.202040
+attach_bone_name					= bip01_r_hand
+attach_position_offset				= 0.080000,0.021273,0.100000
+auto_attach							= false
+bullet_speed						= 1
+cam_dispersion						= 1.5
+cam_max_angle						= 7
+cam_max_angle_horz					= 10.0
+cam_relax_speed						= 1.5
+cam_step_angle_horz					= 1.5
+cform								= skeleton
+class								= WP_BINOC
+condition_queue_shot_dec			= 0.00002
+condition_shot_dec					= 0.00001
+control_inertion_factor				= 1
+cost								= 8000
+default_to_ruck						= false
+direction							= 0, 0, 1
+disp_crouch_factor					= 0.75
+disp_jump_factor					= 3
+disp_vel_factor						= 0.1
+ef_main_weapon_type					= 5
+ef_weapon_type						= 0
+fire_dispersion_base				= 0.1
+fire_dispersion_condition_factor	= 5
+fire_distance						= 1
+fire_point							= 0.0, 0.133, 0.161
+flame_particles						= weapons\generic_weapon05
+grenade_launcher_status				= 0
+hand_dependence						= 1
+hit_impulse							= 1
+hit_power							= 1
+hit_type							= fire_wound
+hud									= wpn_binoc_hud
+inv_grid_height						= 1
+inv_grid_width						= 2
+inv_grid_x							= 14
+inv_grid_y							= 9
+upgr_icon_x							= 600
+upgr_icon_y							= 1950
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+light_color							= 0.6,0.5,0.3
+light_range							= 3.0
+light_time							= 0.2
+light_var_color						= 0.05
+light_var_range						= 0.5
+
+misfire_end_condition				= 0.1
+misfire_end_prob					= 0.02
+misfire_probability					= 0.0001
+misfire_start_condition				= 0.6
+misfire_start_prob					= 0.001
+normal								= 0, 1, 0
+orientation							= 0 , -90, 70
+ph_mass								= 1
+position							= -0.08 , -0.05 , 0.05
+reload_dof							= 0.0, 0.5, 5, 1.7
+rpm									= 1
+rpm_empty_click						= 1
+scope_status						= 1
+scope_texture						= wpn_crosshair_bino
+scope_zoom_factor					= 8
+scope_dynamic_zoom					= true
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\generic_shells
+shell_point							= 0.0, 0.133, 0.047
+show_ammo							= false
+silencer_status						= 0
+single_handed						= 0
+slot								= 4
+smoke_particles						= weapons\generic_shoot_00
+sprint_allowed						= true
+use_condition						= false
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_binocular
+upgrades							= up_gr_firstab_binoc, up_gr_firstba_binoc, up_gr_firstcd_binoc, up_gr_seconab_binoc_1, up_gr_seconba_binoc_1
+vis_frame_color						= 0.7,0.7,0.7,1.0	; Где RGBA (A)?
+vis_frame_speed						= 0					; Этот метод обычно используется как источник
+vision_present						= true
+zoom_enabled						= true
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw							= weapons\binoculars\binoculars_draw
+snd_holster							= weapons\binoculars\binoculars_holster
+snd_zoomin							= weapons\binoculars\binoculars_zoomin
+snd_zoomout							= weapons\binoculars\binoculars_zoomout
+snd_gyro							= weapons\binoculars\binoculars_gyro
+snd_empty							= weapons\binoculars\binoculars_gyro
+snd_reload							= weapons\binoculars\binoculars_gyro
+snd_shoot							= weapons\binoculars\binoculars_gyro
+snd_close							= weapons\binoculars\binoculars_gyro
+;-------------------------------------------------------------------------------
+[wpn_binoc_hud]:hud_base
+item_visual							= dynamics\devices\dev_binoculars\dev_binoculars_hud
+zoom_hide_crosshair					= true
+
+hands_position						= 0.000305,0.05,0.144468
+hands_position_16x9					= 0.000305,0.05,0.144468
+hands_orientation					= 0,0,-0.011865
+hands_orientation_16x9				= 0,0,-0.011865
+
+aim_hud_offset_pos					= 0,-0.27499,-0.25
+aim_hud_offset_pos_16x9				= 0,-0.27499,-0.25
+aim_hud_offset_rot					= -0.6,0,0
+aim_hud_offset_rot_16x9				= -0.6,0,0
+
+anm_show							= binoculars_draw
+anm_hide							= binoculars_holster
+anm_idle							= binoculars_idle_1
+anm_idle_aim						= binoculars_idle_1
+anm_bore							= binoculars_idle_2
+anm_idle_moving						= binoculars_idle_moving
+anm_idle_moving_crouch				= binoculars_idle_moving, , 0.5
+anm_idle_sprint						= binoculars_idle_sprint
+;---------------------------------------------------------------------
+[wpn_binoc_1]:wpn_binoc
+$spawn								= "weapons\binocular_1"
+visual								= dynamics\devices\dev_binoculars\dev_binoculars_1.ogf
+cost								= 12000
+inv_name							= st_binocular_1_name
+inv_name_short						= st_binocular_1_name
+description							= st_binocular_1_descr
+hud									= wpn_binoc_1_hud
+inv_grid_x							= 14
+inv_grid_y							= 10
+inv_weight							= 1.6
+inv_volume							= 1.6
+scope_texture						= wpn_crosshair_bino_1
+scope_zoom_factor					= 12
+upgr_icon_x							= 750
+upgr_icon_y							= 1650
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+upgrade_scheme						= upgrade_scheme_binocular_2
+upgrades							= up_gr_firstab_binoc_1, up_gr_firstba_binoc_1, up_gr_firstcd_binoc_1, up_gr_seconab_binoc_1, up_gr_seconba_binoc_1, up_gr_seconcd_binoc_1
+
+[wpn_binoc_1_hud]:wpn_binoc_hud
+item_visual							= dynamics\devices\dev_binoculars\dev_binoculars_1_hud
+
+item_position						= 0,0,0
+item_orientation					= 180,0,0
+
+hands_position						= 0,-0.155,0.2
+hands_orientation					= 0,0,0
+hands_position_16x9					= 0,-0.155,0.2
+hands_orientation_16x9				= 0,0,0
+
+aim_hud_offset_pos					= 0,0.0174,-0.29
+aim_hud_offset_pos_16x9				= 0,0.0174,-0.29
+aim_hud_offset_rot					= 0.0,0.0,0.0
+aim_hud_offset_rot_16x9				= 0.0,0.0,0.0
+
+anm_show							= binoculars2_draw
+anm_hide							= binoculars2_holster
+anm_idle							= binoculars2_idle
+anm_idle_aim						= binoculars2_idle_aim
+anm_idle_moving						= binoculars2_idle_moving
+anm_idle_moving_crouch				= binoculars2_idle_moving, , 0.5
+anm_idle_sprint						= binoculars2_idle_sprint
+anm_bore							= binoculars2_idle_bore
+;---------------------------------------------------------------------
+[wpn_binoc_2]:wpn_binoc
+$spawn								= "weapons\binocular_2"
+visual								= dynamics\devices\dev_binoculars\dev_binoculars_2.ogf
+cost								= 16000
+inv_name							= st_binocular_2_name
+inv_name_short						= st_binocular_2_name
+description							= st_binocular_2_descr
+hud									= wpn_binoc_2_hud
+inv_grid_x							= 14
+inv_grid_y							= 11
+inv_weight							= 1.7
+inv_volume							= 1.7
+orientation							= 0, 90, 115
+scope_texture						= wpn_crosshair_bino_2
+scope_zoom_factor					= 14
+upgr_icon_x							= 750
+upgr_icon_y							= 1950
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+upgrade_scheme						= upgrade_scheme_binocular_2
+upgrades							= up_gr_firstab_binoc_2, up_gr_firstba_binoc_2, up_gr_firstcd_binoc_2, up_gr_seconab_binoc_2, up_gr_seconba_binoc_2, up_gr_seconcd_binoc_2
+vis_frame_speed						= 0
+vis_frame_color						= 0.0,0.0,0.0,0.0
+found_snd							= $no_sound
+catch_snd							= $no_sound 
+
+[wpn_binoc_2_hud]:wpn_binoc_1_hud
+item_visual							= dynamics\devices\dev_binoculars\dev_binoculars_2_hud
+hands_position						= 0,-0.155,0.158825
+hands_position_16x9					= 0,-0.155,0.158825
+hands_orientation					= 0,0,0
+hands_orientation_16x9				= 0,0,0
+
+aim_hud_offset_pos					= 0,0.002455,-0.29
+aim_hud_offset_pos_16x9				= 0,0.002455,-0.29
+aim_hud_offset_rot					= 0,0,0
+aim_hud_offset_rot_16x9				= 0,0,0
+;---------------------------------------------------------------------

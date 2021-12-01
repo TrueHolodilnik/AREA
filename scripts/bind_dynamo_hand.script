@@ -1,0 +1,139 @@
+--A.R.E.A. Hand generator
+--script by MAGILA
+local prohibition_of_actions = false
+local battery_id = 0
+local hand_generator_id = 0
+local ini = system_ini()
+
+function on_game_start()
+	RegisterScriptCallback("on_key_release",on_key)
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+end
+
+function on_item_drop(item)
+	--if you dropped it we'll come back
+	if item and item:section():find("generator") then
+		local box = area_utils.determine_where_item(item)
+		if box:id() == db.actor:id() then
+			db.actor:take_item(item)
+		else
+			box:transfer_item(item, db.actor)
+		end
+	end
+end
+function OnItemDropped(itm_from,itm_to,slot_from,slot_to)
+	if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
+        return
+	end
+	local section_from = itm_from and itm_from:section()
+	local section_to = itm_to and itm_to:section()
+	local to_id = itm_to and itm_to:id()
+		
+	if (section_to:find("generator") and ini:line_exist(section_from,"capacity")) then
+		if itm_from:condition() == 1 then
+			SetHudMsg(game.translate_string("st_battery_charged"),3)
+		elseif itm_to:condition() > 0 then
+			hand_generator_id = to_id
+			sound_object("interface\\inv_batt_in"):play(db.actor,0,sound_object.s2d)
+			battery_id = itm_from:id()
+
+			CallbackAnimHands("animation_control", function(table,item,section,motion,state,slot)
+				if state == 2 then
+					StopAnimHands()
+					prohibition_of_actions = false
+				elseif state == 7 then
+					local hand_generator = level.object_by_id(hand_generator_id)
+					if hand_generator and hand_generator:condition() == 0 then
+						SetHudMsg(game.translate_string("st_generator_broke"),3)
+					else
+						charge_the_battery()
+					end
+					prohibition_of_actions = false
+				end
+			end)
+			CallbackAnimHands('start_anim', function()
+				RegisterScriptCallback("actor_on_item_drop",on_item_drop)
+			end)
+			StartAnimHands(false,false,false,{
+				use = "dynamo_hand",
+				section = "anm_hand_generator"
+			}).return_the_weapon()
+			CallbackAnimHands('stop_anim', function()
+				UnregisterScriptCallback("actor_on_item_drop",on_item_drop)
+			end)
+		else
+			local actor_menu = ActorMenu.get_actor_menu()
+			if (actor_menu and actor_menu:IsShown()) then
+				actor_menu:HideDialog()
+			end
+			SetHudMsg(game.translate_string("st_generator_broke"),3)
+		end
+	end
+end
+
+function on_key(key)
+	local function state_anim(state)
+		local anim_hands = level.object_by_id(TableAnimHands().obj.id)
+		if anim_hands then
+			anim_hands:switch_state(state)
+		end
+	end
+	if not prohibition_of_actions and db.actor:has_info("anim_hands_status") and TableAnimHands().use == "dynamo_hand" then
+		if dik_to_bind(key) == key_bindings.kWPN_ZOOM then
+			state_anim(2)
+			prohibition_of_actions = true
+		end
+		if dik_to_bind(key) == key_bindings.kWPN_FIRE then
+			state_anim(7)
+			prohibition_of_actions = true
+		end
+	end
+end
+
+function charge_the_battery()
+	local battery = level.object_by_id(battery_id)
+	local hand_generator = level.object_by_id(hand_generator_id)
+	local con_battery = 0
+	local con_hand_generator = 0
+	local power_output = 0
+	local condition_shot_dec = 0
+	if battery and hand_generator then
+		--charging the battery
+		hand_generator:iterate_installed_upgrades(function(upgrade, decline)
+			local upgrade_section = ini:r_string_ex(upgrade, "section")
+			if upgrade_section then
+				condition_shot_dec = ini:r_float_ex(upgrade_section, "condition_shot_dec", 0.0)
+				power_output = ini:r_float_ex(upgrade_section, "power_output", 0.0)
+			end
+		end, hand_generator)
+
+		battery_capacity = ini:r_float_ex(battery:section(),"capacity",1)*3
+		power_output = (ini:r_float_ex(hand_generator:section(),"power_output",1)+power_output)/battery_capacity
+		con_hand_generator = hand_generator:condition()
+
+		local cond_power = (1.2-con_hand_generator)*0.02
+		power_output = power_output-cond_power
+
+		if con_hand_generator > 0 then
+			battery:set_condition(battery:condition()+power_output)
+		end
+		con_battery = battery:condition()
+
+		--generator damage
+		hand_generator:set_condition(con_hand_generator-(ini:r_float_ex(hand_generator:section(),"condition_shot_dec",1)+condition_shot_dec))
+	end
+
+	local bp_val = math.floor(con_battery*100)
+	if bp_val%2 == 0 then
+		news_manager.send_tip(db.actor, "%c[green]"..game.translate_string("st_charging").."\n%c[default]%c[red] "..string.format("%s%%", bp_val).."\n%c[default]", nil, nil, nil, 1000)
+	end
+	if con_battery == 1 or con_hand_generator == 0 then
+		local anim_hands = level.object_by_id(TableAnimHands().obj.id)
+		if anim_hands then
+			anim_hands:switch_state(2)
+		end
+	end
+	if con_hand_generator == 0 then
+		SetHudMsg(game.translate_string("st_generator_broke"),3)
+	end
+end

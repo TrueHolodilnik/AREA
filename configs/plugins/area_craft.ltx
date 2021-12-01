@@ -1,0 +1,459 @@
+;Crafting
+[bandage_selfmade]
+ingredients                   = textile_patch_b,textile_patch_m,cloth_brown,cloth_white,cloth_black,cloth_green
+ingredients_2                 = vodka,vodka2,vodka_quality,bottle_metal,samogon
+fail                          = false
+exp                           = 0.20
+amount                        = 1
+s_time                        = 1
+anim                          = glue_b_dummy
+skill                         = false
+notify_player				  = true
+remove_ingredients            = false
+remove_ingredients_2          = false
+
+[bandage_special]:bandage_selfmade
+ingredients                   = bandage
+ingredients_2                 = pot_permanganate
+s_time                        = 5
+
+[bandage_enhanced]:bandage_special
+ingredients                   = bandage_special
+ingredients_2                 = salicidic_acid
+
+[stimpack]
+exp                           = 0.25
+s_time                        = 2
+anim                          = make_something
+ingredients                   = stimpack_empty
+ingredients_2                 = novocaine
+notify_player				  = false
+
+[deactivate_mix]
+ingredients                   = vodka,vodka2,vodka_quality,bottle_metal,samogon
+ingredients_2                 = pot_permanganate
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[scissors_and_blades]
+ingredients                   = blades
+ingredients_2                 = scissors
+fail                          = false
+exp                           = false
+amount                        = false
+s_time                        = false
+anim                          = false
+skill                         = false
+remove_ingredients            = all
+remove_ingredients_2          = all
+
+[scissors_and_blades_and_knife]:scissors_and_blades
+ingredients                   = scissors_and_blades
+ingredients_2                 = wpn_knife_swiss
+
+[knife_and_cutlery]:scissors_and_blades
+ingredients                   = cutlery
+ingredients_2                 = wpn_knife_swiss
+
+[itm_uncraft_tools_1]:scissors_and_blades
+ingredients                   = cutlery
+ingredients_2                 = itm_repairkit_tier_1
+
+[itm_uncraft_tools_2]:itm_uncraft_tools_1
+ingredients                   = knife_and_cutlery
+ingredients_2                 = itm_repairkit_tier_2
+
+[itm_uncraft_tools_3]:itm_uncraft_tools_2
+ingredients_2                 = itm_repairkit_tier_3
+
+[itm_cutting_tools]:itm_uncraft_tools_1
+ingredients                   = blades
+ingredients_2                 = itm_repairkit_tier_1
+
+[itm_cutting_tools_2]:itm_uncraft_tools_1
+ingredients                   = scissors_and_blades
+ingredients_2                 = itm_repairkit_tier_2
+
+[itm_cutting_tools_3]:itm_uncraft_tools_1
+ingredients                   = scissors_and_blades_and_knife
+ingredients_2                 = itm_repairkit_tier_3
+
+[sandwich]
+ingredients                   = bread,breadold
+ingredients_2                 = sausage,kolbasa
+fail                          = false
+exp                           = 0.005
+amount                        = 4
+s_time                        = 2
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[ammo_12x70_buck]:sandwich
+ingredients                   = ammo12x70_tools
+ingredients_2                 = ammo12x70_base
+exp                           = 0.025
+amount                        = 1
+s_time                        = 15
+anim                          = toolkit_p_dummy
+
+[ammo_12x76_zhekan]:ammo_12x70_buck
+ingredients                   = ammo12x70_tools
+ingredients_2                 = ammo12x76zhekan_base
+
+[ammo_gauss]:ammo_12x70_buck
+ingredients                   = ammo12x70_tools
+ingredients_2                 = ammo_12x76_zhekan
+
+[ammo_gauss_bad]:ammo_12x70_buck
+ingredients                   = ammo12x70_tools
+ingredients_2                 = ammo_12x76_zhekan_verybad
+
+[itm_sleepbag]:sandwich
+ingredients                   = sew_tools
+ingredients_2                 = sleepbag_base
+exp                           = 0.25
+amount                        = 1
+s_time                        = 30
+anim                          = dismantling_outfit
+
+[backpack_small]:itm_sleepbag
+ingredients_2                 = backpack_base
+anim                          = dismantling_outfit
+
+[backpack_sport_frame]:itm_sleepbag
+ingredients                   = backpack_sport
+ingredients_2                 = backpack_frame
+exp                           = 0
+amount                        = 1
+anim                          = toolkit_p_dummy
+
+[backpack_small_frame]:backpack_sport_frame
+ingredients                   = backpack_small
+ingredients_2                 = backpack_frame
+
+[adrenalin]:sandwich
+ingredients                   = drugs_kit
+ingredients_2                 = amphetamines
+exp                           = 0.2
+amount                        = 1
+s_time                        = 30
+anim                          = glue_b_dummy
+
+[ied]:adrenalin
+ingredients                   = detonator
+ingredients_2                 = explo_metalcan_powder
+exp                           = 0.02
+
+[ied_rpg]:ied
+ingredients_2                 = ammo_og-7b,ammo_og-7b_bad,ammo_og-7b_verybad
+
+[tarpaulin_2]:ied
+ingredients                   = tarpaulin
+ingredients_2                 = rope,synthrope
+exp                           = 0.005
+
+[tarpaulin_3]:tarpaulin_2
+ingredients                   = tarpaulin_2
+ingredients_2                 = tarpaulin
+
+[itm_tent]:tarpaulin_2
+ingredients                   = tarpaulin_3
+ingredients_2                 = sew_tools
+exp                           = 0.25
+anim                          = dismantling_outfit
+
+[spareparts_duplet]:tarpaulin_2
+ingredients                   = spareparts_pp
+ingredients_2                 = spareparts_shot
+fail                          = 1.2
+exp                           = 0.25
+s_time                        = 5
+anim                          = toolkit_p_dummy
+
+[spareparts_duplet2]:spareparts_duplet
+ingredients                   = spareparts_duplet
+ingredients_2                 = sp_double_trigger
+
+[spareparts_duplet3]:spareparts_duplet
+ingredients                   = spareparts_duplet2
+ingredients_2                 = spareparts
+
+[wpn_duplet]:spareparts_duplet
+ingredients                   = sp_smooth_dbarrel,sp_smooth_dbarrel_worn
+ingredients_2                 = spareparts_duplet3
+s_time                        = 45
+
+[leather]:bandage_selfmade
+ingredients                   = boots
+ingredients_2                 = wpn_knife,wpn_knife2,wpn_knife3,wpn_knife4,wpn_knife5,wpn_axe,wpn_axe2,wpn_axe3,wpn_knife_swiss
+fail                          = 0.5
+exp                           = 0.005
+amount                        = 2
+s_time                        = 5
+
+[cigarettes_selfroll]:bandage_selfmade
+ingredients                   = tobacco
+ingredients_2                 = shitpost,journal,book1,book2,book3,porn,porn2,survivalguide,letter_memoirs_1_of_2,letter_memoirs_2_of_2,letter_freedom_manual_1_of_2,letter_freedom_manual_2_of_2,letter_stalker_letter_1_of_2,letter_stalker_letter_2_of_2,letter_ecologist_report_1_of_3,letter_ecologist_report_2_of_3,letter_ecologist_report_3_of_3,letter_monolith_prayer_1_of_3,letter_monolith_prayer_2_of_3,letter_monolith_prayer_3_of_3,letter_monolithian_thoughts,letter_letter_to_outside,letter_military_stalker,letter_mercenary,letter_military_log,letter_stalker_letter_3
+fail                          = false
+exp                           = 0.2
+amount                        = 1
+s_time                        = 15
+anim                          = make_selfroll
+
+[cigarettes_joint]:cigarettes_selfroll
+ingredients                   = marijuana
+amount                        = 4
+
+; Can opening
+[beef_opened]:bandage_selfmade
+ingredients                   = beef
+ingredients_2                 = wpn_knife,wpn_knife2,wpn_knife3,wpn_knife4,wpn_knife5,wpn_knife_fanat,wpn_knife_swiss
+fail                          = false
+exp                           = 0.005
+amount                        = 1
+s_time                        = 1
+anim                          = can_opening
+rad_add_from_sec              = radiated_opened
+rad_remove_from_sec           = opened
+notify_player				  = false
+
+[bullheads_opened]:beef_opened
+ingredients                   = bullheads
+
+[beans_opened]:beef_opened
+ingredients                   = beans
+
+[chili_opened]:beef_opened
+ingredients                   = chili
+
+[conserva_opened]:beef_opened
+ingredients                   = conserva
+
+[corn_opened]:beef_opened
+ingredients                   = corn
+
+[nuts_opened]:beef_opened
+ingredients                   = nuts
+
+[sardina_opened]:beef_opened
+ingredients                   = sardina
+
+[tomato_opened]:beef_opened
+ingredients                   = tomato
+
+[tushonka_opened]:beef_opened
+ingredients                   = tushonka
+
+; Transfusion
+[lighter]
+ingredients                   = lighter, lighter_empty
+ingredients_2                 = lighter_refiller
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 2
+anim                          = lighter_reffiler
+skill                         = false
+remove_ingredients            = false
+notify_player				  = false
+
+[lighter_refiller]:lighter
+ingredients                   = lighter_refiller_empty
+ingredients_2                 = jerrycan_fuel
+
+;Weapon Maintenance
+[sp_smooth_barrel]
+ingredients                   = sp_smooth_barrel_worn
+ingredients_2                 = jerrycan_fuel,kerosene,vodka,vodka2,vodka_quality,bottle_metal,samogon,solvent,steel_wool,steel_wool2,gun_oil,gun_oil_ru,gun_oil_ru_d,cleaning_kit_s,cleaning_kit_r5,cleaning_kit_r7,cleaning_kit_u,toolkit_s,toolkit_r5,toolkit_r7
+fail                          = false
+exp                           = 0.02
+amount                        = 1
+s_time                        = 30
+anim                          = toolkit_p_dummy
+skill                         = false
+remove_ingredients            = false
+
+[sp_smooth_barrel_worn]:sp_smooth_barrel
+ingredients                   = sp_smooth_barrel_rusty
+ingredients_2                 = solvent,steel_wool,steel_wool2,gun_oil,gun_oil_ru,gun_oil_ru_d,cleaning_kit_s,cleaning_kit_r5,cleaning_kit_r7,cleaning_kit_u,toolkit_s,toolkit_r5,toolkit_r7,cocacola
+
+[sp_762_barrel]:sp_smooth_barrel
+ingredients                   = sp_762_barrel_worn
+
+[sp_762_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_762_barrel_rusty
+
+[sp_545_barrel]:sp_smooth_barrel
+ingredients                   = sp_545_barrel_worn
+
+[sp_545_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_545_barrel_rusty
+
+[sp_556_barrel]:sp_smooth_barrel
+ingredients                   = sp_556_barrel_worn
+
+[sp_556_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_556_barrel_rusty
+
+[sp_9x39_barrel]:sp_smooth_barrel
+ingredients                   = sp_9x39_barrel_worn
+
+[sp_triggermechanism]:sp_smooth_barrel_worn
+ingredients                   = sp_triggermechanism_worn
+
+[sp_triggermechanism_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_triggermechanism_rusty
+
+[sp_792_barrel]:sp_smooth_barrel
+ingredients                   = sp_792_barrel_worn
+
+[sp_792_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_792_barrel_rusty
+
+[sp_pistol_barrel]:sp_smooth_barrel
+ingredients                   = sp_pistol_barrel_worn
+
+[sp_pistol_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_pistol_barrel_rusty
+
+[sp_smg_barrel]:sp_smooth_barrel
+ingredients                   = sp_smg_barrel_worn
+
+[sp_smg_barrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_smg_barrel_rusty
+
+[sp_rifle_boltcarrier]:sp_smooth_barrel_worn
+ingredients                   = sp_rifle_boltcarrier_rusty
+
+[sp_double_trigger]:sp_smooth_barrel_worn
+ingredients                   = sp_double_trigger_worn
+
+[sp_double_trigger_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_double_trigger_rusty
+
+[sp_smooth_dbarrel]:sp_smooth_barrel_worn
+ingredients                   = sp_smooth_dbarrel_worn
+
+[sp_smooth_dbarrel_worn]:sp_smooth_barrel_worn
+ingredients                   = sp_smooth_dbarrel_rusty
+
+[helm_tactichat_resp]
+ingredients                   = helm_resp
+ingredients_2                 = helm_tactichat
+fail                          = false
+exp                           = 0.0
+amount                        = 1
+s_time                        = 30
+anim                          = glue_b_dummy
+skill                         = false
+remove_ingredients            = false
+
+[helm_tactichat_resp_dolg]:helm_tactichat_resp
+ingredients                   = helm_resp
+ingredients_2                 = helm_tactichat_dolg
+
+[helm_tactichat_resp_freedom]:helm_tactichat_resp
+ingredients                   = helm_resp
+ingredients_2                 = helm_tactichat_freedom
+
+[helm_tactichat_resp_merc]:helm_tactichat_resp
+ingredients                   = helm_resp
+ingredients_2                 = helm_tactichat_merc
+
+[helm_tactichat_resp_bandit]:helm_tactichat_resp
+ingredients                   = helm_resp
+ingredients_2                 = helm_tactichat_bandit
+
+[bottle_water]
+ingredients                   = bottle_water_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[bottle_glass_water]
+ingredients                   = bottle_glass_water_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[bottle_glass_water2]
+ingredients                   = bottle_glass_water2_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[termos_water]
+ingredients                   = termos_water_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[flask]
+ingredients                   = flask_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[flask_2_water]
+ingredients                   = flask_2_water_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[bottle_metal_water]
+ingredients                   = bottle_metal_water_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false
+
+[bottle_glass_water3]
+ingredients                   = bottle_glass_water3_radiated
+ingredients_2                 = akvatab
+fail                          = false
+exp                           = false
+amount                        = 1
+s_time                        = 1
+anim                          = make_something
+skill                         = false
+remove_ingredients            = false

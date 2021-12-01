@@ -1,0 +1,2523 @@
+<specific_character id="sim_default_duty_0_default_0" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1242</rank>
+	<reputation>1967</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_1" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>2946</rank>
+	<reputation>-1521</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_2" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>2946</rank>
+	<reputation>665</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_3" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>2858</rank>
+	<reputation>468</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_4" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\newbie\</snd_config>
+	<rank>4082</rank>
+	<reputation>-1182</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_5" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>5512</rank>
+	<reputation>1112</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_6" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10180</rank>
+	<reputation>717</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_7" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10190</rank>
+	<reputation>-465</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_8" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\stalker_uk\</snd_config>
+	<rank>3980</rank>
+	<reputation>-386</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_0_default_9" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>3866</rank>
+	<reputation>-2493</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_0_default_10" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>4510</rank>
+	<reputation>1072</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_0_default_11" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_0</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>4500</rank>
+	<reputation>-593</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas4</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_12" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\alternative_1\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_novice_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_13" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\dolg\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_novice_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_14" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_novice_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_15" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_novice_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_16" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\dolg\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_glasses</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_17" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\newbie\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_glasses_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_18" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\newbie\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_glasses_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_0_default_19" team_default = "1">
+    <name>GENERATE_NAME_private</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_0</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\ecolog\</snd_config>
+    <rank>550</rank>
+    <reputation>-13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_glasses_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+    <!--  duty expirienced  -->
+<specific_character id="sim_default_duty_1_default_0" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1418</rank>
+	<reputation>-1511</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_1" team_default = "1">
+	<name>GENERATE_NAME_private</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1694</rank>
+	<reputation>76</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_2" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>3414</rank>
+	<reputation>-1114</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_3" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>3846</rank>
+	<reputation>1164</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_4" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1730</rank>
+	<reputation>-1782</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_5" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>2510</rank>
+	<reputation>358</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_6" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>11278</rank>
+	<reputation>-2415</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_7" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>14962</rank>
+	<reputation>-2328</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_8" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>3488</rank>
+	<reputation>1337</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_9" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_0</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_01\ecolog\</snd_config>
+	<rank>774</rank>
+	<reputation>-291</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_0</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_10" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>5784</rank>
+	<reputation>-283</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_11" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>4492</rank>
+	<reputation>-448</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_12" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>3934</rank>
+	<reputation>-1660</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_1_default_13" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_1</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>5702</rank>
+	<reputation>1523</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas4</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_14" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_m40</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_15" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_m40_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_16" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_m40_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_17" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_m40_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_18" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_metro_raider</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_19" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_metro_raider_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_20" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_metro_raider_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_1_default_21" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_1</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>2851</rank>
+    <reputation>13</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_metro_raider_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+    <!--  duty expirienced 2  -->
+<specific_character id="sim_default_duty_2_default_0" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1848</rank>
+	<reputation>1102</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_1" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1986</rank>
+	<reputation>558</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+
+<specific_character id="sim_default_duty_2_default_2" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg_uk\</snd_config>
+	<rank>4378</rank>
+	<reputation>1896</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_3" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>5350</rank>
+	<reputation>796</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_4" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>2104</rank>
+	<reputation>1841</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_5" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_dutygas_2</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>1360</rank>
+	<reputation>-2057</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolggas2a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_6" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>14962</rank>
+	<reputation>2368</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_7" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>13240</rank>
+	<reputation>755</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg1a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_8" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>11286</rank>
+	<reputation>1163</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg1b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_9" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>13082</rank>
+	<reputation>-879</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg1c</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_10" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>12342</rank>
+	<reputation>-266</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_11" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_2_old</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>14352</rank>
+	<reputation>2050</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_old</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_12" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>14902</rank>
+	<reputation>-356</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg1d</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_13" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_0</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>30</rank>
+	<reputation>-1980</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_0</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_14" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_Dolg_1_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg_uk\</snd_config>
+	<rank>4704</rank>
+	<reputation>1253</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_15" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>4010</rank>
+	<reputation>-1970</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_2_mas4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_16" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_duty_bala</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>3530</rank>
+	<reputation>2133</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg2a_mas4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_2_default_17" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_dolgsoldier</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_soldier</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_18" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_19" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_20" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_21" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_22" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_traveller</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_23" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_traveller_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_24" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_traveller_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+<specific_character id="sim_default_duty_2_default_25" team_default = "1">
+	<name>GENERATE_NAME_sergeant</name>
+	<icon>ui_inGame2_bandit_2a_merc</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_2</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>1765</rank>
+	<reputation>233</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_m40_traveller_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_2.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_26" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_berill_resp</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_27" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_berill_resp_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_28" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_sfera</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_29" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_sfera_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_30" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_sfera_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_31" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\alternative_1\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_sfera_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_32" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_travel_pmk</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_33" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_travel_pmk_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_34" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_travel_pmk_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_35" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_travel_pmk_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_36" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_soldier_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	<specific_character id="sim_default_duty_2_default_37" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_modernbackpack_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_38" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_modernbackpack_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_39" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_modernbackpack_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_2_default_40" team_default = "1">
+    <name>GENERATE_NAME_sergeant</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_2</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>1765</rank>
+    <reputation>233</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_light_modernbackpack</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+    <!--  duty veteran  -->
+<specific_character id="sim_default_duty_3_default_0" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>13846</rank>
+	<reputation>1972</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_1" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>14960</rank>
+	<reputation>454</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg3a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_2" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>12464</rank>
+	<reputation>858</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg3b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_3" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10120</rank>
+	<reputation>-893</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_4" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10432</rank>
+	<reputation>-2496</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg3a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_5" team_default = "1">
+	<name>GENERATE_NAME_lieutenant</name>
+	<icon>ui_inGame2_Dolg_3</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>11234</rank>
+	<reputation>-1934</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg3b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_6" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>16634</rank>
+	<reputation>-393</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_7" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>19078</rank>
+	<reputation>-513</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_8" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>19082</rank>
+	<reputation>1121</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_9" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>20850</rank>
+	<reputation>-1249</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4c</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_10" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_dark_heavy</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_11" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_dark_heavy</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_12" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_1</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_13" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\alternative_1\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_1_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_14" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_2</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_15" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg_uk\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_2_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_16" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_3</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_17" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_3_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_18" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_19" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_4_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_20" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_5</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_21" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_2_nohood_mask</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_01\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_heavy_5_mask</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_3_default_22" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_soldier_123</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_3</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>10425</rank>
+	<reputation>359</reputation>
+	
+	<visual>actors\stalker_dolg\n_stalker_dolg_soldier_sfera</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_3.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_3_default_23" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_3</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>10425</rank>
+    <reputation>359</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_berill_exo</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_3_default_24" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_3</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>10425</rank>
+    <reputation>359</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_berill_exo_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_3_default_25" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_3</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>10425</rank>
+    <reputation>359</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_soldier_2_sfera</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+    
+    <!--  duty master  -->
+<specific_character id="sim_default_duty_4_default_0" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>27136</rank>
+	<reputation>-1520</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_1" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>23144</rank>
+	<reputation>-716</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_2" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>26788</rank>
+	<reputation>-751</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg4b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_3" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>26670</rank>
+	<reputation>-438</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolg4c</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_4" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>20474</rank>
+	<reputation>-805</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo_4</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_5" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>17264</rank>
+	<reputation>-1119</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4a</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_6" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+	<rank>18830</rank>
+	<reputation>1075</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4b</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+
+<specific_character id="sim_default_duty_4_default_7" team_default = "1">
+	<name>GENERATE_NAME_captain</name>
+	<icon>ui_inGame2_Dolg_4e</icon>
+	<map_icon x="1" y="0"></map_icon>
+	<bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+	<class>sim_default_duty_4</class>
+	<community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+	<snd_config>characters_voice\human_02\dolg\</snd_config>
+	<rank>19952</rank>
+	<reputation>1156</reputation>
+	
+	<visual>actors\stalker_dolg\stalker_dolgexo4c</visual>
+	<supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+	#include "gameplay\character_criticals.xml"
+	#include "gameplay\character_dialogs.xml"
+</specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_8" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>ui_inGame2_dolg_proto</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoproto_modern</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_9" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>ui_inGame2_dolg_proto_2</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoproto_modern_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_10" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>ui_inGame2_dolg_proto_2</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoproto_modern_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_11" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>ui_inGame2_dolg_proto_2</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoproto_modern_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_12" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>ui_inGame2_dolg_proto_2</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoproto_modern_4</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_13" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoprot</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_14" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoprot_1</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_15" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg_uk\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoprot_2</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_4.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>
+	
+	<specific_character id="sim_default_duty_4_default_16" team_default = "1">
+    <name>GENERATE_NAME_captain</name>
+    <icon>no_data_anim</icon>
+    <map_icon x="1" y="0"></map_icon>
+    <bio>Опытный сталкер. Детальная информация отсутствует.</bio>
+    <class>sim_default_duty_4</class>
+    <community>dolg</community> <terrain_sect>stalker_terrain</terrain_sect>
+    <snd_config>characters_voice\human_02\dolg\</snd_config>
+    <rank>7976</rank>
+    <reputation>256</reputation>
+    
+    <visual>actors\stalker_dolg\n_stalker_dolg_exoprot_3</visual>
+    <supplies>
+	#include "gameplay\loadouts\dolg_base.ltx"
+	#include "gameplay\loadouts\dolg_tier_1.ltx"
+	</supplies>
+#include "gameplay\character_criticals.xml"
+#include "gameplay\character_dialogs.xml"
+    </specific_character>

@@ -1,0 +1,448 @@
+-- A.R.E.A. Sounds by Surs
+local show_log = false
+local ini = system_ini()
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_weapon_jammed",screwing)
+	RegisterScriptCallback("actor_on_weapon_zoom_in",weapon_zoom_in)
+	RegisterScriptCallback("actor_on_weapon_zoom_out",weapon_zoom_out)
+	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("actor_on_jump",on_jump)
+	RegisterScriptCallback("on_key_hold",on_key_hold)
+	RegisterScriptCallback("actor_on_foot_step",actor_steps_exo)
+	RegisterScriptCallback("npc_on_foot_step",npc_steps_exo)
+	RegisterScriptCallback("actor_on_update",function()
+		if not db.actor and not db.actor:alive() then return end
+		play_3d_sounds(db.actor)
+	end)
+	RegisterScriptCallback("npc_on_update",play_3d_sounds)
+	local function on_game_load()
+		RegisterScriptCallback("on_key_release",on_key_release)
+	end
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
+
+function weapon_zoom_in(obj)
+	if (IsPistol(obj)) or (IsRifle(obj)) or (IsShotgun(obj)) or (IsSniper(obj)) or (IsLauncher(obj)) then
+		sound_object("weapons\\aim_in_"..math.random(1,3)):play(db.actor,0,sound_object.s2d)
+	end
+	local sec = obj:section()
+	if sec:find("pkm") or sec:find("pkp") or sec:find("rpd") or sec:find("m60") or sec:find("m249") then
+		sound_object("weapons\\aim_hmgun_in"):play(db.actor,0,sound_object.s2d)
+	end
+end
+
+function weapon_zoom_out(obj)
+	if (IsPistol(obj)) or (IsRifle(obj)) or (IsShotgun(obj)) or (IsSniper(obj)) or (IsLauncher(obj)) then
+		sound_object("weapons\\aim_out_"..math.random(1,3)):play(db.actor,0,sound_object.s2d)
+	end
+	local sec = obj:section()
+	if sec:find("pkm") or sec:find("pkp") or sec:find("rpd") or sec:find("m60") or sec:find("m249") then
+		sound_object("weapons\\aim_hmgun_out"):play(db.actor,0,sound_object.s2d)
+	end
+end
+
+function on_key_press(key)
+	if db.actor:alive() and not (device():is_paused()) then
+		local wpn = IsRifle(db.actor:active_item()) or IsShotgun(db.actor:active_item()) or IsSniper(db.actor:active_item())
+		if wpn then
+			if (dik_to_bind(key) == 39) or (dik_to_bind(key) == 40) then
+				level.add_cam_effector("camera_effects\\weapon\\ak74_switch_on.anm")
+				sound_object("weapons\\mode_switch"):play(db.actor,0,sound_object.s2d)
+			end
+		end
+		if (dik_to_bind(key) == 12) or (dik_to_bind(key) == 13) then
+			sound_object("actor\\actor_lookout_"..math.random(1,3)):play(db.actor,0,sound_object.s2d)
+		end
+	end
+end
+
+function on_key_hold(key)
+	if not db.actor or not db.actor:alive() or device():is_paused() then return end
+	if (dik_to_bind(key) == key_bindings.kBACK) or (dik_to_bind(key) == key_bindings.kFWD) then
+		actor_climb_exo()
+	end 
+end
+
+local state = true
+function on_key_release(key)
+	local pda_menu = ActorMenu.get_pda_menu()
+	if pda_menu:IsShown() and state then
+		actor_hide_wpn(true)
+		sound_object("interface\\inv_pda_unlock"):play(db.actor,0,sound_object.s2d)
+		state = false
+	elseif not (pda_menu:IsShown() or state) then
+		actor_hide_wpn(false)
+		sound_object("interface\\inv_pda_lock"):play(db.actor,0,sound_object.s2d)
+		state = true
+	end
+end
+
+function get_take_sound(section, cls)
+	local snd = ini:r_string_ex(section,"take_sound")
+	if show_log then
+		printf("get_take_sound snd:%s", snd)
+	end
+	if snd then
+		return snd
+	end
+
+	take_sound = take_sound or
+	{
+		artefact_take = {clsid.artefact_s},
+		bottle_take = {clsid.obj_bottle,clsid.obj_explosive_s},
+		documents_take = {clsid.obj_docs_s},
+		food_take = {clsid.obj_food, clsid.obj_food_s},
+		key_take = {clsid.obj_key_s},
+		outfit_take = {clsid.equ_stalker_s,clsid.equ_helmet_s,clsid.equ_backpack},
+		pistol_take = {clsid.wpn_hpsa_s,clsid.wpn_pm_s,clsid.wpn_walther_s,clsid.wpn_usp45_s,clsid.wpn_scope_s,clsid.wpn_silencer_s,clsid.wpn_grenade_launcher_s,clsid.wpn_magazine_s},
+		rifle_take = {clsid.wpn_ak74_s,clsid.wpn_groza_s,clsid.wpn_lr300_s,clsid.wpn_magazined_s,clsid.wpn_rg6_s,clsid.wpn_rpg7_s,clsid.wpn_svd_s,clsid.wpn_svu_s,clsid.wpn_val_s,clsid.wpn_vintorez_s},
+		shotgun_take = {clsid.wpn_bm16_s, clsid.wpn_shotgun_s,clsid.wpn_auto_shotgun_s},
+		pills_take = {clsid.obj_medkit_s,clsid.obj_bandage_s,clsid.obj_antirad_s},
+		device_take = {clsid.obj_pda_s,clsid.detector_scientific_s,clsid.detector_elite_s,clsid.detector_advanced_s,clsid.detector_simple_s,clsid.device_dosimeter_s,clsid.device_torch_s},
+		ammo_take = {clsid.wpn_ammo_s,clsid.wpn_ammo_vog25_s,clsid.wpn_ammo_og7b_s,clsid.wpn_ammo_m209_s},
+		tools_take = {clsid.obj_instrum_s},
+		grenade_take = {clsid.wpn_grenade_f1_s,clsid.wpn_grenade_rgd5_s,clsid.obj_bolt}
+	}
+	-- defaults
+	if (cls == clsid.obj_food_s or cls == clsid.obj_food) then
+		if( section:find("inv_drink_") or section:find("inv_softdrink") or section:find("inv_vodka") ) then
+			cls = "bottle"
+		else 
+			cls = "food"
+		end
+	end
+	if show_log then
+		printf("get_take_sound:: take_sound_cls:%s", cls)
+	end
+	for sound, cl in pairs(take_sound) do
+		for i=1,#cl do
+			if cl[i] == cls then
+				return sound
+			end
+		end
+	end
+	
+	return "generic_take"
+end
+
+-- Sounds of exo movement by Surs and MAGILA
+local play_sound_3d = {}
+function play_3d_sounds(obj)
+	if obj and obj:alive() then
+		local id = obj:id()
+		if play_sound_3d[id] and play_sound_3d[id].snd then
+			local function get_position()
+				local position = alun_utils.safe_bone_pos(obj,ini:r_string_ex(obj:section(),"bone_torso",""))
+				local dir = obj:direction()
+				position.y = position.y-0.15
+				position.x = position.x + (dir.x*0.3)
+				position.z = position.z + (dir.z*0.3)
+				return position
+			end
+			if play_sound_3d[id].snd:playing() then
+				play_sound_3d[id].snd:set_position(get_position())
+				play_sound_3d[id].snd.volume = play_sound_3d[id].volume
+			else
+				if not play_sound_3d[id].play then
+					play_sound_3d[id].snd:play_at_pos(obj, get_position(), 0, sound_object.s3d)
+					play_sound_3d[id].play = true
+					play_sound_3d[id].snd.volume = play_sound_3d[id].volume
+				end
+			end
+		end
+	end
+end
+
+function starting_accurate_audio(id,snd,volume)
+	if not play_sound_3d[id] then play_sound_3d[id] = {} end
+	play_sound_3d[id].snd = sound_object(snd)
+	play_sound_3d[id].volume = volume
+	play_sound_3d[id].play = false
+end
+
+local function steps_exo(obj,section,power)
+	local sound_level = ini:r_string_ex(section, "snd_level" ,false)
+	if sound_level then
+		local volume
+		if power < 0.6 then
+			volume = 0.2	-- крадётся/медленно идёт
+		else
+			volume = power*0.5
+		end
+		local id = obj:id()
+		starting_accurate_audio(id,"exo\\"..sound_level.."_servo_exo_walk"..math.random(1,2),volume)
+	end
+end
+
+function npc_steps_exo(obj,power)
+	--npc step
+	local table = death_manager.get_outfit_by_npc_visual(obj:get_visual_name())
+	if not table or not table[1]:find("exo") then return end
+	steps_exo(obj,table[1],power)
+end
+
+local exo_sound_level
+function actor_steps_exo(obj,power)
+	--actor step
+	local exo = obj:item_in_slot(7)
+	if not exo then return end
+	steps_exo(obj,exo:section(),power)
+end
+
+local climb_time = 0
+function actor_climb_exo()
+	local time = time_global()
+	if climb_time < time then 
+		if db.actor:cast_Actor():is_climb() then
+			actor_steps_exo(db.actor,0.7)
+		end
+		climb_time = time+math.random(500,650)
+	end
+end
+
+-- Jump and landing sounds for exo and without exo by Surs and MAGILA
+function on_jump(jump,time)
+	local outfit = db.actor:item_in_slot(7)
+	if not outfit then return end
+	--exo
+	if outfit:section():find('exo') then
+		exo_sound_level = ini:r_string_ex(outfit:section(), "snd_level")
+		if jump then
+			starting_accurate_audio(db.actor:id(),"exo\\"..exo_sound_level.."_servo_exo_jump",0.9)
+		else
+			starting_accurate_audio(db.actor:id(),"exo\\"..exo_sound_level.."_servo_exo_landing",time)
+		end
+	end
+end
+
+---------------------------breathing system by MAGILA-------------------------------
+local snd_tg = 0
+local run_play = 0
+local run_play_2 = 0
+
+local breath_random_coint = 35 --шанс сбить дыхание в %, лишь для того чтоб дыхание было не линейным.
+local breath_snd_coint = 2 --количество звуков дыхание без учёта разнавидностей
+local breath_play_coint = 8 --разнообразность звука
+local breath_snd_gas_coint = 7 --количество звуков дыхание без учёта разнавидностей для противогаза
+local breath_coint_gas = 8 --разнообразность звука противогаза
+local actor_speed_time_2 = 0 -- actor_speed_time сбрасывается резко, человек не может реско отдышатся! сделаем плавное сбрасываниее
+local hold_breath = false -- true дыхание задержино
+local hold_breath_status = false -- true проверка звука прошла скрипт приостановлен
+snd_time = 1.63 --спокойное дыхание
+local snd_time_new = snd_time
+local time_update = 0
+local sound -- обьект звука
+
+function breath(actor_speed_time, tg, sound_name, stop_time, actor_sound_stop,delay)
+	local breath_coint -- опредилить максимальное количество звуков
+	local breath_snd -- определить разнообразность звуков
+	local breath_name -- определить тип звука
+	local snd_volume = 0 --уровень громкости.
+	local health = db.actor.health
+	if not delay then delay = 0 end
+	if actor_sound_stop == true then
+		if (not sound) == false and tg < snd_tg or not sound_name and (not sound) == false then sound:stop() end
+		snd_tg = 0
+		if (not sound_name) == false then
+			if sound then
+				sound:stop()
+			end
+			sound = sound_object(sound_name)
+		end
+	elseif GodMode() then
+		return
+	end
+
+	if hold_breath == true then snd_tg = 0 end
+	
+	if tg < snd_tg or health <= 0 or hold_breath == true and hold_breath_status == true then return end--дальше не выполнять если звук воспроизведён на прошлой итерации скрипта или гг погиб или задержено дыхание
+	snd_tg = tg+800
+	local hud_ismask = area_dinamic_hud.ismask_hidden() and area_dinamic_hud.get_helmet()
+	local pulse = db.actor:cast_Actor():conditions():PulseRate()/200
+	if hud_ismask then
+		--если противогаз есть
+		breath_coint = breath_coint_gas
+		breath_snd = breath_snd_gas_coint
+		breath_name = "gas_breath"
+	else
+		--если противогаза нет
+		breath_coint = breath_play_coint
+		breath_snd = breath_snd_coint
+		breath_name = "actor_breath"
+		if 0.2 >= health then
+			--звук при малом хп
+			breath_name = "actor_breath_death"
+			breath_snd = 1
+		end
+	end
+	if actor_speed_time_2 < (actor_speed_time/9) then
+		if actor_speed_time_2 < breath_snd then
+			actor_speed_time_2 = actor_speed_time/9
+			if breath_snd < actor_speed_time_2 then
+				actor_speed_time_2 = breath_snd
+			end
+		end
+		if actor_speed_time_2 > breath_snd then
+			actor_speed_time_2 = breath_snd
+		end
+	else
+		if actor_speed_time_2 > 0 then
+			actor_speed_time_2 = actor_speed_time_2 - (breath_snd*0.04) --сбрасываем
+		end
+		if actor_speed_time_2 < 0 then
+			actor_speed_time_2 = 0
+		end
+	end
+	local checking = db.actor.power < 0.3 or run_play > 0.2 or actor_speed_time_2 > 0.4 or pulse > 0.8 or 0.2 >= health
+	if checking or hud_ismask or hold_breath == true or hold_breath == false and hold_breath_status == true or actor_sound_stop then
+		local sped_power = breath_snd - (db.actor.power * breath_snd) --стамина умноженое на указаное количество звуков
+		if sped_power > breath_snd then sped_power = breath_snd end
+		if sped_power < 0.1 then sped_power = 0.1 end --присвоить 0.1 если в db.actor.power 1
+
+		local function snd_time_update(num_1)
+			if num_1 > time_update then
+				time_update = time_update+0.01
+			elseif num_1 < time_update then
+				time_update = time_update-0.03
+			end
+			snd_time_new = snd_time - time_update
+		end
+		if (1 - db.actor.power) > pulse then
+			snd_time_update((1 - db.actor.power))
+		else
+			snd_time_update(pulse)
+		end
+
+		local function hold(num_1)
+			if num_1 > run_play then
+				run_play = run_play + (breath_snd*0.005)
+			else
+				run_play = run_play - (breath_snd*0.01)
+			end
+			if run_play > breath_snd then
+				run_play = breath_snd
+			elseif run_play < 0 then
+				run_play = 0
+			end
+			snd_volume = 0.25 + (run_play / breath_snd) * 0.75
+		end
+		if sped_power < actor_speed_time_2 then
+			hold(actor_speed_time_2)
+		else
+			hold(sped_power)
+		end
+
+		if actor_sound_stop == false and hold_breath == true and hold_breath_status == false then 
+			if run_play_2%2==0 then run_play_2 = run_play_2+1 end -- если при задержке дыхания звук выдоха сделать вдох
+			if (not sound) == false and tg < snd_tg then sound:stop() end -- остановить прошлый звук
+			hold_breath_status = true
+			run_play = breath_snd
+		else
+			if sped_power > actor_speed_time_2 then
+				run_play = sped_power
+			else
+				run_play = actor_speed_time_2
+			end
+			hold_breath_status = false
+		end
+
+		if actor_sound_stop == false and run_play_2 < breath_coint and hold_breath_status == false then
+			if math.random(0,100) < breath_random_coint and run_play_2%2==0 then
+				--чтоб дыхание было максимально не предсказуемым.
+				run_play_2 = 1
+			else
+				run_play_2 = run_play_2+1--условия соблюдены переключим звук
+			end
+		else
+			run_play_2 = 1 -- сбросить звук
+		end
+
+		local function play_snd(time, v)
+			sound:play(db.actor, delay, sound_object.s2d)
+			sound.volume = v
+			snd_tg = tg + (sound:length() * time) + stop_time
+		end
+
+		if actor_sound_stop == false then
+			if run_play > breath_snd then run_play = breath_snd end
+			sound = sound_object("actor\\"..breath_name.."_"..math.ceil(run_play).."_"..run_play_2)
+			play_snd(snd_time_new, snd_volume)
+		end
+
+		if actor_sound_stop and (not sound_name) == false and (not sound) == false then 
+			play_snd(1,1)
+		end
+		if run_play_2%2==0 and hud_ismask then area_dinamic_hud.set_blurs_p(snd_time_new) end -- функция запотивания стекла (чётное значит это выдох)
+		if actor_sound_stop and (not sound) == false then return sound:length() end
+	end
+end
+
+function hold_your_breath(t)
+	hold_breath = t -- задержать дыхание
+end
+function get_hold_your_breath()
+	return hold_breath -- получить статус задержено дыхание или нет
+end
+-- actor Sound
+function actor_sound(name_sounds,stop_sounds_time,delay)
+	return breath(0, time_global(), name_sounds, 1000*stop_sounds_time, true, delay) or 0
+end
+
+--Screwing on weapon jam
+local screwing_time = 0
+local max_sounds = {bandit = 7, stalker = 5, dolg = 6, freedom = 5, csky = 6, ecolog = 5, killer = 4, army = 3, monolith = 3}
+local masc = ""
+function screwing()
+	if not db.actor then return end
+	local character_community = db.actor:character_community()
+	if (math.random(0,100) < 10 and screwing_time < time_global()) then
+		local com = string.sub(character_community, 7)
+		if not character_community or not max_sounds[com] then return end
+		if area_dinamic_hud.ismask_hidden() and area_dinamic_hud.get_helmet() then
+			screwing_time = time_global() + actor_sound("characters_voice\\human_02\\"..com.."\\fight\\hit\\hit_"..math.random(1,max_sounds[com]),0.8) + 1000
+		else
+			screwing_time = time_global() + actor_sound("characters_voice\\human_01\\"..com.."\\fight\\hit\\hit_"..math.random(1,max_sounds[com]),0.8) + 1000
+		end
+	end
+end
+
+--Запуск звука пульса.
+local pulse_sound_tmr = 0
+local coint_sounds_pulse = 2 -- Количество звуков пульса
+local sounds_pulse_tip = 1
+
+local function play_pulse_sound()
+	local conditions = level.Actor():conditions()
+	local tg = time_global()
+	local pulse = conditions:PulseRate()
+
+	if (pulse_sound_tmr < tg) then
+		utils.save_var(db.actor,"pulse",pulse)
+		local tipe_sounds = (60/pulse)*10/2.5
+		if tipe_sounds < 1 then
+			tipe_sounds = 1
+		end
+		if sounds_pulse_tip % 2 ~= 0 then
+			tipe_sounds = tipe_sounds/1.7
+		end	
+
+		if get_hold_your_breath() then
+			local snd_obj = sound_object("actor\\pulse_"..sounds_pulse_tip)
+			snd_obj:play(db.actor,0,sound_object.s2d)
+			pulse_sound_tmr = tg + snd_obj:length()*tipe_sounds
+			if sounds_pulse_tip < coint_sounds_pulse then
+				sounds_pulse_tip = sounds_pulse_tip+1
+			else
+				sounds_pulse_tip = 1
+			end
+		end
+	end
+end
+function PlayPulseSound(status)
+	if status then
+		AddUniqueCall(play_pulse_sound)
+	else
+		RemoveUniqueCall(play_pulse_sound)
+	end
+end

@@ -1,0 +1,113 @@
+class "opt_video" (CUIWindow)
+
+function opt_video:__init() super()
+end
+
+function opt_video:__finalize()
+
+end
+
+function opt_video:InitControls(x, y, xml, handler)
+
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(738,416))
+	self:SetAutoDelete(true)
+
+	self.elements_alpha = {}
+	self.elements_noalpha = {}
+
+	self.elements_alpha[1] = xml:InitStatic					("tab_video:cap_fullscreen",		self)
+	self.elements_noalpha[1] = xml:InitCheck					("tab_video:check_fullscreen",		self)
+
+	self.elements_alpha[2] = xml:InitStatic					("tab_video:cap_brightness",		self)
+	self.elements_noalpha[2] = xml:InitTrackBar				("tab_video:track_brightness",		self)
+
+	self.elements_alpha[3] = xml:InitStatic					("tab_video:cap_contrast",			self)
+	self.elements_noalpha[3] = xml:InitTrackBar				("tab_video:track_contrast",		self)
+
+	self.elements_alpha[4] = xml:InitStatic("tab_video:cap_fov",self)
+	self.elements_alpha[5] = xml:InitStatic("tab_video:cap_fov_value",self)
+	self.elements_noalpha[4] = xml:InitTrackBar("tab_video:track_fov",self)
+	
+	self.elements_alpha[6] = xml:InitStatic("tab_video:cap_hud_fov",self)
+	self.elements_alpha[7] = xml:InitStatic("tab_video:cap_hud_fov_value",self)
+	self.elements_noalpha[5] = xml:InitTrackBar("tab_video:track_hud_fov",self)
+	
+	self.elements_alpha[8] = xml:InitStatic("tab_video:cap_fps_limit",self)
+	self.elements_alpha[9] = xml:InitStatic("tab_video:cap_fps_limit_value",self)
+	self.elements_noalpha[6] = xml:InitTrackBar("tab_video:track_fps_limit",self)
+	
+	self.elements_alpha[10] = xml:InitStatic					("tab_video:cap_gamma", self)
+	self.elements_noalpha[7] = xml:InitTrackBar				("tab_video:track_gamma",			self)
+
+	self.elements_alpha[11] = xml:InitStatic					("tab_video:cap_resolution",		self)
+	self.elements_noalpha[8] = xml:InitComboBox				("tab_video:list_resolution",		self)
+
+	self.elements_alpha[12] = xml:InitStatic					("tab_video:cap_preset",			self)
+	handler.combo_preset			= xml:InitComboBox("tab_video:list_presets",	self)
+	handler:Register				(handler.combo_preset,				"combo_preset")
+	self.elements_noalpha[9] = handler.combo_preset
+
+	self.elements_alpha[13] = xml:InitStatic					("tab_video:cap_renderer",			self)
+	handler.combo_renderer			= xml:InitComboBox("tab_video:list_renderer",		self)
+	handler:Register				(handler.combo_renderer, "combo_renderer")
+	self.elements_noalpha[10] = handler.combo_renderer
+
+	self.elements_noalpha[11] = xml:Init3tButton		("tab_video:btn_advanced",	self)
+	handler:Register				(self.elements_noalpha[11], "btn_advanced_graphic")
+	
+	for i=1, #self.elements_alpha do
+		self.elements_alpha[i]:SetTextureColor(GetARGB(0,255,255,255))
+		self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(0,255,255,255))
+	end
+	
+	for i=1, #self.elements_noalpha do
+		self.elements_noalpha[i]:Show(false)
+	end
+	
+	self.anim_alpha = 0
+	self.is_quit = false
+	
+end
+
+function opt_video:UpdateVideoTab()
+
+	if (self.anim_alpha < 255 and not self.is_quit) or (self.anim_alpha > 0 and self.is_quit) then
+		
+		if (not self.is_quit) then
+			self.anim_alpha = self.anim_alpha + 1
+		else
+			self.anim_alpha = self.anim_alpha - 1
+		end
+		
+		for i=1, #self.elements_alpha do
+			self.elements_alpha[i]:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+			self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(self.anim_alpha,255,255,255))
+		end
+		
+	end
+	
+	if (self.anim_alpha == 254) or (self.anim_alpha == 1 and self.is_quit) then
+		for i=1, #self.elements_noalpha do
+			self.elements_noalpha[i]:Show(not self.is_quit)
+		end
+	end
+	
+end
+
+function opt_video:SetAlphaToZero()
+
+	self.anim_alpha = 0
+	for i=1, #self.elements_noalpha do
+		self.elements_noalpha[i]:Show(false)
+	end
+
+end
+
+function opt_video:SetIsQuit()
+	self.is_quit = true
+end
+
+function opt_video:UnsetIsQuit()
+	self.is_quit = false
+end

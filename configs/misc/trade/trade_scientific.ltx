@@ -1,0 +1,75 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition			= trade_generic_buy
+sell_condition			= trade_generic_sell
+buy_supplies			= {=actor_goodwill_ge(ecolog:3000)} supplies_tier_3, {=actor_goodwill_ge(ecolog:2000)} supplies_tier_2, {=actor_goodwill_ge(ecolog:1000)} supplies_tier_1, supplies_generic
+
+buy_item_condition_factor = 0.92
+
+discounts				= {=actor_goodwill_ge(ecolog:3000)} discount_10, {=actor_goodwill_ge(ecolog:2700)} discount_9, {=actor_goodwill_ge(ecolog:2400)} discount_8, {=actor_goodwill_ge(ecolog:2100)} discount_7, {=actor_goodwill_ge(ecolog:1800)} discount_6, {=actor_goodwill_ge(ecolog:1500)} discount_5, {=actor_goodwill_ge(ecolog:1200)} discount_4, {=actor_goodwill_ge(ecolog:900)} discount_3, {=actor_goodwill_ge(ecolog:600)} discount_2, {=actor_goodwill_ge(ecolog:300)} discount_1, discount_0
+
+[trade_generic_buy]:buy_scientist_set
+
+[trade_generic_sell]:sell_scientist_set
+
+[supplies_generic]
+caffeine							= 1, 0.20
+drug_sleepingpills					= 1, 0.20
+drug_hangover						= 1, 0.20
+drug_absorbent						= 1, 0.20
+drug_booster						= 1, 0.10
+drug_coagulant						= 1, 0.20
+drug_psy_blockade					= 1, 0.20
+drug_antidot						= 1, 0.15
+drug_radioprotector					= 1, 0.10
+drug_anabiotic						= 1, 0.10
+akvatab								= 1, 0.20
+deactivate_mix						= 1, 0.10
+antirad								= 2, 0.15
+antirad_iodid						= 2, 0.15
+bandage								= 5, 0.25
+bandage_enhanced					= 3, 0.15
+bandage_special						= 1, 0.10
+stimpack							= 3, 0.15
+stimpack_empty						= 2, 0.15
+novocaine							= 4, 0.5
+medkit								= 4, 0.20
+medkit_army							= 3, 0.15
+medkit_scientic						= 2, 0.10
+medkit_elite						= 1, 0.05
+survival_kit						= 1, 0.40
+rebirth								= 1, 0.10
+tetanus								= 1, 0.10
+glucose								= 1, 0.10
+glucose_s							= 1, 0.10
+cocaine								= 1, 0.05
+salicidic_acid						= 1, 0.10
+morphine							= 1, 0.10
+adrenalin							= 1, 0.05
+amphetamines						= 1, 0.15
+diazepam							= 1, 0.10
+psy_complex							= 1, 0.15
+drug_engine							= 1, 0.10
+drug_cat_eye						= 1, 0.15
+bag_medkit_1						= 1, 0.05
+bag_medkit_2						= 1, 0.05
+bag_medkit_3						= 1, 0.05
+bag_medkit_4						= 1, 0.05
+
+lead_box							= 1, 0.75
+container_tool						= 1, 0.55
+
+detector_simple						= 1, 0.35
+
+[supplies_tier_1]:supplies_generic
+iam									= 1, 0.25
+detector_advanced					= 1, 0.25
+
+[supplies_tier_2]:supplies_tier_1
+detector_elite						= 1, 0.15
+aac									= 1, 0.15
+
+[supplies_tier_3]:supplies_tier_2
+aam									= 1, 0.05
+detector_scientific					= 1, 0.05

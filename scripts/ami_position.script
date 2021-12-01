@@ -1,0 +1,476 @@
+----------------------------------------------------------------------
+-- Inferno: В тени Чернобыля
+-- Считывание координат
+-- Автор: Александр Гавричкин(By Alex aka AMI)
+-- Версия: Beta(от 07.02.2012)
+-- Дата: 07.01.2012
+----------------------------------------------------------------------
+
+--[[
+ Планируется: 
+  1) Телепортации к заданной точке и объекту(доработка)
+  2) Нумерация объектов(создание)
+  3) Расширение списка секций объектов(доработка)
+  4) Запись "спавна объекта через скрипт"(создание)
+  5) Возможность фиксирования физических объектов(создание)
+]]--
+
+spw = 0
+local type,sec,name,money,profile,script,visual,health,rad_shape,mass,use_fixed
+
+function position(type,sec_name,name,money,profile,script,visual,health,rad_shape,mass)
+
+ if db.actor~=nil then
+
+  local ln=level.name()
+  local gd=db.actor:game_vertex_id()
+  local ld=db.actor:level_vertex_id()
+  local pos=db.actor:position()
+  local posX=pos.x
+  local posY=pos.y
+  local posZ=pos.z
+  local dir=db.actor:direction()
+  local dirX=dir.x
+  local dirY=dir.y
+  local dirZ=dir.z
+
+local position_obj = posX..","..posY..","..posZ
+local direction_obj = dirX..","..dirY..","..dirZ
+
+	local settingFileName = "gamedata\\alife_"..ln..".ltx"
+	local file = io.open( settingFileName, "a" )
+
+	if type == "type_1" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\nname = "..name)
+		file:write("\nposition = "..position_obj)
+		file:write("\ndirection = "..direction_obj)
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_2" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = stalker")
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = "..direction_obj) -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_trader_abstract properties")
+		file:write("\nmoney = "..money) -- money
+		file:write("\ncharacter_profile = "..profile) -- profile
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 32")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\ncustom_data = [smart_terrains]")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\n")
+		file:write("\n; cse_alife_creature_abstract properties")
+		file:write("\ng_team = 0")
+		file:write("\ng_squad = 1")
+		file:write("\ng_group = 5")
+		file:write("\nhealth = "..health) -- health
+		file:write("\ndynamic_out_restrictions = ")
+		file:write("\ndynamic_in_restrictions = ")
+		file:write("\nupd:health = "..health) -- health
+		file:write("\nupd:timestamp = 0x2009656c")
+		file:write("\nupd:creature_flags = 0x3d")
+		file:write("\nupd:position = "..position_obj) -- position_obj
+		file:write("\nupd:o_model = 0")
+		file:write("\nupd:o_torso = 0.00316426996141672,0.062321275472641,0")
+		file:write("\nupd:g_team = 0")
+		file:write("\nupd:g_squad = 1")
+		file:write("\nupd:g_group = 5")
+		file:write("\n")
+		file:write("\n; cse_alife_monster_abstract properties")
+		file:write("\n")
+		file:write("\nupd:next_game_vertex_id = 65535")
+		file:write("\nupd:prev_game_vertex_id = 65535")
+		file:write("\nupd:distance_from_point = 0")
+		file:write("\nupd:distance_to_point = 0")
+		file:write("\n")
+		file:write("\n; cse_alife_human_abstract properties")
+		file:write("\npredicate5 = 1,1,0,0,1")
+		file:write("\npredicate4 = 2,2,0,2")
+		file:write("\n")
+		file:write("\n; cse_ph_skeleton properties")
+		file:write("\n")
+		file:write("\nupd:start_dialog = ")
+		file:write("\n")
+		file:write("\n; se_stalker properties")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_3" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_trader_abstract properties")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 0")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\ncustom_data = [smart_terrains]")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_alife_creature_abstract properties")
+		file:write("\ng_team = 0")
+		file:write("\ng_squad = 1")
+		file:write("\ng_group = 14")
+		file:write("\nhealth = "..health) -- health
+		file:write("\ndynamic_out_restrictions = ")
+		file:write("\ndynamic_in_restrictions = ")
+		file:write("\nupd:health = "..health) -- health
+		file:write("\nupd:timestamp = 0")
+		file:write("\nupd:creature_flags = 0x3d")
+		file:write("\nupd:position = "..position_obj) -- position_obj
+		file:write("\nupd:o_model = 0")
+		file:write("\nupd:o_torso = 0.00316426996141672,0.062321275472641,0")
+		file:write("\nupd:g_team = 0")
+		file:write("\nupd:g_squad = 1")
+		file:write("\nupd:g_group = 14")
+		file:write("\n")
+		file:write("\n; cse_alife_monster_abstract properties")
+		file:write("\n")
+		file:write("\nupd:next_game_vertex_id = 65535")
+		file:write("\nupd:prev_game_vertex_id = 65535")
+		file:write("\nupd:distance_from_point = 0")
+		file:write("\nupd:distance_to_point = 0")
+		file:write("\n")
+		file:write("\n; cse_ph_skeleton properties")
+		file:write("\n")
+		file:write("\n; cse_alife_monster_base properties")
+		file:write("\n")
+		file:write("\n; se_monster properties")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_4" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = smart_terrain")
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 32")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffff3e")
+		file:write("\ncustom_data = <<END")
+		file:write("\n[smart_terrain]")
+		file:write("\ncfg = "..script) -- script
+		file:write("\nEND")
+		file:write("\n")
+		file:write("\n; cse_shape properties")
+		file:write("\nshapes = shape0")
+		file:write("\nshape0:type = sphere")
+		file:write("\nshape0:offset = 0,0,0")
+		file:write("\nshape0:radius = "..rad_shape) -- radius
+		file:write("\n")
+		file:write("\n; cse_alife_space_restrictor properties")
+		file:write("\nrestrictor_type = 5")
+		file:write("\n")
+		file:write("\n; se_smart_terrain properties")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_5" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name) -- sec_name
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0")
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 32")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffff3e")
+		file:write("\n")
+		file:write("\n; cse_shape properties")
+		file:write("\nshapes = shape0")
+		file:write("\nshape0:type = sphere")
+		file:write("\nshape0:offset = 0,0,0")
+		file:write("\nshape0:radius = "..rad_shape) -- rad_shape
+		file:write("\n")
+		file:write("\n; cse_alife_space_restrictor properties")
+		file:write("\nrestrictor_type = 3")
+		file:write("\n")
+		file:write("\n; cse_alife_custom_zone properties")
+		file:write("\nmax_power = 0")
+		file:write("\n")
+		file:write("\n; cse_alife_anomalous_zone properties")
+		file:write("\noffline_interactive_radius = 30")
+		file:write("\nartefact_spawn_count = 32")
+		file:write("\nartefact_position_offset = 0x30a0")
+		file:write("\n")
+		file:write("\n; se_zone_anom properties")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_6" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name)
+		file:write("\nposition = "..position_obj)
+		file:write("\ndirection = 0,0,0")
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 0")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffff07")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_alife_item properties")
+		file:write("\ncondition = 1")
+		file:write("\nupgrades = ")
+		file:write("\n")
+		file:write("\nupd:num_items = 0")
+		file:write("\n")
+		file:write("\n; cse_alife_item_ammo properties")
+		file:write("\nammo_left = 20")
+		file:write("\n")
+		file:write("\nupd:ammo_left = 20")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_7" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 300")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\ncondition = 1")
+		file:write("\nupgrades = ")
+		file:write("\n")
+		file:write("\n; cse_alife_item_weapon properties")
+		file:write("\nammo_current = 90")
+		file:write("\nupd:condition = 255")
+		file:write("\nupd:weapon_flags = 0")
+		file:write("\nupd:ammo_elapsed = 0")
+		file:write("\nupd:addon_flags = 0")
+		file:write("\nupd:ammo_type = 0")
+		file:write("\nupd:weapon_state = 0")
+		file:write("\nupd:weapon_zoom = 0")
+		file:write("\n")
+		file:write("\nupd:current_fire_mode = 0")
+		file:write("\n")
+		file:write("\nupd:grenade_mode = 0")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_8" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0")
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 30")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_alife_item properties")
+		file:write("\ncondition = 1")
+		file:write("\nupgrades = ")
+		file:write("\n")
+		file:write("\nupd:condition = 255")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_9" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0")
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 30")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_alife_item properties")
+		file:write("\ncondition = 1")
+		file:write("\nupgrades = ")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_10" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 0")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffffba")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_ph_skeleton properties")
+		file:write("\n")
+		file:write("\n; cse_alife_car properties")
+		file:write("\nhealth = "..health)
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_11" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = "..sec_name)
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0")
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd)
+		file:write("\ndistance = 30")
+		file:write("\nlevel_vertex_id = "..ld)
+		file:write("\nobject_flags = 0xffffffbf")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual)
+		file:write("\n")
+		file:write("\n; cse_alife_item properties")
+		file:write("\ncondition = 1")
+		file:write("\nupgrades = ")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_12" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = physic_object")
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 32")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffff3e")
+		file:write("\n")
+		file:write("\n; cse_visual properties")
+		file:write("\nvisual_name = "..visual) -- visual
+		file:write("\n")
+		file:write("\n; cse_ph_skeleton properties")
+		file:write("\n")
+		file:write("\n; cse_alife_object_physic properties")
+		file:write("\nphysic_type = 0x3")
+		file:write("\nmass = "..mass) -- mass
+		  --if use_fixed == 1 then
+		file:write("\nfixed_bones = link")
+		  --end
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	elseif type == "type_13" then
+		file:write("["..ln.."_"..spw.."]")
+		file:write("\n; cse_abstract properties")
+		file:write("\nsection_name = space_restrictor")
+		file:write("\nname = "..name) -- name
+		file:write("\nposition = "..position_obj) -- position_obj
+		file:write("\ndirection = 0,0,0") -- direction_obj
+		file:write("\n")
+		file:write("\n; cse_alife_object properties")
+		file:write("\ngame_vertex_id = "..gd) -- gd
+		file:write("\ndistance = 32")
+		file:write("\nlevel_vertex_id = "..ld) -- ld
+		file:write("\nobject_flags = 0xffffff3e")
+		file:write("\ncustom_data = <<END")
+		file:write("\n[story_object]")
+		file:write("\nstory_id = "..name) -- name
+		file:write("\nEND")
+		file:write("\n")
+		file:write("\n; cse_shape properties")
+		file:write("\nshapes = shape0")
+		file:write("\nshape0:type = sphere")
+		file:write("\nshape0:offset = 0,0,0")
+		file:write("\nshape0:radius = "..rad_shape) -- radius
+		file:write("\n")
+		file:write("\n; cse_alife_space_restrictor properties")
+		file:write("\nrestrictor_type = 3")
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+	else
+		file:close()
+
+	end
+spw = spw + 1
+ end
+end
+

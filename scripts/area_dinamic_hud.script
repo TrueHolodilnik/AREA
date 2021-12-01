@@ -1,0 +1,715 @@
+--------------------------------------------------------------------------------
+-- A.R.E.A. Dinamic HUD 1.1 by Nuor, Surs and Magila
+-- based on Dinamic HUD from ABC Inferno and AMK by Rulix aka Bak
+--------------------------------------------------------------------------------
+local ini = system_ini()
+local dh_ini = ini_file("plugins\\dinamic_hud.ltx")
+local helm_hidden = false
+local helm_mask = false
+local hud_rain_drops_num,_tmr, hud_rain_drops_num_max = 0,0,0
+local hud
+--------------------------------------------------------------------------------
+local seve_helmet = {}
+local function obj_helmet (section)
+	if not seve_helmet[section] then
+		local tmp={}
+		if dh_ini and dh_ini:section_exist(section) then
+			for a=0,dh_ini:line_count(section)-1 do
+				local result, id, value = dh_ini:r_line_ex(section,a)
+				if id and value then
+					local number = tonumber(value)
+					if number or number == 0 then
+						tmp[id] = number
+					elseif value == "true" or value == "false" then
+						tmp[id] = dh_ini:r_bool_ex(section,id)
+					else
+						tmp[id] = value
+					end
+				end
+			end
+		else
+			return false
+		end
+		seve_helmet[section] = tmp
+		return tmp
+	else
+		return seve_helmet[section]
+	end
+end
+--------------------------------------------------------------------------------
+local often_upd_time
+local ztime = time_global()
+function on_game_start()
+	--RegisterScriptCallback("actor_on_before_death",clear_hud)
+	--RegisterScriptCallback("on_key_release",on_key_helm)
+	-- if level.get_snd_volume() < 1 then level.set_snd_volume(1) end
+	AddUniqueCall(function()
+		if db.actor and db.actor:alive() then
+			local time_delta = (time_global()-ztime)/5
+			ztime = time_global()
+			if time_delta > 10 then return end
+			init_blurs(time_delta)
+			zoom_hud(time_delta)
+			local tg = time_global()
+			if tg > (often_upd_time or 50) then
+				often_upd_time = tg+120
+				helmet_hud(time_delta)
+				rain_drops_power(time_delta)
+			end
+		end
+	end)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("actor_on_first_update",on_first_update)
+	RegisterScriptCallback("actor_on_foot_step",foot_step_hud_jitter)
+end
+
+function on_first_update()
+	if db.actor then
+		start_geme_helmet_hud()
+		hud = get_hud()
+	end
+end
+--------------------------------------[логика включения\выключения худа шлема]------------------------------------------
+
+
+local sounds_obj_helm,hidden_helmet,hidden,current_helmet,pnv_status,helmet_condition,slots,slots_backup,pre_hud_type,status_on_key_helm,current_section
+local hud_blurs,helmets_volume = 0,0
+function load_state(m_data)
+	helm_hidden = m_data.helm_hud_status
+	hud_rain_drops_num = m_data.helm_hud_drops_power
+	-- if m_data.helmets_volume then
+	-- 	-- level.set_snd_volume(m_data.helmets_volume)
+	-- 	helmets_volume = m_data.helmets_volume
+	-- end
+end
+
+function save_state(m_data)
+	m_data.helm_hud_status = helm_hidden
+	m_data.helm_hud_drops_power = hud_rain_drops_num
+	-- m_data.helmets_volume = helmets_volume
+end
+
+function on_key_helm(key)
+--	if dik_to_bind(key) == key_bindings.kCUSTOM9 and not hidden then
+--		helmet_switch(true,false,nil,'function on_key_helm')
+--		status_on_key_helm = not status_on_key_helm
+--	end
+end
+
+function save_slots()
+	slots = db.actor:alive() and (db.actor:item_in_slot(12) or db.actor:get_current_outfit())--смотрим что у нас есть
+	if not slots_backup then slots_backup = slots end
+	if slots and slots_backup then
+		if slots:id() ~= slots_backup:id() then--глянем если прошлое состояние слотов не соотвествует с текущем
+			slots_backup = slots -- запомним состояние слотов.
+		end
+	end
+end
+
+function helmet_switch(key_helm,helmet_check,status_subject,debug)
+	local taimer = 1.2 -- время задержки при старте функции
+	hidden = key_helm--true шлем снят по нажатию кнопки или инному действию
+	--printf("* helmet switch start, key_helm [%s], helmet_check [%s], status_subject [%s], helmet_switch start in [%s] *",hidden,helmet_check,status_subject,debug)-- дебаг
+	if helmet_check then status_on_key_helm = false end
+	if status_on_key_helm and (not hidden) then
+		 return false--шлем уже был снят на кнопку или ещё снимает или одивает
+	end
+	if helm_hidden then
+		sounds_obj_helm = sound_object("actor\\gasmask_off")
+	else
+		sounds_obj_helm = sound_object("actor\\gasmask_on")
+	end
+
+	local _dtmrSounds = sounds_obj_helm:length()/1000-- вся длинна звука
+	local _action_time = 0.3 + taimer + sounds_obj_helm:length()/1000 -- вся продолжительсность действия
+	local function start_sounds()
+		local get_helm_status = get_helmet()
+		if get_helm_status then save_slots() end
+		local sect2
+		if slots_backup then sect2 = slots_backup:section() end
+
+		if (get_helm_status) or (sect2 and obj_helmet(sect2) and obj_helmet(sect2).gas_mask) then
+			sounds_obj_helm:play(db.actor,0,sound_object.s2d)-- запускаем звук
+		end
+		if not get_helm_status then save_slots() end
+	end
+	local function start_helm(no_status_helm)
+		if hidden then
+			actor_hide_wpn(true)--прячем оружие
+			local function time_helm(none_time)
+				level.add_cam_effector("camera_effects\\item_use_fast.anm", 8066, false,'')--запустить анимацию камеры
+				level.add_pp_effector("surge_fade.ppe", 8025, false)--запустить постэффект
+				start_sounds()
+				CreateTimeEvent(0,"hidden_stop",_action_time,hidden_stop)--завершение работы скрипта
+				CreateTimeEvent(0,"helmet_time",_dtmrSounds/1.7,helmet_time,helmet_check,status_subject,no_status_helm)
+				if not none_time then
+					return true--остановить таймер
+				end
+			end
+			if db.actor:active_slot() ~= 0 then
+				CreateTimeEvent(0,"time_helm",taimer,time_helm)
+			else
+				time_helm(true)
+			end
+		else
+			start_sounds()
+			CreateTimeEvent(0,"helmet_time",_dtmrSounds/1.7,helmet_time,helmet_check,status_subject,no_status_helm)
+		end
+	end
+	if helmet_check then
+		slots = db.actor:alive() and (db.actor:item_in_slot(12) or db.actor:get_current_outfit())
+	end
+	if slots then
+		if obj_helmet(slots:section()) then
+			if not helmet_check then
+				start_helm()
+				return
+			elseif not helm_hidden then
+				start_helm()	
+				return
+			end
+		elseif helmet_check and helm_hidden then
+			helm_hidden = helmet_check and helm_hidden
+			start_helm()
+			return
+		else
+			helm_hidden = false 
+			return
+		end
+		if not slots_backup then save_slots() end
+		if helmet_check and slots:id() ~= slots_backup:id() then
+			start_helm(true)
+		end
+	elseif helmet_check and helm_hidden then
+		start_helm()
+	else
+		helm_hidden = false
+	end
+end
+
+function helmet_time(helmet_check,status_subject,no_status_helm)
+	if helm_hidden then
+		pnv_status = db.actor:night_vision_enabled()
+		if pnv_status then
+			db.actor:enable_night_vision(false)-- отключить пнв если включен
+		end
+	else
+		if pnv_status then
+			db.actor:enable_night_vision(pnv_status)-- пнв включить если ранее был выключен
+		end
+	end
+	if not no_status_helm then
+		if hidden then	
+			level.add_cam_effector("camera_effects\\item_use_slow.anm", 8066, false,"")--проиграть анимацию камеры
+			level.remove_pp_effector(8025)-- отключим пост эффект
+			helm_hidden = not helm_hidden
+		else
+			if helmet_check then
+				helm_hidden = not helm_hidden
+			else
+				helm_hidden = status_subject
+			end
+		end
+	end
+	helmet_parameters(helm_hidden)
+	return true--остановить таймер
+end
+
+function rain_drops(status)
+	if axr_main.config:r_value("mm_options","hud_rain_drops",1,true) == true and slots then
+		local sect = slots:section()
+		if status and obj_helmet(sect) and obj_helmet(sect).blurs > 0 and obj_helmet(sect).hud then
+			get_console():execute('r2_rain_drops 1')
+			rain_drops_power_reverse()
+		else
+			get_console():execute('r2_rain_drops 0')
+			rain_drops_power_reverse()
+		end
+	else
+		get_console():execute('r2_rain_drops 0')
+		rain_drops_power_reverse()
+	end
+end
+
+function rain_drops_power(time_delta)
+	if axr_main.config:r_value("mm_options","hud_rain_drops",1,true) == true and get_helmet() then
+		local tg = time_global()
+		if tg < _tmr then return end
+		_tmr = tg+300
+		local rain_factor = level.rain_factor()
+		if rain_factor == 0 then return end
+		hud_rain_drops_num_max = rain_factor*10
+
+		local function hud_rain_drop_progress()
+			if level.get_roof(db.actor:position()) then
+				if hud_rain_drops_num > 0 then
+					hud_rain_drops_num = hud_rain_drops_num-(time_delta*0.01)
+				end
+				if hud_rain_drops_num < 0 then
+					hud_rain_drops_num = 0
+				end
+			else
+				hud_rain_drops_num = hud_rain_drops_num+(rain_factor * 0.03)
+				if hud_rain_drops_num > 10 then
+					hud_rain_drops_num = 10
+				end
+			end
+		end
+		if hud_rain_drops_num_max < hud_rain_drops_num then
+			hud_rain_drops_num = hud_rain_drops_num_max
+			hud_rain_drop_progress()
+		else
+			hud_rain_drop_progress()
+		end
+		
+		level.set_rain_intensity(hud_rain_drops_num)
+	else
+		rain_drops_power_reverse()
+	end
+end
+
+function rain_drops_power_reverse()
+	level.set_rain_intensity(0)
+	hud_rain_drops_num = 0
+end
+
+function helmet_parameters(status)
+	rain_drops(status)
+	-- helmets_volume_hearing(status)
+end
+-- function helmets_volume_hearing(status)
+	--helmets_volume
+	-- if status then
+	-- 	local obj_helmet = slots and obj_helmet(slots:section()) and obj_helmet(slots:section()).sound_volume_hearing
+	-- 	if obj_helmet then
+	-- 		if level.get_snd_volume() ~= helmets_volume then
+	-- 		end
+	-- 	end
+		
+	-- 	helmets_volume = level.get_snd_volume() - num/100--приглушить все звуки в шлеме
+	-- else
+	-- 	helmets_volume = level.get_snd_volume() + num/100--вернуть как было
+	-- end
+	-- SetHudMsg(tostring(lecel_volume))
+		
+	-- -- if not slots and slots_backup and obj_helmet(slots_backup:section() and obj_helmet(slots_backup:section()).sound_volume_hearing) then
+	-- -- 	volume_hearing_start(obj_helmet(slots_backup:section()).sound_volume_hearing,slots_backup:id())
+	-- -- elseif slots and obj_helmet(slots:section()) and obj_helmet(slots:section()).sound_volume_hearing then
+	-- -- 	volume_hearing_start(obj_helmet(slots:section()).sound_volume_hearing)
+	-- -- elseif slots_backup and obj_helmet(slots_backup:section()) and obj_helmet(slots_backup:section()).sound_volume_hearing then
+	-- -- 	volume_hearing_start(obj_helmet(slots_backup:section()).sound_volume_hearing)
+	-- -- end
+	-- level.set_snd_volume(lecel_volume)
+-- end
+
+function start_geme_helmet_hud()
+	save_slots()
+	if slots then
+		if obj_helmet(slots:section()) then 
+			-- if helm_hidden and obj_helmet(slots:section()).sound_volume_hearing then
+			-- 	helmets_volume_hearing(true)--приглушить все звуки в шлеме
+			-- end
+			rain_drops(helm_hidden)
+		else
+			rain_drops(false)
+		end
+	else
+		rain_drops(false)
+	end
+	pnv_status = db.actor:night_vision_enabled()
+	level.set_rain_intensity(0)
+end
+
+function hidden_stop()
+	actor_hide_wpn(false)
+	hidden = false --функция завершила работу разрешим повторное нажатие на кнопку
+	return true
+end
+----------------------------!!!!!!!!!![Визуализация худа]!!!!!!!!!!!!!!!!!!-----------------------------
+function pnv_hud(status)
+	if db.actor:night_vision_enabled() then
+		hud:AddCustomStatic("hud_pnv",true)
+	else
+		local wchud = hud:GetCustomStatic("hud_pnv")
+		if wchud then
+			hud:RemoveCustomStatic("hud_pnv")
+		end
+	end
+end
+function helmet_hud()
+	if (axr_main.config:r_value("mm_options","enable_mask_hud",1,false) == false) then
+		setmysuithud(false,false,nil)
+		return
+	end
+	if not slots then
+		slots = db.actor:alive() and (db.actor:item_in_slot(12) or db.actor:get_current_outfit())
+		setmysuithud(false,false,nil)
+		return 
+	end
+	if not hud then
+		hud = get_hud()
+	end
+	pnv_hud()
+	local function none_hud()
+		-- не дать включить пнв пока шлем снят
+		if db.actor:night_vision_enabled() then
+			db.actor:enable_night_vision(false)-- отключить пнв если включен
+		end
+		setmysuithud(false,false,nil)
+	end
+	local hud_type
+	if helm_hidden then
+		local sect = slots:section()-- посмотрем раздел
+		if obj_helmet(sect) and obj_helmet(sect).hud then 
+			local cond = slots:condition()
+			helmet_condition = 1
+			if obj_helmet(sect).breakable == true then
+				--переназначем текстуру худа в зависимости от состояния шлема
+				if cond > 0.83 and cond < 0.90 then helmet_condition = 2
+				elseif cond > 0.77 then helmet_condition = 3
+				elseif cond > 0.67 then helmet_condition = 4
+				elseif cond > 0.60 then helmet_condition = 5
+				elseif cond > 0.52 then helmet_condition = 6
+				elseif cond > 0.46 then helmet_condition = 7
+				elseif cond > 0.40 then helmet_condition = 8
+				elseif cond > 0.32 then helmet_condition = 9
+				elseif cond > 0.25 then helmet_condition = 10
+				elseif cond > 0.15 then helmet_condition = 11
+				else helmet_condition = 12 end
+			end
+			current_section = sect
+			hud_blurs = obj_helmet(sect).blurs
+			pre_hud_type = obj_helmet(sect).hud
+			hud_type = obj_helmet(sect).hud.."_"..helmet_condition
+			setmysuithud(hud_type,slots:name(),cond)
+		else
+			none_hud()
+		end
+	else
+		none_hud()
+	end
+end
+local suitfirstrun = true
+local sounds_prite = 0
+local current_suithud
+function setmysuithud(hudtype,helmet,cond)
+	local hud = get_hud()
+	local actor_pos = db.actor:bone_position("bip01_head")
+	if (not hudtype) or (actor_pos:distance_to_sqr(device().cam_pos) > 4) or (level.get_active_cam() > 0) then
+		local wchud = hud:GetCustomStatic(current_suithud)
+		if wchud then
+			hud:RemoveCustomStatic(current_suithud)
+		end
+		current_suithud = nil
+		suitfirstrun = true
+		helm_mask = false
+	elseif hudtype ~= current_suithud then
+		if current_suithud then
+			hud:RemoveCustomStatic(current_suithud)
+		end
+		hud:AddCustomStatic(hudtype)
+		if string.find(hudtype,pre_hud_type) then
+			if sounds_prite < cond then sounds_prite = cond end --если состояние больше прошлого запомним его
+			if suitfirstrun == false and helmet_condition >= 5 and helmet == current_helmet then
+				if sounds_prite > cond then
+					--sounds fix
+					local snd_obj = sound_object("material\\glass\\glass_fall03hl")
+					snd_obj:play(db.actor,0,sound_object.s2d)
+				end
+				sounds_prite = cond
+			end 
+			if suitfirstrun == true then
+				suitfirstrun = false
+			end
+		end
+		current_helmet = helmet
+		current_suithud = hudtype
+		-- if (not string.match(helmet,"helm_hardhat")) then
+		-- 	--get_console():execute('r__mask_control 1')
+		helm_mask = true
+		-- end
+	end
+end
+
+local zbias = Frect():set(0,0,1024,1024)
+local zoom = 0
+
+function get_zoom()
+	return zbias
+end
+local start_jitter_and_wiggle = true
+function zoom_hud(time_delta)
+	start_jitter_and_wiggle = axr_main.config:r_value("mm_options","enable_hud_wiggle",1,true) and axr_main.config:r_value("mm_options","enable_hud_jitter",1,true)
+	local obj_helm = slots and obj_helmet(slots:section())
+	if not start_jitter_and_wiggle or not (obj_helm) or not helm_mask then return end
+	
+	local hud = current_suithud and get_hud():GetCustomStatic(current_suithud)
+	if hud then
+		local num_1 = 0
+		local num_2 = 0
+		local num_3 = 1024
+		local wpn = db.actor:active_item()
+		local cast = wpn and wpn:cast_Weapon()
+		if cast then
+			if cast:IsZoomed() then
+				if zoom < 1*obj_helm.offset_hud then
+					zoom = zoom+(time_delta*(obj_helm.offset_hud*0.022))
+				else
+					zoom = 1*obj_helm.offset_hud
+				end
+			elseif zoom > 0 then
+				zoom = zoom-(time_delta*(obj_helm.offset_hud*0.022))
+			else
+				zoom = 0
+			end
+			
+			if wpn:section():find("binoc") then
+				num_1 = 100*zoom
+				num_2 = 100*zoom
+				num_3 = 1024-100*zoom
+			else 
+				num_1 = 350*zoom
+				num_2 = 175*zoom
+				num_3 = 1024-175*zoom
+			end
+		end
+		
+		jitter_and_wiggle_hud(hud,num_1,num_2,num_3,time_delta,obj_helm)
+	end
+end
+
+local step_power_wiggle = 0.4
+local step_power_jitter = 0
+local wiggle_step = 0
+local hud_coordinates = {}
+
+function foot_step_hud_jitter(obj,power)
+	if start_jitter_and_wiggle then
+		if (slots and obj_helmet(slots:section())) or helm_mask then
+			local jitter_hud = obj_helmet(slots:section()).jitter_hud or 0
+			if power > 0.4 then
+				step_power_jitter = power*jitter_hud
+			else
+				step_power_jitter = 0.4*jitter_hud
+			end	
+		end
+		if wiggle_step == 1 then
+			wiggle_step = 2
+		else
+			wiggle_step = 1
+		end
+	end
+end
+
+local power_jitter = 0
+local jump_num = 0
+local wiggle_num = {X_rights = 0,X_left = 0,Y_bottom = 0,Y_top = 0}
+function jitter_and_wiggle_hud(hud,num_1,num_2,num_3,time_delta,obj_helm)
+	local random_jitter = 0
+	local wiggle_multiplier = {}
+	local is_jump
+	if axr_main.config:r_value("mm_options","enable_hud_jitter",1,true) then
+		is_jump = db.actor:cast_Actor():is_jump()
+		
+		if is_jump and jump_num == 0 then
+			--тряска в момент прыжка
+			step_power_jitter = 2*obj_helm.jitter_hud
+		end
+		
+		if is_jump then
+			if jump_num < 2*obj_helm.jitter_hud then
+				--тряска при приземлении
+				jump_num = jump_num + (time_delta*0.08)
+			end
+		else
+			if step_power_jitter == 0 then
+				step_power_jitter = jump_num
+				jump_num = 0
+			end
+		end
+		-- расчитываем эффект тряски
+		if power_jitter < step_power_jitter then
+			power_jitter = power_jitter+(time_delta*0.2)
+		elseif power_jitter > 0 and step_power_jitter == 0 then
+			power_jitter = power_jitter-(time_delta*0.2)
+		else
+			power_jitter = 0
+			step_power_jitter = 0
+		end
+	end
+	--расчитываем эффект покачивания
+	if axr_main.config:r_value("mm_options","enable_hud_wiggle",1,true) then
+		local get_move = db.actor:get_move_magnitude()
+		if get_move > 0 then
+			step_power_wiggle = get_move*0.02
+		else
+			step_power_wiggle = 1 --возрат в исходное состояние
+		end
+		local wiggle = obj_helm.wiggle_hud
+		local wiggle_speed = obj_helm.wiggle_hud_speed
+		local sped_anim = (time_delta*(wiggle*(step_power_wiggle)))*(wiggle_speed*0.03)
+		--смещение в право
+		if (get_move > 0) and (wiggle_step == 1) then
+			wiggle_num.X_rights = wiggle_num.X_rights+sped_anim
+		elseif (wiggle_num.X_rights > 0) then
+			wiggle_num.X_rights = wiggle_num.X_rights-(sped_anim*1.3)
+			if wiggle_num.X_rights < 0 then
+				wiggle_num.X_rights = 0
+			end
+		end
+		--смещение в лево
+		if (get_move > 0) and (wiggle_step == 2) then
+			wiggle_num.X_left = wiggle_num.X_left+sped_anim
+		elseif (wiggle_num.X_left > 0) then
+			wiggle_num.X_left = wiggle_num.X_left-(sped_anim*1.3)
+			if wiggle_num.X_left < 0 then
+				wiggle_num.X_left = 0
+			end
+		end
+		--смещение в низ
+		wiggle_num.Y_bottom = (wiggle_num.X_rights + wiggle_num.X_left) * 0.9
+		--смещение в вверх
+		wiggle_num.Y_top = (wiggle_num.X_rights + wiggle_num.X_left) * 0.1
+	end
+	--парсим в новую таблицу
+	for a,b in pairs(wiggle_num) do
+		wiggle_multiplier[a] = b*20
+	end
+	--рандом значение для тряски
+	if power_jitter > 0 then
+		random_jitter = math.random(power_jitter*3,power_jitter*7)
+	end
+	local zoom = tonumber(axr_main.config:r_value("mm_options","hud_zoom",0,0)) or 0--приблизить худ из настроек игры
+	-- db.actor:give_game_news(" wiggle_num.X_left "..tostring(wiggle_num.X_left), "wiggle_num.X_left  "..tostring(wiggle_num.X_left), "ui_iconsTotal_grouping", 0, 100, 0)
+	--старт эффектов тектуры худа
+	hud_coordinates.x = num_1 + random_jitter + wiggle_multiplier.X_left + (zoom*5)
+	hud_coordinates.y = num_2 + random_jitter + wiggle_multiplier.Y_top + (zoom*5)
+	hud_coordinates.w = 1024 + (-random_jitter) + (-wiggle_multiplier.X_rights) + (zoom*-5)
+	hud_coordinates.h = num_3 + (-random_jitter) + (-wiggle_multiplier.Y_bottom) + (zoom*-5)
+
+	zbias:set(hud_coordinates.x,hud_coordinates.y,hud_coordinates.w,hud_coordinates.h)
+	hud:wnd():SetTextureRect(zbias)
+end
+
+function init_blurs(time_delta)
+	if current_suithud and hud_blurs > 0 then
+		local stretchy = 0.65/(math.floor(device().height/device().width*1000)/1000)
+		if stretchy < 1 then
+			stretchy = 1
+		end
+		local rect = {x = 0,y = -(stretchy-1)*300,w = 1024,h = 768*stretchy}
+		play_blurs(true,rect,time_delta)
+	else
+		play_blurs(false)
+	end
+end
+
+local blurs
+local blurcyctime_start = false --стастус цыкла дыхания true гг выдохнул fаlse в паузе между выдохом убираем запотивание
+local sped_power = 0
+local sped_power_2 = 0
+local blurs_effect = area_sounds.snd_time
+local blurs_effect_start = 1.32 --скорость появления эффекта запотивание (значение динамическое)
+local blurs_effect_stop = 0.15--скорость изчезновения запотивания (значение динамическое)
+local blurs_effect_force_min = 0.01 --минимально возможная сила запотивания
+local blurs_effect_force_max = 1 --максимально возможная сила запотивания. Выше 1 не указывать!
+
+function set_blurs_p(e)
+	if helmet_condition and helmet_condition >= 7 then return end
+	local sped = blurs_effect - (e-0.2)
+	blurcyctime_start = true
+	if sped > blurs_effect_force_max then 
+		sped_power = blurs_effect_force_max
+	elseif sped < blurs_effect_force_min then
+		sped_power = blurs_effect_force_min 
+	else 
+		sped_power = sped
+	end
+end
+
+function play_blurs(enabled,rect,time_delta)
+	local hud = get_hud()
+
+	if not blurs then
+		blurs = {}
+		for i=1,4 do
+			local pht = {}
+			for ii = 1,10 do
+				local static = "hud_blur"..i.."_"..ii
+				hud:AddCustomStatic(static)
+				pht[ii] = hud:GetCustomStatic(static):wnd()
+			end
+			blurs[i] = pht
+		end
+	end
+
+	if not enabled then
+		for i,t in ipairs(blurs) do
+			for ii,st in ipairs(t) do
+				st:SetWndRect(Frect():set(0,0,0,0))
+			end
+		end
+		return
+	end
+
+	if blurcyctime_start then
+		if sped_power_2 > sped_power then
+			blurcyctime_start = false
+		else
+			sped_power_2 = sped_power_2+sped_power*(time_delta*(blurs_effect_start/100))
+		end 
+	elseif (not blurcyctime_start) and sped_power_2 > 0 then
+		sped_power_2 = sped_power_2-sped_power*(time_delta*(blurs_effect_start/300))
+	end
+	local tm = math.floor(sped_power_2*3)
+	local tmn = (tm+1)
+	local v = sped_power_2*3-math.floor(sped_power_2*3)
+	v = 1-v
+	local v1 = 1-v
+	local n1 = math.ceil(v*10)
+	local n2 = math.ceil(v1*10)
+	for i=1,4 do
+		for ii=1,10 do
+			if (i == tm and ii == n1) then
+				blurs[tm][n1]:SetWndRect(Frect():set(rect.x,rect.y,rect.w,rect.h))
+				blurs[tm][n1]:SetTextureRect(Frect():set(zbias.x1/4,zbias.y1/4,zbias.x2/4,zbias.y2/4))
+			elseif (i == tmn and ii == n2) then
+				blurs[tmn][n2]:SetWndRect(Frect():set(rect.x,rect.y,rect.w,rect.h))
+				blurs[tmn][n2]:SetTextureRect(Frect():set(zbias.x1/4,zbias.y1/4,zbias.x2/4,zbias.y2/4))
+			else
+				blurs[i][ii]:SetWndRect(Frect():set(0,0,0,0))
+			end
+		end
+	end
+end
+---------------------------[получение параметров для других скриптов]---------------------------------
+--на персонаже ли шлем (слот для шлема)
+function get_helmet()
+	return slots and obj_helmet(slots:section()) and obj_helmet(slots:section()).gas_mask
+end
+
+-- активен ли худ маски
+function ismask()
+	return helm_mask 
+end
+
+-- получить текущее состояние одет шлем или нет
+function ismask_hidden()
+	return helm_hidden 
+end
+
+--Есть ли стекло у шлема
+function ishud()
+	return slots and obj_helmet(slots:section()) and obj_helmet(slots:section()).hud
+end
+
+--тряска худа
+function set_jitter(num)
+	if not (slots and obj_helmet(slots:section()) and obj_helmet(slots:section()).jitter_hud) then return end
+	step_power_jitter = num*obj_helmet(slots:section()).jitter_hud
+end
+
+function get_hud_coordinates()
+	return hud_coordinates
+end

@@ -1,0 +1,1222 @@
+options = {
+	-- minimal distance from actor to draw helmet (increase it if helmet disapear when running / jumping)
+	cam_dist = 5.4,
+	radiation_ppe_threshold = 1.5,
+
+	outfits = {
+		ecologist_rainbow_outfit = "helm_scientific",
+		ghillie_outfit = "helm_ghillie",
+	},
+	helmet_no_respi = {
+		-- helmets that doesn't provide respirator (no gasmask breath sounds)
+            helm_hardhat = true,
+			helm_ghillie = true,
+			ghillie_outfit = true,
+			helm_sunglasses = true,
+			helm_tactic = true,
+			helm_tactic_freedom = true,
+			helm_tactic_dolg = true, 
+			helm_tactic_bandit = true, 
+			helm_tactic_merc = true, 
+			helm_resp = true
+			
+	},
+	health = {
+		-- health level for heavy injuring sounds
+		level1 = 0.10,
+		-- health level for light injuring sounds
+		level2 = 0.30,
+		-- little hit effect (played on every hit > little_delta)
+		little_delta = 17,
+		little_ppe = "amk_shoot.ppe",
+		-- middle hit effect (played in addition of little effect, anm and snd randomly chosen)
+		middle_delta = 44,
+		middle_anm = {"shell_shock","hit_front","hit_right","hit_back","hit_left","hit_front_left","hit_back_left","hit_front_right","hit_back_right"},
+		middle_snd = {"pain_2","pain_3","pain_5","pain_6","pain_7","pain_8"},
+		-- huge hit effect (played in addition of little effect, anm and snd randomly chosen)
+		huge_delta = 68,
+		huge_ppe = "total_recall.ppe",
+		huge_anm = {"head_shot","fusker"},
+		huge_snd = {"pain_4","pain_1","hit_5","hit_6"},
+		-- hit drop weapon probability (0-1)
+		drop_wnp_prob = 0.20,
+		-- non dropable items
+		no_drop_wnp = {wpn_binoc = true,wpn_knife = true},
+		injury_snd = {
+			_1_0 = 2825,
+			_1_1 = 2612,
+			_1_2 = 2783,
+			_1_3 = 2821,
+			_1_4 = 3048,
+			_2_1 = 3331,
+			_2_2 = 3785,
+			_2_3 = 2989,
+			_2_4 = 4066,
+		},
+	},
+	speed = {
+		-- minimal speed for actor being treated as "running"
+		mini = 0.5,
+		-- speed time increase per update (when running)
+		inc = 0.11,
+		-- speed time decrease per update (when not running)
+		dec = 0.28,
+		-- minimal speed time for playing breath sounds (when no gasmask)
+		time_mini = 6,
+		-- play breath sounds (when no gasmask) when stamina is below this level
+		stamina = 0.4,
+		-- on actor hit, actor_speed_time += delta_health*k_health
+		k_health = 0.28,
+		-- actor_speed_time += bleeding*k_bleed
+		k_bleed = 1.33,
+	}
+}
+
+--		!!!IMPORTANT!!!
+-- for ppe and anm effect, use id > 8000
+-- "camera_effects\\pripyat_horror1.anm",
+
+--;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+--;;;;;;;; Item usage effects ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+--;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+item_fx = {
+	outfit = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[3] = "xr_effects.play_inv_repair_sewing_kit()",
+		[40] = "actor_hide_wpn(true)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[2900] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8064, false,'')",
+		[4400] = "area_dinamic_hud.helmet_switch(false,true,false,'item_fx>outfit')",
+		[6000] = "level.remove_pp_effector(8023)",
+		[7003] = "xr_effects.enable_ui_inv(db.actor)",
+		[7004] = "actor_hide_wpn(false)"
+	},
+	helm = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[4] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8053, false,'')",
+		[7] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8054, false,'')",
+		[40] = "actor_hide_wpn(true)",
+		[800] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[1700] = "area_dinamic_hud.helmet_switch(false,true,false,'item_fx>helm')",
+		[2502] = "xr_effects.enable_ui_inv(db.actor)",
+		[2400] = "level.remove_pp_effector(8023)",
+		[2503] = "actor_hide_wpn(false)"
+	},
+	helm_remove_temporarily = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[4] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8053, false,'')",
+		[7] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8054, false,'')",
+		[500] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[2000] = "level.remove_pp_effector(8023)"
+	},
+	backpack = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[3] = "xr_effects.play_inv_repair_sewing_kit()",
+		[40] = "actor_hide_wpn(true)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[2020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8064, false,'')",
+		[2400] = "level.remove_pp_effector(8023)",
+		[2402] = "xr_effects.enable_ui_inv(db.actor)",
+		[2403] = "actor_hide_wpn(false)"
+	},
+	inventory_open = {
+		[0] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')"
+	},
+	inventory_backpack_open = "inventory_open",
+	inventory_trade_open = {
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8063, false,'')"
+	},
+	inventory_close = {
+		[0] = "level.add_cam_effector('camera_effects\\\\pripyat_horror.anm', 8063, false,'')"
+	},
+	inventory_close2 = 'inventory_close',
+	medic_rad_anim = {
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8053, false,'')",
+		[45] = "sound_object('interface\\\\inv_medkit'):play(db.actor,0,sound_object.s2d)",
+		[500] = "level.add_pp_effector('surge_fade.ppe', 8064, false)",
+		[1300]= "xr_effects.disable_ui_inventory(db.actor)",
+		[8500] = "level.remove_pp_effector(8064)",
+		[8502] = "xr_effects.enable_ui_inv(db.actor)",
+		[8553] = "actor_hide_wpn(false)"
+	},
+	cleaning_kit_p_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[1180] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[1460] = "xr_effects.play_inv_repair_brushes()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[9677] = "xr_effects.enable_ui_inv(db.actor)",
+		[9680] = "actor_hide_wpn(false)"
+	},
+	cleaning_kit_s_dummy = "cleaning_kit_p_dummy",
+	cleaning_kit_r5_dummy = "cleaning_kit_p_dummy",
+	cleaning_kit_r7_dummy = "cleaning_kit_p_dummy",
+	cleaning_kit_u_dummy = "cleaning_kit_p_dummy",
+	toolkit_p_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[43] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>toolkit_p_dummy')",
+		[46] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = "xr_effects.play_inv_repair_kit_with_brushes()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[6500] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0')
+			get_console():execute('snd_volume_eff 0')
+		end,
+		[10300] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end,
+		[11600] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>toolkit_p_dummy')",
+		[12799] = "xr_effects.enable_ui_inv(db.actor)",
+		[13000] = "actor_hide_wpn(false)"
+	},
+	toolkit_s_dummy = "toolkit_p_dummy",
+	toolkit_r5_dummy = "toolkit_p_dummy",
+	toolkit_r7_dummy = "toolkit_p_dummy",
+	toolkit_u_dummy = {
+		inheritance = 'toolkit_p_dummy',
+		[800] = "xr_effects.play_inv_repair_kit()"
+	},
+	sharpening_stones_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[1460] = "xr_effects.play_inv_sharpening_stone()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[6500] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0')
+			get_console():execute('snd_volume_eff 0')
+		end,
+		[8300] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end,
+		[9769] = "xr_effects.enable_ui_inv(db.actor)",
+		[9800] = "actor_hide_wpn(false)"
+	},
+	gun_oil_dummy = {
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[1000] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[1460] = "xr_effects.play_inv_repair_spray_oil()",
+		[1900] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[6569] = "xr_effects.enable_ui_inv(db.actor)",
+		[6650] = "actor_hide_wpn(false)"
+	},
+	gun_oil_ru_d_dummy = {
+		inheritance = 'gun_oil_dummy',
+		[1460] = "xr_effects.play_inv_drink_flask_2()"
+	},
+	gun_oil_ru_dummy = "gun_oil_ru_d_dummy",
+	gun_oil_ru_2_dummy = "gun_oil_ru_d_dummy",
+	solvent_dummy = "gun_oil_ru_d_dummy",
+	glue_b_dummy = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(false)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[1000] = "level.add_pp_effector('surge_fade.ppe', 8023, false)",
+		[1460] = "xr_effects.play_inv_repair_sewing_kit_fast()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8550] = "xr_effects.enable_ui_inv(db.actor)",
+		[8680] = "actor_hide_wpn(false)"
+	},
+	glue_a_dummy = "glue_b_dummy",
+	glue_e_dummy = "glue_b_dummy",
+	sewing_kit_b_dummy = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[1] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[2] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = "xr_effects.play_inv_repair_sewing_kit()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[10800] = "level.remove_pp_effector(8023)",
+		[10850] = "xr_effects.enable_ui_inv(db.actor)",
+		[11800] = "actor_hide_wpn(false)"
+	},
+	sewing_kit_a_dummy = "sewing_kit_b_dummy",
+	sewing_kit_h_dummy = "sewing_kit_b_dummy",
+	armor_repair_fa_dummy = {
+		inheritance = 'glue_b_dummy',
+		[1460] = "xr_effects.play_inv_repair_sewing_kit_fast()",	
+	},
+	helmet_repair_kit_dummy = {
+		inheritance = 'sewing_kit_b_dummy',
+		[270] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>helmet_repair_kit_dummy')",
+		[800] = "xr_effects.play_inv_repair_kit()",
+		[9400] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>helmet_repair_kit_dummy')"
+	},
+	armor_repair_pro_dummy = "helmet_repair_kit_dummy",
+	servokit_dummy = "helmet_repair_kit_dummy",
+	fieldcooker_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[43] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = "xr_effects.play_inv_cooking_cooker()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[11850] = "xr_effects.enable_ui_inv(db.actor)",
+		[12800] = "actor_hide_wpn(false)"
+	},
+	campfire = "fieldcooker_dummy",
+	wood_stove_dummy = {
+		inheritance = 'sewing_kit_b_dummy',
+		[800] = xr_effects.play_inv_cooking_stove,
+		[6330] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0')
+			get_console():execute('snd_volume_eff 0')
+		end,
+		[10180] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end
+	},
+	itm_sleepbag = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[43] = "level.add_pp_effector('surge_fade.ppe', 8026, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 4024, false,'')",
+		[3790] = "xr_effects.enable_ui_inv(db.actor)",
+		[3800] = "actor_hide_wpn(false)"
+	},
+	itm_tent = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[43] = "level.add_pp_effector('surge_fade.ppe', 8026, false)",
+		[47] = xr_effects.play_inv_put_up_tent,
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[11990] = "xr_effects.enable_ui_inv(db.actor)",
+		[12800] = "actor_hide_wpn(false)"
+	},
+	bag_medkit_1 = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[45] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[1460] = xr_effects.play_inv_repair_sewing_kit_fast,
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8290] = "xr_effects.enable_ui_inv(db.actor)",
+		[8680] = "actor_hide_wpn(false)"
+	},	
+	bag_medkit_2 = "bag_medkit_1",	
+	bag_medkit_3 = "bag_medkit_1",	
+	bag_medkit_4 = "bag_medkit_1",
+	packet_bolts = "bag_medkit_1",
+	jewelry_box = "bag_medkit_1",
+	wpn_mine = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[80] = function()
+			local cactor = db.actor:cast_Actor()
+			if not cactor:is_crouch() then
+				cactor:ChangeStateCrouch(2)
+			end
+			level.add_cam_effector("camera_effects\\items_use\\harvest_lean_down_main.anm",8560,false,"")
+		end,
+		[3000] = "xr_effects.enable_ui_inv(db.actor)",
+		[3100] = "db.actor:cast_Actor():ChangeStateCrouch(3)",
+		[3220] = "actor_hide_wpn(false)"
+	},
+	wpn_mine_2 = "wpn_mine",
+	ied = "wpn_mine",
+	ied_rpg = "wpn_mine",
+	battery_1v = {
+		[0] = "xr_effects.disable_ui_inv(db.actor)",
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[481] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8031, false,'')",
+		[1900] = "xr_effects.enable_ui_inv(db.actor)",
+		[2000] = "actor_hide_wpn(false)"
+	},
+	battery_100v_out = "battery_1v",
+	battery_100v_in = "battery_1v",
+	headlamp = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[502] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[4700] = "xr_effects.enable_ui_inv(db.actor)",
+		[4850] = "actor_hide_wpn(false)"
+	},
+	radio = "headlamp",
+	radio_military = "headlamp",
+	walkie = "headlamp",
+	mili_maps = "headlamp",
+	maps_kit = "headlamp",
+	journal = "headlamp",
+	glucose_s = "headlamp",
+	glucose = "headlamp",
+	tetanus = "headlamp",
+	salicidic_acid = "headlamp",
+	morphine = "headlamp",
+	adrenalin = "headlamp",
+	diazepam = "headlamp",
+	rebirth = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[150] = "level.add_pp_effector('slow_fade.ppe', 8050, false)",
+		[370] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>rebirth')",
+		[581] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8031, false,'')",
+		[1500] = xr_effects.play_inv_syringe,
+		[3400] = "level.add_cam_effector('camera_effects\\\\surge_02.anm', 8050, false,'') level.add_pp_effector('surge_fade.ppe', 8011, false)",
+		[3600] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0')
+			get_console():execute('snd_volume_eff 0')
+		end,
+		[5400] = "level.add_cam_effector('camera_effects\\\\surge_01.anm', 8050, false, '')",
+		[7000] = "level.add_pp_effector('inv_medkit.ppe', 8012, false)",
+		[9180] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end,
+		[10200] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>rebirth')",
+		[11400] = "actor_hide_wpn(false)"
+	},
+	amphetamines = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>amphetamines')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		--[3050] = "level.add_cam_effector('camera_effects\\\\surge_01.anm',8054,false,'')",
+		[5150] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>amphetamines')",
+		[6350] = "actor_hide_wpn(false)"
+	},
+	drug_anabiotic = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>drug_anabiotic')",
+		[750] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8047, false,'')",
+		[5800] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>drug_anabiotic')",
+		[6980] = "actor_hide_wpn(false)"
+	},
+	drug_cat_eye = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[1500] = "level.add_pp_effector('drug_cat_eye.ppe', 8543, true)",
+		[100000] = "level.remove_pp_effector(8543)"
+	},
+	drug_engine = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[50] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[3502] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0')
+			get_console():execute('snd_volume_eff 0')
+		end,
+		[10300] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end,
+		[12800] = "actor_hide_wpn(false)"
+	},
+	psy_complex = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>drug_hangover')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8047, false,'')",
+		[4780] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>drug_hangover')",
+		[5980] = "actor_hide_wpn(false)"
+	},
+	drink_crow = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>drink_crow')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[5150] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>drink_crow')",
+		[6350] = "actor_hide_wpn(false)"
+	},
+	flask = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[278] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>flask')",
+		[650] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[3250] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>flask')",
+		[6450] = "actor_hide_wpn(false)"
+	},
+	flask_2_water = "flask",
+	bottle_metal = "flask",
+	caffeine = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>caffeine')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8047, false,'')",
+		[4480] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>caffeine')",
+		[5180] = "actor_hide_wpn(false)"
+	},
+	mint = "caffeine",
+	can_opening = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[30] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[1460] = xr_effects.play_inv_conserva_opening,
+		[6650] = "actor_hide_wpn(false)"
+	},
+	salmon = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[140] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>sandwich')",
+		[600] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[650] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8880] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>sandwich')",
+		[10180] = "actor_hide_wpn(false)"
+	},
+	raisins = "salmon",
+	chocolate = "salmon",
+	mre = "salmon",
+	ration_ru = "salmon",
+	ration_ukr = "salmon",
+	meat_dog = "salmon",
+	meat_pseudodog = "salmon",
+	meat_flesh = "salmon",
+	meat_boar = "salmon",
+	meat_bloodsucker = "salmon",
+	meat_snork = "salmon",
+	meat_chimera = "salmon",
+	mutant_part_boar_meat = "salmon",
+	mutant_part_crow_egg = "salmon",
+	crow_boiled_egg = "salmon",
+	mutant_part_flesh_meat = "salmon",
+	mutant_part_dog_meat = "salmon",
+	mutant_part_psevdodog_meat = "salmon",
+	mutant_part_krovosos_meat = "salmon",
+	mutant_part_snork_hand = "salmon",
+	mutant_part_tushkano_meat = "salmon",
+	mutant_part_chimera_meat = "salmon",
+	smoking = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[152] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>smoking')",
+		[184] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[210] = "actor_effects.smoking()",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[3480] = "actor_hide_wpn(false)",
+		[16900] = function()
+			if area_dinamic_hud.get_helmet() then
+				actor_hide_wpn(true)
+			else
+				actor_effects.stop_smoking()
+				return true-- прекратить вызов ->[17080] = "actor_effects.stop_smoking()",[17680] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>smoking')",[18080] = "actor_hide_wpn(false)"
+			end
+		end,
+		[17080] = "actor_effects.stop_smoking()",
+		[17680] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>smoking')",
+		[18080] = "actor_hide_wpn(false)"
+	},
+	deactivate_mix = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[50] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[1000] = "xr_effects.play_inv_lighter_refiller()",
+		[7800] = "actor_hide_wpn(false)"
+	},
+	matches = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[50] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[1000] = "xr_effects.play_inv_matches()",
+		[3500] = "actor_hide_wpn(false)"
+	},
+	lighter = "matches",
+	lighter_reffiler = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[50] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[1000] = "xr_effects.play_inv_lighter_refiller()",
+		[4800] = "actor_hide_wpn(false)"
+	},
+	itm_firewood = "matches",
+	cocaine = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>cocaine')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8480] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>cocaine')",
+		[9680] = "actor_hide_wpn(false)"
+	},
+	iam_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[1460] = "xr_effects.play_inv_iam_open()",
+		[6340] = "xr_effects.enable_ui_inv(db.actor)",
+		[6350] = "actor_hide_wpn(false)"	
+	},
+	aac_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_aac_open()"
+	},
+	aam_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_aam_open()"
+	},
+	artefact_container = {
+		inheritance = 'iam_dummy',
+		[30] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[550] = nil,
+		[1460] = "xr_effects.play_inv_lead_open()"
+	},
+	lead_box_dummy = "artefact_container",
+	container_tool_lead_box_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_lead_close()"
+	},
+	container_tool_iam_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_iam_close()"
+	},
+	container_tool_aac_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_aac_close()"
+	},
+	container_tool_aam_dummy = {
+		inheritance = 'iam_dummy',
+		[1460] = "xr_effects.play_inv_aam_close()"
+	},
+	helm_respirator = {
+		[30] = "level.add_pp_effector(\"helm_respirator.ppe\",3000,true)"
+	},
+	helm_exo = {
+		[30] = "level.add_pp_effector(\"helm_exo.ppe\",3000,true)"
+	},
+	helm_protective = {
+		[30] = "level.add_pp_effector(\"helm_protective.ppe\",3000,true)"
+	},
+	helm_hardhat = {
+		[30] = "level.add_pp_effector(\"helm_hardhat.ppe\",3000,true)"
+	},
+	helm_scientific = {
+		[30] = "level.add_pp_effector(\"helm_scientific.ppe\",3000,true)"
+	},
+	helm_battle = {
+		[30] = "level.add_pp_effector(\"helm_battle.ppe\",3000,true)"
+	},
+	helm_tactic = "helm_battle",
+
+	chips = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>chips')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8480] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>chips')",
+		[9680] = "actor_hide_wpn(false)"
+	},
+	batonchik = "chips",
+	shokolad = "chips",
+	galet = "chips",
+	cheese = "chips",
+	olivki = "chips",
+	mars = "chips",
+	snickers = "chips",
+	twix = "chips",
+	detector_quiet_mode = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[700] = function()
+			local snd = sound_object("interface\\inv_properties")
+			snd:play(db.actor,0,sound_object.s2d)
+		end, 
+		[1750] = "actor_hide_wpn(false)"
+	},
+	samogon = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[378] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>samogon')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[3050] = "level.add_cam_effector('camera_effects\\\\surge_01.anm',8054,false,'')",
+		[6150] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>samogon')",
+		[7350] = "actor_hide_wpn(false)"
+	},
+	mask_clean = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[42] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8053, false,'')",
+		[43] = "level.add_pp_effector('surge_fade.ppe', 8064, false)",
+		[500] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>mask_clean')",
+		[1000] = xr_effects.play_inv_mask_clean,
+		[2500] = "level.remove_pp_effector(8064)",
+		[2550] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>mask_clean')",
+		[2871] = "actor_hide_wpn(false)"
+	},
+	selfroll = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[370] = "area_dinamic_hud.helmet_switch(false,false,false,'item_fx>selfroll')",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8063, false,'')",
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[8780] = "area_dinamic_hud.helmet_switch(false,false,true,'item_fx>selfroll')",
+		[9680] = "actor_hide_wpn(false)"
+	},	
+	itm_cutting_tools_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[1460] = "xr_effects.play_inv_repair_sewing_kit()",
+		[6649] = "xr_effects.enable_ui_inv(db.actor)",
+		[6650] = "actor_hide_wpn(false)"	
+	},
+	itm_cutting_tools_2_dummy = "itm_cutting_tools_dummy",
+	itm_cutting_tools_3_dummy = "itm_cutting_tools_dummy",	
+	barrelkit_762_dummy = {
+		[1] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[44] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = xr_effects.play_inv_repair_kit_with_brushes,
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[6500] = function()
+			_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0)
+			_G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0)
+			get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')
+		end,
+		[10300] = function()
+			get_console():execute('snd_volume_music '..tostring(_G.mus_vol))
+			get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))
+		end,
+		[12790] = "xr_effects.enable_ui_inv(db.actor)",
+		[12800] = "actor_hide_wpn(false)"
+	},
+	barrelkit_792_dummy = "barrelkit_762_dummy",
+	barrelkit_545_dummy = "barrelkit_762_dummy",
+	barrelkit_556_dummy = "barrelkit_762_dummy",
+	barrelkit_9x39_dummy = "barrelkit_762_dummy",
+	barrelkit_pistol_dummy = "barrelkit_762_dummy",
+	barrelkit_smg_dummy = "barrelkit_762_dummy",
+	barrelkit_shotgun_dummy = "barrelkit_762_dummy",
+	make_something = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[44] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[1460] = xr_effects.play_inv_repair_kit_use_fast,
+		[5300] = "level.remove_pp_effector(8023)",
+		[5400] = "xr_effects.enable_ui_inv(db.actor)",
+		[5650] = "actor_hide_wpn(false)"
+	},
+	make_selfroll = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[44] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8053, false,'')",
+		[1460] = xr_effects.play_inv_make_selfroll,
+		[10250] = "level.remove_pp_effector(8023)",
+		[10350] = "xr_effects.enable_ui_inv(db.actor)",
+		[10650] = "actor_hide_wpn(false)"
+	},
+	fill_saucepan = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[43] = "xr_effects.disable_ui_inv(db.actor)", 
+		[44] = "level.add_pp_effector('slow_fade.ppe', 8023, false)",
+		[50] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8064, false,'')",
+		[100] = xr_effects.play_inv_fill_saucepan,
+		[7200] = "level.remove_pp_effector(8023)",
+		[7300] = "xr_effects.enable_ui_inv(db.actor)",
+		[7500] = "actor_hide_wpn(false)"
+	},
+	pour_water = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[40] = "actor_hide_wpn(true)",
+		[100] = xr_effects.play_inv_pour_water,
+		[7300] = "xr_effects.enable_ui_inv(db.actor)",
+		[7500] = "actor_hide_wpn(false)"
+	},
+	dismantling_weapon = {
+		[0] = "xr_effects.disable_ui_inventory(db.actor)",
+		[41] = "xr_effects.disable_ui_inv(db.actor)",
+		[42] = "actor_hide_wpn(true)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use_fast.anm', 8024, false,'')",
+		[800] = xr_effects.play_inv_dismantling_weapon,
+		[3020] = "level.add_cam_effector('camera_effects\\\\item_use_slow.anm', 8025, false,'')",
+		[6700] = "xr_effects.enable_ui_inv(db.actor)",
+		[6800] = "actor_hide_wpn(false)"
+	},
+	drug_hangover = {
+		[0] = "actor_effects.use_weapon(0)",
+		[1] = "xr_effects.disable_ui_lite_with_imput(db.actor, nil)",
+		[378] = "actor_effects.use_helmet(0)",
+		[379] = "xr_effects.disable_nv(db.actor, nil)",
+		[550] = "level.add_cam_effector('camera_effects\\\\item_use.anm', 8047, false,'')",
+		[1040] = "xr_effects.disable_ui_inventory(db.actor, nil)",
+		[3980] = "xr_effects.enable_ui_lite(db.actor, nil)",
+		[4780] = "actor_effects.use_helmet(1)",
+		[5380] = "xr_effects.enable_nv_and_imput(db.actor, nil)",
+		[5980] = "actor_effects.use_weapon(1)"
+	},
+	gravitation_hit = {
+			[1] = "level.add_pp_effector('surge_shock_old.ppe', 8051, false)",
+			[2] = "xr_effects.play_inv_art_hit_gravy()",
+			[3] = "level.add_cam_effector('camera_effects\\\\earthquake_1.anm', 8024, false,'')",
+			[150] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+			[1200] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+			[1201] = "level.remove_pp_effector(8051)",
+	},
+	chemical_hit = {
+			[1] = "level.add_pp_effector('old_psi.ppe', 8051, false)",
+			[2] = "xr_effects.play_inv_art_hit_chemical()",
+			[3] = "level.add_cam_effector('camera_effects\\\\earthquake_2.anm', 8024, false,'')",
+			[150] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+			[1200] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+			[1201] = "level.remove_pp_effector(8051)",
+	},
+	electrical_hit = {
+			[1] = "level.add_pp_effector('shock_hit.ppe', 8051, false)",
+			[2] = "xr_effects.play_inv_art_hit_electrical()",
+			[3] = "level.add_cam_effector('camera_effects\\\\fusker.anm', 8024, false,'')",
+			[150] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+			[1200] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+			[1201] = "level.remove_pp_effector(8051)",
+	},
+	fiery_hit = {
+			[1] = "level.add_pp_effector('mine_orange.ppe', 8051, false)",
+			[2] = "xr_effects.play_inv_art_hit_fiery()",
+			[3] = "level.add_cam_effector('camera_effects\\\\crit_hit_4b.anm', 8024, false,'')",
+			[150] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+			[1200] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+			[1201] = "level.remove_pp_effector(8051)",
+	},
+	dismantling_outfit = {
+		inheritance = 'dismantling_weapon',
+		[800] = "xr_effects.play_inv_dismantling_outfit()"
+	},
+	strange_sounds = {
+			[1] = "level.add_pp_effector('radiation.ppe', 3412, false)",
+			[150] = "level.remove_pp_effector(3412)",
+	},
+	wind_and_dust = {
+		[1] = "db.actor:start_particles('nature\\\\fog_tornado_00', 'bip01_spine')",
+		[9] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+		[10] = "level.add_pp_effector('surge_fade.ppe', 7654, false)",
+		[150] = "db.actor:stop_particles('nature\\\\fog_tornado_00', 'bip01_spine')",
+		[151] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+		[152] = "level.remove_pp_effector(7654)",
+	},
+	knell = {
+		[1] = "level.add_pp_effector('psi.ppe', 7222, false)",
+		[2] = "level.add_cam_effector('drunk.anm', 8024, false,'')",
+		[120] = "level.remove_pp_effector(7222)",
+	},
+	dead_rising = {
+		[1] = "level.add_pp_effector('old_psi.ppe', 7222, false)",
+		[15] = "level.remove_pp_effector(7222)",
+	},
+	esc_trader_start_village = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.esc_trader_random_meet()",
+	},
+	esc_fo_start = {
+		[40000] = "area_start.esc_fo_meet()",
+		[60000] = "area_start.esc_fo_meet_1()",
+	},
+	esc_fo_start_cs = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\jump.anm', 8024, false,'')",
+		[200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		[201] = "area_start.esc_fo_teleport()",
+		[202] = "level.enable_input()",
+		[12000] = "area_start.esc_fo_start_cs()",
+	},
+	stalker_fo_marsh_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		--[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\jump.anm', 8024, false,'')",
+		--[200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		--[201] = "area_start.fo_marsh_teleport()",
+		[202] = "level.enable_input()",
+		[12000] = "area_start.esc_trader_meet_marsh()",
+	},
+	cs_fo_marsh_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		--[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\jump.anm', 8024, false,'')",
+		--[200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		--[201] = "area_start.fo_marsh_teleport()",
+		[202] = "level.enable_input()",
+		[7000] = "area_start.cs_fo_marsh_meet()",
+	},
+	cs_pumping_station_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[2000] = "area_start.cs_pumping_station_meet()",
+		[3000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+	},
+	cs_hidden_base_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[2000] = "area_start.cs_hidden_base_meet()",
+		[3000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+	},
+	dasc_sawwill_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[3000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[10000] = "area_start.dasc_sawwil_meet()",
+	},
+	stalker_fo_darkscape_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		[1200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\down.anm', 8024, false,'')",
+		[1201] = "area_start.fo_darkscape_teleport()",
+		[1202] = "level.enable_input()",
+		[60000] = "area_start.dasc_fo_sawwil_meet()",
+	},
+	fo_cordon_start_band = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\jump.anm', 8024, false,'')",
+		[200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		[201] = "area_start.esc_fo_teleport()",
+		[202] = "level.enable_input()",
+		[60000] = "area_start.fo_cordon_start_band_meet()",
+	},
+	fo_darkscape_start_band = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		[1200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\down.anm', 8024, false,'')",
+		[1201] = "area_start.fo_darkscape_teleport()",
+		[1202] = "level.enable_input()",
+		[60000] = "area_start.fo_cordon_start_band_meet()",
+	},	
+	fo_marsh_start_band = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		--[3] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\jump.anm', 8024, false,'')",
+		--[200] = "level.add_cam_effector('camera_effects\\\\actor_move\\\\go_front.anm', 8024, false,'')",
+		--[201] = "area_start.fo_marsh_teleport()",
+		[202] = "level.enable_input()",
+		[60000] = "area_start.fo_marsh_start_band_meet()",
+	},
+	northern_factory_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[12000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[13000] = "area_start.northern_factory_meet()",
+	},
+	esc_factory_bandit_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.esc_factory_bandit_meet()",
+	},
+	pole_bandit_base_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.pole_bandit_base_meet()",
+	},
+	garbage_blockpost_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.garbage_blockpost_meet()",
+	},
+	makeshift_barracks_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.makeshift_barracks_meet()",
+	},
+	military_base_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.military_base_meet()",
+	},
+	barrier_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.barrier_meet()",
+	},
+	research_institute_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.research_institute_meet()",
+	},
+	southern_checkpoint_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.southern_checkpoint_meet()",
+	},
+	research_institute_eco_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.research_institute_eco_start_meet()",
+	},
+	southern_checkpoint_eco_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.southern_checkpoint_eco_start_meet()",
+	},
+	sakharovs_bunker_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.sakharovs_bunker_start_meet()",
+	},
+	northern_factory_merc_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.northern_factory_merc_meet()",
+	},
+	sports_center_start = {
+		[1] = "xr_effects.play_inv_repair_sewing_kit()",
+		[2] = "level.disable_input()",
+		[11] = "level.add_cam_effector('camera_effects\\\\wake_up.anm', 8024, false,'')",
+		[12] = "sound_object('actor\\\\wakeup'):play(db.actor,0,sound_object.s2d)",
+		[120] = "level.enable_input()",
+		[30000] = "sound_object('actor\\\\zevok'):play(db.actor,0,sound_object.s2d)",
+		[40000] = "area_start.sports_center_meet()",
+	},
+	dityatki2_start = {
+		[1] = "level.add_pp_effector('black.ppe',1001,true)",
+		[2] = "xr_effects.play_inv_repair_sewing_kit()",
+		[1000] = "sound_object('actor\\\\actor_bus_jump'):play(db.actor,0,sound_object.s2d)",
+		[10000] = "level.add_pp_effector('fade_out_5_sec.ppe',1000,false)",
+		[10001] = "level.remove_pp_effector(1001)",
+		[15000] = "level.remove_pp_effector(1000)"
+	},
+	head_fatal = {
+		[0] = "level.add_pp_effector('bloody.ppe',1488,true)",
+		[1] = "level.add_pp_effector('deimos1.ppe',1000,true)",
+		[2] = "level.add_cam_effector('camera_effects\\\\drunk.anm', 8054, false,'')",
+		[3] = "get_console():execute('cam_inertd 0.8')",
+		[400] = "level.remove_pp_effector(1488)",
+		[401] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('head_fatal', 'head')"
+	},
+	head_heavy = {
+		[0] = "level.add_pp_effector('deimos1.ppe',1000,true)",
+		[1] = "level.add_cam_effector('camera_effects\\\\scope_shake.anm', 8054, false,'')",
+		[2] = "get_console():execute('cam_inertd 0.7')",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('head_heavy', 'head')"
+	},
+	head_medium = {
+		[0] = "level.add_pp_effector('radiation.ppe',1488,true)",
+		[1] = "level.add_cam_effector('camera_effects\\\\scope_shake.anm', 8054, false,'')",
+		[2] = "get_console():execute('cam_inertd 0.6')",
+		[400] = "level.remove_pp_effector(1488)",
+		[401] = "area_health_system.effect_check('head_medium', 'head')"
+	},
+	head_light = {
+		[0] = "level.add_pp_effector('shock.ppe',1488,true)",
+		[1] = "get_console():execute('cam_inertd 0.5')",
+		[400] = "level.remove_pp_effector(1488)",
+		[401] = "area_health_system.effect_check('head_light', 'head')"
+	},
+	body_fatal = {
+		[0] = "level.add_pp_effector('mezaton.ppe',1488,true)",
+		[1] = "level.add_cam_effector('camera_effects\\\\fatigue.anm', 8054, false,'')",
+		[2] = "level.add_pp_effector('shoot\\\\grey_s1.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1488)",
+		[401] = "level.remove_pp_effector(1000)",
+		[402] = "area_health_system.effect_check('body_fatal', 'body')"
+	},
+	body_heavy = {
+		[0] = "level.add_cam_effector('camera_effects\\\\scope_shake.anm', 8055, false,'')",
+		[1] = "level.add_pp_effector('amk_shoot1.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('body_heavy', 'body')"
+	},
+	body_medium = {
+		[0] = "level.add_pp_effector('sleepy.ppe',1488,true)",
+		[400] = "level.remove_pp_effector(1488)",
+		[401] = "area_health_system.effect_check('body_medium', 'body')"
+	},
+	body_light = {
+		--[401] = "area_health_system.effect_check('body_light', 'body')"
+	},
+	left_leg_fatal = {
+		[0] = "get_console():execute('cam_inertn 0.8')",
+		[1] = "get_console():execute('cam_inertp 0.8')",
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_leg_fatal', 'left_leg')"
+	},
+	left_leg_heavy = {
+		[0] = "get_console():execute('cam_inertn 0.7')",
+		[1] = "get_console():execute('cam_inertp 0.7')",
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_leg_heavy', 'left_leg')"
+	},
+	left_leg_medium = {
+		[0] = "get_console():execute('cam_inertn 0.6')",
+		[1] = "get_console():execute('cam_inertp 0.6')",
+		[401] = "area_health_system.effect_check('left_leg_medium', 'left_leg')"
+	},
+	left_leg_light = {
+		[0] = "get_console():execute('cam_inertn 0.5')",
+		[1] = "get_console():execute('cam_inertp 0.5')",
+		[401] = "area_health_system.effect_check('left_leg_light', 'left_leg')"
+	},
+	left_hand_fatal = {
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_hand_fatal', 'left_hand')"
+	},
+	left_hand_heavy = {
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_hand_heavy', 'left_hand')"
+	},
+	left_hand_medium = {
+		[401] = "area_health_system.effect_check('left_hand_medium', 'left_hand')"
+	},
+	left_hand_light = {
+		[401] = "area_health_system.effect_check('left_hand_light', 'left_hand')"
+	},
+	right_hand_fatal = {
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('right_hand_fatal', 'left_hand')"
+	},
+	right_hand_heavy = {
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('right_hand_heavy', 'left_hand')"
+	},
+	right_hand_medium = {
+		[401] = "area_health_system.effect_check('right_hand_medium', 'left_hand')"
+	},
+	right_hand_light = {
+		[401] = "area_health_system.effect_check('right_hand_light', 'left_hand')"
+	},
+	right_leg_fatal = {
+		[0] = "get_console():execute('cam_inertn 0.8')",
+		[1] = "get_console():execute('cam_inertp 0.8')",
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_leg_fatal', 'left_leg')"
+	},
+	right_leg_heavy = {
+		[0] = "get_console():execute('cam_inertn 0.7')",
+		[1] = "get_console():execute('cam_inertp 0.7')",
+		[2] = "level.add_pp_effector('radiation.ppe',1000,true)",
+		[400] = "level.remove_pp_effector(1000)",
+		[401] = "area_health_system.effect_check('left_leg_heavy', 'left_leg')"
+	},
+	right_leg_medium = {
+		[0] = "get_console():execute('cam_inertn 0.6')",
+		[1] = "get_console():execute('cam_inertp 0.6')",
+		[401] = "area_health_system.effect_check('left_leg_medium', 'left_leg')"
+	},
+	right_leg_light = {
+		[0] = "get_console():execute('cam_inertn 0.5')",
+		[1] = "get_console():execute('cam_inertp 0.5')",
+		[401] = "area_health_system.effect_check('left_leg_light', 'left_leg')"
+	},
+	drunk_effect_skip_time = {
+		[1] = "if db.actor:is_talking() then db.actor:stop_talk() end",
+		[2] = "level.disable_input()",
+		[3] = "level.add_pp_effector('fade_to_black_9_sec.ppe',1000,false)",
+		[8990] = "level.add_pp_effector('black.ppe',1001,true)",
+		[8991] = "_G.mus_vol = math.max(get_console():get_float('snd_volume_music'),_G.mus_vol or 0) _G.amb_vol = math.max(get_console():get_float('snd_volume_eff'),_G.amb_vol or 0) get_console():execute('snd_volume_music 0') get_console():execute('snd_volume_eff 0')",
+		[10000] = "level.change_game_time(0,1,30)",
+		[13996] = "db.actor:cast_Actor():conditions():ChangeAlcohol(0.5)",
+		[13997] = "get_console():execute('snd_volume_music '..tostring(_G.mus_vol)) get_console():execute('snd_volume_eff '..tostring(_G.amb_vol))",
+		[13998] = "level.remove_pp_effector(1001)",
+		[13999] = "level.add_pp_effector('deadcity_wake.ppe',1001,false)",
+		[14000] = "level.enable_input()",
+	},
+}

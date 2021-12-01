@@ -1,0 +1,172 @@
+;----------------------------------------------------------------------------------------
+; KS-23 from AO, adjusted by Surs for A.R.E.A. (21.07.2018)
+;----------------------------------------------------------------------------------------
+[wpn_ks23]:default_weapon_params
+$spawn 								= "weapons\ks23"
+$npc			 					= on
+visual								= dynamics\weapons\wpn_ks23\wpn_ks23.ogf
+class								= WP_ASHTG
+inv_name							= st_wpn_ks23
+inv_name_short						= st_wpn_ks23
+description							= st_wpn_ks23_descr
+cost								= 72000
+weapon_class						= shotgun
+repair_type							= shotgun
+inv_weight							= 3.4
+inv_volume							= 4
+ph_mass								= 3
+ef_main_weapon_type					= 1
+ef_weapon_type						= 9
+;----------------------------------------------------------------------------------------
+upgrades							= up_gr_firstab_mossberg590, up_gr_seconab_mossberg590, up_gr_thirdab_mossberg590, up_gr_fourtab_mossberg590
+installed_upgrades					= 
+upgrade_scheme						= upgrade_scheme_wincheaster1300
+;--TTX----------------------------------------------------------------------------
+hit_power							= 1.10, 1.10, 1.10, 1.10
+hit_impulse							= 21
+hit_type							= fire_wound
+fire_distance						= 1400
+bullet_speed						= 750
+rpm									= 35
+rpm_empty_click						= 200
+tri_state_reload					= on
+hud									= wpn_ks23_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0
+misfire_end_prob					= 0
+condition_shot_dec					= 0.003
+condition_queue_shot_dec			= 0.0035
+
+ammo_current						= 30
+ammo_elapsed						= 8
+ammo_limit							= 35
+ammo_mag_size						= 4
+fire_modes							= 1
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot								= 2
+animation_slot						= 9
+;--DOF---------------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 1.7
+reload_empty_dof					= 0.0, 0.5, 5, 3.0
+;--дисперсия---------------------------------------------------------------------------
+control_inertion_factor				= 1.3f
+crosshair_inertion					= 6.85
+fire_dispersion_base				= 0.3
+fire_dispersion_condition_factor	= 2.5
+
+cam_return 							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 4.22				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 4.66				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 0.9
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 2.03				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.5
+PDM_disp_vel_factor					= 2.0
+PDM_disp_accel_factor				= 2.0
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 3.0
+zoom_cam_dispersion_inc				= 2.5
+zoom_cam_dispersion_frac			= 0.7
+zoom_cam_max_angle					= 15.0
+zoom_cam_max_angle_horz				= 15.0
+zoom_cam_step_angle_horz			= 3.0
+;----------------------------------------------------------------------------------------
+inv_grid_width						= 4
+inv_grid_height						= 1
+inv_grid_x							= 56
+inv_grid_y							= 12
+
+upgr_icon_x							= 2350
+upgr_icon_y							= 1100
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 171
+kill_msg_y							= 104
+kill_msg_width						= 75
+kill_msg_height						= 20
+;----------------------------------------------------------------------------------------
+position							= -0.024, -0.12, 0.
+orientation							= 0, 2, 0
+shell_3d_sect						= shell_12
+shell_drop_silent					= true
+shell_drop_time						= 1000
+shell_point							= 0.0, 0.180, 0.647
+fire_point							= 0.0, 0.158, 0.647
+fire_point2							= 0.0, 0.158, 0.647
+flame_particles						= weapons\new_effects\shtg_pump
+smoke_particles						= weapons\new_effects\smoke_muzzle_shotgun
+
+light_color							= 0.6, 0.5, 0.3
+light_range							= 6.0
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+scope_status						= 0
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.15
+scope_zoom_factor					= 1.03
+;--A.R.E.A. Sound Remake-----------------------------------------------------------------
+snd_holster							= weapons\ks23\ks23_holster
+snd_draw							= weapons\ks23\ks23_draw
+snd_add_cartridge					= weapons\ks23\ks23_load
+snd_close_weapon					= weapons\ks23\ks23_close
+snd_empty							= weapons\ks23\ks23_empty
+snd_open_weapon						= weapons\ks23\ks23_open_weapon
+snd_shoot							= ks23_snd_shoot
+
+[ks23_snd_shoot]
+snd_1_layer							= weapons\ks23\ks23_shoot_null
+snd_2_layer							= weapons\ks23\ks23_close_pump
+;----------------------------------------------------------------------------------------
+[wpn_ks23_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_ks23\wpn_ks23_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0,0,0
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+
+item_position						= 0,0,-.0.02
+item_orientation					= 0,0,0
+
+hands_position						= -0.013605,0.048600,0.193804
+hands_position_16x9					= -0.013605,0.048600,0.193804
+hands_orientation					= 0.0,-3.0,0.0
+hands_orientation_16x9				= 0.0,-3.0,0.0
+
+aim_hud_offset_pos					= -0.061905,0.012735,0.05
+aim_hud_offset_pos_16x9				= -0.061905,0.012735,0.05
+aim_hud_offset_rot					= -0.008526,0.019087,0.0
+aim_hud_offset_rot_16x9				= -0.008526,0.019087,0.0
+
+anm_show							= remington870_draw
+anm_hide							= remington870_holster
+anm_idle							= remington870_idle
+anm_idle_aim						= remington870_aim
+anm_idle_moving						= remington870_move
+anm_idle_sprint						= remington870_sprint
+anm_bore							= remington870_aim
+anm_shots							= remington870_shoot, shoot
+anm_shots_empty						= remington870_idle
+anm_open							= remington870_reload_start, reload_start
+anm_add_cartridge					= remington870_reload, reload
+anm_close							= remington870_reload_end, reload_end
+;----------------------------------------------------------------------------------------

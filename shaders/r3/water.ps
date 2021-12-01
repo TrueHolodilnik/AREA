@@ -1,0 +1,287 @@
+#define WATER_PIXEL
+#define SSR_USE_WE_SKY_C
+#define SSR_ADD_AF_FOUNDER
+
+#include "common.h"
+#include "water_pv.h"
+#include "shared\waterconfig.h"
+#include "shared\watermove.h"
+#include "lmodel.h"
+
+#define SSR_HQ_JITTER_SCALE 0.25 // Интенсивность шума
+#define SSR_HQ_JITTER_SEARCH_RANGE 3 // Радиус поиска шума
+#define SSR_HQ_JITTER_THRESHOLD 0.25 // Антишумовой порог
+
+#define SSR_HQ_INC_SAMPLES 4 // Кол-во разнодлинный векторов
+#define SSR_HQ_RAY_INCREASE 1.75 // Отношение длины каждого вектора из SSR_HQ_INC_SAMPLES к предыдущему
+//#define SSR_HQ_RAY_STEPS 10 // Количество шагов по вектору одной длины
+#define SSR_HQ_RAY_BASE_LENGTH 3 // Величина самого маленького вектора * кол-во шагов / корень из фактора глубины
+#define SSR_HQ_DIFF_THRESHOLD 1.5 // Максимальный допуск погрешности, от 1
+#define SSR_HQ_RAY_REFINE 4 // Количество семплов уточнения отражения
+#define SSR_HQ_MARCH_MIN_DIST 1 // Минимальная дистанция, влияет на SSR_HQ_RAY_BASE_LENGTH
+#define SSR_HQ_MARCH_MAX_DIST 50 // Максимальная дистанция (вряд ли отражение до неё дойдёт)
+#define SSR_START_TAP			0.25
+#define SSR_OUTRANGE_TC_CUTER 0.02
+
+#include "depth_traced_ssr.h"
+#include "ogse_functions.h"
+
+#if defined(USE_SOFT_WATER) && defined(NEED_SOFT_WATER)
+float3	water_intensity;
+#endif	//	defined(USE_SOFT_WATER) && defined(NEED_SOFT_WATER)
+
+uniform float4 water_forward_params;
+Texture2D	jitter0;
+sampler smp_jitter;
+
+float3 calc_moon_road(float3 color, float3 vreflect, float2 tc, float depth, float Nz)
+{
+	float r = 0.0015*jitter0.Sample(smp_jitter, tc).x;											// randomize borders of road
+	float f = dot(normalize(vreflect.xz), -normalize(L_sun_dir_w.xz));
+	f = step(lerp(0.998+r /*+ 0.2*ogse_c_screen.w*2.2*/, 1, depth*0.01), f);		// road appearance factor
+	f *= step(10, depth);															// cut road in near 10 m
+	f *= saturate((depth-10)*0.25);													// fade in road in 2 m
+	f *= step(Nz, 0);																// remove road from pixels with normals with positive z for better look
+	f *= 1 - saturate(abs(L_sun_dir_w.y*2));										// road fading out with sun height
+	return lerp(color, L_sun_color*10, f);
+}
+
+#ifdef USE_MSAA
+	#ifdef GBUFFER_OPTIMIZATION
+		float4 main( wivs_out I, float4 pos2d : SV_Position, uint iSample : SV_SAMPLEINDEX  ) : SV_Target
+	#else
+		float4 main( wivs_out I, uint iSample : SV_SAMPLEINDEX  ) : SV_Target
+	#endif
+#else
+	#ifdef GBUFFER_OPTIMIZATION
+		float4 main( wivs_out I, float4 pos2d : SV_Position ) : SV_Target
+	#else
+		float4 main( wivs_out I ) : SV_Target
+	#endif
+#endif
+{
+
+	float4	base = s_base.Sample( smp_base, I.tbase);
+	//float4	leaves	= s_mud.Sample(smp_base, I.tbase); //Winter
+	float sun_br = (L_sun_color.r + L_sun_color.g + L_sun_color.b)/3;
+	
+	float actorDepth, waterDepth, alpha;
+
+	actorDepth = I.tctexgen.z;
+	
+	float2 tc = ss_tc_from_wo_posi(I.position_w);
+	float2 PosTc = tc;
+	
+	
+	#ifdef GBUFFER_OPTIMIZATION
+		gbuffer_data gbd = gbuffer_load_data( tc, pos2d );
+	#else
+		gbuffer_data gbd = gbuffer_load_data( tc );
+	#endif
+	
+	
+	waterDepth = I.position_w.y - mul(m_v2w, float4(gbd.P.xyz, 1)).y;
+
+	alpha  = saturate(waterDepth);
+	alpha  = saturate(alpha * 4);
+
+#if defined(USE_SOFT_WATER)
+	//float4 T1 = s_nmap.Sample(smp_base, watermove_tc(I.tbase*W_DISTORT_BASE_TILE_0, I.position_w.xz, W_DISTORT_AMP_0)); Winter
+	//float4 T2 = s_nmap.Sample(smp_base, watermove_tc(I.tbase*W_DISTORT_BASE_TILE_1, I.position_w.xz, W_DISTORT_AMP_1));
+	float4 T1 = s_nmap.Sample(smp_base, I.position_w.xz);
+	float4 T2 = s_nmap.Sample(smp_base, I.position_w.xz);
+	float3	Navg	= T1 + T2 - 1;
+	float3	Nw	= mul (float3x3(I.M1, I.M2, I.M3), Navg);
+			Nw	= normalize (Nw);
+
+	float3 vsposition = float3(PosTc.xy * pos_decompression_params2.xy * pos_decompression_params.zw - pos_decompression_params.xy, 1) * actorDepth;
+	float3 wsnormal = mul(m_V, float4(Nw, 0));
+	float3 scvreflect = 0;
+	float3 wsvreflect = 0;
+	
+	//bool need_reflection = false;
+	//{
+	//	// Нужные мировые векторы
+	//	float3 wscompvec = float3(0.000005, 0.9999, 1000000);
+	//	float3 wscompnormal = wsnormal; 
+	//	wscompnormal.y = wscompnormal.y * wscompvec.z / vsposition.z; 
+	//	wscompnormal = normalize(wscompnormal);
+	//				
+	//	need_reflection = (
+	//							(wscompnormal.y > wscompvec.y) 
+	//						&&	(wscompnormal.x - wscompvec.x < 0) 
+	//						&&	(wscompnormal.x + wscompvec.x > 0) 
+	//						&&	(wscompnormal.z - wscompvec.x < 0) 
+	//						&&	(wscompnormal.z + wscompvec.x > 0)
+	//						);
+	//}
+
+	
+	//float4 _P = 	float4( gbd.P, gbd.mtl );
+	
+	
+	float3 c_reflection = 0;
+	float3	final = base.xyz/4;
+	if (water_forward_params.y) {
+		
+		//float3 normal_v = mul(m_V, float4(Nw, 0));
+		//float3 position_v = mul(m_V, float4(I.position_w.xyz, 1));
+		//float3 sundir_v = mul(m_V, float4(L_sun_dir_w, 0));
+		
+		//if(need_reflection)
+		{
+		
+
+			wsnormal.xz /= 5;
+			wsnormal.y *= 5;
+			
+			wsnormal		= normalize(wsnormal);
+			
+			float3 vsnormal = mul((float3x4)m_V, float4(wsnormal, 0));
+			vsnormal = normalize(vsnormal);
+			
+			float3 vsposition_s = vsposition;
+			if(vsposition_s.z <= 0.01) vsposition_s.z = 998;
+		
+			float3 vsggvec = normalize(vsposition_s);
+			float3 vsvreflect = normalize(reflect(vsggvec, vsnormal));
+			
+			scvreflect = vsvreflect;
+			scvreflect.xy = (vsvreflect.xy + pos_decompression_params.xy * vsvreflect.zz) / pos_decompression_params.zw / pos_decompression_params2.xy;
+			
+			float3	v2point	= normalize (I.v2point);
+			float3	wsvreflect= reflect(v2point, Nw);
+			
+			//float frenel = saturate(dot(vsggvec, vsvreflect) * 1.5);
+		
+			//float attenutation = saturate(1 - dot(-vsggvec, vsnormal));
+			
+			//float light = plight_infinity(gbd.mtl, vsposition, vsnormal, float4(gbd.C, 1), mul((float3x4)m_V, float4(L_sun_dir_w, 0))).w;
+		
+			// depth_traced_ssr(scposition, scvreflect, wsvreflect, ...)
+			float3 scposition = float3(PosTc.xy, 1) * actorDepth; // - position for ssr
+			// scvreflect - reflected vector for ssr
+			// wsvreflect - reflected vector for sky boxes
+			
+			float3 sun = 0;
+			sun += calc_moon_road(final, wsvreflect, I.tbase, gbd.P.z, Nw.z);
+		
+			#ifdef USE_MSAA
+				#ifdef GBUFFER_OPTIMIZATION
+					c_reflection =  depth_traced_ssr(scposition, scvreflect, wsvreflect, pos2d, sun, gbd.hemi, iSample);
+				#else
+					c_reflection =  depth_traced_ssr(scposition, scvreflect, wsvreflect, sun, gbd.hemi, iSample);
+				#endif
+			#else
+				#ifdef GBUFFER_OPTIMIZATION
+					c_reflection =  depth_traced_ssr(scposition, scvreflect, wsvreflect, pos2d, sun, gbd.hemi);
+				#else
+					c_reflection =  depth_traced_ssr(scposition, scvreflect, wsvreflect, sun, gbd.hemi);
+				#endif
+			#endif
+			
+			final = lerp(c_reflection*max(sun_br, 0.1),final,base.w);
+			//final = lerp(leaves.rgb*half3(0.34, 0.5, 0.37)*0.3, final, gbd.hemi); //Winter
+		}
+		
+	}
+	else {
+		float3 to_point  = normalize(I.position_w - eye_position);
+		float3 sky = sky_true_reflection(sky_s0, sky_s1, normalize(reflect(to_point, Nw))); 
+		final = lerp(sky*max(sun_br, 0.1)/20,base.xyz,base.w);
+	}
+	
+	if (water_forward_params.y) {
+		if (ogse_c_rain.w > 0.05f) {
+			float4 ripples = RipplesPS(s_base, smp_base, I.tbase, 6);
+			final += ripples*final.rgb*gbd.hemi;
+		}
+	}
+
+	final = lerp(0,			final,   alpha);
+
+	alpha = clamp(alpha *  pow(I.fog, 2), 0.05, 1);
+	alpha = pow(alpha, 3);
+
+	//final *= alpha;
+	
+	//#ifdef GBUFFER_OPTIMIZATION
+	//	gbd = gbuffer_load_data( PosTc, pos2d );
+	//#else
+	//	gbd = gbuffer_load_data( PosTc );
+	//#endif
+	
+	if (water_forward_params.z) { //Winter
+		//float3  l1 = s_nmap_leaves.Sample(smp_base, watermove_tc(I.tbase*0.5, I.tnorm0.xy, 0.5)).xyz;
+		//float3  l2 = s_nmap_leaves.Sample(smp_base, watermove_tc(I.tbase*0.5, I.tnorm0.zw, 0.5)).xyz;
+		//
+		//final += (l1 + l2)*L_sun_color*half3(0.34, 0.5, 0.37)*0.2;
+		
+	}
+	
+	
+
+
+	//float2 nfactor = clamp(Navg.xy * alpha * 0.1, -0.1, 0.1); //Winter
+	//
+	//			#if defined(USE_MSAA)
+	//				//alpha *= 1.5;
+	//				float3	frame = s_pptemp.Load((tc + nfactor.xy) * screen_res.xy, 0) * (1 - alpha) + nfactor.xxx;
+	//			#else
+	//				float3	frame = s_pptemp.Sample(smp_nofilter, tc + nfactor.xy) * (1 - alpha) + nfactor.xxx;
+	//			#endif
+	//
+	//final += frame;
+	
+	
+	
+	//if (water_forward_params.z) { Winter
+	//	
+	//	waterDepth = gbd.P.z-I.tctexgen.z;
+	//	
+	//	float4 tex_foam = s_leaves.Sample(smp_base, I.tbase);
+	//	
+	//
+	//	float	calc_cos = -dot(float3(I.M1.z, I.M2.z, I.M3.z),  normalize(normalize(I.v2point)));
+	//	float	calc_depth = saturate(waterDepth * calc_cos);
+	//	float   noise = frac(sin(dot(base, float4(float2(12.9898,78.233),float2(12.9898,78.233)* acos(-1)))) * 43758.5453);
+	//	float   shift = (noise) * (1.0 / (pow(2,8) - 1.0));
+	//	float   add = sin(calc_depth + tex_foam.a);
+	//			if (add > 0) add = add/2;
+	//	float	fLeavesFactor = smoothstep(0.004, 0.035 - add + 0.01, calc_depth + shift);
+	//			fLeavesFactor *= smoothstep(0.1, 0.075 - add + 0.02, calc_depth + shift);
+	//	
+	//	if (leaves.a > 0.4) {
+	//		if (leaves.a*fLeavesFactor > 0.05) {
+	//			leaves.rgb *= final.rgb*3;
+	//			//leaves.rgb /= 2.0;
+	//			final		= leaves*fLeavesFactor;
+	//			alpha		= leaves.a*fLeavesFactor;
+	//		}
+	//	} 
+	//	final		= lerp(final, leaves, leaves.w * fLeavesFactor);
+	//	alpha		= lerp(alpha, leaves.w, leaves.w * fLeavesFactor);
+	//
+	//
+	//	tex_foam.rgb *= final.rgb*3;
+	//	float	fFoamfact = smoothstep(0.025, 0.05, calc_depth);
+	//			fFoamfact *= smoothstep(0.1, 0.075, calc_depth);
+	//	final		= lerp(final, tex_foam, tex_foam.w * fFoamfact);
+	//	alpha		= lerp(alpha, tex_foam.w, tex_foam.w * fFoamfact);
+	//}
+	
+	
+	
+	final = lerp(fog_color,	final, I.fog);
+	
+	float3 Fc  	= float3( 0.1h, 0.1h, 0.1h) * water_intensity.r;
+	final 		= lerp (Fc, final, alpha);
+	return  float4(final, alpha); //Winter
+
+
+#else	//	NEED_SOFT_WATER
+
+	return  float4(base.xyz, 0.75);
+
+#endif	//	NEED_SOFT_WATER
+}

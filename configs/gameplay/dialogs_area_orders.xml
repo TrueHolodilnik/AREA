@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<game_dialogs>
+
+<!--------------------------- Darkscape local trader --------- -->
+<dialog id="about_trade_dasc">
+<dont_has_info>actor_know_about_trade_dasc</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_trade_dasc_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_trade_dasc_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_trade_dasc_2</text>
+		<give_info>actor_know_about_trade_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_dasc">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_dasc</dont_has_info>
+<has_info>actor_know_about_trade_dasc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_dasc_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_dasc_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_dasc_2</text>
+		<give_info>actor_know_about_order_bad_rep_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_dasc">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_dasc</dont_has_info>
+<has_info>actor_know_about_trade_dasc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_dasc_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_dasc_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_dasc_2</text>
+		<give_info>actor_know_about_order_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Clear Sky main base trader --------- -->
+
+<dialog id="about_trade_csky">
+<dont_has_info>actor_know_about_trade_csky</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_trade_csky_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_trade_csky_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_trade_csky_2</text>
+		<give_info>actor_know_about_trade_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_csky">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_csky</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_csky</dont_has_info>
+<has_info>actor_know_about_trade_csky</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_csky_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_csky_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_csky_2</text>
+		<give_info>actor_know_about_order_bad_rep_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_actor_not_in_same_clan_csky">
+<precondition>dialogs_mlr.check_no_csky</precondition>
+<dont_has_info>actor_know_about_actor_not_in_same_clan_csky</dont_has_info>
+<has_info>actor_know_about_trade_csky</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_actor_not_in_same_clan_csky_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_actor_not_in_same_clan_csky_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_actor_not_in_same_clan_csky_2</text>
+		<give_info>actor_know_about_actor_not_in_same_clan_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_csky">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_csky</precondition>
+<dont_has_info>actor_know_about_order_csky</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_csky_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_csky_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_csky_2</text>
+		<give_info>actor_know_about_order_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Army agroprom main base trader --------- -->
+
+<dialog id="about_order_bad_rep_army">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_duty_or_army</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_army</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_army_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_army_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_army_2</text>
+		<give_info>actor_know_about_order_bad_rep_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_army">
+<dont_has_info>actor_know_about_order_not_army</dont_has_info>
+<precondition>area_utils.is_not_actor_duty_or_army</precondition>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_not_army_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_not_army_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_not_army_2</text>
+		<give_info>actor_know_about_order_not_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_army">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_army</dont_has_info>
+<precondition>area_utils.is_actor_duty_or_army</precondition>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_army_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_army_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_army_2</text>
+		<give_info>actor_know_about_order_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Rostok colonel Petrenko --------- -->
+
+<dialog id="about_order_bad_rep_dolg">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_dolg_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_dolg_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_dolg_2</text>
+		<give_info>actor_know_about_order_bad_rep_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_dolg">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_dolg</precondition>
+<dont_has_info>actor_know_about_order_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_dolg_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_dolg_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_dolg_2</text>
+		<give_info>actor_know_about_order_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_dolg">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_not_dolg</precondition>
+<dont_has_info>actor_know_about_order_not_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_not_dolg_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_not_dolg_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_not_dolg_2</text>
+		<give_info>actor_know_about_order_not_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Military warehouses freedom --------- -->
+
+<dialog id="about_order_bad_rep_freedom">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_freedom_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_freedom_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_freedom_2</text>
+		<give_info>actor_know_about_order_bad_rep_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_freedom">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_freedom</precondition>
+<dont_has_info>actor_know_about_order_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_freedom_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_freedom_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_freedom_2</text>
+		<give_info>actor_know_about_order_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_freedom">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_not_freedom</precondition>
+<dont_has_info>actor_know_about_order_not_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_not_freedom_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_not_freedom_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_not_freedom_2</text>
+		<give_info>actor_know_about_order_not_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Deadcity Merc Trader --------- -->
+
+<dialog id="about_order_bad_rep_merc">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_merc</dont_has_info>
+<has_info>actor_know_about_order_merc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_merc_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_merc_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_merc_2</text>
+		<give_info>actor_know_about_order_bad_rep_merc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_merc">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_merc</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_merc_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_merc_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_merc_2</text>
+		<give_info>actor_know_about_order_merc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_merc">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_not_merc</precondition>
+<dont_has_info>actor_know_about_order_not_merc</dont_has_info>
+<phrase_list>
+	<phrase id="0">
+		<text>about_order_not_merc_0</text>
+	<next>1</next>
+	</phrase>
+	<phrase id="1">
+		<text>about_order_not_merc_1</text>
+	<next>2</next>
+	</phrase>
+	<phrase id="2">
+		<text>about_order_merc_2</text>
+		<give_info>actor_know_about_order_not_merc</give_info>
+	</phrase>
+</phrase_list>
+</dialog>
+<!--------------------------- Sakharov trader --------- -->
+
+<dialog id="about_trade_sakharov">
+<dont_has_info>actor_know_about_trade_sakharov</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_trade_sakharov_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_trade_sakharov_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_trade_sakharov_2</text>
+		<give_info>actor_know_about_trade_sakharov</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_sakharov">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_sakharov</dont_has_info>
+<has_info>actor_know_about_trade_sakharov</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_sakharov_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_sakharov_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_sakharov_2</text>
+		<give_info>actor_know_about_order_bad_rep_sakharov</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Bandit Sultan trader --------- -->
+
+<dialog id="about_trade_bandit">
+<dont_has_info>actor_know_about_trade_bandit</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_trade_bandit_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_trade_bandit_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_trade_bandit_2</text>
+		<give_info>actor_know_about_trade_bandit</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_bandit">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_bandit</dont_has_info>
+<has_info>actor_know_about_trade_bandit</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>about_order_bad_rep_bandit_0</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>about_order_bad_rep_bandit_1</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>about_order_bad_rep_bandit_2</text>
+		<give_info>actor_know_about_order_bad_rep_bandit</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+</game_dialogs>

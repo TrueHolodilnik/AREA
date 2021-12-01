@@ -1,0 +1,28 @@
+[logic@altruist_1]
+active = walker@altruist_1
+suitable = {=check_npc_name(x11_stalker_altruist_1)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@altruist_1]
+path_walk = surge_5_walk
+path_look = surge_3_walk
+meet = meet@altruist
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+turn_on_campfire = false
+def_state_moving = assault
+combat_ignore_cond = {=pure_enemy_dist_le(7)} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = true
+
+[meet@altruist]
+close_anim 			= guard
+close_victim 			= actor
+close_distance  		= 5
+use 					= {=dist_to_actor_le(5) -x11_altruist_2} self, false
+allow_break 			= false
+trade_enable 			= false
+meet_dialog 			= {-x11_altruist_2} x11_altruist_2, nil

@@ -1,0 +1,217 @@
+
+struct 	v2p
+{
+  float4 tc0: 		TEXCOORD0;	// Center
+  float4 tc1: 		TEXCOORD1;	// LT 		 
+  float4 tc2: 		TEXCOORD2;	// RB
+  float4 tc3: 		TEXCOORD3;	// RT 
+  float4 tc4: 		TEXCOORD4;	// LB
+  float4 tc5:		TEXCOORD5;	// Left	/ Right	
+  float4 tc6:		TEXCOORD6;	// Top  / Bottom 
+};
+
+uniform sampler2D 	s_distort;
+uniform half4 		e_barrier;	// x=norm(.8f), y=depth(.1f), z=clr
+uniform half4 		e_weights;	// x=norm, y=depth, z=clr
+uniform half4 		e_kernel;	// x=norm, y=depth, z=clr
+#define MAXCOF		7.h
+#define EPSDEPTH	0.001h
+#define DDOF_MAXALPHA float (0.1)
+#define NEAR 		0.2h
+#define MINDIST 	0.4h
+#define MAXDIST 	100.h
+//#define MAXDIST 	10.h
+#define MAXCOF_NEAR	100.h
+
+#include "common.h"
+#include "sweetfx.h"
+#include "gauss.h"
+#include "mblur.h"
+#include "dof.h"
+#include "lumasharpen.h"
+//#include "wet_reflect.h"
+#include "tonemapping.h"
+#include "visor.h"
+#include "curves.h"
+#include "DPX.h"
+#include "dither.h"
+#include "HDR.h"
+#include "tonemap.h"
+#include "grain.h"
+#include "ogse_functions.h"
+//#include "AdvancedCRT.h"
+
+//#include "clarity.h"
+
+int mcls(half mcol)
+{
+	mcol = (mcol + 0.25) / 4.f;
+	if      (mcol < 0.14)	// RGB 28 - Concrete walls, stone/brick buildings, NPCs, mutants, suits
+		return 1;
+	else if (mcol < 0.16)	// RGB 37 - Terrain, grass, water, metal cases, wood crates, signs, plastics, medkits, food, TVs, bulbs/lamps, some doors
+		return 2;
+	else if (mcol < 0.22)	// RGB 52 - Wood, bushes, trees, glass bottles
+		return 3;
+	else if (mcol < 0.29)	// RGB 70 - Weapons, binoc, ammo, ammo boxes
+		return 4;
+	else if (mcol < 0.33)	// RGB 82 - Vehicles, steel boxes, gas cans, fuel cans, barrels
+		return 5;
+	else if (mcol < 0.36)	// RGB 87 - Metallic structures/objects
+		return 6;
+	else
+		return -1;
+}
+
+half4 main (v2p I) : COLOR
+{
+  	half 	depth 	= tex2D(s_position, I.tc0).z;
+#ifdef 	USE_DISTORT
+
+	half4 	distort	= tex2D(s_distort, I.tc0);
+	half2	offset	= (distort.xy - (127.0h/255.0h))*def_distort;  // fix newtral offset
+	float2	center	= I.tc0 + offset;
+	half 	depth_x	= tex2D(s_position, center).z;
+	if ((depth_x+EPSDEPTH)<depth) center = I.tc0;	// discard new sample
+#else
+	float2	center 	= I.tc0;
+#endif
+
+	half4 raw_img=tex2D(s_image,center);
+	half2 cent=I.tc0.xy;
+	
+	half3 img = tex2D(s_image, center);
+	
+	half4 bloom;
+	if (pp_control_params.z) bloom	= tex2D		(s_bloom, center);
+	
+	if (pp_control_params.x) img = ChromaticAberration( img, center, curves_sslr_params.w);
+		
+	
+	img	= dof(center);
+	img 	= mblur(center, tex2D(s_position, I.tc0),img.rgb);
+		
+	if (pp_control_params.x) img = ACESFilm(img);
+	
+	if (pp_control_params.z) {
+		bloom *= 0.2;
+		float3 bloom_img = (bloom*4-img*2);
+		bloom_img = max(bloom_img,0);
+		bloom_img = lerp(bloom_img, 0, step(depth,EPSDEPTH));
+		img += bloom_img;
+	}
+	
+	#ifdef 	USE_DISTORT
+		if (pp_control_params.z) {
+			half3	blurred	= bloom*def_hdr	;
+			img		= lerp(img, blurred, distort.z);
+		}
+	#endif
+	
+	//Sweet fx and others shaders A.R.E.A.
+	//half4 final = combine_bloom(img,bloom);
+	half4 final;
+	//final = combine_bloom(img,bloom);
+	
+	//half mat = tex2D(s_position, I.tc0).w;
+	//
+	//if (mat > 0.3 && mat < 0.4) img = lerp(img,SSLR,wet*1.5);
+	
+	//if (rain_drops_params0.x > 0.05f || control_params.z > 0.05f) {
+	//	half4 wettex = tex2D(s_wetness,center);
+	//	float noise1 = frac(sin(dot(raw_img, float4(float2(12.9898,78.233),float2(12.9898,78.233)* acos(-1)))) * 43758.5453);
+	//	float shift = (noise1) * (1.0 / (pow(2,8) - 1.0));
+	//	float add = sin(wettex.a)*150;
+	//	//float noise = smoothstep(0, 200 + add, shift)*wettex.a;
+	//	if (tex2Dproj(s_position, I.tc0).z < 60+add/10) {
+	//		half2 uv = I.tc0.xy;
+	//		half yFac = 1 / 768.f;
+	//		half testY = uv.y - yFac;
+	//		half4 testPos = tex2Dlod( s_position , half4(uv.x, testY, 0, 0) );	
+	//		half3 testPos_world = mul(half4(testPos.xyz,1),(m_WV)).xyz+eye_position.xyz;
+	//		half fog = calc_fogging(half4(testPos_world, 1));
+	//		half objMat = mcls(testPos.a);
+	//		if (testPos_world.y > 0.1 - noise1/30) {
+	//			float4 SSLR = tex2Dproj(s_SSLR,I.tc0);
+	//			img = lerp(img,SSLR,wettex.r*1.5*fog);
+	//		}
+	//		//if (testPos_world.y < -0.1 - add/2) {
+	//		//	SSLR = tex2Dproj(s_SSLR,I.tc0);
+	//		//	if (testPos_world.y > -0.15 - add/2) SSLR.rgb = lerp(img.rgb, SSLR.rgb, saturate(testPos_world.y)) - 0.1;
+	//		//	img = lerp(img,SSLR,1.5*fog);
+	//		//}
+	//	}
+	//}
+
+	final = half4(img,1);
+	
+	if (control_params.x) {
+		float dep=tex2Dlod(s_position,float4(center,0,0)).z;
+		final = visor_reflect(center, final, dep);	
+	}
+	//final = AdvancedCRTPass(final,center);
+	 
+	if (pp_control_params.x) {
+		final = HDRPass(final, center,s_image);
+		final = LumaSharpenPass(final,center, chrom_hdr_luma_params.z);
+		//final = GrainPass( final, center );
+		final = TechnicolorPass(final);
+		final = DPXPass(final);
+		final = TonemapPass(final);
+		//final += Uncharted2ToneMapping(final);
+		final = CurvesPass(final);
+		final = DitherPass(final,cent);
+	}
+	
+	
+	
+	
+	
+	
+	//final = ClarityFinal(final,cent);
+	////final = BorderPass(final,cent);
+	//final = CartoonPass(final,cent,s_image, 1);
+
+	
+//	
+//
+//      half kernel_amount = 0;
+//	bool indoor_wet = false;
+//	bool indoor_ref = false;
+//	half wet_amount = 0;
+//	half rain_density	= 0;
+//	if (e_weights.z*10 % 2 == 0)		
+//	{				
+//		if (e_kernel.x < 0.4)		{ kernel_amount = (e_kernel.x-0.3); }
+//		else if (e_kernel.x < 0.5)	{ kernel_amount = (e_kernel.x-0.4); indoor_ref=true; }
+//		else						{ kernel_amount = (e_kernel.x-0.5); indoor_wet=true; }		
+//		
+//		wet_amount = round(kernel_amount*10000.f)/10000.f;
+//		rain_density = (kernel_amount-wet_amount)*100000.f;		// CAUTION: WHY ONE DIGIT MORE THAN IN WEATHER_CONTROL.SCRIPT ???
+//		wet_amount *= 10.f;
+//		
+//		half2 reflection_uv = I.tc0.xy;
+//		half water_height = 0;						
+//		
+//		half4 wet_final   = wetreflect(final, reflection_uv, wet_amount, rain_density, water_height, indoor_wet, indoor_ref);     // TODO: CHECK WHETHER *10 IS CORRECT			
+//		half wet_dist_cof = 1-saturate( (origDep-WET_FADEMIN)/(WET_FADEMAX-WET_FADEMIN) );
+//		final = lerp(final,wet_final,wet_dist_cof);
+//		
+//		
+//		if (final.a == 0.1)			// apply blur only if current pixel is wet // TODO: OPTIMIZE CODE TO COMPILE FASTER!!!
+//		{
+//			half blur = 10; // (e_kernel.x-0.4) * 1000 => 0.41
+//			half wet_factor = WET_BLUR; // (e_kernel.x-0.4) * 100 => 0.41
+//			half4 b1  = checkwet(half2(I.tc0.x-blur*WET_FX, I.tc0.y-blur*WET_FY), false);
+//			half4 b2  = checkwet(half2(I.tc0.x+blur*WET_FX, I.tc0.y-blur*WET_FY), false);
+//			half4 b3  = checkwet(half2(I.tc0.x-blur*WET_FX, I.tc0.y+blur*WET_FY), false);
+//			half4 b4  = checkwet(half2(I.tc0.x+blur*WET_FX, I.tc0.y+blur*WET_FY), false);
+//			
+//			half wet = saturate( (1.1 - (b1.a+b2.a+b3.a+b4.a)/4) * wet_factor );
+//			
+//			final = (1-wet) * tex2Dlod(s_image, half4(I.tc0.xy,0,0)) + wet * final;
+//		}	
+//	}
+//	
+//
+	return 	final;
+}

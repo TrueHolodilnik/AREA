@@ -1,0 +1,18 @@
+[logic]
+active = ph_idle@blocked
+
+[ph_idle@blocked]
+on_info = {+x11_switcher_primary_off} nil
+on_info2 = {+x11_monitor_disabled} nil
+on_info3 = {=actor_has_item(x11_pass)} ph_idle@wait
+tips = st_need_password
+
+[ph_idle@wait]
+on_use = %+x11_monitor_disabled =play_sound_from_obj(ambient\special\marsh_beep_1) =spawn_object(x11_explosion:x11_explosion_point) =remove_npc(x11_forbidden_0002) =remove_npc(x11_forbidden_0003) =remove_npc(x11_forbidden_0004)% ph_idle@expl
+tips = st_input_password
+
+[ph_idle@expl]
+on_info = {=story_object_exist(x11_explosion) !story_object_exist(x11_forbidden_0002) !story_object_exist(x11_forbidden_0003) !story_object_exist(x11_forbidden_0004)} %=barrel_explode(x11_explosion) +x11_floor3_reached% ph_idle@create
+
+[ph_idle@create]
+on_info = %=create_squad(monolith_sim_squad_novice:x11_smart_terrain_3_1) =create_squad(monolith_sim_squad_novice:x11_smart_terrain_3_2)% nil

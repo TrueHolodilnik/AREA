@@ -1,0 +1,72 @@
+-- FANATIC-
+
+
+function esc_2_12_stalker_fanat_about_quest(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	if (npc:has_info("npcx_is_companion") == true) then
+		return false
+	end
+
+	return xr_conditions.has_task_not_completed(nil,nil,{"esc_m_trader_task_1"})
+end
+
+
+function actor_dont_has_esc_m_trader_task_2(a,b)
+	return not xr_conditions.has_task_not_completed(nil,nil,{"esc_m_trader_task_1"})
+end
+
+
+function actor_has_esc_m_trader_task_2(a,b)
+	return xr_conditions.has_task_not_completed(nil,nil,{"esc_m_trader_task_1"})
+end
+
+
+function set_esc_2_12_stalker_fanat_as_companion(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	local squad = get_object_squad(npc)
+	if not (squad) then
+		return
+	end
+	axr_companions.companion_squads[squad.id] = squad
+	for k in squad:squad_members() do
+		local npc = k.id and (db.storage[k.id] and db.storage[k.id].object or level.object_by_id(k.id))
+		if (npc) then
+			utils.se_obj_save_var(k.id,k.object:name(),"companion",true)
+			utils.se_obj_save_var(k.id,k.object:name(),"companion_cannot_dismiss",true)
+			utils.se_obj_save_var(k.id,k.object:name(),"companion_cannot_teleport",true)
+			axr_companions.setup_companion_logic(npc,db.storage[k.id],false,true)
+		end
+	end
+end
+
+-- NIMBLE-
+
+
+function actor_has_mar_base_owl_stalker_trader_task_1_pda(a,b)
+	return db.actor:object("mar_base_owl_stalker_trader_task_1_pda") ~= nil or false
+end
+
+
+function actor_dont_has_mar_base_owl_stalker_trader_task_1_pda(a,b)
+	return db.actor:object("mar_base_owl_stalker_trader_task_1_pda") == nil or false
+end
+
+
+function mar_base_owl_stalker_trader_task_1_give_reward(a,b)
+	--esc_2_12_stalker_nimble_mar_base_owl_stalker_trader_task_1
+	local itm = db.actor:object("mar_base_owl_stalker_trader_task_1_pda")
+	local npc = dialogs.who_is_npc(a,b)
+	dialogs.relocate_item_section(npc, "mar_base_owl_stalker_trader_task_1_pda", "out", 1)
+	if (itm) then
+		local sim = alife()
+		local se_itm = sim:object(itm:id())
+		sim:release(se_itm, true)
+	end
+	dialogs.relocate_money_to_actor(a,b,math.random(4000,5000))
+	task_manager.get_task_manager():set_task_completed("mar_base_owl_stalker_trader_task_1")
+	game_relations.change_factions_community_num("csky",0,100)
+	game_relations.change_factions_community_num("stalker",0,100)
+end
+
+
+------------------------------------------------------------------------------

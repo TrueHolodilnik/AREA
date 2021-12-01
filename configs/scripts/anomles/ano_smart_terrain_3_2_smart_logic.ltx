@@ -1,0 +1,42 @@
+;kamping
+[meet@bench]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+
+[logic@kamp_1]
+suitable = {!surge_started !check_npc_name(zombied)} true
+prior = 60
+active = animpoint@kamp_1
+
+[animpoint@kamp_1]
+cover_name = ano_smart_terrain_3_2_kamp_1
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_2]
+suitable = {!surge_started !check_npc_name(zombied)} true
+prior = 60
+active = animpoint@kamp_2
+
+[animpoint@kamp_2]
+cover_name = ano_smart_terrain_3_2_kamp_2
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_3]
+suitable = {!surge_started !check_npc_name(zombied)} true
+prior = 60
+active = animpoint@kamp_3
+
+[animpoint@kamp_3]
+cover_name = ano_smart_terrain_3_2_kamp_3
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+

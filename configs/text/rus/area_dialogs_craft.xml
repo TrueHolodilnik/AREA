@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<		   DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					A.R.E.A - DIALOG
+<					------ FaL -----
+<===========================================================-->
+<string_table>
+
+	<!--=====Weapon_craft=====-->
+	<string id="esc_stalker_klin_craft_0">
+		<text>У меня есть детали оружия, можешь с ними что-либо сделать?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_045">
+		<text>0.45 ACP</text>
+	</string>
+	<string id="esc_stalker_klin_craft_04500000001">
+		<text>Colt1911</text>
+	</string>
+	<string id="esc_stalker_klin_craft_04500001">
+		<text>Тааак... Чёрт, пружина потеряла свою упругость.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_0450000101">
+		<text>Вот на замену, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_045000010101">
+		<text>У меня была одна.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_045000010102">
+		<text>Другой у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_045000010103">
+		<text>Другого у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_0450000102">
+		<text>Хм...вот держи ещё одну.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_0450000103">
+		<text>Вот этот должен подойти.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_04500002">
+		<text>Чёрт, рукоять кривая, как я сразу не посмотрел, столько работы под хвост!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_04500003">
+		<text>Курок старого образца, такой тут не используешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_04500004">
+		<text>Хм, как там... Бог создал людей, а полковник Кольт сделал их равными. Если ты понимаешь о чём я...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_0451">
+		<text>Так, с калибром определились, из 0.45 ACP я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1">
+		<text>Не вопрос, всё захерачим, синей изолентой. Какой калибр тебя интересует?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_10">
+		<text>Приступим к работе? Это будет не просто.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_101">
+		<text>Что ж, давай попробуем.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_102">
+		<text>Нет ещё, я не уверен.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_103">
+		<text>Странный ты, ладно. Дело твоё.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_11">
+		<text>Так, инструменты готовы, начинаем?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_111">
+		<text>Да, давай.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_112">
+		<text>Нет, я ещё не готов.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_113">
+		<text>Подходи как будешь готов.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12">
+		<text>Я готов, где материалы?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_121">
+		<text>Вот , держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_122">
+		<text>Мне нужно ещё обдумать.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_123">
+		<text>Тьфу, ну ты иди-иди....думственный ты человек.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270">
+		<text>12х70 Дробь</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000000001">
+		<text>Mossberg590</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000000002">
+		<text>MP133</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000001">
+		<text>Даже не думай что с таким прикладом я соберу рабочий вариант.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700000101">
+		<text>Жаль, я надеялся, вот попробуй с этим.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270000010101">
+		<text>Ну... Другого у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270000010102">
+		<text>Другого нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270000010103">
+		<text>Ну и чёрт с ним, другого у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700000102">
+		<text>Вот, держи другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700000103">
+		<text>Вот, пробуй этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000002">
+		<text>И как по твоему этот курок должен работать?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000003">
+		<text>Нет, с таким стволом лучше даже не пытаться стрелять. Рванёт в руках.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000004">
+		<text>Ну что же, теперь у тебя есть только одно обязательство. Стреляй. Даже целиться не надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127000005">
+		<text>Не обращай внимание на цевьё - оно от Mossberg 590. Извини, у меня не было другого. Должен работать сносно.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001101">
+		<text>Мне нужен другой приклад, этот совсем стар.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700110101">
+		<text>Вот, Держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270011010101">
+		<text>Нету у меня другого.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270011010102">
+		<text>Ну здорово! У меня нет другого.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_1270011010103">
+		<text>Ну, других у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700110102">
+		<text>Вот тебе ещё один, ты уверен что у тебя руки откуда надо растут?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12700110103">
+		<text>Вот, как насчёт этих двух?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001102">
+		<text>Чёрт, второй курок сломал, никогда не любил этим заниматься.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001103">
+		<text>Один ствол нормальный, а второй с вмятиной...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001104">
+		<text>Обрез, я с таким в зону пришёл. Лёгкий и удобный.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001105">
+		<text>Держи своё ружьё, собирать такие проще простого, я учился на них.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001106">
+		<text>Солидный выбор для охоты. Кстати, зайди ко мне позже, намечается одно дело, если ты ценишь ружья такого типа, думаю тебя заинтересует.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127001107">
+		<text>Обрез ТОЗ34  - менее точный, зато вдарит в упор и мало не покажется, будь аккуратен.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_12701">
+		<text>Так, с калибром определились, из 12x70 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127100010001">
+		<text>ТОЗ66 Обрез</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127100010002">
+		<text>ТОЗ66</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127100010003">
+		<text>ТОЗ34</text>
+	</string>
+	<string id="esc_stalker_klin_craft_127100010004">
+		<text>ТОЗ34 обрез</text>
+	</string>
+	<string id="esc_stalker_klin_craft_13">
+		<text>Ну что? У тебя всё готово?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_131">
+		<text>Да.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_132">
+		<text>Ещё нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_133">
+		<text>Ну и чего тогда отвлекать было?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_14">
+		<text>Ну что, делаем?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_141">
+		<text>Да, начинай.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_142">
+		<text>Нет ещё.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_143">
+		<text>Ну как знаешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_16">
+		<text>Я передумал.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_2">
+		<text>Ух, руки уже чешутся, где детальки?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_21">
+		<text>Держи, тут всё что тебе нужно.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_22">
+		<text>Я передумал.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_23">
+		<text>Блин, вот это облом.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_3">
+		<text>Готов?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_31">
+		<text>Да, давай начинать.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_32">
+		<text>Нет, ещё не готов.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_33">
+		<text>Ладно, я не тороплю. Подходи как надумаешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_4">
+		<text>У меня всё под рукой, собираем ?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_41">
+		<text>Да.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_42">
+		<text>Нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_43">
+		<text>Ну как знаешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5">
+		<text>Ну что, я готов работать, где материалы ?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_51">
+		<text>Вот, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_52">
+		<text>Забудь, я передумал.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_53">
+		<text>Ты что, Дэбил? Раньше надо было думать.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539">
+		<text>5.45х39 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900000001">
+		<text>АК74</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900000002">
+		<text>АК74М</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900000003">
+		<text>АК74У</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900000004">
+		<text>РПК74</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900000005">
+		<text>АКС74</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900001">
+		<text>Ствол вздутый, вот посмотри, с таким работать нельзя.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000101">
+		<text>Держи, этот вроде нормальный.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010101">
+		<text>У меня другого нет, давай позже.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010102">
+		<text>Это всё что у меня было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010103">
+		<text>У меня нет детали на замену.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010104">
+		<text>У меня нет другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010105">
+		<text>У меня больше нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_54539000010106">
+		<text>Нет, это всё что у меня есть.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000102">
+		<text>Вот, на вид неплохой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000103">
+		<text>Вот эта должна подойти как раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000104">
+		<text>Вот, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000105">
+		<text>Попробуй этот, должен подойти.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545390000106">
+		<text>А вот этот?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900002">
+		<text>Приклад растрескался весь, так не пойдёт.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900003">
+		<text>Жёсткость у пружины не подходящая, она не будет работать так как надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900004">
+		<text>Эта рукоять сломана, и как ты не заметил? Она разваливается.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900005">
+		<text>Так... Теперь сюда... Блин, нет, затвор не подходит.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900006">
+		<text>Это пистолетный курок, но если сильно хочешь... Прихерачу синей изолентой...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900007">
+		<text>Ну что ж, теперь ты обладатель самого популярного оружия в зоне, простое, а значит надёжное. Пользуйся. Пружина гнутая, но вполне сносная.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900008">
+		<text>Готово, приклад конечно не полимерный и складной как в оригинале,а дульный тормоз улучшен не как на ижмаше, да и над ствольной коробкой как бы я не старался, он и близко не стоит с заказным образцом, хотя я выбирал лучшее из того что у меня было, цени это, АК74М собственной персоной!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900009">
+		<text>Твоя "Сучка" готова, не злись на неё при перегреве. Она постарается угодить тебе, хорошо?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900010">
+		<text>Ну вот ты и настоящий пулемётчик! Патронов то хватит?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5453900011">
+		<text>АКС74, надеюсь не взорвётся...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_545391">
+		<text>Так, с калибром определились, из 5.45x39 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645">
+		<text>5.56х45 мм НАТО</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000001">
+		<text>LR300</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000002">
+		<text>M4</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000003">
+		<text>M4A1</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000004">
+		<text>M16</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000005">
+		<text>SIG550</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500000006">
+		<text>SIG552</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500001">
+		<text>Покрытию в стволе кранты, его истёр какой-то кретин шомполом пока пытался вычистить.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000101">
+		<text>Вот, этот вроде нормальный, попробуй.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010101">
+		<text>Другого у меня сейчас нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010102">
+		<text>Это всё что у меня было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010103">
+		<text>Облом, больше нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010104">
+		<text>Нет у меня больше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010105">
+		<text>Больше нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_55645000010106">
+		<text>Всё, нету больше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000102">
+		<text>Вот держи, тут всё вроде нормально.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000103">
+		<text>Вот, эта должна быть то что надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000104">
+		<text>Вот, эта лучше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000105">
+		<text>Вот, попробуй этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556450000106">
+		<text>Вот ещё, изувер.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500002">
+		<text>Приклад весь в трещинах, тут даже эпоксидный клей не поможет. Зато печку топить самое оно.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500003">
+		<text>Пружина ржавая и сыпется, она даже затвор на место не поставит.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500004">
+		<text>Ты что не видишь? Тут левой щеки на рукояти нету, ты как это держать то будешь? Горе ты луковое.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500005">
+		<text>Так, вроде готово. Сейчас проверим...нет... затвор клинит, нужен другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500006">
+		<text>Блин... Я курок похерил, есть на замену?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500007">
+		<text>Лёгкая, точная, скорострельная, но ядрёна вошь, капризная как моя бывшая жена.По закону подлости клинит в самый не подходящий момент...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500008">
+		<text>М4 карабин, как и просил, но прежде чем ты уйдёшь, даже не смей додуматься ударить кого-либо прикладом. В нём вся сисема гашения отдачи, результат удара, я думаю ты понимаешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500009">
+		<text>Вот она парень, теперь ты готов. Бери её и помни... Они на деревьях Джони...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500010">
+		<text>Ты знаешь, а ведь эта война когда нибудь кончится.Бери и иди, мне надо побыть одному.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500011">
+		<text>Готов твой SIG. У нас в роте его называли "Швейцарский Калашников" из-за схожести отвода пороховых газов, хода затвора и надёжности. По слухам любимое оружие легендарного Стрелка.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_5564500012">
+		<text>Швейцарский коротышка, надежный, и компактный, будь осторожней со стволом, за неимением лучшего собрал с небольшим сколом на стволе.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_556451">
+		<text>Так, с калибром определились, из 5.56x45 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_6">
+		<text>Ну паяльник и изоленту я уже достал...так, где запчасти ?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_61">
+		<text>Вот, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_62">
+		<text>Чего-то не хватает, позже подойду.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_63">
+		<text>Эх, а я только канифоль разогревать начал.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7">
+		<text>Я готов, где твой материал ?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_71">
+		<text>Вот, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_72">
+		<text>Я передумал, сделаем в следующий раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_73">
+		<text>Ладно.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76225">
+		<text>7.62х25 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500000001">
+		<text>ППШ41</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500000002">
+		<text>ТТ33</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500001">
+		<text>Пружина загнута, она не будет работать.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762250000101">
+		<text>Вот держи другую.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76225000010101">
+		<text>Это всё что было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76225000010102">
+		<text>У меня другой нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76225000010103">
+		<text>Эх, другого у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762250000102">
+		<text>Вот, эта получше будет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762250000103">
+		<text>Вот,как тебе этот?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500002">
+		<text>Рукоять волной пошла, изнутри и вовсе проржавела.Мне нечем её вычистить и оно того не стоит.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500003">
+		<text>...Опустим спусковой крючок....Да что б... Курок не встаёт на боевой взвод.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500004">
+		<text>Так, вот и всё, ППШ — машина тяжёлая, но надёжная... убойная.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7622500005">
+		<text>Хм... Это сюда...тут подклею... ага, готово! ТТ 33 оружие настоящего комиссара советской армии. Теперь в твоих руках. Ни шагу назад камрад! Хех!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762251">
+		<text>Так, с калибром определились, из 7.62x25 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239">
+		<text>7.62х39 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900000001">
+		<text>АКМ</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900000002">
+		<text>АКМС</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900000004">
+		<text>РПК</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900000005">
+		<text>СКС</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900000006">
+		<text>Type63</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900001">
+		<text>Ствол измят, ты что хочешь что бы он у тебя в руках разорвался?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000101">
+		<text>Вот Держи, тут вроде всё как надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010101">
+		<text>Нет у меня другого.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010102">
+		<text>Увы, другого нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010103">
+		<text>Другой у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010104">
+		<text>Эта была последняя, браво!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010105">
+		<text>Другой у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76239000010106">
+		<text>Нету больше...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000102">
+		<text>Вот, попробуй этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000103">
+		<text>Вот, как насчёт этой?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000104">
+		<text>Вот тебе другая, у тебя точно руки из нужного места растут?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000105">
+		<text>Вот, посмотри на этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762390000106">
+		<text>Вот ещё один.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900002">
+		<text>Тьфу, его отпилить пытались, да так и бросили. Это уже не приклад о чёрт знает что. ещё есть варианты?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900003">
+		<text>Ты что не видишь? Это пистолетная пружина, да ещё и ржавая, она сюда не подойдёт.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900004">
+		<text>Угу... Ухм... Мля, нет больше рукоятки.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900005">
+		<text>Так, не не не, я даже пытаться не буду, этот затвор дерьмо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900006">
+		<text>Сомневаюсь что с этим курком всё будет в порядке...хм... Да так и есть, не возвращается в исходное положение после нажатия.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900007">
+		<text>АКМ... одним словом - классика!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900008">
+		<text>АКМС - вышел не так плохо как я думал. Приклад отпилил,и поставил металлический. При складывании иногда будет заедать, просто приложи чуть больше усилий.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900010">
+		<text>Расширенный магазин, удлинённый ствол, был АКМ, стал РПК! Что сумел - то сделал, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900011">
+		<text>Великолепное армейское оружие проверенное боем, только морально устаревшее. Если руки из плеч растут, карабин что надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7623900012">
+		<text>Китайская химера Калашникова и СКС, эти узкоглазые что угодно состряпают...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762391">
+		<text>Так, с калибром определились, из 7.62x39 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251">
+		<text>7.62х51 НАТО</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100000001">
+		<text>G3</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100001">
+		<text>Ствол треснул, ну как ты не видишь? Вот же трещина! Из этого ничего не соберешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000101">
+		<text>Вот тебе другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010101">
+		<text>Всё, нету больше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010102">
+		<text>Ну, что уж тут, другого нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010103">
+		<text>Лучше не нашёл.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010104">
+		<text>Это всё что было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010105">
+		<text>Нет, это всё что у меня было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76251000010106">
+		<text>Больше нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000102">
+		<text>Вот, попробуй-ка этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000103">
+		<text>Вот, попробуй.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000104">
+		<text>Вот, держи. Тут вроде пластик в порядке.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000105">
+		<text>Вот, держи другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762510000106">
+		<text>Держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100002">
+		<text>Блин, тут шейка приклада лопнула. Сейчас посмотрим, нет, клей тут не поможет трещина довольна большая. С таким прикладом я ничего не соберу...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100003">
+		<text>Что это за пружина? Да она проржавела вся, и гнутая как бог знает что...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100004">
+		<text>У рукоятки пластик треснул. Она вот-вот развалится...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100005">
+		<text>Ты где этот затвор снял? Он почти весь проржавел, давай что-нибудь рабочее.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100006">
+		<text>Хм.. Вот чёрт. Курок туго спускается с боевого взвода, это не дело, я кажется знаю в чём дело, но мне нужен ещё один.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625100007">
+		<text>Вот это немецкая красотка! Мне редко доводится собирать такие образцы, я прямо горжусь собой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762511">
+		<text>Так, с калибром определились, из 7.62x51 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254">
+		<text>7.62х54 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400000001">
+		<text>Винтовка Мосина</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400000002">
+		<text>СВД</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400000003">
+		<text>СВТ40</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400001">
+		<text>Вот блин... Смотри вон пробоины на казённом срезе патронника, не будет досылки патрона в патронник,ствол придётся выбросить, и дело с концом.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762540000101">
+		<text>Вот, давай попробуй с этим.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254000010101">
+		<text>Это последний что у меня был.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254000010102">
+		<text>Нет, больше нету.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254000010103">
+		<text>Это всё что было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254000010104">
+		<text>Всё, это был последний.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_76254000010105">
+		<text>Ну здорово, это был последний.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762540000102">
+		<text>Пробуй, вот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762540000103">
+		<text>Вот ещё одна.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762540000104">
+		<text>Вот, держи другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762540000105">
+		<text>Вот, попробуй-ка этот, на вид он получше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400002">
+		<text>Прикладу хана, весь в трещинах и дырках, может у тебя что получше есть?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400003">
+		<text>Пружина слишком мягкая, совсем старая.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400004">
+		<text>Так, теперь, это сюда... Давай... Мля, затвор не входит.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400005">
+		<text>Курок дерьмо, либо будет сдвоенные выстрелы давать, либо задержки, а это сам понимаешь, смертельно в бою.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400006">
+		<text>Винтовка Мосина готова, у меня дед положил с такой не одного гада, теперь твоя очередь. Дерзай!</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400007">
+		<text>Снайперская Винтовка Драгунова, у нас в армии так говорили - "Не бегай от снайпера, умрёшь уставшим" С Ромкой так и случилось...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7625400008">
+		<text>Принимай работу. СВТ40 - аппарат хороший и совсем не капризный, Людмила Павлюченко из этой винтовки уничтожила 309 германских солдат и офицеров,из плохой винтовки столько не настреляешь. Что говорит о качестве... Не только Людмилы.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_762541">
+		<text>Так, с калибром определились, из 7.62x54 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_777">
+		<text>Вернёмся к калибрам.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233">
+		<text>7.92х33 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300000001">
+		<text>Gewehr43</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300000002">
+		<text>Mauser98k</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300000003">
+		<text>StG44</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300001">
+		<text>Ствол местами проржавел, с такого лучше вообще не стрелять.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792330000101">
+		<text>Вот, используй этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233000010101">
+		<text>Другого у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233000010102">
+		<text>Хм..тогда в другой раз, у меня нет замены.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233000010103">
+		<text>У меня нет другой, вернусь когда найду.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233000010104">
+		<text>Другого нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_79233000010105">
+		<text>ещё одного у меня нет.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792330000102">
+		<text>Вот, как насчёт этого?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792330000103">
+		<text>Вот, взгляни на эту.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792330000104">
+		<text>Возьми этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792330000105">
+		<text>Так, где то был, вот, используй этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300002">
+		<text>Прикладу Хана. Лак стёрся, а древесина размокла и гниёт.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300003">
+		<text>Ты ещё хуже найти не мог? Этот ржавый кусок железа, а не пружина.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300004">
+		<text>Затвор полетел, нужен другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300005">
+		<text>Курок сточило, не достаёт до ударного механизма.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300006">
+		<text>Немецкий аналог СВТ40, Gewehr43 используй с умом.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300007">
+		<text>98й хорошо соответствовал условиям боев начала второй мировой войны, если уж на войне он показал себя с лучшей стороны то и тут он будет вполне эффективен, не смотря на его возраст.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_7923300008">
+		<text>Sturmgewehr 44... Часто сравнивают с АК, кто вообще сказал что у них есть что-то общее с АК?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_792331">
+		<text>Так, с калибром определились, из 7.92x33 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_8">
+		<text>Ну что, пробуем собрать?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_81">
+		<text>Начинай.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_82">
+		<text>Нет, мне нужно кое что ещё.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_83">
+		<text>Ну как найдёшь, подходи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9">
+		<text>Так, инструменты я уже достал, детали готовы?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91">
+		<text>Да, собирай уже скорей.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_918">
+		<text>9х18 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000001">
+		<text>АПС</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000002">
+		<text>Форт</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000003">
+		<text>ОС33</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000004">
+		<text>ПБ</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000005">
+		<text>ПМ</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000006">
+		<text>Кипарис</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800000007">
+		<text>VZ61</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800001">
+		<text>Пружине хана, эта проржавела вся.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9180000101">
+		<text>Посмотри на эту.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_918000010101">
+		<text>Замены нет, давай в другой раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_918000010102">
+		<text>Хорошо, поищу ещё.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_918000010103">
+		<text>У меня нет замены, в следующий раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9180000102">
+		<text>Держи, должна быть лучше.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9180000103">
+		<text>Из нас двоих, техник тут только ты. Вот, держи замену.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800002">
+		<text>Где вы только такой хлам находите? Это не рукоятка а чёрт знает что.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800003">
+		<text>Зачем ты мне дал сломанный курок? Думаешь я из этого что-то смогу сделать?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800004">
+		<text>Стечкин готов. Можно сказать ровесник Макарова, неплохой выбор. Он тебе не кажется слегка тяжеловат?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800005">
+		<text>Готово, хороший ствол - хороший спутник в зоне. Ты ведь его не бросишь?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800006">
+		<text>А вот и твой Пернач, пользуйся на здоровье. Только смотри осторожно, переключатель огня заедает.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800007">
+		<text>Самое тихое в зоне... любишь тишину? Не важно, вот твой ПБ.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800008">
+		<text>Макаров готов. Мало патронов, слабая проникающая способность, зачем он тебе? Ты любитель?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800009">
+		<text>Советский ПП, и что ты в нём нашёл? Хотя на вкус и цвет...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91800010">
+		<text>Ох ну и дрянь же ты попросил собрать...готово, держи своего арахнида.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9181">
+		<text>Так, с калибром определились из 9x18 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_919">
+		<text>9х19 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900000001">
+		<text>Beretta</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900000002">
+		<text>CZ75</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900000003">
+		<text>HPSA</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900000004">
+		<text>MP5</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900000005">
+		<text>MP40</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900001">
+		<text>Ох блин, она короче чем надо. Есть другая пружина?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9190000101">
+		<text>Вот, эта должна подойти.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_919000010101">
+		<text>Нет, это всё что было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_919000010102">
+		<text>Другой и не было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_919000010103">
+		<text>Нет, это всё что было.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9190000102">
+		<text>Не заметил, держи на замену.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9190000103">
+		<text>Да, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900002">
+		<text>И как ты это собрался использовать? Рукоятка простреленная.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900003">
+		<text>Курок сточен, есть лучше?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900004">
+		<text>Беретта... старая добрая. Как сейчас помню с большой земли, оружие всех "хороших" парней из фильмов... Делал с любовью.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900005">
+		<text>Так, вот 75й, можно сказать оригинал, ну или почти... пришлось вставить курок от Макарова. Работаю с тем что есть.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900006">
+		<text>Держи свой Браунинг, и прости что придётся пользоваться обожжённой рукоятью.Деталей не всегда хватает, да и ты не в магазине игрушек. Хват остался нормальным, прежнего владельца из "жарки" недавно достали.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900007">
+		<text>МР5 готов как и просил, обращайся с оружием осторожно. Сильный удар может выкинуть магазин...но это не всегда.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_91900008">
+		<text>Держи, основное оружие Вермахта. Так где то у меня была... Медаль немецкая... Не надо? Ну как хочешь.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9191">
+		<text>Так, с калибром определились, из 9x19 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_92">
+		<text>Нет, что то найти не могу, давай в следующий раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93">
+		<text>Хорошо, как найдёшь деталь, подходи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939">
+		<text>9х39 мм</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900000001">
+		<text>ВСК94</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900001">
+		<text>Ствол гнутый... Ну? Что ты на меня смотришь?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000101">
+		<text>Держи, этот должен быть то что надо.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939000010102">
+		<text>Нету у меня больше...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939000010103">
+		<text>Да нет у меня другого... Тогда в следующий раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939000010104">
+		<text>Нет у меня другой.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939000010105">
+		<text>У меня другой нет, так что в другой раз.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_939000010106">
+		<text>Нет у меня другого, только этот.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000102">
+		<text>Сам ты болванка, держи, скажи ещё что этот не подходит.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000103">
+		<text>Держи, этот должен быть нормальным.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000104">
+		<text>Держи другую, эта вроде в порядке.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000105">
+		<text>Ну, эта должна быть лучше, держи.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9390000106">
+		<text>Да вот, целый, только не сломай.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900002">
+		<text>Ты смеёшься надо мной? Это не затвор а металлическая болванка, из аномалии доставал ?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900003">
+		<text>Приклад прогнил весь, и ты собирался им пользоваться?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900004">
+		<text>Пружина приказала долго жить, откуда ты её достал вообще?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900005">
+		<text>Рукоять твоя... дрова! Ты как вообще собирался это держать?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900006">
+		<text>И как по твоему этот курок должен работать? Он же сломанный! Или ты этим огрызком пользоваться собрался?</text>
+	</string>
+	<string id="esc_stalker_klin_craft_93900007">
+		<text>Фух, это было трудно, держи свой ВСК. Затвор получился не очень, но это лучшее что я могу сделать.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9391">
+		<text>Так, с калибром определились, из 9x39 мм я могу собрать...</text>
+	</string>
+	<string id="esc_stalker_klin_craft_9999999999">
+		<text>переделывай.</text>
+	</string>
+	<string id="esc_stalker_klin_craft_99999999991">
+		<text>Нет деталей.</text>
+	</string>
+</string_table>

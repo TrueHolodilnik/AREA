@@ -1,0 +1,23 @@
+[logic]
+active = walker@shilo_patrol
+
+[walker@shilo_patrol]
+path_walk = bandit_kryk_walk_01
+path_look = bandit_kryk_look_01
+gather_items_enabled = false
+help_wounded_enabled = true
+corpse_detection_enabled = true
+invulnerable = {!actor_enemy} true, false
+on_info = {!is_night} animpoint@shilo_night
+on_info2 = {=is_rain} animpoint@shilo_night
+
+[animpoint@shilo_night]
+cover_name = shilo_night_sit
+avail_animations = sit_ass
+use_camp = true
+turn_on_campfire = true
+gather_items_enabled = false
+help_wounded_enabled = true
+corpse_detection_enabled = true
+invulnerable = {!actor_enemy} true, false
+on_info = {=is_night} walker@shilo_patrol

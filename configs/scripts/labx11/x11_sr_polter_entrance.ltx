@@ -1,0 +1,12 @@
+; этаж 2 (лезем в техническую) - спавн полтеров
+[logic]
+active = sr_idle@check
+
+[sr_idle@check]
+on_actor_inside = sr_idle@spawn
+
+[sr_idle@spawn]
+on_info = %=play_sound_at_pos(monsters\poltergeist\attack_0:x11_smart_terrain_2_1_polter_home_1) =create_squad(x11_polters:x11_smart_terrain_2_1)% sr_idle@teleport
+
+[sr_idle@teleport]
+on_info = {=story_object_exist(x11_polters)} %=teleport_squad(x11_polters:x11_smart_terrain_2_1_polter_home_1)% nil

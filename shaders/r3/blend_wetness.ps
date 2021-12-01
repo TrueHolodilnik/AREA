@@ -1,0 +1,95 @@
+#include <common.h>
+
+#if USE_WET_SURFACES==1
+	#include <lmodel.h>
+	#include <shadow.h>
+
+	uniform_Sampler2D (s_wetmap, smp_nofilter);
+
+	struct wetmap_data
+	{
+		float road;
+		float grnd;
+	};
+
+	wetmap_data get_wetmap(float2 tc)
+	{
+		wetmap_data wmp;
+
+		wmp.road = tex2D(s_wetmap, tc).x;
+		wmp.grnd = tex2D(s_wetmap, tc).y;
+
+		return wmp;
+	}
+
+	uniform_Sampler3D (s_water, smp_base);
+
+	float3 get_water_droplets(float2 tc)
+	{
+		// Unpack && Swizzle NVidia normal map
+		float2 water = tex2Dbias(s_water, float3(tc, timers.x * 3.0), -3.0).wz - 0.5;
+
+		// Renormalize (*2) and scale (*3)
+		return float3(water.x, 0, water.y) * 6;
+	}
+
+	uniform_Sampler2D (s_waterFall, smp_base);
+
+	float3 get_fall_water(float2 tc)
+	{
+		// Unpack normal map
+		float2 water = tex2D(s_waterFall, tc).xy * 0.6 - 0.3;
+
+		return float3(water.x, 0, water.y);
+	}
+#endif
+
+float4 main(float2 tc : TEXCOORD0) : SV_Target
+{
+	float3 ss_norm = normalize(gbuf_get_normal(tc));
+
+	#if USE_WET_SURFACES==1
+		float3 ss_posi = gbuf_get_position(tc);
+
+		// Loading wetness map's for objects
+		wetmap_data wmp = get_wetmap(tc);
+
+		float3 ms_posi	= mul(m_sunmask, float4(ss_posi, 1));
+		float3 ms_norm	= mul(m_sunmask, ss_norm.xyz);
+
+		float up = -dot(Ldynamic_dir.xyz, ss_norm.xyz);
+		float upf = saturate(up * 10 + 5.5);
+
+		wmp.grnd *= upf;
+		wmp.road *= upf;
+
+		up = max(0, up);
+
+		float3 tcfall = ms_posi / 2;
+
+		float ang_sp = 0.05 * ceil(10 * (1 - up));;
+
+		float3 wet_droplets = get_water_droplets(ms_posi.xz);
+
+		float3 wet_animx = get_fall_water(float2(tcfall.z, tcfall.y + timers.x * ang_sp));
+		float3 wet_animz = get_fall_water(float2(tcfall.x, tcfall.y + timers.x * ang_sp));
+
+		float2 rain_factor_d = rain_updator.xy;
+
+		float att = smooth_out_depth(ss_posi.z, 40, 1);
+
+		float3	accum  = 0;
+				accum += wet_droplets	* (up * wmp.road) * rain_factor_d.y	* smooth_out_depth(ss_posi.z, 7.5, 2); // road
+				accum += wet_droplets	* (up * wmp.grnd) * rain_factor_d.y	* att; // no road
+				accum += wet_animx.yxz	* (abs(ms_norm.x) * rain_factor_d.y	* att * (wmp.grnd + wmp.road)); // vert
+				accum += wet_animz.zxy	* (abs(ms_norm.z) * rain_factor_d.y	* att * (wmp.grnd + wmp.road)); // horiz
+
+		ss_norm = normalize(ss_norm + mul(m_V, accum));
+
+		float g = (wmp.grnd + wmp.road) * rain_factor_d.x * att * 0.35;
+
+		return float4(ss_norm, g);
+	#else
+		return float4(ss_norm, 1);
+	#endif
+}

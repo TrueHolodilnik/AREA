@@ -1,0 +1,13 @@
+[smart_terrain]
+squad_id = 7
+max_population = 1
+respawn_params = respawn@ds_smart_terrain_3_2
+respawn_idle = 60000
+
+[respawn@ds_smart_terrain_3_2]
+;cave weak
+cave_weak
+
+[cave_weak]
+spawn_squads = simulation_bloodsucker, simulation_pseudodog, simulation_psy_dog, simulation_rat, simulation_rats, simulation_snork, simulation_tushkano, simulation_zombie
+spawn_num = {+ds_igor_after_cache_1} 1, 0

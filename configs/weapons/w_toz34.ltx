@@ -1,0 +1,609 @@
+;----------------------------------------------------------------------------------------
+; ТOZ-34 from AO 3.1 reworked by Surs for A.R.E.A. (20.05.2019)
+;----------------------------------------------------------------------------------------
+[wpn_toz34]:default_weapon_params
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34.ogf
+$spawn							= "weapons\toz-34"		; option for Level Editor
+$npc							= on					; option for Level Editor
+class							= WP_BM16
+inv_name						= st_wpn_toz34
+inv_name_short					= st_wpn_toz34
+description						= st_wpn_toz34_descr
+ef_main_weapon_type				= 1
+ef_weapon_type					= 9
+repair_type						= shotgun
+hud								= wpn_toz34_hud
+parent_section					= wpn_toz34
+cost							= 25000
+weapon_class					= shotgun
+inv_weight						= 3.2
+inv_volume						= 4.5
+ph_mass							= 3
+upgrades						= up_gr_firstab_toz34, up_gr_seconab_toz34, up_gr_thirdab_toz34
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_toz34
+;--TTX----------------------------------------------------------------------------
+hit_power						= 0.98, 0.98, 0.98, 0.98
+hit_impulse						= 30
+hit_type						= fire_wound
+fire_distance					= 500
+bullet_speed					= 465
+rpm								= 1200
+rpm_mode_2						= 1800
+rpm_empty_click					= 200
+cycle_down						= true
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.88
+misfire_end_condition			= 0.12
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.11
+condition_shot_dec				= 0.0025
+condition_queue_shot_dec		= 0.0026
+tri_state_reload				= off
+
+ammo_elapsed					= 2
+ammo_mag_size					= 2
+fire_modes						= 1, 2
+ammo_class						= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot							= 2
+animation_slot					= 3
+;---дисперсия---------------------------------------------------------------------------
+fire_dispersion_base			= 0.454					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 1.42f
+crosshair_inertion				= 7.3
+
+cam_return						= 0
+cam_relax_speed					= 5.0					;скорость возврата в исходное положение
+cam_relax_speed_ai				= 360
+cam_dispersion					= 3.84					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc				= 4.48					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac				= 0.9					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0					;максимальный угол отдачи
+cam_max_angle_horz				= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.0					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 					= 1.85
+PDM_disp_vel_factor 			= 1.95
+PDM_disp_accel_factor 			= 1.955
+PDM_disp_crouch 				= 1.0
+PDM_disp_crouch_no_acc 			= 1.0
+
+zoom_cam_relax_speed			= 5.0					; scope & ironsight
+zoom_cam_relax_speed_ai			= 120.75
+zoom_cam_dispersion				= 3.44
+zoom_cam_dispersion_inc			= 3.98
+zoom_cam_dispersion_frac		= 0.7
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 1.0
+fire_dispersion_condition_factor = 0.001
+;---DOF-------------------------------------------------------------------------
+zoom_dof						= 0.5, 1.0, 180
+reload_dof						= 0.0, 0.5, 5, 3.2
+;-------------------------------------------------------------------------------
+position						= -0.023, -0.12, 0.07
+orientation						= 0, 30, 0
+shell_point						= 0, 0.183, 0.07
+fire_point						= 0, 0.168, 0.755
+fire_point2						= 0, 0.168, 0.755
+
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 30
+inv_grid_y						= 30
+
+upgr_icon_x						= 1750
+upgr_icon_y						= 550
+upgr_icon_width					= 300
+upgr_icon_height				= 50
+
+kill_msg_x						= 127
+kill_msg_y						= 82
+kill_msg_width					= 97
+kill_msg_height					= 23
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position					= -0.28, 0.20, 0.10
+strap_orientation				= 0.0, 0.0, 94.0
+strap_position_slot2			= -0.28, -0.20, 0.10
+strap_orientation_slot2			= 0.0, 0.0, 84.0
+strap_bone0						= bip01_spine2
+strap_bone1						= bip01_spine1
+;-------------------------------------------------------------------------------
+flame_particles					= weapons\new_effects\shtg_bm16
+smoke_particles					= weapons\new_effects\smoke_muzzle_shotgun
+shell_3d_sect					= shell_12
+shell_drop_on_reload			= true
+shell_drop_time					= 1300
+shell_drop_silent				= true
+light_color						= 0.6,0.5,0.3
+light_range						= 6.0
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time						= 0.2
+
+;addons
+scopes							= ac11090, acog, c-more, coyote, eot, pu, tars101
+scope_status					= 2
+silencer_status					= 0
+grenade_launcher_status			= 0
+
+zoom_enabled					= true
+scope_zoom_factor				= 1.03
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw						= weapons\toz34\toz34_draw
+snd_holster						= weapons\toz34\toz34_holster
+snd_shoot						= weapons\toz34\toz34_shoot  
+snd_empty						= weapons\toz34\toz34_empty
+snd_reload_1					= weapons\toz34\toz34_reload_one
+snd_reload						= weapons\toz34\toz34_reload
+;-------------------------------------------------------------------------------
+[wpn_toz34_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_hud.ogf
+zoom_hide_crosshair				= true
+fire_bone						= muzzle
+fire_point						= 0,0,0
+item_orientation				= 0,0,0
+item_position					= 0,0,0
+shell_bone						= wpn_body
+shell_dir						= 0,1,0
+shell_point						= 0,0,0
+
+hands_position					= -0.175165,-0.108675,-0.136109
+hands_position_16x9				= -0.175165,-0.108675,-0.136109
+hands_orientation				= 1.775379,2,0
+hands_orientation_16x9			= 1.775379,2,0
+
+aim_hud_offset_pos				= -0.048875,0.026265,-0.055
+aim_hud_offset_pos_16x9			= -0.048875,0.026265,-0.055
+aim_hud_offset_rot				= 0.038021,0.031327,0
+aim_hud_offset_rot_16x9			= 0.038021,0.031327,0
+
+anm_bore_0						= toz34_idle_aim
+anm_bore_1						= toz34_idle_aim
+anm_bore_2						= toz34_idle_aim
+anm_hide_0						= toz34_holster
+anm_hide_1						= toz34_holster
+anm_hide_2						= toz34_holster
+anm_idle_0						= toz34_idle
+anm_idle_1						= toz34_idle
+anm_idle_2						= toz34_idle
+anm_idle_aim_0					= toz34_idle_aim
+anm_idle_aim_1					= toz34_idle_aim
+anm_idle_aim_2					= toz34_idle_aim
+anm_idle_moving_0				= toz34_idle_moving
+anm_idle_moving_1				= toz34_idle_moving
+anm_idle_moving_2				= toz34_idle_moving
+anm_idle_moving_crouch_0		= toz34_idle_crouch
+anm_idle_moving_crouch_1		= toz34_idle_crouch
+anm_idle_moving_crouch_2		= toz34_idle_crouch
+anm_idle_sprint_0				= toz34_idle_sprint
+anm_idle_sprint_1				= toz34_idle_sprint
+anm_idle_sprint_2				= toz34_idle_sprint
+anm_reload_1					= toz34_reload_l, reload_l
+anm_reload_2					= toz34_reload_lr, reload_lr
+anm_shot_1						= toz34_shoot, shoot
+anm_shot_2						= toz34_shoot, shoot
+anm_shots_empty					= toz34_idle
+anm_show_0						= toz34_draw
+anm_show_1						= toz34_draw
+anm_show_2						= toz34_draw
+;-----------------------------------------------------------------------------
+[wpn_toz34_ac11090]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_ac11090.ogf
+scope_name						= ac11090
+scope_x							= 84
+scope_y							= -1
+hud								= wpn_toz34_ac11090_hud
+
+[wpn_toz34_ac11090_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_ac11090_hud.ogf
+aim_hud_offset_pos				= -0.048805,-0.015435,-0.074845
+aim_hud_offset_pos_16x9			= -0.048805,-0.015435,-0.074845
+;-----------------------------------------------------------------------------
+[wpn_toz34_acog]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_acog.ogf
+scope_name						= acog
+scope_x							= 72
+scope_y							= 0
+hud								= wpn_toz34_acog_hud
+
+[wpn_toz34_acog_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_acog_hud.ogf
+aim_hud_offset_pos				= -0.048910,-0.009135,-0.082090
+aim_hud_offset_pos_16x9			= -0.048910,-0.009135,-0.082090
+;-----------------------------------------------------------------------------
+[wpn_toz34_c-more]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_c-more.ogf
+scope_name						= c-more
+scope_x							= 84
+scope_y							= 1
+hud								= wpn_toz34_c-more_hud
+
+[wpn_toz34_c-more_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_c-more_hud.ogf
+aim_hud_offset_pos				= -0.048805,-0.00966,-0.055
+aim_hud_offset_pos_16x9			= -0.048805,-0.00966,-0.055
+;-----------------------------------------------------------------------------
+[wpn_toz34_coyote]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_coyote.ogf
+scope_name						= coyote
+scope_x							= 82
+scope_y							= -1
+hud								= wpn_toz34_coyote_hud
+
+[wpn_toz34_coyote_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_coyote_hud.ogf
+aim_hud_offset_pos				= -0.049015,-0.012285,-0.055
+aim_hud_offset_pos_16x9			= -0.049015,-0.012285,-0.055
+;-----------------------------------------------------------------------------
+[wpn_toz34_eot]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_eot.ogf
+scope_name						= eot
+scope_x							= 85
+scope_y							= 3
+hud								= wpn_toz34_eot_hud
+
+[wpn_toz34_eot_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_eot_hud.ogf
+aim_hud_offset_pos				= -0.049015,-0.01071,-0.06697
+aim_hud_offset_pos_16x9			= -0.049015,-0.01071,-0.06697
+;-----------------------------------------------------------------------------
+[wpn_toz34_pu]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_pu.ogf
+scope_name						= pu
+scope_x							= 76
+scope_y							= -1
+hud								= wpn_toz34_pu_hud
+
+[wpn_toz34_pu_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_pu_hud.ogf
+aim_hud_offset_pos				= -0.048385,-0.02696,-0.121996
+aim_hud_offset_pos_16x9			= -0.048385,-0.02696,-0.121996
+;-----------------------------------------------------------------------------
+[wpn_toz34_tars101]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_tars101.ogf
+scope_name						= tars101
+scope_x							= 58
+scope_y							= -6
+hud								= wpn_toz34_tars101_hud
+
+[wpn_toz34_tars101_hud]:wpn_toz34_pu_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_tars101_hud.ogf
+aim_hud_offset_pos				= -0.04866,-0.015175,-0.117216
+aim_hud_offset_pos_16x9			= -0.04866,-0.015175,-0.117216
+;-----------------------------------------------------------------------------
+; ТОЗ-34 Заказной
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom]:wpn_toz34
+visual                   		= dynamics\weapons\wpn_toz34\wpn_toz34_sk1.ogf
+inv_name    					= st_wpn_toz34_custom
+inv_name_short 					= st_wpn_toz34_custom
+parent_section					= wpn_toz34_custom
+installed_upgrades      		= up_secona_toz34
+cost            				= 28000
+hit_power       				= 0.99, 0.99, 0.99, 0.99
+bullet_speed         			= 471
+hud                        		= wpn_toz34_sk1_hud
+misfire_start_condition			= 0.8
+misfire_end_condition			= 0.1
+misfire_start_prob				= 0.003
+misfire_end_prob 				= 0.02
+condition_shot_dec      		= 0.0026
+condition_queue_shot_dec		= 0.0020
+fire_dispersion_base    		= 0.429
+inv_grid_y						= 32
+
+[wpn_toz34_sk1_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_ac11090]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_ac11090.ogf
+scope_name						= ac11090
+scope_x							= 84
+scope_y							= -1
+hud								= wpn_toz34_sk1_ac11090_hud
+
+[wpn_toz34_sk1_ac11090_hud]:wpn_toz34_ac11090_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_ac11090_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_acog]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_acog.ogf
+scope_name						= acog
+scope_x							= 72
+scope_y							= 0
+hud								= wpn_toz34_sk1_acog_hud
+
+[wpn_toz34_sk1_acog_hud]:wpn_toz34_acog_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_acog_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_c-more]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_c-more.ogf
+scope_name						= c-more
+scope_x							= 84
+scope_y							= 1
+hud								= wpn_toz34_sk1_c-more_hud
+
+[wpn_toz34_sk1_c-more_hud]:wpn_toz34_c-more_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_c-more_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_coyote]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_coyote.ogf
+scope_name						= coyote
+scope_x							= 82
+scope_y							= -1
+hud								= wpn_toz34_sk1_coyote_hud
+
+[wpn_toz34_sk1_coyote_hud]:wpn_toz34_coyote_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_coyote_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_eot]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_eot.ogf
+scope_name						= eot
+scope_x							= 85
+scope_y							= 3
+hud								= wpn_toz34_sk1_eot_hud
+
+[wpn_toz34_sk1_eot_hud]:wpn_toz34_eot_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_eot_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_pu]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_pu.ogf
+scope_name						= pu
+scope_x							= 76
+scope_y							= -1
+hud								= wpn_toz34_sk1_pu_hud
+
+[wpn_toz34_sk1_pu_hud]:wpn_toz34_pu_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_pu_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_custom_tars101]:wpn_toz34_custom
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_tars101.ogf
+scope_name						= tars101
+scope_x							= 58
+scope_y							= -6
+hud								= wpn_toz34_sk1_tars101_hud
+
+[wpn_toz34_sk1_tars101_hud]:wpn_toz34_tars101_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk1_tars101_hud.ogf
+
+;-----------------------------------------------------------------------------
+; ТОЗ-34 Изношенный
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3.ogf
+inv_name						= st_wpn_toz34_worn
+inv_name_short					= st_wpn_toz34_worn
+parent_section					= wpn_toz34_worn
+upgrades						= up_gr_firstab_toz34_worn, up_gr_seconab_toz34_worn, up_gr_thirdab_toz34_worn
+cost							= 18000
+hit_power						= 0.84, 0.84, 0.84, 0.84
+bullet_speed					= 403
+rpm								= 1000
+hud								= wpn_toz34_sk3_hud
+misfire_start_condition			= 0.9
+misfire_end_condition			= 0.13
+condition_shot_dec				= 0.0032
+condition_queue_shot_dec		= 0.0024
+fire_dispersion_base			= 0.493
+inv_grid_x						= 35
+
+[wpn_toz34_sk3_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_ac11090]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_ac11090.ogf
+scope_name						= ac11090
+scope_x							= 84
+scope_y							= -1
+hud								= wpn_toz34_sk3_ac11090_hud
+
+[wpn_toz34_sk3_ac11090_hud]:wpn_toz34_ac11090_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_ac11090_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_acog]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_acog.ogf
+scope_name						= acog
+scope_x							= 72
+scope_y							= 0
+hud								= wpn_toz34_sk3_acog_hud
+
+[wpn_toz34_sk3_acog_hud]:wpn_toz34_acog_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_acog_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_c-more]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_c-more.ogf
+scope_name						= c-more
+scope_x							= 84
+scope_y							= 1
+hud								= wpn_toz34_sk3_c-more_hud
+
+[wpn_toz34_sk3_c-more_hud]:wpn_toz34_c-more_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_c-more_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_coyote]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_coyote.ogf
+scope_name						= coyote
+scope_x							= 82
+scope_y							= -1
+hud								= wpn_toz34_sk3_coyote_hud
+
+[wpn_toz34_sk3_coyote_hud]:wpn_toz34_coyote_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_coyote_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_eot]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_eot.ogf
+scope_name						= eot
+scope_x							= 85
+scope_y							= 3
+hud								= wpn_toz34_sk3_eot_hud
+
+[wpn_toz34_sk3_eot_hud]:wpn_toz34_eot_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_eot_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_pu]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_pu.ogf
+scope_name						= pu
+scope_x							= 76
+scope_y							= -1
+hud								= wpn_toz34_sk3_pu_hud
+
+[wpn_toz34_sk3_pu_hud]:wpn_toz34_pu_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_pu_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_worn_tars101]:wpn_toz34_worn
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_tars101.ogf
+scope_name						= tars101
+scope_x							= 58
+scope_y							= -6
+hud								= wpn_toz34_sk3_tars101_hud
+
+[wpn_toz34_sk3_tars101_hud]:wpn_toz34_tars101_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk3_tars101_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_rusty]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_sk4.ogf
+inv_name						= st_wpn_toz34_rusty
+inv_name_short					= st_wpn_toz34_rusty
+description						= st_wpn_toz34_rusty_descr
+parent_section					= wpn_toz34_rusty
+scope_status					= 0
+cost							= 12000
+upgrades						= up_gr_firstab_toz34_rusty, up_gr_seconab_toz34_rusty, up_gr_thirdab_toz34_rusty
+hit_power						= 0.79, 0.79, 0.79, 0.79
+bullet_speed					= 353
+rpm								= 900
+hud								= wpn_toz34_sk4_hud
+misfire_start_condition			= 0.92
+misfire_end_condition			= 0.16
+condition_shot_dec				= 0.0036
+condition_queue_shot_dec		= 0.003
+fire_dispersion_base			= 0.54
+inv_grid_x						= 35
+inv_grid_y						= 32
+smoke_particles					= weapons\new_effects\smoke_muzzle_shotgun_bm16
+
+[wpn_toz34_sk4_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_sk4_hud.ogf
+
+;-----------------------------------------------------------------------------
+; ТОЗ-34 (обрез)
+;-----------------------------------------------------------------------------
+[wpn_toz34_obrez]:wpn_toz34
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_obrez.ogf
+inv_name						= st_wpn_toz34_obrez
+inv_name_short					= st_wpn_toz34_obrez
+description						= st_wpn_toz34_obrez_descr
+parent_section					= wpn_toz34_obrez
+scope_status					= 0
+cost							= 14000
+inv_weight						= 2.1
+inv_volume						= 2.5
+upgrades						= up_gr_firstab_toz34_obrez, up_gr_seconab_toz34_obrez, up_gr_thirdab_toz34_obrez
+installed_upgrades				= 
+upgrade_scheme					= upgrade_scheme_bm16
+hit_power						= 0.83, 0.83, 0.83, 0.83
+hit_impulse						= 30
+fire_distance					= 240
+bullet_speed					= 380
+hud								= wpn_toz34_obrez_hud
+slot							= 0
+position						= -0.023, -0.087, 0.052
+orientation						= 0, 32, 0
+
+misfire_start_condition			= 0.7
+misfire_end_condition			= 0.05
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.11
+condition_shot_dec				= 0.0026
+condition_queue_shot_dec		= 0.0020
+
+fire_dispersion_base			= 0.712  ;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 1.12f
+crosshair_inertion				= 4.5
+
+inv_grid_width					= 3
+inv_grid_height					= 1
+inv_grid_x						= 44
+inv_grid_y						= 55
+
+upgr_icon_x						= 1750
+upgr_icon_y						= 1450
+upgr_icon_width					= 300
+upgr_icon_height				= 100
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_shoot						= weapons\toz34\toz34_shoot_sawnoff
+snd_shoot_duplet				= weapons\toz34\toz34_shoot_sawnoff_both
+;-----------------------------------------------------------------------------
+[wpn_toz34_obrez_hud]:wpn_toz34_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_obrez_custom]:wpn_toz34_obrez
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk1.ogf
+inv_name						= st_wpn_toz34_obrez_custom
+inv_name_short					= st_wpn_toz34_obrez_custom
+parent_section					= wpn_toz34_obrez_custom
+cost							= 16000
+hit_power						= 0.85, 0.85, 0.85, 0.85
+bullet_speed					= 384
+rpm								= 1200
+hud								= wpn_toz34_obrez_sk1_hud
+misfire_start_condition			= 0.7
+misfire_end_condition			= 0.045
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.0028
+condition_queue_shot_dec		= 0.0022
+fire_dispersion_base			= 0.684
+inv_grid_y						= 56
+upgr_icon_x						= 1750
+upgr_icon_y						= 1550
+upgr_icon_width					= 300
+upgr_icon_height				= 100
+
+[wpn_toz34_obrez_sk1_hud]:wpn_toz34_obrez_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_obrez_worn]:wpn_toz34_obrez
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk3.ogf
+inv_name						= st_wpn_toz34_obrez_worn
+inv_name_short					= st_wpn_toz34_obrez_worn
+parent_section					= wpn_toz34_obrez_worn
+cost							= 9000
+upgrades						= up_gr_firstab_toz34_obrez_worn, up_gr_seconab_toz34_obrez_worn, up_gr_thirdab_toz34_obrez_worn
+hit_power						= 0.78, 0.78, 0.78, 0.78
+bullet_speed					= 341
+rpm								= 1000
+hud								= wpn_toz34_obrez_sk3_hud
+misfire_start_condition			= 0.8
+misfire_end_condition			= 0.06
+condition_shot_dec				= 0.0031
+condition_queue_shot_dec		= 0.0025
+fire_dispersion_base			= 0.753
+inv_grid_y						= 57
+
+[wpn_toz34_obrez_sk3_hud]:wpn_toz34_obrez_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_toz34_obrez_rusty]:wpn_toz34_obrez
+visual							= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk4.ogf
+inv_name						= st_wpn_toz34_obrez_rusty
+inv_name_short					= st_wpn_toz34_obrez_rusty
+parent_section					= wpn_toz34_obrez_rusty
+cost							= 6000
+upgrades						= up_gr_firstab_toz34_obrez_rusty, up_gr_seconab_toz34_obrez_rusty, up_gr_thirdab_toz34_obrez_rusty
+hit_power						= 0.719, 0.719, 0.719, 0.719
+bullet_speed					= 294
+rpm								= 800
+hud								= wpn_toz34_obrez_sk4_hud
+misfire_start_condition			= 0.86
+misfire_end_condition			= 0.08
+condition_shot_dec				= 0.0038
+condition_queue_shot_dec		= 0.0031
+fire_dispersion_base			= 0.803
+inv_grid_y						= 58
+smoke_particles					= weapons\new_effects\smoke_muzzle_shotgun_bm16
+
+[wpn_toz34_obrez_sk4_hud]:wpn_toz34_obrez_hud
+item_visual						= dynamics\weapons\wpn_toz34\wpn_toz34_obrez_sk4_hud.ogf
+;-----------------------------------------------------------------------------

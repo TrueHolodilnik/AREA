@@ -1,0 +1,294 @@
+;===============================================================================================
+; 	A.R.E.A. Dynamic HUD settings
+;===============================================================================================
+;--Texture to use when wearing the scientific outfit
+[ecolog_outfit_orange]
+hud 					= helm_scientific			;текстура худа шлема в хмл.
+breakable				= true				;ломается ли стекло от состояния шлема.
+gas_mask				= true				;есть респиратор или нет.
+blurs 					= 2.5 				;запотивание стекла 0 стекла нет.
+sound_volume_hearing 	= 28 				;приглушонность всех звуков при надетом костюме в %.
+wiggle_hud 				= 0.9 				;покачивания худа при ходьбе.
+wiggle_hud_speed 		= 1.2 				;скорость покачивания худа.
+jitter_hud 				= 0.8 				;сила тряски худа.
+offset_hud 				= 0.1 				;сила смещения худа при прицеливании.
+[ecolog_outfit_green]:ecolog_outfit_orange
+[ecolog_outfit_red]:ecolog_outfit_orange
+[ecolog_outfit_yellow]:ecolog_outfit_orange
+[ecolog_outfit_blue]:ecolog_outfit_orange
+[ecolog_outfit_white]:ecolog_outfit_orange
+[scientific_outfit]:ecolog_outfit_orange
+sound_volume_hearing 	= 34
+[bandit_scientific_outfit]:scientific_outfit
+[monolith_scientific_outfit]:scientific_outfit
+[dolg_scientific_outfit]:scientific_outfit
+[dolg_scientific_outfit_1]:scientific_outfit
+[merc_scientific_outfit]:scientific_outfit
+[svoboda_scientific_outfit]:scientific_outfit
+[cs_scientific_outfit]:scientific_outfit
+[helm_protective]:scientific_outfit
+[scientific_heavy_outfit]:helm_protective
+hud 					= hud_sci_unbreakable
+breakable				= false
+
+[helm_sunglasses]
+hud 					= helm_sunglasses		
+breakable				= false		
+gas_mask				= false			
+blurs 					= 0			
+sound_volume_hearing 	= 0 				
+wiggle_hud 				= 0
+wiggle_hud_speed 		= 0	
+jitter_hud 				= 0.8 			
+offset_hud 				= 0.1 	
+
+;--Texture to use when wearing the respirator outfit
+[monolith_radiation_outfit]:scientific_outfit
+hud 					= helm_exo
+sound_volume_hearing 	= 28
+wiggle_hud 				= 0.4
+wiggle_hud_speed 		= 0.5
+jitter_hud				= 0.3
+offset_hud 				= 1.3
+[merc_radiation_outfit]:monolith_radiation_outfit
+[svoboda_radiation_outfit]:monolith_radiation_outfit
+[dolg_radiation_outfit]:monolith_radiation_outfit
+[radiation_outfit]:monolith_radiation_outfit
+[dolg_radiation_outfit_1]:monolith_radiation_outfit
+[dolg_radiation_outfit_2]:monolith_radiation_outfit
+[dolg_radiation_outfit_3]:monolith_radiation_outfit
+[bandit_radiation_outfit_1]:monolith_radiation_outfit
+[bandit_radiation_outfit_2]:monolith_radiation_outfit
+[bandit_radiation_outfit]:monolith_radiation_outfit
+[svoboda_radiation_outfit_1]:monolith_radiation_outfit
+[svoboda_radiation_outfit_2]:monolith_radiation_outfit
+[svoboda_radiation_outfit_3]:monolith_radiation_outfit
+[merc_radiation_outfit_1]:monolith_radiation_outfit
+[merc_radiation_outfit_2]:monolith_radiation_outfit
+[merc_radiation_outfit_3]:monolith_radiation_outfit
+[monolith_radiation_outfit_1]:monolith_radiation_outfit
+[monolith_radiation_outfit_2]:monolith_radiation_outfit
+[csky_radiation_outfit_1]:monolith_radiation_outfit
+[csky_radiation_outfit]:monolith_radiation_outfit
+[military_radiation_outfit]:monolith_radiation_outfit
+[helm_exo]:monolith_radiation_outfit
+
+[military_izol]:ecolog_outfit_orange
+hud 					= hud_merc_unbreakable
+breakable		= false
+sound_volume_hearing 	= 29
+wiggle_hud 				= 0.3
+wiggle_hud_speed 		= 0.5
+jitter_hud 				= 0.2
+offset_hud 				= 1.1
+
+[ghillie_outfit]:ecolog_outfit_orange
+hud = helm_ghillie
+breakable 				= false
+gas_mask                = false
+sound_volume_hearing 	= 5
+wiggle_hud 				= 1
+wiggle_hud_speed 		= 1
+jitter_hud 				= 0.4
+offset_hud 				= 0.05
+
+[helm_respirator]:ecolog_outfit_orange
+hud = helm_respirator
+sound_volume_hearing 	= 29
+wiggle_hud 				= 0.6
+wiggle_hud_speed 		= 0.5
+jitter_hud 				= 0.4
+offset_hud 				= 1.4
+[helm_respirator3_camo]:helm_respirator
+[helm_respirator_carbon]:helm_respirator
+hud = hud_gas_ubreakable
+[helm_respirator2]:helm_respirator
+[helm_respirator3]:helm_respirator
+[helm_respirator_joker]:helm_respirator
+[helm_respirator4]:helm_respirator
+hud 					= helm_tactic
+sound_volume_hearing 	= 27
+offset_hud 				= 0.4
+
+[helm_respirator_gp5]:helm_respirator
+hud = hud_gp
+[helm_rp_metro_gp7]:helm_respirator_gp5
+
+[helm_respirator_2]:helm_respirator4
+sound_volume_hearing 	= 33
+[helm_respirator_2_camo]:helm_respirator_2
+[helm_respirator_2_dolg]:helm_respirator_2
+[helm_respirator_2_freedom]:helm_respirator_2
+[helm_respirator_half]:ecolog_outfit_orange
+hud 					= false
+blurs 					= 0
+sound_volume_hearing 	= 0
+wiggle_hud 				= 0
+wiggle_hud_speed 		= 0
+jitter_hud 				= 0
+offset_hud 				= 0
+
+[helm_m40]:helm_respirator
+hud = hud_gasmask
+
+[helm_tactic_2]:helm_m40
+hud 					= hud_mil_unbreakable
+sound_volume_hearing 	= 20
+
+[helm_hardhat]:ecolog_outfit_orange
+hud 					= helm_hardhat
+breakable 				= false
+sound_volume_hearing 	= 9
+wiggle_hud 				= 0.8
+wiggle_hud_speed 		= 0.7
+jitter_hud 				= 0.6
+offset_hud 				= 0.6
+
+[helm_pmk]:helm_hardhat
+[helm_respirator_gp9]:helm_hardhat
+breakable 				= true
+sound_volume_hearing 	= 8
+wiggle_hud 				= 0.5
+wiggle_hud_speed 		= 0.6
+jitter_hud 				= 0.4
+
+[helm_cs]:helm_hardhat
+hud = hud_mil
+sound_volume_hearing 	= 29
+
+[helm_battle]:helm_hardhat
+hud = helm_battle
+[helm_battle_lucky]:helm_battle
+[helm_csky]:helm_battle
+[helm_merc_battle]:helm_battle
+[helm_mono_battle]:helm_battle
+[helm_bandit_battle]:helm_battle
+[helm_battle_stalker]:helm_battle
+[helm_battle5]:helm_battle
+[freedom_battle]:helm_battle
+
+[helm_tactic]:helm_cs
+hud 					= helm_tactic
+breakable 				= true
+sound_volume_hearing 	= 9
+wiggle_hud 				= 0.8
+wiggle_hud_speed 		= 0.7
+jitter_hud 				= 0.6
+offset_hud 				= 0.6
+
+[helm_tactic_freedom]:helm_tactic
+[helm_tactic_dolg]:helm_tactic
+[helm_tactic_bandit]:helm_tactic
+[helm_tactic_merc]:helm_tactic
+[helm_tactichat_resp]:helm_tactic
+[helm_tactichat_resp_dolg]:helm_tactic
+[helm_tactichat_resp_freedom]:helm_tactic
+[helm_tactichat_resp_merc]:helm_tactic
+[helm_tactichat_resp_bandit]:helm_tactic
+
+[helm_tactichat]:helm_tactic
+gas_mask				= false			
+blurs 					= 0
+[helm_tactichat_dolg]:helm_tactichat
+[helm_tactichat_freedom]:helm_tactichat
+[helm_tactichat_merc]:helm_tactichat
+
+
+;--Texture to use when wearing the exo outfit
+[exo_outfit]:ecolog_outfit_orange
+hud 					= helm_exo
+sound_volume_hearing 	= 24
+wiggle_hud				= 0.35
+wiggle_hud_speed 		= 0.7
+jitter_hud 				= 0.3
+offset_hud 				= 1.2
+[merc_exo_outfit]:exo_outfit
+[dolg_exo_outfit]:exo_outfit
+[svoboda_exo_outfit]:exo_outfit
+[military_exo_outfit]:exo_outfit
+[bandit_exo_outfit]:exo_outfit
+[monolith_exo_outfit]:exo_outfit
+[cs_exo_outfit]:exo_outfit
+[dolg_exo_outfit_1]:exo_outfit
+[dolg_exo_outfit_2]:exo_outfit
+[radiation_outfit_1]:exo_outfit
+[radiation_outfit_2]:exo_outfit
+
+[mod_exo_proto_outfit_bandit_1]:helm_m40
+[mod_exo_proto_outfit_bandit]:helm_m40
+[mod_exo_proto_outfit_dolg_3]:helm_m40
+[mod_exo_proto_outfit_dolg_2]:helm_m40
+[mod_exo_proto_outfit_dolg_1]:helm_m40
+[mod_exo_proto_outfit_dolg]:helm_m40
+[mod_exo_proto_outfit_ecolog_1]:helm_m40
+[mod_exo_proto_outfit_ecolog]:helm_m40
+[mod_exo_proto_outfit]:helm_m40
+[mod_exo_proto_outfit_1]:helm_m40
+[mod_exo_proto_outfit_2]:helm_m40
+[mod_exo_proto_outfit_3]:helm_m40
+[mod_exo_proto_outfit_4]:helm_m40
+[mod_exo_proto_outfit_5]:helm_m40
+[mod_exo_proto_outfit_6]:helm_m40
+[mod_exo_proto_outfit_7]:helm_m40
+[mod_exo_proto_outfit_8]:helm_m40
+[mod_exo_proto_outfit_9]:helm_m40
+[mod_exo_proto_outfit_10]:helm_m40
+[mod_exo_proto_outfit_freedom]:helm_m40
+[mod_exo_proto_outfit_freedom_1]:helm_m40
+[mod_exo_proto_outfit_freedom_2]:helm_m40
+[mod_exo_proto_outfit_freedom_3]:exo_outfit
+[mod_exo_proto_outfit_freedom_4]:helm_m40
+[mod_exo_proto_outfit_freedom_5]:helm_m40
+[mod_exo_proto_outfit_merc]:helm_m40
+[mod_exo_proto_outfit_merc_1]:helm_m40
+[mod_exo_proto_outfit_monolith]:helm_m40
+[mod_exo_proto_outfit_monolith_1]:helm_m40
+[mod_exo_proto_outfit_monolith_2]:helm_m40
+[mod_exo_proto_outfit_monolith_3]:helm_m40
+[mod_exo_proto_outfit_monolith_4]:helm_m40
+[mod_exo_proto_outfit_monolith_5]:helm_m40
+[mod_exo_proto_outfit_csky]:helm_m40
+[mod_exo_proto_outfit_csky_1]:helm_m40
+[mod_exo_proto_outfit_military]:helm_m40
+[mod_exo_proto_outfit_military_1]:helm_m40
+[exo_proto_outfit_dolg]:helm_m40
+[exo_proto_outfit_freedom]:helm_m40
+[exo_proto_outfit_merc]:helm_m40
+[exo_proto_outfit_monolith]:helm_m40
+[exo_proto_outfit_isg]:helm_m40
+[exo_proto_outfit_bandit]:helm_m40
+[exo_proto_outfit_ecologist]:helm_m40
+[exo_proto_outfit_csky]:helm_m40
+[exo_proto_outfit_military]:helm_m40
+[exo_proto_outfit_bandit_1]:helm_m40
+[exo_proto_outfit_bandit_2]:helm_m40
+[exo_proto_outfit_dolg_1]:helm_m40
+[exo_proto_outfit_dolg_2]:helm_m40
+[exo_proto_outfit_dolg_3]:helm_m40
+[exo_proto_outfit_dolg_4]:helm_m40
+[exo_proto_outfit_dolg_5]:helm_m40
+[exo_proto_outfit_ecologist_1]:helm_m40
+[exo_proto_outfit_freedom_1]:helm_m40
+[exo_proto_outfit_freedom_2]:helm_m40
+[exo_proto_outfit_freedom_3]:helm_m40
+[exo_proto_outfit_freedom_4]:helm_m40
+[exo_proto_outfit_freedom_5]:helm_m40
+[exo_proto_outfit_merc_1]:helm_m40
+[exo_proto_outfit_merc_2]:helm_m40
+[exo_proto_outfit_merc_3]:helm_m40
+[exo_proto_outfit_monolith_1]:helm_m40
+[exo_proto_outfit_monolith_2]:helm_m40
+[exo_proto_outfit_monolith_3]:helm_m40
+[exo_proto_outfit_monolith_4]:helm_m40
+[exo_proto_outfit_monolith_5]:helm_m40
+[exo_proto_outfit_csky_1]:helm_m40
+[exo_proto_outfit]:helm_m40
+[exo_proto_outfit_1]:helm_m40
+[exo_proto_outfit_2]:helm_m40
+[exo_proto_outfit_3]:helm_m40
+[exo_proto_outfit_4]:helm_m40
+[exo_proto_outfit_5]:helm_m40
+[exo_proto_outfit_6]:helm_m40
+[exo_proto_outfit_7]:helm_m40
+[exo_proto_outfit_military_1]:helm_m40
+[exo_proto_outfit_military_2]:helm_m40

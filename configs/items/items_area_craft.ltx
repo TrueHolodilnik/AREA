@@ -1,0 +1,749 @@
+;----------------------------------------------------------------------------
+; Items used in Craft
+;----------------------------------------------------------------------------
+[ammo12x70_base]:booster
+$spawn							= "ammo12x70_base"
+visual							= dynamics\weapons\wpn_ammo\ammo_12x70_buck.ogf
+description						= ammo12x70_base_descr
+inv_name						= ammo12x70_base_name
+inv_name_short					= ammo12x70_base_name
+inv_weight						= 0.760, 0.760
+inv_volume						= 1.5, 1.5
+inv_grid_width					= 2
+inv_grid_x						= 18
+inv_grid_y						= 40
+cost							= 750
+use_condition					= true
+max_uses						= 3
+remove_after_use				= true
+empty_weight					= 0.01
+allow_repair					= false
+show_on_use						= false
+use_sound						= interface\inv_repair_kit
+;----------------------------------------------------------------------------
+[ammo12x76zhekan_base]:booster
+$spawn							= "ammo12x70_base"
+visual							= dynamics\weapons\wpn_ammo\ammo_12x70_buck.ogf
+inv_name						= st_ammo12x76zhekan_base
+inv_name_short					= st_ammo12x76zhekan_base
+description						= st_ammo12x76zhekan_base_descr
+inv_weight						= 0.75, 0.75
+inv_volume						= 1.0, 1.0
+inv_grid_x						= 52
+inv_grid_y						= 0
+cost							= 950
+use_condition					= true
+max_uses						= 3
+remove_after_use				= true
+empty_weight					= 0.01
+allow_repair					= false
+show_on_use						= false
+use_sound						= interface\inv_repair_kit
+;---------------------------------------------------------------------------
+[ammo12x70_tools]:booster
+$spawn							= "ammo12x70_tools"
+visual							= dynamics\equipments\quest\box_toolkit_1.ogf
+description						= ammo12x70_tools_descr
+inv_name						= ammo12x70_tools_name
+inv_name_short					= ammo12x70_tools_name
+inv_weight						= 0.698, 0.698
+inv_volume						= 1.2, 1.2
+inv_grid_width					= 2
+inv_grid_x						= 0
+inv_grid_y						= 44
+cost							= 2320
+use_condition					= true
+max_uses						= 10
+remove_after_use				= true
+empty_weight					= 0.075
+allow_repair					= false
+show_on_use						= false
+;---------------------------------------------------------------------------
+[sew_tools]:base_section
+$spawn							= "devices\sleepbag_base"
+visual							= dynamics\equipments\quest\box_toolkit_1.ogf
+inv_name						= sew_tools_name
+inv_name_short					= sew_tools_name
+description						= sew_tools_descr
+inv_weight						= 0.556, 0.556
+inv_volume						= 0.4, 0.4
+inv_grid_width					= 2
+inv_grid_x						= 2
+inv_grid_y						= 44
+cost							= 690
+;---------------------------------------------------------------------------
+[sleepbag_base]:sew_tools
+$spawn							= "devices\sleepbag_base"
+visual							= dynamics\repair\textile_patch_b.ogf
+inv_name_short					= sleepbag_base_name
+inv_name						= sleepbag_base_name
+description						= sleepbag_base_descr
+inv_weight						= 1.21, 1.21
+inv_volume						= 0.8, 0.8
+inv_grid_width					= 2
+inv_grid_x						= 0
+inv_grid_y						= 41
+cost							= 690
+;---------------------------------------------------------------------------
+[backpack_base]:sew_tools
+$spawn							= "devices\backpack_base"
+visual							= dynamics\repair\textile_patch_b.ogf
+inv_name_short					= sleepbag_base_name
+inv_name						= backpack_base_name
+description						= backpack_base_descr
+inv_weight						= 1.12, 1.12
+inv_volume						= 0.8, 0.8
+inv_grid_height					= 2
+inv_grid_x						= 2
+inv_grid_y						= 39
+cost							= 400
+;---------------------------------------------------------------------------
+[detonator]:sew_tools
+$spawn							= "devices\detonator"
+visual							= dynamics\equipments\bomb_c4.ogf
+inv_name						= st_detonator
+inv_name_short					= st_detonator
+description						= st_detonator_descr
+inv_weight						= 0.354, 0.354
+inv_volume						= 0.4, 0.4
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 4
+inv_grid_y						= 6
+cost							= 725
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; Crafted Items
+;---------------------------------------------------------------------------
+[deactivate_mix]:booster
+$spawn							= "food and drugs\medkit"
+visual							= dynamics\items\drinks\bottle_metal.ogf
+inv_name						= st_deactivate_mix
+inv_name_short					= st_deactivate_mix
+description						= st_deactivate_mix_descr
+inv_weight						= 0.65, 0.65
+inv_volume						= 0.6, 0.6
+inv_grid_x						= 8
+inv_grid_y						= 64
+cost							= 4248
+boost_time						= 20
+boost_radiation_restore			= 0.00028
+eat_alcohol						= 0.175
+eat_satiety						= 0.020
+eat_sleepiness					= 0.039
+eat_health						= -0.022
+use_condition					= true
+max_uses						= 2
+remove_after_use				= true
+empty_weight					= 0.02
+next_use_item					= flask_2_empty
+;---------------------------------------------------------------------------
+[cigarettes_selfroll]:booster, can_divide
+$spawn							= "devices\cigarettes_selfroll"
+visual							= equipments\craft\selfrolls.ogf
+description						= st_selfroll_descr
+inv_name						= st_selfroll_name
+inv_name_short					= st_selfroll_name
+inv_weight						= 0.12
+inv_volume						= 0.15
+inv_grid_x						= 6
+inv_grid_y						= 41
+cost							= 480
+boost_time						= 618
+boost_power_restore				= 0.0009
+boost_max_weight				= 1.542
+eat_alcohol						= 0.198
+eat_satiety						= 0.098
+eat_sleepiness					= -0.267
+boost_telepat_protection		= 0.01
+eat_health						= 0.022
+eat_sleepiness					= 5
+use_condition					= true
+max_uses						= 8
+remove_after_use				= true
+show_on_use						= false
+volume_scale					= false
+used_item						= smoking_selfroll
+use_sound						= interface\inv_smoke
+
+[smoking_selfroll]:cigarettes_selfroll
+cost							= 0
+max_uses						= 1
+;---------------------------------------------------------------------------
+; Outfit Dissasembling Items
+;---------------------------------------------------------------------------
+[itm_cutting_tools]:booster
+$spawn							= "devices\itm_cutting_tools"
+visual							= dynamics\devices\dev_instrument_1\dev_instrument_1.ogf
+description						= st_itm_cutting_tools_3_descr
+inv_name						= st_itm_cutting_tools_3
+inv_name_short					= st_itm_cutting_tools_3
+inv_weight						= 2.60, 2.63
+inv_volume						= 2.5, 2.5
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 6
+inv_grid_y						= 7
+inv_category					= 7
+cost							= 2235
+repair_part_bonus				= 0.03
+can_disassemble					= true
+use_condition					= true
+max_uses 						= 15
+remove_after_use				= true
+allow_repair					= false
+can_stack						= false
+show_on_use						= false
+volume_scale					= false
+empty_weight					= 2.2
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light, dis_respirators, dis_textile, dis_devices
+;--------------------------------------------------------------------------------------------------------------------------------------------
+[itm_cutting_tools_2]:itm_cutting_tools
+$spawn							= "devices\itm_cutting_tools_2"
+description						= st_itm_cutting_tools_2_descr
+inv_name						= st_itm_cutting_tools_2
+inv_name_short					= st_itm_cutting_tools_2
+cost							= 3285
+inv_weight						= 3.35, 3.38
+inv_volume						= 2.8, 2.8
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 8
+inv_grid_y						= 7
+repair_part_bonus				= 0.04
+empty_weight					= 3.0
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light, dis_respirators, dis_stalker_outfits_green, dis_stalker_outfits_light, dis_stalker_outfits_dark, dis_stalker_outfits_brown, dis_seva_stalker_outfit_dark, dis_seva_stalker_outfit_brown, dis_seva_stalker_outfit_green, dis_seva_stalker_outfit_light, dis_nbc_light, dis_nbc_brown, dis_textile, dis_devices
+;--------------------------------------------------------------------------------------------------------------------------------------------
+[itm_cutting_tools_3]:itm_cutting_tools
+$spawn							= "devices\itm_cutting_tools_3"
+description						= st_itm_cutting_tools_descr
+inv_name						= st_itm_cutting_tools
+inv_name_short					= st_itm_cutting_tools
+inv_weight						= 4.0, 4.05
+inv_volume						= 3, 3
+cost							= 5115
+inv_weight						= 4.00
+inv_volume						= 3
+inv_grid_width					= 2
+inv_grid_height					= 1
+inv_grid_x						= 10
+inv_grid_y						= 7
+repair_part_bonus				= 0.05
+empty_weight					= 3.6
+disassemble_categories			= dis_kurtka_green, dis_kurtka_dark, dis_kurtka_brown, dis_kurtka_light, dis_shit_green, dis_shit_dark, dis_shit_brown, dis_shit_light, dis_respirators, dis_stalker_outfits_green, dis_stalker_outfits_light, dis_stalker_outfits_dark, dis_stalker_outfits_brown, dis_seva_stalker_outfit_dark, dis_seva_stalker_outfit_brown, dis_seva_stalker_outfit_green, dis_seva_stalker_outfit_light, dis_nbc_light, dis_nbc_brown, dis_seva_dark, dis_seva_light, dis_seva_green, dis_ecolog_green, dis_ecolog_light, dis_ecolog_brown, dis_heavy_dark, dis_heavy_green, dis_exo_dark, dis_exo_light, dis_exo_green, dis_exo_brown, dis_radiation_dark, dis_radiation_light, dis_radiation_green, dis_radiation_brown, dis_battle, dis_exoprot_green, dis_exoprot_brown, dis_exoprot_dark, dis_exoprot_light, dis_textile, dis_devices
+;--------------------------------------------------------------------------------------------------------------------------------------------
+[servokit]:booster
+$spawn							= "devices\servokit"
+visual							= dynamics\repair\cleaning_kit_r7.ogf
+description				 = servokit_descr
+inv_name				 = servokit_name
+inv_name_short			 = servokit_name
+cost					 = 5520
+inv_weight				 = 2.347
+inv_volume				 = 4
+inv_grid_width			 = 2
+inv_grid_height			 = 2
+inv_grid_x				 = 14
+inv_grid_y				 = 44
+inv_category					= 7
+use_condition            = false
+max_uses                 = 1
+remove_after_use         = true
+repair_min_condition 	 = 0.01		;Min required condition to use
+repair_max_condition 	 = 0.99		;Max required condition to use
+repair_add_condition 	 = 0.0		;Amount of condition added to repaired item
+repair_part_bonus	 	 = 0.02		;Amount bonus to add_condition --if parts are used
+repair_use_parts	 	 = true		;Allows the use of lesser conditioned weapons to be used for parts to add overall bonus to repair
+repair_type			 	 = outfit	;weapon or outfit
+repair_refuse			 = 	
+repair_only				 = exo
+repair_parts_include	 = servomotor
+repair_parts_exclude	 = outfit, helmet, helmet_light
+repair_use_actor_effects = true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+;--------------------------------------------------------------------------------------------------------------------------------------------
+
+;----------------------------------------------------------------------------
+; Outfit Sections - Tier 1
+;----------------------------------------------------------------------------
+
+[dis_kurtka_green]
+trenchcoat_outfit_2
+novice_outfit_2m
+novice_outfit_4m
+novice_outfit_5m
+novice_outfit_2
+novice_outfit_4
+novice_outfit_5
+military_novice_outfit
+svoboda_novice_outfit
+random_parts = plate_cloth, plate_unload, plate_unload, plate_small, cloth_green, cloth_green, cloth_green, textile_patch_b, textile_patch_m, leather
+;----------------------------------------------------------------------------
+[dis_kurtka_dark]
+trenchcoat_outfit_1
+trenchcoat_outfit_2m
+bandit_novice_outfit_2
+bandit_novice_outfit_3
+bandit_novice_outfit_2m
+bandit_novice_outfit_3m
+novice_outfit_3m
+novice_outfit_3
+bandit_novice_outfit
+dolg_novice_outfit
+trenchcoat_outfit
+bandit_novice
+cloak_outfit
+random_parts = plate_cloth, plate_unload, plate_unload, plate_small, cloth_black, cloth_black, cloth_black, textile_patch_b, textile_patch_m, leather
+
+[dis_kurtka_brown]
+trenchcoat_outfit_3
+trenchcoat_outfit_1m
+trenchcoat_outfit_3m
+bandit_novice_outfit_1
+bandit_novice_outfit_1m
+novice_outfit_1m
+novice_outfit_6m
+novice_outfit_1
+novice_outfit_6
+novice_outfit
+random_parts =  plate_cloth, plate_unload, plate_unload, plate_small, cloth_brown, cloth_brown, cloth_brown, textile_patch_b, textile_patch_m, leather
+
+[dis_kurtka_light]
+novice_outfit_7
+cs_novice_outfit_1
+cs_novice_outfit
+cs_novice_outfit_2
+merc_novice_outfit
+monolith_novice_outfit
+random_parts = plate_cloth, plate_unload, plate_unload, plate_small, cloth_white, cloth_white, cloth_white, textile_patch_b, textile_patch_m, leather
+
+[dis_shit_green]
+helm_rp_bandana
+helm_cloth_mask_camo
+helm_rp_bala_camo
+random_parts = cloth_green, cloth_green, cloth_green, cloth_green
+
+[dis_shit_dark]
+helm_rp_beret_black
+helm_rp_bala
+underwear
+random_parts = cloth_black, cloth_black, cloth_black, cloth_black
+
+[dis_shit_light]
+helm_rp_beret_blue
+helm_rp_metro_furhat
+helm_cloth_mask
+beadspread
+random_parts = cloth_white, cloth_white, cloth_white, cloth_white
+
+[dis_shit_brown]
+trenchcoat_novice
+random_parts = cloth_brown, cloth_brown, cloth_brown, cloth_brown
+
+[dis_textile]
+tarpaulin
+tarpaulin_2
+tarpaulin_3
+random_parts = textile_patch_b, textile_patch_b, textile_patch_b, textile_patch_b
+
+;----------------------------------------------------------------------------
+; Outfit Sections - Tier 2
+;----------------------------------------------------------------------------
+[dis_stalker_outfits_green]
+stalker_outfit_8
+stalker_outfit_3
+stalker_outfit_4
+stalker_outfit_5
+stalker_outfit_6
+barmerc_outfit
+army_outfit
+ghillie_outfit
+specops_outfit
+stalker_outfit
+stalker_outfit_barge
+svoboda_heavy_outfit_2
+svoboda_heavy_outfit
+svoboda_light_outfit
+freedom_merc_outfit
+freedom_merc_outfit_1
+freedom_merc_outfit_2
+stalker_outfit_travel_3
+stalker_outfit_travel_4
+stalker_outfit_travel_freedom
+stalker_outfit_travel_freedom_3
+stalker_outfit_travel_freedom_5
+stalker_outfit_travel_freedom_6
+stalker_outfit_travel_monolith_1
+stalker_outfit_travel_csky_2
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_green, cloth_green, cloth_green, textile_patch_b, textile_patch_m
+
+[dis_stalker_outfits_dark]
+banditmerc_outfit_1
+stalker_outfit_7
+merc_sun_outfit
+stalker_merc_outfit
+specops_outfit_duty
+stalker_outfit_travel_2
+stalker_outfit_travel_9
+stalker_outfit_travel_12
+stalker_outfit_travel_bandit
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_black, cloth_black, cloth_black, textile_patch_b, textile_patch_m
+
+[dis_stalker_outfits_brown]
+stalker_outfit_1
+bandit_specops_outfit
+banditmerc_outfit
+monolith_outfit
+bandit_sun_outfit
+cs_light_novice_outfit_b
+stalker_outfit_travel
+stalker_outfit_travel_1
+stalker_outfit_travel_7
+stalker_outfit_travel_8
+stalker_outfit_travel_10
+stalker_outfit_travel_11
+stalker_outfit_travel_bandit_2
+stalker_outfit_travel_monolith
+stalker_outfit_travel_monolith_3
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_brown, cloth_brown, cloth_brown, textile_patch_b, textile_patch_m
+
+[dis_stalker_outfits_light]
+stalker_outfit_9
+specops_outfit_merc
+banditmerc_outfit_2
+stalker_outfit_2
+cs_stalker_outfit
+cs_light_novice_outfit
+cs_light_novice_outfit_1
+cs_light_outfit
+cs_medium_outfit
+merc_outfit
+monolith_merc_outfit
+specops_outfit_2
+stalker_outfit_travel_monolith_2
+stalker_outfit_travel_csky
+stalker_outfit_travel_csky_1
+specops_outfit_2
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_white, cloth_white, cloth_white, textile_patch_b, textile_patch_m
+
+;----------------------------------------------------------------------------
+; Outfit Sections - Tier 3
+;----------------------------------------------------------------------------
+[dis_seva_stalker_outfit_dark]
+dolg_outfit_1
+trenchcoat_brown_outfit_2
+trenchcoat_brown_outfit_4
+trenchcoat_brown_outfit
+dolg_outfit
+stalker_outfit_travel_dolg
+stalker_outfit_travel_dolg_1
+stalker_outfit_travel_dolg_2
+stalker_outfit_travel_dolg_3
+stalker_outfit_travel_merc
+stalker_outfit_travel_merc_1
+random_parts = plate_seva, plate_unload, plate_unload, plate_small, cloth_black, cloth_black, cloth_black, textile_patch_b, textile_patch_e
+
+[dis_seva_stalker_outfit_brown]
+trenchcoat_brown_outfit_1
+stalker_outfit_travel_6
+random_parts = plate_seva, plate_unload, plate_unload, plate_small, cloth_brown, cloth_brown, cloth_brown, textile_patch_b, textile_patch_e
+
+[dis_seva_stalker_outfit_green]
+trenchcoat_brown_outfit_3
+stalker_outfit_travel_5
+stalker_outfit_travel_freedom_1
+stalker_outfit_travel_freedom_2
+stalker_outfit_travel_freedom_4
+stalker_outfit_travel_army
+random_parts = plate_seva, plate_unload, plate_unload, plate_small, cloth_green, cloth_green, cloth_green, textile_patch_b, textile_patch_e
+
+[dis_seva_stalker_outfit_light]
+ecolog_guard_outfit
+stalker_outfit_travel_bandit_1
+stalker_outfit_travel_csky_3
+stalker_outfit_travel_csky_4
+random_parts = plate_seva, plate_unload, plate_unload, plate_small, cloth_white, cloth_white, cloth_white, textile_patch_b, textile_patch_e
+
+[dis_nbc_light]
+stalker_outfit_travel_ecolog
+stalker_outfit_travel_ecolog_1
+stalker_outfit_travel_ecolog_2
+stalker_outfit_travel_ecolog_3
+random_parts = plate_cloth, plate_light, plate_unload, plate_unload, plate_small, cloth_white, cloth_white, cloth_white, textile_patch_b, textile_patch_e
+
+[dis_nbc_brown]
+random_parts =  plate_cloth, plate_light, plate_unload, plate_unload, plate_small, cloth_brown, cloth_brown, cloth_brown, textile_patch_b, textile_patch_e
+
+;----------------------------------------------------------------------------
+; Outfit Sections - Tier 4 Seva
+;----------------------------------------------------------------------------
+[dis_seva_dark]
+dolg_scientific_outfit_1
+dolg_scientific_outfit
+scientific_outfit
+bandit_scientific_outfit
+random_parts = plate_seva, plate_small, plate_unload, plate_unload, cloth_black, cloth_black, cloth_black
+
+[dis_seva_light]
+cs_scientific_outfit
+scientific_heavy_outfit
+merc_scientific_outfit
+monolith_scientific_outfit
+random_parts = plate_seva, plate_small, plate_unload, plate_unload, cloth_white, cloth_white, cloth_white
+
+[dis_seva_green]
+svoboda_scientific_outfit
+random_parts = plate_seva, plate_small, plate_unload, plate_unload, cloth_green, cloth_green, cloth_green
+
+[dis_ecolog_green]
+ecolog_outfit_green
+random_parts = plate_medium, plate_small, cloth_green, cloth_green, cloth_green
+
+[dis_ecolog_light]
+ecolog_outfit_white
+ecolog_outfit_blue
+random_parts = plate_medium, cloth_white, cloth_white, cloth_white
+
+[dis_ecolog_brown]
+ecolog_outfit_orange
+ecolog_outfit_red
+ecolog_outfit_yellow
+random_parts = plate_medium, cloth_brown, cloth_brown, cloth_brown
+
+;----------------------------------------------------------------------------
+; Outfit Sections - Tier 4 Exo
+;----------------------------------------------------------------------------
+[dis_heavy_dark]
+commander_outfit
+dolg_heavy_outfit
+random_parts = plate_medium, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_black, cloth_black, cloth_black, plate_small
+ 
+[dis_heavy_green]
+military_izol
+cs_heavy_outfit
+military_outfit
+svoboda_heavy_outfit_2
+random_parts = plate_medium, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_green, cloth_green, cloth_green, plate_small
+
+[dis_exo_dark]
+dolg_exo_outfit_1
+dolg_exo_outfit_2
+bandit_exo_outfit
+dolg_exo_outfit
+random_parts = plate_military, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_black, cloth_black, cloth_black, plate_small, servomotor, servomotor
+
+[dis_exo_light]
+cs_exo_outfit
+merc_exo_outfit
+exo_outfit
+random_parts = plate_monolith, plate_heavy, plate_heavy, plate_unload, plate_unload, plate_light, plate_light, plate_light, plate_small, servomotor, servomotor
+
+[dis_exo_green]
+svoboda_exo_outfit
+military_exo_outfit
+random_parts = plate_military, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_white, cloth_white, cloth_white, plate_small, servomotor, servomotor
+
+[dis_exo_brown]
+monolith_exo_outfit
+exo_proto_outfit
+random_parts = plate_monolith, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_brown, cloth_brown, cloth_brown, plate_small, servomotor, servomotor
+
+[dis_radiation_dark]
+dolg_radiation_outfit
+dolg_radiation_outfit
+dolg_radiation_outfit_1
+dolg_radiation_outfit_2
+dolg_radiation_outfit_3
+heavy_outfit_dolg
+heavy_outfit_dolg_1
+heavy_outfit_dolg_2
+heavy_outfit_dolg_3
+heavy_outfit_dolg_4
+bandit_radiation_outfit_1
+heavy_outfit_bandit_1
+heavy_outfit_merc_3
+heavy_outfit_merc_2
+heavy_outfit_merc_1
+heavy_outfit_merc
+merc_radiation_outfit_3
+merc_radiation_outfit_2
+merc_radiation_outfit_1
+merc_radiation_outfit
+random_parts = plate_military, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_black, cloth_black, cloth_black, plate_small
+
+[dis_radiation_light]
+radiation_outfit_1
+merc_radiation_outfit
+cs_radiation_outfit
+radiation_outfit
+bandit_radiation_outfit
+heavy_outfit
+heavy_outfit_2
+heavy_outfit_monolith_2
+heavy_outfit_monolith_1
+heavy_outfit_monolith
+monolith_radiation_outfit_2
+monolith_radiation_outfit_1
+heavy_outfit_csky_1
+heavy_outfit_csky
+csky_radiation_outfit_1
+random_parts = plate_monolith, plate_heavy, plate_heavy, plate_unload, plate_unload, plate_light, plate_light, plate_light, plate_small
+
+[dis_radiation_green]
+radiation_outfit_2
+svoboda_radiation_outfit
+military_radiation_outfit
+heavy_outfit_1
+heavy_outfit_3
+heavy_outfit_freedom_3
+heavy_outfit_freedom_2
+heavy_outfit_freedom_1
+heavy_outfit_freedom
+heavy_outfit_military
+svoboda_radiation_outfit_3
+svoboda_radiation_outfit_2
+svoboda_radiation_outfit_1
+svoboda_radiation_outfit
+random_parts = plate_military, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_white, cloth_white, cloth_white, plate_small
+
+[dis_radiation_brown]
+bandit_radiation_outfit
+monolith_radiation_outfit
+bandit_radiation_outfit_2
+heavy_outfit_bandit
+heavy_outfit_bandit_2
+random_parts = plate_monolith, plate_heavy, plate_heavy, plate_unload, plate_unload, cloth_brown, cloth_brown, cloth_brown, plate_small
+
+[dis_exoprot_dark]
+exo_specops_dolg
+exo_specops_bandit
+mod_exo_proto_outfit_dolg
+mod_exo_proto_outfit_dolg_1
+mod_exo_proto_outfit_dolg_2
+mod_exo_proto_outfit_dolg_3
+mod_exo_proto_outfit_6
+mod_exo_proto_outfit_8
+mod_exo_proto_outfit_merc
+mod_exo_proto_outfit_merc_1
+exo_proto_outfit_dolg
+exo_proto_outfit_bandit
+exo_proto_outfit_bandit_1
+exo_proto_outfit_dolg_1
+exo_proto_outfit_merc_1
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_black, cloth_black, cloth_black, textile_patch_b, textile_patch_m, servomotor, servomotor
+
+[dis_exoprot_light]
+exo_specops_merc
+mod_exo_proto_outfit_bandit_1
+mod_exo_proto_outfit_ecolog
+mod_exo_proto_outfit_ecolog_1
+mod_exo_proto_outfit_csky
+mod_exo_proto_outfit_csky_1
+exo_proto_outfit_merc
+exo_proto_outfit_ecologist
+exo_proto_outfit_csky
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_light, cloth_light, cloth_light, textile_patch_b, textile_patch_m, servomotor, servomotor
+
+[dis_exoprot_green]
+exo_specops
+exo_specops_freedom
+mod_exo_proto_outfit_2
+mod_exo_proto_outfit_3
+mod_exo_proto_outfit_4
+mod_exo_proto_outfit_freedom
+mod_exo_proto_outfit_freedom_1
+mod_exo_proto_outfit_freedom_2
+mod_exo_proto_outfit_freedom_3
+mod_exo_proto_outfit_freedom_4
+mod_exo_proto_outfit_freedom_5
+mod_exo_proto_outfit_military
+mod_exo_proto_outfit_military_1
+exo_proto_outfit_freedom
+exo_proto_outfit_freedom_1
+exo_proto_outfit_freedom_2
+exo_proto_outfit_freedom_3
+exo_proto_outfit_2
+exo_proto_outfit_military
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_green, cloth_green, cloth_green, textile_patch_b, textile_patch_m, servomotor, servomotor
+
+[dis_exoprot_brown]
+mod_exo_proto_outfit_bandit
+mod_exo_proto_outfit
+mod_exo_proto_outfit_1
+mod_exo_proto_outfit_5
+mod_exo_proto_outfit_7
+mod_exo_proto_outfit_9
+mod_exo_proto_outfit_10
+mod_exo_proto_outfit_monolith
+mod_exo_proto_outfit_monolith_1
+mod_exo_proto_outfit_monolith_2
+mod_exo_proto_outfit_monolith_3
+mod_exo_proto_outfit_monolith_4
+mod_exo_proto_outfit_monolith_5
+exo_proto_outfit_monolith
+exo_proto_outfit_monolith_1
+exo_proto_outfit_monolith_2
+exo_proto_outfit_1
+exo_proto_outfit
+random_parts = plate_medium, plate_light, plate_unload, plate_unload, plate_small, cloth_brown, cloth_brown, cloth_brown, textile_patch_b, textile_patch_m, servomotor, servomotor
+
+;----------------------------------------------------------------------------
+; Helmet Sections
+;----------------------------------------------------------------------------
+[dis_respirators]
+helm_respirator_2
+helm_respirator2
+helm_respirator3
+helm_respirator4
+helm_respirator5
+helm_respirator6
+helm_pmk
+helm_rp_metro_gp7
+helm_m40
+helm_respirator
+helm_respirator_joker
+helm_respirator_dolg
+helm_respirator_freedom
+helm_respirator_gp5
+helm_respirator_carbon
+helm_respirator_2_camo
+helm_respirator3_camo
+random_parts = plastic_pieces, plastic_pieces, glass_pieces
+
+[dis_battle]
+helm_cs
+helm_csky
+helm_tactic_2
+helm_merc_battle
+helm_mono_battle
+helm_bandit_battle
+helm_battle5
+helm_freedom_battle
+helm_rp_metro_ranger
+helm_battle
+helm_tactic
+helm_hardhat
+helm_battle_stalker
+helm_tactic_freedom
+helm_tactic_dolg
+helm_tactic_bandit
+helm_tactic_merc
+random_parts = plate_medium, plate_medium, plastic_pieces, plastic_pieces, glass_pieces, plate_cloth, plate_cloth
+;----------------------------------------------------------------------------
+; Items
+;----------------------------------------------------------------------------
+[dis_devices]
+radio
+radio2
+walkie
+radio_military
+headlamp
+device_torch
+device_torch_2
+device_torch_3
+device_flashlight
+detector_simple_broken
+detector_advanced_broken
+detector_simple_broken_2
+detector_advanced_broken_2
+random_parts = plastic_pieces, plastic_pieces, glass_pieces, circuit_board

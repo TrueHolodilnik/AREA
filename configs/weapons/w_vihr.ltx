@@ -1,0 +1,310 @@
+[wpn_vihr]:default_weapon_params
+$spawn								= "weapons\val"			; option for Level Editor
+$npc								= off					; option for Level Editor
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr.ogf
+class								= WP_VAL
+inv_name							= st_wpn_vihr
+inv_name_short						= st_wpn_vihr
+description							= st_wpn_vihr_descr
+scopes								= 1p29, 1p78, ekp, kobra, okp, pso, pso1m21
+parent_section						= wpn_vihr
+cost								= 30580
+inv_weight							= 2.0
+inv_volume							= 3
+ph_mass								= 3
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+default_to_ruck						= false
+sprint_allowed						= true
+heating_rates						= ak3
+repair_type							= rifle_9x39
+weapon_class						= assault_rifle
+;-------------------------------------------------------------------------------
+upgrades							= up_gr_firstab_val, up_gr_seconab_val, up_gr_thirdab_val, up_gr_fourtab_val, up_gr_fifthab_val
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_val
+;-TTX-----------------------------------------------------------------------------
+hit_power							= 0.62, 0.62, 0.62, 0.62
+hit_impulse							= 33
+hit_type							= fire_wound
+fire_distance						= 400
+bullet_speed						= 295
+rpm									= 900
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_vihr_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.85
+misfire_end_condition				= 0.14
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0010
+condition_queue_shot_dec			= 0.0010
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= 1, -1
+magazine_sect						= mag_9x39_cnt_30_vihr, mag_9x39_cnt_20_4_vihr, mag_9x39_cnt_10_vihr
+ammo_class							= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, ammo_9x39_ap, ammo_9x39_ap_bad, ammo_9x39_ap_verybad
+slot								= 2
+animation_slot						= 2
+;--„исперсиЯ----------------------------------------------------------------------------
+fire_dispersion_base				= 0.32				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.2f
+crosshair_inertion					= 4.8
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.82
+cam_dispersion_inc					= 0.70
+cam_dispersion_frac					= 0.9				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 43.0				;максимальный угол отдачи
+cam_max_angle_horz					= 43.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.59				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.73
+PDM_disp_vel_factor					= 1.745
+PDM_disp_accel_factor				= 1.745
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_dispersion					= 0.76
+zoom_cam_dispersion_inc				= 0.64
+zoom_cam_dispersion_frac			= 0.9
+zoom_cam_max_angle					= 43.0
+zoom_cam_max_angle_horz				= 43.0
+zoom_cam_step_angle_horz			= 0.41
+fire_dispersion_condition_factor	= 0.001				;увеличение дисперсии в процентах при максимальном износе
+;--DOF--------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 2.5
+;-------------------------------------------------------------------------------
+inv_grid_width						= 4
+inv_grid_height						= 2
+inv_grid_x							= 32
+inv_grid_y							= 34
+
+upgr_icon_x							= 900
+upgr_icon_y							= 100
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 154
+kill_msg_width						= 78
+kill_msg_height						= 21
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.26, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.26, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.131, 0
+orientation							= 0, 0, 0
+fire_point							= 0,0.174,0.365
+fire_point2							= 0, 0.097, 0.722
+flame_particles						= weapons\new_effects\akmsl
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= -0.02,0.167,0.082
+shell_dir							= 0, 1, 0
+shell_particles						= weapons\9x39
+
+light_disabled						= true
+light_color							= 0.6,0.5,0.3
+light_range							= 0.01
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_name						= wpn_sil_vihr
+silencer_x							= 180
+silencer_y							= 13
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 144
+grenade_launcher_y					= 25
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\vihr\vihr_holster
+snd_draw							= weapons\vihr\vihr_draw
+snd_empty							= weapons\vihr\vihr_empty
+snd_reload							= weapons\vihr\vihr_reload
+snd_reload_empty					= weapons\vihr\vihr_reload_empty
+snd_reload_misfire					= weapons\vihr\vihr_reload_empty, , ,2.1
+snd_reload_detached					= weapons\vihr\vihr_reload, , ,0.8
+snd_reload_detached_empty			= weapons\vihr\vihr_reload_empty, , ,0.8
+snd_shoot							= weapons\vihr\vihr_shoot_null
+snd_silencer_shot					= weapons\vihr\vihr_shot_sil_null
+;--Mагазины-------------------------------------------------------------------
+[mag_9x39_cnt_30_vihr]
+magazine_name						= magazine_9x39_cnt_30
+magazine_x							= 102
+magazine_y							= 48
+custom_icon 						= 4,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_20_4_vihr]
+magazine_name						= magazine_9x39_cnt_20_4
+magazine_x							= 106
+magazine_y							= 41
+custom_icon 						= 1,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_10_vihr]
+magazine_name						= magazine_9x39_cnt_10
+magazine_x							= 105
+magazine_y							= 41
+custom_icon 						= 0,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_vihr_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.023355,0.02963,-0.056575
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.037,0.626
+fire_bone							= wpn_body
+fire_point2							= -0.014,0.01,-0.037
+fire_bone2							= wpn_body
+grenade_bone						= grenade
+
+hands_position						= -0.069625,-0.104500,0.048376
+hands_position_16x9					= -0.069625,-0.104500,0.048376
+hands_orientation					= 0.808689,1.891224,0
+hands_orientation_16x9				= 0.808689,1.891224,0
+
+aim_hud_offset_pos					= -0.082175,0.022000,-0.245504
+aim_hud_offset_pos_16x9				= -0.082175,0.022000,-0.245504
+aim_hud_offset_rot					= 0.028438,0.013807,0
+aim_hud_offset_rot_16x9				= 0.028438,0.013807,0
+
+anm_show							= vihr_draw
+anm_hide							= vihr_hide
+anm_idle							= vihr_idle
+anm_idle_sprint						= vihr_idle_sprint
+anm_idle_moving						= vihr_idle_moving
+anm_idle_moving_crouch				= vihr_idle_moving_crouch
+anm_shots							= vihr_shoot, shoot
+anm_shots_empty						= vihr_idle
+anm_reload							= vihr_reload, reload
+anm_reload_misfire					= vihr_misfire, misfire
+anm_reload_empty					= vihr_reload_empty, reload_empty
+anm_reload_detached					= vihr_reload, reload, , 1.050
+anm_reload_detached_empty			= vihr_reload_empty, reload_empty, ,1.050
+anm_idle_aim						= vihr_idle_aim
+anm_bore							= vihr_idle_aim
+;-----------------------------------------------------------------------------
+; Scopes
+;-----------------------------------------------------------------------------
+[wpn_vihr_1p29]:wpn_vihr
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr_1p29.ogf
+scope_name							= 1p29
+scope_x								= 73
+scope_y								= 0
+hud									= wpn_vihr_1p29_hud
+
+[wpn_vihr_1p29_hud]:wpn_vihr_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_1p29_hud.ogf
+aim_hud_offset_pos					= -0.085630,-0.008840,-0.191190
+aim_hud_offset_pos_16x9				= -0.085630,-0.008840,-0.191190
+aim_hud_offset_rot					= 0.028126,0.013869,-0.001375
+aim_hud_offset_rot_16x9				= 0.028126,0.013869,-0.001375
+;-----------------------------------------------------------------------------
+[wpn_vihr_1p78]:wpn_vihr
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr_1p78.ogf
+scope_name							= 1p78
+scope_x								= 67
+scope_y								= -5
+hud									= wpn_vihr_1p78_hud
+
+[wpn_vihr_1p78_hud]:wpn_vihr_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_1p78_hud.ogf
+aim_hud_offset_pos					= -0.080175,0.003980,-0.204502
+aim_hud_offset_pos_16x9				= -0.080175,0.003980,-0.204502
+aim_hud_offset_rot					= 0.024501,0.013807,-0.013375
+aim_hud_offset_rot_16x9				= 0.024501,0.013807,-0.013375
+;-----------------------------------------------------------------------------
+[wpn_vihr_kobra]:wpn_vihr
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr_kobra.ogf
+scope_name							= kobra
+scope_x								= 80
+scope_y								= 6
+hud									= wpn_vihr_kobra_hud
+
+[wpn_vihr_kobra_hud]:wpn_vihr_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_kobra_hud.ogf
+aim_hud_offset_pos					= -0.077305,-0.005845,-0.175501
+aim_hud_offset_pos_16x9				= -0.077305,-0.005845,-0.175501
+aim_hud_offset_rot					= 0.022563,0.009869,0
+aim_hud_offset_rot_16x9				= 0.022563,0.009869,0
+;-----------------------------------------------------------------------------
+[wpn_vihr_ekp]:wpn_vihr
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr_ekp.ogf
+scope_name							= ekp
+scope_x								= 78
+scope_y								= 1
+hud									= wpn_vihr_ekp_hud
+
+[wpn_vihr_ekp_hud]:wpn_vihr_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_ekp_hud.ogf
+aim_hud_offset_pos					= -0.081965,-0.005640,-0.176876
+aim_hud_offset_pos_16x9				= -0.081965,-0.005640,-0.176876
+aim_hud_offset_rot					= 0.042625,0.015057,0
+aim_hud_offset_rot_16x9				= 0.042625,0.015057,0
+;-----------------------------------------------------------------------------
+[wpn_vihr_okp]:wpn_vihr
+visual								= dynamics\weapons\wpn_vihr\wpn_vihr_okp.ogf
+scope_name							= okp
+scope_x								= 76
+scope_y								= 1
+hud									= wpn_vihr_okp_hud
+
+[wpn_vihr_okp_hud]:wpn_vihr_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_okp_hud.ogf
+aim_hud_offset_pos					= -0.080600,0.016645,-0.170250
+aim_hud_offset_pos_16x9				= -0.080600,0.016645,-0.170250
+aim_hud_offset_rot					= 0.063438,0.025369,0
+aim_hud_offset_rot_16x9				= 0.063438,0.025369,0
+;-----------------------------------------------------------------------------
+[wpn_vihr_pso]:wpn_vihr
+scope_name							= pso
+scope_x								= 45
+scope_y								= 2
+hud									= wpn_vihr_pso1_hud
+
+[wpn_vihr_pso1_hud]:wpn_vihr_hud
+aim_hud_offset_pos					= -0.073925,0.002000,-0.187376
+aim_hud_offset_pos_16x9				= -0.073925,0.002000,-0.187376
+aim_hud_offset_rot					= 0.028438,0.014057,0.000000
+aim_hud_offset_rot_16x9				= 0.028438,0.014057,0.000000
+;-----------------------------------------------------------------------------
+[wpn_vihr_pso1m21]:wpn_vihr
+scope_name							= pso1m21
+scope_x								= 48
+scope_y								= 2
+hud									= wpn_vihr_pso1m21_hud
+
+[wpn_vihr_pso1m21_hud]:wpn_vihr_pso1_hud
+item_visual							= dynamics\weapons\wpn_vihr\wpn_vihr_pso1m21_hud.ogf
+;-----------------------------------------------------------------------------

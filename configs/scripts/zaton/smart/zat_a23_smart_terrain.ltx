@@ -1,0 +1,25 @@
+[smart_terrain];zat_a23_smart_terrain
+squad_id = 53
+max_population = 4
+respawn_params = respawn@zat_a23_smart_terrain
+respawn_idle = 30000
+
+[respawn@zat_a23_smart_terrain]
+spawn_zombie@advanced
+spawn_zombie@citizen
+
+[spawn_zombie@citizen]
+spawn_squads = simulation_zombie
+spawn_num = 2
+
+[spawn_zombie@advanced]
+spawn_squads = zombied_sim_squad_veteran, zombied_sim_squad_veteran
+spawn_num = 2
+
+[exclusive]
+zat_a23_zombie_01 = zaton\zat_a23_zombie.ltx
+zat_a23_zombie_02 = zaton\zat_a23_zombie.ltx
+zat_a23_zombie_03 = zaton\zat_a23_zombie.ltx
+zat_a23_zombie_04 = zaton\zat_a23_zombie.ltx
+zat_a23_zombie_05 = zaton\zat_a23_zombie.ltx
+zat_a23_zombie_06 = zaton\zat_a23_zombie.ltx

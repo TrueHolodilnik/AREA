@@ -1,0 +1,2628 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<	 		DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					  A.R.E.A - DIALOG
+<				------ by Fal and Las -----
+<===========================================================-->
+<game_dialogs>
+	<!----- CRAFT_MEH_WEAP ----->
+    <dialog id="esc_stalker_klin_craft">
+        <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+        <phrase_list>
+            <phrase id="99999999991">
+                <text>esc_stalker_klin_craft_99999999991</text>
+            </phrase>
+            <phrase id="9999999999">
+                <text>esc_stalker_klin_craft_9999999999</text>
+            </phrase>
+            <phrase id="127001103">
+                <text>esc_stalker_klin_craft_127001103</text>
+                <next>12700110103</next>
+                <next>1270011010103</next>
+            </phrase>
+            <phrase id="127001102">
+                <text>esc_stalker_klin_craft_127001102</text>
+                <next>12700110102</next>
+                <next>1270011010102</next>
+            </phrase>
+            <phrase id="93900003">
+                <text>esc_stalker_klin_craft_93900003</text>
+                <next>9390000103</next>
+                <next>939000010103</next>
+            </phrase>
+            <phrase id="52">
+                <text>esc_stalker_klin_craft_52</text>
+                <next>53</next>
+            </phrase>
+            <phrase id="62">
+                <text>esc_stalker_klin_craft_62</text>
+                <next>63</next>
+            </phrase>
+            <phrase id="53">
+                <text>esc_stalker_klin_craft_53</text>
+            </phrase>
+            <phrase id="43">
+                <text>esc_stalker_klin_craft_43</text>
+            </phrase>
+            <phrase id="42">
+                <text>esc_stalker_klin_craft_42</text>
+                <next>43</next>
+            </phrase>
+            <phrase id="22">
+                <text>esc_stalker_klin_craft_22</text>
+                <next>23</next>
+            </phrase>
+            <phrase id="23">
+                <text>esc_stalker_klin_craft_23</text>
+            </phrase>
+            <phrase id="32">
+                <text>esc_stalker_klin_craft_32</text>
+                <next>33</next>
+            </phrase>
+            <phrase id="33">
+                <text>esc_stalker_klin_craft_33</text>
+            </phrase>
+            <phrase id="73">
+                <text>esc_stalker_klin_craft_73</text>
+            </phrase>
+            <phrase id="72">
+                <text>esc_stalker_klin_craft_72</text>
+                <next>73</next>
+            </phrase>
+            <phrase id="82">
+                <text>esc_stalker_klin_craft_82</text>
+                <next>83</next>
+            </phrase>
+            <phrase id="83">
+                <text>esc_stalker_klin_craft_83</text>
+            </phrase>
+            <phrase id="92">
+                <text>esc_stalker_klin_craft_92</text>
+                <next>93</next>
+            </phrase>
+            <phrase id="93">
+                <text>esc_stalker_klin_craft_93</text>
+            </phrase>
+            <phrase id="102">
+                <text>esc_stalker_klin_craft_102</text>
+                <next>103</next>
+            </phrase>
+            <phrase id="103">
+                <text>esc_stalker_klin_craft_103</text>
+            </phrase>
+            <phrase id="113">
+                <text>esc_stalker_klin_craft_113</text>
+            </phrase>
+            <phrase id="112">
+                <text>esc_stalker_klin_craft_112</text>
+                <next>113</next>
+            </phrase>
+            <phrase id="122">
+                <text>esc_stalker_klin_craft_122</text>
+                <next>123</next>
+            </phrase>
+            <phrase id="123">
+                <text>esc_stalker_klin_craft_123</text>
+            </phrase>
+            <phrase id="132">
+                <text>esc_stalker_klin_craft_132</text>
+                <next>133</next>
+            </phrase>
+            <phrase id="9390000101">
+                <text>esc_stalker_klin_craft_9390000101</text>
+                <precondition>dialogs_area.have_detail_sp_9x_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_9x_barrel_worn</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="939000010101">
+                <text></text>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="93900001">
+                <text>esc_stalker_klin_craft_93900001</text>
+                <next>9390000101</next>
+                <next>939000010101</next>
+            </phrase>
+            <phrase id="93900002">
+                <text>esc_stalker_klin_craft_93900002</text>
+                <next>9390000102</next>
+                <next>939000010102</next>
+            </phrase>
+            <phrase id="9390000102">
+                <text>esc_stalker_klin_craft_9390000102</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="939000010102">
+                <text>esc_stalker_klin_craft_939000010102</text>
+                <action>dialogs_area.give_actor_sp_9x_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="9390000103">
+                <text>esc_stalker_klin_craft_9390000103</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="939000010103">
+                <text>esc_stalker_klin_craft_939000010103</text>
+                <action>dialogs_area.give_actor_sp_9x_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="93900004">
+                <text>esc_stalker_klin_craft_93900004</text>
+                <next>9390000104</next>
+                <next>939000010104</next>
+            </phrase>
+            <phrase id="9390000104">
+                <text>esc_stalker_klin_craft_9390000104</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="9390000106">
+                <text>esc_stalker_klin_craft_9390000106</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="93900006">
+                <text>esc_stalker_klin_craft_93900006</text>
+                <next>9390000106</next>
+                <next>939000010106</next>
+            </phrase>
+            <phrase id="939000010106">
+                <text>esc_stalker_klin_craft_939000010106</text>
+                <action>dialogs_area.give_actor_sp_9x_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+            </phrase>
+            <phrase id="939000010104">
+                <text>esc_stalker_klin_craft_939000010104</text>
+                <action>dialogs_area.give_actor_sp_9x_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="93900005">
+                <text>esc_stalker_klin_craft_93900005</text>
+                <next>9390000105</next>
+                <next>939000010105</next>
+            </phrase>
+            <phrase id="9390000105">
+                <text>esc_stalker_klin_craft_9390000105</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="939000010105">
+                <text>esc_stalker_klin_craft_939000010105</text>
+                <action>dialogs_area.give_actor_sp_9x_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="04500002">
+                <text>esc_stalker_klin_craft_04500002</text>
+                <next>0450000102</next>
+                <next>045000010102</next>
+            </phrase>
+            <phrase id="045000010101">
+                <text>esc_stalker_klin_craft_045000010101</text>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="0450000102">
+                <text>esc_stalker_klin_craft_0450000102</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>04500001</next>
+                <next>04500002</next>
+                <next>04500003</next>
+                <next>04500004</next>
+            </phrase>
+            <phrase id="045000010102">
+                <text>esc_stalker_klin_craft_045000010102</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="0450000103">
+                <text>esc_stalker_klin_craft_0450000103</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>04500001</next>
+                <next>04500002</next>
+                <next>04500003</next>
+                <next>04500004</next>
+            </phrase>
+            <phrase id="04500003">
+                <text>esc_stalker_klin_craft_04500003</text>
+                <next>0450000103</next>
+                <next>045000010103</next>
+            </phrase>
+            <phrase id="045000010103">
+                <text>esc_stalker_klin_craft_045000010103</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+            </phrase>
+            <phrase id="54539000010101">
+                <text>esc_stalker_klin_craft_54539000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+            </phrase>
+            <phrase id="54539000010102">
+                <text>esc_stalker_klin_craft_54539000010102</text>
+                <action>dialogs_area.give_actor_sp_545_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+            </phrase>
+            <phrase id="545390000102">
+                <text>esc_stalker_klin_craft_545390000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="54539000010103">
+                <text>esc_stalker_klin_craft_54539000010103</text>
+                <action>dialogs_area.give_actor_sp_545_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="545390000103">
+                <text>esc_stalker_klin_craft_545390000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="545390000104">
+                <text>esc_stalker_klin_craft_545390000104</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="54539000010104">
+                <text>esc_stalker_klin_craft_54539000010104</text>
+                <action>dialogs_area.give_actor_sp_545_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+            </phrase>
+            <phrase id="54539000010105">
+                <text>esc_stalker_klin_craft_54539000010105</text>
+                <action>dialogs_area.give_actor_sp_545_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+            </phrase>
+            <phrase id="545390000106">
+                <text>esc_stalker_klin_craft_545390000106</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="54539000010106">
+                <text>esc_stalker_klin_craft_54539000010106</text>
+                <action>dialogs_area.give_actor_sp_545_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+            </phrase>
+            <phrase id="556450000101">
+                <text>esc_stalker_klin_craft_556450000101</text>
+                <precondition>dialogs_area.have_detail_sp_556_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_556_barrel_worn</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="55645000010101">
+                <text>esc_stalker_klin_craft_55645000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="55645000010102">
+                <text>esc_stalker_klin_craft_55645000010102</text>
+                <action>dialogs_area.give_actor_sp_556_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="5564500002">
+                <text>esc_stalker_klin_craft_5564500002</text>
+                <next>556450000102</next>
+                <next>55645000010102</next>
+            </phrase>
+            <phrase id="556450000102">
+                <text>esc_stalker_klin_craft_556450000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="556450000103">
+                <text>esc_stalker_klin_craft_556450000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="55645000010103">
+                <text>esc_stalker_klin_craft_55645000010103</text>
+                <action>dialogs_area.give_actor_sp_556_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="5564500003">
+                <text>esc_stalker_klin_craft_5564500003</text>
+                <next>556450000103</next>
+                <next>55645000010103</next>
+            </phrase>
+            <phrase id="556450000104">
+                <text>esc_stalker_klin_craft_556450000104</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="5564500004">
+                <text>esc_stalker_klin_craft_5564500004</text>
+                <next>556450000104</next>
+                <next>55645000010104</next>
+            </phrase>
+            <phrase id="55645000010104">
+                <text>esc_stalker_klin_craft_55645000010104</text>
+                <action>dialogs_area.give_actor_sp_556_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="556450000105">
+                <text>esc_stalker_klin_craft_556450000105</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="55645000010105">
+                <text>esc_stalker_klin_craft_55645000010105</text>
+                <action>dialogs_area.give_actor_sp_556_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="5564500005">
+                <text>esc_stalker_klin_craft_5564500005</text>
+                <next>556450000105</next>
+                <next>55645000010105</next>
+            </phrase>
+            <phrase id="556450000106">
+                <text>esc_stalker_klin_craft_556450000106</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="55645000010106">
+                <text>esc_stalker_klin_craft_55645000010106</text>
+                <action>dialogs_area.give_actor_sp_556_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+            </phrase>
+            <phrase id="5564500006">
+                <text>esc_stalker_klin_craft_5564500006</text>
+                <next>556450000106</next>
+                <next>55645000010106</next>
+            </phrase>
+            <phrase id="762250000101">
+                <text>esc_stalker_klin_craft_762250000101</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>7622500001</next>
+                <next>7622500002</next>
+                <next>7622500003</next>
+                <next>7622500004</next>
+                <next>7622500005</next>
+            </phrase>
+            <phrase id="76225000010101">
+                <text>esc_stalker_klin_craft_76225000010101</text>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7622500002">
+                <text>esc_stalker_klin_craft_7622500002</text>
+                <next>762250000102</next>
+                <next>76225000010102</next>
+            </phrase>
+            <phrase id="76225000010102">
+                <text>esc_stalker_klin_craft_76225000010102</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762250000102">
+                <text>esc_stalker_klin_craft_762250000102</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>7622500001</next>
+                <next>7622500002</next>
+                <next>7622500003</next>
+                <next>7622500004</next>
+                <next>7622500005</next>
+            </phrase>
+            <phrase id="7622500003">
+                <text>esc_stalker_klin_craft_7622500003</text>
+                <next>762250000103</next>
+                <next>76225000010103</next>
+            </phrase>
+            <phrase id="76225000010103">
+                <text>esc_stalker_klin_craft_76225000010103</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+            </phrase>
+            <phrase id="762390000101">
+                <text>esc_stalker_klin_craft_762390000101</text>
+                <precondition>dialogs_area.have_detail_sp_762_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_762_barrel_worn</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="76239000010101">
+                <text>esc_stalker_klin_craft_76239000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762390000103">
+                <text>esc_stalker_klin_craft_762390000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="7623900002">
+                <text>esc_stalker_klin_craft_7623900002</text>
+                <next>762390000102</next>
+                <next>76239000010102</next>
+            </phrase>
+            <phrase id="76239000010102">
+                <text>esc_stalker_klin_craft_76239000010102</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7623900003">
+                <text>esc_stalker_klin_craft_7623900003</text>
+                <next>762390000103</next>
+                <next>76239000010103</next>
+            </phrase>
+            <phrase id="76239000010103">
+                <text>esc_stalker_klin_craft_76239000010103</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762390000104">
+                <text>esc_stalker_klin_craft_762390000104</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="76239000010104">
+                <text>esc_stalker_klin_craft_76239000010104</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7623900004">
+                <text>esc_stalker_klin_craft_7623900004</text>
+                <next>762390000104</next>
+                <next>76239000010104</next>
+            </phrase>
+            <phrase id="7623900005">
+                <text>esc_stalker_klin_craft_7623900005</text>
+                <next>762390000105</next>
+                <next>76239000010105</next>
+            </phrase>
+            <phrase id="762390000105">
+                <text>esc_stalker_klin_craft_762390000105</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="76239000010105">
+                <text>esc_stalker_klin_craft_76239000010105</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762390000106">
+                <text>esc_stalker_klin_craft_762390000106</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="7623900006">
+                <text>esc_stalker_klin_craft_7623900006</text>
+                <next>762390000106</next>
+                <next>76239000010106</next>
+            </phrase>
+            <phrase id="76239000010106">
+                <text>esc_stalker_klin_craft_76239000010106</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+            </phrase>
+            <phrase id="762510000101">
+                <text>esc_stalker_klin_craft_762510000101</text>
+                <precondition>dialogs_area.have_detail_sp_762_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_762_barrel_worn</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="76251000010101">
+                <text>esc_stalker_klin_craft_76251000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7625100002">
+                <text>esc_stalker_klin_craft_7625100002</text>
+                <next>762510000102</next>
+                <next>76251000010102</next>
+            </phrase>
+            <phrase id="76251000010102">
+                <text>esc_stalker_klin_craft_76251000010102</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="76251000010106">
+                <text>esc_stalker_klin_craft_76251000010106</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+            </phrase>
+            <phrase id="762510000106">
+                <text>esc_stalker_klin_craft_762510000106</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="7625100006">
+                <text>esc_stalker_klin_craft_7625100006</text>
+                <next>762510000106</next>
+                <next>76251000010106</next>
+            </phrase>
+            <phrase id="762510000105">
+                <text>esc_stalker_klin_craft_762510000105</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="76251000010105">
+                <text>esc_stalker_klin_craft_76251000010105</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7625100005">
+                <text>esc_stalker_klin_craft_7625100005</text>
+                <next>762510000105</next>
+                <next>76251000010105</next>
+            </phrase>
+            <phrase id="762510000104">
+                <text>esc_stalker_klin_craft_762510000104</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="7625100004">
+                <text>esc_stalker_klin_craft_7625100004</text>
+                <next>762510000104</next>
+                <next>76251000010104</next>
+            </phrase>
+            <phrase id="76251000010104">
+                <text>esc_stalker_klin_craft_76251000010104</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762510000103">
+                <text>esc_stalker_klin_craft_762510000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="7625100003">
+                <text>esc_stalker_klin_craft_7625100003</text>
+                <next>762510000103</next>
+                <next>76251000010103</next>
+            </phrase>
+            <phrase id="76251000010103">
+                <text>esc_stalker_klin_craft_76251000010103</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762510000102">
+                <text>esc_stalker_klin_craft_762510000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="762540000101">
+                <text>esc_stalker_klin_craft_762540000101</text>
+                <precondition>dialogs_area.have_detail_sp_762_barrel_worn</precondition>
+                <action>dialogs_area.have_detail_sp_762_barrel_worn</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="762540000102">
+                <text>esc_stalker_klin_craft_762540000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.have_detail_sp_stock</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="76254000010101">
+                <text>esc_stalker_klin_craft_76254000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="76254000010102">
+                <text>esc_stalker_klin_craft_76254000010102</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7625400002">
+                <text>esc_stalker_klin_craft_7625400002</text>
+                <next>762540000102</next>
+                <next>76254000010102</next>
+            </phrase>
+            <phrase id="76254000010103">
+                <text>esc_stalker_klin_craft_76254000010103</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="762540000103">
+                <text>esc_stalker_klin_craft_762540000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.have_detail_sp_spring</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="7625400003">
+                <text>esc_stalker_klin_craft_7625400003</text>
+                <next>762540000103</next>
+                <next>76254000010103</next>
+            </phrase>
+            <phrase id="762540000104">
+                <text>esc_stalker_klin_craft_762540000104</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.have_detail_sp_rifle_boltcarrier</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="76254000010104">
+                <text>esc_stalker_klin_craft_76254000010104</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7625400004">
+                <text>esc_stalker_klin_craft_7625400004</text>
+                <next>762540000104</next>
+                <next>76254000010104</next>
+            </phrase>
+            <phrase id="762540000105">
+                <text>esc_stalker_klin_craft_762540000105</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.have_detail_sp_triggermechanism_worn</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="76254000010105">
+                <text>esc_stalker_klin_craft_76254000010105</text>
+                <action>dialogs_area.give_actor_sp_762_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+            </phrase>
+            <phrase id="7625400005">
+                <text>esc_stalker_klin_craft_7625400005</text>
+                <next>762540000105</next>
+                <next>76254000010105</next>
+            </phrase>
+            <phrase id="792330000101">
+                <text>esc_stalker_klin_craft_792330000101</text>
+                <precondition>dialogs_area.have_detail_sp_792_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_792_barrel_worn</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="79233000010101">
+                <text>esc_stalker_klin_craft_79233000010101</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7923300002">
+                <text>esc_stalker_klin_craft_7923300002</text>
+                <next>792330000102</next>
+                <next>79233000010102</next>
+            </phrase>
+            <phrase id="792330000102">
+                <text>esc_stalker_klin_craft_792330000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="79233000010102">
+                <text>esc_stalker_klin_craft_79233000010102</text>
+                <action>dialogs_area.give_actor_sp_792_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="79233000010103">
+                <text>esc_stalker_klin_craft_79233000010103</text>
+                <action>dialogs_area.give_actor_sp_792_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7923300003">
+                <text>esc_stalker_klin_craft_7923300003</text>
+                <next>792330000103</next>
+                <next>79233000010103</next>
+            </phrase>
+            <phrase id="792330000103">
+                <text>esc_stalker_klin_craft_792330000103</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="792330000104">
+                <text>esc_stalker_klin_craft_792330000104</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="79233000010104">
+                <text>esc_stalker_klin_craft_79233000010104</text>
+                <action>dialogs_area.give_actor_sp_792_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="7923300004">
+                <text>esc_stalker_klin_craft_7923300004</text>
+                <next>792330000104</next>
+                <next>79233000010104</next>
+            </phrase>
+            <phrase id="7923300005">
+                <text>esc_stalker_klin_craft_7923300005</text>
+                <next>792330000105</next>
+                <next>79233000010105</next>
+            </phrase>
+            <phrase id="792330000105">
+                <text>esc_stalker_klin_craft_792330000105</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="79233000010105">
+                <text>esc_stalker_klin_craft_79233000010105</text>
+                <action>dialogs_area.give_actor_sp_792_barrel_worn</action>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_rifle_boltcarrier</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="127000002">
+                <text>esc_stalker_klin_craft_127000002</text>
+                <next>12700000102</next>
+                <next>1270000010102</next>
+            </phrase>
+            <phrase id="127000003">
+                <text>esc_stalker_klin_craft_127000003</text>
+                <next>12700000103</next>
+                <next>1270000010103</next>
+            </phrase>
+            <phrase id="12700000102">
+                <text>esc_stalker_klin_craft_12700000102</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>127000001</next>
+                <next>127000002</next>
+                <next>127000003</next>
+                <next>127000004</next>
+                <next>127000005</next>
+            </phrase>
+            <phrase id="12700000101">
+                <text>esc_stalker_klin_craft_12700000101</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>127000001</next>
+                <next>127000002</next>
+                <next>127000003</next>
+                <next>127000004</next>
+                <next>127000005</next>
+            </phrase>
+            <phrase id="12700000103">
+                <text>esc_stalker_klin_craft_12700000103</text>
+                <precondition>dialogs_area.have_detail_sp_smooth_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_smooth_barrel_worn</action>
+                <next>127000001</next>
+                <next>127000002</next>
+                <next>127000003</next>
+                <next>127000004</next>
+                <next>127000005</next>
+            </phrase>
+            <phrase id="1270000010103">
+                <text>esc_stalker_klin_craft_1270000010103</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="1270000010102">
+                <text>esc_stalker_klin_craft_1270000010102</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_smooth_barrel_worn</action>
+            </phrase>
+            <phrase id="1270000010101">
+                <text>esc_stalker_klin_craft_1270000010101</text>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+                <action>dialogs_area.give_actor_sp_smooth_barrel_worn</action>
+            </phrase>
+            <phrase id="127001101">
+                <text>esc_stalker_klin_craft_127001101</text>
+                <next>12700110101</next>
+                <next>1270011010101</next>
+            </phrase>
+            <phrase id="1270011010101">
+                <text>esc_stalker_klin_craft_1270011010101</text>
+                <action>dialogs_area.give_actor_sp_smooth_dbarrel_worn</action>
+                <action>dialogs_area.give_actor_sp_double_trigger_worn</action>
+            </phrase>
+            <phrase id="12700110103">
+                <text>esc_stalker_klin_craft_12700110103</text>
+                <precondition>dialogs_area.have_detail_sp_smooth_dbarrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_smooth_dbarrel_worn</action>
+                <next>127001101</next>
+                <next>127001102</next>
+                <next>127001103</next>
+                <next>127001104</next>
+                <next>127001105</next>
+                <next>127001106</next>
+                <next>127001107</next>
+            </phrase>
+            <phrase id="1270011010103">
+                <text>esc_stalker_klin_craft_1270011010103</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+                <action>dialogs_area.give_actor_sp_double_trigger_worn</action>
+            </phrase>
+            <phrase id="12700110102">
+                <text>esc_stalker_klin_craft_12700110102</text>
+                <precondition>dialogs_area.have_detail_sp_double_trigger_worn</precondition>
+                <action>dialogs_area.take_actor_sp_double_trigger_worn</action>
+                <next>127001101</next>
+                <next>127001102</next>
+                <next>127001103</next>
+                <next>127001104</next>
+                <next>127001105</next>
+                <next>127001106</next>
+                <next>127001107</next>
+            </phrase>
+            <phrase id="1270011010102">
+                <text>esc_stalker_klin_craft_1270011010102</text>
+                <action>dialogs_area.give_actor_sp_stock</action>
+            </phrase>
+            <phrase id="12700110101">
+                <text>esc_stalker_klin_craft_12700110101</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>127001101</next>
+                <next>127001102</next>
+                <next>127001103</next>
+                <next>127001104</next>
+                <next>127001105</next>
+                <next>127001106</next>
+                <next>127001107</next>
+            </phrase>
+            <phrase id="143">
+                <text>esc_stalker_klin_craft_143</text>
+            </phrase>
+            <phrase id="762250000103">
+                <text>esc_stalker_klin_craft_762250000103</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>7622500001</next>
+                <next>7622500002</next>
+                <next>7622500003</next>
+                <next>7622500004</next>
+                <next>7622500005</next>
+            </phrase>
+            <phrase id="918000010101">
+                <text>esc_stalker_klin_craft_918000010101</text>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="9180000101">
+                <text>esc_stalker_klin_craft_9180000101</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>91800005</next>
+                <next>91800004</next>
+                <next>91800006</next>
+                <next>91800007</next>
+                <next>91800008</next>
+                <next>91800009</next>
+                <next>91800010</next>
+                <next>91800001</next>
+                <next>91800002</next>
+                <next>91800003</next>
+            </phrase>
+            <phrase id="0450000101">
+                <text>esc_stalker_klin_craft_0450000101</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>04500001</next>
+                <next>04500002</next>
+                <next>04500003</next>
+                <next>04500004</next>
+            </phrase>
+            <phrase id="545390000101">
+                <text>esc_stalker_klin_craft_545390000101</text>
+                <precondition>dialogs_area.have_detail_sp_545_barrel_worn</precondition>
+                <action>dialogs_area.take_actor_sp_545_barrel_worn</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="545390000105">
+                <text>esc_stalker_klin_craft_545390000105</text>
+                <precondition>dialogs_area.have_detail_sp_rifle_boltcarrier</precondition>
+                <action>dialogs_area.take_actor_sp_rifle_boltcarrier</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="762390000102">
+                <text>esc_stalker_klin_craft_762390000102</text>
+                <precondition>dialogs_area.have_detail_sp_stock</precondition>
+                <action>dialogs_area.take_actor_sp_stock</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="5453900001">
+                <text>esc_stalker_klin_craft_5453900001</text>
+                <next>545390000101</next>
+                <next>54539000010101</next>
+            </phrase>
+            <phrase id="5453900002">
+                <text>esc_stalker_klin_craft_5453900002</text>
+                <next>545390000102</next>
+                <next>54539000010102</next>
+            </phrase>
+            <phrase id="5453900003">
+                <text>esc_stalker_klin_craft_5453900003</text>
+                <next>545390000103</next>
+                <next>54539000010103</next>
+            </phrase>
+            <phrase id="5453900005">
+                <text>esc_stalker_klin_craft_5453900005</text>
+                <next>545390000105</next>
+                <next>54539000010105</next>
+            </phrase>
+            <phrase id="5453900004">
+                <text>esc_stalker_klin_craft_5453900004</text>
+                <next>545390000104</next>
+                <next>54539000010104</next>
+            </phrase>
+            <phrase id="5453900006">
+                <text>esc_stalker_klin_craft_5453900006</text>
+                <next>545390000106</next>
+                <next>54539000010106</next>
+            </phrase>
+            <phrase id="1">
+                <text>esc_stalker_klin_craft_1</text>
+                <dont_has_info>close_calibr</dont_has_info>
+                <next>918</next>
+                <next>919</next>
+                <next>939</next>
+                <next>045</next>
+                <next>54539</next>
+                <next>55645</next>
+                <next>76225</next>
+                <next>76239</next>
+                <next>76251</next>
+                <next>76254</next>
+                <next>79233</next>
+                <next>1270</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="04500000001">
+                <text>esc_stalker_klin_craft_04500000001</text>
+                <give_info>wpn_colt1911_worn</give_info>
+                <next>5</next>
+            </phrase>
+            <phrase id="7625100000001">
+                <text>esc_stalker_klin_craft_7625100000001</text>
+                <give_info>wpn_g3_worn</give_info>
+                <next>10</next>
+            </phrase>
+            <phrase id="7622500000001">
+                <text>esc_stalker_klin_craft_7622500000001</text>
+                <give_info>wpn_ppsh41_woodworn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>8</next>
+            </phrase>
+            <phrase id="7622500000002">
+                <text>esc_stalker_klin_craft_7622500000002</text>
+                <give_info>wpn_tt33_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>8</next>
+            </phrase>
+            <phrase id="7623900000006">
+                <text>esc_stalker_klin_craft_7623900000006</text>
+                <give_info>wpn_type63</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>9</next>
+            </phrase>
+            <phrase id="7625400000001">
+                <text>esc_stalker_klin_craft_7625400000001</text>
+                <give_info>wpn_mosin</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>11</next>
+            </phrase>
+            <phrase id="7923300000002">
+                <text>esc_stalker_klin_craft_7923300000002</text>
+                <give_info>wpn_k98</give_info>
+                <next>12</next>
+            </phrase>
+            <phrase id="7923300000003">
+                <text>esc_stalker_klin_craft_7923300000003</text>
+                <give_info>wpn_stg44_worn</give_info>
+                <next>12</next>
+            </phrase>
+            <phrase id="91800000003">
+                <text>esc_stalker_klin_craft_91800000003</text>
+                <give_info>wpn_oc33_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800000004">
+                <text>esc_stalker_klin_craft_91800000004</text>
+                <give_info>wpn_pb_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800000005">
+                <text>esc_stalker_klin_craft_91800000005</text>
+                <give_info>wpn_pm_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800000006">
+                <text>esc_stalker_klin_craft_91800000006</text>
+                <give_info>wpn_kiparis_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800000007">
+                <text>esc_stalker_klin_craft_91800000007</text>
+                <give_info>wpn_vz65_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91900000001">
+                <text>esc_stalker_klin_craft_91900000001</text>
+                <give_info>wpn_beretta_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>3</next>
+            </phrase>
+            <phrase id="91900000002">
+                <text>esc_stalker_klin_craft_91900000002</text>
+                <give_info>wpn_cz75_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>3</next>
+            </phrase>
+            <phrase id="91900000003">
+                <text>esc_stalker_klin_craft_91900000003</text>
+                <give_info>wpn_hpsa_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>3</next>
+            </phrase>
+            <phrase id="91900000004">
+                <text>esc_stalker_klin_craft_91900000004</text>
+                <give_info>wpn_mp5_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>3</next>
+            </phrase>
+            <phrase id="91900000005">
+                <text>esc_stalker_klin_craft_91900000005</text>
+                <give_info>wpn_mp40_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>3</next>
+            </phrase>
+            <phrase id="5453900000001">
+                <text>esc_stalker_klin_craft_5453900000001</text>
+                <give_info>wpn_ak74_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="5453900000002">
+                <text>esc_stalker_klin_craft_5453900000002</text>
+                <give_info>wpn_ak74m_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="5453900000003">
+                <text>esc_stalker_klin_craft_5453900000003</text>
+                <give_info>wpn_ak74u_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="5453900000005">
+                <text>esc_stalker_klin_craft_5453900000005</text>
+                <give_info>wpn_aks74_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="5564500000001">
+                <text>esc_stalker_klin_craft_5564500000001</text>
+                <give_info>wpn_lr300_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="5564500000002">
+                <text>esc_stalker_klin_craft_5564500000002</text>
+                <give_info>wpn_m4_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="5564500000003">
+                <text>esc_stalker_klin_craft_5564500000003</text>
+                <give_info>wpn_m4a1_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="5564500000004">
+                <text>esc_stalker_klin_craft_5564500000004</text>
+                <give_info>wpn_m16_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="7623900000001">
+                <text>esc_stalker_klin_craft_7623900000001</text>
+                <give_info>wpn_akm_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>9</next>
+            </phrase>
+            <phrase id="7623900000002">
+                <text>esc_stalker_klin_craft_7623900000002</text>
+                <give_info>wpn_akms_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>9</next>
+            </phrase>
+            <phrase id="7625400000003">
+                <text>esc_stalker_klin_craft_7625400000003</text>
+                <give_info>wpn_svt40_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>11</next>
+            </phrase>
+            <phrase id="93900000001">
+                <text>esc_stalker_klin_craft_93900000001</text>
+                <give_info>wpn_vsk94_worn</give_info>
+                <next>4</next>
+            </phrase>
+            <phrase id="5453900000004">
+                <text>esc_stalker_klin_craft_5453900000004</text>
+                <give_info>wpn_rpk74_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="5564500000006">
+                <text>esc_stalker_klin_craft_5564500000006</text>
+                <give_info>wpn_sig552_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="5564500000005">
+                <text>esc_stalker_klin_craft_5564500000005</text>
+                <give_info>wpn_sig550_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>7</next>
+            </phrase>
+            <phrase id="7623900000005">
+                <text>esc_stalker_klin_craft_7623900000005</text>
+                <give_info>wpn_sks_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>9</next>
+            </phrase>
+            <phrase id="7623900000004">
+                <text>esc_stalker_klin_craft_7623900000004</text>
+                <give_info>wpn_rpk_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>9</next>
+            </phrase>
+            <phrase id="7625400000002">
+                <text>esc_stalker_klin_craft_7625400000002</text>
+                <give_info>wpn_svd_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>11</next>
+            </phrase>
+            <phrase id="7923300000001">
+                <text>esc_stalker_klin_craft_7923300000001</text>
+                <give_info>wpn_g43</give_info>
+                <next>12</next>
+            </phrase>
+            <phrase id="91800000001">
+                <text>esc_stalker_klin_craft_91800000001</text>
+                <give_info>wpn_aps_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800000002">
+                <text>esc_stalker_klin_craft_91800000002</text>
+                <give_info>wpn_fort_worn</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>2</next>
+            </phrase>
+            <phrase id="91800002">
+                <text>esc_stalker_klin_craft_91800002</text>
+                <next>9180000102</next>
+                <next>918000010102</next>
+            </phrase>
+            <phrase id="9180000102">
+                <text>esc_stalker_klin_craft_9180000102</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>91800004</next>
+                <next>91800005</next>
+                <next>91800006</next>
+                <next>91800007</next>
+                <next>91800008</next>
+                <next>91800009</next>
+                <next>91800010</next>
+                <next>91800002</next>
+                <next>91800003</next>
+                <next>91800001</next>
+            </phrase>
+            <phrase id="918000010102">
+                <text>esc_stalker_klin_craft_918000010102</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="91800001">
+                <text>esc_stalker_klin_craft_91800001</text>
+                <next>9180000101</next>
+                <next>918000010101</next>
+            </phrase>
+            <phrase id="9180000103">
+                <text>esc_stalker_klin_craft_9180000103</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>91800001</next>
+                <next>91800003</next>
+                <next>91800010</next>
+                <next>91800002</next>
+                <next>91800004</next>
+                <next>91800005</next>
+                <next>91800007</next>
+                <next>91800006</next>
+                <next>91800009</next>
+                <next>91800008</next>
+            </phrase>
+            <phrase id="91800003">
+                <text>esc_stalker_klin_craft_91800003</text>
+                <next>9180000103</next>
+                <next>918000010103</next>
+            </phrase>
+            <phrase id="91900001">
+                <text>esc_stalker_klin_craft_91900001</text>
+                <next>9190000101</next>
+                <next>919000010101</next>
+            </phrase>
+            <phrase id="9190000101">
+                <text>esc_stalker_klin_craft_9190000101</text>
+                <precondition>dialogs_area.have_detail_sp_spring</precondition>
+                <action>dialogs_area.take_actor_sp_spring</action>
+                <next>91900008</next>
+                <next>91900004</next>
+                <next>91900005</next>
+                <next>91900006</next>
+                <next>91900007</next>
+                <next>91900002</next>
+                <next>91900003</next>
+                <next>91900001</next>
+            </phrase>
+            <phrase id="919000010101">
+                <text>esc_stalker_klin_craft_919000010101</text>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="91900002">
+                <text>esc_stalker_klin_craft_91900002</text>
+                <next>9190000102</next>
+                <next>919000010102</next>
+            </phrase>
+            <phrase id="9190000102">
+                <text>esc_stalker_klin_craft_9190000102</text>
+                <precondition>dialogs_area.have_detail_sp_pistolgrip</precondition>
+                <action>dialogs_area.take_actor_sp_pistolgrip</action>
+                <next>91900008</next>
+                <next>91900007</next>
+                <next>91900005</next>
+                <next>91900006</next>
+                <next>91900004</next>
+                <next>91900001</next>
+                <next>91900002</next>
+                <next>91900003</next>
+            </phrase>
+            <phrase id="919000010102">
+                <text>esc_stalker_klin_craft_919000010102</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_triggermechanism_worn</action>
+            </phrase>
+            <phrase id="91900003">
+                <text>esc_stalker_klin_craft_91900003</text>
+                <next>9190000103</next>
+                <next>919000010103</next>
+            </phrase>
+            <phrase id="9190000103">
+                <text>esc_stalker_klin_craft_9190000103</text>
+                <precondition>dialogs_area.have_detail_sp_triggermechanism_worn</precondition>
+                <action>dialogs_area.take_actor_sp_triggermechanism_worn</action>
+                <next>91900001</next>
+                <next>91900002</next>
+                <next>91900003</next>
+                <next>91900004</next>
+                <next>91900005</next>
+                <next>91900006</next>
+                <next>91900007</next>
+                <next>91900008</next>
+            </phrase>
+            <phrase id="919000010103">
+                <text>esc_stalker_klin_craft_919000010103</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+            </phrase>
+            <phrase id="91900008">
+                <text>esc_stalker_klin_craft_91900008</text>
+                <action>dialogs_area.give_actor_wpn_mp40_worn</action>
+                <has_info>wpn_mp40_worn</has_info>
+            </phrase>
+            <phrase id="918000010103">
+                <text>esc_stalker_klin_craft_918000010103</text>
+                <action>dialogs_area.give_actor_sp_spring</action>
+                <action>dialogs_area.give_actor_sp_pistolgrip</action>
+            </phrase>
+            <phrase id="93900007">
+                <text>esc_stalker_klin_craft_93900007</text>
+                <action>dialogs_area.give_actor_wpn_vsk94_worn</action>
+                <has_info>wpn_vsk94_worn</has_info>
+            </phrase>
+            <phrase id="63">
+                <text>esc_stalker_klin_craft_63</text>
+            </phrase>
+            <phrase id="5564500001">
+                <text>esc_stalker_klin_craft_5564500001</text>
+                <next>556450000101</next>
+                <next>55645000010101</next>
+            </phrase>
+            <phrase id="7623900010">
+                <text>esc_stalker_klin_craft_7623900010</text>
+                <action>dialogs_area.give_actor_wpn_rpk_worn</action>
+                <has_info>wpn_rpk_worn</has_info>
+            </phrase>
+            <phrase id="7623900011">
+                <text>esc_stalker_klin_craft_7623900011</text>
+                <action>dialogs_area.give_actor_wpn_sks_worn</action>
+                <has_info>wpn_sks_worn</has_info>
+            </phrase>
+            <phrase id="7623900012">
+                <text>esc_stalker_klin_craft_7623900012</text>
+                <action>dialogs_area.give_actor_wpn_type63</action>
+                <has_info>wpn_type63</has_info>
+            </phrase>
+            <phrase id="7625100001">
+                <text>esc_stalker_klin_craft_7625100001</text>
+                <next>762510000101</next>
+                <next>76251000010101</next>
+            </phrase>
+            <phrase id="7625400001">
+                <text>esc_stalker_klin_craft_7625400001</text>
+                <next>762540000101</next>
+                <next>76254000010101</next>
+            </phrase>
+            <phrase id="127001105">
+                <text>esc_stalker_klin_craft_127001105</text>
+                <action>dialogs_area.give_actor_wpn_bm16_full</action>
+                <has_info>wpn_bm16_full</has_info>
+            </phrase>
+            <phrase id="127001107">
+                <text>esc_stalker_klin_craft_127001107</text>
+                <action>dialogs_area.give_actor_wpn_toz34_obrez_worn</action>
+                <has_info>wpn_toz34_obrez_worn</has_info>
+            </phrase>
+            <phrase id="127001106">
+                <text>esc_stalker_klin_craft_127001106</text>
+                <action>dialogs_area.give_actor_wpn_toz34_worn</action>
+                <has_info>wpn_toz34_worn</has_info>
+            </phrase>
+            <phrase id="91800005">
+                <text>esc_stalker_klin_craft_91800005</text>
+                <action>dialogs_area.give_actor_wpn_fort_worn</action>
+                <has_info>wpn_fort_worn</has_info>
+            </phrase>
+            <phrase id="91800004">
+                <text>esc_stalker_klin_craft_91800004</text>
+                <action>dialogs_area.give_actor_wpn_aps_worn</action>
+                <has_info>wpn_aps_worn</has_info>
+            </phrase>
+            <phrase id="91800006">
+                <text>esc_stalker_klin_craft_91800006</text>
+                <action>dialogs_area.give_actor_wpn_oc33_worn</action>
+                <has_info>wpn_oc33_worn</has_info>
+            </phrase>
+            <phrase id="91800007">
+                <text>esc_stalker_klin_craft_91800007</text>
+                <action>dialogs_area.give_actor_wpn_pb_worn</action>
+                <has_info>wpn_pb_worn</has_info>
+            </phrase>
+            <phrase id="91800008">
+                <text>esc_stalker_klin_craft_91800008</text>
+                <action>dialogs_area.give_actor_wpn_pm_worn</action>
+                <has_info>wpn_pm_worn</has_info>
+            </phrase>
+            <phrase id="91800009">
+                <text>esc_stalker_klin_craft_91800009</text>
+                <action>dialogs_area.give_actor_wpn_kiparis_worn</action>
+                <has_info>wpn_kiparis_worn</has_info>
+            </phrase>
+            <phrase id="91800010">
+                <text>esc_stalker_klin_craft_91800010</text>
+                <action>dialogs_area.give_actor_wpn_vz65_worn</action>
+                <has_info>wpn_vz65_worn</has_info>
+            </phrase>
+            <phrase id="91900005">
+                <text>esc_stalker_klin_craft_91900005</text>
+                <action>dialogs_area.give_actor_wpn_cz75_worn</action>
+                <has_info>wpn_cz75_worn</has_info>
+            </phrase>
+            <phrase id="91900004">
+                <text>esc_stalker_klin_craft_91900004</text>
+                <action>dialogs_area.give_actor_wpn_beretta_worn</action>
+                <has_info>wpn_beretta_worn</has_info>
+            </phrase>
+            <phrase id="91900007">
+                <text>esc_stalker_klin_craft_91900007</text>
+                <action>dialogs_area.give_actor_wpn_mp5_worn</action>
+                <has_info>wpn_mp5_worn</has_info>
+            </phrase>
+            <phrase id="91900006">
+                <text>esc_stalker_klin_craft_91900006</text>
+                <action>dialogs_area.give_actor_wpn_hpsa_worn</action>
+                <has_info>wpn_hpsa_worn</has_info>
+            </phrase>
+            <phrase id="04500004">
+                <text>esc_stalker_klin_craft_04500004</text>
+                <action>dialogs_area.give_actor_wpn_colt1911_worn</action>
+                <has_info>wpn_colt1911_worn</has_info>
+            </phrase>
+            <phrase id="5453900007">
+                <text>esc_stalker_klin_craft_5453900007</text>
+                <action>dialogs_area.give_actor_wpn_ak74_worn</action>
+                <has_info>wpn_ak74_worn</has_info>
+            </phrase>
+            <phrase id="5453900008">
+                <text>esc_stalker_klin_craft_5453900008</text>
+                <action>dialogs_area.give_actor_wpn_ak74m_worn</action>
+                <has_info>wpn_ak74m_worn</has_info>
+            </phrase>
+            <phrase id="5453900009">
+                <text>esc_stalker_klin_craft_5453900009</text>
+                <action>dialogs_area.give_actor_wpn_ak74u_worn</action>
+                <has_info>wpn_ak74u_worn</has_info>
+            </phrase>
+            <phrase id="5453900011">
+                <text>esc_stalker_klin_craft_5453900011</text>
+                <action>dialogs_area.give_actor_wpn_aks74_worn</action>
+                <has_info>wpn_aks74_worn</has_info>
+            </phrase>
+            <phrase id="5453900010">
+                <text>esc_stalker_klin_craft_5453900010</text>
+                <action>dialogs_area.give_actor_wpn_rpk74_worn</action>
+                <has_info>wpn_rpk74_worn</has_info>
+            </phrase>
+            <phrase id="5564500007">
+                <text>esc_stalker_klin_craft_5564500007</text>
+                <action>dialogs_area.give_actor_wpn_lr300_worn</action>
+                <has_info>wpn_lr300_worn</has_info>
+            </phrase>
+            <phrase id="5564500008">
+                <text>esc_stalker_klin_craft_5564500008</text>
+                <action>dialogs_area.give_actor_wpn_m4_worn</action>
+                <has_info>wpn_m4_worn</has_info>
+            </phrase>
+            <phrase id="5564500009">
+                <text>esc_stalker_klin_craft_5564500009</text>
+                <action>dialogs_area.give_actor_wpn_m4a1_worn</action>
+                <has_info>wpn_m4a1_worn</has_info>
+            </phrase>
+            <phrase id="5564500010">
+                <text>esc_stalker_klin_craft_5564500010</text>
+                <action>dialogs_area.give_actor_wpn_m16_worn</action>
+                <has_info>wpn_m16_worn</has_info>
+            </phrase>
+            <phrase id="5564500011">
+                <text>esc_stalker_klin_craft_5564500011</text>
+                <action>dialogs_area.give_actor_wpn_sig550_worn</action>
+                <has_info>wpn_sig550_worn</has_info>
+            </phrase>
+            <phrase id="5564500012">
+                <text>esc_stalker_klin_craft_5564500012</text>
+                <action>dialogs_area.give_actor_wpn_sig552_worn</action>
+                <has_info>wpn_sig552_worn</has_info>
+            </phrase>
+            <phrase id="7622500004">
+                <text>esc_stalker_klin_craft_7622500004</text>
+                <action>dialogs_area.give_actor_wpn_ppsh41_woodworn</action>
+                <has_info>wpn_ppsh41_woodworn</has_info>
+            </phrase>
+            <phrase id="7622500005">
+                <text>esc_stalker_klin_craft_7622500005</text>
+                <action>dialogs_area.give_actor_wpn_tt33_worn</action>
+                <has_info>wpn_tt33_worn</has_info>
+            </phrase>
+            <phrase id="7623900007">
+                <text>esc_stalker_klin_craft_7623900007</text>
+                <action>dialogs_area.give_actor_wpn_akm_worn</action>
+                <has_info>wpn_akm_worn</has_info>
+            </phrase>
+            <phrase id="7623900008">
+                <text>esc_stalker_klin_craft_7623900008</text>
+                <action>dialogs_area.give_actor_wpn_akms_worn</action>
+                <has_info>wpn_akms_worn</has_info>
+            </phrase>
+            <phrase id="7625100007">
+                <text>esc_stalker_klin_craft_7625100007</text>
+                <action>dialogs_area.give_actor_wpn_g3_worn</action>
+                <has_info>wpn_g3_worn</has_info>
+            </phrase>
+            <phrase id="7625400006">
+                <text>esc_stalker_klin_craft_7625400006</text>
+                <action>dialogs_area.give_actor_wpn_mosin</action>
+                <has_info>wpn_mosin</has_info>
+            </phrase>
+            <phrase id="7625400007">
+                <text>esc_stalker_klin_craft_7625400007</text>
+                <action>dialogs_area.give_actor_wpn_svd_worn</action>
+                <has_info>wpn_svd_worn</has_info>
+            </phrase>
+            <phrase id="7625400008">
+                <text>esc_stalker_klin_craft_7625400008</text>
+                <action>dialogs_area.give_actor_wpn_svt40_worn</action>
+                <has_info>wpn_svt40_worn</has_info>
+            </phrase>
+            <phrase id="7923300006">
+                <text>esc_stalker_klin_craft_7923300006</text>
+                <action>dialogs_area.give_actor_wpn_g43</action>
+                <has_info>wpn_g43</has_info>
+            </phrase>
+            <phrase id="7923300007">
+                <text>esc_stalker_klin_craft_7923300007</text>
+                <action>dialogs_area.give_actor_wpn_k98</action>
+                <has_info>wpn_k98</has_info>
+            </phrase>
+            <phrase id="7923300008">
+                <text>esc_stalker_klin_craft_7923300008</text>
+                <action>dialogs_area.give_actor_wpn_stg44_worn</action>
+                <has_info>wpn_stg44_worn</has_info>
+            </phrase>
+            <phrase id="127000004">
+                <text>esc_stalker_klin_craft_127000004</text>
+                <action>dialogs_area.give_actor_wpn_mossberg590_worn</action>
+                <has_info>wpn_mossberg590_worn</has_info>
+            </phrase>
+            <phrase id="133">
+                <text>esc_stalker_klin_craft_133</text>
+            </phrase>
+            <phrase id="127000005">
+                <text>esc_stalker_klin_craft_127000005</text>
+                <action>dialogs_area.give_actor_wpn_mp133_worn</action>
+                <has_info>wpn_mp133_worn</has_info>
+            </phrase>
+            <phrase id="127000001">
+                <text>esc_stalker_klin_craft_127000001</text>
+                <next>12700000101</next>
+                <next>1270000010101</next>
+            </phrase>
+            <phrase id="127001104">
+                <text>esc_stalker_klin_craft_127001104</text>
+                <action>dialogs_area.give_actor_wpn_bm16_worn</action>
+                <has_info>wpn_bm16_worn</has_info>
+            </phrase>
+            <phrase id="0">
+                <text>esc_stalker_klin_craft_0</text>
+                <disable_info>close_calibr</disable_info>
+                <disable_info>9_18_start_craft</disable_info>
+                <disable_info>9_19_start_craft</disable_info>
+                <disable_info>0_45_start_craft</disable_info>
+                <disable_info>9_39_start_craft</disable_info>
+                <disable_info>5_45_39_start_craft</disable_info>
+                <disable_info>5_56_45_start_craft</disable_info>
+                <disable_info>7_62_25_start_craft</disable_info>
+                <disable_info>7_62_39_start_craft</disable_info>
+                <disable_info>7_62_51_start_craft</disable_info>
+                <disable_info>7_62_54_start_craft</disable_info>
+                <disable_info>7_92_33_start_craft</disable_info>
+                <disable_info>12_70_start_craft</disable_info>
+                <disable_info>12_70_1_start_craft</disable_info>
+                <disable_info>wpn_aps_worn</disable_info>
+                <disable_info>wpn_fort_worn</disable_info>
+                <disable_info>wpn_oc33_worn</disable_info>
+                <disable_info>wpn_pb_worn</disable_info>
+                <disable_info>wpn_pm_worn</disable_info>
+                <disable_info>wpn_kiparis_worn</disable_info>
+                <disable_info>wpn_vz65_worn</disable_info>
+                <disable_info>wpn_beretta_worn</disable_info>
+                <disable_info>wpn_cz75_worn</disable_info>
+                <disable_info>wpn_hpsa_worn</disable_info>
+                <disable_info>wpn_mp5_worn</disable_info>
+                <disable_info>wpn_mp40_worn</disable_info>
+                <disable_info>wpn_vsk94_worn</disable_info>
+                <disable_info>wpn_colt1911_worn</disable_info>
+                <disable_info>wpn_ak74_worn</disable_info>
+                <disable_info>wpn_ak74m_worn</disable_info>
+                <disable_info>wpn_ak74u_worn</disable_info>
+                <disable_info>wpn_rpk74_worn</disable_info>
+                <disable_info>wpn_lr300_worn</disable_info>
+                <disable_info>wpn_m4_worn</disable_info>
+                <disable_info>wpn_m4a1_worn</disable_info>
+                <disable_info>wpn_m16_worn</disable_info>
+                <disable_info>wpn_sig550_worn</disable_info>
+                <disable_info>wpn_sig552_worn</disable_info>
+                <disable_info>wpn_ppsh41_woodworn</disable_info>
+                <disable_info>wpn_tt33_worn</disable_info>
+                <disable_info>wpn_akm_worn</disable_info>
+                <disable_info>wpn_akms_worn</disable_info>
+                <disable_info>wpn_aks74_worn</disable_info>
+                <disable_info>wpn_rpk_worn</disable_info>
+                <disable_info>wpn_sks_worn</disable_info>
+                <disable_info>wpn_type63</disable_info>
+                <disable_info>wpn_g3_worn</disable_info>
+                <disable_info>wpn_mosin</disable_info>
+                <disable_info>wpn_svd_worn</disable_info>
+                <disable_info>wpn_svt40_worn</disable_info>
+                <disable_info>wpn_g43</disable_info>
+                <disable_info>wpn_k98</disable_info>
+                <disable_info>wpn_stg44_worn</disable_info>
+                <disable_info>wpn_mossberg590_worn</disable_info>
+                <disable_info>wpn_mp133_worn</disable_info>
+                <disable_info>wpn_bm16_worn</disable_info>
+                <disable_info>wpn_bm16_full</disable_info>
+                <disable_info>wpn_toz34_worn</disable_info>
+                <disable_info>wpn_toz34_obrez_worn</disable_info>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+            </phrase>
+            <phrase id="9181">
+                <text>esc_stalker_klin_craft_9181</text>
+                <next>91800000001</next>
+                <next>91800000002</next>
+                <next>91800000003</next>
+                <next>91800000004</next>
+                <next>91800000005</next>
+                <next>91800000006</next>
+                <next>91800000007</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="9191">
+                <text>esc_stalker_klin_craft_9191</text>
+                <next>91900000001</next>
+                <next>91900000002</next>
+                <next>91900000003</next>
+                <next>91900000004</next>
+                <next>91900000005</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="9391">
+                <text>esc_stalker_klin_craft_9391</text>
+                <next>93900000001</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="0451">
+                <text>esc_stalker_klin_craft_0451</text>
+                <next>04500000001</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="545391">
+                <text>esc_stalker_klin_craft_545391</text>
+                <next>5453900000001</next>
+                <next>5453900000002</next>
+                <next>5453900000003</next>
+                <next>5453900000004</next>
+                <next>5453900000005</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="556451">
+                <text>esc_stalker_klin_craft_556451</text>
+                <next>5564500000001</next>
+                <next>5564500000002</next>
+                <next>5564500000003</next>
+                <next>5564500000004</next>
+                <next>5564500000005</next>
+                <next>5564500000006</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="762251">
+                <text>esc_stalker_klin_craft_762251</text>
+                <next>7622500000001</next>
+                <next>7622500000002</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="762391">
+                <text>esc_stalker_klin_craft_762391</text>
+                <next>7623900000001</next>
+                <next>7623900000002</next>
+                <next>7623900000004</next>
+                <next>7623900000005</next>
+                <next>7623900000006</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="762511">
+                <text>esc_stalker_klin_craft_762511</text>
+                <next>7625100000001</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="762541">
+                <text>esc_stalker_klin_craft_762541</text>
+                <next>7625400000001</next>
+                <next>7625400000002</next>
+                <next>7625400000003</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="12701">
+                <text>esc_stalker_klin_craft_12701</text>
+                <next>127000000001</next>
+                <next>127000000002</next>
+                <next>127100010001</next>
+                <next>127100010002</next>
+                <next>127100010003</next>
+                <next>127100010004</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="142">
+                <text>esc_stalker_klin_craft_142</text>
+                <next>143</next>
+            </phrase>
+            <phrase id="777">
+                <text>esc_stalker_klin_craft_777</text>
+                <disable_info>close_calibr</disable_info>
+                <disable_info>9_18_start_craft</disable_info>
+                <disable_info>9_19_start_craft</disable_info>
+                <disable_info>0_45_start_craft</disable_info>
+                <disable_info>9_39_start_craft</disable_info>
+                <disable_info>5_45_39_start_craft</disable_info>
+                <disable_info>5_56_45_start_craft</disable_info>
+                <disable_info>7_62_25_start_craft</disable_info>
+                <disable_info>7_62_39_start_craft</disable_info>
+                <disable_info>7_62_51_start_craft</disable_info>
+                <disable_info>7_62_54_start_craft</disable_info>
+                <disable_info>7_92_33_start_craft</disable_info>
+                <disable_info>12_70_start_craft</disable_info>
+                <disable_info>12_70_1_start_craft</disable_info>
+                <next>1</next>
+            </phrase>
+            <phrase id="792331">
+                <text>esc_stalker_klin_craft_792331</text>
+                <next>7923300000001</next>
+                <next>7923300000002</next>
+                <next>7923300000003</next>
+                <next>777</next>
+            </phrase>
+            <phrase id="16">
+                <text>esc_stalker_klin_craft_16</text>
+            </phrase>
+            <phrase id="918">
+                <text>esc_stalker_klin_craft_918</text>
+                <precondition>dialogs_area.esc_stalker_have_9x18_200</precondition>
+                <precondition>dialogs_area.proverka_9x18</precondition>
+                <give_info>9_18_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>9181</next>
+            </phrase>
+            <phrase id="919">
+                <text>esc_stalker_klin_craft_919</text>
+                <precondition>dialogs_area.esc_stalker_have_9x19_350</precondition>
+                <precondition>dialogs_area.proverka_9x18</precondition>
+                <give_info>9_19_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>9191</next>
+            </phrase>
+            <phrase id="045">
+                <text>esc_stalker_klin_craft_045</text>
+                <precondition>dialogs_area.esc_stalker_have_045_450</precondition>
+                <precondition>dialogs_area.proverka_9x18</precondition>
+                <give_info>0_45_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>0451</next>
+            </phrase>
+            <phrase id="939">
+                <text>esc_stalker_klin_craft_939</text>
+                <precondition>dialogs_area.esc_stalker_have_9x39_1000</precondition>
+                <precondition>dialogs_area.proverka_9x39</precondition>
+                <give_info>9_39_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_3</has_info>
+                <next>9391</next>
+            </phrase>
+            <phrase id="54539">
+                <text>esc_stalker_klin_craft_54539</text>
+                <precondition>dialogs_area.esc_stalker_have_545x39_700</precondition>
+                <precondition>dialogs_area.proverka_545x39</precondition>
+                <give_info>5_45_39_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>545391</next>
+            </phrase>
+            <phrase id="55645">
+                <text>esc_stalker_klin_craft_55645</text>
+                <precondition>dialogs_area.esc_stalker_have_556x45_850</precondition>
+                <precondition>dialogs_area.proverka_556x45</precondition>
+                <give_info>5_56_45_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>556451</next>
+            </phrase>
+            <phrase id="76225">
+                <text>esc_stalker_klin_craft_76225</text>
+                <precondition>dialogs_area.esc_stalker_have_762x25_500</precondition>
+                <precondition>dialogs_area.proverka_9x18</precondition>
+                <give_info>7_62_25_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>762251</next>
+            </phrase>
+            <phrase id="76239">
+                <text>esc_stalker_klin_craft_76239</text>
+                <precondition>dialogs_area.esc_stalker_have_762x39_750</precondition>
+                <precondition>dialogs_area.proverka_762x39</precondition>
+                <give_info>7_62_39_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>762391</next>
+            </phrase>
+            <phrase id="76251">
+                <text>esc_stalker_klin_craft_76251</text>
+                <precondition>dialogs_area.esc_stalker_have_762x51_700</precondition>
+                <precondition>dialogs_area.proverka_762x51</precondition>
+                <give_info>7_62_51_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>762511</next>
+            </phrase>
+            <phrase id="76254">
+                <text>esc_stalker_klin_craft_76254</text>
+                <precondition>dialogs_area.esc_stalker_have_762x54_1400</precondition>
+                <precondition>dialogs_area.proverka_762x54</precondition>
+                <give_info>7_62_54_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <next>762541</next>
+            </phrase>
+            <phrase id="1270">
+                <text>esc_stalker_klin_craft_1270</text>
+                <precondition>dialogs_area.esc_stalker_have_12x70_220</precondition>
+                <give_info>close_calibr</give_info>
+                <next>12701</next>
+            </phrase>
+            <phrase id="79233">
+                <text>esc_stalker_klin_craft_79233</text>
+                <precondition>dialogs_area.esc_stalker_have_792x33_900</precondition>
+                <precondition>dialogs_area.proverka_792x33</precondition>
+                <give_info>7_92_33_start_craft</give_info>
+                <give_info>close_calibr</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>792331</next>
+            </phrase>
+            <phrase id="127000000001">
+                <text>esc_stalker_klin_craft_127000000001</text>
+                <precondition>dialogs_area.proverka_12x70x1</precondition>
+                <give_info>wpn_mossberg590_worn</give_info>
+                <give_info>12_70_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>13</next>
+            </phrase>
+            <phrase id="127000000002">
+                <text>esc_stalker_klin_craft_127000000002</text>
+                <precondition>dialogs_area.proverka_12x70x1</precondition>
+                <give_info>wpn_mp133_worn</give_info>
+                <give_info>12_70_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_2</has_info>
+                <next>13</next>
+            </phrase>
+            <phrase id="127100010001">
+                <text>esc_stalker_klin_craft_127100010001</text>
+                <precondition>dialogs_area.proverka_12x70x2</precondition>
+                <give_info>wpn_bm16_worn</give_info>
+                <give_info>12_70_1_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>14</next>
+            </phrase>
+            <phrase id="127100010002">
+                <text>esc_stalker_klin_craft_127100010002</text>
+                <precondition>dialogs_area.proverka_12x70x2</precondition>
+                <give_info>wpn_bm16_full</give_info>
+                <give_info>12_70_1_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>14</next>
+            </phrase>
+            <phrase id="127100010003">
+                <text>esc_stalker_klin_craft_127100010003</text>
+                <precondition>dialogs_area.proverka_12x70x2</precondition>
+                <give_info>wpn_toz34_worn</give_info>
+                <give_info>12_70_1_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>14</next>
+            </phrase>
+            <phrase id="127100010004">
+                <text>esc_stalker_klin_craft_127100010004</text>
+                <precondition>dialogs_area.proverka_12x70x2</precondition>
+                <give_info>wpn_toz34_obrez_worn</give_info>
+                <give_info>12_70_1_start_craft</give_info>
+                <has_info>esc_stalker_mechanic_start_weapon_craft_tier_1</has_info>
+                <next>14</next>
+            </phrase>
+            <phrase id="31">
+                <text>esc_stalker_klin_craft_31</text>
+                <action>dialogs_area.esc_stalker_take_9x19_350</action>
+                <action>dialogs_area.take_detail_9x18</action>
+                <next>91900001</next>
+                <next>91900002</next>
+                <next>91900003</next>
+                <next>91900004</next>
+                <next>91900005</next>
+                <next>91900006</next>
+                <next>91900007</next>
+                <next>91900008</next>
+            </phrase>
+            <phrase id="41">
+                <text>esc_stalker_klin_craft_41</text>
+                <action>dialogs_area.esc_stalker_9x39_1000</action>
+                <action>dialogs_area.take_detail_9x39</action>
+                <next>93900001</next>
+                <next>93900002</next>
+                <next>93900003</next>
+                <next>93900004</next>
+                <next>93900005</next>
+                <next>93900006</next>
+                <next>93900007</next>
+            </phrase>
+            <phrase id="4">
+                <text>esc_stalker_klin_craft_4</text>
+                <has_info>9_39_start_craft</has_info>
+                <next>41</next>
+                <next>42</next>
+            </phrase>
+            <phrase id="3">
+                <text>esc_stalker_klin_craft_3</text>
+                <has_info>9_19_start_craft</has_info>
+                <next>31</next>
+                <next>32</next>
+            </phrase>
+            <phrase id="21">
+                <text>esc_stalker_klin_craft_21</text>
+                <action>dialogs_area.esc_stalker_take_9x18_200</action>
+                <action>dialogs_area.take_detail_9x18</action>
+                <next>91800001</next>
+                <next>91800002</next>
+                <next>91800003</next>
+                <next>91800004</next>
+                <next>91800005</next>
+                <next>91800006</next>
+                <next>91800007</next>
+                <next>91800008</next>
+                <next>91800009</next>
+                <next>91800010</next>
+            </phrase>
+            <phrase id="2">
+                <text>esc_stalker_klin_craft_2</text>
+                <has_info>9_18_start_craft</has_info>
+                <next>21</next>
+                <next>22</next>
+            </phrase>
+            <phrase id="04500001">
+                <text>esc_stalker_klin_craft_04500001</text>
+                <next>0450000101</next>
+                <next>045000010101</next>
+            </phrase>
+            <phrase id="51">
+                <text>esc_stalker_klin_craft_51</text>
+                <action>dialogs_area.esc_stalker_045_450</action>
+                <action>dialogs_area.take_detail_9x18</action>
+                <next>04500001</next>
+                <next>04500002</next>
+                <next>04500003</next>
+                <next>04500004</next>
+            </phrase>
+            <phrase id="5">
+                <text>esc_stalker_klin_craft_5</text>
+                <has_info>0_45_start_craft</has_info>
+                <next>51</next>
+                <next>52</next>
+            </phrase>
+            <phrase id="7622500001">
+                <text>esc_stalker_klin_craft_7622500001</text>
+                <next>762250000101</next>
+                <next>76225000010101</next>
+            </phrase>
+            <phrase id="81">
+                <text>esc_stalker_klin_craft_81</text>
+                <action>dialogs_area.esc_stalker_take_762x25_500</action>
+                <action>dialogs_area.take_detail_9x18</action>
+                <next>7622500001</next>
+                <next>7622500002</next>
+                <next>7622500003</next>
+                <next>7622500004</next>
+                <next>7622500005</next>
+            </phrase>
+            <phrase id="8">
+                <text>esc_stalker_klin_craft_8</text>
+                <has_info>7_62_25_start_craft</has_info>
+                <next>81</next>
+                <next>82</next>
+            </phrase>
+            <phrase id="61">
+                <text>esc_stalker_klin_craft_61</text>
+                <action>dialogs_area.esc_stalker_545x39_700</action>
+                <action>dialogs_area.take_detail_545x39</action>
+                <next>5453900001</next>
+                <next>5453900002</next>
+                <next>5453900003</next>
+                <next>5453900004</next>
+                <next>5453900005</next>
+                <next>5453900006</next>
+                <next>5453900007</next>
+                <next>5453900008</next>
+                <next>5453900009</next>
+                <next>5453900010</next>
+                <next>5453900011</next>
+            </phrase>
+            <phrase id="6">
+                <text>esc_stalker_klin_craft_6</text>
+                <has_info>5_45_39_start_craft</has_info>
+                <next>61</next>
+                <next>62</next>
+            </phrase>
+            <phrase id="71">
+                <text>esc_stalker_klin_craft_71</text>
+                <action>dialogs_area.esc_stalker_556x45_850</action>
+                <action>dialogs_area.take_detail_556x45</action>
+                <next>5564500001</next>
+                <next>5564500002</next>
+                <next>5564500003</next>
+                <next>5564500004</next>
+                <next>5564500005</next>
+                <next>5564500006</next>
+                <next>5564500007</next>
+                <next>5564500008</next>
+                <next>5564500009</next>
+                <next>5564500010</next>
+                <next>5564500011</next>
+                <next>5564500012</next>
+            </phrase>
+            <phrase id="7">
+                <text>esc_stalker_klin_craft_7</text>
+                <has_info>5_56_45_start_craft</has_info>
+                <next>71</next>
+                <next>72</next>
+            </phrase>
+            <phrase id="7623900001">
+                <text>esc_stalker_klin_craft_7623900001</text>
+                <next>762390000101</next>
+                <next>76239000010101</next>
+            </phrase>
+            <phrase id="91">
+                <text>esc_stalker_klin_craft_91</text>
+                <action>dialogs_area.esc_stalker_take_762x39_750</action>
+                <action>dialogs_area.take_detail_762x39</action>
+                <next>7623900001</next>
+                <next>7623900002</next>
+                <next>7623900003</next>
+                <next>7623900004</next>
+                <next>7623900005</next>
+                <next>7623900006</next>
+                <next>7623900007</next>
+                <next>7623900008</next>
+                <next>7623900010</next>
+                <next>7623900011</next>
+                <next>7623900012</next>
+            </phrase>
+            <phrase id="9">
+                <text>esc_stalker_klin_craft_9</text>
+                <has_info>7_62_39_start_craft</has_info>
+                <next>91</next>
+                <next>92</next>
+            </phrase>
+            <phrase id="101">
+                <text>esc_stalker_klin_craft_101</text>
+                <action>dialogs_area.esc_stalker_take_762x51_700</action>
+                <action>dialogs_area.take_detail_762x51</action>
+                <next>7625100001</next>
+                <next>7625100002</next>
+                <next>7625100003</next>
+                <next>7625100004</next>
+                <next>7625100005</next>
+                <next>7625100006</next>
+                <next>7625100007</next>
+            </phrase>
+            <phrase id="10">
+                <text>esc_stalker_klin_craft_10</text>
+                <has_info>7_62_51_start_craft</has_info>
+                <next>101</next>
+                <next>102</next>
+            </phrase>
+            <phrase id="111">
+                <text>esc_stalker_klin_craft_111</text>
+                <action>dialogs_area.esc_stalker_take_762x54_1400</action>
+                <action>dialogs_area.take_detail_762x54</action>
+                <next>7625400001</next>
+                <next>7625400002</next>
+                <next>7625400003</next>
+                <next>7625400004</next>
+                <next>7625400005</next>
+                <next>7625400006</next>
+                <next>7625400007</next>
+                <next>7625400008</next>
+            </phrase>
+            <phrase id="11">
+                <text>esc_stalker_klin_craft_11</text>
+                <has_info>7_62_54_start_craft</has_info>
+                <next>111</next>
+                <next>112</next>
+            </phrase>
+            <phrase id="7923300001">
+                <text>esc_stalker_klin_craft_7923300001</text>
+                <next>792330000101</next>
+                <next>79233000010101</next>
+            </phrase>
+            <phrase id="121">
+                <text>esc_stalker_klin_craft_121</text>
+                <action>dialogs_area.esc_stalker_take_792x33_900</action>
+                <action>dialogs_area.take_detail_792x33</action>
+                <next>7923300001</next>
+                <next>7923300002</next>
+                <next>7923300003</next>
+                <next>7923300004</next>
+                <next>7923300005</next>
+                <next>7923300006</next>
+                <next>7923300007</next>
+                <next>7923300008</next>
+            </phrase>
+            <phrase id="12">
+                <text>esc_stalker_klin_craft_12</text>
+                <has_info>7_92_33_start_craft</has_info>
+                <next>121</next>
+                <next>122</next>
+            </phrase>
+            <phrase id="131">
+                <text>esc_stalker_klin_craft_131</text>
+                <action>dialogs_area.esc_stalker_take_12x70_220</action>
+                <action>dialogs_area.take_detail_12x70x1</action>
+                <next>127000001</next>
+                <next>127000002</next>
+                <next>127000003</next>
+                <next>127000004</next>
+                <next>127000005</next>
+            </phrase>
+            <phrase id="13">
+                <text>esc_stalker_klin_craft_13</text>
+                <has_info>12_70_start_craft</has_info>
+                <next>131</next>
+                <next>132</next>
+            </phrase>
+            <phrase id="141">
+                <text>esc_stalker_klin_craft_141</text>
+                <action>dialogs_area.esc_stalker_take_12x70_220</action>
+                <action>dialogs_area.take_detail_12x70x2</action>
+                <next>127001101</next>
+                <next>127001102</next>
+                <next>127001103</next>
+                <next>127001104</next>
+                <next>127001105</next>
+                <next>127001106</next>
+                <next>127001107</next>
+            </phrase>
+            <phrase id="14">
+                <text>esc_stalker_klin_craft_14</text>
+                <has_info>12_70_1_start_craft</has_info>
+                <next>141</next>
+                <next>142</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+</game_dialogs>

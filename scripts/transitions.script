@@ -1,0 +1,344 @@
+--/-------------------------------------------------------------------
+--/ A.R.E.A. Transitions by SadBlackFox
+--/-------------------------------------------------------------------
+--[[
+Открытие переданного перехода
+open_transition(sr_name, one)
+при передаче второго параметра "true", откроется ТОЛЬКО переданный(без связки)
+
+Открытие рандомного перехода
+ОБЯЗАТЕЛЬНО СНАЧАЛА ВЫЗЫВАТЬ ПРОВЕРКУ check_rnd_transitions()
+И ТОЛЬКО ЕСЛИ ОНА ВЕРНЁТ "TRUE", ВЫЗЫВАТЬ open_or_close_transitions()
+]]
+
+function on_game_start()
+    RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+    RegisterScriptCallback("actor_on_first_update",start_show_transitions_by_faction)
+    --RegisterScriptCallback("on_key_press",on_key_press)
+end
+--[[
+function on_key_press(key)
+	--printf('!KEY: '..key)
+	if key == 79 then -- Кнопка 1 на NumPad
+		vibros()
+	end
+end
+]]
+
+function start_show_transitions_by_faction()
+	if alun_utils.load_var(db.actor, "transitions_start_show_transitions_by_faction", false) then
+		return
+	end
+	function enable_transition_start(table)
+		for k1,v1 in pairs(table) do
+			for k2,v2 in pairs(v1) do
+				enable_transition(v2)
+				--send_mess(v2)
+			end
+		end
+	end
+	enable_transition_start(transitions_list.sr_always_open['general'])
+
+	local transitions_faction = transitions_list.sr_always_open[mlr_utils.load_var('transitions_faction')]
+	if transitions_faction then
+		enable_transition_start(transitions_faction)
+	end
+	
+	alun_utils.save_var(db.actor, "transitions_start_show_transitions_by_faction", true)
+end
+--[[
+--Для проверок на наличие в списке стартовых связках переходов по названию фракции при автоматическом включении областей взаимодействия и появления UI при переходе
+function show_transition(sr_name)
+	for k1,v1 in pairs(transitions_list.sr_always_open[mlr_utils.load_var('transitions_faction')] or transitions_list.sr_always_open['general']) do
+		for k2,v2 in pairs(v1) do
+			if v2 == sr_name then
+				return true
+			end
+		end
+	end
+	return false
+end
+]]
+--Для открытия переходов, основная функция для ручной выдачи
+function open_transition(sr_name)
+	if get_story_object_id(sr_name) then
+		if check_spot(ret_id_spot_hint(sr_name)) == false then
+			enable_transition(sr_name)
+			send_mess(sr_name)
+		end
+		return
+	end
+	callstack()
+	abort('!ERROR: transitions.open_transition::Invalid transition name: %s', sr_name)
+end
+
+-- Вернёт true, если в списке рандом переходов, есть не выданная связка переходов
+function check_rnd_transitions()
+	--printf('check_rnd_transitions1')
+	for k1,v1 in pairs(transitions_list.sr_transitions) do
+		for k2,v2 in pairs(v1) do
+			if check_spot(ret_id_spot_hint(v2)) == false then
+				--printf('check_rnd_transitions2')
+				return true
+			end
+		end
+	end
+	--printf('check_rnd_transitions3')
+	return false
+end
+
+function check_transition_in_table(table)
+	for id,value in pairs(table) do
+		if check_spot(ret_id_spot_hint(value)) == false then
+			--printf('check_rnd_transitions2')
+			return true
+		end
+	end
+	return false
+end
+
+function vibros()
+	--printf('!vibros1')
+	local tbl = get_mass_rand()
+	local function switch_transition(table,status)
+		for k2, v2 in pairs(table) do
+			if check_spot(ret_id_spot_hint(v2)) == status then
+				local allow = true
+				local function check_transition(tb)
+					for id, val in pairs(tb) do
+						for id2, val2 in pairs(val) do
+							if val2 == v2 then
+								allow = false
+								return true
+							end
+						end
+					end
+				end
+				local transitions_faction = transitions_list.sr_always_open[mlr_utils.load_var('transitions_faction')]
+				if not check_transition(transitions_faction) then
+					check_transition(transitions_list.sr_always_open['general'])
+				end
+				
+				if allow then
+					if status == false then
+						enable_transition(v2)
+						--printf('!vibros Выброс включил '..v2)
+					else
+						disable_transition(v2)
+						--printf('!vibros Выброс выключил '..v2)
+					end
+				end
+			end
+		end
+	end
+	for k1,v1 in pairs(transitions_list.sr_transitions) do
+		if tbl[k1] then
+			--if not get_protected_transitions()[k1] then
+				--printf('!vibros if')
+			switch_transition(v1, false)
+			--end
+		else
+			--printf('!vibros else')
+			--if not get_protected_transitions()[k1] then
+			switch_transition(v1, true)
+			--end
+		end
+	end
+	--printf('!vibros2')
+end
+
+function get_mass_rand()
+	--printf('!get_mass_rand1')
+	local size = table.size(transitions_list.sr_transitions)
+	local count = math.floor(size / 3)
+	local tbl = {}
+	local i = 0
+	while (i ~= count) do
+		local r = math.random(size)
+		--printf('!get_mass_rand|size: '..size..'|count: '..count..'|i: '..i..'|r: '..r)
+		if not tbl[r] then
+			tbl[r] = true
+			i = i + 1
+			--printf('!get_mass_rand записываем '..r)
+		--else
+			--printf('!get_mass_rand НЕ записываем '..r)
+		end
+	end
+	--store_table(tbl)
+	--printf('!get_mass_rand2')
+	return tbl
+end
+
+-- Открывает или закрывает рандом связку переходов (true/false)
+function open_or_close_transitions(status)
+	local r = math.random(table.size(transitions_list.sr_transitions))
+	local tbl = transitions_list.sr_transitions[r]
+	local table_num = #transitions_list.sr_transitions
+	local transition = true
+	local passed_tables = 0
+	
+	while transition do
+		passed_tables = passed_tables+1
+		if check_transition_in_table(tbl) == status then
+			transition = false
+			for id,value in pairs(tbl) do
+				if check_spot(ret_id_spot_hint(value)) == (not status) then
+					if status then
+						enable_transition(value)
+						send_mess(value)
+					else
+						disable_transition(value)
+					-- send_mess(value)
+					-- Нужно ли оповещать о закрытии перехода? Если да, то нужно изменить функцию оповещения, добавив другое сообщение о закрытии
+					end
+				end
+			end
+		else
+			r = r + 1
+			if r > table_num then
+				r = 1
+			end
+			tbl = transitions_list.sr_transitions[r]
+		end
+		
+		if passed_tables == table_num then
+			transition = false
+		end
+	end
+
+	return passed_tables == table_num
+	-- printf('open_or_close_transitions %s', r)
+	--store_table(tbl)
+end
+
+function disable_transition(sr_name)
+	local id, spot, hint = ret_id_spot_hint(sr_name)
+	--printf('disable_transition1 %s %s %s %s', sr_name, id, spot, hint)
+	if check_spot(id, spot) == false then
+		--printf('disable_transition2')
+		return
+	end
+	hint = hint and game.translate_string(hint)
+	--printf('disable_transition3 %s', hint)
+	if (level.map_has_object_spot(id, spot) ~= 0) then
+		level.map_remove_object_spot(id,spot)
+	end
+	--printf('disable_transition4')
+	mlr_utils.delete_var('transitions_'..sr_name)
+	
+	if level.map_has_object_spot(0, "level_changer_down") then
+		level.map_remove_object_spot(0, "level_changer_down")
+	end
+	if level.map_has_object_spot(0, "level_changer_up") then
+		level.map_remove_object_spot(0, "level_changer_up")
+	end
+	if level.map_has_object_spot(0, "level_changer_right") then
+		level.map_remove_object_spot(0, "level_changer_right")
+	end
+	if level.map_has_object_spot(0, "level_changer_left") then
+		level.map_remove_object_spot(0, "level_changer_left")
+	end
+	if level.map_has_object_spot(0, "level_changer_up_right") then
+		level.map_remove_object_spot(0, "level_changer_up_right")
+	end
+	if level.map_has_object_spot(0, "level_changer_right_down") then
+		level.map_remove_object_spot(0, "level_changer_right_down")
+	end
+	if level.map_has_object_spot(0, "level_changer_down_left") then
+		level.map_remove_object_spot(0, "level_changer_down_left")
+	end
+	if level.map_has_object_spot(0, "level_changer_left_up") then
+		level.map_remove_object_spot(0, "level_changer_left_up")
+	end
+end
+
+-- Открывает рандом связку переходов
+function rnd_open_transition()
+	open_or_close_transitions(true)
+	return false
+end
+
+--Проверка на существование метки перехода, при возврате false - метка выключена, а значит переход можно считается не выданным
+function check_spot(id, spot)
+	--printf('check_spot 1 %s %s', id, spot)
+	if (spot and level.map_has_object_spot(id,spot) ~= 0) then
+		--printf('check_spot 2')
+		return true
+	end
+	--printf('check_spot 3')
+	return false
+end
+
+--При передаче имени ограничителя пространства возвращает 3 параметра: id, spot(системеное название метки), hint(системное сокращение описания метки)
+function ret_id_spot_hint(sr_name)
+	--printf('ret_id_spot_hint %s', sr_name)
+	local sr_teleport_ini = ini_file("sr_teleport_sections.ltx")
+	local id = get_story_object_id(sr_name)
+	local spot = sr_teleport_ini:line_exist(sr_name,"spot") and sr_teleport_ini:r_string_ex(sr_name,"spot")
+	local hint = sr_teleport_ini:line_exist(sr_name,"hint") and sr_teleport_ini:r_string_ex(sr_name,"hint")
+	--printf('ret_id_spot_hint %s %s %s', id, spot, hint)
+	return id, spot, hint
+end
+
+--Включение перехода
+function enable_transition(sr_name)
+	--printf('enable_transition1')
+	local id, spot, hint = ret_id_spot_hint(sr_name)
+	--printf('enable_transition2 %s %s %s %s', sr_name, id, spot, hint)
+	if check_spot(id, spot) == true then
+		--printf('enable_transition3')
+		return
+	end
+	hint = hint and game.translate_string(hint)
+	--printf('enable_transition4 %s', hint)
+	level.map_add_object_spot_ser(id, spot ,hint)
+	--printf('enable_transition5')
+	mlr_utils.save_var('transitions_'..sr_name, true)
+	--printf('enable_transition6')
+	
+	if level.map_has_object_spot(0, "level_changer_down") then
+		level.map_remove_object_spot(0, "level_changer_down")
+	end
+	if level.map_has_object_spot(0, "level_changer_up") then
+		level.map_remove_object_spot(0, "level_changer_up")
+	end
+	if level.map_has_object_spot(0, "level_changer_right") then
+		level.map_remove_object_spot(0, "level_changer_right")
+	end
+	if level.map_has_object_spot(0, "level_changer_left") then
+		level.map_remove_object_spot(0, "level_changer_left")
+	end
+	if level.map_has_object_spot(0, "level_changer_up_right") then
+		level.map_remove_object_spot(0, "level_changer_up_right")
+	end
+	if level.map_has_object_spot(0, "level_changer_right_down") then
+		level.map_remove_object_spot(0, "level_changer_right_down")
+	end
+	if level.map_has_object_spot(0, "level_changer_down_left") then
+		level.map_remove_object_spot(0, "level_changer_down_left")
+	end
+	if level.map_has_object_spot(0, "level_changer_left_up") then
+		level.map_remove_object_spot(0, "level_changer_left_up")
+	end
+end
+
+function send_mess(sr_name)
+	local id, spot, hint = ret_id_spot_hint(sr_name)
+	--printf('enable_transition1 %s %s %s %s', sr_name, id, spot, hint)
+	news_manager.send_tip(db.actor,game.translate_string("st_new_way_opened")..[[: "]]..game.translate_string(hint)..[["]],0,"tourist",5000,nil)
+end
+
+function actor_on_item_use(item)
+	--printf('actor_on_item_use %s', item:section())
+	if item:section() == 'maps_kit' or item:section() == 'mili_maps' then
+		--printf('actor_on_item_use это нужный предмет')
+		if check_rnd_transitions() == true then
+			local n = math.random(3,10)
+			for i = 1, n do
+				if open_or_close_transitions(true) then
+					break
+				end
+			end
+		end
+	end
+end

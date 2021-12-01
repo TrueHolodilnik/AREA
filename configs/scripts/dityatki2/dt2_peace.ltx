@@ -1,0 +1,19 @@
+[logic]
+active = sr_idle@wait
+; active = sr_light
+combat_ignore = combat_ignore
+
+[sr_idle@wait]
+;on_info = {=is_night} sr_idle@turn_on
+;on_info2 = {!is_night} sr_idle@turn_off
+
+[sr_idle@turn_on]
+on_info = sr_idle@wait %=turn_on(level_prefix_lights_hanging_lamp:level_prefix_lights_hanging_lamp_0000:level_prefix_lights_hanging_lamp_0001:level_prefix_lights_hanging_lamp_0002)%
+
+[sr_idle@turn_off]
+on_info = sr_idle@wait %=turn_off(level_prefix_lights_hanging_lamp:level_prefix_lights_hanging_lamp_0000:level_prefix_lights_hanging_lamp_0001:level_prefix_lights_hanging_lamp_0002)%
+
+[combat_ignore]
+
+[sr_light]
+light_on = false

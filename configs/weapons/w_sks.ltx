@@ -1,0 +1,286 @@
+[wpn_sks]:default_weapon_params
+$npc							= on				; option for Level Editor
+visual							= dynamics\weapons\wpn_sks\wpn_sks.ogf
+class							= WP_ASHTG
+description						= st_wpn_sks_descr
+inv_name						= st_wpn_sks
+inv_name_short					= st_wpn_sks
+heating_rates					= sniper1
+parent_section					= wpn_sks
+ef_main_weapon_type				= 3
+ef_weapon_type					= 11
+default_to_ruck					= false
+sprint_allowed					= true
+cost							= 19580
+inv_weight						= 3.75
+inv_volume						= 4.8
+ph_mass							= 4
+weapon_class					= sniper_rifle
+repair_type						= rifle_7.62
+;---DOF-------------------------------------------------------------------------
+;zoom_dof						= 0.5, 1.0, 350
+reload_dof						= 0.0, 0.5, 5, 1.7
+;-------------------------------------------------------------------------------
+upgrades						= up_gr_firstab_sks, up_gr_seconab_sks, up_gr_thirdab_sks
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_toz34
+;--TTX--------------------------------------------------------------------------
+hit_power						= 0.5, 0.5, 0.5, 0.5
+hit_impulse						= 34
+hit_type						= fire_wound
+fire_distance					= 1000
+bullet_speed					= 735
+rpm								= 200
+rpm_empty_click					= 200
+time_to_aim						= 1.0
+hud								= wpn_sks_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.65
+misfire_end_condition			= 0.17
+misfire_start_prob				= 0.01
+misfire_end_prob				= 0.05
+condition_shot_dec				= 0.0013
+condition_queue_shot_dec		= 0.0013
+
+ammo_limit						= 60
+ammo_current					= 10
+ammo_elapsed					= 10
+ammo_mag_size					= 10
+fire_modes						= 1, -1
+magazine_sect					= magazine_762x39_cnt_10
+ammo_class						= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+grenade_class					= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot							= 2
+animation_slot					= 2
+;-------------------------------------------------------------------------------
+inv_grid_width					= 5
+inv_grid_height					= 1
+inv_grid_x						= 45
+inv_grid_y						= 76
+
+upgr_icon_x						= 2050
+upgr_icon_y						= 1800
+upgr_icon_width					= 300
+upgr_icon_height				= 50
+
+kill_msg_x						= 259
+kill_msg_y						= 293
+kill_msg_width					= 114
+kill_msg_height					= 22
+;--базовая дисперсия------------------------------------------------------------
+fire_dispersion_base			= 0.204				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 1.73f
+crosshair_inertion				= 8.3
+
+;отдача
+cam_return						= 0
+cam_relax_speed					= 5					; скорость возврата в исходное положение
+cam_relax_speed_ai				= 360				; скорость возврата в исходное положение для AI
+cam_dispersion					= 1.6
+cam_dispersion_inc				= 1.4
+cam_dispersion_frac				= 1.0				; frac * angle + rand(-1,1)*(1-frac) * angle
+cam_max_angle					= 50.0				; максимальный угол отдачи
+cam_max_angle_horz				= 50.0				; (degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.15				; (degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 1.45
+PDM_disp_vel_factor				= 2.75
+PDM_disp_accel_factor			= 2.75
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 5					; scope & ironsight
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 1.3
+zoom_cam_dispersion_inc			= 1.1
+zoom_cam_dispersion_frac		= 0.7
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 0.95
+
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+position						= -0.026, -0.125, -0.008
+orientation						= 0, 0.1, 0
+fire_point						= 0.0, 0.180, 0.745
+fire_point2						= 0.0, 0.180, 0.745
+flame_particles					= weapons\new_effects\pistol_9x18
+smoke_particles					= weapons\new_effects\smoke_silencer_sniper_rifle
+grenade_flame_particles			= weapons\generic_weapon01
+rpm_empty_click					= 200
+shell_point						= 0, 0.129, 0.192
+shell_dir						= 0, 0, 0.4
+shell_particles					= weapons\762x39
+shell_drop_silent				= true
+;-------------------------------------------------------------------------------
+light_disabled					= false
+light_color						= 0.6,0.5,0.3
+light_range						= 4.0
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time						= 0.2
+
+;addons
+scope_status					= 2
+silencer_status					= 0
+grenade_launcher_status			= 0
+
+scopes							= pu
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+scope_zoom_factor				= 1.03
+
+;silencer_name					= wpn_sil_762x39
+silencer_x						= 232
+silencer_y						= -12
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time				= 0.2
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_vss
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster				        = weapons\sks\sks_holster
+snd_empty				        = weapons\sks\sks_empty
+snd_draw				        = weapons\sks\sks_draw
+snd_reload				        = weapons\sks\sks_reload
+snd_shoot				        = weapons\sks\sks_shoot_null
+snd_silencer_shot               = weapons\sks\sks_shot_sil_null
+;-------------------------------------------------------------------------------
+[wpn_sks_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_sks\wpn_sks_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= 0.017675,0.045715,-0.017960
+shell_dir						= 0,0,0
+shell_bone						= wpn_body
+fire_point						= 0,0,0
+fire_bone						= muzzle
+grenade_bone					= grenade
+
+hands_position					= -0.04254,-0.08446,-0.16377
+hands_position_16x9				= -0.04254,-0.08446,-0.16377
+hands_orientation				= -0.035533,1.6632,0.
+hands_orientation_16x9			= -0.035533,1.6632,0
+
+aim_hud_offset_pos				= -0.037206,0.02053,-0.05239
+aim_hud_offset_pos_16x9			= -0.037206,0.02053,-0.05239
+aim_hud_offset_rot				= 0.035184,0.00012,0
+aim_hud_offset_rot_16x9			= 0.035184,0.00012,0
+
+anm_show						= sks_draw
+anm_hide						= sks_holster
+anm_idle						= sks_idle
+anm_idle_sprint					= sks_sprint
+anm_idle_moving					= sks_move
+anm_idle_moving_crouch			= sks_move, , 0.5
+anm_shots						= sks_shoot, shoot
+anm_shots_empty					= sks_idle
+anm_reload						= sks_reload, reload
+anm_idle_aim					= sks_aim
+anm_bore						= sks_bore
+;-------------------------------------------------------------------------------
+[wpn_sks_pu]:wpn_sks
+scope_name						= pu
+scope_x							= 58
+scope_y							= -21
+hud								= wpn_sks_pu_hud
+
+[wpn_sks_pu_hud]:wpn_sks_hud
+aim_hud_offset_pos				= -0.055476,0.005965,-0.100846
+aim_hud_offset_pos_16x9			= -0.055476,0.005965,-0.100846
+;-----------------------------------------------------------------------------
+[wpn_sks_modern]:wpn_sks
+visual							= dynamics\weapons\wpn_sks\wpn_sks_sk1
+inv_name						= st_wpn_sks_modern
+inv_name_short					= st_wpn_sks_modern
+cost							= 22960
+installed_upgrades				= up_firsta_sks
+parent_section					= wpn_sks_modern
+
+misfire_start_condition			= 0.6
+misfire_end_condition			= 0.15
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.035
+condition_shot_dec				= 0.0014
+condition_queue_shot_dec		= 0.0014
+
+inv_grid_width					= 5
+inv_grid_height					= 1
+inv_grid_x						= 50
+inv_grid_y						= 76
+
+fire_dispersion_base			= 0.176
+
+;отдача
+cam_dispersion					= 1.56
+cam_dispersion_inc				= 1.36
+cam_step_angle_horz				= 1.05
+
+zoom_cam_dispersion          	= 1.26
+zoom_cam_dispersion_inc      	= 1.06
+zoom_cam_step_angle_horz     	= 0.95
+
+; ttc
+hit_power						= 0.522, 0.522, 0.522, 0.522
+hit_impulse						= 34
+fire_distance					= 1084
+bullet_speed					= 746
+rpm								= 245
+hud								= wpn_sks_sk1_hud
+
+[wpn_sks_sk1_hud]:wpn_sks_hud
+item_visual						= dynamics\weapons\wpn_sks\wpn_sks_sk1_hud
+;-----------------------------------------------------------------------------
+[wpn_sks_modern_pu]:wpn_sks_modern
+scope_name						= pu
+scope_x							= 58
+scope_y							= -21
+hud								= wpn_sks_sk1_pu_hud
+
+[wpn_sks_sk1_pu_hud]:wpn_sks_pu_hud
+item_visual						= dynamics\weapons\wpn_sks\wpn_sks_sk1_hud
+;-----------------------------------------------------------------------------
+[wpn_sks_worn]:wpn_sks
+visual							= dynamics\weapons\wpn_sks\wpn_sks_sk2
+inv_name						= st_wpn_sks_worn
+inv_name_short					= st_wpn_sks_worn
+parent_section					= wpn_sks_worn
+cost							= 14000
+upgrades						= up_gr_firstab_sks_worn, up_gr_seconab_sks_worn, up_gr_thirdab_sks_worn
+
+misfire_start_condition			= 0.7
+misfire_end_condition			= 0.2
+misfire_start_prob				= 0.02
+misfire_end_prob				= 0.06
+condition_shot_dec				= 0.0015
+condition_queue_shot_dec		= 0.0015
+
+inv_grid_width					= 5
+inv_grid_height					= 1
+inv_grid_x						= 55
+inv_grid_y						= 76
+
+upgr_icon_x						= 2350
+upgr_icon_y						= 1800
+upgr_icon_width					= 300
+upgr_icon_height				= 50
+
+fire_dispersion_base			= 0.278
+hit_power						= 0.45, 0.45, 0.45, 0.45
+bullet_speed					= 688
+rpm								= 175
+hud								= wpn_sks_sk2_hud
+
+[wpn_sks_sk2_hud]:wpn_sks_hud
+item_visual						= dynamics\weapons\wpn_sks\wpn_sks_sk2_hud
+;-----------------------------------------------------------------------------
+[wpn_sks_worn_pu]:wpn_sks_worn
+scope_name						= pu
+scope_x							= 58
+scope_y							= -21
+hud								= wpn_sks_sk2_pu_hud
+
+[wpn_sks_sk2_pu_hud]:wpn_sks_pu_hud
+item_visual						= dynamics\weapons\wpn_sks\wpn_sks_sk2_hud
+;-----------------------------------------------------------------------------

@@ -1,0 +1,344 @@
+;================================================================================
+;============================ Cooking equipments ================================
+;================================================================================
+[matches]:booster, can_divide
+$spawn 					= "devices\pda"
+visual					= dynamics\items\matches.ogf
+description				= st_matches_descr
+inv_name				= st_matches
+inv_name_short			= st_matches
+inv_weight				= 0.10
+inv_volume				= 0.10
+inv_grid_x				= 6
+inv_grid_y				= 44
+inv_category			= 7
+cost					= 300
+use_condition			= true
+volume_scale			= false
+max_uses				= 5
+allow_repair			= false
+can_stack				= true
+fire_item				= true
+empty_weight			= 0.02
+use_sound				= interface\inv_matches
+;================================================================================
+[lighter]:booster
+visual					= dynamics\equipments\trade\lighter.ogf
+description				= st_lighter_descr
+inv_name				= st_lighter
+inv_name_short			= st_lighter
+inv_grid_x				= 3
+inv_grid_y				= 6
+inv_category			= 7
+cost					= 3590
+inv_weight				= 0.15
+inv_volume				= 0.15
+use_condition			= true
+max_uses				= 8
+allow_repair			= false
+volume_scale			= false
+can_stack				= false
+fire_item				= true
+empty_weight			= 0.15
+next_use_item			= lighter_empty
+use_sound				= interface\inv_lighter
+
+[lighter_empty]:lighter
+description				= st_lighter_empty_descr
+inv_name				= st_lighter_empty
+inv_name_short			= st_lighter_empty
+cost					= 590
+inv_weight				= 0.10
+use_condition			= false
+next_use_item			=
+;================================================================================
+[wood_stove]:booster
+$spawn 					= "devices\repair_kit_10"
+visual					= dynamics\cooking\wood_stove.ogf
+cost					= 1996
+inv_name				= st_wood_stove
+inv_name_short			= st_wood_stove
+description				= st_wood_stove_descr
+inv_weight				= 0.24
+inv_volume				= 1.10
+inv_grid_x				= 12
+inv_grid_y				= 57
+inv_category			= 7
+fuel_type				= charcoal, itm_firewood, guitar_a, spareparts
+use_actor_effects		= true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+take_sound				= tools_take
+;use_sound				= interface\inv_cooking
+;================================================================================
+[fieldcooker]:booster
+$spawn 					= "devices\repair_kit_10"
+visual					= dynamics\cooking\multi_fuel_stove.ogf
+cost					= 6055
+inv_name				= st_fieldcooker
+inv_name_short			= st_fieldcooker
+description				= st_fieldcooker_descr
+inv_weight				= 0.46
+inv_volume				= 1.2
+inv_grid_width			= 2
+inv_grid_x				= 13
+inv_grid_y				= 57
+fuel_type				= kerosene, jerrycan_fuel, balon_gas
+use_actor_effects		= true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+;use_sound				= interface\inv_cooking
+;================================================================================
+;[gaz_plita_small]:booster
+;$spawn                        = "dynamic_objects\kitchen_room\gaz_plita_small"
+;visual                        = dynamics\kitchen_room\gaz_plita_small.ogf
+;cost					= 1500
+;inv_name				= st_gaz_plita_small
+;inv_name_short			= st_gaz_plita_small
+;description				= st_gaz_plita_small_descr
+;inv_weight				= 6.0
+;inv_volume				= 4.6
+;inv_grid_width			= 2
+;inv_grid_x				= 65
+;inv_grid_y				= 55
+;fuel_type				= balon_gas
+;use_actor_effects		= true      ;Uses actor_effects script. Setup a *_dummy section for the item in actor_effects_data.script
+;================================================================================
+[army_bowler]:base_section
+$spawn					= "devices\repair_kit_10"
+visual					= dynamics\cooking\wood_stove.ogf
+class                   = S_PDA
+inv_name				= st_army_bowler
+inv_name_short			= st_army_bowler
+description				= st_army_bowler_descr
+inv_weight				= 1.9
+inv_volume				= 1.1
+radius                  = 68
+inv_grid_x				= 15
+inv_grid_y				= 1
+cost					= 1500
+use_condition			= true
+pan_item				= true
+take_sound				= tools_take
+use1_functor            = ui_itm_cooking.campfire_cook_functor
+use1_action_functor		= ui_itm_cooking.campfire_cook_action_functor
+;================================================================================
+[saucepan]:army_bowler
+visual					= dynamics\equipments\trade\ckit.ogf
+inv_name				= st_saucepan
+inv_name_short			= st_saucepan
+description				= st_saucepan_descr
+inv_weight				= 0.464
+inv_volume				= 1.2
+inv_grid_x				= 10
+inv_grid_y				= 10
+cost					= 1200
+
+[teapot_1_pickable]:army_bowler
+$spawn                        = "pickable_objects\kitchen_room\teapot_1"
+visual                        = dynamics\kitchen_room\teapot_1.ogf
+inv_grid_width     = 2
+inv_grid_height    = 2
+inv_grid_x         = 55
+inv_grid_y         = 55
+inv_weight                               = 0.6
+inv_volume								 = 5.5
+inv_name                                 = st_teapot_1_name
+inv_name_short                           = st_teapot_1_name
+description                              = st_teapot_1_descr
+cost                                     = 200
+
+;[teapot_1]:teapot_1_pickable
+;
+;[kastrula]:army_bowler
+;$spawn                        = "dynamic_objects\kitchen_room\kastrula"
+;visual                        = dynamics\kitchen_room\kitchen_kastrula.ogf
+;inv_grid_width     = 2
+;inv_grid_height    = 1
+;inv_grid_x         = 60
+;inv_grid_y         = 55
+;inv_volume						= 10.5
+;inv_weight                               = 1.2
+;inv_name                                 = st_kastrula_name
+;inv_name_short                           = st_kastrula_name
+;description                              = st_kastrula_descr
+;cost                                     = 300
+;
+;[miska]:army_bowler
+;$spawn                        = "dynamic_objects\kitchen_room\miska"
+;visual                        = dynamics\kitchen_room\kitchen_miska.ogf
+;inv_grid_width     = 2
+;inv_grid_height    = 1
+;inv_grid_x         = 62
+;inv_grid_y         = 55
+;inv_volume						= 2.6
+;inv_weight                               = 0.3
+;inv_name                                 = st_miska_name
+;inv_name_short                           = st_miska_name
+;description                              = st_miska_descr
+;cost                                     = 280
+
+;================================================================================
+;=============================== Cooking fuels ==================================
+;================================================================================
+[jerrycan_fuel]:booster
+visual					= dynamics\balon\kanistra.ogf
+$spawn 					= "weapons\explosive\mobiltank"
+description				= st_jerrycan_fuel_descr
+inv_name				= st_jerrycan_fuel
+inv_name_short			= st_jerrycan_fuel
+cost					= 1600
+inv_grid_width    		= 2
+inv_grid_height   		= 2
+inv_grid_x        		= 16
+inv_grid_y         		= 49
+inv_category			= 7
+inv_weight				= 8.0
+inv_volume				= 8.2
+max_uses               	= 8
+empty_weight           	= 1.5
+use_condition           = true
+volume_scale			= false
+can_stack				= false
+show_on_use				= false
+use_sound				= interface\inv_jerrycan_fuel
+next_use_item 			= jerrycan_empty
+
+[jerrycan_empty]:base_section
+$spawn 					= "weapons\explosive\mobiltank"
+visual					= dynamics\balon\kanistra.ogf
+description				= st_jerrycan_fuel_empty_descr
+inv_name				= st_jerrycan_fuel_empty
+inv_name_short			= st_jerrycan_fuel_empty
+inv_grid_width     		= 2
+inv_grid_height   		= 2
+inv_grid_x        		= 16
+inv_grid_y         		= 49
+cost					= 140
+inv_weight				= 2
+inv_volume				= 8.2
+repair_part_bonus	 	= 0.02
+can_stack				= false
+
+[kanistra_01_pickable]:jerrycan_empty
+
+;================================================================================
+[balon_gas]:booster
+visual					= dynamics\balon\gaz_balon.ogf
+$spawn 					= "weapons\explosive\mobiltank"
+description				= st_balon_gas_descr
+inv_name				= st_balon_gas
+inv_name_short			= st_balon_gas
+inv_grid_width     		= 2
+inv_grid_height    		= 2
+inv_grid_x         		= 16
+inv_grid_y         		= 47
+inv_category			= 7
+cost					= 1680
+inv_weight				= 3.2
+inv_volume				= 8.2
+max_uses               	= 8
+empty_weight           	= 1.0
+use_condition           = true
+volume_scale			= false
+can_stack				= false
+show_on_use				= false
+use_sound				= interface\inv_jerrycan_fuel
+next_use_item 			= balon_empty
+
+[balon_empty]:base_section
+$spawn 					= "weapons\explosive\mobiltank"
+visual					= dynamics\balon\gaz_balon.ogf
+description				= st_balon_gas_empty_descr
+inv_name				= st_balon_gas_empty
+inv_name_short			= st_balon_gas_empty
+inv_grid_width    		= 2
+inv_grid_height   		= 2
+inv_grid_x         		= 16
+inv_grid_y         		= 47
+cost					= 150
+inv_weight				= 3.2
+inv_volume				= 8.2
+repair_part_bonus	 	= 0.03
+can_stack				= false
+;================================================================================
+[kerosene]:booster
+visual					= dynamics\cooking\kerosene.ogf
+$spawn 					= "weapons\explosive\mobiltank"
+description				= st_kerosene_descr
+inv_name				= st_kerosene
+inv_name_short		    = st_kerosene
+inv_grid_height   		= 2
+inv_grid_x        		= 18
+inv_grid_y        		= 49
+inv_category			= 7
+cost					= 1025
+inv_weight				= 4.47
+inv_volume				= 5
+max_uses               	= 5
+empty_weight           	= 0.58
+use_condition           = true
+volume_scale			= false
+can_stack				= false
+show_on_use				= false
+next_use_item 			= kerosene_empty
+
+[kerosene_empty]:base_section
+$spawn 					= "weapons\explosive\mobiltank"
+visual					= dynamics\cooking\kerosene.ogf
+description				= st_kerosene_empty_descr
+inv_name				= st_kerosene_empty
+inv_name_short			= st_kerosene_empty
+inv_grid_height    		= 2
+inv_grid_x        		= 18
+inv_grid_y        		= 49
+cost					= 85
+inv_weight				= 0.58
+inv_volume				= 5
+repair_part_bonus	 	= 0.02
+can_stack				= false
+;================================================================================
+[charcoal]:booster, can_divide
+visual					= dynamics\cooking\charcoal.ogf
+$spawn 					= "weapons\explosive\mobiltank"
+description				= st_charcoal_descr
+inv_name				= st_charcoal
+inv_name_short			= st_charcoal
+inv_grid_height     	= 2
+inv_grid_x          	= 11
+inv_grid_y          	= 57
+inv_category			= 7
+cost					= 880
+inv_weight				= 3.12
+inv_volume				= 2.5
+max_uses               	= 3
+empty_weight           	= 0.58
+use_condition           = true
+show_on_use				= false
+can_stack				= false
+;================================================================================
+[lighter_refiller]:booster
+visual					= dynamics\equipments\trade\lighter_refiller.ogf
+$spawn					= "devices\lighter_refiller"
+description				= st_lighter_refiller_descr
+inv_name				= st_lighter_refiller
+inv_name_short			= st_lighter_refiller
+use_condition			= true
+cost					= 1770
+inv_weight				= 0.162
+inv_volume				= 0.250
+inv_grid_x				= 13
+inv_grid_y				= 64
+inv_category			= 7
+repair_part_bonus		= 0.075
+volume_scale			= false
+max_uses				= 5
+next_use_item			= lighter_refiller_empty
+
+[lighter_refiller_empty]:lighter_refiller
+inv_name				= st_lighter_refiller_empty
+inv_name_short			= st_lighter_refiller_empty
+description				= st_lighter_refiller_empty_descr
+show_on_use				= false
+use_condition			= false
+cost					= 400
+inv_weight				= 0.075
+inv_volume				= 0.250
+next_use_item			=
+;===============================================================================

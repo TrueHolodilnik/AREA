@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="st_ignite_fire">
+		<text>Iluminar ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_extinguish_fire">
+		<text>Extinguir ($$ACTION_USE$$)</text>
+	</string>
+	<string id="actor_inventory_box_use">
+		<text>Abrir caja personal ($$ACTION_USE$$)</text>
+	</string>
+	<string id="cant_walk">
+		<text>No puedo seguir, necesito un descanso</text>
+	</string>
+	<string id="cant_walk_weight">
+		<text>Demasiado pesado, no se puede mover</text>
+	</string>
+	<string id="car_character_use">
+		<text>Abrir puerta ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_use_action_sit">
+		<text>Sentarse ($$ACTION_USE$$)</text>
+	</string>
+	<string id="character_use">
+		<text>Hablar ($$ACTION_USE$$)</text>
+	</string>
+	<string id="dead_character_use">
+		<text>Registrar cuerpo ($$ACTION_USE$$)</text>
+	</string>
+	<string id="dead_character_use_or_drag">
+		<text>Registrar cuerpo ($$ACTION_USE$$)\nArrastrar cadaver (SHIFT+$$ACTION_USE$$)</text>
+	</string>
+	<string id="general_complete_task">
+		<text>La tarea se ha completado:</text>
+	</string>
+	<string id="general_fail_task">
+		<text>La tarea ha fracasado:</text>
+	</string>
+	<string id="general_in_item">
+		<text>Se recibe un objeto:</text>
+	</string>
+	<string id="general_in_money">
+		<text>El dinero es recibido:</text>
+	</string>
+	<string id="general_new_task">
+		<text>Una nueva tarea:</text>
+	</string>
+	<string id="general_out_item">
+		<text>Se regala un objeto:</text>
+	</string>
+	<string id="general_out_money">
+		<text>El dinero se entrega:</text>
+	</string>
+	<string id="general_reverse_task">
+		<text>El encargo ha sido cancelado:</text>
+	</string>
+	<string id="general_update_task">
+		<text>La tarea ha sido actualizada:</text>
+	</string>
+	<string id="gun_jammed">
+		<text> </text>
+	</string>
+	<string id="inventory_box_use">
+		<text>Buscar en la caja ($$ACTION_USE$$)</text>
+	</string>
+	<string id="inventory_item_use">
+		<text>Recoger objeto ($$ACTION_USE$$)</text>
+	</string>
+	<string id="jup_b10_ufo_searching_tips">
+		<text>Buscar en el avion ($$ACTION_USE$$)</text>
+	</string>
+	<string id="jup_b1_bar_door">
+		<text>La puerta esta atascada</text>
+	</string>
+	<string id="jup_b1_door_is_closed">
+		<text>La puerta esta cerrada por dentro</text>
+	</string>
+	<string id="jup_b202_treasures_closed">
+		<text>La caja fuerte esta cerrada</text>
+	</string>
+	<string id="jup_b205_tip_door_closed">
+		<text>Codigo requerido</text>
+	</string>
+	<string id="jup_b205_tip_door_decode">
+		<text>Introduzca el codigo ($$ACTION_USE$$)</text>
+	</string>
+	<string id="jup_b206_use_plant">
+		<text>Para recoger una planta ($$ACTION_USE$$)</text>
+	</string>
+	<string id="jup_b209_scanner_place_tips">
+		<text>Configurar el escaner ($$ACTION_USE$$)</text>
+	</string>
+	<string id="jup_b209_scanner_remove_tips">
+		<text>Recoger el escaner ($$ACTION_USE$$)</text>
+	</string>
+	<string id="lx8_raduga">
+		<text>Supresor de agresiones «Arcoiris»\nMaqueta de un complejo emisor externo\nEscala 1:20</text>
+	</string>
+	<string id="pas_b400_tip_switcher">
+		<text>Conectar el interruptor ($$ACTION_USE$$)</text>
+	</string>
+	<string id="pri_a18_use_idol">
+		<text>Inspeccionar la estructura ($$ACTION_USE$$)</text>
+	</string>
+	<string id="pri_a25_blow_up_enter_door">
+		<text>Colocar los explosivos ($$ACTION_USE$$)</text>
+	</string>
+	<string id="pri_a28_talk_with_stupid_medic">
+		<text>Dar vida a ($$ACTION_USE$$)</text>
+	</string>
+	<string id="pri_b306_elevator_door_locked_used">
+		<text>El ascensor esta desactivado</text>
+	</string>
+	<string id="pri_b306_generator_use">
+		<text>Arrancar el generador ($$ACTION_USE$$)</text>
+	</string>
+	<string id="sleep_gather">
+		<text>Recoger</text>
+	</string>
+	<string id="sleep_ok_button">
+		<text>Dormir</text>
+	</string>
+	<string id="sleep_warning_all_pleasures">
+		<text>No puedes dormir! Estas sangrando peligrosamente y tu cuerpo esta altamente irradiado. Utiliza la medicacion o acude al medico.</text>
+	</string>
+	<string id="sleep_warning_bleeding">
+		<text>No puedes dormir! Estas sangrando peligrosamente. Utiliza la medicacion o acude a un profesional de la salud.</text>
+	</string>
+	<string id="sleep_warning_radiation">
+		<text>No puedes dormir! Tiene un alto nivel de exposicion a la radiacion. Utiliza la medicacion o acude al medico.</text>
+	</string>
+	<string id="sleep_zone_tip">
+		<text>Dormir ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_autosave">
+		<text>Autoguardado...</text>
+	</string>
+	<string id="st_can_use_weapon_now">
+		<text>Ahora puedes conseguir un arma.</text>
+	</string>
+	<string id="st_codelock">
+		<text>La cerradura de combinacion ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_detective_news">
+		<text>Se ha anadido la medicina a la caja personal de stalkers en Skadovsk para resolver el caso del stalker desaparecido.</text>
+	</string>
+	<string id="st_duty_first_reward_news">
+		<text>El traje de proteccion universal PS5-M se coloca en una caja personal en Janova para ayudar a La Deuda.</text>
+	</string>
+	<string id="st_duty_second_reward_news">
+		<text>Un traje PSZ-9d "Dolga Armour" se coloca en la caja personal de la Janova para ayudar al "Dolga".</text>
+	</string>
+	<string id="st_freedom_first_reward_news">
+		<text>Un traje de Vientos de libertad se coloca en una caja personal en Janova para ayudar a Libertad.</text>
+	</string>
+	<string id="st_freedom_second_reward_news">
+		<text>Un traje de Guardian de la Libertad es colocado en una caja personal en Janova por ayudar a la Libertad.</text>
+	</string>
+	<string id="st_freeplay_text_ok">
+		<text>No llegaste a los helicopteros a tiempo. El equipo de evacuacion salio de la Zona sin ti.</text>
+	</string>
+	<string id="st_freeplay_text_yes_no">
+		<text>Estas preparado para salir de la Zona? No habra vuelta atras.</text>
+	</string>
+	<string id="st_game_over">
+		<text>Asi es la vida en la Zona...</text>
+	</string>
+	<string id="st_game_over_press_jump">
+		<text>Haga click en ($$ACTION_JUMP$$) para acceder al menu principal</text>
+	</string>
+	<string id="st_game_paused">
+		<text>Juego en Pausa</text>
+	</string>
+	<string id="st_game_saved">
+		<text>Juego Guardado.</text>
+	</string>
+	<string id="st_herald_of_justice_news">
+		<text>Un artefacto es colocado en una caja personal en Skadovsk por ayudar a exponer a Soroka.</text>
+	</string>
+	<string id="st_jup_b41_door_locked">
+		<text>Es necesario esperar a que la esclusa este sellada</text>
+	</string>
+	<string id="st_lx8_button_press_true">
+		<text>Acceso autorizado</text>
+	</string>
+	<string id="st_lx8_lift_button">
+		<text>Tomar el ascensor ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_pri_b306_go_down">
+		<text>Bajar por el ascensor ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_psy_danger">
+		<text>Nivel critico de radiacion psi. Abandone inmediatamente la zona de peligro.</text>
+	</string>
+	<string id="st_helmet_countdown">
+		<text>Proteccion desactivada</text>
+	</string>
+	<string id="st_radiation_danger">
+		<text>Niveles peligrosos de radiacion. La proteccion es necesaria para el paso.</text>
+	</string>
+	<string id="st_search_helicopter">
+		<text>Inspeccionar el helicoptero ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_search_treasure">
+		<text>Buscar en el alijo ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_sleep_hours">
+		<text>ч</text>
+	</string>
+	<string id="st_tip">
+		<text>Mensaje</text>
+	</string>
+	<string id="tip_door_blocked">
+		<text>La puerta esta cerrada</text>
+	</string>
+	<string id="tip_door_close">
+		<text>Cerrar la puerta ($$ACTION_USE$$)</text>
+	</string>
+	<string id="tip_door_closed_base_alarm">
+		<text>La puerta esta cerrada - hay una alarma en el campamento</text>
+	</string>
+	<string id="tip_door_closed_hide_weapon">
+		<text>La puerta esta cerrada con llave - las armas deben estar escondidas</text>
+	</string>
+	<string id="tip_door_locked">
+		<text>La puerta esta cerrada</text>
+	</string>
+	<string id="tip_door_no_electricity">
+		<text>La puerta esta sin energia</text>
+	</string>
+	<string id="tip_door_open">
+		<text>Abrir la puerta ($$ACTION_USE$$)</text>
+	</string>
+	<string id="tip_gate_locked">
+		<text>La puerta esta bloqueada</text>
+	</string>
+	<string id="tip_need_access_card">
+		<text>Usar tarjeta de acceso ($$ACTION_USE$$)</text>
+	</string>
+	<string id="tip_no_access_card">
+		<text>Se requiere una tarjeta de acceso</text>
+	</string>
+	<string id="tip_open_another_site">
+		<text>La puerta no se puede abrir desde este lado</text>
+	</string>
+	<string id="ui_st_mp_experience_grow">
+		<text>-</text>
+	</string>
+	<string id="ui_st_mp_create">
+		<text>Crear</text>
+	</string>
+	<string id="zat_b12_conteiner_full_locked">
+		<text>Contenedor cerrado - se necesitan dos llaves</text>
+	</string>
+	<string id="zat_b12_conteiner_has_one_key">
+		<text>Utilice la llave ($$ACTION_USE$$)</text>
+	</string>
+	<string id="zat_b12_conteiner_has_two_key">
+		<text>Utilizar las llaves ($$ACTION_USE$$)</text>
+	</string>
+	<string id="zat_b12_conteiner_locked">
+		<text>Contenedor cerrado - se necesita una segunda llave Utilizar las llaves</text>
+	</string>
+	<string id="zat_b12_conteiner_open">
+		<text>Abrir el contenedor ($$ACTION_USE$$)</text>
+	</string>
+	<string id="zat_b14_door_locked_hint">
+		<text>El mecanismo de la puerta se bloquea desde el interior</text>
+	</string>
+	<string id="zat_b57_balon_use_hint">
+		<text>Conectar la bombona de gas ($$ACTION_USE$$)</text>
+	</string>
+	<string id="zat_b57_gas_warning">
+		<text>?Cuidado! ?Peligro quimico!</text>
+	</string>
+	<string id="zat_b57_vintil_press">
+		<text>Girar la valvula ($$ACTION_USE$$)</text>
+	</string>
+	<string id="zat_b33_car_searching_tip">
+		<text>Buscar en los Zaporozhets ($$ACTION_USE$$)</text>
+	</string>
+	<string id="st_resupply_ready">
+		<text>Los tenientes Rogovets y Kirillov pueden reponer su suministro de medicamentos y municiones antes de la operacion.</text>
+	</string>
+	<string id="st_storm_while_asleep">
+		<text>Hubo una reciente tormenta psi en la Zona.</text>										 
+	</string>
+	<string id="st_surge_while_asleep">
+		<text>Recientemente se ha producido una emsion en la Zona.</text>
+	</string>
+	<string id="st_mutant_hunter_news">
+		<text>La municion se coloca en una caja personal en la Janova para destruir a los mutantes peligrosos.</text>
+	</string>
+	<string id="st_found_old_treasure">
+		<text>Se obtienen las coordenadas de un geocache previamente encontrado</text>
+	</string>
+	<string id="st_got_treasure">
+		<text>Has encontrado un alijo</text>
+	</string>
+	<string id="st_found_new_treasure">
+		<text>Se han obtenido las coordenadas de un alijo</text>
+	</string>
+	<string id="st_press_any_key">
+		<text>Pulse cualquier tecla para entrar en la Zona</text>
+	</string>
+	<string id="tips_rad_switcher_press">
+		<text>Apagar el quemador de cerebros ($$ACTION_USE$$)</text>
+	</string>
+
+	<!-- Activate BrainScorcher Switch Tip -->
+
+	<string id="drx_sl_tips_rad_switcher_press">
+		<text>Encender el quemador de cerebros ($$ACTION_USE$$)</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<string id="st_make_a_wish">
+		<text>Pedir un deseo ($$ACTION_USE$$)</text>
+	</string>
+               <string id="st_lx18_pda">
+		<text>Leer el registro en la PDA</text>
+	</string>
+	<string id="dar_poltergeist_hold_the_door">
+		<text>Algo esta sujetando la puerta.</text>
+	</string>
+	<string id="st_labx18_pass_to_1st_door">
+		<text>Bien hecho, colega. Me alegro de que tengas acceso al nivel 2. Por fin sabras lo que pasa en nuestro laboratorio. Su codigo de acceso es 1243. El jefe del laboratorio X-18, Pyotr Ilyich Kalugin.</text>
+	</string>
+	<string id="st_labx18_pass_to_2nd_door">
+	<text>Estimado colega, permitame recordarle que a partir de manana debe inspeccionar los contenedores del laboratorio central cada dos horas. Informen directamente a mi. El codigo de acceso al laboratorio central es 9524. Jefe del Laboratorio X18, Pyotr Ilyich Kalugin.</text>
+	</string>
+	<string id="st_yan_saharov_message">
+		<text>Buen hombre, al final lo hiciste. Es muy importante que podamos estudiar la instalacion en el laboratorio. Intenta apagarlo para que podamos examinarlo.</text>
+	</string>
+	<string id="st_yan_saharov_message_2">
+		<text>Mira, este prototipo no te protegera de los poderosos efectos psi. Esperaba algo asi, asi que cada vez que golpees un campo psi potente, se activara un temporizador. Cuando el tiempo se agote, el dispositivo dejara de protegerte, asi que ten cuidado y vigila el tiempo.</text>
+	</string>
+	<string id="st_yan_saharov_message_3">
+		<text>Buen trabajo. La radiacion esta apagada y tu sigues vivo.</text>
+	</string>
+	<string id="tips_warlab_switcher_press">
+		<text>Apagar los generadores ($$ACTION_USE$$)</text>
+	</string>
+	<string id="tip_door_coded">
+		<text>Cerrado con candado</text>
+	</string>
+	<string id="tip_door_decode">
+		<text>Haga clic en ($$ACTION_USE$$) para descifrar el codigo</text>
+	</string>
+	<string id="tip_door_decoding">
+		<text>La coincidencia de contrasenas esta en...</text>
+	</string>
+		<string id="bar_arena_actor_afraid">
+		<text>El combate se cancela! El retador se acobardo y no salio a luchar!</text>
+	</string>
+	<string id="bar_arena_fight_10">
+		<text>Han pasado 10 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_20">
+		<text>Han pasado 20 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_30">
+		<text>Han pasado 30 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_40">
+		<text>Han pasado 40 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_50">
+		<text>Han pasado 50 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_60">
+		<text>Ha pasado un minuto!</text>
+	</string>
+	<string id="bar_arena_fight_70">
+		<text>Ha pasado un minuto y 10 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_80">
+		<text>Ha pasado un minuto y 20 segundos!</text>
+	</string>
+	<string id="bar_arena_fight_90">
+		<text>Ha pasado un minuto y medio!</text>
+	</string>
+	<string id="bar_arena_fight_begin">
+		<text>Lucha contra!</text>
+	</string>
+	<string id="bar_arena_fight_bloodsucker">
+		<text>Atencion! Atencion! Una nueva batalla en nuestra Arena! En la esquina izquierda esta la peor pesadilla de la Zona, el chupasangre eternamente hambriento! Y en la esquina derecha... ?Un hombre? Si, es un hombre! Sus aplausos, por favor!</text>
+	</string>
+	<string id="bar_arena_fight_burer">
+		<text>Atencion! Atencion! Una nueva batalla en nuestra Arena! En la esquina izquierda, el doblador de cucharas y maestro de kung-fu, el burer en persona! Y en la esquina derecha, el hombre que siempre esta al acecho!</text>
+	</string>
+	<string id="bar_arena_fight_dead">
+		<text>Asi, el retador fue asesinado! ?Que sorpresa!</text>
+	</string>
+	<string id="bar_arena_fight_lose">
+		<text>Vale, el aspirante mato a su oponente, pero no lo hizo a tiempo. Pierde la pelea!</text>
+	</string>
+	<string id="bar_arena_fight_pseudodog">
+		<text>Atencion! Atencion! Una nueva batalla esta a punto de comenzar en la Arena. En la esquina izquierda esta el blanco y esponjoso engendro de este infierno... el pseudoperro! Y en la esquina derecha, aparece de la nada, un hombre sin pasado y sin futuro.</text>
+	</string>
+	<string id="bar_arena_fight_savage">
+		<text>Atencion! Atencion! Una nueva batalla esta a punto de comenzar en la Arena. En la esquina izquierda: lo conoces, lo quieres y te odia! Es la Bestia! Y en la esquina de la derecha, vivo y sano, al menos por el momento, esta nuestro aspirante.</text>
+	</string>
+	<string id="bar_arena_fight_snork">
+		<text>Atencion! Atencion! Un nuevo combate en la Arena! En la esquina izquierda, el maestro de artes marciales y experto en nutricion saludable, Snork! Y en la esquina derecha, el hombre sin pasado y sin futuro.</text>
+	</string>
+	<string id="bar_arena_fight_timeout">
+		<text>El tiempo ha expirado! El retador ha perdido, pero sigue luchando por su vida!</text>
+	</string>
+	<string id="bar_arena_fight_victory">
+		<text>El retador ha matado a su oponente a tiempo! Gana!</text>
+	</string>
+	<string id="st_death_count">
+		<text>Has muerto %s veces.</text>
+	</string>
+	
+	<string id="st_screen_kick">
+		<text>Patada</text>
+	</string>
+	<string id="st_screen_field_dress">
+		<text>Recoger los trofeos</text>
+	</string>
+	<string id="st_nobody_left_to_replace">
+		<text>No hay reemplazo.</text>
+	</string>
+	<string id="st_cannot_save">
+		<text>Ahora no es el momento de hacer una cronica.</text>
+	</string>
+	<string id="st_cannot_save_now">
+		<text>No tengo ningun sitio donde escribirlo ahora mismo.</text>
+	</string>
+	<string id="sleep_bleeding">
+		<text>Necesitamos algo para detener la hemorragia!</text>
+	</string>
+	<string id="st_cannot_save_during_emmission">
+		<text>No es momento de escribir un testamento, ?esta a punto de estallar!</text>
+	</string>
+	<string id="st_nothing_useful">
+		<text>Nada util</text>
+	</string>
+	<string id="st_disscharged">
+		<text>No se enciende!</text>
+	</string>
+	<string id="st_battery_disconnected">
+		<text>No hay nada que cobrar.</text>
+	</string>
+	<string id="st_battery_charged">
+		<text>La bateria esta cargada!</text>
+	</string>
+	<string id="st_exo_disscharged">
+		<text>Alimentacion del accionamiento:0%.</text>
+	</string>
+	<string id="st_generator_broke">
+		<text>El generador esta roto</text>
+	</string>
+	
+	<!-- A.R.E.A. Skills -->
+	<string id="ui_st_skills">
+		<text>Habilidades</text>
+	</string>
+	<string id="st_craft_skill_success">
+		<text>Es posible crear un objeto</text>
+	</string>
+	<string id="st_craft_skill_fail">
+		<text>Imposible crear un objeto</text>
+	</string>
+	<string id="st_uncraft_skill_up_one">
+		<text>Se han mejorado las habilidades de desmontaje. Solo se obtuvo una pieza de recambio.</text>
+	</string>
+	<string id="st_uncraft_skill_up_many">
+		<text>Se ha mejorado la habilidad de desmontaje. Fue posible obtener %s partes.</text>
+	</string>
+	<string id="st_uncraft_nothing">
+		<text>Caramba, la he cagado! Quiza la proxima vez funcione.</text>
+	</string>
+	<string id="st_craft_skill_up">
+		<text>La habilidad Craft ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_hunting_skill_up">
+		<text>La habilidad Caza ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_shooting_skill_up">
+		<text>La habilidad Tiro ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_uncraft_skill_up">
+		<text>La habilidad de Desmontaje ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_marauder_skill_up">
+		<text>La habilidad de saqueo ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_survival_skill_up">
+		<text>Habilidad de supervivencia aumentada al nivel %s!</text>
+	</string>
+	<string id="st_repair_skill_up">
+		<text>La habilidad de reparacion ha sido mejorada al nivel %s!</text>
+	</string>
+	<string id="st_skill_up">
+        <text>Habilidad %s elevada al nivel %s</text>
+    </string>
+	<string id="st_new_way_opened">
+		<text>Un nuevo camino descubierto</text>
+	</string>
+	<string id="st_unknow_way">
+		<text>Un enorme grupo de anomalias esta bloqueando el paso, tienes que encontrar otro camino!</text>
+	</string>
+
+	<string id="st_bino_defected">
+		<text>El objeto esta roto</text>
+	</string>
+	<string id="st_hacking_soft_inst">
+		<text>   La instalacion del software xHask v1.0 se ha realizado correctamente.</text>
+	</string>
+	<string id="st_install_soft">
+		<text>Proceso de instalacion: ?Instalacion completada!</text>
+	</string>
+	<!-- FaL Radio On|Off -->
+	<string id="radio_off">
+       <text>Apagar la radio ($$ACTION_USE$$)</text>
+    </string>
+    <string id="radio_on">
+       <text>Encender la radio ($$ACTION_USE$$)</text>
+    </string>
+	
+    <string id="st_goodwill_inc">
+       <text>Actitud</text>
+    </string>
+    <string id="st_goodwill_stalker">
+       <text> Con stalkers ahora</text>
+    </string>
+	<string id="st_goodwill_monolith">
+       <text> Con los monolitos ahora</text>
+    </string>
+	<string id="st_goodwill_csky">
+       <text> Con cielo despejado ahora</text>
+	</string>
+	<string id="st_goodwill_army">
+		<text> Con los militares ahora</text>
+	</string>
+	<string id="st_goodwill_bandit">
+		<text> Con bandidos ahora</text>
+	</string>
+	<string id="st_goodwill_killer">
+		<text> Con mercenarios ahora</text>
+	</string>
+	<string id="st_goodwill_ecolog">
+		<text> Con los ecologistas ahora</text>
+	</string>
+	<string id="st_goodwill_dolg">
+		<text> Con los deber ahora</text>
+	</string>
+	<string id="st_goodwill_freedom">
+		<text> Con los libertad ahora</text>
+	</string>
+	<string id="st_goodwill_zombied">
+		<text> Con los zombificados ahora</text>
+	</string>
+	<string id="st_goodwill_trader">
+		<text> Con los comerciantes</text>
+	</string>
+	<string id="st_connection_lost">
+		<text>La conexion se ha perdido!</text>
+	</string>
+	<string id="st_connection_restored">
+		<text>La conexion esta hecha.</text>
+	</string>
+	<string id="st_new_message">
+		<text>Nuevo mensaje:</text>
+	</string>
+	<string id="st_sleep_pain">
+		<text>No puedo dormir: el dolor es insoportable!</text>
+	</string>
+	<string id="st_sleep_bleeding">
+		<text>No puedo dormir: necesito parar la hemorragia!</text>
+	</string>
+	<string id="st_sleep_bleeding_pain">
+		<text>No puedo dormir: las heridas sangran y duelen!</text>
+	</string>
+	<string id="st_arms_damaged">
+		<text>Me duelen los brazos, no puedo levantar!</text>
+	</string>
+	<string id="st_right_arm_damaged_cant_hold">
+		<text>Mi brazo derecho esta danado, no puedo sostenerlo!</text>
+	</string>
+	<string id="st_left_arm_damaged_cant_hold">
+		<text>Mi brazo izquierdo esta danado, no puedo sostenerlo!</text>
+	</string>
+	<string id="st_pulse">
+		<text>Pulso: </text>
+	</string>
+
+	<string id="st_mag_absent">
+		<text>No hay datos disponibles</text>
+	</string>
+	<string id="st_mag_empty">
+		<text>Vacio</text>
+	</string>
+	<string id="st_mag_almost_empty">
+		<text>Casi vacio</text>
+	</string>
+	<string id="st_mag_less_half">
+		<text>Menos de la mitad</text>
+	</string>
+	<string id="st_mag_half">
+		<text>Aproximadamente la mitad</text>
+	</string>
+	<string id="st_mag_great_half">
+		<text>Mas de la mitad</text>
+	</string>
+	<string id="st_mag_almost_full">
+		<text>Casi lleno</text>
+	</string>
+	<string id="st_mag_full">
+		<text>Completo</text>
+	</string>
+	<string id="st_mag_unknown">
+		<text>Desconocido</text>
+	</string>
+	
+	<string id="st_mine_activation">
+		<text>Activacion mediante:</text>
+	</string>
+	<string id="st_pickup_item">
+		<text>Recogido</text>
+	</string>
+	<string id="st_no_knife">
+		<text>Sin cuchillo</text>
+	</string>
+	<string id="st_item_rep_loss">
+		<text>%s: ?Que carajo me diste, te parezco una basura? %s mierda!</text>
+	</string>
+</string_table>

@@ -1,0 +1,94 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition			= trade_generic_buy
+sell_condition			= trade_generic_sell
+buy_supplies			= supplies_generic
+
+buy_item_condition_factor = 0.9
+
+discounts				= discount_2
+ 
+[trade_generic_buy]:buy_barman_set
+
+[trade_generic_sell]:sell_barman_set
+
+[supplies_generic]
+bread								= 2, 0.8
+kolbasa								= 3, 0.66
+sausage								= 3, 0.66
+olivki								= 2, 0.5
+raisins								= 1, 0.5
+shokolad							= 5, 1
+batonchik							= 3, 1
+mint								= 2, 0.5
+mre									= 1, 0.33
+ration_ru							= 1, 0.33
+ration_ukr							= 1, 0.33
+cheese								= 1, 0.5
+galet								= 3, 1
+mushroom_fried						= 3, 1
+beans								= 2, 0.5
+bullheads							= 2, 0.5
+beef								= 3, 0.5
+condensed_milk						= 2, 1
+chili								= 2, 0.5
+conserva							= 3, 0.5
+corn								= 3, 0.5
+nuts								= 5, 0.5
+tomato								= 2, 0.5
+tushonka							= 5, 0.5
+sardina								= 2, 0.5
+chocolate							= 3, 0.75
+protein								= 2, 0.5
+
+liquer								= 1, 0.33
+vodka								= 2, 1
+vodka2								= 1, 0.5
+vodka_quality						= 1, 0.5
+wine								= 1, 0.5
+beer								= 4, 1
+mineral_water						= 2, 1
+bottle_metal						= 2, 0.66
+flask								= 1, 0.33
+termos_water						= 1, 0.15
+flask_2_water						= 1, 0.15
+bottle_water						= 1, 0.15
+bottle_metal_water					= 1, 0.15
+bottle_glass_water					= 1, 0.15
+bottle_glass_water2					= 1, 0.15
+water_can_2							= 1, 0.10
+energy_drink						= 3, 1
+juice								= 1, 0.33
+cigarettes_marlboro					= 2, 0.33
+cigarettes_lucky					= 2, 0.33
+cigarettes_russian					= 5, 0.33
+cigarettes_slava					= 3, 0.33
+cigarettes_cigar					= 1, 0.33
+
+matches								= 5, 1
+lighter								= 2, 1
+device_pda                          = 3, 1
+device_flashlight                   = 2, 1
+dosimeter                           = 2, 1
+
+container_tool                      = 2, 1
+lead_box                            = 3, 1
+packet_bolts                        = 3, 1
+helm_resp                           = 2, 1
+
+itm_sleepbag						= 2, 1
+itm_tent							= 1, 1
+itm_firewood						= 3, 1
+
+antirad                             = 4, 1
+bandage                             = 5, 1
+stimpack                            = 3, 1
+survival_kit                        = 2, 1
+
+money_hrivni_50                     = 15, 1
+money_hrivni_100                    = 30, 1
+money_hrivni_200                    = 40, 1
+money_roubles_500                   = 5, 1
+money_roubles_1000                  = 10, 1
+money_roubles_5000                  = 10, 1

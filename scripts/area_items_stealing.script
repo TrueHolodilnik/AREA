@@ -1,0 +1,370 @@
+
+-- Camps items and stealing by Holodilnik
+
+local sfind = string.find
+
+local world_itm_off = {}
+local world_itm_num = {}
+local world_itm_on = {}
+local ini = ini_file("plugins\\dynamic_item_spawn.ltx")
+
+local category_prob = {}
+
+function is_consumable(section)
+	local v = system_ini():r_string_ex(section,"class","")
+	return v == "S_FOOD" or v == "II_FOOD"
+end
+			
+function replace_world_item(obj_to_replace)
+
+	local position = obj_to_replace.position
+	local level_vertex = obj_to_replace.m_level_vertex_id
+	local game_vertex = obj_to_replace.m_game_vertex_id
+	local _name = obj_to_replace:name()
+	local category = nil
+	
+	if IsAmmo(obj_to_replace) then
+		category = {"ammo"}
+	elseif IsHeadgear(obj_to_replace) then
+		category = {"misc"}
+	elseif IsOutfit(obj_to_replace) then
+		category = {"misc"}
+	elseif IsWeapon(obj_to_replace) then
+		category = {"misc", "kit"}
+	elseif IsGrenade(obj_to_replace) then
+		category = {"misc"}
+	elseif is_consumable(obj_to_replace:section_name()) then
+		category = {"food", "drink", "medical", "food", "kit"}
+	end
+	
+	local category = category[math.random(1, #category)]
+	local probs = category_prob[category]
+	local check = math.random() * probs[#probs]
+	local tmp = 0
+	local section = nil
+	
+	
+	for i = 0, #probs - 1 do
+		tmp = tmp + probs[i]
+		if check <= tmp then
+			result, section, value = ini:r_line_ex(category,i,"","")
+			break
+		end
+	end
+
+	if ((sfind(section, "_ammo") or sfind(section, "ammo_")) and section ~= "ammo_bad_shell" and section ~= "ammo_bad") then
+		local se_obj = alife():create(section, position, level_vertex, game_vertex)
+		if se_obj then
+			world_itm_on[se_obj.id] = _name
+			world_itm_off[_name] = nil
+			
+			local box_size = system_ini():r_u32(section, "box_size")
+			world_itm_num[_name] = math.random( math.ceil(box_size * 0.25) , math.ceil(box_size * 0.75) )
+			
+		end
+	else
+		local se_obj = alife():create(section, position, level_vertex, game_vertex)
+		if se_obj then
+			
+			world_itm_on[se_obj.id] = _name
+			world_itm_off[_name] = nil
+			
+			local is_using_con = itms_manager.can_degrade(nil, section)
+			if is_using_con then
+				world_itm_num[_name] = (math.random(30,70)/100)
+			elseif system_ini():r_float_ex(section,"max_uses") then
+				world_itm_num[_name] = math.random(1,system_ini():r_float_ex(section,"max_uses"))
+			end
+		end
+	end
+	
+end
+
+local function actor_on_first_update()
+	
+	if alife_storage_manager.get_state().item_removal_done or (level.name() == "fake_start") then
+		UnregisterScriptCallback("actor_on_first_update",actor_on_first_update)
+		return
+	end
+	
+	alife_storage_manager.get_state().item_removal_done = true
+	
+	printf("A.R.E.A.: Dynamic item spawn started")
+	
+	local cat_n = ini:line_count("categories")
+	for i=0, cat_n - 1 do
+		result, value, id = ini:r_line_ex("categories",i,"","")
+		local n = ini:line_count(value)
+		category_prob[value] = {}
+		category_prob[value][n] = 0
+		for j=0, n - 1 do
+			result, id, prob = ini:r_line_ex(value,j,"","")
+			category_prob[value][j] = prob
+			category_prob[value][n] = category_prob[value][n] + prob
+		end
+	end
+	
+	local ids_to_replace = {}
+	
+	local sim = alife()
+	for i=1, 65534 do
+		local se_obj = sim:object(i)
+		if se_obj then
+			local name = se_obj:name()
+			local cls = se_obj:clsid()
+			
+			if ini:line_exist("add_to_protected",name) then
+				world_itm_on[se_obj.id] = name
+				world_itm_off[name] = nil
+			elseif IsAmmo(obj) or IsHeadgear(obj) or IsOutfit(obj) or IsWeapon(obj) or IsGrenade(obj) or is_consumable(se_obj:section_name()) then
+				ids_to_replace[#ids_to_replace + 1] = i
+			end
+				
+		end
+	end
+	
+	for i=1, #ids_to_replace do
+		local se_obj = sim:object(ids_to_replace[i])
+		replace_world_item(se_obj)
+	end
+	
+	printf("A.R.E.A.: Dynamic item spawn finished")
+	
+end
+
+local punch_obj
+local is_punch = false
+local function actor_on_item_take(obj)
+	local id = obj:id()
+	
+	if world_itm_on[id] then
+		local name = world_itm_on[id]
+		local section = obj:section()
+		
+		-- Switch state
+		world_itm_on[id] = nil
+		world_itm_off[name] = true
+		
+		-- Read info
+		local num = world_itm_num[name] or 1
+		if num then
+		
+			-- Ammo
+			if (IsAmmo(obj)) then
+				obj:ammo_set_count(num)
+				world_itm_num[name] = nil
+				
+			elseif (IsHeadgear(obj) or IsOutfit(obj) or IsWeapon(obj)) then
+				obj:set_condition((math.random(1,100)/100))
+				world_itm_num[name] = nil
+				
+			-- Multi-use
+			elseif system_ini():r_float_ex(section,"max_uses") then
+				obj:set_remaining_uses(math.random(1,system_ini():r_float_ex(section,"max_uses")))
+				world_itm_num[name] = nil
+				
+			-- Condition
+			elseif itms_manager.can_degrade(nil, section) then
+				obj:set_condition((math.random(1,100)/100))
+				world_itm_num[name] = nil
+				
+			end
+			
+
+		end
+		
+		local stalkers_t = {}
+		
+		for k = 1, 65534 do
+			local i = 0
+			se_obj = alife():object(k)
+			if ((se_obj and IsStalker(nil, se_obj:clsid()) and se_obj:alive())) then
+				if (se_obj.position:distance_to(db.actor:position()) <= 30) then
+					if (level and db and db.actor and level.object_by_id(se_obj.id) and level.object_by_id(se_obj.id):see(db.actor)) then
+						if (((system_ini():r_float_ex(section,"cost") or 0) > 300) or ((system_ini():r_float_ex(section,"cost") or 0) > 50 and (se_obj.position:distance_to(db.actor:position()) <= 5))) or (string.find(section,"key") or string.find(section,"quest")) then
+							table.insert(stalkers_t, se_obj)
+							if #stalkers_t > 10 then break end
+						end
+					end
+				end
+			end
+		end
+		
+		if #stalkers_t < 1 then return end
+				
+		se_obj = stalkers_t[math.random(1, #stalkers_t)]
+		if string.find(name,"key") or string.find(name,"quest") then
+			local squad = alife():object(se_obj.group_id)
+			if squad:clsid()==clsid.online_offline_group_s then
+				for k in squad:squad_members() do
+					local se_obj = k.object or k.id and alife():object(k.id)
+					if (se_obj) then
+						se_obj:force_set_goodwill(-1000, db.actor)
+					end
+				end
+			else
+				alife_object(squad.id):force_set_goodwill(-1000, db.actor)
+			end
+			give_info("dt2_actor_started_fight_army")
+			return
+		end
+		
+		if not db.actor:has_info("act_robb") and not db.actor:has_info("act_robb1") then
+			if (se_obj.position:distance_to(db.actor:position()) >= 10) then
+				db.actor:give_game_news(game.translate_string("st_warning"), game.translate_string("st_robbery_warning_" .. math.random(1, 10)), se_obj:character_icon(), 0, 3000)	
+				xr_sound.set_sound_play(0, "pda_alarm")
+			else
+				xr_sound.set_sound_play(level.object_by_id(se_obj.id):id(), "npc_steal_warning")
+			end
+			db.actor:give_info_portion("act_robb")
+			
+			xr_effects.defer_action("area_items_stealing.disable_robb", 300, "s")	
+			dxr_statistics.increment_reputation(-25)
+			return
+		elseif not db.actor:has_info("act_robb1") then
+			
+			db.actor:disable_info_portion("act_robb")
+			db.actor:give_info_portion("act_robb1")
+			
+			if (se_obj.position:distance_to(db.actor:position()) >= 10) then
+				xr_sound.set_sound_play(0, "pda_alarm")
+				local n = math.random(1, 4)
+				db.actor:give_game_news(game.translate_string("st_warning"), game.translate_string("st_robbery_fight_" .. n), se_obj:character_icon(), 0, 3000)	
+				sound_object("characters_voice\\human_01\\stalker\\reactions\\steal\\steal_pda_" .. n):play(db.actor,0,sound_object.s2d)
+			else
+				xr_sound.set_sound_play(level.object_by_id(se_obj.id):id(), "npc_steal")
+			end
+			
+			local pos = db.actor:position()
+		
+			local lvid = level.vertex_id(pos)
+			
+			axr_companions.add_to_actor_squad(level.object_by_id(se_obj.id))
+				
+			local squad = alife():object(se_obj.group_id)
+			if (squad and squad.commander_id) then
+				if not (axr_task_manager.hostages_by_id[squad:commander_id()]) then
+					for k in squad:squad_members() do
+						st = db.storage[k.id]
+						local member = st and st.object
+						if (member and member:alive()) then
+							axr_companions.set_companion_to_follow_state(member)
+							if (lvid and not level.valid_vertex(lvid)) then
+								lvid = nil
+							end
+							utils.save_var(member,"fight_from_point",lvid)
+						end
+						if (k.id == squad:commander_id()) then
+							if (st and st.beh) then
+								if (lvid) then 
+									if not (level.valid_vertex(lvid)) then
+										lvid = nil
+									end
+									if (lvid and not member:accessible(lvid)) then
+										lvid = member:accessible_nearest(level.vertex_position(lvid),vector():set(0,0,0))
+									end
+								end
+								st.beh.rally_lvid = lvid
+							end
+						end
+					end
+				end
+			end
+			
+			punch_obj = se_obj.id
+			is_punch = true
+			
+			xr_effects.defer_action("area_items_stealing.disable_robb1", 600, "s")
+			dxr_statistics.increment_reputation(-50)
+			return
+			
+		elseif db.actor:has_info("act_robb1") then
+		
+			local squad = alife():object(se_obj.group_id)
+			if squad:clsid()==clsid.online_offline_group_s then
+				for k in squad:squad_members() do
+					local se_obj = k.object or k.id and alife():object(k.id)
+					if (se_obj) then
+						se_obj:force_set_goodwill(-1000, db.actor)
+					end
+				end
+			else
+				alife_object(squad.id):force_set_goodwill(-1000, db.actor)
+			end
+			return
+		end
+		
+	end
+	
+end
+
+function wait_then_punch()
+	if is_punch and punch_obj then 
+		if db.actor:position():distance_to_sqr(level.object_by_id(punch_obj):position()) <= 4 then
+			
+			local obj = level.object_by_id(punch_obj)
+			
+			level.add_cam_effector("camera_effects\\fusker.anm", 999, false, "")
+
+			local active_slot = db.actor:active_slot()
+			if active_slot < 9 then
+				local active_item = db.actor:active_item()
+				if active_item then
+					db.actor:drop_item(active_item)
+				end
+			end
+			
+			local h = hit()
+			h.direction = VEC_ZERO
+			h.draftsman = db.actor
+			h.type = hit.wound
+			h:bone("bip01_head")
+			h.power = 0.2
+			h.impulse = 0.001
+			db.actor:hit(h)
+			
+			xr_sound.set_sound_play(obj:id(), "npc_fire")
+			
+			xrs_facer.force_steal = true
+			utils.save_var(level.object_by_id(punch_obj),"facer_target",db.actor)
+			
+			is_punch = false
+			
+			xr_effects.defer_action("area_items_stealing.remove_comp_temp", 3, "s")
+
+		end
+	end
+end	
+
+function remove_comp_temp()
+	axr_companions.remove_from_actor_squad(level.object_by_id(punch_obj))
+	xr_sound.set_sound_play(level.object_by_id(punch_obj):id(), "npc_hard_breath")
+end
+
+function disable_robb()
+	db.actor:disable_info_portion("act_robb")
+end
+
+function disable_robb1()
+	db.actor:disable_info_portion("act_robb1")
+	db.actor:give_info_portion("act_robb")
+	xr_effects.defer_action("area_items_stealing.disable_robb", 300, "s")	
+end
+
+local function save_state(m_data)
+	m_data.world_itm_on = world_itm_on
+	m_data.world_itm_num = world_itm_num
+end
+
+local function load_state(m_data)
+	world_itm_on = m_data.world_itm_on or {}
+	world_itm_num = m_data.world_itm_num or {}
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_update",wait_then_punch)
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("actor_on_item_take",actor_on_item_take)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+end

@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="area_default_char_name">
+		<text>Keen</text>
+	</string>
+	<string id="st_mm_new_game_rank">
+		<text>Rank:</text>
+	</string>
+	<string id="st_faction_stalker">
+		<text>Loner</text>
+	</string>
+	<string id="st_faction_stalker_desc">
+		<text>%c[0,245,245,220]Loners, or free stalkers, are unaligned with any of the factions that operate within the Zone.\n \nDespite being frequently harassed by mutants and other stalkers, small groups have managed to establish strong trading outposts throughout the Zone.</text>
+	</string>
+	<string id="st_faction_bandit">
+		<text>Bandit</text>
+	</string>
+	<string id="st_faction_bandit_desc">
+		<text>%c[0,245,245,220]Bandits are members of the criminal underworld who came to the Zone for different reasons; to make money by selling artefacts, to hide from the law or even to trade in weapons.</text>
+	</string>
+	<string id="st_faction_dolg">
+		<text>Duty</text>
+	</string>
+	<string id="st_faction_dolg_desc">
+		<text>%c[0,245,245,220]Duty is a paramilitary faction at odds with everyone seeking to exploit the Zone and, as Duty sees it, spread its corruption.\n \nThey have long been in fierce conflict with Freedom due to their conflicting ideals.</text>
+	</string>
+	<string id="st_faction_freedom">
+		<text>Freedom</text>
+	</string>
+	<string id="st_faction_freedom_desc">
+		<text>%c[0,245,245,220]Freedom are anarchists and daredevils who declare themselves to be fighting for free access to the Zone and consequently find themselves in constant conflict with Duty.</text>
+	</string>
+	<string id="st_faction_army">
+		<text>Military</text>
+	</string>
+	<string id="st_faction_army_desc">
+		<text>%c[0,245,245,220]The Ukrainian government, through its Ministry of Internal Affairs, maintains the Zone's perimeter with internal troops from the State Security Service.</text>
+	</string>
+	<string id="st_faction_ecolog">
+		<text>Ecologist</text>
+	</string>
+	<string id="st_faction_ecolog_desc">
+		<text>%c[0,245,245,220]The Ecologists are a government-funded body researching the Zone in order to properly harness its potential for the good of mankind.</text>
+	</string>
+	<string id="st_faction_killer">
+		<text>Mercenary</text>
+	</string>
+	<string id="st_faction_killer_desc">
+		<text>%c[0,245,245,220]Mercenaries are experienced fighters from all walks of life who offer their services as hired soldiers, it is unknown who their clients are or why they have interests in the Zone.</text>
+	</string>
+	<string id="st_faction_monolith">
+		<text>Monolith</text>
+	</string>
+	<string id="st_faction_monolith_desc">
+		<text>%c[0,245,245,220]Monolith are a fanatical religious cult hostile to all but their own.\n \nDespite the destruction of the C-Conciousness they have since re-emerged as a resurgent force, retaking many of their former territories.</text>
+	</string>
+	<string id="st_faction_csky">
+		<text>Clear Sky</text>
+	</string>
+	<string id="st_faction_csky_desc">
+		<text>%c[0,245,245,220]Clear Sky is an independent scientific and military organisation focused on researching and understanding the Zone.\n \nFacing almost complete collapse after a failed and costly assault on Chernobyl NPP, a handful of the few remaining survivors managed to rebuild the faction to its former stature.</text>
+	</string>
+	<string id="st_faction_zombied">
+		<text>Zombified</text>
+	</string>
+	<string id="st_faction_zombied_desc">
+		<text>%c[0,245,245,220]Braaaiiinnnsss!!!\n \nZombified stalkers are mindless husks of their previous selves reduced to their most basic animal-like instincts and will attack almost anything that gets too close.</text>
+	</string>
+	<string id="st_mm_faction_back">
+		<text>Back</text>
+	</string>
+	<string id="st_mm_faction_submit">
+		<text>Start</text>
+	</string>
+	<string id="st_mm_faction_rand">
+		<text>Randomize</text>
+	</string>
+	<string id="st_mm_faction_cap_character_name">
+		<text>Name:</text>
+	</string>
+	<string id="st_mm_faction_cap_faction">
+		<text>Faction:</text>
+	</string>
+	<string id="st_mm_ck_story_desc">
+		<text>
+			%c[0,245,245,220]Story mode starts the game with the 'Mysteries of the Zone' storyline, and with the goals to disable the Brain Scorcher and Miracle Machine.\n 
+			\nElements from previous storylines are borrowed and recreated, so this is not for players who feel that strict story continuity is essential.\n
+			\nOnly available to Loner, Duty, Freedom, Ecologist, Mercenary and Clear Sky factions.\n
+			\nNot compatible with Azazel mode.
+		</text>
+	</string>
+	<string id="st_mm_ck_hardcore_desc">
+		<text>
+			%c[0,245,245,220]Ironman mode is a feature that will remove your game saves upon death.\n
+			\nYou are free to make as many saves as you wish but dying will result in the removal of all saves made with this character.
+		</text>
+	</string>
+	<string id="st_mm_ck_hardcore_aim_desc">
+		<text>
+			%c[0,245,245,220]Hardcore AI Aim is a feature that maximizes AI aim predictability, making it more difficult for the player to dodge hits while moving.
+		</text>
+	</string>
+	<string id="st_mm_ck_survival_desc">
+		<text>
+			%c[0,245,245,220]Survival mode is a feature that replaces all spawns with Zombies.\n
+			\nThese hordes will make their way to your location - be prepared! See how long you can survive!
+		</text>
+	</string>
+	<string id="st_mm_ck_azazel_mode_desc">
+		<text>
+			%c[0,245,245,220]In Azazel mode, death is not the end.\n
+			\nLike the demon Azazel you will possess a new body when you die; taking over the form of another random stalker that really exists in the Zone.\n
+			\nIf you have companions, you will become one of them. This feature compliments Ironman and/or Survival mode very well.\n
+			\nNot compatible with Story mode.
+		</text>
+	</string>
+	<string id="st_mm_faction_random_location">
+		<text>Random Location</text>
+	</string>
+	<string id="st_mm_list_hardcore_lives_desc">
+		<text>
+			%c[0,150,150,150]An additional option for the one life mode, which allows you to choose the number of deaths before starting.
+			\nEach time you lose one life.
+			\nWhen lives end, then all save will be erased.\n
+			\n%c[200,200,50,50]• %c[0,150,150,150]One life mode must be active.
+		</text>
+	</string>
+	<string id="st_mm_list_timer_desc">
+		<text>
+			%c[0,150,150,150]In this mode, you can save after a certain time.
+			\nWhen you have done the save, you must wait a while to do the following.
+			\n \n%c[200,50,200,50]• %c[0,150,150,150]Compatible with other modes.
+		</text>
+	</string>
+
+	<!-- Static Text -->
+	<string id="st_mm_new_game_character">
+		<text>Character</text>
+	</string>
+	<string id="st_mm_new_game_faction">
+		<text>Select faction</text>
+	</string>
+	<string id="st_mm_new_game_icon">
+		<text>Select portrait</text>
+	</string>
+	<string id="st_mm_new_game_options">
+		<text>Options</text>
+	</string>
+	<string id="st_mm_new_game_inventory">
+		<text>Inventory</text>
+	</string>
+	<string id="st_mm_new_game_loadout">
+		<text>Loadout</text>
+	</string>
+	<string id="st_mm_new_game_name">
+		<text>Name:</text>
+	</string>
+	<string id="st_mm_new_game_money">
+		<text>Price:</text>
+	</string>
+	<string id="st_mm_new_game_points_left">
+		<text>Money left:</text>
+	</string>
+	<string id="st_mm_new_game_points_used">
+		<text>Spent:</text>
+	</string>
+	<string id="st_mm_new_game_cond">
+		<text>Characteristics</text>
+	</string>
+	<string id="st_mm_new_game_cond_added">
+		<text>Selected</text>
+	</string>
+	<string id="st_mm_new_game_cond_left">
+		<text>Points left:</text>
+	</string>
+	<string id="st_mm_new_game_cond_used">
+		<text>Acquired:</text>
+	</string>
+
+	<!-- Description elements -->
+	<string id="st_mm_new_game_relations">
+		<text>Relations</text>
+	</string>
+	<string id="st_mm_new_game_description">
+		<text>Description</text>
+	</string>
+	<string id="st_mm_new_game_points">
+		<text>Skill points:</text>
+	</string>
+	<string id="st_mm_new_game_essential">
+		<text>Mandatory gear</text>
+	</string>
+
+	<!-- Hint -->
+	<string id="st_mm_itm_desc_unknown">
+		<text>No information</text>
+	</string>
+	
+	<!-- Options -->
+	<string id="st_cap_list_timer">
+		<text>Timer mode</text>
+	</string>
+	<string id="st_cap_list_hardcore_lives">
+		<text>Number of lives</text>
+	</string>
+	<string id="st_cap_list_economy">
+		<text>Progression difficulty</text>
+	</string>
+	
+	<string id="st_off">
+		<text>off</text>
+	</string>
+	<string id="st_new_game_min">
+		<text>min</text>
+	</string>
+	<string id="st_new_game_mins">
+		<text>mins</text>
+	</string>
+	<string id="st_new_game_hour">
+		<text>hour</text>
+	</string>
+	<string id="st_new_game_hours">
+		<text>hours</text>
+	</string>
+	<string id="st_new_game_day">
+		<text>day</text>
+	</string>
+	<string id="st_new_game_days">
+		<text>days</text>
+	</string>
+	<string id="st_new_game_life">
+		<text>life</text>
+	</string>
+	<string id="st_new_game_lives">
+		<text>lives</text>
+	</string>
+	
+	<!-- Buttons -->
+	<string id="st_mm_btn_new_game_faction">
+		<text>Faction</text>
+	</string>
+	<string id="st_mm_btn_new_game_icon">
+		<text>Portrait</text>
+	</string>
+	<string id="st_mm_btn_new_game_back">
+		<text>Back</text>
+	</string>
+	<string id="st_mm_btn_new_game_submit">
+		<text>Hit the road</text>
+	</string>
+	<string id="st_mm_btn_new_game_rand">
+		<text>Random</text>
+	</string>
+	<string id="st_mm_btn_new_game_faction_">
+		<text>Faction:</text>
+	</string>
+	
+	<!-- Condition -->
+	<string id="st_athlete">
+		<text>Athlete</text>
+	</string>
+	<string id="st_athlete_descr">
+		<text>On the mainland you have been involved in athletics, and you can give odds to any military Feeblenel officer.
+		\n %c[0,153,255,255] • %c[0,140,140,140] maximum endurance increased by 15%
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Feeble, Weak, Asthmatic
+		</text>
+	</string>
+	
+	<string id="st_feeble">
+		<text>Feeble</text>
+	</string>
+	<string id="st_feeble_descr">
+		<text>You've never practiced sports and you hate it.
+		\n %c[0,204,0,51] • %c[0,140,140,140] maximum endurance, running and walking speed are reduced
+		\n %c[0,204,0,51] • %c[0,140,140,140] incompatible with: Athlete, Strongman, Agile
+		</text>
+	</string>
+	
+	<string id="st_survivor">
+		<text>Tenacious</text>
+	</string>
+	<string id="st_survivor_descr">
+		<text>You've survived situations in which any other person would have died immediately.
+		\n %c[0,153,255,255] • %c[0,140,140,140] maximum pain tolerance and toxin withdrawal rate increased
+		</text>
+	</string>
+	
+	<string id="st_agile">
+		<text>Agile</text>
+	</string>
+	<string id="st_agile_descr">
+		<text>From early childhood, you loved to run, and at school you took first places in running long and short distances.
+		\n %c[0,153,255,255] • %c[0,140,140,140] slightly increased running and walking speeds
+		\n %c[0,204,0,51] • %c[0,140,140,140] possibility of injury when colliding with obstacles at high speed
+		\n %c[0,204,0,51] • %c[0,140,140,140] incompatible with: Asthmatic, Feeble
+		</text>
+	</string>
+	
+	<string id="st_steel_stomach">
+		<text>Steel stomach</text>
+	</string>
+	<string id="st_steel_stomach_descr">
+		<text>You can eat foods that cause other people to gag at just one look.
+		\n %c[0,153,255,255] • %c[0,140,140,140] reduced doses of radiation and toxins when eating bad food
+		</text>
+	</string>
+	
+	<string id="st_pharmacist">
+		<text>Pharmacist</text>
+	</string>
+	<string id="st_pharmacist_descr">
+		<text>Advanced knowledge of medical products allows you to get maximum efficiency from them.
+		\n %c[0,153,255,255] • %c[0,140,140,140] increases the speed and efficiency of radiation and toxins removal when using drugs
+		</text>
+	</string>
+	
+	<string id="st_nervous">
+		<text>Nervous</text>
+	</string>
+	<string id="st_nervous_descr">
+		<text>It’s hard for you to endure mental shocks.
+		\n %c[0,204,0,51] • %c[0,140,140,140] psychic effect is more harmful to consciousness
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Iron Nerves, Marauder.
+		</text>
+	</string>
+	
+	<string id="st_iron_nerves">
+		<text>Iron Nerves</text>
+	</string>
+	<string id="st_iron_nerves_descr">
+		<text>You can bear the sight of anything: blood, human insides, disgusting mutants and even rotten zombies.
+		\n %c[0,153,255,255] • %c[0,140,140,140] psychic effect is less harmful to consciousness
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Nervous
+		</text>
+	</string>
+	
+	<string id="st_strong">
+		<text>Strongman</text>
+	</string>
+	<string id="st_strong_descr">
+		<text>Frequent trips to the gym in your youth made him feel like a real muscleman.
+		\n %c[0,153,255,255] • %c[0,140,140,140] increased carry weight
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Feeble, Weak
+		</text>
+	</string>
+	
+	<string id="st_weak">
+		<text>Weak</text>
+	</string>
+	<string id="st_weak_descr">
+		<text>You've never lifted anything heavier than a computer mouse in your life.
+		\n %c[0,204,0,51] • %c[0,140,140,140] reduced carry weight
+		\n %c[0,204,0,51] • %c[0,140,140,140] incompatible with: Strongman, Athlete
+		</text>
+	</string>
+	
+	<string id="st_asthmatic">
+		<text>Asthmatic</text>
+	</string>
+	<string id="st_asthmatic_descr">
+		<text>Once you noticed that while running you were holding your breath and the inhaler became your friend for many years until recently.
+		\n %c[0,204,0,51] • %c[0,140,140,140] reduced stamina recovery speed
+		\n %c[0,204,0,51] • %c[0,140,140,140] incompatible with: Agile, Athlete, Adrenaline rush
+		</text>
+	</string>
+	
+	<string id="st_energetic">
+		<text>Energetic</text>
+	</string>
+	<string id="st_energetic_descr">
+		<text>You don't remember the last time you felt tired and not toned.
+		\n %c[0,153,255,255] • %c[0,140,140,140] reduced sleepiness by 15%
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Sleepy
+		</text>
+	</string>
+	
+	<string id="st_lethargic">
+		<text>Sleepy</text>
+	</string>
+	<string id="st_lethargic_descr">
+		<text>Strength leaves you at the slightest effort, you always liked to sleep longer.
+		\n %c[0,153,255,255] • %c[0,140,140,140] increased sleepiness by 15%
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Energetic
+		</text>
+	</string>
+	
+	<string id="st_hunger">
+		<text>Always hungry</text>
+	</string>
+	<string id="st_hunger_descr">
+		<text>The increased metabolism always makes you feel hungry.
+		\n %c[0,204,0,51] • %c[0,140,140,140] increased need for food
+		</text>
+	</string>
+	
+	<string id="st_thirst">
+		<text>Strong thirst</text>
+	</string>
+	<string id="st_thirst_descr">
+		<text>The last day you did not have a drop in your mouth.
+		\n %c[0,204,0,51] • %c[0,140,140,140] thirst at start
+		</text>
+	</string>
+	
+	<string id="st_bruised_arm">
+		<text>Abrasion on the arm</text>
+	</string>
+	<string id="st_bruised_arm_descr">
+		<text>You accidentally got a deep enough abrasion while sneaking around the Zone.
+		\n %c[0,204,0,51] • %c[0,140,140,140] -25% health of one of the hands
+		</text>
+	</string>
+	
+	<string id="st_bruised_leg">
+		<text>Bruised leg</text>
+	</string>
+	<string id="st_bruised_leg_descr">
+		<text>Recently, running along the tall grass, you stumbled and seriously injured your leg.
+		\n %c[0,204,0,51] • %c[0,140,140,140] -25% health of one of the legs
+		</text>
+	</string>
+	
+	<string id="st_bruised_torso">
+		<text>Stab wound</text>
+	</string>
+	<string id="st_bruised_torso_descr">
+		<text>Some local punk stabbed you, but your organs aren't hurt, and the wound isn't that deep.
+		\n %c[0,204,0,51] • %c[0,140,140,140] -15% torso health
+		</text>
+	</string>
+	
+	<string id="st_bruised_head">
+		<text>Head trauma</text>
+	</string>
+	<string id="st_bruised_head_descr">
+		<text>You recently made your way through the windy and stumbled, banging your head hard.
+		\n %c[0,204,0,51] • %c[0,140,140,140] -10% to head health
+		</text>
+	</string>
+	
+	<string id="st_merchant">
+		<text>Merchant</text>
+	</string>
+	<string id="st_merchant_descr">
+		<text>On the mainland, you often had to deal with equipment, various mechanisms, and even weapons., you traded in the market, which affects your ability to sell something to a normal person.
+		\n %c[0,153,255,255] • %c[0,140,140,140] trading with stalkers brings more benefits
+		</text>
+	</string>
+	
+	<string id="st_blademaster">
+		<text>Knife master</text>
+	</string>
+	<string id="st_blademaster_descr">
+		<text>You often had to wield a knife, sometimes against people.
+		\n %c[0,153,255,255] • %c[0,140,140,140] the knife does more damage
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Lumberjack
+		</text>
+	</string>
+	
+	<string id="st_lumberjack">
+		<text>Lumberjack</text>
+	</string>
+	<string id="st_lumberjack_descr">
+		<text>For 5 years of work in the forestry as a lumberjack, you learned to masterfully wield an ax.
+		\n %c[0,153,255,255] • %c[0,140,140,140] all melee weapons except knives do more damage
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Knife master
+		</text>
+	</string>
+	
+	<string id="st_smoker">
+		<text>Heavy smoker</text>
+	</string>
+	<string id="st_smoker_descr">
+		<text>You have been smoking since school and cannot quit, especially in the Zone.
+		\n %c[0,153,255,255] • %c[0,140,140,140] smoking gives less negative effects
+		\n %c[0,204,0,51] • %c[0,140,140,140] incompatible with: Non-smoker
+		</text>
+	</string>
+	
+	<string id="st_non_smoker">
+		<text>Non-smoker</text>
+	</string>
+	<string id="st_non_smoker_descr">
+		<text>You never smoked and don't even want to try.
+		\n %c[0,204,0,51] • %c[0,140,140,140] smoking gives a lot more negative effects
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Heavy smoker
+		</text>
+	</string>
+	
+	<string id="st_adrenaline_rush">
+		<text>Adrenaline rush</text>
+	</string>
+	<string id="st_adrenaline_rush_descr">
+		<text>When things are frankly bad, everything around you slows down and there is one last gasp.
+		\n %c[0,153,255,255] • %c[0,140,140,140] with increasing heart rate, running speed increases
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Asthmatic
+		</text>
+	</string>
+	
+	<string id="st_depressed">
+		<text>Depressed</text>
+	</string>
+	<string id="st_depressed_descr">
+		<text>Your whole life is filled with endless hopelessness and deep despair.
+		\n %c[0,204,0,51] • %c[0,140,140,140] it takes more sleep and pain passes more slowly
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Iron Nerves
+		</text>
+	</string>
+	
+	<string id="st_hamhanded">
+		<text>Ham-handed</text>
+	</string>
+	<string id="st_hamhanded_descr">
+		<text>Whatever you take, everything goes badly.
+		\n %c[0,204,0,51] • %c[0,140,140,140] skills increase more slowly
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Mechanic, Golden Hands, Gunsmith
+		</text>
+	</string>
+	
+	<string id="st_marauder">
+		<text>Marauder</text>
+	</string>
+	<string id="st_marauder_descr">
+		<text>There's nothing shameful about taking something the owner won't need anymore.
+		\n %c[0,153,255,255] • %c[0,140,140,140] looting skill grows faster
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Nervous
+		</text>
+	</string>
+	
+	<string id="st_gunlover">
+		<text>Gun enthusiast</text>
+	</string>
+	<string id="st_gunlover_descr">
+		<text>Shooting from your own weapon somewhere in a remote place gave you a lot of pleasure.
+		\n %c[0,153,255,255] • %c[0,140,140,140] shooting skill grows faster
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Ham-handed
+		</text>
+	</string>
+	
+	<string id="st_mechanic">
+		<text>Mechanic</text>
+	</string>
+	<string id="st_mechanic_descr">
+		<text>On the mainland, you often had to deal with equipment, various mechanisms, and even weapons.
+		\n %c[0,153,255,255] • %c[0,140,140,140] disassembly and crafting skills grow faster
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Ham-handed
+		</text>
+	</string>
+	
+	<string id="st_claustrophobia">
+		<text>Claustrophobia</text>
+	</string>
+	<string id="st_claustrophobia_descr">
+		<text>When you are underground, the feeling that the walls are crushing you now never disappears.
+		\n %c[0,204,0,51] • %c[0,140,140,140] in underground locations, the pulse rises significantly
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Agoraphobia
+		</text>
+	</string>
+	
+	<string id="st_agoraphobia">
+		<text>Agoraphobia</text>
+	</string>
+	<string id="st_agoraphobia_descr">
+		<text>Being in open spaces it seems to you that at any moment something bad can happen.
+		\n %c[0,204,0,51] • %c[0,140,140,140] on open surfaces, the pulse rises significantly
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Claustrophobia
+		</text>
+	</string>
+	
+	<string id="st_handyman">
+		<text>Skillful fingers</text>
+	</string>
+	<string id="st_handyman_descr">
+		<text>Once upon a time on the Great Earth you were a jack of all trades and could do anything even from a pile of rubbish.
+		\n %c[0,153,255,255] • %c[0,140,140,140] craft skill grows faster
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Ham-handed
+		</text>
+	</string>
+	
+	<string id="st_radiophobia">
+		<text>Radiophobia</text>
+	</string>
+	<string id="st_radiophobia_descr">
+		<text>Being on mainland it came to the point that you checked the food with a dosimeter.
+		\n %c[0,204,0,51] • %c[0,140,140,140] increased pulse during radiation exposure
+		</text>
+	</string>
+	
+	<string id="st_radio_lover">
+		<text>Radio lover</text>
+	</string>
+	<string id="st_radio_lover_descr">
+		<text>At home on mainlandh you often liked to listen to the radio and even fell asleep under it.
+		\n %c[0,153,255,255] • %c[0,140,140,140] gentle reduction of pain and pulse while listening to the radio
+		</text>
+	</string>
+	
+	<string id="st_alcoholic">
+		<text>Alcoholic</text>
+	</string>
+	<string id="st_alcoholic_descr">
+		<text>Going out for weeks in the woods and drinking until you pass out is what you like.
+		\n %c[0,153,255,255] • %c[0,140,140,140] less negative effects of alcohol
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Teetotaler
+		</text>
+	</string>
+	
+	<string id="st_teetotaler">
+		<text>Teetotaler</text>
+	</string>
+	<string id="st_teetotaler_descr">
+		<text>You never drank and do not want, because you never liked alcohol.
+		\n %c[0,204,0,51] • %c[0,140,140,140] more negative effects of alcohol
+		\n %c[0,204,0,51] • %c[0,140,140,140] Incompatible with: Alcoholic
+		</text>
+	</string>
+	
+	<string id="st_resistent">
+		<text>Resistent</text>
+	</string>
+	<string id="st_resistent_descr">
+		<text>By nature you have a very strong body structure.
+		\n %c[0,153,255,255] • %c[0,140,140,140] resistance to all types of damage increased by 10%
+		</text>
+	</string>
+</string_table>

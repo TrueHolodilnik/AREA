@@ -1,0 +1,366 @@
+[wpn_cz75]:default_weapon_params, strap_pistol
+$spawn								= "weapons\wpn_cz75"	; option for Level Editor
+$npc								= on					; option for Level Editor
+visual								= dynamics\weapons\wpn_cz75\wpn_cz75.ogf
+class								= WP_PM
+inv_name							= st_wpn_cz75
+inv_name_short						= st_wpn_cz75
+description							= st_wpn_cz75_descr
+ef_weapon_type						= 5
+heating_rates						= pistol1
+default_to_ruck						= false
+sprint_allowed						= true
+control_inertion_factor				= 1.0
+repair_type							= pistol
+cost								= 12800
+inv_weight							= 1.12
+inv_volume							= 1.2
+ph_mass								= 1
+upgrades							= up_gr_firstab_cz75, up_gr_seconab_cz75, up_gr_thirdab_cz75, up_gr_fourtab_cz75, up_gr_fifthab_cz75, up_gr_fifthcd_cz75
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_beretta
+;----TTX--------------------------------------------------------------------------
+hit_power							= 0.30, 0.30, 0.30, 0.30
+hit_impulse							= 25
+hit_type							= fire_wound
+fire_distance						= 400
+bullet_speed						= 375
+rpm									= 233
+rpm_empty_click						= 120
+hud									= wpn_cz75_hud
+time_to_aim							= 1.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.85
+misfire_end_condition				= 0.12
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0016
+condition_queue_shot_dec			= 0.0016
+
+ammo_elapsed						= 16
+ammo_mag_size						= 16
+fire_modes							= 1
+magazine_sect						= magazine_9x19_cnt_16_cz75, magazine_9x19_cnt_16
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad ; name of the ltx-section of used grenades
+single_handed						= 1
+slot								= 0
+animation_slot						= 1
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= -1000, 1.0, 1000
+reload_dof							= 0.0, 0.5, 5, 1.7
+reload_empty_dof					= 0.0, 0.5, 5, 3
+;---дисперсия---------------------------------------------------------------------------
+fire_dispersion_base				= 0.4					;угол в градусах
+control_inertion_factor				= 1.05f
+crosshair_inertion					= 2.7
+
+cam_return							= 0
+cam_relax_speed						= 8						;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.62					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 0.71					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.1 					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					;максимальный угол отдачи
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.42					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.65
+PDM_disp_vel_factor					= 1.05
+PDM_disp_accel_factor				= 1.055
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0 
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width						= 2
+inv_grid_height						= 1
+inv_grid_x							= 59
+inv_grid_y							= 78
+
+upgr_icon_x							= 1150
+upgr_icon_y							= 300
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+kill_msg_x							= 200
+kill_msg_y							= 153
+kill_msg_width						= 37
+kill_msg_height						= 24
+;-------------------------------------------------------------------------------
+position							= -0.021, -0.085, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.133, 0.161
+fire_point2							= 0.0, 0.133, 0.161
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= 0.0, 0.133, 0.047
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\9x19
+shell_3d_sect						= shell_9
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 3.0
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 0 ; 0 - no addon
+silencer_status						= 2 ; 1 - permanent
+grenade_launcher_status				= 0 ; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+scope_name							= wpn_addon_scope
+scope_x								= 47
+scope_y								= 0
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 126
+grenade_launcher_y					= 24
+
+silencer_name						= wpn_sil_9mm
+silencer_x							= 68
+silencer_y							= -15
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\cz75\cz75_holster
+snd_draw							= weapons\cz75\cz75_draw  
+snd_reload							= weapons\cz75\cz75_reload
+snd_empty							= weapons\cz75\cz75_empty
+snd_reload_empty					= weapons\cz75\cz75_reload_empty
+snd_reload_misfire					= weapons\cz75\cz75_reload_empty,1,0,2.0
+snd_reload_detached					= weapons\cz75\cz75_reload,1,0,0.6
+snd_reload_detached_empty			= weapons\cz75\cz75_reload_empty,1,0,0.6
+snd_close							= weapons\cz75\cz75_close
+snd_shoot							= weapons\cz75\cz75_shoot_null
+snd_silencer_shot					= weapons\cz75\cz75_shot_sil_null
+;-----------------------------------------------------------------------------
+[wpn_cz75_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_cz75\wpn_cz75_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.019020,0.036255,-0.093835
+shell_bone							= wpn_body
+fire_point							= 0,0.029756,0.129833
+fire_bone							= wpn_body
+item_position						= 0.000746,-0.000321,0.003479
+item_orientation					= 1.239378,-0.134046,-2.052052
+
+hands_position						= -0.102355,-0.1298,-0.08442
+hands_position_16x9					= -0.102355,-0.1298,-0.08442
+hands_orientation					= -0.5,1.0,1.15
+hands_orientation_16x9				= -0.5,1.0,1.15
+
+aim_hud_offset_pos					= -0.02575,0.017375,0.002205
+aim_hud_offset_pos_16x9				= -0.02575,0.017375,0.002205
+aim_hud_offset_rot					= -0.005231,0.00404,-0.014984
+aim_hud_offset_rot_16x9				= -0.005231,0.00404,-0.014984
+
+anm_show							= lancew_cz75_draw
+anm_show_empty						= lancew_cz75_draw, idle_2
+anm_hide							= lancew_cz75_holster
+anm_hide_empty						= lancew_cz75_holster, idle_2
+anm_idle							= lancew_cz75_idle
+anm_idle_aim						= lancew_cz75_idle_aim
+anm_idle_aim_empty					= lancew_cz75_idle_aim, idle_2
+anm_idle_empty						= lancew_cz75_idle, idle_2
+anm_idle_moving						= lancew_cz75_moving
+anm_idle_moving_empty				= lancew_cz75_moving, idle_2
+anm_idle_moving_crouch				= lancew_cz75_moving, 0.5
+anm_idle_moving_crouch_empty		= lancew_cz75_moving, idle_2, 0.5
+anm_idle_sprint						= cz75a_idle_sprint					;lancew_cz75_sprint
+anm_idle_sprint_empty				= cz75a_idle_sprint, idle_2         ;lancew_cz75_sprint, idle_2
+anm_reload							= lancew_cz75_reload, reload
+anm_reload_empty					= lancew_cz75_reload_full, reload_full
+anm_reload_misfire					= lancew_cz75_reload_full, reload_full, , 1.8
+anm_reload_detached					= lancew_cz75_reload, reload, , 0.6
+anm_reload_detached_empty			= lancew_cz75_reload_full, reload_full, , 0.6
+anm_shots							= lancew_cz75_shoot, shoot
+anm_shots_empty						= lancew_cz75_shoot, shoot_2
+anm_shot_l							= lancew_cz75_shoot, shoot_2
+anm_bore							= pm_idle_bore2
+anm_bore_empty						= pm_idle_bore2, idle_2
+
+;-----------------------------------------------------------------------------
+[wpn_cz75_worn]:wpn_cz75
+visual								= dynamics\weapons\wpn_cz75\wpn_cz75_sk1.ogf
+inv_name							= st_wpn_cz75_worn
+inv_name_short						= st_wpn_cz75_worn
+upgrades							= up_gr_firstab_cz75_worn, up_gr_seconab_cz75_worn, up_gr_thirdab_cz75_worn, up_gr_fourtab_cz75_worn, up_gr_fifthab_cz75_worn, up_gr_fifthcd_cz75_worn
+cost								= 8550
+hit_power							= 0.28, 0.28, 0.28, 0.28
+bullet_speed						= 348
+rpm									= 216
+hud									= wpn_cz75_sk1_hud
+misfire_start_condition				= 0.91
+misfire_end_condition				= 0.15
+condition_shot_dec					= 0.00173
+condition_queue_shot_dec			= 0.00173
+fire_dispersion_base				= 0.48
+inv_grid_x							= 61
+upgr_icon_x							= 1600
+upgr_icon_y							= 300
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+[wpn_cz75_sk1_hud]:wpn_cz75_hud
+item_visual							= dynamics\weapons\wpn_cz75\wpn_cz75_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+;	CZ-75 Auto from CS:GO
+;-----------------------------------------------------------------------------
+[wpn_cz75_auto]:wpn_cz75
+visual								= dynamics\weapons\wpn_cz75\wpn_cz75_auto.ogf
+class								= WP_LR300
+inv_name							= st_wpn_cz75_auto
+inv_name_short						= st_wpn_cz75_auto
+description							= st_wpn_cz75_auto_descr
+upgrades							= up_gr_firstab_cz75_auto, up_gr_seconab_cz75_auto, up_gr_thirdab_cz75_auto, up_gr_fourtab_cz75_auto, up_gr_fifthab_cz75_auto, up_gr_fifthcd_cz75_auto
+cost								= 15250
+hit_power							= 0.23, 0.23, 0.23, 0.23
+bullet_speed						= 360
+rpm									= 600
+hud									= wpn_cz75_auto_hud
+misfire_start_condition				= 0.82
+misfire_end_condition				= 0.1
+condition_shot_dec					= 0.0015
+condition_queue_shot_dec			= 0.0015
+fire_modes							= 1, -1
+ammo_mag_size						= 16
+silencer_x                  		= 63
+fire_dispersion_base				= 0.45
+inv_grid_x							= 63
+upgr_icon_x							= 1450
+upgr_icon_y							= 1300
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+;A.R.E.A. Sounds Remake
+snd_reload							= weapons\cz75\cz75a_reload
+snd_reload_empty					= weapons\cz75\cz75a_reload_empty
+snd_reload_misfire					= weapons\cz75\cz75a_reload_empty,1,0,2.0
+
+[wpn_cz75_auto_hud]:wpn_cz75_hud
+item_visual							= dynamics\weapons\wpn_cz75\wpn_cz75_auto_hud.ogf
+shell_point							= 0.014605,-0.002365,-0.206645
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+
+aim_hud_offset_pos					= -0.02575,0.017375,0.08379
+aim_hud_offset_pos_16x9				= -0.02575,0.017375,0.08379
+aim_hud_offset_rot					= -0.005231,0.00404,-0.014984
+aim_hud_offset_rot_16x9				= -0.005231,0.00404,-0.014984
+
+anm_reload							= colt1911_reload
+anm_reload_empty					= colt1911_reload_empty
+anm_reload_misfire					= colt1911_reload_empty, , , 1.8
+
+;-------------------------------------------------------------------------------
+;	CZ-52 from AO 3.1
+;-------------------------------------------------------------------------------
+[wpn_cz52]:wpn_cz75
+visual								= dynamics\weapons\wpn_cz52\wpn_cz52.ogf
+hud									= wpn_cz52_hud
+inv_name							= st_wpn_cz52
+inv_name_short						= st_wpn_cz52
+description							= st_wpn_cz52_descr
+inv_weight							= 0.95
+inv_volume							= 1.3
+cost								= 11750
+upgrade_scheme						= upgrade_scheme_colt1911
+upgrades							= up_gr_firstab_colt1911, up_gr_seconab_colt1911, up_gr_thirdab_colt1911, up_gr_fourtab_colt1911, up_gr_fifthab_colt1911
+magazine_sect						= magazine_762x25_cnt_8
+ammo_class							= ammo_7.62x25_p, ammo_7.62x25_p_bad, ammo_7.62x25_p_verybad, ammo_7.62x25_ps, ammo_7.62x25_ps_bad, ammo_7.62x25_ps_verybad, ammo_7.62x25_p41, ammo_7.62x25_p41_bad, ammo_7.62x25_p41_verybad
+ammo_elapsed						= 8
+ammo_mag_size						= 8
+
+hit_impulse							= 75
+hit_power							= 0.34
+bullet_speed						= 500
+rpm									= 280
+rpm_empty_click						= 200
+
+cam_dispersion						= 1.0
+cam_dispersion_frac					= 1.0
+cam_dispersion_inc					= 0.5
+cam_max_angle						= 5.0
+cam_max_angle_horz					= 5.0
+cam_relax_speed						= 8
+cam_relax_speed_ai					= 360
+cam_return							= 0
+cam_step_angle_horz					= 0.5
+
+condition_queue_shot_dec			= 0.0023
+condition_shot_dec					= 0.00115
+control_inertion_factor				= 1.0
+control_inertion_factor				= 1.0
+crosshair_inertion					= 2.40
+
+fire_dispersion_base				= 0.15
+fire_dispersion_condition_factor	= 3
+fire_distance						= 100
+fire_modes							= 1
+fire_point							= 0.0, 0.133, 0.161
+fire_point2							= 0.0, 0.133, 0.161
+
+misfire_end_condition				= 0.1
+misfire_end_prob					= 0.06
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_start_prob					= 0.006
+
+PDM_disp_accel_factor				= 1.1
+PDM_disp_base						= 0.5
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+PDM_disp_vel_factor					= 1.1
+
+zoom_cam_dispersion					= 0.5
+zoom_cam_dispersion_frac			= 0.7
+zoom_cam_dispersion_inc				= 0.75
+zoom_cam_max_angle					= 5.0
+zoom_cam_max_angle_horz				= 10.0
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 120.75
+zoom_cam_step_angle_horz			= 1.5
+
+inv_grid_height						= 1
+inv_grid_width						= 2
+inv_grid_x							= 77
+inv_grid_y							= 80
+
+upgr_icon_height					= 100
+upgr_icon_width						= 150
+upgr_icon_x							= 1600
+upgr_icon_y							= 0
+
+silencer_name						= wpn_addon_silencer
+silencer_smoke_particles			= weapons\generic_shoot_00
+silencer_status						= 0
+silencer_x							= 68
+silencer_y							= -15
+;-------------------------------------------------------------------------------
+;A.R.E.A. Sounds Remake
+snd_shoot							= weapons\cz75\cz52_shoot_null
+;-------------------------------------------------------------------------------
+[wpn_cz52_hud]:wpn_cz75_hud
+item_visual							= dynamics\weapons\wpn_cz52\wpn_cz52_hud.ogf
+shell_bone							= wpn_body
+shell_point							= 0.010925,0.038545,-0.046120
+fire_point							= 0,0.029756,0.129833
+
+aim_hud_offset_pos					= -0.0268,0.02042,-0.019005
+aim_hud_offset_pos_16x9				= -0.0268,0.02042,-0.019005
+aim_hud_offset_rot					= 0.002445,0.004111,-0.015
+aim_hud_offset_rot_16x9				= 0.002445,0.004111,-0.015
+;-------------------------------------------------------------------------------

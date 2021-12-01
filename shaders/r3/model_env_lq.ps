@@ -1,0 +1,124 @@
+#include "common.h"
+#include "hmodel.h"
+
+#define SSR_HQ_JITTER_SCALE 0.25 // Интенсивность шума
+#define SSR_HQ_JITTER_SEARCH_RANGE 3 // Радиус поиска шума
+#define SSR_HQ_JITTER_THRESHOLD 0.25 // Антишумовой порог
+
+#define SSR_HQ_INC_SAMPLES 4 // Кол-во разнодлинный векторов
+#define SSR_HQ_RAY_INCREASE 1.75 // Отношение длины каждого вектора из SSR_HQ_INC_SAMPLES к предыдущему
+//#define SSR_HQ_RAY_STEPS 10 // Количество шагов по вектору одной длины
+#define SSR_HQ_RAY_BASE_LENGTH 3 // Величина самого маленького вектора * кол-во шагов / корень из фактора глубины
+#define SSR_HQ_DIFF_THRESHOLD 1.5 // Максимальный допуск погрешности, от 1
+#define SSR_HQ_RAY_REFINE 4 // Количество семплов уточнения отражения
+#define SSR_HQ_MARCH_MIN_DIST 1 // Минимальная дистанция, влияет на SSR_HQ_RAY_BASE_LENGTH
+#define SSR_HQ_MARCH_MAX_DIST 50 // Максимальная дистанция (вряд ли отражение до неё дойдёт)
+#define SSR_START_TAP			0.25
+#define SSR_OUTRANGE_TC_CUTER 0.02
+
+#include "depth_traced_ssr.h"
+
+struct 	v2p
+{
+ 	float2 tc0	: TEXCOORD0;		// base
+	float3 tc1	: TEXCOORD1;		// environment
+	float3 pos_w: TEXCOORD2;
+	float3 norm : TEXCOORD3;
+	float3 M1	: TEXCOORD4;	
+	float3 M2	: TEXCOORD5;
+	float3 M3	: TEXCOORD6;	
+	float3	c0	: COLOR0;		// sun	
+	float  fog	: FOG;
+};
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Pixel
+//
+
+TextureCube	s_env;		//	Environment for forward rendering
+Texture2D	s_nmap;
+
+Texture2D	jitter0;
+sampler smp_jitter;
+
+float3 calc_moon_road(float3 color, float3 vreflect, float2 tc, float depth, float Nz)
+{
+	float r = 0.0015*jitter0.Sample(smp_jitter, tc).x;											// randomize borders of road
+	float f = dot(normalize(vreflect.xz), -normalize(L_sun_dir_w.xz));
+	f = step(lerp(0.998+r /*+ 0.2*ogse_c_screen.w*2.2*/, 1, depth*0.01), f);		// road appearance factor
+	f *= step(10, depth);															// cut road in near 10 m
+	f *= saturate((depth-10)*0.25);													// fade in road in 2 m
+	f *= step(Nz, 0);																// remove road from pixels with normals with positive z for better look
+	f *= 1 - saturate(abs(L_sun_dir_w.y*2));										// road fading out with sun height
+	return lerp(color, L_sun_color*10, f);
+}
+
+
+#ifdef GBUFFER_OPTIMIZATION
+	float4 main( v2p I, float4 pos2d : SV_Position ) : SV_Target
+#else
+	float4 main( v2p I ) : SV_Target
+#endif
+{
+
+
+	float4	t_base 	= s_base.Sample( smp_base, I.tc0);
+	float4	t_env 	= s_env.Sample( smp_rtlinear, I.tc1);
+	
+	float3 to_point  = normalize(I.pos_w - eye_position);
+	
+	float4 T = s_nmap.Sample(smp_base, I.pos_w.xz);
+	float3	Nw	= mul (float3x3(I.M1, I.M2, I.M3), T.xyz);
+			Nw	= normalize (Nw);
+	
+	float2 tc = ss_tc_from_wo_posi(I.pos_w);
+	
+	#ifdef GBUFFER_OPTIMIZATION
+		gbuffer_data gbd = gbuffer_load_data(tc, pos2d);
+	#else
+		gbuffer_data gbd = gbuffer_load_data(tc);
+	#endif
+	
+	float3 vsposition = float3(tc.xy * pos_decompression_params2.xy * pos_decompression_params.zw - pos_decompression_params.xy, 1) * gbd.P.z;
+	float3 vsposition_s = vsposition;
+				if(vsposition_s.z <= 0.01) vsposition_s.z = 998;
+	float3 wsnormal = mul(m_V, float4(Nw, 0));
+	wsnormal		= normalize(wsnormal);
+	float3 vsnormal = mul((float3x4)m_V, float4(wsnormal, 0));
+	vsnormal = normalize(vsnormal);
+	float3 vsggvec = normalize(vsposition_s);
+	float3 vsvreflect = normalize(reflect(vsggvec, vsnormal));
+	float factor = saturate(dot(vsggvec, vsvreflect) * 1.5);
+
+	float tex_br = (t_base.r + t_base.g + t_base.b)/3;
+	float sun_br = (L_sun_color.r + L_sun_color.g + L_sun_color.b)/3;
+	float blendf = tex_br*sqrt(t_base.a);
+	float3	final 	= lerp(t_base.rgb, t_env.rgb*blendf + t_base*(1 - blendf), (1 - (t_base.r + t_base.g + t_base.b)/3) * factor * max(sun_br/1.5, 0.1) * (1 - gbd.hemi));
+	final = I.c0*1.5;
+	float3 sun = pow( abs( dot(normalize(to_point + L_sun_dir_w), Nw) ), 256.0);
+	//final += sun*gbd.hemi*gbd.hemi*sun_br;
+	//final 		= lerp(fog_color, final, I.fog);
+	t_base.a	*= I.fog*I.fog;
+	
+	float3 txtgen = mul(m_W, float4(I.pos_w, 1));
+	float3	wsvreflect= reflect(to_point, Nw);
+	float3 scposition = float3(tc.xy, 1) * txtgen.z; // - position for ssr
+	#ifdef USE_MSAA
+		#ifdef GBUFFER_OPTIMIZATION
+			float3 c_reflection =  depth_traced_ssr(scposition, vsvreflect, wsvreflect, pos2d, sun, gbd.hemi, 0);
+		#else
+			float3 c_reflection =  depth_traced_ssr(scposition, vsvreflect, wsvreflect, sun, gbd.hemi, 0);
+		#endif
+	#else
+		#ifdef GBUFFER_OPTIMIZATION
+			float3 c_reflection =  depth_traced_ssr(scposition, vsvreflect, wsvreflect, pos2d, sun, gbd.hemi);
+		#else
+			float3 c_reflection =  depth_traced_ssr(scposition, vsvreflect, wsvreflect, sun, gbd.hemi);
+		#endif
+	#endif
+	
+
+
+	// out
+	return  float4	(c_reflection,1);
+}

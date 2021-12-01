@@ -1,0 +1,16 @@
+[smart_terrain]
+squad_id = 3
+max_population = 2
+respawn_params = respawn@rad_antenna_monolith
+respawn_idle = 86400
+
+[respawn@rad_antenna_monolith]
+spawn_neutral
+
+[spawn_monolith]
+spawn_squads = monolith_sim_squad_advanced
+spawn_num = {+bar_deactivate_radar_done} 0, 2
+
+[spawn_neutral]
+spawn_squads = stalker_sim_squad_advanced
+spawn_num = {+bar_deactivate_radar_done} 2, 0

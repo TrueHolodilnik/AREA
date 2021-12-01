@@ -1,0 +1,210 @@
+[wpn_mp153]:default_weapon_params
+$spawn                   	= "weapons\winchester1300"	; option for Level Editor
+$npc			 			= on						; option for Level Editor
+class                    	= WP_ASHTG
+visual 						= dynamics\weapons\wpn_mp153\wpn_mp153.ogf
+inv_name					= st_wpn_mp153
+inv_name_short				= st_wpn_mp153
+description					= st_wpn_mp153_descr
+ef_main_weapon_type			= 1
+ef_weapon_type				= 9
+repair_type 				= shotgun
+cost					 	= 82000
+weapon_class			 	= shotgun
+inv_weight					= 3.5
+inv_volume					= 5
+ph_mass						= 3
+upgrades					= up_gr_firstab_mp153, up_gr_seconab_mp153, up_gr_thirdab_mp153, up_gr_fourtab_mp153
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_spas12
+hud                      	= wpn_mp153_hud
+;--TTX----------------------------------------------------------------------------
+hit_power        			= 0.92
+hit_impulse      			= 38
+hit_type 					= fire_wound
+fire_distance            	= 250
+bullet_speed			 	= 390
+rpm                      	= 210
+rpm_empty_click				= 200
+
+misfire_probability			= 0.005
+misfire_start_condition		= 0.88
+misfire_end_condition		= 0.15
+misfire_start_prob			= 0.007
+misfire_end_prob			= 0.11
+condition_shot_dec      	= 0.0024
+condition_queue_shot_dec	= 0.0024
+
+tri_state_reload			= on
+ammo_elapsed		 		= 8
+ammo_mag_size		 		= 8
+fire_modes					= 1
+ammo_class		 			= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot 				 		= 2
+animation_slot		 		= 9
+;--дисперсия----------------------------------------------------------------------------
+fire_dispersion_base		= 0.42  ;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.32f
+crosshair_inertion			= 6.8
+
+cam_return					= 0 
+cam_relax_speed				= 20		;скорость возврата в исходное положение
+cam_relax_speed_ai			= 360
+cam_dispersion				= 4.88		;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 5.62		;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.1		;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 50.0		;максимальный угол отдачи
+cam_max_angle_horz			= 50.0		;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 2.77		;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 1.7
+PDM_disp_vel_factor 		= 1.75
+PDM_disp_accel_factor 		= 1.755
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+
+zoom_cam_relax_speed		= 16
+zoom_cam_relax_speed_ai		= 120.75
+zoom_cam_dispersion			= 4.03
+zoom_cam_dispersion_inc		= 4.68
+zoom_cam_dispersion_frac	= 0.7
+zoom_cam_max_angle			= 50.0
+zoom_cam_max_angle_horz		= 50.0
+zoom_cam_step_angle_horz	= 2.61
+fire_dispersion_condition_factor = 0.001
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 1.7
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position				= -0.24, 0.20, 0.10
+strap_orientation			= 0.0, 0.0, 94.0
+strap_position_slot2		= -0.24, -0.20, 0.10
+strap_orientation_slot2		= 0.0, 0.0, 84.0
+strap_bone0					= bip01_spine2
+strap_bone1					= bip01_spine1
+;-------------------------------------------------------------------------------
+position                 	= -0.024,-0.080,-0.019
+orientation              	= 0,-4,0
+shell_point					= 0,0.180,0.647
+shell_particles				= weapons\12ga
+shell_3d_sect				= shell_12
+fire_point              	= 0,0.158,0.647
+fire_point2					= 0,0.158,0.647
+flame_particles				= weapons\new_effects\shtg_pump
+smoke_particles				= weapons\new_effects\smoke_muzzle_shotgun
+
+light_color					= 0.6,0.5,0.3
+light_range					= 6.0
+light_var_color				= 0.05
+light_var_range				= 0.5
+light_time					= 0.2
+;-------------------------------------------------------------------------------
+inv_grid_width				= 6
+inv_grid_height				= 1
+inv_grid_x					= 44
+inv_grid_y					= 52
+
+upgr_icon_x					= 1750
+upgr_icon_y					= 1200
+upgr_icon_width				= 300
+upgr_icon_height   			= 50
+
+kill_msg_x					= 171
+kill_msg_y					= 104
+kill_msg_width				= 75
+kill_msg_height				= 20
+;-------------------------------------------------------------------------------
+;addons
+scope_status				= 0
+silencer_status				= 0
+grenade_launcher_status		= 0
+
+zoom_enabled				= true
+scope_zoom_factor			= 1.03
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster					= weapons\mp153\mp153_holster
+snd_draw					= weapons\mp153\mp153_draw
+snd_empty					= weapons\mp153\mp153_empty
+snd_reload					= weapons\mp153\mp153_reload
+snd_add_cartridge			= weapons\mp153\mp153_insertshell
+snd_open_weapon				= weapons\mp153\mp153_open_weapon
+snd_close_weapon			= weapons\mp153\mp153_close_weapon
+snd_shoot					= weapons\mp153\mp153_shoot_null
+snd_bore					= $no_sound
+;-------------------------------------------------------------------------------
+[wpn_mp153_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_mp153\wpn_mp153_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0.00404,-0.01919,-0.15958
+shell_dir					= 0,1,0
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone					= muzzle
+fire_point2					= 0,0,0
+fire_bone2					= muzzle
+
+hands_position				= -0.097195,-0.106347,-0.05395
+hands_position_16x9			= -0.097195,-0.106347,-0.05395
+hands_orientation			= 1.335205,2.0,0.0
+hands_orientation_16x9		= 1.335205,2.0,0.0
+
+aim_hud_offset_pos			= -0.053335,0.02947,-0.025
+aim_hud_offset_pos_16x9		= -0.053335,0.02947,-0.025
+aim_hud_offset_rot			= 0.019875,0.02244,0.0
+aim_hud_offset_rot_16x9		= 0.019875,0.02244,0.0
+
+anm_show					= mp153_draw
+anm_hide					= mp153_holster
+anm_idle					= mp153_idle
+anm_idle_aim				= mp153_aim
+anm_idle_moving				= mp153_move
+anm_idle_moving_crouch		= mp153_crouch
+anm_idle_sprint				= mp153_sprint
+anm_bore					= mp153_aim
+anm_shots					= mp153_shoot, shoot
+anm_shots_empty				= mp153_idle
+anm_open					= mp153_reload_start, reload_start
+anm_add_cartridge			= mp153_reload, reload
+anm_close					= mp153_reload_end, reload_end
+anm_reload 					= mp153_reload
+;-----------------------------------------------------------------------------
+[wpn_mp153_worn]:wpn_mp153
+visual						= dynamics\weapons\wpn_mp153\wpn_mp153_sk1.ogf
+inv_name					= st_wpn_mp153_worn
+inv_name_short				= st_wpn_mp153_worn
+upgrades					= up_gr_firstab_mp153_worn, up_gr_seconab_mp153_worn, up_gr_thirdab_mp153_worn, up_gr_fourtab_mp153_worn
+cost						= 70000
+hit_power					= 0.74, 0.74, 0.74, 0.74
+bullet_speed				= 353
+rpm							= 186
+hud							= wpn_mp153_sk1_hud
+misfire_start_condition		= 0.91
+misfire_end_condition		= 0.18
+condition_shot_dec			= 0.0026
+condition_queue_shot_dec	= 0.0026
+inv_grid_y					= 53
+fire_dispersion_base		= 0.53
+
+[wpn_mp153_sk1_hud]:wpn_mp153_hud
+item_visual					= dynamics\weapons\wpn_mp153\wpn_mp153_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_mp153_rusty]:wpn_mp153
+visual						= dynamics\weapons\wpn_mp153\wpn_mp153_sk2.ogf
+inv_name					= st_wpn_mp153_rusty
+inv_name_short				= st_wpn_mp153_rusty
+upgrades					= up_gr_firstab_mp153_rusty, up_gr_seconab_mp153_rusty, up_gr_thirdab_mp153_rusty, up_gr_fourtab_mp153_rusty
+cost						= 59000
+hit_power					= 0.69, 0.69, 0.69, 0.69
+bullet_speed				= 295
+rpm							= 175
+hud							= wpn_mp153_sk2_hud
+misfire_start_condition		= 0.95
+misfire_end_condition		= 0.2
+condition_shot_dec			= 0.0028
+condition_queue_shot_dec	= 0.0028
+inv_grid_y					= 54
+fire_dispersion_base		= 0.613
+
+[wpn_mp153_sk2_hud]:wpn_mp153_hud
+item_visual					= dynamics\weapons\wpn_mp153\wpn_mp153_sk2_hud.ogf
+;-----------------------------------------------------------------------------

@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="st_currency">
+		<text>UAH</text>
+	</string>
+	<string id="not_enough_money_actor">
+		<text>Not enough money</text>
+	</string>
+	<string id="not_enough_money_partner">
+		<text>The character doesn't have enough money</text>
+	</string>
+	<string id="st_hack">
+		<text>Intercepted funds from device: </text>
+	</string>
+	<string id="st_no_pda">
+		<text>Need PDA!</text>
+	</string>
+	<string id="st_identification">
+		<text>Account Owner: </text>
+	</string>
+	<string id="st_his_stash">
+		<text>. Here is his stash.</text>
+	</string>
+	<string id="quick_use_str_1">
+		<text>$$ACTION_QUICK_USE_1$$</text>
+	</string>
+	<string id="quick_use_str_2">
+		<text>$$ACTION_QUICK_USE_2$$</text>
+	</string>
+	<string id="quick_use_str_3">
+		<text>$$ACTION_QUICK_USE_3$$</text>
+	</string>
+	<string id="quick_use_str_4">
+		<text>$$ACTION_QUICK_USE_4$$</text>
+	</string>
+	<string id="st_activate_artefact">
+		<text>Activate artifact</text>
+	</string>
+	<string id="st_attach_gl_to_rifle">
+		<text>Attach grenade launcher to</text>
+	</string>
+	<string id="st_attach_scope_to_pistol">
+		<text>Attach scope to</text>
+	</string>
+	<string id="st_attach_silencer_to_pistol">
+		<text>Attach silencer to</text>
+	</string>
+	<string id="st_base_cost">
+		<text>Price</text>
+	</string>
+	<string id="st_community">
+		<text>Group:</text>
+	</string>
+	<string id="st_detach_gl">
+		<text>Detatch grenade launcher</text>
+	</string>
+	<string id="st_detach_scope">
+		<text>Detatch scope</text>
+	</string>
+	<string id="st_detach_silencer">
+		<text>Detatch silencer</text>
+	</string>
+	<string id="st_use_iron">
+		<text>Use iron sights</text>
+	</string>
+	<string id="st_use_scope">
+		<text>Use optical sights</text>
+	</string>
+	<string id="st_dress_outfit">
+		<text>Wear suit</text>
+	</string>
+	<string id="st_drop">
+		<text>Drop</text>
+	</string>
+	<string id="st_drop_all">
+		<text>Drop all</text>
+	</string>
+	<string id="st_eat">
+		<text>Eat</text>
+	</string>
+	<string id="st_donate">
+		<text>Donate</text>
+	</string>
+	<string id="st_perc">
+		<text>%</text>
+	</string>
+	<string id="st_perc_min">
+		<text>un./min</text>
+	</string>
+	<string id="st_hour">
+		<text>hour</text>
+	</string>
+	<string id="st_kg">
+		<text>Kg.</text>
+	</string>
+	<string id="st_g">
+		<text>g.</text>
+	</string>
+	<string id="st_litre">
+		<text>L</text>
+	</string>
+	<string id="st_mlitre">
+		<text>ml.</text>
+	</string>
+	<string id="st_kcal">
+		<text>kcal eq.</text>
+	</string>
+	<string id="st_kcal_sec">
+		<text>kcal/sec eq.</text>
+	</string>
+	<string id="st_msv">
+		<text>mSv</text>
+	</string>
+	<string id="st_msv_sec">
+		<text>mSv/sec</text>
+	</string>
+	<string id="st_bpm">
+		<text>bpm</text>
+	</string>
+	<string id="st_microg">
+		<text>mcg adren.</text>
+	</string>
+	<string id="st_microg_sec">
+		<text>mcg adren. / сек</text>
+	</string>
+	<string id="st_ml_min">
+		<text>ml/min</text>
+	</string>
+	<string id="st_kw_m2">
+		<text>kW/m2</text>
+	</string>
+	<string id="st_kv">
+		<text>kV</text>
+	</string>
+	<string id="st_mt">
+		<text>mT</text>
+	</string>
+	<string id="st_ppm">
+		<text>C1 eq.</text>
+	</string>
+	<string id="st_j">
+		<text>N/mm2</text>
+	</string>
+	<string id="st_move_on_belt">
+		<text>Move to unload</text>
+	</string>
+	<string id="st_move_to_bag">
+		<text>Move to inventory</text>
+	</string>
+	<string id="st_unequip">
+		<text>Unequip</text>
+	</string>
+	<string id="st_move_to_slot">
+		<text>Equip</text>
+	</string>
+	<string id="st_no_trade_tip_1">
+		<text>The trader isn't interested in items like this.</text>
+	</string>
+	<string id="st_no_trade_tip_2">
+		<text>The item is too damaged to be traded.</text>
+	</string>
+	<string id="st_play">
+		<text>Play</text>
+	</string>
+	<string id="st_sell_item">
+		<text>Sell item</text>
+	</string>
+	<string id="st_ui_armor_static">
+		<text>Armour condition</text>
+	</string>
+	<string id="st_undress_outfit">
+		<text>Remove suit</text>
+	</string>
+	<string id="st_unload_magazine">
+		<text>Unload</text>
+	</string>
+	<string id="st_use">
+		<text>Use</text>
+	</string>
+	<string id="st_weight">
+		<text>Weight</text>
+	</string>
+	<string id="ui_inv_accuracy">
+		<text>Accuracy:</text>
+	</string>
+	<string id="ui_inv_handling">
+		<text>Handling:</text>
+	</string>
+	<string id="ui_inv_damage">
+		<text>Damage:</text>
+	</string>
+	<string id="ui_inv_rate_of_fire">
+		<text>Rate of fire:</text>
+	</string>
+	<string id="ui_inv_bullet_speed">
+		<text>Bullet speed:</text>
+	</string>
+	<string id="ui_inv_recoil">
+		<text>Recoil:</text>
+	</string>						  
+	<string id="ui_ammo_count">
+		<text>Magazine capacity:</text>
+	</string>
+	<string id="ui_ammo_types">
+		<text>Ammo types:</text>
+	</string>
+
+	<string id="ui_inv_condition">
+		<text>Condition:</text>
+	</string>
+	<string id="ui_condition_value">
+		<text>%.0f%%</text>
+	</string>
+	<string id="ui_inv_ammo_pistol">
+		<text>Buy basic ammo for pistol (Q)</text>
+	</string>
+	<string id="ui_inv_ammo_rifle">
+		<text>Buy rifle ammo (W)</text>
+	</string>
+	<string id="ui_inv_bleeding">
+		<text>Bleeding control</text>
+	</string>
+	<string id="ui_inv_cancel">
+		<text>Cancel</text>
+	</string>
+	<string id="ui_inv_cant_buy_item">
+		<text>Cannot buy weapon</text>
+	</string>
+	<string id="ui_inv_count_restr">
+		<text>Amount restrictions</text>
+	</string>
+	<string id="ui_inv_default(F5)">
+		<text>Default (F5)</text>
+	</string>
+	<string id="ui_inv_exit">
+		<text>Close</text>
+	</string>
+	<string id="ui_inv_granadelauncher_rifle">
+		<text>Buy under-barrel grenade launcher for rifle (D)</text>
+	</string>
+	<string id="ui_inv_granades_rifle">
+		<text>Buy under-barrel grenade launcher grenades (E)</text>
+	</string>
+	<string id="ui_inv_has">
+		<text>Now</text>
+	</string>
+	<string id="ui_inv_health">
+		<text>Health restoration</text>
+	</string>
+	<string id="ui_inv_heavy_weapons">
+		<text>Heavy</text>
+	</string>
+	<string id="ui_inv_last_buy">
+		<text>Buy last purchased loadout</text>
+	</string>
+	<string id="ui_inv_last_buy(F4)">
+		<text>Previous (F4)</text>
+	</string>
+	<string id="ui_inv_money">
+		<text>Money</text>
+	</string>
+	<string id="ui_inv_need">
+		<text>Required</text>
+	</string>
+	<string id="ui_inv_not_enought_money">
+		<text>Not enough money</text>
+	</string>
+	<string id="ui_inv_ok">
+		<text>Ok</text>
+	</string>
+	<string id="ui_inv_take">
+		<text>Take</text>
+	</string>
+	<string id="ui_inv_weight">
+		<text>Maximum weight:</text>
+	</string>
+	<string id="ui_inv_volume">
+		<text>Maximum volume:</text>
+	</string>
+	<string id="ui_inv_outfit_additional_weight">
+		<text>Weight carried:</text>
+	</string>
+	<string id="ui_inv_outfit_additional_volume">
+		<text>Capacity:</text>
+	</string>
+	<string id="ui_inv_outfit_burn_protection">
+		<text>Thermal protection:</text>
+	</string>
+	<string id="ui_inv_outfit_chemical_burn_protection">
+		<text>Chemical protection:</text>
+	</string>
+	<string id="ui_inv_outfit_fire_wound_protection">
+		<text>Armour protection:</text>
+	</string>
+	<string id="ui_inv_outfit_radiation_protection">
+		<text>Radiation protection:</text>
+	</string>
+	<string id="ui_inv_outfit_shock_protection">
+		<text>Shock protection:</text>
+	</string>
+	<string id="ui_inv_outfit_telepatic_protection">
+		<text>Psionic protection:</text>
+	</string>
+	<string id="ui_inv_outfit_wound_protection">
+		<text>Wound protection:</text>
+	</string>
+	<string id="ui_inv_outfit_explosion_protection">
+		<text>Explosion protection:</text>
+	</string>
+	<string id="ui_inv_outfit_strike_protection">
+		<text>Strike protection:</text>
+	</string>
+	<string id="ui_inv_pocket_count">
+		<text>Pockets:</text>
+	</string>
+    <string id="ui_inv_armor_lvl">
+        <text>Armour Level:</text>
+    </string>
+    <string id="ui_inv_armor_lvl_value">
+        <text>%.0f</text>
+    </string>
+    <string id="ui_inv_hit_apscale_value">
+        <text>Absorbtion: %.0f%%</text>
+    </string>
+	<string id="ui_inv_outfit_telepatic_immunity">
+		<text>Psy-protection:</text>
+	</string>
+	<string id="ui_inv_outfit_hit_fraction_actor">
+		<text>Durability</text>
+	</string>
+	<string id="ui_inv_burn_protection">
+		<text>Thermal radiation\n \n%c[0,170,170,170]A typical fiery anomaly in the Chernobyl Exclusion Zone, (in stalker slang called "burner") consists of two separate elements: %c[0,170,170,170]spherical heat radiation field %c[0,170,170,170]- generating a constant flux, density in %c[0,210,210,210]50 kV / m2%c[0,170,170,170], causing temperatures up to %c[0,210,210,210]430 °C%c[0,170,170,170] and %c[0,210,210,210]'Fire anomaly' -%c[0,170,170,170] generating destructive power of the flame emissions up to %c[0,210,210,210]1000 °C%c[0,170,170,170] which starts up the stream straight from one point, which, as a rule, is located 10 cm above the ground. The mechanisms regulating such flows were not properly considered by the staff of the field laboratories of the Zone, but we know for sure that whenever a flare occurs, any solid object enters the field %c[0,210,210,210] thickness of 0.5 meters%c[0,170,170,170] , which is also called "activation" (due to the generation of gravitational nature).\n \n%c[0,170,170,170]In order to assess and further study the anomalies of the exclusion zone on fire and in order to indicate such information, the following measurements are available: %c[0,210,210,210]kV / m2%c[0,170,170,170]. This device shows the density of the heat flux generated by the anomaly and, consequently, the volume of energy.\n \n%c[0,153,255,255] • %c[0,140,140,140] inside the average fireplace: %c[0,170,170,170]500 °C or 29 kV / m2\n%c[0,153,255,255] • %c[0,140,140,140] average thermal rad. field flow: %c[0,170,170,170]620 °C or 51,5 kV / m2\n \n%c[0,153,255,255] • %c[0,140,140,140] average flash of "burner": %c[0,170,170,170]1000 °C or 212 kV / m2\n \n%c[0,153,255,255] • %c[0,140,140,140] approx. lifetime without protection: %c[0,170,170,170]RF: 1.5 min / FA: 0.5 s\n%c[0,153,255,255] • %c[0,140,140,140] approx. total damage time: %c[0,170,170,170]RF: 10 min / FA: 6 s\n \n%c[0,140,140,140]RF = radiation field ; FA = 'fire anomaly'\n \n%c[0,210,210,210]2. Acid\n \n%c[0,170,170,170]It is well known that the most powerful accumulations of acid (the so-called "cold") can be found in areas of the exclusion zone with extremely high toxicity (toxic anomalies). These gravitationally stable clusters are extremely unstable and lose their shape at the moment when they come into contact with the solid matter. Any such case produces a powerful flash equivalent using up to %c[0,210,210,210]0,5 liters%c[0,170,170,170] sulfuric acid %c[0,210,210,210]50%%c[0,170,170,170]. These flares entail the eruption of liquid solutions, which spread as droplets with a flash upward in approximately %c[0,210,210,210]2 meters%c[0,170,170,170] (radius).\n \n</text> 
+	</string>
+	<string id="ui_inv_chemical_burn_protection">
+		<text>Toxicity\n \n%c[0,170,170,170]In connection with the nature of such substances, which have not yet been thoroughly studied, found within the so-called %c[0,210,210,210]'toxic anomalies'%c[0,170,170,170], threat assessment should be carried out in accordance with universal %c[0,210,210,210]standards LC50 %c[0,170,170,170] by local ecologists.\n \n%c[0,170,170,170]This standard measures the overall toxicity of gaseous structures depending on their concentration level and indicates the dose that is required to kill %c[0,210,210,210]50%%c[0,170,170,170] any random person "test-group" while studying the last one.%c[0,210,210,210]1 hour%c[0,170,170,170].\n \n%c[0,170,170,170]As in most cases, it will only take 10 particles per million %c[0,210,210,210](to mln.)%c[0,170,170,170] condensation of anomalous territories %c[0,210,210,210]50% / 1 h%c[0,170,170,170] Lethality is justified to include them in %c[0,210,210,210]The first class of the group C(C1)%c[0,170,170,170]which includes the most potent poisonous substances known to science. In the Exclusion Zone and abnormal toxic areas (which often cover several hundred square meters), the average concentration of hazardous substances: %c[0,210,210,210]C1 200 mln.%c[0,170,170,170] (particles per million). Bearing in mind that '200' means the number of particles, in other words, it is a typical class I substance diluted in 1 million parts of the solution. This level of toxicity makes such anomalies of the Zone one of the most dangerous conditions on the planet, which are strong enough to kill an average person not protected by scientific equipment in %c[0,210,210,210]3 mins%c[0,170,170,170].\n \n%c[0,170,170,170]For this reason, and in order to assess the concentration of abnormal areas and the effectiveness of protective measures, such an operation is evaluated on the basis of the number of parts of the class I %c[0,210,210,210](C1)%c[0,170,170,170] toxic substances per million particles %c[0,210,210,210](ppm)%c[0,170,170,170].\n \n</text>
+	</string>
+	<string id="ui_inv_fire_wound_protection">
+		<text>Armor Protection Level\n \n%c[0,170,170,170]The level of armor protection is %c[0,210,210,210]anti-ballistic%c[0,170,170,170] properties of a certain part of body armor. The body armor is an element of individual protection of a person in the form of a vest that protects the human torso from the effects of cold and firearms, as well as from shell fragments, mines and grenades. It consists of materials capable of detaining bullets or fragments and dissipating their energy: ballistic tissue (Kevlar, Aramid), metal (from steel, titanium or aluminum-based alloys) or ceramic (from aluminum oxide, boron carbide or silicon carbide) plates.\n \n%c[0,210,210,210]ARMOR BULLETPROOF SCHEME:\n \n%c[0,210,210,210]CLASS I:%c[0,170,170,170] 12x70 shoot, grenades fragments \n \n%c[0,210,210,210]CLASS IIA and II:%c[0,170,170,170] 9x18 mm, 9x18 mm +P+, 9x19 mm FMJ, 9x19 JHP, 45 ACP\n \n%c[0,210,210,210]CLASS IIIA:%c[0,170,170,170] 357 HP, 45 Hydro, 5.56x45 mm FNJ\n \n%c[0,210,210,210]CLASS III%c[0,170,170,170] 9x18 mm AP, 9x19 mm AP, 7.62x39 mm FMJ, 7.92x33 mm FMJ,  5.45x39 mm FNJ, bullet 12x76\n \n%c[0,210,210,210]CLASS IV:%c[0,170,170,170] 9x39 mm SP-5, 7.62x51 mm NATO, .300 Win Mag, 45 AP, 7.92x33 mm AP\n \n%c[0,210,210,210]CLASS V (exoskeleton):%c[0,170,170,170] 5.45x39 AP, 5.56x45 AP, 7.62x39 mm AP, 7.62x51 mm NATO AP, 7.62x54 PP, 9x39 mm SP-6, 7.62x54 mm 7H1\n \n \n</text>
+	</string>
+	<string id="ui_inv_radiation_protection">
+		<text>Radiation protection\n \n%c[0,170,170,170]The territory of high radioactive contamination is a typical source of radioactivity. It is easily detected even by the most simple and inexpensive detectors. The impact of high doses of radiation is accompanied by hallucinations and a visual disturbance among stalkers referred to as "dead eyes".\n \n%c[0,153,255,255] • %c[0,140,140,140]Mask protection: %c[0,170,170,170]45%\n%c[0,153,255,255] • %c[0,140,140,140]Protection with respiratory filters: %c[0,170,170,170]90%\n%c[0,153,255,255] • %c[0,140,140,140]closed-circuit respiration protection: %c[0,170,170,170]100%\n \n%c[0,204,0,51]IMPORTANT:\n \n%c[0,170,170,170]Even though most field suits and helmets were tested in the most difficult conditions of the Zone, this does not guarantee maximum protection against external influences of unexplored abnormal influences. It is also worth noting that the damaged protection is still able to skip some radiation dose into the carrier.\n \n </text>
+	</string>
+	<string id="ui_inv_shock_protection">
+		<text>Shock protection\n \n%c[0,170,170,170]Mutants and anomalous formations with a diameter of about 10 m or more and accumulating static electricity are the sources of electrical power in the CEZ. For the convenience of measuring the force of these anomalous fields, as well as the effectiveness of electrical resistive devices and armour suits, stalkers are used as a unit of kilovolt.%c[0,210,210,210](kV)%c[0,170,170,170] this part of the equipment is able to withstand one %c[0,210,210,210]3000 kV%c[0,170,170,170] / %c[0,210,210,210]50 мс%c[0,170,170,170] outburst of electrical anomaly.\n \n%c[0,153,255,255] • %c[0,140,140,140] Average strength of electrical anomaly: %c[0,170,170,170]~3 MV\n%c[0,153,255,255] • %c[0,140,140,140] Damage to the unprotected body by a single flash "Electra": %c[0,170,170,170]95%\n \n \n</text>
+	</string>
+	<string id="ui_inv_telepatic_protection">
+		<text>Telepatic protection\n \n%c[0,170,170,170]The area with high psi impact is called among stalkers and psi-field scientists. Such "brain" meadows and glades are often formed next to power transmission towers and other metal structures that play the role of antennas when psi waves are transmitted by brain burners. In such places, hallucinations, loss of movement coordination, severe headaches and various mental disorders are common. Under prolonged exposure to psi radiation, the human brain either completely collapses or undergoes irreversible changes, turning its carrier into a zombie. In addition to the psi field, the stalker is at risk of psi storms, attacks by psi mutants and other sources. \n \n%c[0,210,210,210]KNOWN SOURCES:\n \n%c[0,153,255,255] • %c[0,140,140,140] Blowout: %c[0,170,170,170]35 mT (constant flow) ; 660 mT (blowout wave) \n%c[0,153,255,255] • %c[0,140,140,140] Average psi anomaly: %c[0,170,170,170]E 3mT ; C 45 mT\n%c[0,153,255,255] • %c[0,140,140,140] Conroller: %c[0,170,170,170]E 5 mT ; C 75 mT ; R 33 м\n%c[0,153,255,255] • %c[0,140,140,140] Poltergeist: %c[0,170,170,170]E 8 mT ; C 90 mT ; R 52 м\n%c[0,153,255,255] • %c[0,140,140,140] Burer: %c[0,170,170,170]E 2 mT ; C 50 mT ; R 26 м\n%c[0,153,255,255] • %c[0,140,140,140] Psi-dog: %c[0,170,170,170]E 0.1 mT ; C 15 mT ; R 23 м\n%c[0,153,255,255] • %c[0,140,140,140] The territory of the complex Yantar (not active): %c[0,170,170,170]E 0.001 mT ; C 1800 mT ; R ~3,5 км\n%c[0,153,255,255] • %c[0,140,140,140] 'Brain Scorcher' (not active): %c[0,170,170,170]E 0.001 mT ; C 6500 mT ; R ~20 км\n \n%c[0,140,140,140]E = radius of action\n%c[0,140,140,140]C = epicenter\n%c[0,140,140,140]R = range\n \n \n</text>
+	</string>
+	<string id="ui_inv_wound_protection">
+		<text>Wound protection\n \n%c[0,170,170,170]The level of protection of the body from mechanical influences remains an extremely important factor when working in the Chernobyl exclusion zone, and it should not be underestimated. More often, this is due to the aggressive fauna of local territories, the inhabitants of which were overly mutated due to the special effects of the exclusion zone.\n \n%c[0,170,170,170]Collective term %c[0,210,210,210]'Mutants'%c[0,170,170,170] refers to the creatures of the animal and, probably, of human origin, which are the result of such a non-standard evolution. They can take different volumes and shapes depending on their predecessors and the degree of mutation - and also have at their disposal several ways of causing damage and killing their victims. The main types of attacks include bites, cuts of the skin and clothing with sharp claws, stabbing the victim with sticking fangs, jumping on the prey, and kicking and kicking if they are human beings.\n \n%c[0,170,170,170]The most popular means of protection against this threat is the use of clothing made in such a way as to make it practically impenetrable for animal attacks. Although, usually even a thin layer of protective material can protect you from danger, in the exclusion zone, however it is recommended to use only specially designed anti-rupture fibers in the Research Institute for safe location next to predators. For convenience, such fibers are integrated almost into all modern types of bullet-proof armor.\n \n%c[0,170,170,170]. This also applies to any protection %c[0,210,210,210]CLASS AIII%c[0,170,170,170] and higher, which have a greater number of complex %c[0,210,210,210]metal plates%c[0,170,170,170]. The use of metal plates to date is the most effective method of protecting the fighter from breaking factors.\n \n%c[0,204,0,51]IMPORTANT:\n \n%c[0,170,170,170]Even considering that clothing of high strength and thickness can significantly reduce the damage from firearms and shells, as well as attacks of animals of all kinds, the materials from which clothing is sewn will deteriorate over time, gradually reducing its anti-anomalous and physical protection. Armor damaging speed %c[0,210,210,210]is not a constant%c[0,170,170,170] and depends on the state of the internal parts, which means that %c[0,210,210,210]the condition of the outfit will worsen as quickly as the damage it gets.\n \n%c[0,170,170,170]For this reason %c[0,210,210,210]strongly recommended%c[0,170,170,170] carry out maintenance of suits and helmets as often as possible and avoid heavy, structural damage from the outside.\n \n \n</text>
+	</string>
+	<string id="ui_inv_power">
+		<text>Endurance:</text>
+	</string>
+	<string id="ui_inv_power_restore">
+		<text>Power restore\n \n%c[0,170,170,170]Stamina is the physical energy stored in the living body. This energy is used for various purposes, but a great loss of strength can make you incapable of further movement. Therefore, it is vital that the fighter always maintain himself in excellent shape: he ate, drank, slept regularly to regain strength, and checked the weight of his own backpack - the more you carry, the slower you move and, consequently, the faster you get tired. Also, in addition to the natural restorers of vitality, you can use external influence: artifacts, stimulants, energy drinks.\n</text>
+	</string>
+	<string id="ui_inv_outfit_camo">
+		<text>Camouflage</text>
+	</string>
+	<string id="ui_inv_preset1(F1)">
+		<text>Loadout 1 (F1)</text>
+	</string>
+	<string id="ui_inv_preset2(F2)">
+		<text>Loadout 2 (F2)</text>
+	</string>
+	<string id="ui_inv_preset3(F3)">
+		<text>Loadout 3 (F3)</text>
+	</string>
+	<string id="ui_inv_pulse">
+		<text>Slowed Pulse</text>
+	</string>
+		<string id="ui_inv_pulse_eat">
+		<text>Slowed Pulse (instant)</text>
+	</string>
+	<string id="ui_inv_frature">
+		<text>Fracture restore</text>
+	</string>
+	<string id="ui_inv_radiation">
+		<text>Radiation:</text>
+	</string>
+	<string id="ui_inv_radiation_eat">
+		<text>Radiation (instant)</text>
+	</string>
+	<string id="ui_inv_rank_restr">
+		<text>Rank restriction</text>
+	</string>
+	<string id="ui_inv_reset_items(C)">
+		<text>Clear (C)</text>
+	</string>
+	<string id="ui_inv_rifles">
+		<text>Assault rifles</text>
+	</string>
+	<string id="ui_inv_satiety">
+		<text>Hunger</text>
+	</string>
+	<string id="ui_inv_thirst">
+		<text>Thirst</text>
+	</string>
+	<string id="ui_inv_alcohol">
+		<text>Drunkenness</text>
+	</string>
+	<string id="ui_inv_sleepiness">
+		<text>Sleepiness</text>
+	</string>
+	<string id="ui_inv_toxicity">
+		<text>Toxicity</text>
+	</string>
+	<string id="ui_inv_pain">
+		<text>Pain</text>
+	</string>
+	<string id="ui_inv_temperature">
+		<text>Temperature</text>
+	</string>
+	<string id="ui_inv_fracture">
+		<text>Fracture</text>
+	</string>
+	<string id="ui_inv_psyhealth">
+		<text>Psy-health</text>
+	</string>
+	<string id="ui_inv_scope_rifle">
+		<text>Buy optical scope for rifle (S)</text>
+	</string>
+	<string id="ui_inv_sell_items(X)">
+		<text>Sell all items in backpack (X)</text>
+	</string>
+	<string id="ui_inv_shotguns">
+		<text>Rifles</text>
+	</string>
+	<string id="ui_inv_silencer_pistol">
+		<text>Buy silencer for pistol (A)</text>
+	</string>
+	<string id="ui_inv_silencer_rifle">
+		<text>Buy silencer for rifle (F)</text>
+	</string>
+	<string id="ui_inv_sniper_rifles">
+		<text>Sniper</text>
+	</string>
+	<string id="ui_inv_time">
+		<text>Time</text>
+	</string>
+	<string id="ui_inv_you_already_have">
+		<text>Already got one</text>
+	</string>
+	<string id="ui_st_err_gs_not_available">
+		<text>Online S.T.A.L.K.E.R. services are not accessible.</text>
+	</string>
+	<string id="ui_st_err_sb_master_server_conn_fail">
+		<text>Cannot connect to master server.</text>
+	</string>
+	<string id="ui_st_outfit_protect">
+		<text>Protection:</text>
+	</string>
+	<string id="ui_st_preset_def">
+		<text>Default</text>
+	</string>
+	<string id="ui_st_preset_stored_to">
+		<text>Purchased loadout saved as</text>
+	</string>
+	<string id="ui_total_weight">
+		<text>Weight:</text>
+	</string>
+	<string id="ui_total_volume">
+		<text>Volume:</text>
+	</string>
+	<string id="st_drink">
+		<text>Drink</text>
+	</string>
+	<string id="ui_inv_outfit_power_restore">
+		<text>Endurance</text>
+	</string>
+	<string id="st_ui_health">
+		<text>Health:</text>
+	</string>
+	<string id="st_ui_head_health_state">
+		<text>Head health status\n \n%c[0,170,170,170]
+		The head is the most vulnerable part of the body. For better protection against damage you should use protective or combined helmets.\n
+		The scales above head show head and neck health:\n
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Brain damage will lead to fatal outcome.\n \n</text>
+	</string>
+	<string id="st_ui_body_health_state">
+		<text>Torso health status\n \n%c[0,170,170,170]
+		The torso is the most vulnerable part of the body after the head. For better protection from damage, you can use quality body armor and protective suits. The backpack does not affect the protection of the torso.\n
+		Scales in the torso display his torso and groin health:\n
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Damage to vital organs will lead to fatal outcome.\n \n</text>
+	</string>
+	<string id="st_ui_ra_health_state">
+		<text>Right Hand health status\n \n%c[0,170,170,170]
+		The left hand is one of the most important parts of the body. With the help of hands, you can perform many actions, the main of which is the ability to capture objects. For better protection from damage, you can use quality body armor, shoulder pads, elbow protection and gloves.\n
+		The scales under the hand show the health condition of right hand:\n 
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Damage to the hand will lead to a decrease in the ability to shoot and aim. \nSerious hand injury don't allowed to lift and grab objects.\n \n</text>
+	</string>
+	<string id="st_ui_la_health_state">
+		<text>Left Hand health status\n \n%c[0,170,170,170]
+		The left hand is one of the most important parts of the body. With the help of hands, you can perform many actions, the main of which is the ability to capture objects. For better protection from damage, you can use quality body armor, shoulder pads, elbow protection and gloves.\n
+		The scales under the hand show the health condition of left hand.\n
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Damage to the hand will lead to a decrease in the ability to shoot and aim. \nSerious hand injury don't allowed to lift and grab objects.\n \n</text>
+	</string>
+	<string id="st_ui_rl_health_state">
+		<text>Right leg health status\n \n%c[0,170,170,170]
+		Right leg is one of the paired organs of support and movement. The leg is anatomically composed of three main parts: the hip, the shin and the foot. Injuries to the ankle and especially the knee joint are dangerous, as they often cause irreversible damage.\n
+		The scales next leg show health status of right leg:\n
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Damage to the leg will reduce movement speed.\n \n</text>
+	</string>
+	<string id="st_ui_ll_health_state">
+		<text>Left leg health status\n \n%c[0,170,170,170]
+		Left leg is one of the paired organs of support and movement. The leg is anatomically composed of three main parts: the hip, the shin and the foot. Injuries to the ankle and especially the knee joint are dangerous, as they often cause irreversible damage.\n
+		The scales next to leg show health status of left leg:\n 
+		1st scale - condition of organs and tissue.\n
+		2nd scale - wounds and bleeding intensity.\n
+		3rd scale - injuries and fractures.\n \n
+		%c[0,204,0,51]Warning! Damage to the leg will reduce movement speed.\n \n</text>
+	</string>
+	<string id="st_ui_bleeding_sensor">
+		<text>Bleeding\n \n%c[0,170,170,170]Bleeding can drain all vitality at a very fast pace, if it is not stopped in the shortest time. Bleeding wounds are most often the result of external physical factors of any type: penetration of bullets into body armor and tearing of tissues, and sometimes they are accompanied by damage to internal organs. Bleeding can also be a consequence of open fractures of bones caused by trauma.\n \n%c[0,170,170,170]A healthy and physically prepared person is able to withstand a loss of blood right up to %c[0,210,210,210]2,7 liters %c[0,170,170,170]without losing consciousness. Extremely serious wounds (or a large number of small ones) can lead to a loss of blood in the following amount: %c[0,210,210,210]from 5 to 10 minutes%c[0,170,170,170]. Bandages or field kits of medical devices can effectively stop bleeding, and drugs that increase blood density or coagulants can be used to reduce the overall rate of bleeding.\n \n%c[0,153,255,255] • %c[0,140,140,140] Volume of blood in the body: %c[0,170,170,170]~5,5 liters\n%c[0,153,255,255] • %c[0,140,140,140] Deadly blood loss: %c[0,170,170,170]~2,7 liters\n%c[0,153,255,255] • %c[0,140,140,140] a 5.45 shot in an unprotected torso: %c[0,170,170,170]~320 ml \ min \n%c[0,153,255,255] • %c[0,140,140,140] Bandage reg. eff.: %c[0,170,170,170]~270 ml / min \n \n%c[0,170,170,170]Blood loss condition:\n \n%c[0,102,255,0]0 - 100 ml / min: %c[0,140,140,140] weak\n%c[0,255,255,0]100 - 200 ml / min: %c[0,140,140,140]significant\n%c[0,255,122,0]200 - 300 ml / min: %c[0,140,140,140] high\n%c[0,204,0,51]300+ ml / min: %c[0,140,140,140]critical\n \n \n</text>
+	</string>
+	<string id="st_ui_health_sensor">
+		<text>Health status\n \n%c[0,170,170,170]General health can be better described as %c[0,210,210,210]ability to further %c[0,170,170,170]life and movement, regardless of the circumstances. The zone is an inexorable place. Although, many say: "Leave the hope of everyone coming in here", it is not quite applicable here. You should never expect someone to offer you a helping hand. You are on your own and if you blunder it can be fatal. Thank for this mutants, emissions, anomalies, but remember: it's your fault, you are only obliged to survive here. No matter how you look at this whole thing, it is only the law of nature: the strongest survives. Those who are not created for such a line of life, undoubtedly, die, and even those who with great perseverance will live until the next day. For this reason, it is necessary to be strong and not give up.\n \n%c[0,170,170,170]While a superficial gunshot wound will not completely immobilize you, it still causes %c[0,210,210,210]pain%c[0,170,170,170], pain is dangerous to all: it can cause in your body %c[0,210,210,210]stopping life functions%c[0,170,170,170]. Shock, loss of consciousness, and physical burnout are capable of following after that and then you will be no better than a dead person - be careful!\n \n%c[0,170,170,170]The zone does not like those who help others. Stalker, who left a crippled friend in a mess is an ordinary sight in this godforsaken place. An experienced soldier knows that if it comes to a fight, he will have to give up his best friend without thinking. Sometimes beginners fall on the attributes of morality in an attempt to save comrades incompetent. People who experience such efforts, as a rule, will then learn a lesson and then, the thought of helping someone, will never again cross their minds.\n \n%c[0,170,170,170]\n \n \n</text>
+	</string>
+	<string id="st_ui_radiation_sensor">
+		<text>Ionizing radiation poisoning\n \n%c[0,170,170,170]The effect of ionizing radiation is an extremely high risk for humans. For this reason, each stalker needs to be trained, which can teach adequately to measure the level of radiation background. This skill is a key factor for survival in the Chernobyl exclusion zone. The main unit of scale of ionizing radiation is millisievert mSv.%c[0,170,170,170]. Level approximately in %c[0,210,210,210]8000 mSv %c[0,170,170,170]as a rule, flying, with no chance of recovery. The radiation level above the threshold of 1000 mSv (see below) can gradually negatively affect health. In the case of irradiation in this way, it is strongly recommended to use antiradin and other means of appropriate action as soon as possible. Table 3.2 shows the level of radiation with typical symptoms: can gradually have a negative impact on health. In the case of irradiation in this way, it is strongly recommended to use antiradin and other means of appropriate action as soon as possible. Table 3.2 shows the level of radiation with typical symptoms:\n \n%c[0,102,255,0]250 – 1500 mSv: %c[0,140,140,140]Symptoms are invisible. Long-term consequences are insignificant.\n \n%c[0,255,255,0]1500 – 3000 mSv: %c[0,140,140,140]Notable signs are: delirium, severe illnesses, characteristic skin covering with spots. Long-term symptoms are mild. Complete recovery is possible only with timely treatment.\n \n%c[0,255,122,0]3000 – 4500 mSv: %c[0,140,140,140]Very severe weakness, confusion and dizziness lead to premature death if treatment has not been performed in a relatively short time. Complete absence of hunger and thirst, serious illnesses, diarrhea, peeling of the skin and hair loss. High risk of loss of ability to recover. Restoration of the old functions of the body is possible with the extensive use of cleansing drugs.\n \n%c[0,204,0,51]4500 – 6000 mSv: %c[0,140,140,140]Intensification of the symptoms listed above. In addition, damage to the central nervous system is possible. The probability of death is 82%.\n \n%c[0,204,0,51]6000 mSv and above: %c[0,140,140,140]Immediate death. Often after a brief loss of consciousness.\n \n%c[0,153,255,255] • %c[0,140,140,140] unit: %c[0,170,170,170]mSv (millisieverts)\n%c[0,153,255,255] • %c[0,140,140,140] inevitable fatal radiation: %c[0,170,170,170]~6000+ mSv\n%c[0,153,255,255] • %c[0,140,140,140] Dangerous contamination of the area: %c[0,170,170,170]~900 mSv / min\n \n</text>
+	</string>
+	<string id="st_ui_toxicity_sensor">
+		<text>Intoxication\n\n%c[0,170,170,170]Disruption of the body’s vital activity resulting from ingestion of poison or toxin, as well as the action that caused this disease. The main groups of substances that cause acute poisoning are:
+		\n %c[0,153,255,255] • %c[0,204,0,51]Drugs;
+		\n %c[0,153,255,255] • %c[0,204,0,51]Alcohol and surrogates;
+		\n %c[0,153,255,255] • %c[0,204,0,51]Cauterizing liquids;
+		\n %c[0,153,255,255] • %c[0,204,0,51]Carbon monoxide;
+		\n %c[0,153,255,255] • %c[0,204,0,51]Mushrooms\n \n</text>
+	</string>
+	<string id="st_ui_thirst_sensor">
+		<text>Thirst\n \n%c[0,170,170,170]Physiological sensation, which belongs to the category of general feelings and serves as a signal that the body needs water. The body continuously loses water through the skin, lungs and kidneys. These losses are particularly severe in dry, hot environments, when muscle or mental work is intensified and when the body is agitated. These water losses require compensation. When the water content of the body falls below a certain level, there is a need for water, a conscious expression of which is thirst. Just as hunger is a signal to eat, so thirst is a signal to eat water. Both of these sensations can be singled out in a special group of internal feelings, the so-called "food" sensations, which can also include the feeling of shortness of breath, indicating the body's need for oxygen. The feverish temperature rise that occurs at high degrees of thirst is caused by the weakening of water losses by evaporation, which is known to take away a lot of animal warmth.\n \n</text>
+	</string>
+	<string id="st_ui_satiety_sensor">
+		<text>Hunger\n \n%c[0,170,170,170]The state of a living organism in need of food and lack of blood substances necessary for its further existence. The feeling of hunger disappears during physical activity. In case of excitement and danger, the body dulls this feeling, as it prevents it from soberly assessing the situation.\n \n</text>
+	</string>
+	<string id="st_ui_stamina_sensor">
+		<text>Endurance\n \n%c[0,170,170,170]The ability of the body to carry out any work for a long time without a noticeable decrease in working capacity, as well as its restoration. The level of endurance is determined by the time during which a person can perform a given physical exercise (a type of physical activity).</text>
+	</string>
+	<string id="st_ui_pain_sensor">
+		<text>Pain\n \n%c[0,170,170,170] An unpleasant sensory and emotional experience associated with real or perceived tissue damage, and at the same time a reaction of the body that mobilizes various functional systems to protect it from the effects of a pathogenic factor. The reaction to the sensation, which is characterized by a certain emotional color, reflex changes in the functions of internal organs, unconditioned motor reflexes, as well as volitional efforts aimed at getting rid of the pain factor. When the pain threshold is exceeded, consciousness is lost, and in some cases fatal outcome is possible. Degree of pain: \n
+		\n %c[0,0,255,0] • Green indicator - Weak illness sensation
+		\n %c[0,255,255,0] • Yellow indicator - Mild pain sensation
+		\n %c[0,220,135,20] • Orange Indicator - Severe pain sensation
+		\n %c[0,255,0,0] • Red indicator - Unbearable pain sensation\n \n</text>
+	</string>
+	<string id="st_ui_psy_sensor">
+		<text>Psy state\n \n%c[0,170,170,170] One of the possible modes of human life, at the physiological level characterized by certain energy characteristics, and at the psychological level by a system of psychological filters that provide a specific perception of the world.</text>
+	</string>
+	<string id="st_ui_temp_sensor">
+		<text>Body temperature\n \n%c[0,170,170,170] A comprehensive indicator of the body's thermal state. The human body temperature during the day fluctuates within small limits, remaining in the range from 35.5 to 37.4 ° C for a healthy body. A temperature below 35 ° C indicates a serious illness. Subcooling victims fall into a stupor if their body temperature drops to 32.2 ° C, most lose consciousness at 29.5 ° C and die at temperatures below 26.5 ° C. A temperature above 37 ° C indicates an infection in the organism.</text>
+	</string>
+	<string id="st_ui_fracture_sensor">
+		<text>Injury\n \n%c[0,170,170,170]Damage, which is understood as a violation of the anatomical integrity or physiological functions of organs and tissues of the human body resulting from external exposure [1]. Depending on the type of damaging factor, there are mechanical (bruises, fractures, etc.), thermal (burns, frostbite), chemical injuries, barotrauma (under the influence of sudden changes in atmospheric pressure), electrical injuries, and so on, as well as combined injuries.</text>
+	</string>							 
+	<string id="ui_inv_effect_time">
+		<text>Duration:</text>
+	</string>
+	<string id="ui_inv_seconds_short">
+		<text>sec.</text>
+	</string>
+	<string id="ui_inv_seconds">
+		<text>seconds</text>
+	</string>
+	<string id="ui_inv_survive_surge">
+		<text>Protects you from an emission or psi-storm</text>
+	</string>
+	<string id="st_dress_helmet">
+		<text>Wear helmet</text>
+	</string>
+	<string id="st_undress_helmet">
+		<text>Remove helmet</text>
+	</string>
+	<string id="st_ui_containers">
+		<text>Containers</text>
+	</string>
+	<string id="st_ui_artifacts">
+		<text>Artifacts</text>
+	</string>
+	<string id="st_ui_container_remove">
+		<text>Remove</text>
+	</string>
+	<string id="st_ui_container_place">
+		<text>Put in container</text>
+	</string>
+	<string id="st_open">
+		<text>Open</text>
+	</string>
+	<string id="st_close">
+		<text>Close</text>
+	</string>
+	<string id="ui_inv_af_condition">
+		<text>Efficiency:</text>
+	</string>
+	<string id="ui_inv_af_jump_speed">
+		<text>Jump power:</text>
+	</string>
+	<string id="ui_inv_af_walk_accel">
+		<text>Movement speed:</text>
+	</string>
+	<string id="ui_inv_af_overweight_walk_accel">
+		<text>Overloaded speed:</text>
+	</string>
+	<string id="ui_st_usable_parts">
+		<text>Parts</text>
+	</string>
+	<string id="ui_st_repairable_equipment">
+		<text>Repairable</text>
+	</string>
+	<string id="ui_st_disassemble">
+		<text>Disassemble</text>
+	</string>
+	<string id="ui_st_create_stash">
+		<text>Create a stash</text>
+	</string>
+	<string id="st_ammo_loading">
+		<text>Loading</text>
+	</string>
+		<string id="st_item_spoiled_warning">
+		<text>THAT FOOD IS BAD!</text>
+	</string>
+	<string id="st_item_spoiled">
+		<text>**SPOILED**</text>
+	</string>
+	<string id="st_item_spoiled_within_hour">
+		<text>spoiled in less than an hour</text>
+	</string>
+	<string id="st_item_spoiled_time_display">
+		<text>days:%s  hours:%s</text>
+	</string>
+	<string id="st_remove_battery">
+		<text>Remove battery</text>
+	</string>
+	<string id="st_remove_suit_battery">
+		<text>Remove suit battery</text>
+	</string>
+	<string id="st_remove_nv_battery">
+		<text>Remove NV battery</text>
+	</string>
+	<string id="st_remove_scope_battery">
+		<text>Remove scope battery</text>
+	</string>
+	<string id="st_cant_be_repaired">
+		<text>This item can't be repaired</text>
+	</string>
+	
+	<string id="st_use_on_head">
+		<text>Apply to Head</text>
+	</string>
+	<string id="st_use_on_body">
+		<text>Apply to Body</text>
+	</string>
+	<string id="st_use_on_left_arm">
+		<text>Apply to Left Arm</text>
+	</string>
+	<string id="st_use_on_right_arm">
+		<text>Apply to Right Arm</text>
+	</string>
+	<string id="st_use_on_left_leg">
+		<text>Apply to Left Leg</text>
+	</string>
+	<string id="st_use_on_right_leg">
+		<text>Apply to Right Leg</text>
+	</string>
+	<string id="st_use_on_pain">
+		<text>Apply painkiller</text>
+	</string>
+	<string id="st_use_on_radiation">
+		<text>Apply antirad</text>
+	</string>
+	
+	<string id="ui_st_all_filter_hint">
+		<text>Show all</text>
+	</string>
+	<string id="ui_st_wpn_filter_hint">
+		<text>Filter weapons and addons</text>
+	</string>
+	<string id="ui_st_ammo_filter_hint">
+		<text>Filter ammo and mags</text>
+	</string>
+	<string id="ui_st_armor_filter_hint">
+		<text>Filter equipment</text>
+	</string>
+	<string id="ui_st_art_filter_hint">
+		<text>Filter artifacts and containers</text>
+	</string>
+	<string id="ui_st_eat_filter_hint">
+		<text>Filter products and drugs</text>
+	</string>
+	<string id="ui_st_device_filter_hint">
+		<text>Filter devices</text>
+	</string>
+	<string id="ui_st_misc_filter_hint">
+		<text>Filter consumables</text>
+	</string>
+</string_table>

@@ -1,0 +1,305 @@
+;----------------------------------------------------------------------------------------
+; AK-102 from STCOP 3.3, remade by Surs for A.R.E.A. (28.08.2020)
+;----------------------------------------------------------------------------------------
+[wpn_ak102]:default_weapon_params
+visual                  	= dynamics\weapons\wpn_ak102\wpn_ak102.ogf
+$spawn                      = "weapons\ak-74"		; name and section in level editor
+$npc              			= on
+class                		= WP_AK74
+inv_name          			= st_wpn_ak102
+inv_name_short    			= st_wpn_ak102
+description          		= st_wpn_ak102_descr
+heating_rates				= ak2
+scopes 						= 1p29, 1p78, ekp, kobra, okp, pso
+parent_section  			= wpn_ak102
+ef_main_weapon_type     	= 2
+ef_weapon_type          	= 8
+default_to_ruck         	= false
+sprint_allowed          	= true
+repair_type					= rifle_5.56
+cost              	 		= 26690
+inv_weight        			= 3.2
+inv_volume					= 4.5
+ph_mass                 	= 4
+weapon_class         		= assault_rifle
+;-------------------------------------------------------------------------------
+upgrades                	= up_gr_firstab_ak102, up_gr_seconab_ak102, up_gr_thirdab_ak102, up_gr_fourtab_ak102, up_gr_fifthab_ak102
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_ak74u
+;--ТТХ--------------------------------------------------------------------------
+hit_power            		= 0.44, 0.44, 0.44, 0.44
+hit_impulse          		= 23
+hit_type             		= fire_wound
+fire_distance           	= 500
+bullet_speed            	= 850
+rpm                     	= 600
+rpm_empty_click         	= 200
+time_to_aim             	= 3.0
+hud                     	= wpn_ak102_hud
+
+misfire_probability        	= 0.005
+misfire_start_condition		= 0.78
+misfire_end_condition		= 0.1
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec      	= 0.0008
+condition_queue_shot_dec	= 0.0008
+
+ammo_elapsed				= 30
+ammo_mag_size				= 30
+fire_modes					= -1, 1
+magazine_sect				= mag_556_cnt_30_ak102
+ammo_class					= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class				= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot						= 2
+animation_slot				= 2
+;--Доф---------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 2
+reload_empty_dof			= 0.0, 0.5, 5, 3
+;--Дисперсия---------------------------------------------------------------------
+;params of weapon recoil
+fire_dispersion_base		= 0.49					; угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.13f
+crosshair_inertion			= 4.7
+
+;отдача
+cam_return 					= 0
+cam_relax_speed				= 12					;скорость возврата в исходное положение
+cam_relax_speed_ai			= 120.75
+cam_dispersion				= 0.87
+cam_dispersion_inc			= 0.51
+cam_dispersion_frac			= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 37.0					;максимальный угол отдачи
+cam_max_angle_horz			= 37.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 1.10					;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed		= 12					; scope & ironsight
+zoom_cam_relax_speed_ai		= 360
+zoom_cam_dispersion			= 0.71
+zoom_cam_dispersion_inc		= 0.42
+zoom_cam_dispersion_frac	= 1.0
+zoom_cam_max_angle			= 37.0
+zoom_cam_max_angle_horz		= 37.0
+zoom_cam_step_angle_horz	= 1.00
+
+PDM_disp_base 				= 0.8
+PDM_disp_vel_factor 		= 1.65
+PDM_disp_accel_factor 		= 1.655
+PDM_disp_crouch 			= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+fire_dispersion_condition_factor = 0.001
+;-------------------------------------------------------------------------------
+position					= -0.019, -0.165, 0.01
+orientation					= 0, 0, 0
+fire_point					= 0, 0.218, 0.570
+fire_point2					= 0, 0.161, 0.570
+flame_particles				= weapons\new_effects\pistol_9x18
+smoke_particles				= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles		= weapons\new_effects\glauncher
+shell_point					= 0, 0.216, 0.110
+shell_dir					= 0.0, 0.0, 0.4
+shell_particles				= weapons\556x45
+;-------------------------------------------------------------------------------
+inv_grid_width				= 5
+inv_grid_height				= 2
+inv_grid_x					= 20
+inv_grid_y					= 18
+
+upgr_icon_x					= 0
+upgr_icon_y					= 600
+upgr_icon_width				= 300
+upgr_icon_height			= 100
+
+kill_msg_x					= 0
+kill_msg_y					= 28
+kill_msg_width				= 84
+kill_msg_height				= 28
+
+light_disabled				= false
+light_color					= 0.6,0.5,0.3
+light_range					= 5
+light_var_color				= 0.05
+light_var_range				= 0.5
+light_time					= 0.2
+
+;addons
+scope_status				= 2				; 0 - no addon ; UPGRADABLE
+silencer_status				= 2				; 1 - permanent
+grenade_launcher_status		= 0				; 2 - attachable
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor			= 1.03
+
+silencer_name				= wpn_sil_atg
+silencer_x					= 225
+silencer_y					= 12
+silencer_hit_power			= 0.4, 0.4, 0.4, 0.4
+silencer_hit_impulse		= 19
+silencer_fire_distance 		= 480
+silencer_bullet_speed		= 825
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time			= 0.2
+silencer_smoke_particles	= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster					= weapons\ak102\ak102_holster
+snd_draw					= weapons\ak102\ak102_draw
+snd_reload					= weapons\ak102\ak102_reload
+snd_reload_empty			= weapons\ak102\ak102_reload_empty
+snd_reload_misfire			= weapons\ak102\ak102_reload_misfire
+snd_reload_detached			= weapons\ak102\ak102_reload,1,0,0.8
+snd_reload_detached_empty	= weapons\ak102\ak102_reload_empty,1,0,0.8
+snd_check_magazine          = weapons\ak102\ak102_reload
+snd_switch					= weapons\ak102\ak102_switch
+snd_shoot_grenade			= weapons\ak102\ak102_grenshoot
+snd_reload_grenade			= weapons\ak102\ak102_grenload
+snd_empty					= weapons\ak102\ak102_empty
+snd_shoot					= weapons\ak102\ak102_shoot_null
+snd_silencer_shot			= weapons\ak102\ak102_shot_sil_null
+snd_switch					= $no_sound
+snd_bore					= $no_sound
+;--Магазины-------------------------------------------------------------------
+[mag_556_cnt_30_ak102]
+magazine_name				= magazine_556_cnt_30_ak100
+magazine_x					= 100
+magazine_y					= 42
+custom_icon 				= 7,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_ak102_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= -0.013065,-0.014070,-0.183915
+shell_dir					= 0,1,0
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone					= muzzle
+fire_point2					= 0,0,0
+fire_bone2					= wpn_body
+
+hands_position				= -0.100685,-0.10425,-0.04806
+hands_position_16x9			= -0.100685,-0.10425,-0.04806
+hands_orientation			= 1.543216,2,0
+hands_orientation_16x9		= 1.543216,2,0
+
+aim_hud_offset_pos			= -0.050125,0.01626,-0.13
+aim_hud_offset_pos_16x9		= -0.050125,0.01626,-0.13
+aim_hud_offset_rot			= 0.03729,0.02658,0
+aim_hud_offset_rot_16x9		= 0.03729,0.02658,0
+
+aim_hud_offset_pos_alt		= -0.01891,-0.014335,0
+aim_hud_offset_pos_alt_16x9	= -0.01891,-0.014335,0
+aim_hud_offset_rot_alt		= -0.001011,-0.007579,0.370347
+aim_hud_offset_rot_alt_16x9	= -0.001011,-0.007579,0.370347
+
+anm_show					= ak102_draw
+anm_hide					= ak102_holster
+anm_idle					= ak102_idle
+anm_idle_sprint				= ak102_idle_sprint
+anm_idle_moving				= ak102_idle_moving
+anm_idle_moving_crouch		= ak102_idle_crouch
+anm_shots					= ak102_shoot, shoot
+anm_shots_empty				= ak102_idle
+anm_reload					= ak102_reload, reload
+anm_reload_empty			= ak102_reload_empty, reload_empty
+anm_reload_misfire			= ak102_misfire, misfire
+anm_reload_detached			= ak102_reload, reload, , 0.8
+anm_reload_detached_empty	= ak102_reload_empty, reload_empty, , 0.8
+anm_idle_aim				= ak102_idle_aim
+anm_bore					= ak102_idle_aim
+anm_check_magazine          = ak102_reload, reload
+anm_use_start               = ak102_holster, ,0.4
+anm_use_end                 = ak102_draw, ,0.6
+anm_jump                    = ak102_draw, ,1.6
+;-----------------------------------------------------------------------------
+[wpn_ak102_1p29]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102_1p29.ogf
+scope_name					= 1p29
+scope_x						= 62
+scope_y						= -4
+hud							= wpn_ak102_1p29_hud
+
+[wpn_ak102_1p29_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_1p29_hud.ogf
+aim_hud_offset_pos			= -0.05643,-0.014915,-0.128087
+aim_hud_offset_pos_16x9		= -0.05643,-0.014915,-0.128087
+aim_hud_offset_rot			= 0.040812,0.027574,0
+aim_hud_offset_rot_16x9		= 0.040812,0.027574,0
+aim_hud_offset_pos_alt		= 0.006090,0.032130,0
+aim_hud_offset_pos_alt_16x9	= 0.006090,0.032130,0
+;-----------------------------------------------------------------------------
+[wpn_ak102_1p78]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102_1p78.ogf
+scope_name					= 1p78
+scope_x						= 62
+scope_y						= -4
+hud							= wpn_ak102_1p78_hud
+
+[wpn_ak102_1p78_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_1p78_hud.ogf
+aim_hud_offset_pos			= -0.050445,-0.007145,-0.115593
+aim_hud_offset_pos_16x9		= -0.050445,-0.007145,-0.115593
+aim_hud_offset_rot			= 0.040812,0.027574,0
+aim_hud_offset_rot_16x9		= 0.040812,0.027574,0
+;-----------------------------------------------------------------------------
+[wpn_ak102_ekp]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102_ekp.ogf
+scope_name					= ekp
+scope_x						= 74
+scope_y						= -3
+hud							= wpn_ak102_ekp_hud
+
+[wpn_ak102_ekp_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_ekp_hud.ogf
+aim_hud_offset_pos			= -0.04939,-0.018495,-0.13
+aim_hud_offset_pos_16x9		= -0.04939,-0.018495,-0.13
+aim_hud_offset_rot			= 0.03729,0.02658,0
+aim_hud_offset_rot_16x9		= 0.03729,0.02658,0
+;-----------------------------------------------------------------------------
+[wpn_ak102_kobra]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102_kobra.ogf
+scope_name					= kobra
+scope_x						= 77
+scope_y						= 0
+hud							= wpn_ak102_kobra_hud
+
+[wpn_ak102_kobra_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_kobra_hud.ogf
+aim_hud_offset_pos			= -0.050025,-0.00871,-0.163838
+aim_hud_offset_pos_16x9		= -0.050025,-0.00871,-0.163838
+aim_hud_offset_rot			= 0.040812,0.030636,0
+aim_hud_offset_rot_16x9		= 0.040812,0.030636,0
+;-----------------------------------------------------------------------------
+[wpn_ak102_okp]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102_okp.ogf
+scope_name					= okp
+scope_x						= 74
+scope_y						= -3
+hud							= wpn_ak102_okp_hud
+
+[wpn_ak102_okp_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_okp_hud.ogf
+aim_hud_offset_pos			= -0.045085,0.00492,-0.149004
+aim_hud_offset_pos_16x9		= -0.045085,0.00492,-0.149004
+aim_hud_offset_rot			= 0.03729,0.02658,0
+aim_hud_offset_rot_16x9		= 0.03729,0.02658,0
+aim_hud_offset_pos_alt		= -0.004935,0.011025,-0.01848
+aim_hud_offset_pos_alt_16x9	= -0.004935,0.011025,-0.01848
+;-----------------------------------------------------------------------------
+[wpn_ak102_pso]:wpn_ak102
+visual						= dynamics\weapons\wpn_ak102\wpn_ak102.ogf
+scope_name					= pso
+scope_x						= 40
+scope_y						= -3
+hud							= wpn_ak102_pso1_hud
+
+[wpn_ak102_pso1_hud]:wpn_ak102_hud
+item_visual					= dynamics\weapons\wpn_ak102\wpn_ak102_pso_hud.ogf
+aim_hud_offset_pos			= -0.04125,-0.00343,-0.050305
+aim_hud_offset_pos_16x9		= -0.04125,-0.00343,-0.050305
+aim_hud_offset_rot			= 0.03729,0.02658,0
+aim_hud_offset_rot_16x9		= 0.03729,0.02658,0
+;-----------------------------------------------------------------------------

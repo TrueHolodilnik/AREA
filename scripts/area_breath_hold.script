@@ -1,0 +1,157 @@
+local BREATH_HOLD
+local loss_rate = 0.06
+local hold_breath, time_hold_breath = nil, time_global()
+local key_zoom, key_breath
+local NominalPulse = 60
+-- pulse debug display
+local _dtmr
+local function DebugTimer()
+	
+	local tg = time_global()
+	if (_dtmr and tg < _dtmr) then 
+		return false 
+	end
+
+	_dtmr = tg + 2000
+	local cactor = db.actor:cast_Actor():conditions()
+	local pulse = cactor and cactor:PulseRate()
+	utils.save_var(db.actor,"pulse",pulse)
+	--printf("Actor_Pulse:%s",pulse)
+	local msg = game.translate_string("st_pulse")..tostring(pulse)
+	news_manager.send_tip(db.actor, msg, nil, nil, Pulse, 10000)
+	area_health_system.actor_status_log()
+end
+-- pulse debug display
+local function opt_menu_on_init(menu)
+	menu.gameplay_options["hold_breath"]	= {default=true, 	debug_only=false, 	typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			BREATH_HOLD = ctrl:GetCheck()
+			if _dtmr then
+				RemoveUniqueCall(DebugTimer)
+				_dtmr = nil
+			end
+		end
+	}
+end
+
+function on_game_start()
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	RegisterScriptCallback("on_key_press",on_key_press)
+	RegisterScriptCallback("on_key_release",on_key_release)
+	RegisterScriptCallback("actor_on_net_destroy", save_pulse)
+	local function init()
+		NominalPulse = system_ini():r_float_ex("actor_condition", "resting_pulse")
+		BREATH_HOLD = axr_main.config:r_value("mm_options","enable_hold_breath",1,true)
+		load_pulse()
+	end
+	RegisterScriptCallback("actor_on_first_update",init)
+	RegisterScriptCallback("actor_on_before_death",actor_on_before_death)
+end
+
+function actor_on_before_death()
+	UnregisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	UnregisterScriptCallback("on_key_press",on_key_press)
+	UnregisterScriptCallback("on_key_release",on_key_release)
+	UnregisterScriptCallback("actor_on_net_destroy",save_pulse)
+	RemoveUniqueCall(DebugTimer)
+end
+function load_pulse()
+	if not db.actor then return end
+	local cactor = db.actor:cast_Actor():conditions()
+	if cactor then
+		local tmp = utils.load_var(db.actor,"pulse",NominalPulse)
+		cactor:SetPulseRate(tmp)
+		utils.save_var(db.actor,"pulse",nil)
+	end
+end
+
+function save_pulse()
+	if not db.actor then return end
+	local cactor = db.actor:cast_Actor():conditions()
+	utils.save_var(db.actor,"pulse",cactor and cactor:PulseRate())
+end
+
+function on_key_press(key)
+	if not BREATH_HOLD or not db.actor or level.Actor():GetActivePDATAB() == 1 then return end
+	if (dik_to_bind(key) ~= key_bindings.kSPRINT_TOGGLE and dik_to_bind(key) ~= key_bindings.kWPN_ZOOM) then return end
+
+	if (dik_to_bind(key) == key_bindings.kWPN_ZOOM) then
+		key_zoom = true
+	end
+	if (dik_to_bind(key) == key_bindings.kSPRINT_TOGGLE) then
+		key_breath = true
+	end
+	--printf("bind %s(%s)",dik_to_bind(key), key_bindings.kACCEL)
+	--printf("press mouse key:%s hold:%s zoom:%s hold_breath:%s", key, key_breath, key_zoom, hold_breath)
+	if (key_breath and key_zoom and hold_breath == nil) then
+		area_sounds.hold_your_breath(true)
+		time_hold_breath = time_global()
+		AddUniqueCall(start_hold_breath)
+		end
+end
+
+function on_key_release(key)
+	-- pulse debug display
+	if level.Actor():GetActivePDATAB() == 1 then return end
+	if (dik_to_bind(key) == key_bindings.kCUSTOM11) then
+		if not (_dtmr) then
+			AddUniqueCall(DebugTimer)
+		else
+			RemoveUniqueCall(DebugTimer)
+			_dtmr = nil
+		end
+	end
+	-- pulse debug display
+	if not BREATH_HOLD or not db.actor then return end
+	
+	if (dik_to_bind(key) ~= key_bindings.kSPRINT_TOGGLE and dik_to_bind(key) ~= key_bindings.kWPN_ZOOM) then return end
+	
+	if (dik_to_bind(key) == key_bindings.kSPRINT_TOGGLE) then
+		key_breath = nil
+	end
+	if (dik_to_bind(key) == key_bindings.kWPN_ZOOM) then
+		key_zoom = nil
+	end
+	if not(key_zoom and key_breath) then
+		RemoveUniqueCall(start_hold_breath)
+		area_sounds.hold_your_breath(false)
+		hold_breath = nil
+		area_sounds.PlayPulseSound(false)
+	end
+end
+
+function start_hold_breath()
+	if db.actor and BREATH_HOLD and key_zoom and key_breath and level.Actor():GetActivePDATAB() ~= 1 and not GodMode() and not db.actor:has_info("anim_hands_status") then
+		local conditions = level.Actor():conditions()
+		local tg = time_global()
+		local pulse = conditions:PulseRate()
+		local max_power = conditions:GetMaxPower()
+		hold_breath = (max_power-conditions:GetPower())
+
+		if hold_breath then
+			local time_delta = (time_global()-time_hold_breath)*0.4
+			time_hold_breath = time_global()
+			if (conditions:GetPower() > 0.15) then
+				if hold_breath < max_power then
+					local magnitude = db.actor:get_move_magnitude()
+					if magnitude > 0 then 
+						hold_breath = hold_breath + ((loss_rate * pulse / NominalPulse / 200)*magnitude/10)*time_delta
+					else
+						hold_breath = hold_breath + ((loss_rate * pulse / NominalPulse / 200)*time_delta)
+					end
+				else
+					hold_breath = max_power
+				end
+				conditions:SetPower(max_power-hold_breath)
+				area_sounds.PlayPulseSound(true)
+			else
+				key_zoom = nil
+				key_breath = nil
+				hold_breath = nil
+				area_sounds.hold_your_breath(false)
+				area_sounds.PlayPulseSound(false)
+				return true
+			end
+		end
+	end
+end

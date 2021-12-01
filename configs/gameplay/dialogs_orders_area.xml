@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<game_dialogs>
+
+<!--------------------------- Darkscape local trader --------- -->
+<dialog id="about_trade_dasc">
+<dont_has_info>actor_know_about_trade_dasc</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Слушай, мужик, почему ассортимент такой скудный? Ни костюмов подороже, ни оружия получше.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Да дело в том, что я не могу здесь хранить целые арсеналы, несмотря на то, что это огромный ангар. 
+		Здесь же не склады, верно? Крыша протекает, дыры в стенах, да и выбросы тоже доставляют проблемы. 
+		В лучшем случае можно ящик тушёнки заныкать. Костюмы и оружие сталкеры заказывают через меня или других торговцев. 
+		Самое дорогое оружие поставляет Шустрый, а я тут в Лощине по мелочи в основном промышляю. И на заказ мы таскаем только для своих.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно, спасибо за пояснения.</text>
+		<give_info>actor_know_about_trade_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_dasc">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_dasc</dont_has_info>
+<has_info>actor_know_about_trade_dasc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Не, мужик, у тебя репутация гнилая. Как поправишь - приходи, а пока я рисковать не стану.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_bad_rep_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_dasc">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_dasc</dont_has_info>
+<has_info>actor_know_about_trade_dasc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Дровосек, а почему стволов и костюмов посерьёзнее не предлагаешь?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Ну знаешь, я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию и хорошие отношения с группировкой - 
+		будут тебе заказы посерьёзнее. </text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_dasc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Clear Sky main base trader --------- -->
+
+<dialog id="about_trade_csky">
+<dont_has_info>actor_know_about_trade_csky</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я тут недавно и возникают вопросы. Почему так пусто? Опять в Чистом Небе кризис что ли?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Никакой не кризис, нормально всё, просто оружие и броню получше мы тут не храним. Это банально невыгодно. 
+		Торговцы, в числе которых я, работают на заказ, с рук мы не торгуем. В основном из-за периметра через посредников уже сюда доставляют товар.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ладно.</text>
+		<give_info>actor_know_about_trade_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_csky">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_csky</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_csky</dont_has_info>
+<has_info>actor_know_about_trade_csky</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Слушай, я даже не знаю, почему тебя до сих пор из клана не выперли. Поправишь свою репутацию - приходи.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_bad_rep_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_actor_not_in_same_clan_csky">
+<precondition>dialogs_mlr.check_no_csky</precondition>
+<dont_has_info>actor_know_about_actor_not_in_same_clan_csky</dont_has_info>
+<has_info>actor_know_about_trade_csky</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Мужик, я только для своих работаю, а для остальных по мелочи. Если хочешь достать себе снаряжение - сходи к Дровосеку в Тёмную Лощину или к Шустрому.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_actor_not_in_same_clan_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_csky">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_csky</precondition>
+<dont_has_info>actor_know_about_order_csky</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Спора, вон какое у соклановцев снаряжение серьёзное, говорят, что у тебя купили. Почему мне не предлагаешь что-нибудь получше?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Ты не обижайся, но ты здесь человек новый, непроверенный. Сколоти себе репутацию получше и наше доверие к себе заимей - будут и товары получше.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ладно, я ещё вернусь.</text>
+		<give_info>actor_know_about_order_csky</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Army agroprom main base trader --------- -->
+
+<dialog id="about_order_bad_rep_army">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_duty_or_army</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_army</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Не, мужик, у тебя репутация гнилая. Как поправишь - приходи, а пока я рисковать не стану.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_bad_rep_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_army">
+<dont_has_info>actor_know_about_order_not_army</dont_has_info>
+<precondition>area_utils.is_not_actor_duty_or_army</precondition>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Погоди, ты кто вообще? Возим только для своих. Ни погонов, ни шевронов наших на тебе я что-то не наблюдаю.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_not_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_army">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_army</dont_has_info>
+<precondition>area_utils.is_actor_duty_or_army</precondition>
+<phrase_list>
+    <phrase id="0">
+        <text>Слушай, а почему стволов и костюмов посерьёзнее не предлагаешь?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Ну знаешь, я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее. </text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_army</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Rostok colonel Petrenko --------- -->
+
+<dialog id="about_order_bad_rep_dolg">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Знаешь, у меня есть информация, что тебе не стоит доверять. Поправишь репутацию - будет разговор.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_bad_rep_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_dolg">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_dolg</precondition>
+<dont_has_info>actor_know_about_order_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Полковник, почему стволов и костюмов посерьёзнее не предлагаешь?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Пойми, я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_dolg">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_not_dolg</precondition>
+<dont_has_info>actor_know_about_order_not_dolg</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Полковник, почему стволов и костюмов посерьёзнее не предлагаешь? Да и долговского снаряжения не видно.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Я казённое не разбазариваю. А ещё я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее. Но если ты не из "Долга", то и о нашем снаряжении можешь забыть.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_not_dolg</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Military warehouses freedom --------- -->
+
+<dialog id="about_order_bad_rep_freedom">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Не мэн, у меня есть инфа, что тебе не стоит доверять. Поправишь репутацию - будет разговор.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_order_bad_rep_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_freedom">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_freedom</precondition>
+<dont_has_info>actor_know_about_order_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Мэн, почему стволов и костюмов посерьёзнее не предлагаешь?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Расслабся, я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_not_freedom">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<precondition>area_utils.is_actor_not_freedom</precondition>
+<dont_has_info>actor_know_about_order_not_freedom</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Почему стволов и костюмов посерьёзнее не предлагаешь? Да и снаряжения Свободы не видно.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Мэн, я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее. Но если ты не из "Свободы", то и о нашем снаряжении можешь забыть.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_not_freedom</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Deadcity Merc Trader --------- -->
+
+<dialog id="about_order_bad_rep_merc">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_merc</dont_has_info>
+<has_info>actor_know_about_order_merc</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Что? Проваливай от моей лавки подальше, мужик. С твоей-то репутацией среди нас удивительно то, что ты ещё жив.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Я ещё вернусь.</text>
+		<give_info>actor_know_about_order_bad_rep_merc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_merc">
+<precondition>area_utils.if_actor_have_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_merc</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Коллега, почему стволов и костюмов посерьёзнее не предлагаешь?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>А ты откуда такой взялся? Я не могу рисковать такими заказами с первым встречным или новичком. Заработаешь себе репутацию, ранг и хорошие отношения здесь - 
+		будут тебе заказы посерьёзнее.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Ясно.</text>
+		<give_info>actor_know_about_order_merc</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<!--------------------------- Sakharov trader --------- -->
+
+<dialog id="about_trade_sakharov">
+<dont_has_info>actor_know_about_trade_sakharov</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Профессор, я понимаю что у вас выбор небольшой, Зона же, но мог бы я как-нибудь купить у вас ваши костюмы?</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Это затруднительно, но, несмотря на то, что мы в Зоне, всё таки поставки иногда доходят и сюда. 
+		Учтите, что количество заказов будет ограничено, и пока что больше одного вам предложить не смогу.
+		Впрочем если вы выполните для меня некоторую работу... Я думаю вы поняли меня.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Понятно.</text>
+		<give_info>actor_know_about_trade_sakharov</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_sakharov">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_sakharov</dont_has_info>
+<has_info>actor_know_about_trade_sakharov</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Я хотел бы заказ сделать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Понимаете... Мы не очень вам доверяем, но всегда можно исправить исправить ситуацию.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Я вас понял.</text>
+		<give_info>actor_know_about_order_bad_rep_sakharov</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+	
+<!--------------------------- Bandit Sultan trader --------- -->
+
+<dialog id="about_trade_bandit">
+<dont_has_info>actor_know_about_trade_bandit</dont_has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Мля, пахан, где бы шпалер козырный достать? Нихрена ни у кого на базе нема.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Ну, кароче, в Зоне с валынами ситуация такая: с рук не торгуем почти, только шлаком, потому что не выгодно, и таскаем на заказ.
+			  Заказами заведую тут я. Но если ты тип мутный или непроверенный, то не жди ничего лучше макарыча. А если совсем мутный - то
+			  лучше тут вообще не светись. Усёк?</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Усёк.</text>
+		<give_info>actor_know_about_trade_bandit</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+<dialog id="about_order_bad_rep_bandit">
+<precondition>area_utils.if_actor_havent_rep_for_trade</precondition>
+<dont_has_info>actor_know_about_order_bad_rep_bandit</dont_has_info>
+<has_info>actor_know_about_trade_bandit</has_info>
+<phrase_list>
+    <phrase id="0">
+        <text>Пахан, я хочу шпалер заказать.</text>
+    <next>1</next>
+    </phrase>
+    <phrase id="1">
+        <text>Не, непонятный ты какой-то, проваливай лучше.</text>
+    <next>2</next>
+    </phrase>
+    <phrase id="2">
+        <text>Я ещё вернусь.</text>
+		<give_info>actor_know_about_order_bad_rep_bandit</give_info>
+    </phrase>
+</phrase_list>
+</dialog>
+
+</game_dialogs>

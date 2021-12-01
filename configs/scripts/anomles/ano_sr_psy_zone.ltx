@@ -1,0 +1,28 @@
+[logic]
+active = sr_idle@start
+
+[sr_idle@start]
+; актер в зоне ano_sr_psy_limansk или ano_sr_psy_deadcity во время квеста = +поршень
+on_info = {-ano_psy_limansk_check_done =actor_in_zone(ano_sr_psy_limansk) =has_task_not_completed(ano_german_work_3)} sr_timer@timer1
+on_info2 = {-ano_psy_deadcity_check_done =actor_in_zone(ano_sr_psy_deadcity) =has_task_not_completed(ano_german_work_3)} sr_timer@timer2
+on_info3 = {+bar_deactivate_radar_done} nil
+
+[sr_timer@timer1]
+type = dec
+start_value = 30000
+string = st_ano_timer
+
+on_timer = 30000 | %+ano_psy_limansk_check_done% sr_idle@start
+on_timer2 = 10000 | {-ano_psy_limansk_monster} %+ano_psy_limansk_monster =create_squad(ano_controller_psy:ano_smart_terrain_8_1)%
+on_info =  {!actor_in_zone(ano_sr_psy_limansk)} sr_idle@start
+
+[sr_timer@timer2]
+type = dec
+start_value = 30000
+string = st_ano_timer
+
+on_timer = 30000 | {=actor_in_zone(ano_sr_psy_deadcity)} %+ano_psy_deadcity_check_done% sr_idle@start
+on_timer2 = 10000 | {-ano_psy_deadcity_monster} %+ano_psy_deadcity_monster =create_squad(ano_psysucker:ano_smart_terrain_5_1)%
+on_info =  {!actor_in_zone(ano_sr_psy_deadcity)} sr_idle@start
+; удаляем сквад с Брокером, спавним монолит со стороны Лиманска
+on_info2 = {-ano_broker_leave_bunker} %+ano_broker_leave_bunker =remove_squad(ano_kymis_squad) =clear_smart_terrain(ano_smart_terrain_5_2) =create_squad(ano_monolith_enemy_squad:ano_smart_terrain_5_2)%

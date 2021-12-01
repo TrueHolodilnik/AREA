@@ -1,0 +1,18 @@
+[smart_terrain]
+squad_id = 21
+max_population = 4
+respawn_params = respawn@rad_rusty_forest_center
+respawn_idle = 60000
+
+
+[respawn@rad_rusty_forest_center]
+spawn_zombies
+spawn_controller
+
+[spawn_controller]
+spawn_squads = simulation_controller
+spawn_num = 1
+
+[spawn_zombies]
+spawn_squads = simulation_zombie
+spawn_num = 3

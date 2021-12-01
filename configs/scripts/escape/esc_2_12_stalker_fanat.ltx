@@ -1,0 +1,84 @@
+[logic@esc_2_12_stalker_fanat]
+suitable = {=target_squad_name(esc_2_12_stalker_fanat_squad)} true
+prior = 140
+active = walker@esc_2_12_stalker_fanat
+level_spot = quest_npc
+relationship = neutral  
+
+
+[walker@esc_2_12_stalker_fanat]
+path_walk = guardermlr_2_walk
+path_look  = guardermlr_2_look
+on_info = {=surge_started} walker@surge
+on_info2 = {=is_night} sleeper@sleeper_1
+on_info3 = {=is_heavy_rain} walker@rain
+; combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+; combat_ignore_keep_when_attacked = true
+reach_distance = 10
+gather_items_enabled = false
+; help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+meet = meet@fanat_meet
+
+[walker@rain]
+path_walk = hide_2_walk
+path_look = hide_2_look
+on_info = {!is_heavy_rain} walker@esc_2_12_stalker_fanat
+gather_items_enabled = false
+; help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+
+[walker@surge]
+path_walk = hide_2_walk
+path_look = hide_2_look
+on_info = {!surge_started} walker@esc_2_12_stalker_fanat
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+
+[sleeper@sleeper_1]
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+combat_ignore_keep_when_attacked = true
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+path_main = nimble_sleeper
+meet = no_meet
+on_info = {!is_night} walker@esc_2_12_stalker_fanat
+
+[logic@esc_1_11_stalker_fanat]
+suitable = {=target_squad_name(esc_2_12_stalker_fanat_squad)} true
+prior = 140
+active = walker@esc_1_11_stalker_fanat
+level_spot = quest_npc
+
+[walker@esc_1_11_stalker_fanat]
+path_walk = guardermlr_1_walk
+path_look  = guardermlr_1_look
+; combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+; combat_ignore_keep_when_attacked = true
+reach_distance = 10
+gather_items_enabled = false
+; help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+meet = meet@fanat_meet
+
+[meet@fanat_meet]
+close_snd_hello = esc_wolf_meet
+close_snd_bye = esc_wolf_bye
+close_anim 		= guard_na
+close_victim 	= actor
+far_anim 		= guard_na
+far_victim 		= nil
+; close_distance  = 0
+; far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+use_wpn = false
+meet_on_talking = false
+allow_break = false

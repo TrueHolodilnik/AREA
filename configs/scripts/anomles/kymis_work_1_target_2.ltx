@@ -1,0 +1,36 @@
+[logic]
+active = sr_idle@start
+
+[sr_idle@start]
+on_info = {!all_docents_are_dead +ano_kymis_work_1_2 =has_task_not_completed(ano_kymis_work_1)} %=create_squad(ano_kymis_work_1_mutant_squad_4:ano_smart_terrain_7_1) =create_squad(ano_kymis_work_1_mutant_squad_5:ano_smart_terrain_8_1) =create_squad(ano_kymis_work_1_mutant_squad_6:ano_smart_terrain_8_1) =spawn_corpse(ano_stalker_corpse_1:ano_anomaly_2_corpse_1) =spawn_corpse(ano_stalker_corpse_2:ano_anomaly_2_corpse_2) =spawn_corpse(ano_stalker_corpse_3:ano_anomaly_2_corpse_3) =spawn_corpse(ano_stalker_corpse_4:ano_anomaly_2_corpse_4) =spawn_corpse(ano_stalker_corpse_5:ano_anomaly_2_corpse_5) =spawn_corpse(ano_stalker_corpse_6:ano_anomaly_2_corpse_6)% sr_idle@on_spot
+
+[sr_idle@on_spot]
+on_info = {!all_docents_are_dead =distance_to_obj_le(ano_ecolog_kymis:10) =distance_to_obj_le(ano_smart_terrain_8_1_anomaly_spot:80) +ano_kymis_work_1_2} sr_idle@spawn0 %=give_news(ano_ecolog_kymis_name:st_ano_ecolog_kymis_message_3_1:ano_ecolog_kymis:0:15000) =give_news(ano_ecolog_broker_name:st_ano_ecolog_kymis_message_3_2:ano_ecolog_broker:3000:15000) =give_news(ano_ecolog_kymis_name:st_ano_ecolog_kymis_message_3_3:ano_ecolog_kymis:6000:15000) =give_news(ano_ecolog_broker_name:st_ano_ecolog_kymis_message_3_4:ano_ecolog_broker:9000:15000) =give_news(st_actor_generic_name:st_ano_ecolog_kymis_message_3_5:actor:12000:15000) =give_news(ano_ecolog_kymis_name:st_ano_ecolog_kymis_message_3_6:ano_ecolog_kymis:15000:15000)%
+
+[sr_idle@spawn0]
+on_timer = 18000 | %+ano_kymis_work_1_2_on_spot% sr_idle@spawn1
+
+[sr_idle@spawn1]
+on_timer = 60000 | {!all_docents_are_dead +ano_kymis_work_1_2} %=create_squad(ano_kymis_work_1_mutant_squad_7:ano_smart_terrain_8_1) =create_squad(simulation_psysucker:ano_smart_terrain_8_1)% sr_idle@spawn2
+on_info = {=all_docents_are_dead} sr_idle@start
+
+[sr_idle@spawn2]
+on_timer = 60000 | {!all_docents_are_dead +ano_kymis_work_1_2} %=create_squad(ano_kymis_work_1_mutant_squad_8:ano_smart_terrain_7_1)% sr_idle@finish
+on_info = {=all_docents_are_dead} sr_idle@start
+
+[sr_idle@finish]
+on_timer = 60000 | {!all_docents_are_dead +ano_kymis_work_1_2} %+ano_kymis_work_1_2_done =create_squad(ano_kymis_work_1_mutant_squad_9:ano_smart_terrain_7_1)% nil
+on_info = {=all_docents_are_dead} sr_idle@start
+
+
+; замеры 1 и 2
+; идем группой: кумыс, аспирант, лопух, (бессмертны) 3 доцента на замеры (смертны)
+; если доценты умерли квест на запрос
+; запрос
+; снова идем на болота, берем 3 челиков с разрешения Резванова, сопровождаем до АС
+; если и эти умерли, тогда Герман разрывает сотрудничество с ГГ и придется идти к Лысому на Свалку
+; Лысый дает задание собрать 150к + принести одну деталь от Манекена/Сидора, вторую у Петренко
+
+;ano_kymis_work_1_2_on_spot = пришли к Магниту
+; ano_kymis_work_1_2_done = выполнили замеры у Магнита
+; ano_kymis_work_2_on_spot = пришли в деревню на милитари

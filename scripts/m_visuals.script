@@ -1,0 +1,375 @@
+---------------------------------------------------------------------------------
+-- File:   Visuals
+-- Author: Shoker, Mechanic
+-- Corrections: Antnigm, Holodilnik (Visual table for A.R.E.A.)
+-- Script changes visual of actor depend of wearable helmet and outfit
+-- Adapted by Holodilnik from Misery 2.2 for A.R.E.A.
+---------------------------------------------------------------------------------
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_update",update)
+end
+
+-- Table with section of outfits and helmets
+--[[
+local visuals = {
+	outfit_section =	{
+		helm_section = "path to model",
+						},
+				}
+]] 
+-- If helm is not needed then write nothing
+
+local visuals = {
+	without_outfit = { 
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\without_outfit\\stalker_hero_facemask",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\without_outfit\\stalker_hero_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\without_outfit\\stalker_hero_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\without_outfit\\stalker_hero_balacamo"
+	},
+	novice_outfit = { 
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\novice_outfit\\stalker_hero_novice_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\novice_outfit\\stalker_hero_novice_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\novice_outfit\\stalker_hero_novice_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\novice_outfit\\stalker_hero_novice_bala_camo"
+				},
+	trenchcoat_outfit = { 
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\black_cloak\\stalker_hero_black_cloak_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\black_cloak\\stalker_hero_black_cloak_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\black_cloak\\stalker_hero_black_cloak_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\black_cloak\\stalker_hero_black_cloak_bala_camo"
+				},
+	trenchcoat_brown_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_outfit\\stalker_hero_tbrown_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_outfit\\stalker_hero_tbrown_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_outfit\\stalker_hero_tbrown_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_outfit\\stalker_hero_tbrown_bala_camo"
+				},
+	stalker_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\neutral_outfit\\stalker_hero_neutral_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\neutral_outfit\\stalker_hero_neutral_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\neutral_outfit\\stalker_hero_neutral_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\neutral_outfit\\stalker_hero_neutral_bala_camo"
+				},
+	svoboda_light_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\freedom_outfit\\stalker_hero_freedom_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\freedom_outfit\\stalker_hero_freedom_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\freedom_outfit\\stalker_hero_freedom_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\freedom_outfit\\stalker_hero_freedom_bala_camo"
+				},
+	dolg_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\dolg_outfit\\stalker_hero_dolg_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\dolg_outfit\\stalker_hero_dolg_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\dolg_outfit\\stalker_hero_dolg_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\dolg_outfit\\stalker_hero_dolg_bala_camo"
+				},		
+	cs_medium_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cs_medium_outfit\\stalker_hero_cs_medium_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cs_medium_outfit\\stalker_hero_cs_medium_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cs_medium_outfit\\stalker_hero_cs_medium_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cs_medium_outfit\\stalker_hero_cs_medium_bala_camo"
+				},	
+	svoboda_heavy_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit\\stalker_hero_freedom_heavy_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit\\stalker_hero_freedom_heavy_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit\\stalker_hero_freedom_heavy_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit\\stalker_hero_freedom_heavy_bala_camo"
+				},
+	specops_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit\\stalker_hero_specops_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit\\stalker_hero_specops_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit\\stalker_hero_specops_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit\\stalker_hero_specops_bala_camo"
+				},			
+	military_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_military_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_military_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_military_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_military_bala_camo"
+				},		
+	dolg_heavy_outfit = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_dolg_heavy_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_dolg_heavy_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_dolg_heavy_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\military_outfit\\stalker_hero_dolg_heavy_bala_camo"
+				},		
+	cs_light_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cs_light_novice_outfit\\stalker_hero_cs_light_novice_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cs_light_novice_outfit\\stalker_hero_cs_light_novice_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cs_light_novice_outfit\\stalker_hero_cs_light_novice_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cs_light_novice_outfit\\stalker_hero_cs_light_novice_bala_camo"
+				},
+	cs_light_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cs_light_outfit\\stalker_hero_cs_light_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cs_light_outfit\\stalker_hero_cs_light_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cs_light_outfit\\stalker_hero_cs_light_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cs_light_outfit\\stalker_hero_cs_light_bala_camo"
+				},
+	cs_heavy_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cs_heavy_outfit\\stalker_hero_cs_heavy_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cs_heavy_outfit\\stalker_hero_cs_heavy_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cs_heavy_outfit\\stalker_hero_cs_heavy_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cs_heavy_outfit\\stalker_hero_cs_heavy_bala_camo"
+				},
+	commander_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\commander_outfit\\stalker_hero_commander_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\commander_outfit\\stalker_hero_commander_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\commander_outfit\\stalker_hero_commander_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\commander_outfit\\stalker_hero_commander_bala_camo"
+				},
+	merc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\merc_outfit\\stalker_hero_merc_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\merc_outfit\\stalker_hero_merc_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\merc_outfit\\stalker_hero_merc_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\merc_outfit\\stalker_hero_merc_bala_camo"
+				},
+	banditmerc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\banditmerc_outfit\\stalker_hero_banditmerc_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\banditmerc_outfit\\stalker_hero_banditmerc_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\banditmerc_outfit\\stalker_hero_banditmerc_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\banditmerc_outfit\\stalker_hero_banditmerc_bala_camo"
+				},
+	svoboda_heavy_outfit_2  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit_2\\stalker_hero_freedom_heavy2_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit_2\\stalker_hero_freedom_heavy2_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit_2\\stalker_hero_freedom_heavy2_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\freedom_heavy_outfit_2\\stalker_hero_freedom_heavy2_bala_camo"
+				},
+	monolith_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\monolith_outfit\\stalker_hero_monolith_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\monolith_outfit\\stalker_hero_monolith_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\monolith_outfit\\stalker_hero_monolith_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\monolith_outfit\\stalker_hero_monolith_bala_camo"
+				},
+	army_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\army_outfit\\stalker_hero_army_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\army_outfit\\stalker_hero_army_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\army_outfit\\stalker_hero_army_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\army_outfit\\stalker_hero_army_bala_camo"
+				},
+	barmerc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\barmerc_outfit\\stalker_hero_barmerc_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\barmerc_outfit\\stalker_hero_barmerc_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\barmerc_outfit\\stalker_hero_barmerc_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\barmerc_outfit\\stalker_hero_barmerc_bala_camo"
+				},
+	cs_stalker_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cs_stalker_outfit\\stalker_hero_csky_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cs_stalker_outfit\\stalker_hero_csky_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cs_stalker_outfit\\stalker_hero_csky_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cs_stalker_outfit\\stalker_hero_csky_bala_camo"
+				},
+	bandit_specops_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\bandit_specops_outfit\\stalker_hero_banditspecops_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\bandit_specops_outfit\\stalker_hero_banditspecops_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\bandit_specops_outfit\\stalker_hero_banditspecops_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\bandit_specops_outfit\\stalker_hero_banditspecops_bala_camo"
+				},
+	bandit_sun_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\bandit_sun_outfit\\stalker_hero_banditstalker_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\bandit_sun_outfit\\stalker_hero_banditstalker_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\bandit_sun_outfit\\stalker_hero_banditstalker_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\bandit_sun_outfit\\stalker_hero_banditstalker_bala_camo"
+				},
+	merc_sun_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\merc_sun_outfit\\stalker_hero_stalkermerc_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\merc_sun_outfit\\stalker_hero_stalkermerc_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\merc_sun_outfit\\stalker_hero_stalkermerc_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\merc_sun_outfit\\stalker_hero_stalkermerc_bala_camo"
+				},
+	cs_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\csky_novice_outfit\\stalker_hero_novice_csky_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\csky_novice_outfit\\stalker_hero_novice_csky_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\csky_novice_outfit\\stalker_hero_novice_csky_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\csky_novice_outfit\\stalker_hero_novice_csky_bala_camo"
+				},
+	bandit_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\bandit_novice_outfit\\stalker_hero_novice_bandit_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\bandit_novice_outfit\\stalker_hero_novice_bandit_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\bandit_novice_outfit\\stalker_hero_novice_bandit_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\bandit_novice_outfit\\stalker_hero_novice_bandit_bala_camo"
+				},
+	svoboda_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\svoboda_novice_outfit\\stalker_hero_novice_freedom_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\svoboda_novice_outfit\\stalker_hero_novice_freedom_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\svoboda_novice_outfit\\stalker_hero_novice_freedom_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\svoboda_novice_outfit\\stalker_hero_novice_freedom_bala_camo"
+				},
+	dolg_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\dolg_novice_outfit\\stalker_hero_novice_dolg_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\dolg_novice_outfit\\stalker_hero_novice_dolg_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\dolg_novice_outfit\\stalker_hero_novice_dolg_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\dolg_novice_outfit\\stalker_hero_novice_dolg_bala_camo"
+				},
+	monolith_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\monolith_novice_outfit\\stalker_hero_novice_monolith_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\monolith_novice_outfit\\stalker_hero_novice_monolith_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\monolith_novice_outfit\\stalker_hero_novice_monolith_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\monolith_novice_outfit\\stalker_hero_novice_monolith_bala_camo"
+				},
+	military_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\military_novice_outfit\\stalker_hero_novice_soldier_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\military_novice_outfit\\stalker_hero_novice_soldier_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\military_novice_outfit\\stalker_hero_novice_soldier_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\military_novice_outfit\\stalker_hero_novice_soldier_bala_camo"
+				},
+	merc_novice_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\merc_novice_outfit\\stalker_hero_novice_merc_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\merc_novice_outfit\\stalker_hero_novice_merc_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\merc_novice_outfit\\stalker_hero_novice_merc_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\merc_novice_outfit\\stalker_hero_novice_merc_bala_camo"
+				},
+	trenchcoat_novice  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_novice\\stalker_hero_trenchcoat_brown_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_novice\\stalker_hero_trenchcoat_brown_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_novice\\stalker_hero_trenchcoat_brown_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\trenchcoat_novice\\stalker_hero_trenchcoat_brown_bala_camo"
+				},
+	specops_outfit_duty  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit_duty\\stalker_hero_specops_duty_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit_duty\\stalker_hero_specops_duty_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit_duty\\stalker_hero_specops_duty_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\specops_outfit_duty\\stalker_hero_specops_duty_bala_camo"
+				},
+	freedom_merc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\freedom_merc_outfit\\stalker_hero_freedom_spec_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\freedom_merc_outfit\\stalker_hero_freedom_spec_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\freedom_merc_outfit\\stalker_hero_freedom_spec_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\freedom_merc_outfit\\stalker_hero_freedom_spec_bala_camo"
+				},
+	stalker_merc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\stalker_merc_outfit\\stalker_hero_stalker_spec_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\stalker_merc_outfit\\stalker_hero_stalker_spec_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\stalker_merc_outfit\\stalker_hero_stalker_spec_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\stalker_merc_outfit\\stalker_hero_stalker_spec_bala_camo"
+				},
+	monolith_merc_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\monolith_merc_outfit\\stalker_hero_monolith_spec_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\monolith_merc_outfit\\stalker_hero_monolith_spec_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\monolith_merc_outfit\\stalker_hero_monolith_spec_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\monolith_merc_outfit\\stalker_hero_monolith_spec_bala_camo"
+				},
+	cloak_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\cloak_outfit\\stalker_hero_cloak_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\cloak_outfit\\stalker_hero_cloak_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\cloak_outfit\\stalker_hero_cloak_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\cloak_outfit\\stalker_hero_cloak_bala_camo"
+				},
+	ecolog_guard_outfit  = {
+		helm_cloth_mask				= "actors\\stalker_hero\\dynamic_helmets\\ecolog_guard_outfit\\stalker_hero_ecologguard_mask_def",
+		helm_cloth_mask_camo		= "actors\\stalker_hero\\dynamic_helmets\\ecolog_guard_outfit\\stalker_hero_ecologguard_mask",
+		helm_rp_bala				= "actors\\stalker_hero\\dynamic_helmets\\ecolog_guard_outfit\\stalker_hero_ecologguard_bala",
+		helm_rp_bala_camo			= "actors\\stalker_hero\\dynamic_helmets\\ecolog_guard_outfit\\stalker_hero_ecologguard_bala_camo"
+				},
+}
+
+local otf  
+local helm
+local curent_vis
+local helm_tbl
+local new_model
+
+function update()
+	otf = db.actor:item_in_slot(7)
+	helm = db.actor:item_in_slot(12)
+	curent_vis = db.actor:get_visual_name()
+	
+		-- Sets model when actor haven't any helm or outfit
+		if otf==nil and helm==nil then 
+			--db.actor:set_visual_name("actors\\stalker_sviter")
+			return
+		end
+	
+	if otf~=nil and helm==nil then
+		local otf_vis_name = str_explode(".", get_ltx(otf:section(), "actor_visual", "str"))[1]
+		if otf_vis_name~=curent_vis then
+			db.actor:set_visual_name(otf_vis_name)
+		end
+		else
+		-------------------------------------
+		if otf==nil and helm~=nil then 
+			helm_tbl = visuals["without_outfit"]
+		else 
+			helm_tbl = visuals[otf:section()]
+		end
+		if helm_tbl~=nil then
+			new_model = helm_tbl[helm:section()]
+			if new_model~=nil then
+				if new_model~=curent_vis then
+					db.actor:set_visual_name(new_model)
+				end
+			end
+		end
+	-------------------------------------
+	end
+
+end
+
+
+-- Get string from LTX file
+function get_ltx(l_name,l_string,type)
+if system_ini():section_exist(l_name) and system_ini():line_exist(l_name, l_string) then
+
+	if type=="bol" then
+		return system_ini():r_bool(l_name, l_string)
+	end
+	if type=="num" then   -- Integer
+		return tonumber(system_ini():r_u32(l_name, l_string))
+	end
+	if type=="num_float" then
+		return tonumber(system_ini():r_float(l_name, l_string))
+	end
+	if type=="str" then
+		return tostring(system_ini():r_string(l_name, l_string))
+	end
+	if type==nil then
+		return system_ini():r_u32(l_name, l_string)
+	end
+
+end
+
+return nil
+end
+
+function str_explode(div,str,pos1,pos2,clear, conv)
+	local t={}
+	local cpt, pos
+
+	if pos1 == nil then pos1 = 1 end
+	if pos2 == nil then pos2 = pos1 end
+
+	local cpt1 = string.find (str, div, pos1, true)
+	local cpt2 = string.find (str, div, pos2, true)
+
+	if cpt1 and cpt2 then
+
+		if cpt2-cpt1 > 5 then
+			cpt = cpt1
+			pos = pos1
+		else
+			cpt = cpt2
+			pos = pos2
+		end
+
+		repeat
+			if clear then
+				table.insert( t, trim(string.sub(str, 1, cpt-1)) )
+			else
+				table.insert( t, string.sub(str, 1, cpt-1) )
+			end
+			str = string.sub( str, cpt+string.len(div) )
+			cpt = string.find (str, div, pos, true)
+		until cpt==nil
+	end
+	if clear then
+		table.insert(t, trim(str))
+	else
+		table.insert(t, str)
+	end
+
+	if conv then 
+		t = convert_tbl(t)
+	end
+
+	return t
+end

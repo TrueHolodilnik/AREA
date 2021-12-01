@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding="windows-1251"?>
+
+<xml>
+    <specific_character id="gar_3_5_stalker_paton" team_default = "1">
+    <name>gar_3_5_stalker_paton_name</name>
+    <icon>ui_inGame2_neutral_a</icon>
+    <bio>gar_3_5_stalker_paton_bio</bio>
+    <class>gar_3_5_stalker_paton</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>8600</rank>
+    <reputation>2700</reputation>
+    <money min="3500000" max="3500000" infinitive="1"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+	<actor_dialog>actor_break_dialog</actor_dialog>
+    <visual>actors\stalker_bandit\n_stalker_bandit_plash_halfresp_1</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+    <specific_character id="gar_3_5_stalker_taras" team_default = "1">
+    <name>gar_3_5_stalker_taras_name</name>
+    <icon>ui_inGame2_neutral_a</icon>
+    <bio>gar_3_5_stalker_taras_bio</bio>
+    <class>gar_3_5_stalker_taras</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>9300</rank>
+    <reputation>3000</reputation>
+    <money min="3500000" max="3500000" infinitive="1"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+	<actor_dialog>actor_break_dialog</actor_dialog>
+    <visual>actors\stalker_bandit\stalker_bandit5a</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+    <specific_character id="esc_2_12_stalker_grisha" team_default = "1">
+    <name>esc_2_12_stalker_grisha_name</name>
+    <icon>ui_inGame2_neutral_a</icon>
+    <bio>esc_2_12_stalker_grisha_bio</bio>
+    <class>esc_2_12_stalker_grisha</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>2700</rank>
+    <reputation>1725</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+	<start_dialog>Grisha_start_and_Hi</start_dialog>
+    <visual>actors\stalker_neutral\stalker_neutrala6</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ppsh41 \n
+	ammo_7.62x25_p = 1 \n
+	ammo_7.62x25_p = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="esc_2_12_stalker_georgii" team_default = "1">
+    <name>esc_2_12_stalker_georgii_name</name>
+    <icon>ui_inGame2_neutral_2_mask</icon>
+    <bio>esc_georgii_bio</bio>
+    <class>esc_2_12_stalker_georgii</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>4850</rank>
+    <reputation>1725</reputation>
+    <money min="0" max="0" infinitive="1"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_neutral\stalker_neutral_2_mas2</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+	<start_dialog>Georg_start_and_Hi</start_dialog>
+	<actor_dialog>dm_trade_add</actor_dialog>
+	<actor_dialog>dm_buy_box_dialog</actor_dialog>
+	<actor_dialog>georgii_kltsk_start</actor_dialog>
+	<actor_dialog>georgii_kltsk_cancel</actor_dialog>
+	<actor_dialog>georgii_kltsk_end</actor_dialog>
+	<actor_dialog>georgii_heal</actor_dialog>
+	<actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+	<specific_character id="mar_5_8_stalker_mihail" team_default = "1">
+    <name>mar_5_8_stalker_mihail_name</name>
+    <icon>ui_inGame2_neutral_1</icon>
+    <bio>mar_5_8_stalker_mihail_bio?</bio>
+    <class>mar_5_8_stalker_mihail</class>
+    <community>stalker</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>11700</rank>
+    <reputation>1725</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\stalker\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_neutral\stalker_medic_3_face_1</visual>
+    <supplies>
+	[spawn] \n
+	wpn_ak74u \n
+	ammo_5.45x39_fmj = 1 \n
+	ammo_5.45x39_fmj = 1 \n
+	#include "gameplay\loadouts\stalker_base.ltx"
+	#include "gameplay\loadouts\stalker_tier_1.ltx"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+	<start_dialog>mihail_start_hi</start_dialog>
+	<actor_dialog>mih_wtr_brt</actor_dialog>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="drug_seeker_01" team_default = "1">
+    <name>drug_seeker_01_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>drug_seeker_01</bio>
+    <class>drug_seeker_01</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>2300</rank>
+    <reputation>1300</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\stalker_bandita1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="drug_seeker_02" team_default = "1">
+    <name>drug_seeker_01_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>drug_seeker_02</bio>
+    <class>drug_seeker_02</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>1800</rank>
+    <reputation>500</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\stalker_bandita2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="drug_seeker_03" team_default = "1">
+    <name>drug_seeker_01_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>drug_seeker_03</bio>
+    <class>drug_seeker_03</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>2300</rank>
+    <reputation>1300</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\stalker_bandita1</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="drug_seeker_04" team_default = "1">
+    <name>drug_seeker_01_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>drug_seeker_04</bio>
+    <class>drug_seeker_04</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>1800</rank>
+    <reputation>500</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\stalker_bandita2</visual>
+    <supplies>
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_1.ltx"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="bandit_barsyk" team_default = "1">
+    <name>bandit_barsyk_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>bandit_barsyk</bio>
+    <class>bandit_barsyk</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>6000</rank>
+    <reputation>900</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\n_stalker_bandit_light_sfera</visual>
+    <supplies>
+	[spawn] \n
+	item_radio = 1, prob=0.2 \n
+	item_drug_bag \n
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx
+	#include "gameplay\character_food.xml"
+	#include "gameplay\character_drugs_3.xml"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+	
+	<specific_character id="bandit_kryk" team_default = "1">
+    <name>bandit_kryk_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>bandit_kryk</bio>
+    <class>bandit_kryk</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>8000</rank>
+    <reputation>900</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\stalker_bandit6e</visual>
+    <supplies>
+	[spawn] \n
+	item_kryk_pda \n
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_4.ltx
+	#include "gameplay\character_food.xml"
+	#include "gameplay\character_drugs_4.xml"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+	<specific_character id="bandit_shilo" team_default = "1">
+    <name>bandit_shilo_name</name>
+    <icon>ui_inGame2_bandit_1a_mask</icon>
+    <bio>bandit_shilo</bio>
+    <class>bandit_shilo</class>
+    <community>bandit</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>6000</rank>
+    <reputation>900</reputation>
+    <money min="600" max="2000" infinitive="0"/>
+    <snd_config>characters_voice\human_01\bandit\</snd_config>
+    <crouch_type>-1</crouch_type>
+    <panic_treshold>0</panic_treshold>
+    <visual>actors\stalker_bandit\n_stalker_bandit_stalker_2</visual>
+    <supplies>
+	[spawn] \n
+	item_shilo_pda \n
+	#include "gameplay\loadouts\bandit_base.ltx"
+	#include "gameplay\loadouts\bandit_tier_2.ltx
+	#include "gameplay\character_food.xml"
+	#include "gameplay\character_drugs_4.xml"
+	#include "gameplay\character_criticals.xml"
+    </supplies>
+    <actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+</xml>

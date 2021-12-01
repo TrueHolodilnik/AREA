@@ -1,0 +1,147 @@
+local ini = system_ini()
+local show_debug = false
+-- called from engine!
+--[[
+ Refers to when an icon is dragged onto another icon in Actor Inventory Menu
+ 
+ passed parameters:
+	itm1 is the object being dragged; may be nil
+	itm2 is the object the item is being dragged onto; may be nil
+	from_slot is the number value of the slot itm1 is being dragged from;  0 or EDDListType.iInvalid is invalid 
+	to_slot is the number value of the slot itm2 is occupying;  0 or EDDListType.iInvalid is invalid 
+	
+from_slot and to_slot values:
+		EDDListType.iInvalid			= 0
+		EDDListType.iActorSlot			= 1
+		EDDListType.iActorBag			= 2
+		EDDListType.iActorBelt			= 3
+
+		EDDListType.iActorTrade			= 4
+		EDDListType.iPartnerTradeBag	= 5
+		EDDListType.iPartnerTrade		= 6
+		EDDListType.iDeadBodyBag		= 7
+		EDDListType.iQuickSlot			= 8
+		EDDListType.iTrashSlot			= 9
+		
+ex. if (to_slot == EDDListType.iActorSlot) then 
+		printf("dragging item to slot!")
+	end
+	
+--]]
+function CUIActorMenu_OnItemDropped(itm1,itm2,from_slot,to_slot)
+	if show_debug then printf("itm1=%s itm2=%s from_slot=%s to_slot=%s",itm1 and itm1:name(),itm2 and itm2:name(),from_slot,to_slot) end
+	
+	if (itm1 and itm2) then
+		SendScriptCallback("CUIActorMenu_OnItemDropped",itm1,itm2,from_slot,to_slot)
+	end
+	if (itm1) then
+		SendScriptCallback("CUIActorMenu_OnItemMoved",itm1,from_slot,to_slot)
+	end
+	
+	return true
+end
+
+-- called from engine!
+function CUIActorMenu_OnItemFocusReceive(itm)
+	SendScriptCallback("CUIActorMenu_OnItemFocusReceive",itm)
+end
+
+-- called from engine!
+function CUIActorMenu_OnItemFocusLost(itm)
+	SendScriptCallback("CUIActorMenu_OnItemFocusLost",itm)
+end
+
+-- called from engine!
+-- useful for when doing npc:use(db.actor) when NPC is alive
+-- basically what is available in the corpse loot menu while npc is alive
+function CInventory_ItemAvailableToTrade(npc,item,alive)
+	-- if (xr_corpse_detection.lootable_table[item:section()]) then 
+		-- return true
+	-- end
+	if npc:has_info("npcx_is_companion") then
+		if show_debug then printf("CInventory_ItemAvailableToTrade npcname:%s item:%s", npc:character_name(), item:section()) end
+		if (ActorMenu.get_menu_mode() == 4 and alive == true) then
+			if show_debug then printf("CInventory_ItemAvailableToTrade body npcname:%s item:%s", npc:character_name(), item:section()) end
+			local m_data = alife_storage_manager.get_state()
+			if m_data and m_data.companion_borrow_item and m_data.companion_borrow_item[item:id()] then
+                local ai = npc:active_item()
+                if ai and ai:id() == item:id() then
+                    return false
+                end
+                return true
+            end
+			return false
+		elseif (ActorMenu.get_menu_mode() == 2 and alive == false) then
+			if show_debug then printf("CInventory_ItemAvailableToTrade trade npcname:%s item:%s", npc:character_name(), item:section()) end
+			local m_data = alife_storage_manager.get_state()
+			if (m_data and m_data.companion_borrow_item and m_data.companion_borrow_item[item:id()]) then
+				return false
+			end
+			return true
+		end
+	else
+		return true
+	end
+	return false
+end
+
+local flags = { ret_value = true }
+-- called from engine
+function CUIActorMenu_CanMoveToPartner(obj,itm,actor_weight,partner_weight,item_weight,partner_total_weight,partner_max_carry_weight,item_volume,partner_total_volume,partner_max_volume)
+	if show_debug then printf("%s [%s actor_weight=%s partner_weight=%s item_weight=%s partner_total_weight=%s partner_max_carry_weight=%s]",obj:name(),itm:name(),actor_weight,partner_weight,item_weight,partner_total_weight,partner_max_carry_weight) end
+	
+	if (ActorMenu.get_menu_mode() == 4 and IsStalker(obj) and obj:has_info("npcx_is_companion") and partner_total_weight >= 100) then 
+		return false
+	end
+	
+	flags.ret_value = true
+	SendScriptCallback("CUIActorMenu_CanMoveToPartner",obj,itm,actor_weight,partner_weight,item_weight,partner_total_weight,partner_max_carry_weight,flags,item_volume,partner_total_volume,partner_max_volume)
+	
+	return flags.ret_value
+end
+
+-- called from engine during donation. return false to refuse or return true to donate
+function CUIActorMenu_DonateCurrentItem(obj,itm)
+	local item_id = itm:id()
+	local section = itm:section()
+	local is_radiated = section:find("_radiated")
+	if show_debug and is_radiated then printf("is radiated") end
+	local is_bad = area_item_degrade.BadItem(item) or false
+	if show_debug and is_bad then printf("is bad") end
+		-- Prevent quest and untradeable items from being donated.
+	if not ini:r_bool_ex(section, "can_trade", true) or
+	  ini:r_bool_ex(section, "quest_item", false) then
+		return false
+	end
+	
+	local statistic = dxr_statistics.actor_statistics.donations
+	local rep = 1
+
+	if show_debug then printf("-old reputation - %s",statistic.rept) end
+	if is_radiated and is_bad then
+		rep = -1.5
+	elseif is_radiated and (not is_bad) then
+		rep = -1
+	elseif (not is_radiated) and is_bad then
+		rep = -1
+	end
+
+	dxr_statistics.increment_rank(math.floor(statistic.rank * itm:condition()))
+	dxr_statistics.increment_reputation(math.floor(statistic.rept * itm:condition() * rep))
+	local actor_menu = ActorMenu.get_actor_menu()
+	if actor_menu and rep < 0 then
+		CreateTimeEvent("bad_item",item_id,0,function()
+			if not actor_menu:IsShown() then --"%s:Ёй! Ёто что ты за хрень мне отдал, ¤ дл¤ теб¤ что мусорка, ну ты и мудень?! %s фуфло полное!"
+				CreateTimeEvent("bad_item_2",item_id,math.random(5,20),function()
+					news_manager.send_tip(db.actor, strformat(game.translate_string("st_item_rep_loss"),obj:character_name(), game.translate_string(ini:r_string_ex(section,"inv_name",''))), nil, obj, 5000)
+					return true
+				end)
+				return true
+			end
+		end)
+	end
+	-- Reputation and rank increase for donating items.
+	-- Uses the condition of the item as a multiplier (damage reduces the gain).
+
+	return true
+end

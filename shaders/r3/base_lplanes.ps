@@ -1,0 +1,33 @@
+#include "common.h"
+
+struct 	v2p
+{
+ 	float2 	tc0: 		TEXCOORD0;	// base
+	float4  tctexgen:	TEXCOORD1;	// depth test
+  	float4	c0:			COLOR0;		// sun
+	float4  hpos:		SV_Position;
+};
+
+#define	DEPTH_EPSILON	0.1h
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// Pixel
+float4 main( v2p I ) : SV_Target
+{
+	float4 final = s_base.Sample( smp_base, I.tc0 ) * I.c0; //I.c0.a
+	
+	float2 tcProj = I.tctexgen.xy / I.tctexgen.w;
+	#ifdef GBUFFER_OPTIMIZATION
+		gbuffer_data gbd = gbuffer_load_data( tcProj, I.hpos );
+	#else
+		gbuffer_data gbd = gbuffer_load_data( tcProj );
+	#endif
+	float4 _P		= float4( gbd.P, gbd.mtl );
+	float spaceDepth = _P.z-I.tctexgen.z-DEPTH_EPSILON;
+	if (spaceDepth < -2*DEPTH_EPSILON ) spaceDepth = 100000.0h;
+	final.a *= Contrast( saturate(spaceDepth*1.3h), 2);
+	final.rgb *= Contrast( saturate(spaceDepth*1.3h), 2);
+	final.a /= 3;
+
+	return final;
+}

@@ -1,0 +1,11 @@
+[logic]
+active = ph_idle@close
+
+[ph_idle@close]
+nonscript_usable = false
+tips = jup_b202_treasures_closed
+on_info = {+ds_monolith_prize} ph_idle@free
+
+[ph_idle@free]
+nonscript_usable = true
+tips = st_search_treasure

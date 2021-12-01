@@ -1,0 +1,17 @@
+#include "common.h"
+#include "blur.h" //gaussian blur
+#include "MrProperCommon.h"
+
+#define MASK_BLUR_SAMPLES int(3)
+//////////////////////////////////////////////////////////////////////////////////////////
+//
+half4 main(OptimizeAA INStruct) : SV_Target
+{
+	half4 outColor = half4(0,0,0,0);
+	for (int i = 1; i < MASK_BLUR_SAMPLES; i++)
+	{
+		outColor += gauss(sMask, INStruct.texCoord0.xy, i);
+	}
+	outColor /= MASK_BLUR_SAMPLES;
+	return outColor;
+}

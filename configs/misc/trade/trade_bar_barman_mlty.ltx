@@ -1,0 +1,100 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition			= trade_generic_buy
+sell_condition			= trade_generic_sell
+buy_supplies			= supplies_generic
+
+buy_item_condition_factor = 0.92
+
+discounts				= {=actor_goodwill_ge(stalker:3000)} discount_10, {=actor_goodwill_ge(stalker:2700)} discount_9, {=actor_goodwill_ge(stalker:2400)} discount_8, {=actor_goodwill_ge(stalker:2100)} discount_7, {=actor_goodwill_ge(stalker:1800)} discount_6, {=actor_goodwill_ge(stalker:1500)} discount_5, {=actor_goodwill_ge(stalker:1200)} discount_4, {=actor_goodwill_ge(stalker:900)} discount_3, {=actor_goodwill_ge(stalker:600)} discount_2, {=actor_goodwill_ge(stalker:300)} discount_1, discount_0
+ 
+[trade_generic_buy]:buy_bar_barmen_trade_set
+
+[trade_generic_sell]:sell_barman_set
+
+[supplies_generic]
+bread								= 1, 0.10
+breadold							= 1, 0.10
+sandwich							= 1, 0.10
+kolbasa								= 1, 0.10
+sausage								= 1, 0.10
+olivki								= 1, 0.10
+salmon								= 1, 0.10
+raisins								= 1, 0.10
+shokolad							= 1, 0.10
+snickers							= 1, 0.05
+mars								= 1, 0.05
+twix								= 1, 0.05
+batonchik							= 1, 0.10
+mint								= 1, 0.05
+mre									= 1, 0.05
+ration_ru							= 1, 0.05
+ration_ukr							= 1, 0.05
+cheese								= 1, 0.10
+galet								= 1, 0.20
+chips								= 1, 0.05
+mushroom							= 1, 0.25
+mushroom_str						= 1, 0.25
+mushroom_1							= 1, 0.25
+mushroom_fried						= 1, 0.25
+mushroom_muh						= 1, 0.25
+meat_tushkano						= 1, 0.55
+meat_rat							= 1, 0.55
+meat_dog							= 1, 0.45
+meat_pseudodog						= 1, 0.35
+meat_flesh							= 1, 0.35
+meat_boar							= 1, 0.35
+meat_snork							= 1, 0.25
+meat_stronglav						= 1, 0.05
+meat_bloodsucker					= 1, 0.05
+meat_chimera						= 1, 0.05
+beans								= 1, 0.05
+bullheads							= 1, 0.05
+beef								= 1, 0.05
+condensed_milk						= 1, 0.05
+chili								= 1, 0.05
+conserva							= 1, 0.05
+corn								= 1, 0.05
+nuts								= 1, 0.05
+tomato								= 1, 0.05
+tushonka							= 1, 0.05
+sardina								= 1, 0.05
+chocolate							= 1, 0.05
+
+vodka								= 2, 0.15
+liquer								= 1, 0.15
+vodka2								= 2, 0.15
+vodka_quality						= 2, 0.15
+samogon								= 2, 0.15
+wine								= 1, 0.15
+beer								= 2, 0.15
+mineral_water						= 2, 0.15
+bottle_metal						= 2, 0.15
+tea									= 2, 0.15
+flask								= 2, 0.15
+drink_crow							= 1, 0.05
+termos_water						= 2, 0.15
+flask_2_water						= 2, 0.15
+bottle_water						= 2, 0.15
+bottle_metal_water					= 2, 0.15
+bottle_glass_water					= 2, 0.15
+bottle_glass_water2					= 2, 0.15
+water_can_2							= 2, 0.10
+cocacola							= 1, 0.05
+energy_drink						= 2, 0.10
+redbull								= 1, 0.10
+jaguar								= 1, 0.10
+juice								= 1, 0.05
+
+cigarettes_marlboro					= 1, 0.05
+cigarettes_lucky					= 1, 0.05
+cigarettes_russian					= 1, 0.05
+cigarettes_slava					= 1, 0.05
+cigarettes_cigar					= 1, 0.05
+cigarettes_joint					= 1, 0.05
+tobacco								= 1, 0.05
+marijuana							= 1, 0.05
+
+matches								= 2, 0.55
+lighter								= 1, 0.05

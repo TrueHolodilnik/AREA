@@ -1,0 +1,91 @@
+; криво работает, нужно переписывать
+;psy pain dolg
+[logic@ros_smart_terrain_2_2_psy_1]
+active = walker@ros_smart_terrain_2_2_psy_1
+suitable = {+ros_duty_squad_psy =check_npc_name(ros_general_tachenko)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_medic)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_squad_04)} true, {+ros_duty_squad_psy=check_npc_name(ros_duty_tech)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_trader)} true, false
+prior = 200
+
+[walker@ros_smart_terrain_2_2_psy_1]
+path_walk = ros_smart_terrain_2_2_trans_1_walk
+path_look = ros_smart_terrain_2_2_trans_all_look
+def_state_moving = rush
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = true
+meet = no_meet
+on_game_timer = 300 | nil %=kill_npc(ros_general_tachenko) +ros_duty_squad_died%
+on_info = {-ros_duty_squad_psy} nil %=add_task_companion(ros_general_tachenko_squad)%
+
+[logic@ros_smart_terrain_2_2_psy_2]
+active = walker@ros_smart_terrain_2_2_psy_2
+suitable = {+ros_duty_squad_psy =check_npc_name(ros_general_tachenko)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_medic)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_squad_04)} true, {+ros_duty_squad_psy=check_npc_name(ros_duty_tech)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_trader)} true, false
+prior = 200
+
+[walker@ros_smart_terrain_2_2_psy_2]
+path_walk = ros_smart_terrain_2_2_trans_2_walk
+path_look = ros_smart_terrain_2_2_trans_all_look
+def_state_moving = rush
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = true
+meet = no_meet
+on_game_timer = 300 | nil %=kill_npc(ros_duty_trader) +ros_duty_squad_died%
+on_info = {-ros_duty_squad_psy} nil %=add_task_companion(ros_duty_trader_squad)%
+
+[logic@ros_smart_terrain_2_2_psy_3]
+active = walker@ros_smart_terrain_2_2_psy_3
+suitable = {+ros_duty_squad_psy =check_npc_name(ros_general_tachenko)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_medic)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_squad_04)} true, {+ros_duty_squad_psy=check_npc_name(ros_duty_tech)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_trader)} true, false
+prior = 200
+
+[walker@ros_smart_terrain_2_2_psy_3]
+path_walk = ros_smart_terrain_2_2_trans_3_walk
+path_look = ros_smart_terrain_2_2_trans_all_look
+def_state_moving = rush
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = true
+meet = no_meet
+on_game_timer = 300 | nil %=kill_npc(ros_duty_tech) +ros_duty_squad_died%
+on_info = {-ros_duty_squad_psy} nil %=add_task_companion(ros_duty_tech_squad)%
+
+[logic@ros_smart_terrain_2_2_psy_4]
+active = walker@ros_smart_terrain_2_2_psy_4
+suitable = {+ros_duty_squad_psy =check_npc_name(ros_general_tachenko)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_medic)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_squad_04)} true, {+ros_duty_squad_psy=check_npc_name(ros_duty_tech)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_trader)} true, false
+prior = 200
+
+[walker@ros_smart_terrain_2_2_psy_4]
+path_walk = ros_smart_terrain_2_2_trans_4_walk
+path_look = ros_smart_terrain_2_2_trans_all_look
+def_state_moving = rush
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = true
+meet = no_meet
+on_game_timer = 300 | nil %=kill_npc(ros_duty_medic) +ros_duty_squad_died%
+on_info = {-ros_duty_squad_psy} nil %=add_task_companion(ros_duty_medic_squad)%
+
+[logic@ros_smart_terrain_2_2_psy_5]
+active = walker@ros_smart_terrain_2_2_psy_5
+suitable = {+ros_duty_squad_psy =check_npc_name(ros_general_tachenko)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_medic)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_squad_04)} true, {+ros_duty_squad_psy=check_npc_name(ros_duty_tech)} true, {+ros_duty_squad_psy =check_npc_name(ros_duty_trader)} true, false
+prior = 200
+
+[walker@ros_smart_terrain_2_2_psy_5]
+path_walk = ros_smart_terrain_2_2_trans_5_walk
+path_look = ros_smart_terrain_2_2_trans_all_look
+def_state_moving = rush
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+combat_ignore_cond = true
+meet = no_meet
+on_game_timer = 300 | nil %=kill_npc(ros_duty_squad_04) +ros_duty_squad_died%
+on_info = {-ros_duty_squad_psy} nil %=add_task_companion(ros_duty_squad_04_squad)%

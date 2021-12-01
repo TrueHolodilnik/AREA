@@ -1,0 +1,8 @@
+[logic]
+active = sr_idle@start
+
+[sr_idle@start]
+on_info = {+main_monolith_mlr_task_3_dlg_2} sr_idle@time
+
+[sr_idle@time]
+on_game_timer = 75 | nil %=create_squad(wings_special_squad_mlr:rad2_loner_0001) =set_squad_goodwill(bar_zastava_2_commander_squad:enemy) =send_tip(main_monolith_mlr_task_3_tip_2:tourist) +main_monolith_mlr_task_3_dlg_final_message_to_rad%

@@ -1,0 +1,272 @@
+[sar_crystal_pda_mlr]:base_section
+$spawn							= "quest_items\sar_crystal_pda_mlr"
+description						= sar_crystal_pda_mlr_descr
+visual							= dynamics\devices\dev_pda\dev_pda.ogf
+inv_weight						= 0.1
+inv_volume						= 0.7
+inv_name						= sar_crystal_pda_mlr_name
+inv_name_short					= sar_crystal_pda_mlr_name
+quest_item						= false
+can_trade						= true
+inv_grid_x						= 7
+inv_grid_y						= 3
+inv_category					= 6
+cost							= 1000
+
+[sar_crystal_pda_mlr_1]:sar_crystal_pda_mlr
+$spawn							= "quest_items\sar_crystal_pda_mlr_1"
+description						= sar_crystal_pda_mlr_1_descr
+inv_name						= sar_crystal_pda_mlr_1_name
+inv_name_short					= sar_crystal_pda_mlr_1_name
+cost							= 500
+
+[sar_crystal_pda_mlr_2]:sar_crystal_pda_mlr
+$spawn							= "quest_items\sar_crystal_pda_mlr_2"
+description						= sar_crystal_pda_mlr_2_descr
+inv_name						= sar_crystal_pda_mlr_2_name
+inv_name_short					= sar_crystal_pda_mlr_2_name
+cost							= 500
+
+[sar_crystal_pda_mlr_3]:sar_crystal_pda_mlr
+$spawn							= "quest_items\sar_crystal_pda_mlr_3"
+description						= sar_crystal_pda_mlr_3_descr
+inv_name						= sar_crystal_pda_mlr_3_name
+inv_name_short					= sar_crystal_pda_mlr_3_name
+cost							= 3000
+
+[sar_crystal_pda_mlr_4]:sar_crystal_pda_mlr
+$spawn							= "quest_items\sar_crystal_pda_mlr_4"
+description						= sar_crystal_pda_mlr_4_descr
+inv_name						= sar_crystal_pda_mlr_4_name
+inv_name_short					= sar_crystal_pda_mlr_4_name
+cost							= 3000
+
+[sar_crystal_pda_mlr_5]:sar_crystal_pda_mlr
+$spawn							= "quest_items\sar_crystal_pda_mlr_5"
+description						= sar_crystal_pda_mlr_5_descr
+inv_name						= sar_crystal_pda_mlr_5_name
+inv_name_short					= sar_crystal_pda_mlr_5_name
+cost							= 2000
+
+[esc_2_12_medic_mlr_medbag]:base_section
+$spawn							= "quest_items\esc_2_12_medic_mlr_medbag"
+visual							= dynamics\item\item_medcomplex_blue.ogf
+description						= esc_2_12_medic_mlr_medbag_desc
+inv_name						= esc_2_12_medic_mlr_medbag
+inv_name_short					= esc_2_12_medic_mlr_medbag
+inv_weight						= 0.3
+inv_volume						= 1.2
+inv_grid_width					= 2
+inv_grid_height					= 2
+inv_grid_x						= 59
+inv_grid_y						= 0
+inv_category					= 5
+can_trade						= false
+quest_item						= true
+cost							= 0
+story_id						= esc_2_12_medic_mlr_medbag
+
+[wpn_pm_esc_2_12_stalker_fanat_task_3]:wpn_pm
+$spawn                          = "quest_items\wpn_pm_fanat"
+description                     = st_wpn_pm_descr
+inv_name                        = st_wpn_pm
+inv_name_short                  = st_wpn_pm
+pickup_color					= 255, 255, 255, 25
+
+[wpn_ak74_jurov]:wpn_ak74
+$spawn                          = "quest_items\wpn_ak74_jurov"
+parent_section					= wpn_ak74_jurov
+scope_status					= 0
+pickup_color					= 255, 255, 255, 25
+
+[wpn_svd_bandit_depo_task_1]:wpn_svd_pso
+$spawn                          = "quest_items\wpn_svd_bandit_depo_task_1"
+parent_section					= wpn_svd_bandit_depo_task_1
+scope_status					= 0
+pickup_color					= 255, 255, 255, 25
+
+[pda_for_npc]:base_section
+class                           = II_ATTCH
+$spawn							= "food and drugs\pda_for_npc"
+visual              			= dynamics\devices\dev_pda\dev_pda.ogf
+inv_name						= pda_for_npc_name
+inv_name_short					= pda_for_npc_name
+description		    			= pda_for_npc_descr
+cost                            = 0
+can_trade						= false
+inv_weight						= 0.1
+inv_volume						= 0.1
+inv_grid_x						= 7
+inv_grid_y						= 3
+attach_angle_offset				= 3.14,1.9,0.0   
+attach_position_offset			= 0.09,0.0,0.035  ;0.075, 0.066, 0.023
+attach_bone_name				= bip01_r_hand
+auto_attach						= false
+bone_name                       = bip01_r_finger11
+position_offset                 = 0.0,0.0,0.0
+angle_offset                    = 0,0,0
+
+[sigaret_for_npc]:base_section
+story_id						= sigaret_for_npc
+class                           = II_ATTCH
+$spawn							= "food and drugs\sigaret_for_npc"
+visual              			= ogse\sigaret\sigaret.ogf
+inv_name						= sigaret_for_npc_name
+inv_name_short					= sigaret_for_npc_name
+description		   				= sigaret_for_npc_descr
+cost                            = 0
+can_trade						= false
+inv_weight						= 0.1
+inv_volume						= 0.1
+inv_grid_x						= 16
+inv_grid_y						= 64
+attach_angle_offset				= 9.0, 0.0, 0.0
+attach_position_offset			= 0.025, -0.02, 0.0
+attach_bone_name				= bip01_r_finger11
+auto_attach						= false
+bone_name                       = bip01_r_finger11
+position_offset                 = 0.0,0.0,0.0
+angle_offset                    = 0,0,0
+
+[blackbox_mlr]:base_section
+$spawn 							= "mlr_items\blackbox_mlr"
+description						= blackbox_mlr_descr
+visual							= dynamics\equipments\quest\box_black.ogf
+inv_weight						= 6
+inv_volume						= 10
+inv_name						= blackbox_mlr
+quest_item      				= false
+can_trade						= false
+inv_grid_width					= 2
+inv_grid_height					= 2
+inv_grid_x						= 2
+inv_grid_y						= 11
+inv_category					= 6
+
+[mlr_strelok_item_01]:booster
+$spawn                          = "quest_items\mlr_strelok_item_01"
+visual                          = dynamics\equipments\quest\notes_writing_book_1.ogf
+inv_weight                      = 0.02
+inv_volume						= 0.1
+inv_grid_width                  = 2
+inv_grid_x						= 2
+inv_grid_y						= 7
+inv_category					= 7
+description                     = mlr_strelok_item_01_desc
+inv_name                        = mlr_strelok_item_01
+inv_name_short                  = mlr_strelok_item_01
+can_trade                       = true
+cost                            = 3000
+quest_item      	            = false
+
+[box_to_the_heads]:base_section
+$spawn 							= "mlr_items\box_to_the_heads"
+description						= box_to_the_heads_descr
+visual							= dynamics\equipments\quest\safe_container.ogf
+inv_weight						= 8
+inv_volume						= 8
+inv_name						= box_to_the_heads
+quest_item      				= false
+can_trade						= false
+inv_grid_width                  = 2
+inv_grid_height                 = 2
+inv_grid_x                      = 4
+inv_grid_y                      = 11
+
+[mil_freedom_barman_mlr_task_1_notebook]:base_section
+$spawn 							= "mlr_items\mil_freedom_barman_mlr_task_1_notebook"
+description						= mil_freedom_barman_mlr_task_1_notebook_descr
+visual							= dynamics\el_tehnika\notebook.ogf
+inv_weight						= 2.5
+inv_volume						= 3.2
+inv_name						= mil_freedom_barman_mlr_task_1_notebook
+quest_item      				= false
+can_trade						= false
+inv_grid_width                  = 2
+inv_grid_height                 = 2
+inv_grid_x                      = 6
+inv_grid_y                      = 11
+
+[pole_factory_doc_1]:base_section
+$spawn                          = "quest_items\pole_factory_doc_1"
+visual                          = dynamics\equipments\quest\notes_writing_book_1.ogf
+inv_weight                      = 0.01
+inv_volume						= 0.1
+inv_grid_width                  = 2
+inv_grid_x                      = 2
+inv_grid_y                      = 7
+description                     = pole_factory_doc_1_desc
+inv_name                        = pole_factory_doc_1
+inv_name_short                  = pole_factory_doc_1
+can_trade                       = true
+cost                            = 1500
+quest_item      	            = false
+
+[pole_factory_doc_2]:base_section
+$spawn                          = "quest_items\pole_factory_doc_2"
+visual                          = equipments\item_document_1.ogf
+inv_weight                      = 0.02
+inv_volume						= 0.1
+inv_grid_width    				= 2
+inv_grid_x        				= 18
+inv_grid_y       				= 24
+description                     = pole_factory_doc_2_desc
+inv_name                        = pole_factory_doc_2
+inv_name_short                  = pole_factory_doc_2
+can_trade                       = true
+cost                            = 5000
+quest_item      	            = false
+
+[pole_factory_doc_3]:base_section
+$spawn                          = "quest_items\pole_factory_doc_3"
+visual                          = dynamics\equipments\quest\notes_writing_book_2.ogf
+inv_weight                      = 0.02
+inv_volume						= 0.1
+inv_grid_width                  = 2
+inv_grid_x                      = 5
+inv_grid_y                      = 6
+description                     = pole_factory_doc_3_desc
+inv_name                        = pole_factory_doc_3
+inv_name_short                  = pole_factory_doc_3
+can_trade                       = true
+cost                            = 2000
+quest_item      	            = false
+
+[pole_factory_doc_4]:device_pda
+$spawn                          = "quest_items\pole_factory_doc_4"
+visual             				= dynamics\devices\dev_pda\dev_pda.ogf
+description                     = pole_factory_doc_4_desc
+inv_name                        = pole_factory_doc_4
+inv_name_short                  = pole_factory_doc_4
+can_trade                       = true
+cost                            = 1000
+quest_item      	            = false
+
+[agr_main_monolith_mlr_task_5_doc]:base_section
+$spawn                          = "quest_items\agr_main_monolith_mlr_task_5_doc"
+visual                          = equipments\item_document_1.ogf
+inv_weight                      = 0.02
+inv_volume						= 0.1
+inv_grid_width    				= 2
+inv_grid_x        				= 18
+inv_grid_y       				= 24
+description                     = agr_main_monolith_mlr_task_5_doc_desc
+inv_name                        = agr_main_monolith_mlr_task_5_doc
+inv_name_short                  = agr_main_monolith_mlr_task_5_doc
+can_trade                       = true
+cost                            = 5000
+quest_item      	            = false
+
+[container_with_an_artefacts_baraholka]:base_section
+$spawn 							= "mlr_items\container_with_an_artefacts_baraholka"
+description						= container_with_an_artefacts_baraholka_descr
+visual							= dynamics\equipments\quest\safe_container.ogf
+inv_weight						= 4
+inv_volume						= 4
+inv_name						= container_with_an_artefacts_baraholka
+quest_item      				= false
+can_trade						= false
+inv_grid_width                  = 2
+inv_grid_height                 = 2
+inv_grid_x                      = 4
+inv_grid_y                      = 11

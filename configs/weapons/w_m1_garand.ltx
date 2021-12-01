@@ -1,0 +1,205 @@
+[wpn_m1_garand]:default_weapon_params
+visual								= dynamics\weapons\wpn_garand\wpn_garand.ogf
+$spawn								= "weapons\ak-74"	; name and section in level editor
+$npc								= on
+class								= WP_SVD
+inv_name							= st_wpn_garand
+inv_name_short						= st_wpn_garand
+description							= st_wpn_garand_descr
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+default_to_ruck						= false
+sprint_allowed						= true
+weapon_class						= sniper_rifle
+heating_rates						= sniper2
+repair_type							= rifle_7.62
+inv_weight							= 4.32
+inv_volume							= 4
+ph_mass								= 4
+cost								= 32940
+upgrades							= up_gr_firstab_g43, up_gr_seconab_g43, up_gr_thirdab_g43
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_toz34
+;-ТТХ---------------------------------------------------------------------------
+hit_power							= 0.75, 0.75, 0.75, 0.75
+hit_impulse							= 15
+hit_type							= fire_wound
+fire_distance						= 1800
+bullet_speed						= 865
+rpm									= 300
+rpm_empty_click						= 120
+time_to_aim							= 3.0
+hud									= wpn_garand_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.875
+misfire_end_condition				= 0.125
+misfire_start_prob					= 0.00285
+misfire_end_prob					= 0.0725
+condition_shot_dec					= 0.0014
+condition_queue_shot_dec			= 0.0018
+
+ammo_elapsed						= 8
+ammo_mag_size						= 8
+fire_modes							= 1
+magazine_sect						= magazine_762x51_cnt_8
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;-Доф----------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2;1.7
+;-Дисперсия----------------------------------------------------------------------
+fire_dispersion_base				= 0.38				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.86f
+crosshair_inertion					= 7.35
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 5.5				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360				;скорость возврата в исходное положение
+cam_dispersion						= 1.85				;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 2.05				;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.2				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.6				;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 0.85				; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 1.8
+zoom_cam_dispersion_inc				= 2.56
+zoom_cam_dispersion_frac			= 1.1
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 2.1
+
+PDM_disp_base						= 1.4
+PDM_disp_vel_factor					= 2.75
+PDM_disp_accel_factor				= 2.75
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+fire_dispersion_condition_factor	= 0.015
+;-------------------------------------------------------------------------------
+holder_range_modifier				= 2.0
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.175, 0.0
+orientation							= 0, 0, 0
+fire_point							=  0,0.218,0.656
+fire_point2							=  0,0.161,0.583
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_muzzle_00
+grenade_flame_particles				= weapons\generic_weapon01
+shell_3d_sect						= shell_762
+shell_point		 					= 0.0, 0.129, 0.192
+shell_dir		 					= 0.0, 0.0, 0.4
+shell_particles	 					= amik\weapons\data\5_56x45\5_56x45_shells_r
+;-------------------------------------------------------------------------------
+inv_grid_width						= 6
+inv_grid_height						= 2
+inv_grid_x							= 75
+inv_grid_y							= 71
+
+upgr_icon_x							= 300
+upgr_icon_y							= 1100
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 0
+kill_msg_width						= 98
+kill_msg_height						= 23
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 0					; 0 - no addon ; UPGRADABLE
+silencer_status						= 0					; 1 - permanent
+grenade_launcher_status				= 0					; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 116
+grenade_launcher_y					= 18
+
+silencer_name						= wpn_addon_silencer_762x51
+silencer_x							= 224
+silencer_y							= 13
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\effects\kyky_smoke
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\garand\garand_holster
+snd_draw							= weapons\garand\garand_draw
+snd_empty							= weapons\garand\garand_empty
+snd_reload							= weapons\garand\garand_reload1
+snd_reload1							= weapons\garand\garand_reload2
+snd_reload2							= weapons\garand\garand_reload3
+snd_reload3							= weapons\garand\garand_reload4
+snd_reload_empty					= weapons\garand\garand_reload4
+snd_shoot							= garand_snd_shoot
+snd_silencer_shot					= garand_snd_shoot
+
+[garand_snd_shoot]
+snd_1_layer							= weapons\garand\garand_shoot_null
+snd_1_layer1						= weapons\garand\garand_shoot_null1
+snd_1_layer2						= weapons\garand\garand_shoot_null2
+snd_1_layer3						= weapons\garand\garand_shoot_null3
+;-------------------------------------------------------------------------------
+[wpn_garand_hud]
+item_visual							= dynamics\weapons\wpn_garand\wpn_garand_hud.ogf
+zoom_hide_crosshair					= true
+attach_place_idx					= 0
+shell_point							= 0.0,0.0,0.0
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= wpn_body
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= wpn_body
+
+item_position						= 0,0.005,0
+item_orientation					= 0,0,0
+lean_hud_offset_pos					= 0,0,0
+lean_hud_offset_rot					= 0,0,0
+
+hands_position						= 0.005,-0.007,0.20
+hands_position_16x9					= 0.005,-0.007,0.20
+hands_orientation					= 2,2,0
+hands_orientation_16x9				= 2,2,0
+
+aim_hud_offset_pos					= -0.0832,0.0444,-0.0850
+aim_hud_offset_pos_16x9				= -0.0832,0.0444,-0.0850
+aim_hud_offset_rot					= 0.0420,0.0635,0.0000
+aim_hud_offset_rot_16x9				= 0.0420,0.0635,0.0000
+
+gl_hud_offset_pos					= -0.12025,-0.2,-0.05
+gl_hud_offset_pos_16x9				= -0.12025,-0.2,-0.05
+gl_hud_offset_rot					= -0.255,0.0349,0
+gl_hud_offset_rot_16x9				= -0.255,0.0349,0
+
+anm_show							= kyky_garand_draw
+anm_hide							= kyky_garand_holster
+anm_idle							= kyky_garand_idle
+anm_idle_sprint						= kyky_garand_idle_sprint
+anm_idle_moving						= kyky_garand_idle_move
+anm_idle_moving_crouch				= kyky_garand_idle_move, , 0.5
+anm_shots							= kyky_garand_shoot, shoot
+anm_shots_empty						= kyky_garand_idle
+anm_reload							= kyky_garand_reload, reload
+anm_reload_empty					= kyky_garand_reload_empty, reload_empty
+anm_idle_aim						= kyky_garand_idle_aim
+anm_bore							= kyky_garand_idle_aim
+;-------------------------------------------------------------------------------

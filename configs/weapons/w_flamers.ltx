@@ -1,0 +1,312 @@
+[wpn_flamer]:default_weapon_params
+visual                                   = dynamics\weapons\wpn_flamer\wpn_flamer.ogf
+$spawn                                   = "weapons\Flamer" ; Название оружия в СДК
+inv_name                                 = st_wpn_flamer
+inv_name_short                           = st_wpn_flamer
+description                              = st_wpn_flamer_descr
+class                                    = WP_AK74
+cost                                     = 35000
+inv_weight                               = 7.5
+inv_volume								 = 10
+ph_mass                                  = 10
+default_to_ruck                          = false
+sprint_allowed                           = true
+ef_main_weapon_type                      = 2
+ef_weapon_type                           = 2
+hud                                      = wpn_flamer_hud
+upgrade_scheme                           =
+upgrades                                 =
+installed_upgrades                       =
+weapon_class                             = assault_rifle	; Раздел для магазина мультиплеера
+
+hit_impulse                              = 0.2
+hit_power                                = 0.5
+hit_type                                 = burn
+bullet_speed                             = 80				;Скорость пули
+ammo_class                               = ammo_flamer, ammo_flw
+ammo_elapsed                             = 50
+ammo_mag_size                            = 240
+animation_slot                           = 10
+rpm                                      = 300
+rpm_empty_click                          = 200
+slot                                     = 2
+   
+cam_dispersion                           = 0.0				;увеличения угла (в градусах) с первым выстрелом
+cam_dispersion_frac                      = 0.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_dispersion_inc                       = 0.0				;увеличениe cam_dispersion с каждым выстрелом
+cam_max_angle                            = 15.0				;максимальный угол отдачи
+cam_max_angle_horz                       = 5.0				;(degree) maximum shot horizontal degree
+cam_relax_speed                          = 5				;скорость возврата в исходное положение
+cam_relax_speed_ai                       = 360
+cam_step_angle_horz                      = 0.7				;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed                     = 10
+zoom_cam_relax_speed_ai                  = 360
+zoom_cam_dispersion                      = 0.7
+zoom_cam_dispersion_inc                  = 0.7
+zoom_cam_dispersion_frac                 = 0.7
+zoom_cam_max_angle                       = 10.0
+zoom_cam_max_angle_horz                  = 5.0
+zoom_cam_step_angle_horz                 = 0.3
+
+time_to_aim                              = 3.0
+zoom_dof                                 = 0.2, 1.0, 180
+zoom_enabled                             = true
+zoom_rotate_time                         = 0.4				; Скорость зума
+PDM_disp_accel_factor                    = 1.5
+PDM_disp_base                            = 1.0
+PDM_disp_crouch                          = 0.4
+PDM_disp_crouch_no_acc                   = 0.3
+PDM_disp_vel_factor                      = 1.3
+
+condition_queue_shot_dec                 = 0.0015
+condition_shot_dec                       = 0.001
+control_inertion_factor                  = 1.2f
+
+fire_dispersion_base                     = 7.0				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+fire_dispersion_condition_factor         = 1
+fire_distance                            = 60
+fire_modes                               = -1
+fire_point                               = 0, 0.210, 0.800
+fire_point2                              = 0, 0.161, 0.583
+flame_particles                          = _samples_particles_\target_velocity_bullet
+smoke_particles							 = static\monsters_fire_stop
+grenade_class                            = ammo_m209
+grenade_flame_particles                  = weapons\generic_weapon01
+grenade_launcher_name                    = wpn_addon_grenade_launcher
+grenade_launcher_status                  = 0
+grenade_launcher_x                       = 0
+grenade_launcher_y                       = 0
+hand_dependence                          = 1
+
+inv_grid_height                          = 2
+inv_grid_width                           = 5
+inv_grid_x                               = 13
+inv_grid_y                               = 40
+
+upgr_icon_x                              = 2050
+upgr_icon_y                              = 1850
+upgr_icon_width                          = 300
+upgr_icon_height                         = 100
+
+kill_msg_height                          = 28
+kill_msg_width                           = 84
+kill_msg_x                               = 0
+kill_msg_y                               = 28
+
+light_disabled                           = false
+light_color                              = 0.6,0.5,0.3
+light_range                              = 5
+light_var_color                          = 0.05
+light_var_range                          = 0.5
+light_time                               = 0.2
+
+misfire_end_condition                    = 0.1
+misfire_end_prob                         = 0.043
+misfire_probability                      = 0.005
+misfire_start_condition                  = 0.6
+misfire_start_prob                       = 0.003
+
+orientation                              = 0, 0, 0
+position                                 = -0.026, -0.1 ,0
+reload_dof                               = 0.0, 0.5, 5, 9.0
+scope_status                             = 0
+scope_zoom_factor                        = 1.03
+shell_point                              = -0.020000,0.167000,0.082000
+shell_3d								 = false
+silencer_light_color                     = 0.6,0.5,0.3
+silencer_light_range                     = 0.01
+silencer_light_time                      = 0.2
+silencer_light_var_color                 = 0.05
+silencer_light_var_range                 = 0.5
+silencer_name                            = wpn_addon_silencer
+silencer_status                          = 0  
+silencer_x                               = 0
+silencer_y                               = 0
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw                                 = weapons\generic_draw
+snd_empty                                = weapons\gen_empty, 0.5
+snd_holster                              = weapons\generic_holster
+snd_reload                               = weapons\flamer\flamer_reload, 0.7
+snd_reload_grenade                       = weapons\gen_empty, 1.0, 0.8
+snd_shoot                                = weapons\flamer\flamer_shoot
+snd_shoot1                               = weapons\flamer\flamer_shoot_2
+snd_shoot2                               = weapons\flamer\flamer_shoot_3
+snd_shoot3                               = weapons\flamer\flamer_shoot_4
+snd_shoot_grenade                        = weapons\gen_empty
+snd_switch                               = weapons\groza_switch, 1.0, 0.5
+;-----------------------------------------------------------------------------
+[wpn_flamer_hud]:hud_base
+item_visual                              = dynamics\weapons\wpn_flamer\wpn_flamer_hud
+zoom_hide_crosshair                      = true
+fire_bone                                = wpn_body
+fire_bone2                               = wpn_body
+fire_point                               = 0.0,0.015569,0.813101
+fire_point2                              = 0.0,0.0,0.0
+shell_bone                               = wpn_body
+shell_dir                                = 0.0, 1.0, 0.0
+shell_point                              = 0.017,0.054,0.17
+
+hands_position                           = -0.010000,-0.20800,-0.0100
+hands_orientation                        = -0.420000,-0.23000,0.0000
+hands_position_16x9                      = -0.010000,-0.20800,-0.0100
+hands_orientation_16x9                   = -0.420000,-0.23000,0.0000
+
+aim_hud_offset_pos						 = -0.139080,0.047185,0.029165
+aim_hud_offset_pos_16x9					 = -0.139080,0.047185,0.029165
+aim_hud_offset_rot						 = -0.064439,-0.031239,-0.003916
+aim_hud_offset_rot_16x9					 = -0.064439,-0.031239,-0.003916
+
+anm_bore                                 = lancew_flamer_no_reload
+anm_hide                                 = lancew_flamer_holster
+anm_idle                                 = lancew_flamer_idle
+anm_idle_aim                             = lancew_flamer_idle_aim
+anm_idle_moving                          = lancew_flamer_moving
+anm_idle_moving_crouch                   = lancew_flamer_moving, , 0.5
+anm_idle_sprint                          = lancew_flamer_sprint
+anm_reload                               = lancew_flamer_reload, reload
+anm_shots                                = lancew_flamer_shoot, shoot
+anm_shots_empty							 = lancew_flamer_idle
+anm_show                                 = lancew_flamer_draw
+
+;----------------------------------------------------[Огнемёт]--------------------------------------------------------
+[wpn_flamewerfer]:wpn_flamer
+$spawn                                   = "weapons\flamewerfer"
+visual                                   = dynamics\weapons\wpn_flamewerfer\wpn_flamewerfer.ogf
+cost                                     = 86840
+inv_weight                               = 3.3
+inv_volume								 = 8
+inv_name                                 = st_wpn_flamewerfer
+inv_name_short                           = st_wpn_flamewerfer
+description                              = st_wpn_flamewerfer_descr
+inv_grid_x                               = 8
+inv_grid_y                               = 40
+upgr_icon_x                              = 2050
+upgr_icon_y                              = 1300
+upgr_icon_width                          = 300
+upgr_icon_height                         = 100
+ammo_elapsed                             = 50
+ammo_mag_size                            = 300
+ammo_class                               = ammo_flw, ammo_flamer
+;------------[Убойность]------------------------;
+hit_power                                = 0.6
+hit_impulse                              = 0.1
+hit_type                                 = burn
+hit_rate                                 = 2.5
+fire_distance                            = 50
+bullet_speed                             = 90
+rpm                                      = 250
+rpm_empty_click                          = 200
+;------------[Дисперсия]------------------------;
+fire_dispersion_base                     = 2.0
+control_inertion_factor                  = 1.25f
+cam_relax_speed                          = 5				;скорость возврата в исходное положение
+cam_relax_speed_ai                       = 360
+cam_dispersion                           = 0.001			;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc                       = 0.00001			;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac                      = 0.00001			;ствол будет подыматься на cam_dispersion*cam_dispertion_frac +- cam_dispersion*(1-cam_dispertion_frac)
+cam_max_angle                            = 0.00001			;максимальный угол отдачи
+cam_max_angle_horz                       = 0.01				;(degree) maximum shot horizontal degree
+cam_step_angle_horz                      = 1.1				;(degree) size of step camera moved in horizontal position while shooting
+zoom_cam_relax_speed                     = 10
+zoom_cam_relax_speed_ai                  = 360
+zoom_cam_dispersion                      = 0.7
+zoom_cam_dispersion_inc                  = 0.7
+zoom_cam_dispersion_frac                 = 0.7
+zoom_cam_max_angle                       = 10.0
+zoom_cam_max_angle_horz                  = 5.0
+zoom_cam_step_angle_horz                 = 0.3
+PDM_disp_base                            = 1.0
+PDM_disp_vel_factor                      = 1.9
+PDM_disp_accel_factor                    = 1.9
+PDM_disp_crouch                          = 1.0
+PDM_disp_crouch_no_acc                   = 0.9
+fire_dispersion_condition_factor         = 15
+;--------[Держания ствола в руках НПС]----------;													   
+position                                 = -0.026,-0.1,0
+orientation                              = 0, 0, 0
+;-----------[Другие параметры]------------------;
+time_to_aim                              = 1.0
+hud                                      = wpn_flamewerfer_hud
+misfire_probability                      = 0.005
+misfire_start_condition                  = 0.6
+misfire_end_condition                    = 0.1
+misfire_start_prob                       = 0.003
+misfire_end_prob                         = 0.043
+condition_shot_dec                       = 0.001
+condition_queue_shot_dec                 = 0.0012
+animation_slot                           = 2
+zoom_dof                                 = 0.5, 1.0, 180
+reload_empty_dof						 = 0.0, 0.5, 5, 6
+
+fire_point                               = 0,0.220,0.656 ; position (3rd person view) for particles of fire
+fire_point2                              = 0,0.164,0.583 ; position (3rd person view) for particles of fire (when shooting with secondary fire)
+flame_particles                          = weapons\new_effects\flammenwerfer
+;smoke_particles        				 = weapons\generic_shoot_00
+grenade_flame_particles                  = weapons\generic_weapon01
+explode_particles                        = explosions\expl_car
+shell_point                              = 0,0.262,0.109
+shell_particles                          = ;weapons\generic_shells
+
+silencer_smoke_particles                 = weapons\generic_shoot_00
+silencer_light_color                     = 0.6,0.5,0.3
+silencer_light_range                     = 0.01
+silencer_light_var_color                 = 0.05
+silencer_light_var_range                 = 0.5
+silencer_light_time                      = 0.2
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw                                 = weapons\flamewerfer\flamewerfer_draw
+snd_holster                              = weapons\flamewerfer\flamewerfer_holster
+snd_shoot                                = weapons\flamewerfer\flamewerfer_shoot
+snd_bore                                 = weapons\draw_silent
+snd_empty                                = weapons\gen_empty, 0.5
+snd_reload                               = weapons\flamer\flamer_reload, 0.7
+;-----------------------------------------------------------------------------
+[wpn_flamewerfer_hud]:hud_base
+item_visual                              = dynamics\weapons\wpn_flamewerfer\wpn_flamewerfer_hud
+zoom_hide_crosshair                      = true
+shell_point                              = 0.017,0.054,0.17
+shell_dir                                = 0.0, 1.0, 0.0
+shell_bone                               = wpn_body
+fire_point                               = 0,0.12,0.704
+fire_point2                              = 0.0,-0.015,0.553
+fire_bone                                = wpn_body
+fire_bone2                               = wpn_body
+
+hands_position                           = -0.081520,-0.170544,-0.048555
+hands_position_16x9                      = -0.081520,-0.170544,-0.048555
+hands_orientation                        = 0.790298,1.09,-0.05
+hands_orientation_16x9                   = 0.790298,1.09,-0.05
+
+aim_hud_offset_pos                       = -0.06718,0.022845,-0.16819
+aim_hud_offset_pos_16x9                  = -0.06718,0.022845,-0.16819
+aim_hud_offset_rot                       = -0.001908,0.011338,-0.009979
+aim_hud_offset_rot_16x9                  = -0.001908,0.011338,-0.009979
+
+anm_show                                 = lancew_saiga_draw
+anm_hide                                 = lancew_saiga_holster
+anm_idle                                 = lancew_saiga_idle
+anm_idle_sprint                          = lancew_saiga_sprint
+anm_idle_moving                          = lancew_saiga_moving
+anm_shots                                = lancew_saiga_idle, flamer_shoot
+anm_reload                               = lancew_flamer_reload, reload
+anm_idle_aim                             = lancew_saiga_idle_aim, idle_aim
+anm_bore                                 = lancew_saiga_no_reload
+anm_hide_w_gl                            = ak74_holster_w_gl
+anm_show_w_gl                            = ak74_draw_w_gl
+anm_idle_w_gl                            = ak74_idle_w_gl
+anm_shots_w_gl                           = ak74_shoot_w_gl
+anm_reload_w_gl                          = ak74_reload_w_gl
+anm_idle_w_gl_aim                        = ak74_idle_aim_w_gl
+anm_idle_sprint_w_gl                     = ak74_idle_sprint_w_gl
+anm_idle_moving_w_gl                     = ak74_idle_moving_w_gl
+anm_bore_w_gl                            = lancew_saiga_idle_aim
+anm_show_g                               = ak74_draw_w_gl
+anm_hide_g                               = ak74_holster_w_gl
+anm_idle_g                               = ak74_idle_w_gl
+anm_reload_g                             = ak74_reload_grenade
+anm_idle_g_aim                           = ak74_idle_aim_w_gl
+anm_shots_g                              = ak74_shoot_grenade
+anm_idle_sprint_g                        = ak74_idle_sprint_w_gl
+anm_idle_moving_g                        = ak74_idle_moving_w_gl
+anm_bore_g                               = lancew_saiga_idle_aim

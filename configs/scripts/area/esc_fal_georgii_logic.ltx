@@ -1,0 +1,50 @@
+[logic@esc_2_12_stalker_georgii]
+suitable = {=target_squad_name(esc_2_12_georgii_squad)} true
+prior = 140
+active = animpoint@day
+trade_enable = true
+level_spot = medic
+trade = misc\trade\trade_medic.ltx
+
+[animpoint@day]
+cover_name = esc_smart_cover_sit_fal_georgii
+avail_animations = animpoint_sit_normal
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+use_camp = false
+meet = meet@georgii_hello
+on_info = {=is_night} animpoint@evening
+
+[animpoint@evening]
+cover_name = esc_smart_cover_sit_fal_georgii_camp
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+use_camp = true
+meet = meet@georgii_hello
+turn_on_campfire = true
+on_info = {=is_dark_night} sleeper@night
+
+[sleeper@night]
+snd = sleep
+gather_items_enabled = true
+help_wounded_enabled = true
+corpse_detection_enabled = true
+path_main = georgii_sleep_walk_esc_01
+meet = no_meet
+on_info = {!is_night} animpoint@stand
+
+[meet@georgii_hello]
+close_snd_hello = georgii_meet
+close_snd_bye = georgii_meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+allow_break 	= false
+meet_on_talking = false

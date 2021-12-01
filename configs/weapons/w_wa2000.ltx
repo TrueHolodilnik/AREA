@@ -1,0 +1,201 @@
+;----------------------------------------------------------------------------------------
+; Walther WA2000, remade by Surs for A.R.E.A. (30.01.2021)
+;----------------------------------------------------------------------------------------
+[wpn_wa2000]:default_weapon_params
+$spawn							= "weapons\wa2000"
+$npc							= on
+visual							= dynamics\weapons\wpn_wa2000\wpn_wa2000.ogf
+class							= WP_SVD
+inv_name						= st_wpn_wa2000
+inv_name_short					= st_wpn_wa2000
+description						= st_wpn_wa2000_descr
+heating_rates					= sniper3
+ef_main_weapon_type				= 3
+ef_weapon_type					= 11
+repair_type 					= rifle_7.62
+cost							= 162000
+weapon_class					= sniper_rifle
+inv_weight						= 7.9
+inv_volume						= 6.5
+ph_mass			 				= 8
+hud								= wpn_wa2000_hud
+;-----------------------------------------------------------------------------
+upgrades                		= up_gr_firstab_l96a1, up_gr_seconab_l96a1, up_gr_thirdab_l96a1, up_gr_fourtab_l96a1, up_gr_fourtcd_l96a1, up_gr_fourtef_l96a1
+installed_upgrades     			 =
+upgrade_scheme          		= upgrade_scheme_svd
+;-----------------------------------------------------------------------------
+inv_grid_width     				= 6
+inv_grid_height    				= 2
+inv_grid_x						= 50
+inv_grid_y              		= 12
+
+upgr_icon_x						= 2050
+upgr_icon_y						= 400
+upgr_icon_width					= 300
+upgr_icon_height 				= 100
+
+kill_msg_x						= 0
+kill_msg_y						= 0
+kill_msg_width					= 98
+kill_msg_height					= 23
+;-----------------------------------------------------------------------------
+zoom_dof						= 0.5, 1.0, 350
+reload_dof						= 0.0, 0.5, 5, 1.5
+reload_empty_dof				= 0.0, 0.5, 5, 2.2
+holder_range_modifier			= 2.00
+;-----------------------------------------------------------------------------
+hit_power 						= 1.15, 1.15, 1.15, 1.15
+hit_impulse		 				= 50
+hit_type 						= fire_wound
+fire_distance					= 1000
+bullet_speed					= 987
+rpm								= 250
+rpm_empty_click					= 200
+time_to_aim						= 1.0
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.6
+misfire_end_condition			= 0.1
+misfire_start_prob	 			= 0.0055
+misfire_end_prob	 			= 0.055
+condition_shot_dec				= 0.0031
+condition_queue_shot_dec		= 0.0031
+
+ammo_current					= 10
+ammo_elapsed					= 0
+ammo_limit						= 10
+ammo_mag_size					= 5
+fire_modes						= 1
+magazine_sect					= mag_338_cnt_5_wa2000
+ammo_class						= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+slot							= 2
+animation_slot					= 2
+;-----------------------------------------------------------------------------
+fire_dispersion_base			= 0.1
+fire_dispersion_condition_factor = 1
+control_inertion_factor			= 2.4f
+crosshair_inertion				= 9
+
+cam_return 						= 0
+cam_relax_speed         		= 4.5	;скорость возврата в исходное положение
+cam_relax_speed_ai     		 	= 360	;скорость возврата в исходное положение
+cam_dispersion          		= 2.24	;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc				= 2.24	;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac				= 1.1	;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0	;максимальный угол отдачи
+cam_max_angle_horz				= 50.0	;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 0.64	;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed			= 0.75
+zoom_cam_relax_speed_ai			= 120.75
+zoom_cam_dispersion				= 0.8
+zoom_cam_dispersion_inc			= 0.8
+zoom_cam_dispersion_frac		= 1.0
+zoom_cam_max_angle				= 10.0
+zoom_cam_max_angle_horz			= 5.0
+zoom_cam_step_angle_horz		= 0.25
+
+PDM_disp_base 					= 1.3
+PDM_disp_vel_factor 			= 1.5
+PDM_disp_accel_factor 			= 1.5
+PDM_disp_crouch	 				= 1.0
+PDM_disp_crouch_no_acc 			= 1.0
+;-----------------------------------------------------------------------------
+position						= -0.026, -0.120, -0.025
+orientation						= 0, 0, 0
+fire_point						= 0.0, 0.195, 0.777
+fire_point2						= 0.0, 0.195, 0.777
+flame_particles				    = weapons\new_effects\pistol_9x18
+smoke_particles				    = weapons\new_effects\smoke_silencer_sniper_rifle
+shell_3d_sect					= shell_762
+shell_point		 				= 0.0, 0.129, 0.192
+shell_dir		 				= 0.0, 0.0, 0.4
+
+light_disabled					= false
+light_color		 				= 0.6, 0.5, 0.3
+light_range		 				= 4.0
+light_var_color		 			= 0.05
+light_var_range					= 0.5
+light_time 		 				= 0.2
+
+scope_status					= 1
+silencer_status					= 0
+grenade_launcher_status			= 0
+
+zoom_enabled					= true
+zoom_rotate_time				= 0.3
+scope_inertion_factor			= 0.05
+scope_control_factor			= 0.1
+scope_lense_factor				= 5.0
+scope_zoom_factor				= 5.0
+scope_zoom_hud_fov				= 0.35
+scope_dynamic_zoom				= off
+scope_texture					= wpn_crosshair_mark4
+
+silencer_name					= wpn_addon_silencer
+silencer_x                  	= 281
+silencer_y                  	= 17
+silencer_light_color			= 0.6, 0.5, 0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time 			= 0.2
+silencer_smoke_particles 		= weapons\new_effects\smoke_silencer_sniper_rifle
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster				        = weapons\wa2000\wa2000_holster
+snd_draw				        = weapons\wa2000\wa2000_draw
+snd_reload				        = weapons\wa2000\wa2000_reload
+snd_reload_empty				= weapons\wa2000\wa2000_reload_empty
+snd_reload_misfire				= weapons\wa2000\wa2000_reload_empty,1,0,2.3
+snd_reload_detached				= weapons\wa2000\wa2000_reload_empty,1,0,0.4
+snd_reload_detached_empty		= weapons\wa2000\wa2000_reload_empty,1,0,0.4
+snd_empty				        = weapons\wa2000\wa2000_empty
+snd_shoot				        = weapons\wa2000\wa2000_shoot_null
+;--Магазины-------------------------------------------------------------------
+[mag_338_cnt_5_wa2000]
+magazine_name					= magazine_338_cnt_5_wa2000
+magazine_x						= 39
+magazine_y						= 50
+custom_icon 					= 2,2,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_wa2000_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_wa2000\wpn_wa2000_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= 0.036995,0.06257,-0.162285
+shell_dir               		= 0.0, 1.0, 0.0
+shell_bone						= wpn_body
+fire_point						= -0.011,0.073565,0.659957
+fire_bone      	      			= wpn_body
+fire_point2						= 0.0,-0.008,0.408
+fire_bone2						= wpn_body
+
+hands_position					= -0.08331,-0.162291,0.117135
+hands_position_16x9				= -0.08331,-0.162291,0.117135
+hands_orientation				= 1.673417,1.447142,0.599999
+hands_orientation_16x9			= 1.673417,1.447142,0.599999
+
+aim_hud_offset_pos				= -0.063205,-0.010915,-0.238343
+aim_hud_offset_pos_16x9			= -0.063205,-0.010915,-0.238343
+aim_hud_offset_ro				= 0.01,0.0025,-0.01
+aim_hud_offset_rot_16x9			= 0.01,0.0025,-0.01
+
+aim_hud_offset_pos_alt			= -0.00181,0.00105,0.205535
+aim_hud_offset_pos_alt_16x9		= -0.00181,0.00105,0.205535
+aim_hud_offset_rot_alt			= 0,0,0
+aim_hud_offset_rot_alt_16x9		= 0,0,0
+
+anm_show             			= lancew_wa2000_draw
+anm_hide             			= lancew_wa2000_holster
+anm_idle             			= lancew_wa2000_idle
+anm_idle_sprint         		= lancew_wa2000_sprint
+anm_idle_moving 				= lancew_wa2000_moving
+anm_shots               		= lancew_wa2000_shoot, shoot
+anm_shots_empty					= lancew_wa2000_idle
+anm_reload              		= lancew_wa2000_reload, reload
+anm_reload_empty              	= lancew_wa2000_reload_empty, reload
+anm_reload_misfire				= lancew_wa2000_reload_empty, reload, , 2.1
+anm_reload_detached				= lancew_wa2000_reload_empty, reload, , 0.4
+anm_reload_detached_empty		= lancew_wa2000_reload_empty, reload, , 0.4
+anm_idle_aim           			= lancew_wa2000_idle_aim
+anm_bore						= lancew_wa2000_no_reload
+;-----------------------------------------------------------------------------

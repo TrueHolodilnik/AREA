@@ -1,0 +1,491 @@
+-- Based on Roadside picnic 0.1a by O.Faustle
+-- Adapted by Surs for A.R.E.A. 1.0
+-- Modified for CoC 1.5 by Nuor - last edit 28.04.2018
+
+local tent_obj_id, anom_obj_id, sleepb_obj_id, re_obj_id, secure_obj_id, camp_obj_id, lantern_obj_id
+
+local function activate_feature()	
+	RegisterScriptCallback("actor_on_item_use",item_use)
+	RegisterScriptCallback("actor_on_item_drop",item_drop)
+	RegisterScriptCallback("actor_on_item_take",item_take)
+	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
+--	RegisterScriptCallback("on_game_load",on_game_load)
+	
+	CreateTimeEvent(0,"campfire_timer",2,remove_refresh_camps)
+end
+
+local function deactivate_feature()
+
+	tent_obj_id, anom_obj_id, sleepb_obj_id, re_obj_id, secure_obj_id, camp_obj_id, lantern_obj_id = nil, nil, nil, nil, nil, nil, nil
+	UnregisterScriptCallback("actor_on_item_use",item_use)
+	UnregisterScriptCallback("actor_on_item_drop",item_drop)
+	UnregisterScriptCallback("actor_on_item_take",item_take)
+	UnregisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
+--	UnregisterScriptCallback("on_game_load",on_game_load)
+	UnregisterScriptCallback("actor_on_first_update",actor_on_first_update)
+end
+
+local function opt_menu_on_init(menu)
+	-- secure_camp
+	menu.gameplay_options["secure_camping"]			= {default=false, 	debug_only=false, 	typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			if (level.present()) then
+				if (ctrl:GetCheck()) then
+					activate_feature()
+				else 
+					deactivate_feature()
+				end
+			end
+		end
+	}
+end
+
+function on_game_start()
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	if (axr_main.config:r_value("mm_options","enable_secure_camping",1,false) == false) then return end
+	local function actor_on_first_update()
+		activate_feature()
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_use",item_use)
+	RegisterScriptCallback("actor_on_item_drop",item_drop)
+	RegisterScriptCallback("actor_on_item_take",item_take)
+	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
+--	RegisterScriptCallback("on_game_load",on_game_load)
+	local function actor_on_first_update()
+		CreateTimeEvent(0,"campfire_timer",2,remove_refresh_camps)
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+end
+
+-- use callbacks
+function on_game_load()
+	CreateTimeEvent(0,"campfire_timer",2,remove_refresh_camps)
+end
+
+-- create space_restrictor for lantern light
+function create_lantern_obj(pos,lvid,gvid)
+	--news_manager.send_tip(db.actor, "%c[green]"..game.translate_string("st_lantern_safe_zone").."\n%c[default]", nil, nil, nil, 10000)
+	local lantern_obj = alife():create("space_restrictor",pos,lvid,gvid)
+	lantern_obj_id = lantern_obj and lantern_obj.id
+	local data = stpk_utils.get_object_data(lantern_obj)
+	if (data) then
+		data.object_flags = 31
+		data.restrictor_type = 2		-- Restrictor type IN
+		data.shapes = {}
+		data.shapes[1] = {}
+		data.shapes[1].shtype = 0
+		data.shapes[1].center = VEC_ZERO
+		data.shapes[1].radius = 3
+		stpk_utils.set_object_data(data,lantern_obj)
+	end
+	return true
+end
+
+local function create_re_obj(pos,lvid,gvid)
+	local re_obj = alife():create("space_restrictor", pos, lvid, gvid)
+	re_obj_id = re_obj and re_obj.id
+	local data = re_obj and stpk_utils.get_object_data(re_obj)
+	if (data) then
+		data.object_flags = 31
+		data.restrictor_type = 0
+		--data.level_vertex_id = lvid
+		data.shapes = {}
+		data.shapes[1] = {}
+		data.shapes[1].shtype = 0
+		data.shapes[1].center = VEC_ZERO
+		data.shapes[1].radius = 1.5
+		data.custom_data = "[logic]\n active = sr_idle@in\n [sr_idle@in]\n on_actor_inside = %+tent_cover% sr_idle@out\n [sr_idle@out]\n on_actor_outside = %-tent_cover% sr_idle@in"
+		stpk_utils.set_object_data(data,re_obj)
+	end
+	--data = re_obj and stpk_utils.get_object_data(re_obj)
+	--alun_utils.print_table(data, "Level Vertex : "..lvid.."  Game Vertex : "..gvid.."  distance to SR = "..pos)
+	return true
+end
+
+-- check obj distance from actor
+function iSnear_obj(se_obj, dist)
+	return (se_obj.parent_id ~= 0) and (se_obj.position:distance_to(db.actor:position()) <= dist)
+end
+
+function item_drop(obj)
+	if (obj:section() == "item_lantern") then
+		CreateTimeEvent(0,"lantern_timer",2,create_lantern_obj,obj:position(),obj:level_vertex_id(),obj:game_vertex_id())
+	end
+	if (obj:section() == "item_tent_camp") then
+		CreateTimeEvent(0,"tent_camp_timer",2,create_re_obj,obj:position(),obj:level_vertex_id(),obj:game_vertex_id())
+	end
+end
+
+function item_take(obj)
+	if (obj:section() == "item_lantern") then
+		if (lantern_obj_id) then
+			alife():release(alife_object(lantern_obj_id), true)
+			lantern_obj_id = nil
+		end
+	end
+	if (obj:section() == "item_tent_camp") then
+		if (re_obj_id) then
+			alife():release(alife_object(re_obj_id), true)
+			re_obj_id = nil
+		end
+	end
+end
+
+function item_use(obj)
+--
+	if (obj:section() == "itm_tent_bag") then
+		if actor_effects and (iSnear_Tent(5)) then
+			actor_effects.use_item("itm_tent")
+		end
+		CreateTimeEvent(0,"tent_bag_timer",2,itm_tent_bag_func)
+	end
+	if (obj:section() == "itm_tent") then
+		if actor_effects and (not iSnear_Tent(5)) then
+			actor_effects.use_item("itm_tent")
+		end
+		CreateTimeEvent(0,"tent_timer",2,itm_tent_func)
+	end
+--
+	if (obj:section() == "itm_firewood") then
+		if actor_effects and (iSnear_Tent(5)) and (not iSnear_Camp(10)) then
+			actor_effects.use_item("itm_firewood")
+		end
+		CreateTimeEvent(0,"firewood_timer",2,camp_firewood_func)
+	end
+end
+
+local function create_anom_obj(pos,lvid,gvid)
+--test
+	local function create_fire()
+		local camp = anom_obj_id and level.object_by_id(anom_obj_id)
+		local CFZone = camp and camp:get_campfire()
+		--news_manager.send_tip(db.actor, "st_start_cfire", nil, nil, nil, 10000)
+		if CFZone then
+			CFZone:turn_on()
+			CreateTimeEvent(0,"safe_timer",2,safe_zone)
+			return true
+		end
+	end
+--test
+	local anom_obj = alife():create("campfire", pos, lvid, gvid)
+	anom_obj_id = anom_obj and anom_obj.id
+	local data = stpk_utils.get_object_data(anom_obj)
+	if (data) then
+		data.object_flags = 31
+		data.restrictor_type = 0
+		data.shapes = {}
+		data.shapes[1] = {}
+		data.shapes[1].shtype = 0
+		data.shapes[1].center = VEC_ZERO
+		data.shapes[1].radius = 0.330083012580872
+		stpk_utils.set_object_data(data,anom_obj)
+	end
+	CreateTimeEvent(0,"fire_timer",1,create_fire)
+end
+
+-- remove/refresh existing custom campfires
+-- remove camp remnants if more than 10 metes from actor
+-- Space Restrictors are automatically removed, this recreates any near the actor for existing camps
+function remove_refresh_camps()
+	local sim = alife()
+	for id, se_obj in sim:objects() do
+		if (se_obj:section_name() == "item_lantern") then 
+			if (iSnear_obj(se_obj,10)) then
+				create_lantern_obj(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id)
+			end
+		end
+		-- optional tent
+		if (se_obj:section_name() == "item_tent_camp") then 
+			if (iSnear_obj(se_obj,10)) then
+				create_re_obj(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id)
+			end
+		end
+
+		function rem_ph_obj(se_obj)
+			sim:release(se_obj, true)
+			return true
+		end
+		
+		if (se_obj:name():find("ph_campfire")) then 
+			if (iSnear_obj(se_obj, 10)) then
+				camp_obj_id = se_obj.id
+				create_anom_obj(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id)
+			else
+				CreateTimeEvent(0,"rel_obj"..id,2,rem_ph_obj,se_obj)
+			end
+		end
+        if (se_obj:name():find("ph_tent")) then
+            if (iSnear_obj(se_obj, 10)) then
+                tent_obj_id = se_obj.id
+                if not db.actor:object("itm_tent_bag") then
+                    sim:create("itm_tent_bag",db.actor:position(),0,0,0)
+                end
+                create_re_obj(se_obj.position,se_obj.m_level_vertex_id,se_obj.m_game_vertex_id)
+                if db.actor:object("itm_tent") then sim:release(alife_object(db.actor:object("itm_tent"):id())) end
+            else
+                CreateTimeEvent(0,"rel_obj"..id,2,rem_ph_obj,se_obj)
+                if db.actor:object("itm_tent_bag") then sim:release(alife_object(db.actor:object("itm_tent_bag"):id())) end
+                if not db.actor:object("itm_tent") then
+                    sim:create("itm_tent",db.actor:position(),0,0,0)
+                end
+            end
+        end
+		if (se_obj:name():find("ph_sleepbag")) then 
+			if (iSnear_Tent(10)) then
+				sleepb_obj_id = se_obj.id
+			else
+				if (se_obj:name():find("ph_sleepbag")) then
+				CreateTimeEvent(0,"rel_obj"..id,2,rem_ph_obj,se_obj)
+				sim:create("itm_sleepbag",db.actor:position(),0,0,0)
+				end
+			end
+		end
+    end
+
+	return true
+end
+
+--  spawn a tent and create a shelter restrictor zone
+function itm_tent_func()
+	local sim = alife()
+	if (not iSnear_Tent(10)) then
+		local gvid = db.actor:game_vertex_id()
+		local pos = vector():set(db.actor:position())
+		pos:add(device().cam_dir:mul(3))
+		pos = vector():set(pos.x,db.actor:position().y,pos.z)
+		local lvid = level.vertex_id(pos)
+		-- Tools need by Surs
+		local check_tools = db.actor:object("wpn_hammer") or db.actor:object("wpn_crowbar") or db.actor:object("wpn_axe") or db.actor:object("wpn_axe2") or db.actor:object("wpn_axe3")
+		if (tent_obj_id == nil) and check_tools then
+			local tent_obj = sim:create("ph_tent", pos, lvid, gvid)
+			tent_obj_id = tent_obj and tent_obj.id
+			sim:create("itm_tent_bag",db.actor:position(),0,0,0)
+			-- add mapspot
+			level.map_add_object_spot_ser(tent_obj.id, "ui_pda2_actor_sleep_location", "st_camp")
+		else
+			local text = game.translate_string("st_tools_need")
+			SetHudMsg(text,5)
+			sim:create("itm_tent",db.actor:position(),0,0,0)
+			return true
+		end
+		-- Tools need end
+		if (re_obj_id == nil) then
+			create_re_obj(pos,lvid,gvid)				-- add shelter space restrictor
+			-- create sleeping bag model from inventory item
+			if re_obj_id and (db.actor:object("itm_sleepbag")) then
+				local sleep_obj = sim:create("ph_sleepbag", pos, lvid, gvid)
+				sleepb_obj_id = sleep_obj and sleep_obj.id
+				sim:release(alife_object(db.actor:object("itm_sleepbag"):id()))
+			end
+		end
+	else
+		local text = game.translate_string("st_create_tent")
+		SetHudMsg(text,3)
+		sim:create("itm_tent",db.actor:position(),0,0,0)
+	end
+	return true
+end
+
+-- Spawn a campfire model and create an anomaly "campfire" in the same place
+function camp_firewood_func()
+	local sim = alife()
+	if (iSnear_Tent(5)) and (not iSnear_Camp(10)) then
+		local gvid = db.actor:game_vertex_id()
+		local pos = db.actor:position()
+		local dir = db.actor:direction()
+		pos = pos:add(dir:mul(2))
+		local lvid = level.vertex_id(pos)
+		lvid = lvid and level.valid_vertex(lvid) and lvid or 1
+		-- campfire model
+		local camp_obj = sim:create("ph_campfire", pos, lvid, gvid)
+		camp_obj_id = camp_obj and camp_obj.id
+		-- campfire anomaly
+		if (anom_obj_id == nil) then
+			create_anom_obj(pos,lvid,gvid)
+		end
+	elseif not (iSnear_Tent(5) or iSnear_Camp(10)) then	-- not within 5 meters of tent or 10 meters of campfire
+		sim:create("itm_firewood",db.actor:position(),0,0,0)
+		local text = game.translate_string("st_cfire_on")
+		SetHudMsg(text,3)
+	elseif (iSnear_Camp(10)) and (iSnear_Tent(5)) then	-- within 10 meters of campfire and 5 meters of tent
+		sim:create("itm_firewood",db.actor:position(),0,0,0)
+		local text = game.translate_string("st_start_cfire")
+		SetHudMsg(text,3)
+	else
+		sim:create("itm_firewood",db.actor:position(),0,0,0)
+	end
+	return true
+end
+
+-- despawn tent, sleeping bag and space restrictor
+function itm_tent_bag_func()
+	if (iSnear_Tent(5)) then
+		local sim = alife()
+		if (re_obj_id) then
+			sim:release(alife_object(re_obj_id), true)
+			re_obj_id = nil
+		end
+
+		if (anom_obj_id) then
+			sim:release(alife_object(anom_obj_id), true)
+			anom_obj_id = nil
+		end
+		
+		if (camp_obj_id) then
+			sim:release(alife_object(camp_obj_id), true)
+			camp_obj_id = nil
+		end
+		
+		if (tent_obj_id) then
+			sim:create("itm_tent",db.actor:position(),0,0,0)
+			sim:release(alife_object(db.actor:object("itm_tent_bag"):id()))
+			sim:release(alife_object(tent_obj_id, true))
+			tent_obj_id = nil
+		else
+			for id, se_obj in sim:objects() do
+				local o = level.object_by_id(id)
+				if o  then
+					local sl = o:section()
+					if sl == "ph_tent" and o:position():distance_to(db.actor:position()) < 5 then
+						sim:create("itm_tent",db.actor:position(),0,0,0)
+						sim:release(alife_object(db.actor:object("itm_tent_bag"):id()))
+						sim:release(se_obj, true)
+						tent_obj_id = nil
+					end
+					if sl == "ph_sleepbag" and o:position():distance_to(db.actor:position()) < 5 then
+						sim:create("itm_sleepbag",db.actor:position(),0,0,0)
+						sim:release(se_obj, true)
+						sleepb_obj_id = nil
+					end
+					if sl == "ui_pda2_actor_sleep_location" then
+						sim:release(se_obj, true)
+					end
+				end
+			end
+		end
+		
+		if (sleepb_obj_id) then
+			sim:create("itm_sleepbag",db.actor:position(),0,0,0)
+			sim:release(alife_object(sleepb_obj_id), true)
+			sleepb_obj_id = nil
+		end
+		
+		-- Delete space restrictor for safe_zone
+		release_safe_zone()
+	else
+		local text = game.translate_string("st_tent_far")
+		SetHudMsg(text,3)
+	end
+	return true
+end
+--
+-- check tent distance from actor
+function iSnear_Tent(dist, eq)
+	local sim = alife()
+	for id, se_obj in sim:objects() do
+		local o = level.object_by_id(id)
+		if o  then
+			local sl = o:section()
+			if (eq) and (eq == 1) then
+				if sl == "ph_tent" and o:position():distance_to(db.actor:position()) > dist then
+					--news_manager.send_tip(db.actor, "Tent > dist", nil, nil, nil, 1000)
+					return true
+				end
+			else
+				if sl == "ph_tent" and o:position():distance_to(db.actor:position()) < dist then
+					--news_manager.send_tip(db.actor, "Tent < dist", nil, nil, nil, 1000)
+					return true
+				end
+			end
+		end
+	end
+end
+
+-- check campfire distance from actor
+function iSnear_Camp(dist, camp)
+	local pos = db.actor:position()
+	-- custom camps
+	if camp == nil or (camp == "both") then
+		for id, se_obj in alife():objects() do
+			if se_obj:section_name() == "ph_campfire" and se_obj.position:distance_to_sqr(pos) < dist^2 then
+				--news_manager.send_tip(db.actor, "Near Campfire", nil, nil, nil, 1000)
+				return true
+			end
+		end
+	end
+	--normal camps
+	if camp then
+		for id,binder in pairs(bind_campfire.campfires_all) do
+			if (pos:distance_to_sqr(binder.object:position()) <= dist^2) then
+				return true
+			end
+		end
+	end
+end
+
+-- Use (F) to cook items when campfire present
+function physic_object_on_use_callback(obj,who)
+	if (anom_obj_id ~= nil) then
+		local anom = level.object_by_id(anom_obj_id)
+		local cf = anom and anom:get_campfire()
+		if (cf) and (cf:is_on()) and anom:position():distance_to(db.actor:position()) < 1.5 then
+			if (db.actor:object("army_bowler")) then
+				local hud = get_hud()
+				hud:HideActorMenu()
+				local ui = ui_itm_camp_cooking and ui_itm_camp_cooking.cooking_ui(hud,"army_bowler")
+				if (ui) then
+					ui:ShowDialog(true)	
+					ui:FillPartsList()
+				end
+				alife():release(alife():object(db.actor:object("army_bowler"):id()))
+			else
+				local text = game.translate_string("st_bowl")
+				SetHudMsg(text,3)
+			end
+		elseif (cf) and (not cf:is_on()) and anom:position():distance_to(db.actor:position()) < 2 then
+			local text = game.translate_string("st_cfm")
+			SetHudMsg(text,3)
+		end
+	end
+end
+
+function release_safe_zone()
+	if (secure_obj_id) then
+		alife():release(alife_object(secure_obj_id), true)
+		secure_obj_id = nil
+	end
+end
+
+-- save zone space restrictor for camp_manager
+function safe_zone(aid)
+	local id = aid or anom_obj_id
+	if (id and iSnear_Camp(10)) then
+		local anom = id and level.object_by_id(id)
+		local pos,lvid,gvid
+		if anom then
+			pos,lvid,gvid = anom:position(),anom:level_vertex_id(),anom:game_vertex_id()
+		else
+			return
+		end
+		news_manager.send_tip(db.actor, "%c[green]"..game.translate_string("st_safe_zone").."\n%c[default]", nil, nil, nil, 1000)
+		local secure_obj = alife():create("space_restrictor",pos,lvid,gvid)
+		secure_obj_id = secure_obj and secure_obj.id
+		local data = stpk_utils.get_object_data(secure_obj)
+		if (data) then
+			data.object_flags = 31
+			data.restrictor_type = 2		-- Restrictor type IN
+			data.shapes = {}
+			data.shapes[1] = {}
+			data.shapes[1].shtype = 0
+			data.shapes[1].center = VEC_ZERO
+			data.shapes[1].radius = 8
+			stpk_utils.set_object_data(data,secure_obj)
+		end
+--		alun_utils.print_table(data, "Level Vertex : "..lvid.."  Game Vertex : "..gvid)
+	end
+	return true
+end

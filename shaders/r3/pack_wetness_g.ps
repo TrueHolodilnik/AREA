@@ -1,0 +1,13 @@
+#include <common.h>
+
+uniform_Sampler2D(blended_wetness, smp_nofilter); 
+
+float4 main (float2 tc : TEXCOORD0) : SV_Target
+{
+	// .xyz - vspace normal | .w - road-less wetness map * wetness accum
+	float4 wetness = tex2D(blended_wetness, tc);
+
+	float i_color = max(1 - sqrt(wetness.w), 0.5);
+
+	return float4(i_color, i_color, i_color, wetness.w * 0.8);
+}

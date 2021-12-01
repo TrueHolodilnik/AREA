@@ -1,0 +1,29 @@
+[logic]
+active = sr_idle@start
+
+[sr_idle@start]
+on_info = {!all_docents_are_dead +ano_kymis_work_1 =has_task_not_completed(ano_kymis_work_1)} %=create_squad(ano_kymis_work_1_mutant_squad_1:ano_smart_terrain_2_1)% sr_idle@on_spot
+
+[sr_idle@on_spot]
+on_info = {!all_docents_are_dead =distance_to_obj_le(ano_ecolog_kymis:10) =distance_to_obj_le(ano_smart_terrain_2_1_anomaly_spot:80) +ano_kymis_work_1} sr_idle@spawn %+ano_kymis_work_1_on_spot%
+
+[sr_idle@spawn]
+on_info = %=create_squad(ano_kymis_work_1_mutant_squad_2:ano_smart_terrain_4_2) =create_squad(ano_kymis_work_1_mutant_squad_3:ano_smart_terrain_2_2)% sr_idle@finish
+
+[sr_idle@finish]
+; Отлично ребят, эта точка просканирована. Идём к следующей. Безымянный, подойди на минуту.
+on_timer = 60000 | {!all_docents_are_dead +ano_kymis_work_1_1} %+ano_kymis_work_1_done =give_news(ano_ecolog_kymis_name:st_ano_ecolog_kymis_message_2:ano_ecolog_kymis:0:10000)% nil
+on_info = {=all_docents_are_dead} sr_idle@start
+
+
+; замеры 1 и 2
+; идем группой: кумыс, аспирант, лопух, (бессмертны) 3 доцента на замеры (смертны)
+; если доценты умерли квест на запрос
+; запрос
+; снова идем на болота, берем 3 челиков с разрешения Резванова, сопровождаем до АС
+; если и эти умерли, тогда Герман разрывает сотрудничество с ГГ и придется идти к Лысому на Свалку
+; Лысый дает задание собрать 150к + принести одну деталь от Манекена/Сидора, вторую у Петренко
+
+;ano_kymis_work_1_2_on_spot = пришли к Магниту
+; ano_kymis_work_1_2_done = выполнили замеры у Магнита
+; ano_kymis_work_2_on_spot = пришли в деревню на милитари

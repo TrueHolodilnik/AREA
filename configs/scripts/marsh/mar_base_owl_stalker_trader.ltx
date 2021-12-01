@@ -1,0 +1,126 @@
+[logic@mar_base_owl_stalker_trader]
+active = animpoint@base
+suitable = {=check_npc_name(mar_base_owl_stalker_trader)} true
+prior = 200
+trade = misc\trade\trade_csky_mlty.ltx
+level_spot = trader
+dont_keep_items = true
+
+[animpoint@base]
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+on_info = {+csky_order_in_process} animpoint@random_csky %=give_task(csky_items)%
+
+[animpoint@random_csky]
+on_info = {~20} animpoint@48hours_csky, {~50} animpoint@36hours_csky, animpoint@24hours_csky
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[animpoint@48hours_csky]
+on_game_timer = 172800 | animpoint@order_ready_csky
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[animpoint@36hours_csky]
+on_game_timer = 129600 | animpoint@order_ready_csky
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[animpoint@24hours_csky]
+on_game_timer = 86400 | animpoint@order_ready_csky
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[animpoint@order_ready_csky]
+on_info = animpoint@final_csky %+csky_order_ready_task +csky_order_ready%
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[animpoint@final_csky]
+on_info =| {-csky_order_in_process} animpoint@base %-csky_order_ready_task%
+reach_distance = 10
+cover_name = mar_base_sc_trader
+avail_animations = animpoint_sit_normal
+meet = meet@trade
+;out_restr = mar_base_surge_hide_a4
+use_camp = false
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[meet@trade]
+close_snd_hello = mar_csky_trader_meet
+close_snd_bye 	= mar_csky_trader_meet_bye
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+close_snd_distance = 3
+use = {=actor_enemy} false, true
+allow_break = false
+meet_on_talking = false

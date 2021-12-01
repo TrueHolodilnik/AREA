@@ -1,0 +1,1264 @@
+[car_candle]:base_section
+visual                                   = grenadier\ammo_vog-25.ogf
+description                              = st_car_candle_descr
+inv_name                                 = st_car_candle
+inv_name_short                           = st_car_candle
+inv_weight								 = 0.26
+inv_volume								 = 0.35
+inv_grid_width							 = 1
+inv_grid_height							 = 1
+inv_grid_x								 = 15
+inv_grid_y								 = 5
+cost                                     = 1000
+
+[meinkampf]:base_section
+$spawn                                   = "devices\roubles"
+$prefetch                                = 16
+class                                    = S_PDA
+cform                                    = skeleton
+visual                                   = dynamics\equipments\trade\meinkampf.ogf
+radius                                   = 68    
+description                              = st_meinkampf_descr
+inv_name                                 = st_meinkampf
+inv_name_short                           = st_meinkampf
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 4
+inv_grid_y                               = 53
+cost                                     = 360
+inv_weight                               = 0.224
+inv_volume								 = 0.5
+repair_part_bonus                        = 0.02
+
+[jar]:base_section
+visual                                   = dynamics\equipments\trade\jar.ogf
+description                              = st_jar_descr
+inv_name                                 = st_jar
+inv_name_short                           = st_jar
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 3
+inv_grid_y                               = 53
+cost                                     = 1500
+inv_weight                               = 0.58
+inv_volume								 = 0.15
+
+[grooming]:base_section
+visual                                   = dynamics\equipments\trade\grooming.ogf
+description                              = st_grooming_descr
+inv_name                                 = st_grooming
+inv_name_short                           = st_grooming
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                               = 2
+inv_grid_y                               = 53
+cost                                     = 420
+inv_weight                               = 0.13
+inv_volume								 = 0.5
+repair_part_bonus                        = 0.02
+
+[beadspread]:base_section
+visual                                   = dynamics\equipments\trade\bedspread.ogf
+description                              = st_beadspread_descr
+inv_name                                 = st_beadspread
+inv_name_short                           = st_beadspread
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 5
+inv_grid_y                               = 53
+cost                                     = 430
+inv_weight                               = 0.75
+inv_volume								 = 0.8
+repair_part_bonus                        = 0.03
+
+[cards]:base_section
+visual                                   = dynamics\equipments\trade\cards.ogf
+description                              = st_cards_descr
+inv_name                                 = st_cards
+inv_name_short                           = st_cards
+inv_grid_x                               = 19
+inv_grid_y                               = 52
+cost                                     = 210
+inv_weight                               = 0.11
+inv_volume								 = 0.1
+
+[akvatab]:base_section ;x4
+$spawn                                   = "devices\roubles"
+$prefetch                                = 16
+class                                    = S_PDA
+cform                                    = skeleton
+radius                                   = 68 ; 50      
+visual									 = dynamics\equipments\medical\drug_cat_eye.ogf
+inv_name								 = st_akvatab
+inv_name_short							 = st_akvatab
+description								 = st_akvatab_descr
+inv_weight								 = 0.002
+inv_volume								 = 0.2
+inv_grid_width							 = 1
+inv_grid_height							 = 1
+inv_grid_x								 = 7
+inv_grid_y								 = 64
+cost									 = 1820
+attach_angle_offset                      = -0.287979, 1.560923, 1.544060
+attach_position_offset                   = 0.096910, -0.013594, 0.107925
+attach_bone_name                         = bip01_r_hand
+auto_attach                              = false
+
+[ammo_bad]:booster
+class									 = II_FOOD
+visual                                   = dynamics\equipments\trade\ammo.ogf
+description                              = st_ammo_bad_descr
+inv_name                                 = st_ammo_bad
+inv_name_short                           = st_ammo_bad
+inv_grid_x                               = 19
+inv_grid_y                               = 54
+inv_category							 = 2
+cost                                     = 22
+inv_weight                               = 0.25
+inv_volume								 = 0.3
+self_release							 = true
+transform_to							 = ammo_bad_shell
+transform_minmax						 = 2, 6
+
+[journal]:booster
+class                                    = II_ATTCH
+visual                                   = dynamics\equipments\quest\notes_writing_book_2.ogf
+description                              = st_journal_descr
+inv_name                                 = st_journal
+inv_name_short                           = st_journal
+inv_grid_x                               = 1
+inv_grid_y                               = 53
+cost                                     = 160
+inv_weight                               = 0.07
+inv_volume								 = 0.2
+inv_category							 = 7
+repair_part_bonus                        = 0.02
+use1_action_functor                      = dxr_encyclopedia.context_action_functor3
+use1_functor                             = dxr_encyclopedia.context_functor
+
+[boots]:base_section
+visual                                   = dynamics\equipments\trade\boots.ogf
+description                              = st_boots_descr
+inv_name                                 = st_boots
+inv_name_short                           = st_boots
+inv_grid_width                           = 2
+inv_grid_height                          = 2
+inv_grid_x                               = 15
+inv_grid_y                               = 51
+cost                                     = 690
+inv_weight                               = 1.68
+inv_volume								 = 1.8
+repair_part_bonus                        = 0.04
+
+[maps_kit]:booster, ver_qs
+visual                                   = dynamics\equipments\trade\maps.ogf
+description                              = st_maps_kit_descr
+inv_name                                 = st_maps_kit
+inv_name_short                           = st_maps_kit
+inv_grid_height                          = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 53
+inv_category							 = 7
+cost                                     = 1740
+inv_weight                               = 0.145
+inv_volume								 = 0.2
+
+[mili_maps]:booster, hor_qs
+visual                                   = dynamics\equipments\trade\mili_maps.ogf
+description                              = st_mili_maps_descr
+inv_name                                 = st_mili_maps
+inv_name_short                           = st_mili_maps
+inv_grid_width                           = 2
+inv_grid_x                               = 13
+inv_grid_y                               = 52
+inv_category							 = 7
+cost                                     = 1130
+inv_weight                               = 0.2
+inv_volume								 = 0.2
+repair_part_bonus                        = 0.03
+
+[mirror]:base_section
+$spawn                                   = "devices\roubles"
+visual                                   = dynamics\equipments\trade\mirror.ogf
+description                              = st_mirror_descr
+inv_name                                 = st_mirror
+inv_name_short                           = st_mirror
+inv_grid_x                               = 19
+inv_grid_y                               = 51
+cost                                     = 280
+inv_weight                               = 0.09
+inv_volume								 = 0.1
+
+[welding_goggles]:base_section
+visual                                   = dynamics\equipments\trade\goggles.ogf
+description                              = st_welding_goggles_descr
+inv_name                                 = st_welding_goggles
+inv_name_short                           = st_welding_goggles
+inv_grid_x                               = 7
+inv_grid_y                               = 51
+cost                                     = 440
+inv_weight                               = 0.382
+inv_volume								 = 0.4
+
+[jewelry_box]:booster
+visual                                   = dynamics\equipments\trade\jbox.ogf
+description                              = st_jewelry_box_descr
+inv_name                                 = st_jewelry_box
+inv_name_short                           = st_jewelry_box
+class									 = II_FOOD
+inv_grid_x                               = 2
+inv_grid_y                               = 54
+inv_category							 = 7
+inv_weight                               = 0.358
+inv_volume								 = 0.5
+cost                                     = 1500
+transform_to							 = roubles, jewelry_box_empty
+transform_minmax						 = 1, 25, 1, 1
+
+[jewelry_box_empty]:jewelry_box
+description                              = st_jewelry_box_empty_descr
+inv_name                                 = st_jewelry_box_empty
+inv_name_short                           = st_jewelry_box_empty
+class									 = II_DOC
+inv_grid_x                               = 4
+inv_grid_y                               = 43
+inv_weight                               = 0.138
+inv_volume								 = 0.5
+cost                                     = 50
+
+[book1]:base_section
+visual                                   = dynamics\equipments\trade\book1.ogf
+description                              = st_book1_descr
+inv_name                                 = st_book1
+inv_name_short                           = st_book1
+inv_grid_x                               = 5
+inv_grid_y                               = 54
+cost                                     = 320
+inv_weight                               = 0.18
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.02
+
+[book2]:base_section
+visual                                   = dynamics\equipments\trade\book2.ogf
+description                              = st_book2_descr
+inv_name                                 = st_book2
+inv_name_short                           = st_book2
+inv_grid_x                               = 6
+inv_grid_y                               = 54
+cost                                     = 380
+inv_weight                               = 0.22
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.02
+
+[book3]:base_section
+visual                                   = dynamics\equipments\trade\book3.ogf
+description                              = st_drugnotes_descr
+inv_name                                 = st_drugnotes
+inv_name_short                           = st_drugnotes
+inv_grid_x                               = 7
+inv_grid_y                               = 54
+inv_weight                               = 0.17
+inv_volume								 = 0.3
+cost                                     = 420
+repair_part_bonus                        = 0.02
+
+[picture_woman]:base_section
+visual                                   = dynamics\equipments\trade\photo.ogf
+description                              = st_picture_woman_descr
+inv_name                                 = st_picture_woman
+inv_name_short                           = st_picture_woman
+inv_grid_x                               = 8
+inv_grid_y                               = 54
+cost                                     = 90
+inv_volume								 = 0.05
+inv_weight                               = 0.02
+repair_part_bonus                        = 0.01
+
+[drugs_kit]:base_section
+visual                                   = dynamics\equipments\trade\drugskit.ogf
+description                              = st_drugs_kit_descr
+inv_name                                 = st_drugs_kit
+inv_name_short                           = st_drugs_kit
+inv_grid_x                               = 13
+inv_grid_y                               = 66
+cost                                     = 1070
+inv_volume								 = 0.3
+inv_weight                               = 0.268
+
+[underwear]:base_section
+visual                                   = dynamics\equipments\trade\tarp.ogf
+description                              = st_underwear_descr
+inv_name                                 = st_underwear
+inv_name_short                           = st_underwear
+inv_grid_width                           = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 52
+cost                                     = 390
+inv_volume								 = 0.15
+inv_weight                               = 0.04
+repair_part_bonus                        = 0.03
+
+[porn]:base_section
+visual                                   = dynamics\equipments\trade\porn.ogf
+description                              = st_porn_descr
+inv_name                                 = st_porn
+inv_name_short                           = st_porn
+inv_volume								 = 0.3
+inv_weight                               = 0.22
+inv_grid_height                          = 2
+inv_grid_x                               = 11
+inv_grid_y                               = 51
+cost                                     = 330
+repair_part_bonus                        = 0.02
+
+[porn2]:base_section
+visual                                   = dynamics\equipments\trade\porn2.ogf
+description                              = st_porn2_descr
+inv_name                                 = st_porn2
+inv_name_short                           = st_porn2
+inv_volume								 = 0.3
+inv_weight                               = 0.22
+inv_grid_height                          = 2
+inv_grid_x                               = 12
+inv_grid_y                               = 51
+cost                                     = 420
+repair_part_bonus                        = 0.02
+
+[survivalguide]:base_section
+visual                                   = dynamics\equipments\trade\survivalguide.ogf
+description                              = st_survivalguide_descr
+inv_name                                 = st_survivalguide
+inv_name_short                           = st_survivalguide
+inv_volume								 = 0.3
+inv_weight                               = 0.23
+inv_grid_x                               = 3
+inv_grid_y                               = 45
+cost                                     = 990
+use_sound                                = interface\inv_close
+repair_part_bonus                        = 0.03
+
+[tarpaulin]:base_section
+visual                                   = dynamics\equipments\trade\tarp.ogf
+cost                                     = 630
+inv_name                                 = st_tarpaulin
+inv_name_short                           = st_tarpaulin
+description                              = st_tarpaulin_descr
+inv_weight                               = 0.65
+inv_volume								 = 1.0
+inv_grid_width                           = 2
+inv_grid_x                               = 13
+inv_grid_y                               = 43
+repair_part_bonus                        = 0.05
+
+[tarpaulin_2]:tarpaulin
+inv_name                                 = st_tarpaulin2
+inv_name_short                           = st_tarpaulin2
+cost                                     = 1230
+inv_weight                               = 1.3
+inv_volume								 = 2.0
+inv_grid_x                               = 15
+inv_grid_y                               = 43
+
+[tarpaulin_3]:tarpaulin
+inv_name                                 = st_tarpaulin3
+inv_name_short                           = st_tarpaulin3
+cost                                     = 2430
+inv_weight                               = 1.95
+inv_volume								 = 4.0
+inv_grid_x                               = 17
+inv_grid_y                               = 43
+
+[rope]:base_section
+visual                                   = dynamics\equipments\trade\rope.ogf
+cost                                     = 490
+inv_name                                 = st_rope
+inv_name_short                           = st_rope
+description                              = st_rope_descr
+inv_weight                               = 1.443
+inv_volume								 = 2.2
+inv_grid_width                           = 2
+inv_grid_x                               = 13
+inv_grid_y                               = 51
+repair_part_bonus                        = 0.03
+
+[synthrope]:rope
+visual                                   = dynamics\equipments\trade\rops.ogf
+cost                                     = 550
+inv_name                                 = st_synthrope
+inv_name_short                           = st_synthrope
+description                              = st_synthrope_descr
+inv_weight                               = 1.972
+inv_volume								 = 2.0
+inv_grid_width                           = 2
+inv_grid_x                               = 2
+inv_grid_y                               = 51
+repair_part_bonus                        = 0.04
+
+[cutlery]:base_section
+visual                                   = dynamics\equipments\trade\cutlery.ogf
+cost                                     = 370
+inv_name                                 = st_cutlery
+inv_name_short                           = st_cutlery
+description                              = st_cutlery_descr
+inv_weight                               = 0.2
+inv_volume								 = 0.35
+inv_grid_x                               = 17
+inv_grid_y                               = 51
+repair_part_bonus                        = 0.02
+
+[radio]:base_section
+visual                                   = dynamics\equipments\trade\radio.ogf
+cost                                     = 770
+inv_name                                 = st_radio
+inv_name_short                           = st_radio
+description                              = st_radio_descr
+inv_weight                               = 0.4
+inv_volume								 = 0.6
+inv_grid_x                               = 5
+inv_grid_y                               = 52
+use_condition							 = false
+battery_decay_rate						 = 0.0005
+battery_type							 = battery_1_5v_aa
+use1_action_functor						 = area_battery_discharge.battery_action_functor
+use1_functor							 = area_battery_discharge.battery_functor
+use_sound								 = interface\inv_batt
+
+[radio2]:radio
+visual                                   = dynamics\equipments\trade\radio.ogf
+inv_name                                 = st_radio2
+inv_name_short                           = st_radio2
+description                              = st_radio2_descr
+inv_weight                               = 0.33
+inv_volume								 = 0.6
+inv_grid_x                               = 6
+inv_grid_y                               = 52
+cost                                     = 840
+
+[walkie]:radio
+visual                                   = dynamics\devices\dev_fmradio\dev_fmradio.ogf
+description                              = st_walkie_descr
+inv_name                                 = st_walkie
+inv_name_short                           = st_walkie
+inv_grid_height                          = 2
+inv_grid_x                               = 0
+inv_grid_y                               = 45
+cost                                     = 630
+inv_weight                               = 0.42
+inv_volume								 = 0.75
+battery_type							 = battery_9v
+
+[radio_military]:radio
+visual                                   = dynamics\devices\dev_fmradio\dev_fmradio.ogf
+inv_name                                 = st_radio_military
+inv_name_short                           = st_radio_military
+description                              = st_radio_military_descr
+cost                                     = 560
+inv_weight                               = 0.6
+inv_volume								 = 0.75
+inv_grid_height                          = 2
+inv_grid_x                               = 2
+inv_grid_y                               = 45
+battery_type							 = battery_9v
+
+[headlamp]:radio
+visual                                   = dynamics\devices\dev_torch_light\dev_torch_light.ogf
+description                              = st_headlamp_descr
+inv_name                                 = st_headlamp
+inv_name_short                           = st_headlamp
+inv_grid_x                               = 17
+inv_grid_y                               = 53
+cost                                     = 660
+;box_size								 = 1
+inv_weight                               = 0.2
+inv_volume								 = 0.8
+battery_type							 = battery_9v
+
+[grease]:base_section
+visual                                   = dynamics\repair\grease.ogf
+description                              = st_grease_descr
+inv_name                                 = st_grease
+inv_name_short                           = st_grease
+inv_grid_x                               = 14
+inv_grid_y                               = 63
+cost                                     = 1195
+inv_weight                               = 0.341
+inv_volume								 = 0.4
+repair_part_bonus                        = 0.06
+
+[steel_wool]:base_section
+visual                                   = dynamics\repair\steel_wool.ogf
+description                              = st_steel_wool_descr
+inv_name                                 = st_steel_wool
+inv_name_short                           = st_steel_wool
+inv_grid_x                               = 13
+inv_grid_y                               = 63
+cost                                     = 744
+inv_weight                               = 0.224
+inv_volume								 = 0.25
+repair_part_bonus                        = 0.05
+
+[textile_patch_b]:base_section
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = st_textile_patch_b_descr
+inv_name                                 = st_textile_patch_b
+inv_name_short                           = st_textile_patch_b
+inv_grid_x                               = 1
+inv_grid_y                               = 63
+cost                                     = 229
+inv_weight                               = 0.075
+inv_volume								 = 0.1
+repair_part_bonus                        = 0.03
+
+[textile_patch_m]:base_section
+visual                                   = dynamics\repair\textile_patch_m.ogf
+description                              = st_textile_patch_m_descr
+inv_name                                 = st_textile_patch_m
+inv_name_short                           = st_textile_patch_m
+inv_grid_x                               = 2
+inv_grid_y                               = 63
+cost                                     = 475
+inv_weight                               = 0.085
+inv_volume								 = 0.1
+repair_part_bonus                        = 0.04
+
+[textile_patch_e]:base_section
+visual                                   = dynamics\repair\textile_patch_e.ogf
+description                              = st_textile_patch_e_descr
+inv_name                                 = st_textile_patch_e
+inv_name_short                           = st_textile_patch_e
+inv_grid_x                               = 0
+inv_grid_y                               = 63
+cost                                     = 720
+inv_weight                               = 0.095
+inv_volume								 = 0.15
+repair_part_bonus                        = 0.06
+
+[leather]:textile_patch_e
+description                              = st_leather_descr
+inv_name                                 = st_leather
+inv_name_short                           = st_leather
+inv_grid_x                               = 2
+inv_grid_y                               = 62
+cost                                     = 850
+inv_weight                               = 0.266
+inv_volume								 = 0.3
+
+[shitpost]:base_section
+visual									= dynamics\equipments\quest\notes_letter_2.ogf
+class 									 = II_DOC
+inv_weight                               = 0.001
+inv_volume								 = 0.01
+inv_name                                 = st_shitpost
+inv_name_short                           = st_shitpost
+description                              = st_shitpost_descr
+inv_grid_x                               = 1
+inv_grid_y                               = 54
+cost                                     = 1
+
+[roubles]:shitpost
+;visual                                   = dynamics\items\royal_coin.ogf
+description                              = st_roubles_descr
+inv_name                                 = st_roubles
+inv_name_short                           = st_roubles
+inv_grid_x                               = 5
+inv_grid_y                               = 41
+cost                                     = 100
+inv_volume								 = 0.01
+inv_weight                               = 0.01
+take_sound								 = coin_take
+
+[goldencoin]:roubles
+;visual                                   = dynamics\items\golden_coin.ogf
+description                              = st_goldencoin_descr
+inv_name                                 = st_goldencoin
+inv_name_short                           = st_goldencoin
+inv_weight                               = 0.005
+inv_volume								 = 0.005
+inv_grid_x                               = 4
+inv_grid_y                               = 41
+cost                                     = 20000
+
+;================================================================================
+; Holodilnik's Additions
+;================================================================================
+[plate_seva]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_seva_descr
+inv_name                                 = plate_seva_name
+inv_name_short                           = plate_seva_name
+inv_grid_width                           = 2
+inv_grid_x                               = 56
+inv_grid_y                               = 3
+cost                                     = 3980
+inv_weight                               = 2.360
+inv_volume								 = 2.5
+repair_part_bonus                        = 0.08
+
+[plate_heavy]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_heavy_descr
+inv_name                                 = plate_heavy_name
+inv_name_short                           = plate_heavy_name
+inv_grid_x                               = 51
+inv_grid_y                               = 1
+cost                                     = 4380
+inv_weight                               = 2.960
+inv_volume								 = 3.2
+repair_part_bonus                        = 0.13
+
+[plate_medium]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_medium_descr
+inv_name                                 = plate_medium_name
+inv_name_short                           = plate_medium_name
+inv_grid_x                               = 58
+inv_grid_y                               = 3
+cost                                     = 3450
+inv_weight                               = 2.160
+inv_volume								 = 2.6
+repair_part_bonus                        = 0.1
+
+[plate_light]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_light_descr
+inv_name                                 = plate_light_name
+inv_name_short                           = plate_light_name
+inv_grid_width                           = 2
+inv_grid_x                               = 54
+inv_grid_y                               = 3
+cost                                     = 2870
+inv_weight                               = 1.760
+inv_volume								 = 2.2
+repair_part_bonus                        = 0.07
+
+[plate_cloth]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_cloth_descr
+inv_name                                 = plate_cloth_name
+inv_name_short                           = plate_cloth_name
+inv_grid_x                               = 54
+inv_grid_y                               = 2
+cost                                     = 1670
+inv_weight                               = 0.630
+inv_volume								 = 1.8
+repair_part_bonus                        = 0.05
+
+[plate_military]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_military_descr
+inv_name                                 = plate_military_name
+inv_name_short                           = plate_military_name
+inv_grid_x                               = 52
+inv_grid_y                               = 0
+cost                                     = 5670
+inv_weight                               = 3.140
+inv_volume								 = 3.0
+repair_part_bonus                        = 0.15
+
+[plate_monolith]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_monolith_descr
+inv_name                                 = plate_monolith_name
+inv_name_short                           = plate_monolith_name
+inv_grid_x                               = 51
+inv_grid_y                               = 2
+cost                                     = 5990
+inv_weight                               = 2.880
+inv_volume								 = 3.0
+repair_part_bonus                        = 0.15
+
+[plate_small]:shitpost
+visual                                   = dynamics\equipments\aa\plates
+description                              = plate_small_descr
+inv_name                                 = plate_small_name
+inv_name_short                           = plate_small_name
+inv_grid_x                               = 52
+inv_grid_y                               = 2
+cost                                     = 1990
+inv_weight                               = 2.880
+inv_volume								 = 1.5
+repair_part_bonus                        = 0.04
+
+[plate_unload]:shitpost
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = plate_unload_descr
+inv_name                                 = plate_unload_name
+inv_name_short                           = plate_unload_name
+inv_grid_x                               = 52
+inv_grid_y                               = 1
+cost                                     = 1190
+inv_weight                               = 0.280
+inv_volume								 = 1.2
+repair_part_bonus                        = 0.03
+
+[cloth_green]:shitpost
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = cloth_green_descr
+inv_name                                 = cloth_green_name
+inv_name_short                           = cloth_green_name
+inv_grid_x                               = 56
+inv_grid_y                               = 2
+cost                                     = 75
+inv_weight                               = 0.070
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.03
+
+[cloth_black]:shitpost
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = cloth_black_descr
+inv_name                                 = cloth_black_name
+inv_name_short                           = cloth_black_name
+inv_grid_x                               = 57
+inv_grid_y                               = 2
+cost                                     = 75
+inv_weight                               = 0.080
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.03
+
+[cloth_brown]:shitpost
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = cloth_brown_descr
+inv_name                                 = cloth_brown_name
+inv_name_short                           = cloth_brown_name
+inv_grid_x                               = 58
+inv_grid_y                               = 2
+cost                                     = 75
+inv_weight                               = 0.075
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.03
+
+[cloth_white]:shitpost
+visual                                   = dynamics\repair\textile_patch_b.ogf
+description                              = cloth_white_descr
+inv_name                                 = cloth_white_name
+inv_name_short                           = cloth_white_name
+inv_grid_x                               = 59
+inv_grid_y                               = 2
+cost                                     = 80
+inv_weight                               = 0.080
+inv_volume								 = 0.3
+repair_part_bonus                        = 0.03
+
+[servomotor]:shitpost
+visual                                   = dynamics\equipments\aa\frames.ogf
+description                              = servomotor_descr
+inv_name                                 = servomotor_name
+inv_name_short                           = servomotor_name
+inv_grid_width                           = 2
+inv_grid_x                               = 60
+inv_grid_y                               = 2
+cost                                     = 6200
+inv_weight                               = 2.520
+inv_volume								 = 4.0
+repair_part_bonus                        = 0.2
+
+[plastic_pieces]:shitpost
+visual                                   = dynamics\repair\helmet_repair.ogf
+description                              = plastic_pieces_descr
+inv_name                                 = plastic_pieces_name
+inv_name_short                           = plastic_pieces_name
+inv_grid_x                               = 62
+inv_grid_y                               = 2
+cost                                     = 850
+inv_weight                               = 0.250
+inv_volume								 = 0.35
+repair_part_bonus                        = 0.04
+
+[glass_pieces]:shitpost
+visual                                   = dynamics\repair\helmet_repair.ogf
+description                              = glass_pieces_descr
+inv_name                                 = glass_pieces_name
+inv_name_short                           = glass_pieces_name
+inv_grid_x                               = 63
+inv_grid_y                               = 2
+cost                                     = 650
+inv_weight                               = 0.360
+inv_volume								 = 0.8
+repair_part_bonus                        = 0.03
+
+[circuit_board]:shitpost
+$spawn									 = "devices\circuit_board"
+visual									 = dynamics\equipments\quest\materials_textolite.ogf
+inv_name								 = circuit_board_name
+inv_name_short							 = circuit_board_name
+description								 = circuit_board_descr
+inv_weight								 = 0.2
+inv_volume								 = 0.3
+can_trade								 = true
+quest_item								 = false
+cost                                     = 120
+inv_grid_x								 = 3
+inv_grid_y								 = 3
+
+;================================================================================
+;New repair parts
+;================================================================================
+[spareparts]:base_section
+visual                                   = dynamics\equipments\trade\parts.ogf              
+description                              = st_spareparts_descr
+inv_name                                 = st_spareparts
+inv_name_short                           = st_spareparts
+inv_grid_width                           = 2
+inv_grid_x                               = 2
+inv_grid_y                               = 52
+cost                                     = 780
+inv_weight                               = 2.33
+inv_volume								 = 2.5
+repair_part_bonus                        = 0.05
+
+[spareparts_rifle_soviet]:spareparts
+description                              = st_sov_r_spareparts_descr
+inv_name                                 = st_sov_r_spareparts
+inv_name_short                           = st_sov_r_spareparts
+inv_grid_x                               = 63
+inv_grid_y                               = 0
+cost                                     = 1470
+inv_weight                               = 2.93
+inv_volume								 = 3.4
+repair_part_bonus                        = 0.07
+
+[spareparts_rifle_nato]:spareparts
+description                              = st_nato_r_spareparts_descr
+inv_name                                 = st_nato_r_spareparts
+inv_name_short                           = st_nato_r_spareparts
+inv_grid_x                               = 65
+inv_grid_y                               = 0
+cost                                     = 1540
+inv_weight                               = 3.13
+inv_volume								 = 3.8
+repair_part_bonus                        = 0.07
+
+[spareparts_pistol_soviet]:spareparts
+description                              = st_sov_p_spareparts_descr
+inv_name                                 = st_sov_p_spareparts
+inv_name_short                           = st_sov_p_spareparts
+inv_grid_x                               = 59
+inv_grid_y                               = 0
+cost                                     = 1030
+inv_weight                               = 1.09
+inv_volume								 = 1.8
+repair_part_bonus                        = 0.06
+
+[spareparts_pistol_nato]:spareparts
+description                              = st_nato_p_spareparts_descr
+inv_name                                 = st_nato_p_spareparts
+inv_name_short                           = st_nato_p_spareparts
+inv_grid_x                               = 61
+inv_grid_y                               = 0
+cost                                     = 1005
+inv_weight                               = 1.13
+inv_volume								 = 1.9
+repair_part_bonus                        = 0.06
+
+[spareparts_snipe_soviet]:spareparts
+description                              = st_sov_s_spareparts_descr
+inv_name                                 = st_sov_s_spareparts
+inv_name_short                           = st_sov_s_spareparts
+inv_grid_x                               = 67
+inv_grid_y                               = 0
+cost                                     = 1960
+inv_weight                               = 3.49
+inv_volume								 = 3.5
+repair_part_bonus                        = 0.08
+
+[spareparts_snipe_nato]:spareparts
+description                              = st_nato_s_spareparts_descr
+inv_name                                 = st_nato_s_spareparts
+inv_name_short                           = st_nato_s_spareparts
+inv_grid_x                               = 73
+inv_grid_y                               = 0
+cost                                     = 2030
+inv_weight                               = 3.29
+inv_volume								 = 3.9
+repair_part_bonus                        = 0.08
+
+[spareparts_shot]:spareparts
+description                              = st_shot_spareparts_descr
+inv_name                                 = st_shot_spareparts
+inv_name_short                           = st_shot_spareparts
+inv_grid_x                               = 69
+inv_grid_y                               = 0
+cost                                     = 1640
+inv_weight                               = 2.89
+inv_volume								 = 3.2
+repair_part_bonus                        = 0.07
+
+[spareparts_pp]:spareparts
+description                              = st_pp_spareparts_descr
+inv_name                                 = st_pp_spareparts
+inv_name_short                           = st_pp_spareparts
+inv_grid_x                               = 71
+inv_grid_y                               = 0
+cost                                     = 1240
+inv_weight                               = 2.19
+inv_volume								 = 2.8
+repair_part_bonus                        = 0.06
+
+[blades]:spareparts
+description                              = st_blades_descr
+inv_name                                 = st_blades
+inv_name_short                           = st_blades
+inv_grid_width                           = 2
+inv_grid_height                          = 1
+inv_grid_x                               = 57
+inv_grid_y                               = 1
+cost                                     = 235
+inv_weight                               = 0.13
+inv_volume								 = 0.04
+repair_part_bonus                        = 0.0
+
+[scissors]:spareparts
+description                              = st_scissors_descr
+inv_name                                 = st_scissors
+inv_name_short                           = st_scissors
+inv_grid_x                               = 54
+inv_grid_y                               = 1
+inv_grid_width                           = 1
+cost                                     = 550
+inv_weight                               = 0.25
+inv_volume								 = 0.65
+repair_part_bonus                        = 0.0
+
+[scissors_and_blades]:spareparts
+description                              = st_scissors_and_blades_descr
+inv_name                                 = st_scissors_and_blades
+inv_name_short                           = st_scissors_and_blades
+inv_grid_x                               = 55
+inv_grid_y                               = 1
+cost                                     = 785
+inv_weight                               = 0.38
+inv_volume								 = 0.654
+repair_part_bonus                        = 0.0
+
+[scissors_and_blades_and_knife]:spareparts
+description                              = st_scissors_and_blades_and_knife_descr
+inv_name                                 = st_scissors_and_blades_and_knife
+inv_name_short                           = st_scissors_and_blades_and_knife
+inv_grid_x                               = 57
+inv_grid_y                               = 0
+cost                                     = 1115
+inv_weight                               = 0.48
+inv_volume								 = 1.054
+repair_part_bonus                        = 0.0
+
+[knife_and_cutlery]:spareparts
+description                              = st_knife_and_cutlery_descr
+inv_name                                 = st_knife_and_cutlery
+inv_name_short                           = st_knife_and_cutlery
+inv_grid_x                               = 55
+inv_grid_y                               = 0
+cost                                     = 700
+inv_weight                               = 0.3
+inv_volume								 = 0.75
+repair_part_bonus                        = 0.0
+
+[holodilnik]:base_section
+visual                                   = dynamics\kitchen_room\freezer.ogf
+description                              = Holodilnik
+inv_name                                 = Holodilnik
+inv_name_short                           = Holodilnik
+inv_grid_width                           = 2
+inv_grid_height                          = 3
+inv_grid_x                               = 8
+inv_grid_y                               = 52
+cost                                     = 250
+inv_weight                               = 25.54
+inv_volume								 = 80
+
+[conservnaya_banka]:base_section
+visual                                   = objects\trash_tincan.ogf
+description                              = st_conservnaya_banka
+inv_name                                 = st_conservnaya_banka_name
+inv_name_short                           = st_conservnaya_banka_name
+inv_grid_x                               = 16
+inv_grid_y                               = 9
+cost                                     = 21
+inv_weight                               = 0.044
+inv_volume								 = 0.6
+
+[conservnaya_banka2]:conservnaya_banka
+inv_grid_x                               = 17
+inv_grid_y                               = 9
+inv_weight                               = 0.052
+inv_volume								 = 0.8
+cost                                     = 24
+
+;=================================================
+; DYNAMICS
+;=================================================
+;*** workshop_room *************************************************************
+;*******************************************************************************
+[banka_kraski_1_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\banka_kraski_1"
+visual                        = dynamics\workshop_room\banka_kraski_1.ogf
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x        		= 18
+inv_grid_y         		= 47
+inv_weight                               = 0.31
+inv_volume								 = 0.25
+inv_name                                 = st_banka_kraski_1_name
+inv_name_short                           = st_banka_kraski_1_name
+description                              = st_banka_kraski_1_descr
+cost                                     = 100
+
+;[banka_kraski_1]:banka_kraski_1_pickable
+;inv_name                                 = st_banka_kraski_loot_1_name
+;inv_name_short                           = st_banka_kraski_loot_1_name
+;description                              = st_banka_kraski_loot_1_descr
+;transform_to							 = steel_wool, textile_patch_m, textile_patch_e, plastic_pieces, glass_pieces, blades, scissors, banka_kraski_1_pickable
+;transform_minmax						 = 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 2, 0, 1, 1, 1
+
+[kanistra_02_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\kanistra_02"
+visual                        = dynamics\workshop_room\kanistra_02.ogf
+inv_grid_width     = 2
+inv_grid_height    = 2
+inv_grid_x         = 61
+inv_grid_y         = 57
+inv_weight				= 3
+inv_volume				= 10.2
+inv_name                                 = st_kanistra_02_name
+inv_name_short                           = st_kanistra_02_name
+description                              = st_kanistra_02_descr
+cost                                     = 400
+
+;[kanistra_01]:kanistra_02_pickable
+;[kanistra_02]:kanistra_02_pickable
+
+[vedro_01_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\vedro_01"
+visual                        = dynamics\workshop_room\vedro_01.ogf
+inv_grid_width     = 1
+inv_grid_height    = 2
+inv_grid_x         = 60
+inv_grid_y         = 57
+inv_weight				= 1
+inv_volume				= 8
+inv_name                                 = st_vedro_01_name
+inv_name_short                           = st_vedro_01_name
+description                              = st_vedro_01_descr
+cost                                     = 150
+
+;[vedro_01]:vedro_01_pickable
+
+[keyga_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\keyga"
+visual                        = dynamics\workshop_room\keyga.ogf 
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 55
+inv_grid_y         = 57
+inv_weight						= 1.1
+inv_volume						= 0.56
+inv_name                                 = st_keyga_name
+inv_name_short                           = st_keyga_name
+description                              = st_keyga_descr
+cost                                     = 200
+
+;[keyga]:keyga_pickable
+
+[lopata_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\lopata"
+visual                        = dynamics\workshop_room\lopata.ogf 
+inv_grid_width     = 1
+inv_grid_height    = 3
+inv_grid_x         = 63
+inv_grid_y         = 57
+inv_weight						= 1.45
+inv_volume						= 1.2
+inv_name                                 = st_lopata_name
+inv_name_short                           = st_lopata_name
+description                              = st_lopata_descr
+cost                                     = 200
+
+;[lopata]:lopata_pickable
+
+[molot_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\molot"
+visual                        = dynamics\workshop_room\molot.ogf 
+inv_grid_width     = 1
+inv_grid_height    = 2
+inv_grid_x         = 56
+inv_grid_y         = 57
+inv_weight						= 10
+inv_volume						= 6.5
+inv_name                                 = st_molot_name
+inv_name_short                           = st_molot_name
+description                              = st_molot_descr
+cost                                     = 400
+
+;[molot]:molot_pickable
+
+[pick_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\pick"
+visual                        = dynamics\workshop_room\pick.ogf 
+inv_grid_width     = 1
+inv_grid_height    = 2
+inv_grid_x         = 57
+inv_grid_y         = 57
+inv_weight						= 2.45
+inv_volume						= 1.2
+inv_name                                 = st_pick_name
+inv_name_short                           = st_pick_name
+description                              = st_pick_descr
+cost                                     = 500
+
+;[pick]:pick_pickable
+
+[riffler_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\riffler"
+visual                        = dynamics\workshop_room\riffler.ogf 
+inv_grid_width     = 1
+inv_grid_height    = 2
+inv_grid_x         = 58
+inv_grid_y         = 57
+inv_weight						= 1.25
+inv_volume						= 0.7
+inv_name                                 = st_riffler_name
+inv_name_short                           = st_riffler_name
+description                              = st_riffler_descr
+cost                                     = 200
+
+;[riffler]:riffler_pickable
+
+[saw_pickable]:base_section
+$spawn                        = "pickable_objects\workshop_room\saw"
+visual                        = dynamics\workshop_room\saw.ogf 
+inv_grid_width     = 3
+inv_grid_height    = 1
+inv_grid_x         = 57
+inv_grid_y         = 56
+inv_weight						= 1.75
+inv_volume						= 1.1
+inv_name                                 = st_saw_name
+inv_name_short                           = st_saw_name
+description                              = st_saw_descr
+cost                                     = 500
+
+;[saw]:saw_pickable
+
+;***kitchen_room****************************************************************
+[tarelka1_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\tarelka1"
+visual                        = dynamics\kitchen_room\kitchen_tarelka1.ogf
+inv_grid_width     = 2
+inv_grid_height    = 2
+inv_grid_x         = 57
+inv_grid_y         = 55
+inv_volume						= 0.55
+inv_weight                               = 0.5
+inv_name                                 = st_tarelka1_name
+inv_name_short                           = st_tarelka1_name
+description                              = st_tarelka1_descr
+cost                                     = 150
+
+;[tarelka1]:tarelka1_pickable
+
+[tarelka2_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\tarelka2"
+visual                        = dynamics\kitchen_room\kitchen_tarelka2.ogf
+inv_grid_width     = 2
+inv_grid_height    = 2
+inv_grid_x         = 57
+inv_grid_y         = 55
+inv_volume						= 0.55
+inv_weight                               = 0.66
+inv_name                                 = st_tarelka2_name
+inv_name_short                           = st_tarelka2_name
+description                              = st_tarelka2_descr
+cost                                     = 100
+
+;[tarelka2]:tarelka2_pickable
+
+[krujka_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\krujka"
+visual                        = dynamics\kitchen_room\kitchen_krujka.ogf
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 52
+inv_grid_y         = 56
+inv_volume						= 0.55
+inv_weight                               = 0.35
+inv_name                                 = st_krujka_name
+inv_name_short                           = st_krujka_name
+description                              = st_krujka_descr
+cost                                     = 550
+
+;[krujka]:krujka_pickable
+
+[lojka_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\lojka"
+visual                        = dynamics\kitchen_room\kitchen_lojka.ogf
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 55
+inv_grid_y         = 54
+inv_volume						= 0.25
+inv_weight                               = 0.15
+inv_name                                 = st_lojka_name
+inv_name_short                           = st_lojka_name
+description                              = st_lojka_descr
+cost                                     = 450
+
+;[lojka]:lojka_pickable
+
+[bottle_bar_stakan_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\bottle_bar_stakan"
+visual                        = physics\decor\bottle_bar_stakan.ogf
+inv_grid_width     = 1
+inv_grid_height    = 1
+inv_grid_x         = 52
+inv_grid_y         = 55
+inv_volume						= 0.30
+inv_weight                               = 0.35
+inv_name                                 = st_bottle_bar_stakan_name
+inv_name_short                           = st_bottle_bar_stakan_name
+description                              = st_bottle_bar_stakan_descr
+cost                                     = 100
+
+[bottle_bar_1_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\bottle_bar_1"
+visual                        = physics\decor\bottle_bar_1.ogf
+inv_grid_width     = 2
+inv_grid_height    = 2
+inv_grid_x         = 50
+inv_grid_y         = 55
+inv_volume						= 3.05
+inv_weight                               = 0.78
+inv_name                                 = st_bottle_bar_1_name
+inv_name_short                           = st_bottle_bar_1_name
+description                              = st_bottle_bar_1_descr
+cost                                     = 70
+
+;[bottle_3L]:bottle_bar_1_pickable
+
+[kitchen_bludo_pickable]:base_section
+$spawn                        = "pickable_objects\kitchen_room\kitchen_bludo"
+visual                        = physics\decor\kitchen_bludo.ogf
+inv_grid_width     = 2
+inv_grid_height    = 1
+inv_grid_x         = 53
+inv_grid_y         = 55
+inv_volume						= 0.78
+inv_weight                               = 0.33
+inv_name                                 = st_kitchen_bludo_name
+inv_name_short                           = st_kitchen_bludo_name
+description                              = st_kitchen_bludo_descr
+cost                                     = 50
+
+;[bludo]:kitchen_bludo_pickable
+
+;[kastrula_up]:base_section
+;$spawn                        = "dynamic_objects\kitchen_room\kastrula_up"
+;visual                        = dynamics\kitchen_room\kitchen_kastrula_up.ogf
+;inv_grid_width     = 2
+;inv_grid_height    = 1
+;inv_grid_x         = 61
+;inv_grid_y         = 56
+;inv_volume						= 0.3
+;inv_weight                               = 0.21
+;inv_name                                 = st_kastrula_up_name
+;inv_name_short                           = st_kastrula_up_name
+;description                              = st_kastrula_up_descr
+;cost                                     = 50

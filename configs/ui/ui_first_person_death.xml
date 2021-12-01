@@ -1,0 +1,15 @@
+<w>
+	<main_dialog>
+        <dialog x="0" y="0" width="1024" height="768" stretch="1">
+	        <texture>ui\ui_bgrnd</texture>
+		</dialog>
+		<caption_death x="0" y="0" width="1024" height="768">
+			<text x="0" y="0" r="245" g="245" b="245" vert_align="c" align="c" font="letterica18" />
+		</caption_death>			
+	
+		<btn_next x="0" y="200" width="157" height="48" stretch="0">
+            <text align="c" font="letterica18">ui_mm_menu</text>
+            <texture>ui_inGame2_button</texture>
+		</btn_next>		
+    </main_dialog>
+</w>

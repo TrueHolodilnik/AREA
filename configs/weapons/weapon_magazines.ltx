@@ -1,0 +1,1830 @@
+[magazine_base]:default_weapon_params
+$npc								= on
+$spawn								= "weapons\spas12"
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_ap
+ammo_elapsed						= 0
+ammo_limit							= 90
+ammo_mag_size						= 30
+animation_slot						= 9 ;13
+bullet_speed						= 1
+cam_dispersion						= 5.0
+cam_dispersion_frac					= 1.0
+cam_dispersion_inc					= 1.5
+cam_max_angle						= 30.0
+cam_max_angle_horz					= 30.0
+cam_relax_speed						= 20
+cam_relax_speed_ai					= 360
+cam_return							= 0
+cam_step_angle_horz					= 5.0
+cform								= skeleton
+class								= WP_MAGAZ
+mag_icon							= assault
+condition_queue_shot_dec			= 0.0035
+condition_shot_dec					= 0.003
+control_inertion_factor				= 1.45f
+cost								= 0
+crosshair_inertion					= 7.25
+inv_name							= st_magazine_545_name
+inv_name_short						= st_magazine_545_name
+description							= st_magazine_545_descr
+pickup_color						= 255, 100, 0, 255	; Orange
+ef_main_weapon_type					= 1
+ef_weapon_type						= 7 ;9
+fire_dispersion_base				= 0.24
+fire_dispersion_condition_factor	= 3
+fire_distance						= 150
+fire_modes							= 1
+fire_point							= 0, 0.133, 0.686
+fire_point2							= 0, 0.103, 0.686
+flame_particles						= weapons\generic_weapon05
+grenade_launcher_status				= 0
+hand_dependence						= 1
+hit_power							= 0
+hit_type							= fire_wound
+hud									= magazine_base_hud
+installed_upgrades					= 
+inv_grid_height						= 1
+inv_grid_width						= 1
+inv_grid_x							= 21
+inv_grid_y							= 2
+upgr_icon_x							= 3950
+upgr_icon_y							= 950
+upgr_icon_height					= 150
+upgr_icon_width						= 150
+inv_weight							= 0.2
+inv_volume							= 0.4
+kill_msg_height						= 20
+kill_msg_width						= 80
+kill_msg_x							= 91
+kill_msg_y							= 104
+light_color							= 0.6, 0.5, 0.3
+light_range							= 6.0
+light_time							= 0.2
+light_var_color						= 0.05
+light_var_range						= 0.5
+misfire_end_condition				= 0.1
+misfire_end_prob					= 0
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_start_prob					= 0
+orientation							= 0, 0, 0
+PDM_disp_accel_factor				= 0.1
+PDM_disp_base						= 0.1
+PDM_disp_crouch						= 0.1
+PDM_disp_crouch_no_acc				= 0.1
+PDM_disp_vel_factor					= 0.1
+ph_mass								= .2
+position							= -0.024, -0.081, 0.0
+rpm									= 1
+rpm_empty_click						= 1
+scope_status						= 0
+scope_zoom_factor					= 1.0
+shell_point							= 0.0, 0.138, 0.07
+silencer_hit_power					= 0.0
+silencer_smoke_particles			= amik\weapons\smoke_particles\silencer_smoke_particles_00
+silencer_status						= 0
+single_handed						= 0
+slot								= -1
+smoke_particles						= amik\weapons\smoke_particles\smoke_particles_pump_00
+snd_add_cartridge					= weapons\bullet_insert_1
+snd_bore							= $no_sound
+snd_close_weapon					= $no_sound
+snd_draw							= $no_sound
+snd_empty							= weapons\gen_empty, 0.5
+snd_holster							= $no_sound
+snd_open_weapon						= $no_sound
+snd_reload							= $no_sound
+snd_shoot							= $no_sound
+snd_mag_detach						= $no_sound
+tri_state_reload					= on
+upgrade_scheme						= 
+upgrades							=
+weapon_class						= shotgun
+zoom_cam_dispersion_frac			= 0.0
+zoom_dof							= 0.5, 1.0, 180
+zoom_rotate_time					= 0.25
+zoom_enabled						= true
+use_condition						= true
+belt								= true
+belt_load							= true
+default_to_ruck						= false
+highlight_equipped					= true
+sell_ignore_condition 				= true
+addon_bone							= magazin
+addon_bone_hud						= magazin
+custom_icon 						= 0,0,0,0
+
+[magazine_base_hud]:hud_base
+item_visual							= dynamics\weapons\magazines\wpn_mag_30_545x39_hud.ogf
+fire_bone							= muzzle
+fire_bone2							= muzzle
+fire_point							= 0,0,0
+fire_point2							= 0,0,0
+shell_bone							= gilza
+shell_dir							= 0,1,0
+shell_point							= 0,0,0
+zoom_hide_crosshair					= true
+
+item_position						= -0.251453,-0.027869,-0.152058
+item_orientation					= -28.455410,13.964170,1.406377
+
+hands_position						= 0.140070,-0.090065,0
+hands_position_16x9					= 0.140070,-0.090065,0
+hands_orientation					= 0.000000,0.050105,0
+hands_orientation_16x9				= 0.000000,0.050105,0
+
+anm_add_cartridge					= spas12_reload, reload
+anm_bore							= spas12_aim
+anm_close							= spas12_reload_end, reload_end
+anm_hide							= spas12_holster
+anm_idle							= spas12_idle
+anm_idle_aim						= spas12_aim
+anm_idle_moving						= spas12_move
+anm_idle_moving_crouch				= spas12_move ;spas12_crouch
+anm_idle_sprint						= spas12_sprint
+anm_open							= spas12_reload_start, reload_start
+anm_reload							= spas12_reload
+anm_shots							= spas12_shoot, shoot
+anm_show							= spas12_draw
+
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 5.45x39mm
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_30]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 30
+cost								= 180
+mag_icon							= mag_545x39_30
+inv_weight							= 0.230
+inv_volume							= 0.4
+inv_grid_x							= 64
+inv_grid_y							= 50
+bullet_icon							= reload_545x39
+inv_name							= st_magazine_545_30_name
+inv_name_short						= st_magazine_545_30_name
+description							= st_magazine_545_30_descr
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+hud									= magazine_545_30_hud
+
+[magazine_545_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_30_2]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 30
+cost								= 200
+mag_icon							= mag_545x39_30_2
+inv_weight							= 0.230
+inv_volume							= 0.4
+inv_grid_x							= 65
+inv_grid_y							= 50
+bullet_icon							= reload_545x39
+inv_name							= st_magazine_545_30_2_name
+inv_name_short						= st_magazine_545_30_2_name
+description							= st_magazine_545_30_2_descr
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+hud									= magazine_545_30_2_hud
+
+[magazine_545_30_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_30_a545]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 30
+cost								= 200
+mag_icon							= mag_545x39_30_a545
+inv_weight							= 0.180
+inv_volume							= 0.4
+inv_grid_x							= 64
+inv_grid_y							= 52
+bullet_icon							= reload_545x39
+inv_name							= st_magazine_545_30_a545_name
+inv_name_short						= st_magazine_545_30_a545_name
+description							= st_magazine_545_30_a545_descr
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+hud									= magazine_545_30_2_hud
+
+[magazine_545_30_a545_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_45]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 45
+cost								= 250
+mag_icon							= mag_545x39_45
+inv_weight							= 0.280
+inv_volume							= 0.55
+inv_grid_x							= 67
+inv_grid_y							= 50
+bullet_icon							= reload_545x39
+inv_name							= st_magazine_545_45_name
+inv_name_short						= st_magazine_545_45_name
+description							= st_magazine_545_45_descr
+visual								= dynamics\weapons\magazines\mag_45_545x39.ogf
+hud									= magazine_545_45_hud
+
+[magazine_545_45_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_45_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_45_2]:magazine_545_cnt_45
+mag_icon							= mag_545x39_45_2
+inv_weight							= 0.300
+inv_volume							= 0.55
+inv_grid_x							= 68
+inv_grid_y							= 50
+visual								= dynamics\weapons\magazines\mag_45_545x39.ogf
+hud									= magazine_545_45_2_hud
+
+[magazine_545_45_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_45_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_60]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 60
+cost								= 300
+mag_icon							= mag_545x39_60
+inv_weight							= 0.300
+inv_volume							= 0.75
+inv_grid_x							= 66
+inv_grid_y							= 50
+inv_name							= st_magazine_545_60_name
+inv_name_short						= st_magazine_545_60_name
+description							= st_magazine_545_60_descr
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+hud									= magazine_545_60_hud
+
+[magazine_545_60_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_545_cnt_75]:magazine_base
+ammo_class							= ammo_5.45x39_fmj, ammo_5.45x39_fmj_bad, ammo_5.45x39_fmj_verybad, ammo_5.45x39_ap, ammo_5.45x39_ap_bad, ammo_5.45x39_ap_verybad
+ammo_mag_size						= 75
+cost								= 400
+mag_icon							= mag_545x39_75
+inv_weight							= 0.900
+inv_volume							= 1.3
+inv_grid_x							= 70
+inv_grid_y							= 50
+bullet_icon							= reload_545x39
+inv_name							= st_magazine_545_75_name
+inv_name_short						= st_magazine_545_75_name
+description							= st_magazine_545_75_descr
+visual								= dynamics\weapons\magazines\mag_75_545x39.ogf
+hud									= magazine_545_75_hud
+
+[magazine_545_75_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_75_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 5.56x45mm
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_30]:magazine_base ; All NATO
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 30
+cost								= 200
+mag_icon							= mag_556x45_30
+inv_weight							= 0.180
+inv_volume							= 0.4
+inv_grid_x							= 63
+inv_grid_y							= 49
+inv_name							= st_magazine_556_30_name
+inv_name_short						= st_magazine_556_30_name
+description							= st_magazine_556_30_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_30_hud
+
+[magazine_556_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_30_2]:magazine_base ; Steyr Aug
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 30
+cost								= 200
+mag_icon							= mag_556x45_30_2
+inv_weight							= 0.150
+inv_volume							= 0.4
+inv_grid_x							= 64
+inv_grid_y							= 49
+inv_name							= st_magazine_556_30_name
+inv_name_short						= st_magazine_556_30_name
+description							= st_magazine_556_30_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_30_2_hud
+
+[magazine_556_30_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_30_ak100]:magazine_base ; AK-101, AK-102
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 30
+cost								= 200
+mag_icon							= mag_556x45_30_ak100
+inv_weight							= 0.200
+inv_volume							= 0.4
+inv_grid_x							= 63
+inv_grid_y							= 52
+inv_name							= st_magazine_556_30_ak100_name
+inv_name_short						= st_magazine_556_30_ak100_name
+description							= st_magazine_556_30_ak100_descr
+visual								= dynamics\weapons\magazines\mag_30_545x39.ogf
+hud									= magazine_556_30_ak100_hud
+
+[magazine_556_30_ak100_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_30_g36]:magazine_base ; G36, G36C, G36K, XM-8
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 30
+cost								= 220
+mag_icon							= mag_556x45_30_g36
+inv_weight							= 0.24
+inv_volume							= 0.4
+inv_grid_x							= 66
+inv_grid_y							= 48
+inv_name							= st_magazine_556_30_name
+inv_name_short						= st_magazine_556_30_name
+description							= st_magazine_556_30_g36_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_30_g36_hud
+
+[magazine_556_30_g36_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_30_sig550]:magazine_base ; SIG550, SIG552
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 30
+cost								= 220
+mag_icon							= mag_556x45_30_sig550
+inv_weight							= 0.24
+inv_volume							= 0.4
+inv_grid_x							= 64
+inv_grid_y							= 53
+inv_name							= st_magazine_556_30_name
+inv_name_short						= st_magazine_556_30_name
+description							= st_magazine_556_30_sig550_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_30_sig550_hud
+
+[magazine_556_30_sig550_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_35_ace]:magazine_base ; Galil ACE21
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 35
+cost								= 240
+mag_icon							= mag_556x45_35_ace
+inv_weight							= 0.24
+inv_volume							= 0.5
+inv_grid_x							= 65
+inv_grid_y							= 49
+inv_name							= st_magazine_556_30_name
+inv_name_short						= st_magazine_556_30_name
+description							= st_magazine_556_35_ace_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_35_hud
+
+[magazine_556_35_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_60]:magazine_base ; All NATO
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 60
+cost								= 500
+mag_icon							= mag_556x45_60
+inv_weight							= 0.5
+inv_volume							= 0.7
+inv_grid_x							= 66
+inv_grid_y							= 49
+inv_name							= st_magazine_556_60_name
+inv_name_short						= st_magazine_556_60_name
+description							= st_magazine_556_60_descr
+visual								= dynamics\weapons\magazines\mag_30_556x45.ogf
+hud									= magazine_556_60_hud
+
+[magazine_556_60_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_556_cnt_100]:magazine_base ; waiting
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+ammo_mag_size						= 100
+cost								= 1000
+mag_icon							= mag_556x45_100
+inv_weight							= 0.580
+inv_volume							= 2.0
+inv_grid_width						= 2
+inv_grid_x							= 71
+inv_grid_y							= 50
+ignore_size							= true
+belt_adj_width						= 1.6
+belt_adj_height						= 1.8
+belt_adj_pos_x						= -10
+inv_name							= st_magazine_556_100_name
+inv_name_short						= st_magazine_556_100_name
+description							= st_magazine_556_100_descr
+visual								= dynamics\weapons\magazines\mag_100_556x45.ogf
+hud									= magazine_556_100_hud
+
+[magazine_556_100_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_100_556x45_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 57x28mm
+;-----------------------------------------------------------------------------
+[magazine_57x28_cnt_20]:magazine_base ; FN-57
+ammo_class							= ammo_5.7x28_ss190, ammo_5.7x28_ss190_bad, ammo_5.7x28_ss190_verybad, ammo_5.7x28_ss195, ammo_5.7x28_ss195_bad, ammo_5.7x28_ss195_verybad
+ammo_mag_size						= 20
+cost								= 250
+mag_icon							= mag_57x28_20
+inv_weight							= 0.085
+inv_volume							= 0.32
+inv_grid_x							= 52
+inv_grid_y							= 47
+inv_name							= st_magazine_57x28_20_name
+inv_name_short						= st_magazine_57x28_20_name
+description							= st_magazine_57x28_20_descr
+visual								= dynamics\weapons\magazines\clip_20_570x28.ogf
+hud									= magazine_57x28_20_hud
+
+[magazine_57x28_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_20_570x28_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_57x28_cnt_50]:magazine_base ;FN P90
+ammo_class							= ammo_5.7x28_ss190, ammo_5.7x28_ss190_bad, ammo_5.7x28_ss190_verybad, ammo_5.7x28_ss195, ammo_5.7x28_ss195_bad, ammo_5.7x28_ss195_verybad
+ammo_mag_size						= 50
+cost								= 400
+mag_icon							= mag_57x28_50
+inv_weight							= 0.14
+inv_volume							= 0.8
+inv_grid_x							= 53
+inv_grid_y							= 47
+inv_name							= st_magazine_57x28_50_name
+inv_name_short						= st_magazine_57x28_50_name
+description							= st_magazine_57x28_50_descr
+visual								= dynamics\weapons\magazines\mag_50_570x28.ogf
+hud									= magazine_57x28_50_hud
+
+[magazine_57x28_50_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_50_570x28_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 7.62x25mm
+;-----------------------------------------------------------------------------
+[magazine_762x25_cnt_8]:magazine_base ; TT-33
+ammo_class							= ammo_7.62x25_p, ammo_7.62x25_p_bad, ammo_7.62x25_p_verybad, ammo_7.62x25_ps, ammo_7.62x25_ps_bad, ammo_7.62x25_ps_verybad, ammo_7.62x25_p41, ammo_7.62x25_p41_bad, ammo_7.62x25_p41_verybad
+ammo_mag_size						= 8
+cost								= 150
+mag_icon							= mag_762x25_8
+inv_weight							= 0.086
+inv_volume							= 0.18
+inv_grid_x							= 53
+inv_grid_y							= 49
+inv_name							= st_magazine_762x25_8_name
+inv_name_short						= st_magazine_762x25_8_name
+description							= st_magazine_762x25_8_descr
+visual								= dynamics\weapons\magazines\clip_8_762x25.ogf
+hud									= magazine_762x25_8_hud
+
+[magazine_762x25_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_762x25_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x25_cnt_71]:magazine_base ; PPSH-41
+ammo_class							= ammo_7.62x25_p, ammo_7.62x25_p_bad, ammo_7.62x25_p_verybad, ammo_7.62x25_ps, ammo_7.62x25_ps_bad, ammo_7.62x25_ps_verybad, ammo_7.62x25_p41, ammo_7.62x25_p41_bad, ammo_7.62x25_p41_verybad
+ammo_mag_size						= 71
+cost								= 500
+mag_icon							= mag_762x25_71
+inv_weight							= 1.23
+inv_volume							= 1.0
+inv_grid_x							= 70
+inv_grid_y							= 49
+inv_name							= st_magazine_762x25_71_name
+inv_name_short						= st_magazine_762x25_71_name
+description							= st_magazine_762x25_71_descr
+visual								= dynamics\weapons\magazines\mag_71_762x25.ogf
+hud									= magazine_762x51_50_hud
+
+[magazine_762x25_71_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_71_762x25_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 762x39mm
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_8]:magazine_base ; SOK-94
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 8
+cost								= 200
+mag_icon							= mag_762x39_8
+inv_weight							= 0.10
+inv_volume							= 0.24
+inv_grid_x							= 63
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_8_name
+inv_name_short						= st_magazine_762x39_8_name
+description							= st_magazine_762x39_8_descr
+visual								= dynamics\weapons\magazines\mag_8_762x51.ogf
+hud									= magazine_762x39_8_hud
+
+[magazine_762x39_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_8_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_10]:magazine_base ; SKS
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 10
+cost								= 250
+mag_icon							= mag_762x39_10
+inv_weight							= 0.11
+inv_volume							= 0.28
+inv_grid_x							= 67
+inv_grid_y							= 47
+inv_name							= st_magazine_762x39_10_name
+inv_name_short						= st_magazine_762x39_10_name
+description							= st_magazine_762x39_10_descr
+visual								= dynamics\weapons\magazines\mag_10_762x39.ogf
+hud									= magazine_762x39_20_hud
+
+[magazine_762x39_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_20]:magazine_base ; Type 63
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 20
+cost								= 250
+mag_icon							= mag_762x39_20
+inv_weight							= 0.11
+inv_volume							= 0.28
+inv_grid_x							= 65
+inv_grid_y							= 54
+inv_name							= st_magazine_762x39_8_name
+inv_name_short						= st_magazine_762x39_8_name
+description							= st_magazine_762x39_20_descr
+visual								= dynamics\weapons\magazines\mag_10_762x39.ogf
+hud									= magazine_762x39_10_hud
+
+[magazine_762x39_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_30]:magazine_base ; AEK-972
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 30
+cost								= 250
+mag_icon							= mag_762x39_30
+inv_weight							= 0.3
+inv_volume							= 0.4
+inv_grid_x							= 64
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_8_name
+inv_name_short						= st_magazine_762x39_8_name
+description							= st_magazine_762x39_30_descr
+visual								= dynamics\weapons\magazines\mag_30_762x39.ogf
+hud									= magazine_762x39_30_hud
+
+[magazine_762x39_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_762x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_30_2]:magazine_762x39_cnt_30 ; AEK-972
+inv_weight							= 0.24
+inv_grid_x							= 65
+inv_grid_y							= 51
+mag_icon							= mag_762x39_30_2
+inv_name							= st_magazine_762x39_30_2_name
+inv_name_short						= st_magazine_762x39_30_2_name
+description							= st_magazine_762x39_30_2_descr
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_30_3]:magazine_762x39_cnt_30 ; AEK-972
+inv_weight							= 0.20
+inv_grid_x							= 66
+inv_grid_y							= 51
+mag_icon							= mag_762x39_30_3
+inv_name							= st_magazine_762x39_30_3_name
+inv_name_short						= st_magazine_762x39_30_3_name
+description							= st_magazine_762x39_30_3_descr
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_30_4]:magazine_762x39_cnt_30 ; ОЦ-14 "Гроза-1"
+inv_grid_x							= 64
+inv_grid_y							= 48
+cost								= 300
+mag_icon							= mag_762x39_30_4
+inv_name							= st_magazine_762x39_30_4_name
+inv_name_short						= st_magazine_762x39_30_4_name
+description							= st_magazine_762x39_30_4_descr
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_40]:magazine_base ; РПК
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 40
+cost								= 320
+mag_icon							= mag_762x39_40
+inv_weight							= 0.32
+inv_volume							= 0.55
+inv_grid_x							= 67
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_40_name
+inv_name_short						= st_magazine_762x39_40_name
+description							= st_magazine_762x39_40_descr
+visual								= dynamics\weapons\magazines\mag_10_762x39.ogf
+hud									= magazine_762x39_40_hud
+
+[magazine_762x39_40_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_762x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_40_2]:magazine_762x39_cnt_40 ; РПК
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 40
+cost								= 320
+mag_icon							= mag_762x39_40_2
+inv_weight							= 0.26
+inv_volume							= 0.55
+inv_grid_x							= 68
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_40_2_name
+inv_name_short						= st_magazine_762x39_40_2_name
+description							= st_magazine_762x39_40_2_descr
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_75]:magazine_base ; РПК-74 drum
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 75
+cost								= 750
+mag_icon							= mag_762x39_75
+inv_weight							= 0.85
+inv_volume							= 1.4
+inv_grid_x							= 70
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_75_name
+inv_name_short						= st_magazine_762x39_75_name
+description							= st_magazine_762x39_75_descr
+visual								= dynamics\weapons\magazines\mag_75_762x39.ogf
+hud									= magazine_762x39_75_hud
+
+[magazine_762x39_75_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_75_762x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x39_cnt_100]:magazine_762x39_cnt_75 ; РПД
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+ammo_mag_size						= 100
+cost								= 400
+mag_icon							= mag_762x39_100
+inv_weight							= 0.8
+inv_volume							= 2.2
+inv_grid_x							= 69
+inv_grid_y							= 51
+inv_name							= st_magazine_762x39_100_name
+inv_name_short						= st_magazine_762x39_100_name
+description							= st_magazine_762x39_100_descr
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 762x51mm
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_5]:magazine_base
+ammo_class										= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 5
+cost								= 700
+mag_icon							= mag_762x51_5
+inv_weight							= 0.09
+inv_grid_x							= 22
+inv_grid_y							= 11
+inv_name							= st_magazine_762x51_5_name
+inv_name_short						= st_magazine_762x51_5_name
+description							= st_magazine_762x51_5_descr
+visual								= dynamics\weapons\magazines\mag_5_762x51.ogf
+hud												= magazine_762x51_5_hud
+
+[magazine_762x51_5_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_5_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_8]:magazine_base ; M1 Garand
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 8
+cost								= 500
+mag_icon							= mag_762x51_8
+inv_weight							= 0.1
+inv_volume							= 0.25
+inv_grid_x							= 69
+inv_grid_y							= 47
+inv_name							= st_magazine_762x51_8_name
+inv_name_short						= st_magazine_762x51_8_name
+description							= st_magazine_762x51_8_descr
+visual								= dynamics\weapons\magazines\mag_10_762x54.ogf
+hud									= magazine_762x54_8_hud
+
+[magazine_762x54_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_10]:magazine_base ; L96A1, SR25, SR25A
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 10
+cost								= 720
+mag_icon							= mag_762x51_10
+inv_weight							= 0.13
+inv_volume							= 0.3
+inv_grid_x							= 55
+inv_grid_y							= 51
+inv_name							= st_magazine_762x51_10_name
+inv_name_short						= st_magazine_762x51_10_name
+description							= st_magazine_762x51_10_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_762x51_10_hud
+
+[magazine_762x51_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_20]:magazine_base ; M14
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 20
+cost								= 950
+mag_icon							= mag_762x51_20
+inv_weight							= 0.35
+inv_volume							= 0.52
+inv_grid_x							= 54
+inv_grid_y							= 48
+inv_name							= st_magazine_762x51_20_name
+inv_name_short						= st_magazine_762x51_20_name
+description							= st_magazine_762x51_20_descr
+visual								= dynamics\weapons\magazines\mag_20_762x51.ogf
+hud									= magazine_762x51_20_hud
+
+[magazine_762x51_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_20_2]:magazine_base ; HK417, SCAR-H
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 20
+cost								= 350
+mag_icon							= mag_762x51_20_2
+inv_weight							= 0.24
+inv_volume							= 0.52
+inv_grid_x							= 55
+inv_grid_y							= 48
+inv_name							= st_magazine_762x51_20_name
+inv_name_short						= st_magazine_762x51_20_name
+description							= st_magazine_762x51_20_2_descr
+visual								= dynamics\weapons\magazines\mag_20_762x51.ogf
+hud									= magazine_762x51_20_2_hud
+
+[magazine_762x51_20_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_20_3]:magazine_base ; G3SG1
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 20
+cost								= 300
+mag_icon							= mag_762x51_20_3
+inv_weight							= 0.32
+inv_volume							= 0.52
+inv_grid_x							= 54
+inv_grid_y							= 51
+inv_name							= st_magazine_762x51_20_name
+inv_name_short						= st_magazine_762x51_20_name
+description							= st_magazine_762x51_20_3_descr
+visual								= dynamics\weapons\magazines\mag_20_762x51.ogf
+hud									= magazine_762x51_20_3_hud
+
+[magazine_762x51_20_3_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_25]:magazine_base ; IMI Galil
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 25
+cost								= 320
+mag_icon							= mag_762x51_25
+inv_weight							= 0.24
+inv_grid_x							= 53
+inv_grid_y							= 51
+inv_name							= st_magazine_762x51_20_name
+inv_name_short						= st_magazine_762x51_20_name
+description							= st_magazine_762x51_25_descr
+visual								= dynamics\weapons\magazines\mag_20_762x51.ogf
+hud									= magazine_762x51_25_hud
+
+[magazine_762x51_25_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x51_cnt_100]:magazine_base ; M60
+ammo_class								= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+ammo_mag_size						= 100
+cost								= 1220
+mag_icon							= mag_762x51_100
+inv_weight							= 1.28
+inv_volume							= 3
+inv_grid_width                  	= 2
+inv_grid_x							= 70
+inv_grid_y							= 49
+inv_name							= st_magazine_762x51_100_name
+inv_name_short						= st_magazine_762x51_100_name
+description							= st_magazine_762x51_100_descr
+visual								= dynamics\weapons\magazines\box_100_762x51.ogf
+hud									= magazine_762x51_100_hud
+
+[magazine_762x51_100_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\box_100_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 762x54mm
+;-----------------------------------------------------------------------------
+[magazine_762x54_cnt_5]:magazine_base ; Mosin M1891
+ammo_class							= ammo_7.62x54_7h1, ammo_7.62x54_7h1_bad, ammo_7.62x54_7h1_verybad, ammo_7.62x54_7h14, ammo_7.62x54_7h14_bad, ammo_7.62x54_7h14_verybad, ammo_7.62x54_ap, ammo_7.62x54_ap_bad, ammo_7.62x54_ap_verybad
+ammo_mag_size						= 5
+cost								= 450
+mag_icon							= mag_762x54_5
+inv_weight							= 0.1
+inv_volume							= 0.17
+inv_grid_x							= 66
+inv_grid_y							= 47
+inv_name							= st_magazine_762x54_5_name
+inv_name_short						= st_magazine_762x54_5_name
+description							= st_magazine_762x54_5_descr
+visual								= dynamics\weapons\magazines\mag_10_762x54.ogf
+hud									= magazine_762x54_5_hud
+
+[magazine_762x54_5_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x54_cnt_10]:magazine_base ; SVD/SVU
+ammo_class							= ammo_7.62x54_7h1, ammo_7.62x54_7h1_bad, ammo_7.62x54_7h1_verybad, ammo_7.62x54_7h14, ammo_7.62x54_7h14_bad, ammo_7.62x54_7h14_verybad, ammo_7.62x54_ap, ammo_7.62x54_ap_bad, ammo_7.62x54_ap_verybad
+ammo_mag_size						= 10
+cost								= 750
+mag_icon							= mag_762x54_10
+inv_weight							= 0.14
+inv_volume							= 0.35
+inv_grid_x							= 57
+inv_grid_y							= 48
+inv_name							= st_magazine_762x54_10_name
+inv_name_short						= st_magazine_762x54_10_name
+description							= st_magazine_762x54_10_descr
+visual								= dynamics\weapons\magazines\mag_10_762x54.ogf
+hud									= magazine_762x54_10_hud
+
+[magazine_762x54_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x54_cnt_10_2]:magazine_base ; SVT-40
+ammo_class							= ammo_7.62x54_7h1, ammo_7.62x54_7h1_bad, ammo_7.62x54_7h1_verybad, ammo_7.62x54_7h14, ammo_7.62x54_7h14_bad, ammo_7.62x54_7h14_verybad, ammo_7.62x54_ap, ammo_7.62x54_ap_bad, ammo_7.62x54_ap_verybad
+ammo_mag_size						= 10
+cost								= 600
+mag_icon							= mag_762x54_10_2
+inv_weight							= 0.14
+inv_volume							= 0.3
+inv_grid_x							= 57
+inv_grid_y							= 50
+inv_name							= st_magazine_762x54_10_name
+inv_name_short						= st_magazine_762x54_10_name
+description							= st_magazine_762x54_10_2_descr
+visual								= dynamics\weapons\magazines\mag_10_762x54.ogf
+hud									= magazine_762x54_10_hud_2
+
+[magazine_762x54_10_hud_2]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x54_cnt_10_3]:magazine_base ; SV-98
+ammo_class							= ammo_7.62x54_7h1, ammo_7.62x54_7h1_bad, ammo_7.62x54_7h1_verybad, ammo_7.62x54_7h14, ammo_7.62x54_7h14_bad, ammo_7.62x54_7h14_verybad, ammo_7.62x54_ap, ammo_7.62x54_ap_bad, ammo_7.62x54_ap_verybad
+ammo_mag_size						= 10
+cost								= 700
+mag_icon							= mag_762x54_10_3
+inv_weight							= 0.14
+inv_volume							= 0.3
+inv_grid_x							= 57
+inv_grid_y							= 52
+inv_name							= st_magazine_762x54_10_name
+inv_name_short						= st_magazine_762x54_10_name
+description							= st_magazine_762x54_10_3_descr
+visual								= dynamics\weapons\magazines\mag_10_762x54.ogf
+hud									= magazine_762x54_10_hud_3
+
+[magazine_762x54_10_hud_3]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_762x54_cnt_100]:magazine_base ; PKM
+ammo_class							= ammo_pkm_100, ammo_pkm_100_bad, ammo_pkm_100_verybad, ammo_7.62x54_7h1, ammo_7.62x54_7h1_bad, ammo_7.62x54_7h1_verybad, ammo_7.62x54_7h14, ammo_7.62x54_7h14_bad, ammo_7.62x54_7h14_verybad, ammo_7.62x54_ap, ammo_7.62x54_ap_bad, ammo_7.62x54_ap_verybad
+ammo_mag_size						= 100
+cost								= 1500
+mag_icon							= mag_762x54_100
+inv_weight							= 3.9
+inv_volume							= 3.7
+inv_grid_width						= 2
+inv_grid_x							= 71
+inv_grid_y							= 51
+ignore_size							= true
+belt_adj_width						= 1.6
+belt_adj_height						= 1.8
+belt_adj_pos_x						= -10
+inv_name							= st_magazine_762x54_100_name
+inv_name_short						= st_magazine_762x54_100_name
+description							= st_magazine_762x54_100_descr
+visual								= dynamics\weapons\magazines\box_100_762x54.ogf
+hud									= magazine_762x54_100_hud
+
+[magazine_762x54_100_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\box_100_762x54_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 792x33mm
+;-----------------------------------------------------------------------------
+[magazine_792x33_cnt_30]:magazine_base ; STG-44
+ammo_class							= ammo_7.92x33_fmj, ammo_7.92x33_fmj_bad, ammo_7.92x33_fmj_verybad
+ammo_mag_size						= 30
+cost								= 300
+mag_icon							= mag_792x33_30
+inv_weight							= 0.22
+inv_volume							= 0.5
+inv_grid_x							= 61
+inv_grid_y							= 48
+inv_name							= st_magazine_792x33_30_name
+inv_name_short						= st_magazine_792x33_30_name
+description							= st_magazine_792x33_30_descr
+visual								= dynamics\weapons\magazines\mag_45_545x39.ogf
+hud									= magazine_792x57_30_hud
+
+[magazine_792x57_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_45_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 792x57mm
+;-----------------------------------------------------------------------------
+[magazine_792x57_cnt_10]:magazine_base ; G43
+ammo_class							= ammo_7.92x57_fmj, ammo_7.92x57_fmj_bad, ammo_7.92x57_fmj_verybad
+ammo_mag_size						= 10
+cost								= 300
+mag_icon							= mag_792x33_10
+inv_weight							= 0.12
+inv_volume							= 0.21
+inv_grid_x							= 60
+inv_grid_y							= 53
+inv_name							= st_magazine_792x57_10_name
+inv_name_short						= st_magazine_792x57_10_name
+description							= st_magazine_792x57_10_descr
+visual								= dynamics\weapons\magazines\mag_10_792x57.ogf
+hud									= magazine_792x57_10_hud
+
+[magazine_792x57_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_792x57_hud.ogf
+;-----------------------------------------------------------------------------
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 9x18
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_8]:magazine_base	; PM, PB
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 8
+cost								= 125
+mag_icon							= mag_9x18_8
+inv_weight							= 0.05
+inv_volume							= 0.1
+inv_grid_x							= 62
+inv_grid_y							= 49
+inv_name							= st_magazine_9x18_8_name
+inv_name_short						= st_magazine_9x18_8_name
+description							= st_magazine_9x18_8_descr
+visual								= dynamics\weapons\magazines\clip_8_900x18.ogf
+hud									= magazine_9x18_8_hud
+
+[magazine_9x18_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_12]:magazine_base ; Fort-12, PM, PB
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 12
+cost								= 150
+mag_icon							= mag_9x18_12
+inv_weight							= 0.076
+inv_volume							= 0.12
+inv_grid_x							= 62
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_12_name
+inv_name_short						= st_magazine_9x18_12_name
+description							= st_magazine_9x18_12_descr
+visual								= dynamics\weapons\magazines\clip_12_900x18.ogf
+hud									= magazine_9x18_12_hud
+
+[magazine_9x18_12_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_12_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_20]:magazine_base ; APS
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 20
+cost								= 220
+mag_icon							= mag_9x18_20
+inv_weight							= 0.084
+inv_volume							= 0.165
+inv_grid_x							= 61
+inv_grid_y							= 49
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_20_name
+inv_name_short						= st_magazine_9x18_20_name
+description							= st_magazine_9x18_20_descr
+visual								= dynamics\weapons\magazines\clip_20_900x18.ogf
+hud									= magazine_9x18_20_hud
+
+[magazine_9x18_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_20_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_20_vz65]:magazine_base ; Scorpion vz.65 
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 20
+cost								= 225
+mag_icon							= mag_9x18_20_vz65
+inv_weight							= 0.084
+inv_volume							= 0.175
+inv_grid_x							= 59
+inv_grid_y							= 47
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_20_vz65_name
+inv_name_short						= st_magazine_9x18_20_vz65_name
+description							= st_magazine_9x18_20_vz65_descr
+visual								= dynamics\weapons\magazines\clip_20_900x18.ogf
+hud									= magazine_9x18_cnt_20_vz65_hud
+
+[magazine_9x18_cnt_20_vz65_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_20_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_27]:magazine_base ; ОЦ-33
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 27
+cost								= 600
+mag_icon							= mag_9x18_27
+inv_weight							= 0.25
+inv_volume							= 0.195
+inv_grid_x							= 63
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_20_name
+inv_name_short						= st_magazine_9x18_20_name
+description							= st_magazine_9x18_27_descr
+visual								= dynamics\weapons\magazines\clip_27_900x18.ogf
+hud									= magazine_9x18_27_hud
+
+[magazine_9x18_27_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_27_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_30]:magazine_base ; Kiparis
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 30
+cost								= 320
+mag_icon							= mag_9x18_30
+inv_weight							= 0.25
+inv_volume							= 0.195
+inv_grid_x							= 62
+inv_grid_y							= 47
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_30_name
+inv_name_short						= st_magazine_9x18_30_name
+description							= st_magazine_9x18_30_descr
+visual								= dynamics\weapons\magazines\mag_32_900x19.ogf
+hud									= magazine_9x18_30_hud
+
+[magazine_9x18_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_32_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x18_cnt_64]:magazine_base ; PP-19 Bizon
+ammo_class							= ammo_9x18_fmj, ammo_9x18_fmj_bad, ammo_9x18_fmj_verybad, ammo_9x18_pmm, ammo_9x18_pmm_bad, ammo_9x18_pmm_verybad, ammo_9x18_ap, ammo_9x18_ap_bad, ammo_9x18_ap_verybad
+ammo_mag_size						= 64
+cost								= 500
+mag_icon							= mag_9x18_64
+inv_weight							= 0.37
+inv_volume							= 0.4
+inv_grid_x							= 59
+inv_grid_y							= 48
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x18_64_name
+inv_name_short						= st_magazine_9x18_64_name
+description							= st_magazine_9x18_64_descr
+visual								= dynamics\weapons\magazines\mag_64_900x18.ogf
+hud									= magazine_9x18_64_hud
+
+[magazine_9x18_64_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_64_900x18_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 9x19mm
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_13]:magazine_base ; Browning HPSA
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 13
+cost								= 160
+mag_icon							= mag_9x19_13
+inv_weight							= 0.1
+inv_volume							= 0.12
+inv_grid_x							= 55
+inv_grid_y							= 49
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_13_name
+inv_name_short						= st_magazine_9x19_13_name
+description							= st_magazine_9x19_13_descr
+visual								= dynamics\weapons\magazines\clip_13_900x19.ogf
+hud									= magazine_9x19_13_hud
+
+[magazine_9x19_13_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_13_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_15]:magazine_base ; Beretta M92FS, USP Match
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 15
+cost								= 175
+mag_icon							= mag_9x19_15
+inv_weight							= 0.15
+inv_volume							= 0.14
+inv_grid_x							= 59
+inv_grid_y							= 49
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_15_name
+inv_name_short						= st_magazine_9x19_15_name
+description							= st_magazine_9x19_15_descr
+visual								= dynamics\weapons\magazines\clip_15_900x19.ogf
+hud									= magazine_9x19_15_hud
+
+[magazine_9x19_15_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_15_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_16]:magazine_base ; Walter P99
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 16
+cost								= 185
+mag_icon							= mag_9x19_16
+inv_weight							= 0.15
+inv_volume							= 0.16
+inv_grid_x							= 61
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_16_name
+inv_name_short						= st_magazine_9x19_16_name
+description							= st_magazine_9x19_16_descr
+visual								= dynamics\weapons\magazines\clip_15_900x19.ogf
+hud									= magazine_9x19_16_hud
+
+[magazine_9x19_16_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_15_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_16_cz75]:magazine_base ; CZ-75, CZ-75 Auto
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 16
+cost								= 175
+mag_icon							= mag_9x19_16_2
+inv_weight							= 0.16
+inv_volume							= 0.17
+inv_grid_x							= 52
+inv_grid_y							= 51
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_16_name
+inv_name_short						= st_magazine_9x19_16_name
+description							= st_magazine_9x19_16_2_descr
+visual								= dynamics\weapons\magazines\clip_15_900x19.ogf
+hud									= magazine_9x19_16_cz75_hud
+
+[magazine_9x19_16_cz75_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_15_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_17]:magazine_base ; Glock 17
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 17
+cost								= 180
+mag_icon							= mag_9x19_17
+inv_weight							= 0.18
+inv_volume							= 0.18
+inv_grid_x							= 60
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_17_name
+inv_name_short						= st_magazine_9x19_17_name
+description							= st_magazine_9x19_17_descr
+visual								= dynamics\weapons\magazines\clip_16_900x19.ogf
+hud									= magazine_9x19_17_hud
+
+[magazine_9x19_17_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_16_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_18]:magazine_base ; Gsh-18
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 18
+cost								= 190
+mag_icon							= mag_9x19_18
+inv_weight							= 0.18
+inv_volume							= 0.2
+inv_grid_x							= 54
+inv_grid_y							= 49
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_18_name
+inv_name_short						= st_magazine_9x19_18_name
+description							= st_magazine_9x19_18_descr
+visual								= dynamics\weapons\magazines\clip_18_900x19.ogf
+hud									= magazine_9x19_18_hud
+
+[magazine_9x19_18_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_18_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_18_mp443]:magazine_base ; Grach
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 18
+cost								= 190
+mag_icon							= mag_9x19_18_mp443
+inv_weight							= 0.18
+inv_volume							= 0.2
+inv_grid_x							= 52
+inv_grid_y							= 48
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_18_name
+inv_name_short						= st_magazine_9x19_18_name
+description							= st_magazine_9x19_18_mp443_descr
+visual								= dynamics\weapons\magazines\clip_18_900x19.ogf
+hud									= magazine_9x19_cnt_18_mp443_hud
+
+[magazine_9x19_cnt_18_mp443_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_18_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_30]:magazine_base ; MP5, MP5SD
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 30
+cost								= 225
+mag_icon							= mag_9x19_30
+inv_weight							= 0.17
+inv_volume							= 0.3
+inv_grid_x							= 63
+inv_grid_y							= 48
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_30_name
+inv_name_short						= st_magazine_9x19_30_name
+description							= st_magazine_9x19_30_descr
+visual								= dynamics\weapons\magazines\mag_30_900x19.ogf
+hud									= magazine_9x19_30_hud
+
+[magazine_9x19_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_30_evo3]:magazine_base ; CZ Scorpion EVO 3
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 30
+cost								= 250
+mag_icon							= mag_9x19_30_evo3
+inv_weight							= 0.14
+inv_volume							= 0.34
+inv_grid_x							= 59
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_30_name
+inv_name_short						= st_magazine_9x19_30_name
+description							= st_magazine_9x19_30_evo3_descr
+visual								= dynamics\weapons\magazines\mag_30_900x19.ogf
+hud									= magazine_9x19_30_evo3_hud
+
+[magazine_9x19_30_evo3_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_30_pp19]:magazine_base ; PP-19-01 Vityaz
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 30
+cost								= 260
+mag_icon							= mag_9x19_30_pp19
+inv_weight							= 0.18
+inv_volume							= 0.34
+inv_grid_x							= 58
+inv_grid_y							= 50
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_30_name
+inv_name_short						= st_magazine_9x19_30_name
+description							= st_magazine_9x19_30_pp19_descr
+visual								= dynamics\weapons\magazines\mag_30_900x19.ogf
+hud									= magazine_9x19_30_pp19_hud
+
+[magazine_9x19_30_pp19_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_30_pp2000]:magazine_base ; PP-2000
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 30
+cost								= 240
+mag_icon							= mag_9x19_30_pp2000
+inv_weight							= 0.18
+inv_volume							= 0.32
+inv_grid_x							= 61
+inv_grid_y							= 47
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_30_name
+inv_name_short						= st_magazine_9x19_30_name
+description							= st_magazine_9x19_30_pp2000_descr
+visual								= dynamics\weapons\magazines\mag_30_900x19.ogf
+hud									= magazine_9x19_30_pp2000_hud
+
+[magazine_9x19_30_pp2000_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_32]:magazine_base ; MP-40
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 32
+cost								= 300
+mag_icon							= mag_9x19_32
+inv_weight							= 0.25
+inv_volume							= 0.35
+inv_grid_x							= 62
+inv_grid_y							= 48
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_30_name
+inv_name_short						= st_magazine_9x19_30_name
+description							= st_magazine_9x19_32_descr
+visual								= dynamics\weapons\magazines\mag_32_900x19.ogf
+hud									= magazine_9x19_32_hud
+
+[magazine_9x19_32_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_32_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x19_cnt_40]:magazine_base ; MP7
+ammo_class							= ammo_9x19_fmj, ammo_9x19_fmj_bad, ammo_9x19_fmj_verybad, ammo_9x19_pbp, ammo_9x19_pbp_bad, ammo_9x19_pbp_verybad, ammo_9x19_ap, ammo_9x19_ap_bad, ammo_9x19_ap_verybad
+ammo_mag_size						= 40
+cost								= 350
+mag_icon							= mag_9x19_40
+inv_weight							= 0.17
+inv_volume							= 0.4
+inv_grid_x							= 58
+inv_grid_y							= 47
+bullet_icon							= reload_9x18
+inv_name							= st_magazine_9x19_40_name
+inv_name_short						= st_magazine_9x19_40_name
+description							= st_magazine_9x19_40_descr
+visual								= dynamics\weapons\magazines\mag_30_900x19.ogf
+hud									= magazine_9x19_40_hud
+
+[magazine_9x19_40_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_900x19_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 9x39mm
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_10]:magazine_base ; ВСС
+ammo_class							= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, ammo_9x39_ap, ammo_9x39_ap_bad, ammo_9x39_ap_verybad
+ammo_mag_size						= 10
+cost								= 200
+mag_icon							= mag_9x39_10
+inv_weight							= 0.15
+inv_volume							= 0.2
+inv_grid_x							= 67
+inv_grid_y							= 49
+bullet_icon							= reload_9x39
+inv_name							= st_magazine_9x39_10_name
+inv_name_short						= st_magazine_9x39_10_name
+description							= st_magazine_9x39_10_descr
+visual								= dynamics\weapons\magazines\mag_10_900x39.ogf
+hud									= magazine_9x39_10_hud
+
+[magazine_9x39_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_900x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_20]:magazine_base ; 9A-91
+ammo_class							= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, ammo_9x39_ap, ammo_9x39_ap_bad, ammo_9x39_ap_verybad
+ammo_mag_size						= 20
+cost								= 300
+mag_icon							= mag_9x39_20
+inv_weight							= 0.370
+inv_volume							= 0.35
+inv_grid_x							= 68
+inv_grid_y							= 49
+bullet_icon							= reload_9x39
+inv_name							= st_magazine_9x39_20_name
+inv_name_short						= st_magazine_9x39_20_name
+description							= st_magazine_9x39_20_descr
+visual								= dynamics\weapons\magazines\mag_20_9x39_9a91.ogf
+hud									= magazine_9x39_20_hud
+
+[magazine_9x39_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_900x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_20_2]:magazine_9x39_cnt_20 ; AK-9
+description							= st_magazine_9x39_20_2_descr
+inv_weight							= 0.350
+inv_grid_x							= 68
+inv_grid_y							= 48
+mag_icon							= mag_9x39_20_2
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_20_3]:magazine_9x39_cnt_20 ; ОЦ-14
+description							= st_magazine_9x39_20_3_descr
+inv_grid_x							= 65
+inv_grid_y							= 48
+mag_icon							= mag_9x39_20_3
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_20_4]:magazine_9x39_cnt_20 ; АС ВАЛ
+description							= st_magazine_9x39_20_4_descr
+inv_grid_x							= 67
+inv_grid_y							= 48
+mag_icon							= mag_9x39_20_4
+;-----------------------------------------------------------------------------
+[magazine_9x39_cnt_30]:magazine_9x39_cnt_20 ;CP-3М Вихрь
+ammo_mag_size						= 30
+cost								= 250
+mag_icon							= mag_9x39_30
+inv_weight							= 0.2
+inv_volume							= 0.45
+inv_grid_x							= 64
+inv_grid_y							= 48
+description							= st_magazine_9x39_30_descr
+visual								= dynamics\weapons\magazines\mag_30_9x39_vihr.ogf
+hud									= magazine_9x39_30_hud
+
+[magazine_9x39_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_20_900x39_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 11.43x23mm (.45ACP)
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_7]:magazine_base	; Colt 1911
+ammo_class		 					= ammo_11.43x23_fmj, ammo_11.43x23_fmj_bad, ammo_11.43x23_fmj_verybad, ammo_11.43x23_ap, ammo_11.43x23_ap_bad, ammo_11.43x23_ap_verybad, ammo_11.43x23_hydro, ammo_11.43x23_hydro_bad, ammo_11.43x23_hydro_verybad
+ammo_mag_size						= 7
+cost								= 180
+mag_icon							= mag_1143x23_7
+inv_weight							= 0.07
+inv_volume							= 0.12
+inv_grid_x							= 56
+inv_grid_y							= 49
+inv_name							= st_magazine_1143x23_7_name
+inv_name_short						= st_magazine_1143x23_7_name
+description							= st_magazine_1143x23_7_descr
+visual								= dynamics\weapons\magazines\clip_7_1143x23.ogf
+hud									= magazine_1143x23_7_hud
+
+[magazine_1143x23_7_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_7_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_8]:magazine_1143x23_cnt_7 ; Colt 1911 Kimber
+ammo_mag_size						= 8
+cost								= 200
+mag_icon							= mag_1143x23_8
+inv_weight							= 0.077
+inv_volume							= 0.12
+inv_grid_x							= 57
+inv_grid_y							= 49
+description							= st_magazine_1143x23_8_descr
+visual								= dynamics\weapons\magazines\clip_8_1143x23.ogf
+hud									= magazine_1143x23_8_hud
+
+[magazine_1143x23_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_8_2]:magazine_1143x23_cnt_7 ; Desert Eagle
+ammo_mag_size						= 8
+cost								= 225
+mag_icon							= mag_1143x23_8_2
+inv_weight							= 0.077
+inv_volume							= 0.13
+inv_grid_x							= 58
+inv_grid_y							= 49
+description							= st_magazine_1143x23_8_2_descr
+visual								= dynamics\weapons\magazines\clip_8_1143x23.ogf
+hud									= magazine_1143x23_8_2_hud
+
+[magazine_1143x23_8_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_12]:magazine_1143x23_cnt_7 ; USP 45
+ammo_mag_size						= 8
+cost								= 225
+mag_icon							= mag_1143x23_12
+inv_weight							= 0.077
+inv_volume							= 0.12
+inv_grid_x							= 53
+inv_grid_y							= 48
+description							= st_magazine_1143x23_12_descr
+visual								= dynamics\weapons\magazines\clip_8_1143x23.ogf
+hud									= magazine_1143x23_12_hud
+
+[magazine_1143x23_12_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_15]:magazine_1143x23_cnt_7 ; FPN 45
+ammo_mag_size						= 15
+cost								= 240
+mag_icon							= mag_1143x23_15
+inv_weight							= 0.077
+inv_volume							= 0.17
+inv_grid_x							= 52
+inv_grid_y							= 50
+description							= st_magazine_1143x23_15_descr
+visual								= dynamics\weapons\magazines\clip_8_1143x23.ogf
+hud									= magazine_1143x23_15_hud
+
+[magazine_1143x23_15_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_25]:magazine_1143x23_cnt_7	; H&K UMP-45
+ammo_mag_size						= 25
+cost								= 300
+mag_icon							= mag_1143x23_25
+inv_weight							= 0.228
+inv_volume							= 0.24
+inv_grid_x							= 60
+inv_grid_y							= 48
+description							= st_magazine_1143x23_25_descr
+visual								= dynamics\weapons\magazines\mag_30_1143x23.ogf
+hud									= magazine_1143x23_25_hud
+
+[magazine_1143x23_25_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_1143x23_cnt_30]:magazine_1143x23_cnt_7	; Kriss Vector, MP5 Frasier
+ammo_mag_size						= 30
+cost								= 350
+mag_icon							= mag_1143x23_30
+inv_weight							= 0.228
+inv_volume							= 0.32
+inv_grid_x							= 60
+inv_grid_y							= 47
+description							= st_magazine_1143x23_30_descr
+visual								= dynamics\weapons\magazines\mag_30_1143x23.ogf
+hud									= magazine_1143x23_30_hud
+
+[magazine_1143x23_30_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_30_1143x23_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 12x55mm
+;-----------------------------------------------------------------------------
+[magazine_12x55_cnt_5]:magazine_base ; ВССК
+ammo_class							= ammo_12.7x55_fmj, ammo_12.7x55_fmj_bad, ammo_12.7x55_fmj_verybad, ammo_12.7x55_ap, ammo_12.7x55_ap_bad, ammo_12.7x55_ap_verybad
+ammo_mag_size						= 5
+cost								= 800
+mag_icon							= mag_12x55_5
+inv_weight							= 0.35
+inv_volume							= 0.45
+inv_grid_x							= 54
+inv_grid_y							= 47
+inv_name							= st_magazine_12x55_5_name
+inv_name_short						= st_magazine_12x55_5_name
+description							= st_magazine_12x55_5_descr
+visual								= dynamics\weapons\magazines\mag_5_1270x108.ogf
+hud									= magazine_12x55_5_hud
+
+[magazine_12x55_5_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_5_1270x108_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x55_cnt_5_2]:magazine_base ; АСВК
+ammo_class							= ammo_12.7x55_fmj, ammo_12.7x55_fmj_bad, ammo_12.7x55_fmj_verybad, ammo_12.7x55_ap, ammo_12.7x55_ap_bad, ammo_12.7x55_ap_verybad
+ammo_mag_size						= 5
+cost								= 800
+mag_icon							= mag_12x55_5_2
+inv_weight							= 0.3
+inv_volume							= 0.5
+inv_grid_x							= 55
+inv_grid_y							= 47
+inv_name							= st_magazine_12x55_5_name
+inv_name_short						= st_magazine_12x55_5_name
+description							= st_magazine_12x55_5_2_descr
+visual								= dynamics\weapons\magazines\mag_10_1270x99.ogf
+hud									= magazine_12x55_5_2_hud
+
+[magazine_12x55_5_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_1270x99_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x55_cnt_10]:magazine_base ; AШ-12
+ammo_class							= ammo_12.7x55_fmj, ammo_12.7x55_fmj_bad, ammo_12.7x55_fmj_verybad, ammo_12.7x55_ap, ammo_12.7x55_ap_bad, ammo_12.7x55_ap_verybad
+ammo_mag_size						= 10
+cost								= 1200
+mag_icon							= mag_12x55_10
+inv_weight							= 0.7
+inv_volume							= 0.9
+inv_grid_x							= 56
+inv_grid_y							= 47
+inv_name							= st_magazine_12x55_5_name
+inv_name_short						= st_magazine_12x55_5_name
+description							= st_magazine_12x55_10_descr
+visual								= dynamics\weapons\magazines\mag_10_1270x99.ogf
+hud									= magazine_12x55_10_hud
+
+[magazine_12x55_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_1270x99_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x55_cnt_20]:magazine_12x55_cnt_10 ; AШ-12
+ammo_class							= ammo_12.7x55_fmj, ammo_12.7x55_fmj_bad, ammo_12.7x55_fmj_verybad, ammo_12.7x55_ap, ammo_12.7x55_ap_bad, ammo_12.7x55_ap_verybad
+ammo_mag_size						= 20
+cost								= 2100
+mag_icon							= mag_12x55_20
+inv_weight							= 1.2
+inv_volume							= 1.6
+inv_grid_x							= 57
+inv_grid_y							= 47
+description							= st_magazine_12x55_20_descr
+visual								= dynamics\weapons\magazines\mag_10_1270x99.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber 12x70mm, 12x76mm
+;-----------------------------------------------------------------------------
+[magazine_12x76_cnt_8]:magazine_base ; Saiga-12K, Vepr-12
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+ammo_mag_size						= 8
+cost								= 1000
+mag_icon							= mag_12x76_8
+inv_weight							= 0.28
+inv_volume							= 0.55
+inv_grid_x							= 69
+inv_grid_y							= 48
+bullet_icon							= reload_shotgun_slug
+inv_name							= st_magazine_12x76_cnt_8_name
+inv_name_short						= st_magazine_12x76_cnt_8_name
+description							= st_magazine_12x76_cnt_8_descr
+visual								= dynamics\weapons\magazines\mag_8_12-76.ogf
+hud									= magazine_12x76_8_hud
+
+[magazine_12x76_8_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_8_12-76_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x76_cnt_10]:magazine_base ; Saiga-12K, Vepr-12
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+ammo_mag_size						= 10
+cost								= 1200
+mag_icon							= mag_12x76_10
+inv_weight							= 0.30
+inv_volume							= 0.65
+inv_grid_x							= 69
+inv_grid_y							= 49
+bullet_icon							= reload_shotgun_slug
+inv_name							= st_magazine_12x76_cnt_10_name
+inv_name_short						= st_magazine_12x76_cnt_10_name
+description							= st_magazine_12x76_cnt_10_descr
+visual								= dynamics\weapons\magazines\mag_8_12-76.ogf
+hud									= magazine_12x76_10_hud
+
+[magazine_12x76_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_8_12-76_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x76_cnt_20]:magazine_base ; USAS12
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+ammo_mag_size						= 20
+cost								= 1800
+mag_icon							= mag_12x76_20
+inv_weight							= 0.4
+inv_volume							= 1.5
+inv_grid_x							= 70
+inv_grid_y							= 48
+inv_name							= st_magazine_12x76_cnt_20_name
+inv_name_short						= st_magazine_12x76_cnt_20_name
+description							= st_magazine_12x76_cnt_20_descr
+visual								= dynamics\weapons\magazines\drum_20_aa12.ogf
+hud									= magazine_12x76_20_hud
+
+[magazine_12x76_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_75_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_12x76_cnt_20_aa12]:magazine_base ; AA12
+ammo_class							= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+ammo_mag_size						= 20
+cost								= 2100
+mag_icon							= mag_12x76_20_2
+inv_weight							= 0.4
+inv_volume							= 1.7
+inv_grid_x							= 70
+inv_grid_y							= 47
+inv_name							= st_magazine_12x76_cnt_20_name
+inv_name_short						= st_magazine_12x76_cnt_20_name
+description							= st_magazine_12x76_cnt_20_2_descr
+visual								= dynamics\weapons\magazines\drum_20_aa12.ogf
+hud									= magazine_12x76_20_2_hud
+
+[magazine_12x76_20_2_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_75_545x39_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber .338 Lapua Magnum
+;-----------------------------------------------------------------------------
+[magazine_338_cnt_5]:magazine_base ; L96 AWSM
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+ammo_mag_size						= 5
+cost								= 1000
+mag_icon							= mag_338_5
+inv_weight							= 0.13
+inv_volume							= 0.3
+inv_grid_x							= 55
+inv_grid_y							= 51
+inv_name							= st_magazine_338_cnt_5_name
+inv_name_short						= st_magazine_338_cnt_5_name
+description							= st_magazine_338_cnt_5_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_338_5_hud
+
+[magazine_338_5_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_338_cnt_5_m24]:magazine_base ; M24A3
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+ammo_mag_size						= 5
+cost								= 1000
+mag_icon							= mag_338_5_2
+inv_weight							= 0.18
+inv_volume							= 0.3
+inv_grid_x							= 56
+inv_grid_y							= 51
+inv_name							= st_magazine_338_cnt_5_name
+inv_name_short						= st_magazine_338_cnt_5_name
+description							= st_magazine_338_cnt_5_2_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_338_m24_hud
+
+[magazine_338_m24_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_338_cnt_5_trg]:magazine_base ; Sako TRG-42
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+ammo_mag_size						= 5
+cost								= 1000
+mag_icon							= mag_338_5_3
+inv_weight							= 0.2
+inv_volume							= 0.3
+inv_grid_x							= 57
+inv_grid_y							= 51
+inv_name							= st_magazine_338_cnt_5_name
+inv_name_short						= st_magazine_338_cnt_5_name
+description							= st_magazine_338_cnt_5_3_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_338_5_trg_hud
+
+[magazine_338_5_trg_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_338_cnt_5_wa2000]:magazine_base ; WA2000
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+ammo_mag_size						= 5
+cost								= 1200
+mag_icon							= mag_338_5_4
+inv_weight							= 0.21
+inv_volume							= 0.3
+inv_grid_x							= 58
+inv_grid_y							= 51
+inv_name							= st_magazine_338_cnt_5_name
+inv_name_short						= st_magazine_338_cnt_5_name
+description							= st_magazine_338_cnt_5_4_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_338_5_wa2000_hud
+
+[magazine_338_5_wa2000_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_338_cnt_10]:magazine_base ; M98B
+ammo_class							= ammo_magnum_300, ammo_magnum_300_bad, ammo_magnum_300_verybad, ammo_magnum_300_ap, ammo_magnum_300_ap_bad, ammo_magnum_300_ap_verybad
+ammo_mag_size						= 10
+cost								= 1200
+mag_icon							= mag_338_10
+inv_weight							= 0.2
+inv_volume							= 0.42
+inv_grid_x							= 59
+inv_grid_y							= 51
+inv_name							= st_magazine_338_cnt_5_name
+inv_name_short						= st_magazine_338_cnt_5_name
+description							= st_magazine_338_cnt_10_descr
+visual								= dynamics\weapons\magazines\mag_10_762x51.ogf
+hud									= magazine_338_10_hud
+
+[magazine_338_10_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\mag_10_762x51_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for caliber .357
+;-----------------------------------------------------------------------------
+[magazine_357_cnt_6]:magazine_base ; MP412
+ammo_class							= ammo_357_hp_mag, ammo_357_hp_mag_bad, ammo_357_hp_mag_verybad, ammo_357_hp_mag_ap, ammo_357_hp_mag_ap_bad, ammo_357_hp_mag_ap_verybad
+ammo_mag_size						= 6
+cost								= 1000
+mag_icon							= mag_357_6
+inv_weight							= 0.05
+inv_volume							= 0.08
+inv_grid_x							= 68
+inv_grid_y							= 47
+inv_name							= st_magazine_357_6_name
+inv_name_short						= st_magazine_357_6_name
+description							= st_magazine_357_6_descr
+visual								= dynamics\weapons\magazines\clip_6_900x32.ogf
+hud									= magazine_357_6_hud
+
+[magazine_357_6_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_6_900x32_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_357_cnt_9]:magazine_base ; Desert Eagle
+ammo_class							= ammo_357_hp_mag, ammo_357_hp_mag_bad, ammo_357_hp_mag_verybad, ammo_357_hp_mag_ap, ammo_357_hp_mag_ap_bad, ammo_357_hp_mag_ap_verybad
+ammo_mag_size						= 9
+cost								= 1000
+mag_icon							= mag_357_9
+inv_weight							= 0.11
+inv_volume							= 0.15
+inv_grid_x							= 58
+inv_grid_y							= 49
+inv_name							= st_magazine_357_9_name
+inv_name_short						= st_magazine_357_9_name
+description							= st_magazine_357_9_descr
+visual								= dynamics\weapons\magazines\clip_8_900x32.ogf
+hud									= magazine_357_9_hud
+
+[magazine_357_9_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_8_900x32_hud.ogf
+;-----------------------------------------------------------------------------
+;	Magazines for Gauss
+;-----------------------------------------------------------------------------
+[magazine_gauss_cnt_10]:magazine_base ; Gauss
+ammo_class							= ammo_gauss, ammo_gauss_bad, ammo_gauss_verybad, ammo_gauss_cardan, ammo_gauss_cardan_bad, ammo_gauss_cardan_verybad
+ammo_mag_size						= 10
+cost								= 5000
+mag_icon							= mag_gauss_10
+inv_weight							= 0.25
+inv_volume							= 0.8
+inv_grid_x							= 71
+inv_grid_y							= 47
+inv_name							= st_magazine_gauss_name
+inv_name_short						= st_magazine_gauss_name
+description							= st_magazine_gauss_descr
+visual								= dynamics\weapons\wpn_ammo\ammo_gauss.ogf
+hud									= magazine_gauss_hud
+
+[magazine_gauss_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_6_900x32_hud.ogf
+;-----------------------------------------------------------------------------
+[magazine_gauss_cnt_20]:magazine_base ; Gauss
+ammo_class							= ammo_gauss, ammo_gauss_bad, ammo_gauss_verybad, ammo_gauss_cardan, ammo_gauss_cardan_bad, ammo_gauss_cardan_verybad
+ammo_mag_size						= 20
+cost								= 8000
+mag_icon							= mag_gauss_20
+inv_weight							= 0.25
+inv_volume							= 0.8
+inv_grid_x							= 71
+inv_grid_y							= 48
+inv_name							= st_magazine_gauss_name
+inv_name_short						= st_magazine_gauss_name
+description							= st_magazine_gauss_20_descr
+visual								= dynamics\weapons\wpn_ammo\ammo_gauss.ogf
+hud									= magazine_gauss_20_hud
+
+[magazine_gauss_20_hud]:magazine_base_hud
+item_visual							= dynamics\weapons\magazines\clip_6_900x32_hud.ogf
+;-----------------------------------------------------------------------------

@@ -1,0 +1,779 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	<string id="st_psy_helmet_name">
+		<text>Cientifico "PSY SHLEM" (Personalizado)</text>
+	</string>
+	<string id="st_psy_helmet_desc">
+		<text>La version personalizada del PSY-SHLEM. Desarrollado bajo la supervision de Sajarov en la estacion de investigacion cerca del lago Yantar. El diseno unico del casco, que consiste en artefactos de roca electrica y la antena incrustada del dispositivo funciona segun el principio de un escudo. Cuando el casco se activa, una especie de cupula invisible aparece cerca del usuario, actuando sobre la energia de las particulas del artefacto "Vacio", que amortigua gran parte de la radiacion, y el resto es reflejado por el sistema de proteccion incorporado directamente en la carcasa del casco. La singularidad del casco radica en su capacidad para soportar teoricamente cualquier radiacion psi conocida actualmente por el CZO.\n \n%c[No exponga el casco a ninguna radiacion electrica/termica anomala bajo ninguna circunstancia. Hacerlo provocara que las propiedades del casco fallen por completo.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] Maxima Proteccion contra la Radiacion Psi{n%c[0,153,255,255] • %c[0,140,140,140] Unico en su clase</text>
+	</string>
+
+	<string id="st_bad_psy_helmet_name">
+		<text>Se trata de un "PSY SHLEM" cientifico (no esta montado)</text>
+	</string>
+	<string id="st_bad_psy_helmet_desc">
+		<text>Version no configurada del PSY-SHLEM. Desarrollado bajo la supervision de Sajarov en una estacion de investigacion cerca del lago Yantar. El diseno unico del casco, que consiste en artefactos de roca electrica y la antena incrustada del dispositivo funciona segun el principio de un escudo. Cuando el casco se activa, una especie de cupula invisible aparece cerca del portador, actuando sobre la energia de las particulas del artefacto "Vacio", que amortigua la mayor parte de la radiacion, y luego los restos se reflejan en el sistema de proteccion incorporado directamente en la carcasa del casco. Esta version del casco no puede proteger completamente contra la radiacion dentro de la ZEC. \n \n%c[0,204,0,51]ADVERTENCIA:\n \n%c[por defecto]?No exponga en ningun caso el casco a una radiacion electrica/termica anormal! Hacerlo causara que las propiedades del casco fallen por completo.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] Proteccion contra la radiacion de alta Psi{n%c[0,153,255,255] • %c[0,140,140] Unico en su clase</text>
+	</string>
+
+	<string id="military_outfit_name">
+		<text>Traje blindado Bulat</text>
+	</string>
+	<string id="mp_exo_outfit_description">
+		<text>%c[0,170,170]El exoesqueleto proporciona una proteccion superior contra las balas y la metralla a costa de la movilidad. La unica forma de danar a su portador es utilizar las mejores balas perforantes.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] - armadura muy pesada:\n%c[0,153,255,255] - exoesqueleto:\n%c[0,140,140,140]CLASE DE PROTECCION CEREBRAL:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] mayor resistencia al desgaste\n%c[0,100,0,15] • %c[0,140,140,140] consumo de energia</text>
+	</string>
+	<string id="mp_exo_outfit_name">
+		<text>Exoesqueleto</text>
+	</string>
+	<string id="mp_military_outfit_description">
+		<text>%c[0,170,170]Traje blindado militar avanzado para operaciones de asalto en zonas de actividad anomala. Componentes: blindaje pesado de la serie PSZ-12p, mono de proteccion anomala y traje de compensacion. Proporciona una excelente proteccion contra las balas y la metralla, a la vez que es comodo y casi no restringe la movilidad del usuario. Dispone de soportes para modulos incorporados.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura pesada\N-[0,170,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IV\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la ganancia de impacto</text>
+	</string>
+	<string id="mp_military_outfit_name">
+		<text>Traje blindado</text>
+	</string>
+	<string id="novice_outfit_name">
+		<text>Chaqueta de cuero</text>
+	</string>
+	<string id="bandit_novice_outfit_name">
+		<text>Chaqueta de bandido</text>
+	</string>
+	<string id="novice_outfit_description">
+		<text>\n%c[0,170,170]Chaqueta estandar que mantiene a su portador caliente bajo la lluvia y los fuertes vientos. No ofrece ninguna proteccion, pero tiene un sistema de fijacion de modulos. Caracteristicas:\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje ligero \n%c[0,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] mayor resistencia a la abrasion</text>
+	</string>
+	<string id="trenchcoat_outfit_name">
+		<text>abrigo</text>
+	</string>
+	<string id="trenchcoat_outfit_description">
+		<text>\n  \n%c[0,170,170]Gabardina larga y acolchada con un acolchado especial alrededor del torso y la cabeza para proporcionar un poco de proteccion contra las influencias anormales. Es mejor utilizarlo con una mascara de gas o un sistema de respiracion cerrado. Inicialmente, se instalan dos accesorios para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje ligero:\n%c[0,170,170,170]CLASE BASE:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Muneca:%c[0,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]absent\n%c[0,93,0,116] • %c[0,140,140,140] Piernas: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] mayor capacidad de carga</text>
+	</string>
+	<string id="st_coat_heavy_name">
+		<text>Cuidado con la lluvia</text>
+	</string>
+	<string id="st_coat_heavy_description">
+		<text>\n%c[0,170,170]Capa larga y densa con una capa interior especial que proporciona proteccion extra, incluso contra las anomalias. Es mejor utilizarlo con una mascara de gas o un sistema de respiracion cerrado. Inicialmente, hay un accesorio para los modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera \n%c[[0,170,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]absent\n%c[0,93,0,116] • %c[0,140,140,140] Piernas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] mayor capacidad de carga</text>
+	</string>
+	<string id="dolg_scientific_outfit_name">
+	    <text>PSZ-9Md "Proteccion Universal"</text>
+	</string>
+	<string id="svoboda_scientific_outfit_name">
+		<text>Nombre del equipo cientifico"</text>
+	</string>
+	<string id="merc_scientific_outfit_name">
+		<text>Traje de mercenario cientifico</text>
+	</string>
+	<string id="monolith_scientific_outfit_name">
+		<text>Traje de mercenario cientifico Prophet C-8</text>
+	</string>
+	<string id="specops_outfit_name">
+		<text>Traje blindado Beryll-5M</text>
+	</string>
+	<string id="st_helm_battle">
+		<text>Casco "Esfera M14"</text>
+	</string>
+	<string id="st_helm_battle_descr">
+		<text>\n%c[0,170,170]Casco de aluminio-titanio revestido de tela con bolsillos para elementos de armadura de acero y mascara de armadura. Admite el filtro unico de 40 mm de las mascaras antigas de la serie PMK y el visor nocturno 1PH93-1. El M12 es el casco mas resistente disponible en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>	
+	<string id="st_helm_exo">
+		<text>Casco M12M de Esfera</text>
+	</string>
+	<string id="st_helm_exo_descr">
+		<text>\n%c[0,170,170,170]El casco que viene con el exoesqueleto estandar. Casco de tejido de aluminio-titanio con bolsillos para elementos de armadura de acero y chasis de armadura. Admite un unico filtro de mascara de gas de la serie PMK de 40 mm, asi como la mira nocturna 1PH93-1. El M12 es el casco mas resistente disponible en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+	
+	<string id="st_helm_hardhat">
+		<text>Casco de acero M40</text>
+	</string>
+	<string id="st_helm_hardhat_descr">
+		<text>%c[0,170,170,170]Casco de acero estandar del ejercito. Fabricado en Rusia. No proporciona ninguna proteccion contra las anomalias o la radiacion, pero puede desviar una bala tangencial. En la demanda en la Zona solo durante los primeros enfrentamientos entre las facciones.\n \n%c[0,170,170] casco de combate de clase media \N - [0,153,255,255]:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de acero M40 %c[0,170,170]2480 g\n%c[0,93,0,116] • %c[0,140,140,140] Visor de Armadura Clase IIIA %c[0,170,170]190 g\n:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]\N - %c[0,140,140] Ojos: %c[0,170,170]\N - %c[0,140,140] Barbilla: %c[0,170,170,170]ausente%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]ausente</text>
+	</string>	
+	<string id="st_helm_protective">
+		<text>Casco SSP-99</text>
+	</string>
+	<string id="st_helm_protective_descr">
+		<text>%c[0,170,170]El casco, que se ha desprendido del traje de ecologista SSP-99. Tiene una construccion sellada disenada para aislar completamente de las condiciones ambientales anormales. Puede utilizarse en combinacion con el chaleco militar para mejorar su eficacia en entornos anormales.\n \n%c[0,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] casco pesado encapsulado \n%c[[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] visor sellado in99 %c[0,170,170,170]1790 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion de SSP %c[0,170,170,170]1160 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion IDA-71 %c[0, 170,170,170]1220 g\n%c[0,93,0,116] • %c[0,140,140,140] psy-shield PS8 %c[0,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140, 140] dispositivo de vision nocturna PN21KL %c[0,170,170]1110g\n%c[0,170,170,170]CLASE MARRON:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+	
+	<string id="st_helm_respirator">
+		<text>Mascara de gas EO-20 PBF</text>
+	</string>
+	<string id="st_helm_respirator_descr">
+		<text>%c[0,170,170]Una version mejorada y considerablemente mas compacta de la clasica mascara antigas EO-19 PBF. Un sistema sencillo proporciona filtracion de aire contra las particulas de radiacion y los productos quimicos, sin comprometer la movilidad del usuario. La proteccion contra las radiaciones se ha mejorado con la adicion de plomo en los filtros, pero hay que senalar que la mascara no ofrece la fiabilidad necesaria para su uso en un entorno toxico. No ofrece casi ninguna proteccion contra las lesiones fisicas.\n \n%c[0,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] mascara de gas ligera \n%c[[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]falta\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]falta</text>
+	</string>
+
+	<string id="st_helm_cloth_mask_camo">
+		<text>Mascara de tela de camuflaje</text>
+	</string>
+	<string id="st_helm_cloth_mask_camo_descr">
+		<text>\n%c[0,170,170,170]Un trozo de tela de camuflaje enrollado en una mascara. Suele ser utilizado por los acosadores para evitar la ingestion de particulas peligrosas, como medida de precaucion. Se recomienda llevarlo incluso cuando no hay alarma de contador Geiger, ya que el aire puede estar contaminado en cierta medida. Sin embargo, puede acumular toxinas si se utiliza durante largos periodos de tiempo, por lo que es aconsejable tener siempre un repuesto para su rapida sustitucion.\n \n%c[0,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] mascara de trapo \n%c[[0,170,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] tejido denso de una sola capa %c[0,170,170]224 g\n%c[0,170,170]CLASE DE BROMETERIA:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]ausente\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]ausente\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]ausente</text>
+	</string>
+	<string id="st_helmm_40">
+		<text>Casco PMC</text>
+	</string>
+	<string id="st_helmm_40_descr">
+		<text>%c[0,170,170]El kit PMK consta de un filtro respiratorio multicapa de 40 mm colocado en el lado izquierdo. El uso de este sistema reduce la movilidad del usuario, pero proporciona una buena proteccion contra la radiacion incluso si la mascara esta parcialmente danada. Este tipo de equipo fue disenado para ser utilizado por los Spetsnaz ucranianos, pero nunca se puso en produccion en masa. Tambien puede equiparse con un dispositivo de vision nocturna.\n \n%c[0,170,170] • %c[0,140,140,140] mascara de gas reforzada \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PMK %c[0,170,170,170]990 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion de 40mm %c[0,170, 170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] 1PH93-1 dispositivo de vision nocturna %c[0,170,170]1,550 g\n%c[0,170,170,170]CLASE MARRON:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]falta\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]falta</text>
+	</string>
+	<string id="st_helm_tactic">
+		<text>Casco "Esfera 08"</text>
+	</string>
+	<string id="st_helm_tactic_descr">
+		<text>n%c[0,170,170]Casco moderno y de alta calidad con sistema de filtracion de aire incorporado. La construccion consiste en multiples capas de kevlar para proteger al usuario de danos fisicos graves. El casco esta fabricado con materiales compuestos dielectricos, lo que protege al usuario de la exposicion a la corriente electrica.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco blindado con sistema de filtracion de aire:\n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140]Esfera 08 Casco de Kevlar %c[0,170,170]1580 g\n%c[0,93,0,116] • %c[0,140,140, 140] visor de clase IV %c[0,170,170]240 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170,170]120 g\n%c[0,93,0,116] • %c[0,140,140 140] filtro respiratorio 2xPDE-1 %c[0,170,170]330 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PN93-1 %c[0 170,170,170]1550 g\n%c[0,93,0,116] • %c[0,140,140,140] interfaz electronica %c[0,170,170]30 g\n%c[0,170,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IIIA</text>
+	</string>
+	<string id="stalker_outfit_name">
+		<text>Traje de Zarya</text>
+	</string>
+	<string id="nombre_de_guardia_ecologica">
+		<text>Conjunto de la puesta de sol</text>
+	</string>
+	<string id="merc_outfit_name">
+		<text>Traje Mercenario</text>
+	</string>
+
+	<string id="svoboda_heavy_outfit_name">
+		<text>Equipo de guardian de la libertad</text>
+	</string>
+	<string id="banditmerc_outfit_name">
+		<text>Vestido de pandillero</text>
+	</string>
+
+	<string id="svoboda_light_outfit_name">
+		<text>Equipo de vientos de libertad</text>
+	</string>
+
+
+
+	<string id="svoboda_light_outfit_description">
+		<text>\n%c[0,170,170,170]Un traje de acosador extremadamente ligero fabricado por los artesanos de la faccion Libertad. Tejido con tela tratada con Horizon, aumenta en gran medida las capacidades defensivas del acechador en un entorno anomalo. Esta equipado con un chaleco antibalas integrado y un soporte para instalar modulos adicionales.\n \n%c[0,140,140,140] armadura ligera:\n%c[0,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+	
+	<string id="dolg_outfit_name">
+		<text>PS5-M "Proteccion universal"</text>
+	</string>
+	<string id="dolg_outfit_description">
+		<text>\n%c[0,170,170]El modelo moderno del mono dolg. Es mas adecuado para los nuevos reclutas acosadores que estan acostumbrados a trajes relativamente ligeros. A diferencia de la serie PS3, proporciona una buena proteccion contra los impactos anormales y, al mismo tiempo, es capaz de detener una bala de pistola. Dos monturas de artefactos estan integradas en la cintura, asi como la posibilidad de instalar varios accesorios.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] armadura ligera \n%c[[0,170,170]Clase de armadura:\n%c0,93,0,116] - %c[0,140,140,140]Torso:%c[0,170,170]II\n%c[0,93,0,116] - %c[0,140,140,140] Hombros: %c[0,170,170,170]II\n%c[0,93,0,116] - %c[0,140,140,140] Munecas: %c[0,170,170,170]II\n%c[0,93,0,116] - %c[0,140,140,140] Manos: %c[0,170,170]none\n%c[0,93,0,116] - %c[0,140,140,140] Caderas: %c[0,170,170]IIA\n%c[0,93,0,116] - %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIA\n%c[0,93,0,116] - %c[0,140,140,140] Pies: %c[0,170,170]IIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140]proteccion de lagrimas[</text>
+	</string>
+	<string id="military_outfit_description">
+		<text>%c[0,170,170]Traje blindado del ejercito moderno para operaciones de asalto en zonas de actividad anomala. Componentes: blindaje pesado de la serie PSZ-12p, mono de proteccion anomala y traje de compensacion. Proporciona una excelente proteccion contra las balas y la metralla, a la vez que es comodo y casi no restringe la movilidad del usuario. Tiene monturas de modulo integradas.\n \n%c[[0,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura mejorada \n%c[[0,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] - %c[0,140,140,140]Torso:%c[0,170,170]III\n%c[0,93,0,116] - %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] - %c[0,140,140,140] Munecas: %c[0,170,170,170]III\n%c[0,93,0,116] - %c[0,140,140,140] Manos: %c[0,170,170,170]IIIA\n%c[0,93,0,116] - %c[0,140,140,140] Caderas: %c[0,170,170]IIIA\n%c[0,93,0,116] - %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] - %c[0,140,140,140] Pies: %c[0,170,170]IIIA\n%c[0,170,170,170] PIES:\n%c[0,100,0,15] • %c[0,140,140,140] • %c[0,140,140,140]Aumento de la potencia </text>
+	</string>
+
+
+
+	<string id="nombre_del_equipo_cientifico">
+		<text>Mono de SEWA</text>
+	</string>
+	<string id="scientific_outfit_description">
+		<text>%c[0,170,170]Disenado para las expediciones de investigacion en la Zona, este mono combina un sistema de respiracion cerrado con una cubierta exterior aislante para proporcionar una buena proteccion contra todo tipo de influencias anormales. Debido a la falta de proteccion fisica, el traje ofrece muy poca proteccion contra las balas o la metralla. Dispone de soportes integrados para modulos adicionales.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado:\n%c[0,170,170,170]CLASE DE PROTECCION:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]III\n%c[0,170,170]:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la durabilidad\n %c[0,100,0,15] • %c[0,140,140,140] no hay espacio para la mochila en la espalda</text>
+	</string>
+	<string id="specops_outfit_description">
+		<text>%c[0,170,170,170]Un chaleco militar de la serie PS5 con revestimiento de berilio modificado para su uso en la Zona. Disenado para las operaciones de asalto en las zonas con alto fondo de radiacion, pero no es muy eficaz en las condiciones de alta actividad anomala. Los acosadores los consiguen a traves de militares que cambian el equipo del ejercito por la ganga. Estan equipados con soportes para modulos adicionales.\n \n%c[0,140,140,140] armadura mejorada:\n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la ganancia de impacto</text>
+	</string>
+	<string id="stalker_outfit_description">
+		<text>\n%c[0,170,170,170]El mono es una combinacion de un tejido engomado de dos capas con acolchado de plexiglas y una armadura corporal integrada. A pesar de que el chaleco antibalas es atravesado incluso por una bala de pistola, el traje es muy comun debido a su baratura y a su amplio margen de mejora. Equipado con soportes incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] armadura ligera \n%c[[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Manos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICA:\n%c[0,100,0,15] • %c[0,140,140,140] mayor resistencia al desgaste</text>
+	</string>
+
+
+
+	<string id="svoboda_heavy_outfit_description">
+		<text>%c[0,170,170,170]Traje de acosador con armadura corporal reforzada producido por los artesanos de la faccion Libertad: una exitosa combinacion de combate y proteccion anomala. El chaleco antibalas integrado, compuesto por placas de blindaje y varias capas de kevlar, puede detener una bala de pistola. El tejido del traje esta impregnado con el compuesto Sovereign para protegerlo de los impactos anormales. Equipado con accesorios incorporados para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura reforzada \N - Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n \n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+
+	<string id="csky_heavy_outfit_name">
+		<text>Traje de terremoto CHN-3b</text>
+	</string>
+	<string id="csky_heavy_outfit_description">
+		<text>El equipo basico de los escuadrones de asalto de los cielos despejados. Este traje protector no solo es capaz de detener una bala de automata, sino que tambien proporciona una buena proteccion contra las influencias anomalas. Externamente, el traje de armadura pesada se asemeja a un exoesqueleto, pero la primera y principal diferencia que llama la atencion es la ausencia de casco y de servos en los brazos y las piernas, asi como la bateria detras de la espalda. Debido a esta diferencia, un traje blindado pesado es mas ligero que un exoesqueleto y tambien permite a su portador correr. A pesar de su popularidad, el traje nunca recibio su nombre.\n \n%c[0,170,170,170]- %c[0,140,140,140] armadura pesada:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]absent\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]absent\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]absent\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento del numero de anexos para modulos adicionales</text>
+	</string>
+
+
+
+	
+	<!--			Outfit Addon			-->
+	<string id="st_ecologist_outfit_orange_name">
+		<text>El MTP-99 de Antar </text>
+	</string>
+	<string id="st_ecologist_outfit_orange_description">
+		<text>%c[0,170,170]Disenado para su uso en la Zona, el traje SSP-99 es utilizado por los cientificos de la expedicion y los acosadores ambientales colaboradores y cuenta con un sistema de filtracion y acondicionamiento del aire incorporado, por lo que proporciona una proteccion superior contra la radiacion. El modelo Ambar ofrece una excelente proteccion contra las altas temperaturas. Tambien tiene incorporado un sistema de supresion de actividades anomalas que proporciona una proteccion media contra los productos quimicos y la electricidad. No esta disenado para el combate, por lo que no ofrece proteccion contra las balas o la metralla. Dispone de un unico modulo de fijacion integral.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado:\n%c[0,170,170,170]CLASE DE BARRERA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	<string id="st_ecologist_outfit_grn_name">
+		<text>SP-99 "Esmeralda"</text>
+	</string>
+	<string id="st_ecologist_outfit_grn_description">
+		<text>%c[0,170,170]Disenado para su uso en la Zona, el traje SSP-99 es utilizado por los cientificos de la expedicion y los acechadores ambientales colaboradores, y cuenta con un sistema de filtracion y acondicionamiento de aire incorporado para proporcionar una proteccion superior contra la radiacion. El modelo Emerald ofrece una excelente proteccion contra los productos quimicos. Tambien tiene incorporado un sistema de supresion de actividad anormal que proporciona una proteccion media contra las altas temperaturas y la electricidad. No esta disenado para el combate, por lo que no ofrece proteccion ni contra las balas ni contra la metralla. Dispone de dos soportes integrales para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado \N -[0,170,170,170]CLASE DE BARRERA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	<string id="gabardina_marron_nombre_del_traje">
+		<text>Trenchcoat</text>
+	</string>
+	<string id="gabardina_marron_descripcion_de_traje">
+		<text>\Nn%c[0,170,170]Gabardina larga y densa con una capa inferior especial que proporciona proteccion extra, incluso contra las anomalias. Es mejor utilizarlo con una mascara de gas o un sistema de respiracion cerrado. Inicialmente, se instalan dos accesorios para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera \n%c[[0,170,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Muneca:%c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Piernas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la capacidad de carga</text>
+	</string>
+
+
+
+
+	<string id="nombre_del_equipo_del_ejercito">
+		<text>Cuerpo blindado del ejercito</text>
+	</string>
+	<string id="army_outfit_description">
+		<text>El conjunto de equipamiento estandar del chaleco antibalas ligero del ejercito. Buena proteccion contra las balas y la metralla, pero ninguna proteccion contra los efectos anormales. \N - Caracteristicas:\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje ligero:\n%c[0,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] mejorado "Reduccion de golpes"</text>
+	</string>
+
+	<string id="barmerc_outfit_name">
+		<text>Traje de acosador ligero</text>
+	</string>
+	<string id="barmerc_outfit_description">
+    		<text>Equipo mercenario antiguo. Ahora lo usan los guardias del Bar 100 X-Ray y algunos acosadores. Tiene un soporte de modulo incorporado.\n \n%c[0,140,140,140] armadura ligera:\n%c[0,170,170]CLASE DE ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] durabilidad aumentada</text>
+	</string>
+	
+	<string id="nombre_de_equipo_monolitico">
+    	<text>Conjunto de monolitos "Granito M1"</text>
+	</string>
+	<string id="monolith_outfit_description">
+    		<text>Equipo de acosador monolitico. Fabricante desconocido. Su estructura es similar a la de los trajes de acosador "neutrales" mas comunes, en los que el chaleco antibalas se combina con el traje de proteccion contra la radiacion. Proporciona una buena proteccion contra las armas pequenas y la actividad anomala. Dispone de tres accesorios incorporados para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura ligera \N - Clase de armadura:\n%c[0,93,0,116] • %c[0,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] parametro de fuentes de radiacion se eleva</text>
+  	</string>
+	<string id="cs_stalker_outfit_name">
+		<text>Chaleco antibalas Vostok</text>
+	</string>
+	<string id="cs_stalker_outfit_description">
+		<text>\n%c[0,170,170]"Pure Sky" llamo a este mono "Vostok". A pesar de que la armadura no puede proteger al usuario ni siquiera de las balas de pistola, es muy popular entre su faccion por su bajo coste y su potencial de modificacion. Dispone de dos soportes integrados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera \n%c[[0,170,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	
+	<string id="exo_outfit_name">
+		<text>Exoesqueleto</text>
+	</string>
+
+
+
+	<string id="exo_outfit_description">
+		<text>%c[0,170,170]Un exoesqueleto militar experimental. No llego a producirse en masa debido al altisimo coste de fabricacion y a algunos fallos de diseno. Sin embargo, debido a su capacidad para aumentar significativamente la movilidad del vehiculo, tiene una gran demanda y, por tanto, se fabrica tranquilamente en pequenos lotes fuera de Ucrania. Los propietarios de estos exoesqueletos deben evitarlos si no desean morir pronto. Es posible equiparlas con soportes integrados para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura muy pesada:\n%c[0,153,140,140] exoesqueleto:\n%c[0,140,140,140] proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170]V\n%c[0,170,170] \n%c[0,100,0,15] • %c[0,140,140,140] aumento de la durabilidad\n%c[0,100,0,15] • %c[0,140,140,140] con bateria</text>
+	</string>
+	
+	<string id="bandit_exo_outfit_name">
+		<text>Exoesqueleto de bandido</text>
+	</string>
+	<string id="bandit_exo_outfit_description">
+		<text>Creado por la faccion del Sultan bajo el mando de Transparente. Solo los tipos "reales" de la Zona llevan estos exoesqueletos. Tiene una excelente fiabilidad y una gran carga util, pero el precio de esta modificacion fue una ligera perdida de rendimiento. Tiene un soporte incorporado para un modulo adicional.\n \n%c[0,170,170,170]CARACTERISTICAS:\N- %c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la capacidad de carga</text>
+	</string>
+
+	<string id="cs_exo_outfit_name">
+		<text>Exoesqueleto de cielo claro</text>
+	</string>
+	<string id="cs_exo_outfit_description">
+		<text>Variante experimental del exoesqueleto del ejercito, montado en condiciones caseras por los ingenieros de Clear Sky, la proteccion anomala no es mala, el enfasis esta en el uso en combate. Tiene dos soportes incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\N- %c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada\N- %c[0,153,255,255] • %c[0,140,140,140] exoesqueleto \n%c[[0,170,170,170]CLASE BASICA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170] • %c[0,140,140,140] Aumento del numero de anexos para los modulos adicionales</text>
+	</string>
+	<string id="svoboda_exo_outfit_name">
+		<text>Exoesqueleto de Svoboda</text>
+	</string>
+
+
+
+	<string id="svoboda_exo_outfit_description">
+    	<text>Modernizacion del exoesqueleto habitual. El uso de materiales mas ligeros ha reducido el peso del traje, aunque con poca perdida de resistencia a las balas. Tiene una buena proteccion anomala inherente a todos los trajes "Liberty", por lo que la unica desventaja de esta armadura es solo un blindaje corporal debilitado. Tiene un accesorio incorporado para el modulo opcional.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] - armadura muy pesada\n%c[0,153,255,255] • %c[0,140,140,140] exoesqueleto:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+	
+	<string id="merc_exo_outfit_name">
+		<text>Exoesqueleto Mercenario</text>
+	</string>
+	<string id="merc_exo_outfit_description">
+		<text>Exoesqueleto militar experimental, pintado con los colores de la faccion. Popular entre los mercenarios veteranos. Dispone de dos soportes integrados para modulos adicionales. \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada\n%c[0,153,255,255] • %c[0,140,140,140] exoesqueleto \n%c[0,170,170,170]CLASE de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Proteccion contra explosiones aumentada</text>
+	</string>
+
+	<string id="nombre_de_equipo_militar">
+		<text>Exoesqueleto militar</text>
+	</string>
+	<string id="military_exo_outfit_description">
+		<text>Convierte al portador en un autentico tanque andante. Se han utilizado placas de blindaje de ceramica de clase de proteccion 4, las monturas de la cintura tienen escudos laterales para proteger los lados, lo que ha supuesto un aumento significativo del peso. Las unicas desventajas son la escasa proteccion contra anomalias y la ausencia de soportes para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\N- %c[0,153,255,255] • %c[0,140,140,140] proteccion de armadura muy pesada\N- %c[0,153,255,255] • %c[0,140,140] exoesqueleto:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento de "Ganancia de impacto"</text>
+	</string>
+
+	<string id="monolith_exo_outfit_name">
+		<text>Exoesqueleto de monolito</text>
+	</string>
+
+
+
+	<string id="monolith_exo_outfit_description">
+		<text>Tecnologia y lugar de fabricacion desconocidos. Orientado al combate activo. Incluye una armadura corporal de origen desconocido y un escudo antirradiacion unico. Dispone de dos enganches incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\N- %c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada\N- %c[0,153,255,255] • %c[0,140,140] exoesqueleto:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] se eleva el parametro de fuentes de radiacion</text>
+	</string>
+	
+	<string id="dolg_exo_outfit_name">
+		<text>Exoesqueleto dolg</text>
+	</string>
+	<string id="dolg_exo_outfit_description">
+		<text>Los dolg prefieren utilizar materiales pesados para protegerse mejor contra las balas, lo que convierte literalmente al portador de esta armadura en un tanque. El blindaje consta de placas rigidas de metal, plastico y ceramica, asi como de elementos flexibles de tejido de aramida. La desventaja es una proteccion muy baja contra las anomalias, debido a que incluso la mas debil de ellas puede destruir este tanque en un instante. No hay soportes para modulos adicionales.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] - armadura muy pesada\n%c[0,153,255,255] • %c[0,140,140,140] exoesqueleto:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la "proteccion contra las lagrimas"</text>
+	</string>
+
+	<string id="st_helm_tactic_2">
+		<text>Casco tactico Esfera 12</text>
+	</string>
+	<string id="st_helm_tactic_2_descr">
+		<text>La primera variante del casco Sphere 12M utilizada por los militares acechadores, francotiradores y novatos. El respirador incorporado proporciona una pobre proteccion contra la radiacion, pero el cristal antibalas incorporado ofrece una excelente proteccion contra la metralla y las balas de pequeno calibre.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] casco blindado con sistema de filtracion de aire \N - [0,170,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] Esfera 12 Casco de Kevlar %c[0,170,170,170]1580 g\n%c[0,93,0,116] • %c[0,140,140, 140] visor de clase IV %c[0,170,170]240 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170,170]120 g\n%c[0,93,0,116] • %c[0,140,140 140] filtro respiratorio 2xPDE-1 %c[0,170,170]330 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PN93-1 %c[0 170,170,170]1550 g\n%c[0,93,0,116] • %c[0,140,140,140] interfaz electronica %c[0,170,170]30 g\n%c[0,170,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IIIA</text>
+	</string>
+	
+	<string id="st_helm_respirator_2">
+		<text>Mascara de gas EO-19 PBF</text>
+	</string>
+
+
+
+	<string id="st_helm_respirator_2_descr">
+		<text>%c[0,170,170]Mascara antigas de goma, utilizada para filtrar el aire de particulas radiactivas y sustancias venenosas. Este viejo modelo sigue siendo muy utilizado por los reclutas y los veteranos de todas las facciones debido a su versatilidad, funcionalidad y baratura. No esta equipado con proteccion contra balas, metralla o impactos mecanicos.\n \n%c[0,140,140,140] mascara de gas ligera:\n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 gn:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+	
+	<string id="st_helm_respirator_half">
+		<text>Respirador industrial</text>
+	</string>
+	<string id="st_helm_respirator_half_descr">
+		<text>\n%c[0,170,170,170]Un respirador industrial ordinario, utilizado tanto por los novatos como por las facciones veteranas por su baratura y asequibilidad. Puede proteger contra polvos radiactivos y vapores quimicos leves, pero no puede proteger contra ataques mas graves.\n \n%c[0,170,170,170]\N - CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] respirador ligero:\n%c[0,170,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] respirador PBF1 %c[0,170,170]460 g\n%c[0,93,0,116] • %c[0,140,140,140] EO-19 2x %c[0,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]ausente\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]ausente\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]ausente</text>
+	</string>
+	
+	<string id="cs_scientific_outfit_name">
+		<text>Traje cientifico "CHN-8M"</text>
+	</string>
+	<string id="cs_scientific_outfit_description">
+		<text>Construido por el Instituto de Defensa de Kiev por encargo especial del grupo "Clear Sky", es un excelente traje de proteccion para la Zona, un sistema cerrado de respiracion, sistema de supresion de campos anomalos, chaleco antibalas incorporado puede detener una pistola, un traje hecho puramente para el estudio de los campos anomalos, no apto para operaciones de combate activo. Dispone de dos accesorios incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado \N - Clase marron:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICA:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de soportes para modulos adicionales"</text>
+	</string>
+
+	<string id="nombre_de_equipo_cientifico">
+		<text>Equipo SEWA-M</text>
+	</string>
+
+
+
+	<string id="scientific_heavy_outfit_description">
+		<text>Modificado con enfasis en la proteccion de la armadura y un traje SEVA mas pesado. Presenta una proteccion contra anomalias ligeramente afectada por el cambio de prioridades. Tiene dos soportes incorporados para modulos adicionales. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje de armadura pesada con sistema de respiracion cerrado \n \n%c[0,170,170,170]CLASE DE BARRERA:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n:\n%c[0,100,0,15] • %c[0,140,140,140] aumento del numero de soportes para modulos adicionales</text>
+	</string>
+	<string id="st_ecologist_outfit_white_name">
+		<text>SP-99 "Almaz"</text>
+	</string>
+	<string id="st_ecologist_outfit_white_description">
+		<text>%c[0,170,170]Disenado para su uso en la Zona, el traje SSP-99 es utilizado por los cientificos de la expedicion y los acosadores ambientales colaboradores y cuenta con un sistema de filtracion y acondicionamiento del aire incorporado, por lo que proporciona una proteccion superior contra la radiacion. El Almaz ofrece una proteccion superior contra la electricidad. Tambien cuenta con un sistema integrado de supresion de actividades anomalas que proporciona una proteccion media contra productos quimicos y altas temperaturas. No esta disenado para el combate, por lo que no ofrece proteccion ni contra las balas ni contra la metralla. Dispone de una unica fijacion integrada para el modulo opcional.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado:\n%c[0,170,170,170]CLASE DE SEGURIDAD BARONESA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	<string id="st_ecologist_outfit_blue_name">
+		<text>SP-99M Sapphire</text>
+	</string>
+	<string id="st_ecologist_outfit_blue_description">
+		<text>%c[0,170,170]Mono SSP-99M modificado de alta calidad, que ha sido mejorado con una mayor proteccion contra el calor, las balas y la metralla, y tambien proporciona una proteccion superior contra la radiacion. El SSP-99M esta disenado para proporcionar proteccion a las expediciones cientificas. El Zafiro proporciona una proteccion superior contra los ataques psi. Tambien incorpora un sistema integrado de supresion de anomalias, que proporciona una proteccion media contra las interferencias quimicas y electricas. Tiene dos soportes incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado \N - Clase de proteccion marron:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+
+
+
+	<string id="monolith_scientific_outfit_description">
+		<text>Traje de acosador de la faccion Monolith. Fabricante desconocido. Dispone de un traje de armadura antimetralla de origen desconocido, asi como de modificaciones unicas para reducir los efectos de la radiacion. Dispone de dos soportes integrados para modulos adicionales. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado \n \n%c[0,170,170,170]CLASE BASE:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n \n%c[0,170,170]Cuello:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de fuentes de radiacion se incrementa</text>
+  </string>
+  <string id="dolg_scientific_outfit_description">
+		<text>Un gran traje de proteccion para la Zona. Los acosadores lo aprecian por su combinacion de excelentes cualidades antianomalias y proteccion antibalas. Esto incluye el traje PSZ-9d, el sistema de respiracion cerrada y un sistema integrado de proteccion contra anomalias. Proporciona una proteccion de alta calidad contra las balas y la metralla. Cuenta con un accesorio incorporado para un modulo opcional. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado \n \n%c[0,170,170,170]Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n \n%c[0,170,170,170]Cuello:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento la "Proteccion contra desgarros"</text>
+	</string>
+	<string id="merc_scientific_outfit_description">
+		<text>Traje Mercenario disenado especificamente para misiones en zonas de alta actividad anomala. Sistema de regeneracion de aire en ciclo cerrado con supresion de campos anomalos incorporada. Proporciona una buena proteccion contra las heridas de bala y metralla, pero no es adecuada para operaciones militares a gran escala. Dispone de dos soportes integrados para modulos adicionales. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado \n \n%c[0,170,170,170]CLASE BARRONESA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]Cuello:\n%c[0,100,0,15] • %c[0,140,140,140,140] Proteccion contra explosiones aumentada</text>
+	</string>
+
+
+
+	<string id="svoboda_scientific_outfit_description">
+		<text>Utilizado por los cientificos de svoboda para la investigacion de campo en la Zona. El sistema de respiracion cerrado y los materiales compuestos especiales proporcionan una proteccion superior contra las radiaciones nocivas y los efectos anomalos. El chaleco antibalas incorporado, hecho de placas de blindaje y varias capas de tejido Twaron, puede detener una bala de pistola, pero no mas, por lo que el traje es poco adecuado para el combate activo. Tiene un accesorio incorporado para un modulo adicional. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje pesado con sistema de respiracion cerrado \n \n%c[0,170,170,170]CLASE DE BARON:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n \n%c[0,170,170,170]Cuello:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+	
+	<string id="nbc_outfit_name">
+		<text>"Ambar"</text>
+	</string>
+	<string id="nbc_outfit_description">
+		<text>\n%c[0,170,170]Una version especial del mono "Zarya" disenada para operaciones de combate en condiciones de uso de armas de destruccion masiva por parte del enemigo. Esta equipado con un chaleco antibalas de clase III, un chaleco de descarga y un sistema de proteccion respiratoria conectado a una mascara antigas GP-5 mejorada. Hay dos soportes integrados para modulos adicionales.\n \n%c[0,170,170]- %c[0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICA:\n%c[0,100,0,15] • %c[0,140,140,140] mayor resistencia al desgaste</text>
+	</string>
+
+	<string id="bandit_nbc_outfit_name">
+		<text>"Viajero oscuro"</text>
+	</string>
+	<string id="bandit_nbc_outfit_description">
+		<text>\n%c[0,170,170]Una version especial del traje Zakat, disenada para operaciones de combate en condiciones de uso de armas de destruccion masiva por parte del enemigo. El traje esta equipado con un chaleco blindado de clase III, un chaleco de descarga y un sistema de proteccion respiratoria conectado a una mascara antigas GP-5 mejorada. Hay un accesorio incorporado para el modulo adicional.\n \n%c[0,170,170]- %c[0,153,255,255] • %c[0,140,140,140] armadura ligera:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] mayor capacidad de carga</text>
+	</string>
+
+
+
+
+	<string id="cs_nbc_outfit_name">
+		<text>"Viajero ligero"</text>
+	</string>
+	<string id="cs_nbc_outfit_description">
+		<text>%c[0,170,170]Una version especial, especial del mono "Cielo claro", disenado para el combate en entornos donde el enemigo utiliza armas de destruccion masiva. El traje esta equipado con un chaleco de proteccion corporal de clase III, un chaleco de descarga y un sistema de proteccion respiratoria que se combina con la mascara antigas GP-5 mejorada. Hay tres soportes integrales para modulos adicionales.\n \n%c[0,170,170]- %c[0,153,255,255] • %c[0,140,140,140] proteccion de armadura reforzada:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	
+	<string id="monolith_nbc_outfit_name">
+		<text>Conjunto de monolitos "Gehenna"</text>
+	</string>
+	<string id="monolith_nbc_outfit_description">
+		<text>Una version especial, especial del traje Monolith disenado para el uso de armas de destruccion masiva del enemigo. El traje esta equipado con un chaleco antibalas de clase III, un chaleco fuera de servicio y un sistema de proteccion respiratoria que puede combinarse con una mascara antigas GP-5 mejorada. Hay dos soportes integrados para modulos adicionales.\n \n%c[0,170,170]- %c[0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n%c[0,170,170,170]DISPLAY:\n%c[0,100,0,15] • %c[0,140,140,140]</text>
+	</string>
+	
+	<string id="csky_light_novice_outfit_name">
+		<text>Traje de terremoto CH-1</text>
+	</string>
+	<string id="csky_light_novice_outfit_description">
+		<text>\n%c[0,170,170]Este chaleco antibalas fue desarrollado para operaciones de busqueda en zonas de baja actividad anomala. El uso de materiales de bastante calidad ha aumentado la resistencia al desgaste. Tiene tres fijaciones integradas para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura ligera \N - Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento del numero de soportes para modulos adicionales</text>
+	</string>
+
+	<string id="csky_light_outfit_name">
+		<text>Traje blindado ChN-2</text>
+	</string>
+
+
+
+	<string id="csky_light_outfit_description">
+		<text>El chaleco blindado ChN-2 es una armadura reforzada de la faccion "Cielos despejados", disenada para operaciones de busqueda en zonas con niveles medios o altos de actividad anomala. El uso de materiales de bastante calidad ha aumentado la resistencia al desgaste, y el chaleco antibalas puede detener una bala de pistola. Tiene tres fijaciones integradas para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura reforzada \N - Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento del numero de soportes para modulos adicionales</text>
+	</string>
+
+	<string id="csky_medium_outfit_name">
+		<text>Traje blindado CH-3a</text>
+	</string>
+	<string id="csky_medium_outfit_description">
+		<text>El equipo basico de los escuadrones de asalto de los cielos despejados. El chaleco antibalas es capaz de detener una bala de pistola, y la cubierta de lona integrada con impregnacion especial proporciona una buena proteccion contra las influencias anormales. Hay dos fijaciones integradas para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura reforzada \N - Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento del numero de soportes para modulos adicionales</text>
+	</string>
+
+	<string id="merc_outfit_description">
+    	<text>Equipo de acosador del grupo mercenario. Inspirado en el equipamiento estandar de las fuerzas especiales de los ejercitos occidentales. Un tratamiento especial del tejido confiere a la armadura del acosador una mayor resistencia al desplazamiento fisico de las placas. Hay dos soportes de montaje de modulos incorporados.\n \n%c[0,140,140,140] armadura ligera \N - Clase de armadura:\n%c[0,93,0,116] • %c[0,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] Proteccion contra explosiones aumentada </text>
+	</string>
+	
+	<string id="banditmerc_outfit_description">
+		<text>Trofeo o traje de mercenario robado. La version de bandido de este traje se desgasta mas rapido y proporciona una proteccion menos adecuada en todas las areas, pero es mas barato y mas facil de llevar. Tiene un accesorio incorporado para el modulo opcional.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] proteccion de armadura ligera \n%c[[0,170,170,170]Clase de proteccion de armadura:\n%c0,93,0,116] • %c[0,140,140,140] Thors: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] mayor capacidad de carga</text>
+	</string>
+
+	<string id="svoboda_heavy_outfit_2_name">
+		<text>Svoboda_heavy_outfit M2</text>
+	</string>
+	<string id="svoboda_heavy_outfit_2_description">
+    	<text>%c[0,170,170,170]Una version mejorada del mono Libertad. El blindaje medio y los refuerzos de circonio superpuestos proporcionan una buena proteccion contra el fuego de las ametralladoras y la metralla a diferentes distancias. El material del traje esta compuesto por dos capas de cuero especialmente tratado y tejido de aramida "Twaron". Proporciona cierta proteccion contra diferentes influencias y radiaciones anomalas. Equipado con soportes integrados para modulos adicionales.\n \n%c[0,140,140,140] proteccion de armadura reforzada \N - Clase de proteccion de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Manos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III\n \n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+
+	<string id="ecologist_guard_outfit_description">
+		<text>Una exitosa combinacion de tejido balistico engomado y paneles monoliticos de blindaje ceramico-organoplastico. Basado en el acosador "Zarya" para los cientificos. Dispone de tres soportes integrales para modulos adicionales.\n \n%c[0,140,140,140] armadura ligera \N - [0,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento del numero de soportes para modulos adicionales</text>
+	</string>
+	
+	<string id="csky_novice_outfit_name">
+		<text>Chaqueta HD de combate</text>
+	</string>	
+	<string id="csky_novice_outfit_description">
+        <text>\n%c[0,170,170]Equipo de soldado regular de Pure Sky. Los soldados, los exploradores, los subordinados de los escuadrones de asalto y las patrullas de la base tambien llevan estas chaquetas. La baja proteccion contra los efectos anormales y las heridas de bala hace que los acechadores sean dificiles de llevar, pero hay tres accesorios incorporados para los modulos adicionales, lo que compensa parcialmente la falta de este equipo.\n \n%c[0,140,140,140] traje ligero:\n%c[0,170,170]CARACTERISTICAS:\n%c0,100,0,15] • %c[0,140,140,140] aumento del numero de montajes de modulos extra</text>
+	</string>
+	
+	<string id="bandit_novice_outfit_description">
+		<text>\n%c[0,170,170]La ropa tradicional de los bandidos es una chaqueta de cuero con armadura cosida. Proporciona cierta proteccion al usuario, aunque no la suficiente para hacer frente a las duras condiciones de la Zona. Viene con un accesorio de montaje integrado. CARACTERISTICAS: [0,170,170,170] • %c[0,153,255,255] • %c[0,140,140,140] equipo ligero.</text>
+	</string>
+	
+	<string id="svoboda_novice_outfit_name">
+		<text>Traje de novato</text>
+	</string>
+	<string id="svoboda_novice_outfit_description">
+        <text>\n%c[0,170,170]El traje consiste en unas botas marrones, unos vaqueros y una chaqueta verde Libertad. La capucha y la mascara cubren la cabeza y el rostro del defensor de la libertad en la Zona. Basicamente, el disfraz de anarquista esta listo. Los recien llegados a la libertad llevan este tipo de atuendos, y luego, cuando se fortalecen en su nuevo lugar y ganan algo de dinero, se compran algo mas digno. Algunos de los acosadores no tiran sus primeros trajes, sino que los guardan en una caja personal o los llevan consigo. Algunos simplemente cortan o arrancan los parches y los llevan consigo, y venden o regalan el traje a la siguiente generacion de luchadores. La proteccion contra las balas y las anomalias es baja. Tiene dos anexos incorporados para modulos adicionales.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] traje ligero \n%c[[0,170,170]CARACTERISTICAS:\n%c0,100,0,15] • %c[0,140,140,140] parametro "Campo Psi" mejorado</text>
+	</string>
+	
+	<string id="dolg_novice_outfit_name">
+		<text>Chaqueta del servicio privado de dolg</text>
+	</string>
+	<string id="dolg_novice_outfit_description">
+        <text>\n%c[0,170,170]La armadura consiste en pantalones, espinilleras y una chaqueta con inserciones de armadura y coderas. Los acosadores prefieren llevar capucha y mascara. Proteccion contra balas y anomalias. Puede salvar al portador de una bala PMG, pero sigue siendo una armadura excelente para los nuevos en la Zona. Tiene un accesorio incorporado para el modulo opcional.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] equipo ligero \n%c[[0,170,170]CARACTERISTICAS:\n%c0,100,0,15] • %c[0,140,140,140] parametro de "defensa de lagrimas" aumentado</text>
+	</string>
+	
+	<string id="monolith_novice_outfit_name">
+		<text>Equipo de novato monolitico</text>
+	</string>
+	<string id="monolith_novice_outfit_description">
+        <text>\n%c[0,170,170,170]La vestimenta del novato no se adapta en absoluto al entorno en el que viven los combatientes del Monolito. El atuendo de novato lo llevan los combatientes que acaban de unirse al Monolito. Los combatientes novatos suelen ser enviados al sur para las misiones, donde las condiciones son mejores y sera mucho mas facil sobrevivir. Un novato debe demostrar primero su lealtad al Monolito y a sus hermanos antes de poder ponerse un equipo mejor. Poca proteccion contra la radiacion, la exposicion anormal y las heridas de bala. Tiene dos soportes incorporados para modulos extra.\n \n%c[ CARACTERISTICAS:\n%c0,170,170,170] • %c[0,153,255,255] • %c[0,140,140,140] equipo ligero \n%c[[0,170,170]CARACTERISTICAS:\n%c0,100,0,15] • %c[0,140,140,140] parametro "Fuentes de Radiacion" mejorado</text>
+	</string>
+	
+	<string id="military_novice_outfit_name">
+		<text>Uniformes de los reclutas</text>
+	</string>
+	<string id="military_novice_outfit_description">
+		<text>\n%c[0,170,170]Los uniformes de los reclutas consisten en cubre zapatos, pantalones de camuflaje y una chaqueta de camuflaje con forros. El uniforme no puede tener un dobladillo permanente, por lo que pronto el soldado tendra que despedirse del dobladillo. No hay chaleco antibalas ni inserciones blindadas en el uniforme, lo que hace que la proteccion contra las heridas de bala sea muy baja. El uniforme es aun menos eficaz contra la radiacion o las anomalias. Lo unico que puedes hacer con un uniforme asi es hacer simples recados para los patanes. Pero a falta de alternativas, los recien llegados al ejercito los llevan, ya que tendran que hacerlo mejor que desnudos. Tiene una montura de modulo extra incorporada. CARACTERISTICAS: [0,170,170,170] • %c[0,153,255,255] • %c[0,140,140,140] traje ligero.</text>
+	</string>
+	
+	<string id="merc_novice_outfit_name">
+		<text>Formulario de contratacion</text>
+	</string>
+	<string id="merc_novice_outfit_description">
+		<text>\n%c[0,170,170,170]Forma a los reclutas que se han unido recientemente al Sindicato. Los reclutas suelen cumplir ordenes y tareas sencillas para demostrar su lealtad al Sindicato. Solo para estas tareas faciles, este formulario es adecuado. No protegera contra las balas o las influencias anormales, pero es mejor que nada. Tambien es calido y comodo. El rostro del verdugo, como el de un mercenario, no debe verse nunca, por lo que se oculta tras una mascara. Una capucha evitara la lluvia, pero no una bala. En general, el uniforme no es muy protector, pero es un buen ajuste para un novato del Sindicato. Tiene dos fijaciones incorporadas para modulos adicionales.\n \n%c[[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] equipo ligero \n%c[[0,170,170]CARACTERISTICAS:\n%c0,100,0,15] • %c[0,140,140,140] "Proteccion contra explosiones" mejorada.</text>
+	</string>
+	
+	<string id="radiation_outfit_name">
+		<text>Traje blindado Voskhod</text>
+	</string>
+	<string id="radiation_outfit_description">
+		<text>El Traje Pesado se asemeja a un exoesqueleto en apariencia, pero la primera y principal diferencia que llama la atencion es la falta de servos en los brazos y las piernas, asi como una bateria detras de la espalda. Debido a esta diferencia, un traje blindado pesado es mas ligero que un exoesqueleto y tambien permite a su portador correr. En todos los demas aspectos, el traje blindado es identico al exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y proporciona al usuario una menor proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n \n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] mayor resistencia al desgaste</text>
+	</string>
+	
+	
+	<string id="dolg_radiation_outfit_name">
+		<text>Traje blindado Voskhod (dolg)</text>
+	</string>	
+	<string id="dolg_radiation_outfit_description">
+		<text>En apariencia, el pesado traje blindado se asemeja a un exoesqueleto, pero la primera y principal diferencia que llama la atencion es la ausencia de servos en los brazos y las piernas, asi como de una bateria a la espalda. Fabricado por un instituto de investigacion de defensa por encargo de los dolg para sustituir a los costosos exoesqueletos, debido a esta diferencia, el traje de armadura pesada es mas ligero que un exoesqueleto y tambien permite a su portador correr. En todos los demas aspectos, el traje blindado es identico a un exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y proporciona al usuario una menor proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n%c[[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170] • %c[0,140,140,140] Aumento de la "proteccion de las lagrimas"</text>
+	</string>
+	
+	<string id="svoboda_radiation_outfit_name">
+		<text>Traje blindado Voskhod (Libertad)</text>
+	</string>
+	<string id="svoboda_radiation_outfit_description">
+		<text>El traje de armadura pesada se asemeja a un exoesqueleto en apariencia, pero la primera y principal diferencia que llama la atencion es la falta de servos en los brazos y las piernas, asi como un paquete de baterias detras de la espalda. Fabricado por artesanos del mercado negro a peticion de la Libertad, para sustituir a los costosos exoesqueletos, debido a esta diferencia, el traje de armadura pesada es mas ligero que un exoesqueleto y tambien permite a su portador correr. En todos los demas aspectos, el traje blindado es identico a un exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y ofrece al usuario menos proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n \n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] parametro de Campo Psi elevado</text>
+	</string>
+	
+	<string id="merc_radiation_outfit_name">
+		<text>Traje blindado Voskhod (Mercenarios)</text>
+	</string>	
+	<string id="merc_radiation_outfit_description">
+		<text>El traje de armadura pesada se asemeja a un exoesqueleto en apariencia, pero la primera y principal diferencia que llama la atencion es la ausencia de servos en brazos y piernas, asi como de una bateria a la espalda. Fabricado a peticion del Sindicato para sustituir a los costosos exoesqueletos, debido a esta diferencia, el traje de armadura pesada es mas ligero que el exoesqueleto y tambien permite a su portador correr. En todos los demas aspectos, el traje blindado es identico a un exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y proporciona al usuario una menor proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n%c[[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170] • %c[0,140,140,140] Proteccion contra explosiones aumentada</text>
+	</string>
+	
+	<string id="bandit_radiation_outfit_name">
+		<text>Traje blindado Voskhod (Bandidos)</text>
+	</string>	
+	<string id="bandit_radiation_outfit_description">
+		<text>El traje de armadura pesada se asemeja a un exoesqueleto, pero la primera y principal diferencia es la falta de servos en los brazos y las piernas, asi como un paquete de baterias detras de la espalda. Los artesanos de la banda del sultan lo fabricaron por encargo suyo, sustituyendo los costosos exoesqueletos. Debido a esta diferencia, el traje de armadura pesada es mas ligero que el exoesqueleto, y permite al usuario correr. En todos los demas aspectos, el traje blindado es identico a un exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y proporciona al usuario una menor proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n \n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento de la capacidad de carga</text>
+	</string>
+	
+	<string id="monolith_radiation_outfit_name">
+		<text>Traje blindado Voskhod (Monolito)</text>
+	</string>	
+	<string id="monolith_radiation_outfit_description">
+		<text>El traje de armadura pesada se asemeja a un exoesqueleto en apariencia, pero la primera y principal diferencia que llama la atencion es la ausencia de servos en brazos y piernas, asi como de una bateria a la espalda. El fabricante es desconocido, y esta hecho para sustituir a los costosos exoesqueletos. Debido a esta diferencia, un traje de armadura pesada es mas ligero que un exoesqueleto y tambien permite a su portador correr. En todos los demas aspectos, un traje blindado es identico a un exoesqueleto, salvo que tiene algo menos de proteccion contra las balas y las rafagas de metralla y proporciona al usuario menos proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n \n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] aumento la "Radioproteccion"</text>
+	</string>
+	
+	<string id="nombre_del_equipo_militar_de_radiacion">
+		<text>Traje blindado Voskhod (Ejercito)</text>
+	</string>
+	<string id="military_radiation_outfit_description">
+		<text>Este traje de armadura pesada se asemeja a un exoesqueleto en apariencia, pero la primera y principal diferencia que llama la atencion es la ausencia de servomotores en los brazos y las piernas, asi como un paquete de baterias detras de la espalda. Fabricado por tecnicos militares por encargo del gobierno ucraniano para sustituir a los costosos exoesqueletos, gracias a esta diferencia, el pesado traje blindado es mas ligero que el exoesqueleto y permite al usuario correr. En todos los demas aspectos, el traje blindado es identico a un exoesqueleto, salvo que tiene una proteccion ligeramente menor contra las balas y las rafagas de metralla y proporciona al usuario una menor proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n \n%c[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pinceles: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Rodillas y espinillas: %c[0,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento de "Ganancia de impacto"</text>
+	</string>
+	
+	<string id="cs_radiation_outfit_name">
+		<text>Trajes de armadura (cielo despejado)</text>
+	</string>	
+	<string id="cs_radiation_outfit_description">
+		<text>En apariencia, el pesado traje blindado se asemeja a un exoesqueleto, pero la primera y principal diferencia que llama la atencion es la ausencia de servos en los brazos y las piernas, asi como de una bateria a la espalda. Los tecnicos Novikov, fabricados para sustituir a los costosos exoesqueletos, debido a esta diferencia, el traje de armadura pesada es mas ligero que el exoesqueleto y ademas permite a su portador correr. En todos los demas aspectos, un traje blindado es identico a un exoesqueleto, salvo que tiene algo menos de proteccion contra las balas y las rafagas de metralla y proporciona al usuario menos proteccion contra los impactos. A pesar de su popularidad, el traje nunca recibio su nombre.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] armadura muy pesada \n%c[[0,170,170,170]CLASE DE PROTECCION DE LA ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,IV\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V\n%c[0,170,170,170] • %c[0,140,140,140] Aumento del numero de anexos para los modulos adicionales</text>
+	</string>
+	
+	<string id="st_helm_cs">
+		<text>Casco de acero CHN-2</text>
+	</string>
+	<string id="st_helm_cs_descr">
+		<text>%c[0,170,170]Casco de acero estandar con mascara antigas integrada. Proporciona una buena proteccion contra las anomalias o la radiacion, asi como una buena proteccion contra las balas. Utilizado por los combatientes de Clean Sky.\n \n%c[0,170,170,170] - casco de combate medio:\n%c[0,140,140,140]:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de acero M40 %c[0,170,170]2480 g\n%c[0,93,0,116] • %c[0,140,140,140] Visor de Armadura Clase IIIA %c[0,170,170]190 g\n:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="ghillie_outfit_name">
+		<text>Capa de camuflaje del ejercito</text>
+	</string>
+	<string id="ghillie_outfit_description">
+		<text>\n%c[0,170,170]El traje esta disenado para simular un "monton de follaje". Normalmente, los francotiradores y los cazadores usan batas de camuflaje para mezclarse con el entorno y ocultarse de los enemigos. El abrigo de camuflaje se produce comercialmente, pero el personal militar y aficionado suele mejorar estos trajes por si mismo. A pesar de su gran eficacia, el traje de camuflaje puede ser muy poco practico: incluso en climas templados, se calienta con el tiempo y es muy pesado por si solo. \n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura ligera \n \n%c[0,170,170,170]CLASE DE ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] proporciona un excelente enmascaramiento</text>
+	</string>
+
+	<string id="st_helm_nvg">
+		<text>Gafas de vision nocturna</text>
+	</string>
+	<string id="st_helm_nvg_descr">
+		<text>Capturan y amplifican los pulsos de luz debiles, haciendo la imagen mas brillante.</text>
+	</string>
+
+	<string id="isg_outfit_name">
+		<text>"explorador"</text>
+	</string>
+	<string id="isg_outfit_description">
+		<text>\n%c[0,170,170]Es una combinacion de tejido de goma en capas con un forro de plexiglas y una armadura corporal integrada. Modelado a partir del popular traje "Zarya", especifico para expediciones cientificas. Viene con 3 contenedores integrados para artefactos.\n \n%c[0,170,170,170]- %c[0,140,140,140] armadura ligera:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA</text>
+	</string>
+	
+	<string id="isg_scientific_outfit_name">
+		<text>SEVA-M2</text>
+	</string>
+	<string id="isg_scientific_outfit_description">
+		<text>%c[0,170,170]Modernizado en uno de los institutos de investigacion de defensa de Kiev, que ya se ha convertido en legendario, el mono SEVA. El chaleco antibalas incorporado solo es capaz de detener una bala de pistola, pero el sistema de proteccion contra impactos anormales se considera inmejorable. Porque se puede actualizar por si mismo. Muchos acosadores experimentados prefieren este modelo. Tiene dos contenedores de artefactos.\n \n%c[0,170,170,170]- traje pesado de respiracion cerrada:\n%c[0,140,140,140]Clase de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n %c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]III</text>
+	</string>
+	
+	<string id="bandit_specops_outfit_name">
+		<text>"Raider"</text>
+	</string>
+	<string id="bandit_specops_outfit_description">
+		<text>%c[0,170,170]Una version ampliamente mejorada de la serie de armaduras PS3-9D. Incluye mejoras para la proteccion contra las anomalias y la radiacion. Utilizado principalmente por las figuras de autoridad y los lideres de las bandas.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] proteccion de armadura mejorada:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]III</text>
+	</string>
+	
+	<string id="commander_outfit_name">
+		<text>Traje blindado UKAT-9M</text>
+	</string>
+	<string id="commander_outfit_description">
+		<text>El Skat-9M es un traje militar antibalas disenado para operaciones de asalto en zonas de actividad anomala. Incorpora un chaleco tactico pesado a prueba de balas que proporciona una excelente proteccion contra las balas y la metralla, e incorpora una avanzada proteccion contra las anomalias. Y nada de esto reduce la movilidad del soldado. Este traje es una rareza en la Zona. Muy pocos acosadores pueden decir que tienen el privilegio de llevarlo.</text>
+	</string>
+	
+	<string id="exo_proto_outfit_name">
+		<text>Protoexoesqueleto</text>
+	</string>
+	<string id="exo_proto_outfit_description">
+		<text>%c[0,170,170]Traje Zarya estandar con servos. En general, la misma proteccion que el Zarya estandar, pero el peso portatil aumenta considerablemente. Uno de los tipos de traje mas antiguos de la Zona.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] armadura pesada:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Caderas: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,V\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]V</text>
+	</string>
+
+	<string id="st_helm_tactic_sfera">
+		<text>Casco tactico Sphere 12F</text>
+	</string>
+	<string id="st_helm_tactic_sfera_descr">
+		<text>\n%c[0,170,170,170]El predecesor del casco Sphere M12, disenado para militares veteranos acechadores, el respirador incorporado proporciona menos proteccion que la mascara antigas del M12 Sphere, pero cuenta con un cristal especial antibalas que protege la cara y los ojos del soldado de la metralla y el polvo y un EVF integrado de primera generacion, ademas de actualizaciones disponibles.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco blindado con sistema de filtracion de aire \n \n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] Esfera 08 Casco de Kevlar %c[0,170,170]1580 g\n%c[0,93,0,116] • %c[0,140,140, 140] visor de clase IV %c[0,170,170]240 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170,170]120 g\n%c[0,93,0,116] • %c[0,140,140 140] filtro respiratorio 2xPDE-1 %c[0,170,170]330 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PN93-1 %c[0 170,170,170]1550 g\n%c[0,93,0,116] • %c[0,140,140,140] interfaz electronica %c[0,170,170]30 g\n%c[0,170,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IIIA</text>
+	</string>
+
+	<string id="st_helm_respirator_dolg">
+		<text>Mascara de gas EO-20 PBF de dolg</text>
+	</string>
+	<string id="st_helm_respirator_dolg_descr">
+		<text>%c[0,170,170]Mascara antigas estandar disenada para filtrar el polvo radiactivo y las sustancias venenosas del aire. Ampliamente utilizado tanto por los recien llegados como por los veteranos del grupo Duty debido a su indispensabilidad funcional. No esta equipado con proteccion contra balas, metralla o impactos mecanicos.\n \n%c[0,140,140,140] mascara de gas ligera:\n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 gn:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+
+	<string id="st_helm_respirator_mono">
+		<text>Mascara de gas EO-20 PBF Monolith</text>
+	</string>
+	<string id="st_helm_respirator_mono_descr">
+		<text>%c[0,170,170]Mascara antigas estandar disenada para filtrar el polvo radiactivo y las sustancias venenosas del aire. Ampliamente utilizado por los novatos y los veteranos de la faccion Monolith debido a su indispensabilidad funcional. No esta equipado con proteccion contra balas, metralla o efectos mecanicos.\n \n%c[0,170,170,170]- %c[0,153,255,255] • %c[0,140,140,140] mascara de gas ligera \n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+
+	<string id="st_helm_respirator_gp5">
+		<text>Mascara de gas GP-5M</text>
+	</string>
+	<string id="st_helm_respirator_gp5_descr">
+		<text>%c[0,170,170]La mascara antigas GP-5 estaba destinada a proteger a la poblacion civil de la Union Sovietica de la lluvia radiactiva y se fabrico durante el periodo de la Guerra Fria, de 1962 a 1989. Se trata de un casco-mascara de caucho blanco y negro, cuyas lentes se mantienen en su sitio gracias a unas llantas engarzadas. La parte inferior de la mascara es de metal y contiene las valvulas y los soportes de los filtros. La GP-5 es muy utilizada por solitarios y bandidos debido a su asequibilidad y accesibilidad.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] mascara de gas ligera \n \n%c[0,170,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Mascara antigas GP-5 %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] Caja filtro-absorbente FPC %c[0,170,170,170]210 g\n:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+	
+	<string id="st_helm_respirator_gp7">
+		<text>Mascara de gas GP-5U</text>
+	</string>
+	<string id="st_helm_respirator_gp7_descr">
+		<text>%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] mascara de gas ligera \n%c[0,170,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+
+	<string id="st_helm_pm1">
+		<text>Mascara de gas PM-1</text>
+	</string>
+	<string id="st_helm_pm1_descr">
+		<text>%c[0,170,170]Una version mejorada y considerablemente mas compacta de la clasica mascara antigas EO-19 PBF. Un sistema sencillo proporciona filtracion de aire contra las particulas de radiacion y los productos quimicos, sin comprometer la movilidad del usuario. La proteccion contra las radiaciones se ha mejorado con la adicion de plomo en los filtros, pero hay que senalar que la mascara no ofrece la fiabilidad necesaria para su uso en un entorno toxico. No ofrece casi ninguna proteccion contra las lesiones fisicas.\n \n%c[0,140,140,140] mascara de gas ligera:\n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+
+	<string id="st_helm_respirator_pmk3">
+		<text>Mascara de gas PPMK-3</text>
+	</string>
+	<string id="st_helm_respirator_pmk3_descr">
+		<text>%c[0,170,170]Mascara antigas militar estandar, disenada para proteger el sistema respiratorio de agentes toxicos, radiactivos y bacterianos. Es una version mejorada de la mascara antigas PMK-2.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] mascara de gas reforzada \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] mascara antigas PMK-3 %c[0,170,170,170]990 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0, 170,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] carcasa a prueba de golpes %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE BROMETERIA:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]falta\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170]falta</text>
+	</string>
+
+	<string id="st_helm_protective2">
+		<text>Casco de Derg</text>
+	</string>
+	<string id="st_helm_protective2_descr">
+		<text>Casco ligero con visera sellada disenado para proteger la cara de algunas influencias anormales. A juzgar por la tecnologia, disenada por el mismo instituto de investigacion de defensa que los monos de "Proteccion Universal" de dolg, presumiblemente para su uso junto con los trajes de proteccion del ejercito. Utilizado por la faccion dolg.</text>
+	</string>
+
+	<string id="st_helm_tactic1">
+		<text>Casco tactico Sphere-08 del grupo especial "Arrow"</text>
+	</string>
+	<string id="st_helm_tactic1_descr">
+		<text>Casco moderno de estilo occidental de alta calidad con sistema de filtracion de aire integrado. Esta disenado para proporcionar al comandante de la unidad la maxima cantidad de informacion tactica, incorporando al mismo tiempo el "relleno" electronico adecuado. El casco esta mejorado con un blindaje de Kevlar, una mascara antigas XM40 y un dispositivo de vision nocturna de primera generacion. Esta disenado especificamente para la unidad de elite de las fuerzas especiales Arrow.</text>
+	</string>
+
+	<string id="st_helm_dolg">.
+		<text>Casco tactico "Esfera-08" dolg</text>
+	</string>
+	<string id="st_helm_dolg_descr">
+		<text>Casco moderno de estilo occidental de alta calidad con sistema de filtracion de aire integrado. Esta disenado para proporcionar al comandante de la unidad la maxima cantidad de informacion tactica, incorporando al mismo tiempo el "relleno" electronico adecuado. El casco esta mejorado con un blindaje de Kevlar, una mascara antigas XM40 y un dispositivo de vision nocturna de primera generacion. Este modelo esta disenado especificamente para el dolg.</text>
+	</string>
+
+	<string id="st_helm_sfera08">
+		<text>Casco tactico "Esfera-08". Libertad</text>
+	</string>
+	<string id="st_helm_sfera08_descr">
+		<text>Casco moderno de estilo occidental de alta calidad con sistema de filtracion de aire integrado. El casco esta disenado para proporcionar al lider del escuadron la maxima cantidad de informacion tactica, incorporando al mismo tiempo la compartimentacion electronica adecuada. El casco esta mejorado con un blindaje de Kevlar, una mascara antigas XM40 y un dispositivo de vision nocturna de primera generacion. Este modelo esta disenado especificamente para el grupo Liberty.</text>
+	</string>
+
+	<string id="st_helm_battle_nebo">
+		<text>Casco M12 de esfera CZ</text>
+	</string>
+	<string id="st_helm_battle_nebo_descr">
+		<text>\n%c[0,170,170]El casco esta acabado con un tejido de titanio-aluminio que proporciona una buena proteccion contra las armas de fuego y poca contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite un unico filtro de 40 mm para las mascaras antigas de la serie PMK. El M12 es uno de los cascos mas resistentes disponibles en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso. Esta disenado especificamente para la tripulacion de Pure Sky.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_helm_battle_svoboda">
+		<text>El casco Sphere M12 de Svoboda</text>
+	</string>
+	<string id="st_helm_battle_svoboda_descr">
+		<text>\n%c[0,170,170]El casco esta acabado con un tejido de titanio-aluminio que proporciona una buena proteccion contra las armas de fuego y otra igual contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite un unico filtro de 40 mm para las mascaras antigas de la serie PMK. El M12 es uno de los cascos mas resistentes disponibles en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso. Este modelo fue disenado especialmente para el Grupo Freedom.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PN93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADURA:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_helm_battle_duty">
+		<text>Casco M12 de la esfera de dolga</text>
+	</string>
+	<string id="st_helm_battle_duty_descr">
+		<text>\n%c[0,170,170]El casco esta acabado con un tejido de titanio-aluminio que proporciona una buena proteccion contra las armas de fuego y poca contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite la instalacion de un unico filtro de 40 mm de las mascaras antigas de la serie PMK. El M12 es una version mejorada del M12 Sphere, pero ha mejorado aun mas la proteccion contra la Psi, la Radiacion y los agentes quimicos, y es tambien uno de los cascos mas endurecidos disponibles en la Zona, su proposito principal es proteger la cabeza del usuario a costa de un aumento significativo de peso. Este modelo ha sido especialmente disenado para la faccion del dolg.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_helm_battle_merc">
+		<text>Casco Mercenary M12 Sphere</text>
+	</string>
+	<string id="st_helm_battle_merc_descr">
+		<text>\n%c[0,170,170,170]El casco esta forrado con tela de titanio-aluminio que proporciona una buena proteccion contra las armas de fuego y poca contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite la instalacion de un unico filtro de 40 mm de las mascaras antigas de la serie PMK. El M12 es una version mejorada del M12 Sphere, pero ha mejorado aun mas la proteccion contra la Psi, la Radiacion y los agentes quimicos, y es tambien uno de los cascos mas endurecidos disponibles en la Zona, su proposito principal es proteger la cabeza del usuario a costa de un aumento significativo de peso. Este modelo se hizo especialmente para la faccion de los mercenarios.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PN93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADURA:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_helm_battle_monolith">
+		<text>El casco Sphere M12 de Monolith</text>
+	</string>
+	<string id="st_helm_battle_monolith_descr">
+		<text>\n%c[0,170,170,170]El casco esta forrado con tejido de titanio-aluminio que proporciona una buena proteccion contra las armas de fuego y poca contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite la instalacion de un unico filtro de 40 mm de las mascaras antigas de la serie PMK. El M12 es una version mejorada del M12 Sphere, pero tambien uno de los cascos mas resistentes disponibles en la Zona, su principal objetivo es proteger la cabeza del usuario contra los danos causados por las particulas, la radiacion y los agentes quimicos. Este modelo fue disenado especialmente para la faccion Monolith.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura clase IV zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_helm_battle_bandit">
+		<text>Casco de bandido Esfera M12</text>
+	</string>
+	<string id="st_helm_battle_bandit_descr">
+		<text>\n%c[0,170,170]El casco esta forrado con tejido de titanio-aluminio que proporciona una buena proteccion contra los disparos y poca contra la radiacion psi. El casco esta equipado con una mascara blindada con respirador incorporado y EVA de primera generacion. Admite un unico filtro de 40 mm para las mascaras antigas de la serie PMK. El M12 es uno de los cascos mas resistentes disponibles en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso. Este modelo esta hecho en estilo gangster.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] visor nocturno 1PN93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+
+	<string id="st_ecologist_outfit_red_name">
+		<text>UP-99M Rubin</text>
+	</string>
+	<string id="st_ecologist_outfit_red_description">
+		<text>%c[0,170,170]El mono modificado de alta calidad SSP-99M, que ha sido mejorado con una mayor proteccion contra el calor, las balas y la metralla, tambien proporciona una proteccion superior contra la radiacion. Esta disenado para equipar a los guardias de las expediciones cientificas. El modelo Rubi tambien ofrece una proteccion superior contra los ataques de los mutantes, asi como un ingenioso sistema de curacion de heridas para el usuario. Tambien tiene incorporado un sistema de supresion de actividades anormales, que proporciona una proteccion moderada contra los productos quimicos y la electricidad. Dispone de dos accesorios incorporados para modulos adicionales.\n \n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado \N - Clase de proteccion marron:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	
+	<string id="st_ecologist_outfit_yellow_name">
+		<text>UP-99 "Topaz"</text>
+	</string>
+	<string id="st_ecologist_outfit_yellow_description">
+		<text>%c[0,170,170]Disenado para su uso en la Zona, el traje SSP-99 es utilizado por los cientificos de la expedicion y los acosadores medioambientales colaboradores y cuenta con un sistema de filtracion y acondicionamiento del aire incorporado, por lo que ofrece una proteccion superior contra los productos quimicos. El modelo Topaz ofrece una excelente proteccion contra la radiacion. Tambien cuenta con un sistema integrado de supresion de actividades anomalas que proporciona una proteccion media contra la exposicion electrica y las altas temperaturas. No esta disenado para el combate, por lo que no ofrece proteccion ni contra las balas ni contra la metralla. Tiene una unica fijacion integrada para el modulo opcional.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] traje reforzado con sistema de respiracion cerrado \n \n%c[0,170,170,170]CLASE DE BARRERA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140] Hombros: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140] Brazos: %c[0,170,170,170]I\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Barbilla: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]CARACTERISTICAS:\n%c[0,100,0,15] • %c[0,140,140,140] Aumento del numero de anexos para modulos adicionales</text>
+	</string>
+	
+	<string id="bandit_scientific_outfit_name">
+		<text>SEWA "Onyx"</text>
+	</string>	
+	<string id="bandit_scientific_outfit_description">
+		<text>%c[0,170,170]Creada por la faccion de Sultan bajo Transparente. Estos monos han sido robados y reelaborados, y ahora solo los llevan los "verdaderos" chicos de la Zona. Hay un sistema cerrado de respiracion, el sistema de supresion de campos anomalos esta un poco afectado, pero todavia es aceptable para la Zona algunos de los bandidos en estos trajes incluso artefactos minados. Traje de armadura un poco anadido en las caracteristicas de proteccion, pero todavia se queda corto de su contraparte PSZ-9Md. La principal ventaja de este traje es su gran capacidad de carga util. Tiene dos soportes incorporados para modulos adicionales.\n \n%c[0,140,140,140] traje pesado con sistema de respiracion cerrado \N - Clase de armadura:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Hombros:%c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Munecas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Cabeza: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Ojos: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III\n%c[0,170,170,170]Cuello:\n%c[0,100,0,15] • %c[0,140,140,140,140] aumento de la capacidad de carga</text>
+	</string>
+	
+	<string id="bandit_sun_outfit_name">
+		<text>Traje de atardecer</text>
+	</string>
+	<string id="bandit_sun_outfit_description">
+		<text>\n%c[0,170,170]Un lote de monos Sunset robados y redisenados por Transparent. El mono es una combinacion de un tejido de goma de dos capas con un forro de plexiglas y un chaleco antibalas integral. La modificacion afecto a la proteccion contra anomalias, pero aumento ligeramente el blindaje corporal. La principal ventaja de este traje es su gran capacidad de carga util. Tiene un accesorio incorporado para el modulo opcional.\n \n%c[0,140,140,140] armadura ligera \N - clase de armadura:\n%c[0,93,0,116] • %c[0,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]PIES:\n%c[0,100,0,15] • %c[0,140,140,140] mayor capacidad de carga</text>
+	</string>
+	
+	<string id="merc_sun_outfit_name">
+		<text>Conjunto crepuscular</text>
+	</string>
+	<string id="merc_sun_outfit_description">
+		<text>\n%c[0,170,170]El traje a medida "Crepusculo" de Syndicate es un traje con un tratamiento especial de la tela y una resistencia reforzada de la armadura cuando las placas se desplazan fisicamente. Dispone de dos soportes para modulos incorporados.\n \n%c[0,140,140,140] armadura ligera:\n%c[0,170,170]CLASE DE ARMADURA:\n%c[0,93,0,116] • %c[0,140,140,140] Torso: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Hombros: %c[0,170,170,170]IIIA\n%c[0,93,0,116] • %c[0,140,140,140] Muneca: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Brazos: %c[0,170,170,170]none\n%c[0,93,0,116] • %c[0,140,140,140] Caderas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Rodillas y espinillas: %c[0,170,170,170]II\n%c[0,93,0,116] • %c[0,140,140,140] Pies: %c[0,170,170,170]IIIA\n%c[0,170,170,170]CARACTERISTICA:\n%c[0,100,0,15] • %c[0,140,140,140] Proteccion contra explosiones aumentada</text>
+	</string>
+
+	<string id="st_helm_battle_dolg">
+		<text>Casco de esfera PSZ-9d</text>
+	</string>
+	<string id="st_helm_battle_dolg_descr">
+		<text>\n%c[0,170,170,170]Casco "PSZ-9d Sphere", afilado por los tecnicos dolg para las necesidades del grupo. Proporciona una mayor proteccion contra las radiaciones y las amenazas quimicas, tiene un acabado de tela, un casco de aluminio-titanio con bolsillos para elementos de blindaje de acero y una mascara de blindaje. Admite un unico filtro de 40 mm de la serie de mascaras antigas PMK, asi como el visor nocturno 1PH93-1. El M12 es el casco mas resistente disponible en la Zona, su principal objetivo es proteger la cabeza del usuario a costa de un aumento significativo del peso.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] casco tactico blindado pesado \n \n%c[0,170,170,170]COMPONENTES:\n%c[0,93,0,116] • %c[0,140,140,140] Casco de titanio M12 %c[0,170,170]2420 g\n%c[0,93,0,116] • %c[0,140,140,140] Armadura Clase IV Zabra %c[0,170,170]370 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170, 170,170]145 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro respiratorio de 40mm %c[0,170,170]390 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PH93-1 %c[0,170,170]1550 g\n%c[0,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]V\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]III</text>
+	</string>
+	
+	<string id="st_helm_tactic_freedmon">
+		<text>Casco tactico "Paz al mundo"</text>
+	</string>
+	<string id="st_helm_tactic_freedmon_descr">	
+		<text>\n%c[0,170,170,170]Desarrollado por los tecnicos de la Libertad en base a su experiencia en largas incursiones en la Zona. Mayor proteccion contra la radiacion, los efectos quimicos y psicologicos. Un moderno casco de estilo occidental de alta calidad con sistema de filtracion de aire incorporado. La construccion consiste en multiples capas de Kevlar, para proteger al usuario de graves danos fisicos. El casco esta fabricado con materiales compuestos dielectricos, lo que protege al usuario de la exposicion a la corriente electrica.\n \n%c[0,170,170]CARACTERISTICAS:\n%c0,153,255,255] • %c[0,140,140,140] casco blindado con sistema de filtracion de aire \N - [0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] Esfera 08 Casco de Kevlar %c[0,170,170]1580 g\n%c[0,93,0,116] • %c[0,140,140, 140] visor de clase IV %c[0,170,170]240 g\n%c[0,93,0,116] • %c[0,140,140,140] sistema de respiracion %c[0,170,170]120 g\n%c[0,93,0,116] • %c[0,140,140 140] filtro respiratorio 2xPDE-1 %c[0,170,170]330 g\n%c[0,93,0,116] • %c[0,140,140,140] dispositivo de vision nocturna 1PN93-1 %c[0 170,170,170]1550 g\n%c[0,93,0,116] • %c[0,140,140,140] interfaz electronica %c[0,170,170]30 g\n%c[0,170,170,170]CLASE DE QUEMADO:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]\N - %c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]IV\n%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]III\n%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]IIIA</text>
+	</string>
+	
+	<string id="st_helm_respirator_freedom">
+		<text>Mascara de gas EO-20 de la PBF Svoboda</text>
+	</string>
+	<string id="st_helm_respirator_freedom_descr">
+		<text>La mascara de gas utilizada por la faccion de la Libertad. El tecnico que los adapta a las condiciones de la Zona escapo de un manicomio, por lo que temen a los controladores mas que a nada en el mundo. Por ello, cada uno de ellos esta provisto de una lamina de aleacion especial que proporciona una resistencia adicional a los impactos psicologicos del exterior. No esta equipado con ninguna proteccion contra la metralla o el impacto mecanico.\n \n%c[0,170,170]CARACTERISTICAS:\n%c[0,153,255,255] • %c[0,140,140,140] mascara de gas ligera \n \n%c[0,170,170]COMPONENTES: \n%c[0,93,0,116] • %c[0,140,140,140] mascara de gas PBF %c[0,170,170,170]760 g\n%c[0,93,0,116] • %c[0,140,140,140] filtro de respiracion EO-19 2x %c[0,170,170]210 g\n \n%c[0,170,170,170]CLASE DE QUEMADOR:\n%c[0,93,0,116] • %c[0,140,140] Cabeza: %c[0,170,170]absent\n%c[0,93,0,116] • %c[0,140,140] Ojos: %c[0,170,170,170]I\Nn%c[0,93,0,116] • %c[0,140,140,140] Menton: %c[0,170,170,170]missing\N%c[0,93,0,116] • %c[0,140,140,140] Cuello: %c[0,170,170,170]missing</text>
+	</string>
+</string_table>

@@ -1,0 +1,916 @@
+--[[
+r1		= 0
+r2a		= 1
+r2		= 2
+r2.5	= 3
+r3		= 4
+r4		= 5
+]]
+class "opt_video_adv" (CUIScriptWnd)
+function opt_video_adv:__init() super()
+end
+
+function opt_video_adv:__finalize()
+end
+
+function all_modes(render_id)
+	return true
+end
+
+function mode_1(render_id)
+	return render_id==0
+end
+
+function mode_ge_2a(render_id)
+	return render_id>=1
+end
+
+function mode_ge_2(render_id)
+	return render_id>=2
+end
+
+function mode_ge_25(render_id)
+	return render_id>=3
+end
+
+function mode_2_25(render_id)
+	return render_id >= 2 and render_id <=3
+end
+
+function mode_less_3(render_id)
+	return render_id<4
+end
+
+function mode_ge_3(render_id)
+	return render_id>=4
+end
+
+function mode_4(render_id)
+	return render_id==5
+end
+
+function opt_video_adv:InitControls(x, y, xml, handler)
+	local ctl
+    local _st
+
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(958,579))
+	self:SetAutoDelete(true)
+
+	self.scroll_v = xml:InitScrollView("video_adv:scroll_v", self)
+    handler.scroll_v = self.scroll_v
+	
+	self.anim_color = {
+		{255, 200, 0},
+		{100, 255, 0},
+		{200, 255, 0},
+		{170, 170, 170},
+		{50, 255, 0},
+		{200, 255, 0},
+		{200, 255, 0},
+		{0, 255, 0},
+		{255, 200, 0},
+		{255, 200, 0},
+		{255, 200, 0},
+		{255, 50, 0},
+		{255, 50, 0},
+		{255, 200, 0},
+		{255, 100, 0},
+		{200, 200, 0},
+	}
+	
+	self.dem_alpha = 0
+	self.dem_active = false
+	
+	self.ck_states = {
+		["check_pp"] = false,
+		["visdist"] = false,
+		["objlod"] = false,
+		["texfilt"] = false,
+		["chrabpow"] = false,
+		["vollight"] = false,
+		["ripples"] = false,
+		["mudfoam"] = false,
+		["chrabpowdof"] = false,
+		["lumasharpen"] = false,
+		["lumapattern"] = false,
+		["fakehdr"] = false,
+		["techniam"] = false,
+		["technipow"] = false,
+		["bloom"] = false,
+		["lodq1"] = false,
+		["lodq2"] = false,
+		["lodq3"] = false,
+		["lodq4"] = false,
+		["loddetr2"] = false,
+		["loddetr1"] = false,
+		["detbump"] = false,
+		["parallax"] = false,
+		["parallax_h"] = false,
+		--["pom"] = false,
+		["curvespatt"] = false,
+		["curvescontr"] = false,
+		["texqual"] = false,
+		["tess"] = false,
+		["fxaa"] = false,
+		["ssample_dx10"] = false,
+		["ssample_dx9"] = false,
+		["msaa_101"] = false,
+		["msaa_alpha"] = false,
+		["grass_sh"] = false,
+		["smap"] = false,
+		["ssao_type"] = false,
+		["ssao_quality"] = false,
+		["lighting_dist"] = false,
+		["sunshafts"] = false,
+		["sunshafts_type"] = false,
+		["dof"] = false,
+		["wdtone"] = false,
+		["vignette"] = false,
+		["tonemap"] = false,
+		["noram"] = false,
+	}
+	
+	xml:InitStatic("video_adv:cap_dem", self)
+	
+	--Main header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_main_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Дальность видимости
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_vis_dist", _st))
+	self.visdist = xml:InitTrackBar("video_adv:track_vis_dist", _st)
+	self:AddToNoAlpha(self.visdist)
+	self:Register(self.visdist,"visdist")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	--Textures header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_textures_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Детализация объектов
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_geometry_lod", _st))
+	self.objlod = xml:InitTrackBar("video_adv:track_geometry_lod", _st)
+	self:AddToNoAlpha(self.objlod)
+	self:Register(self.objlod,"objlod")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Lod detalization r2
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_lod_detalizaion_r2", _st))
+	self.loddetr2 = xml:InitTrackBar("video_adv:track_lod_detalizaion_r2", _st)
+	self:AddToNoAlpha(self.loddetr2)
+	self:Register(self.loddetr2,"loddetr2")
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	-- Lod detalization r1
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_lod_detalizaion_r1", _st))
+	self.loddetr1 = xml:InitTrackBar("video_adv:track_lod_detalizaion_r1", _st)
+	self:AddToNoAlpha(self.loddetr1)
+	self:Register(self.loddetr1,"loddetr1")
+	table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	
+	---- Lod quality r1
+	--_st = xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_lod_quality", _st)
+	--self.lodq1 = xml:InitTrackBar("video_adv:track_lod_quality", _st)
+	--self:Register(self.lodq1,"lodq1")
+	--table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	--
+	---- Lod quality >r2
+	--_st = xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_lod_quality2", _st)
+	--self.lodq2 = xml:InitTrackBar("video_adv:track_lod_quality2", _st)
+	--self:Register(self.lodq2,"lodq2")
+	--table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	-- LOD object quality
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r2_ssa_lod_a", _st))
+	self.lodq3 = xml:InitTrackBar("video_adv:track_r2_ssa_lod_a", _st)
+	self:AddToNoAlpha(self.lodq3)
+	self:Register(self.lodq3,"lodq3")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	-- Speciefic LOD object quality
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r2_ssa_lod_b", _st))
+	self.lodq4 = xml:InitTrackBar("video_adv:track_r2_ssa_lod_b", _st)
+	self:AddToNoAlpha(self.lodq4)
+	self:Register(self.lodq4,"lodq4")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+
+	-- Качество текстур
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_texture_lod",	_st))
+	self.texqual = xml:InitTrackBar("video_adv:track_texture_lod", _st)
+	self:AddToNoAlpha(self.texqual)
+	handler.texture_lod_track = self.texqual
+	self:Register(self.texqual,"texqual")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Фильтрация текстур
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_aniso", _st))
+	self.texfilt = xml:InitTrackBar("video_adv:track_aniso", _st)
+	self:AddToNoAlpha(self.texfilt)
+	self:Register(self.visdist,"texfilt")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+    -- Детальные текстуры
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r1_detail_textures", _st))
+	ctl = xml:InitCheck("video_adv:check_r1_detail_textures", _st)
+	self:AddToNoAlpha(ctl)
+	table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	
+    -- Детальный рельеф r2
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r2_detail_bump", _st))
+	self.detbump = xml:InitCheck("video_adv:check_r2_detail_bump", _st)
+	self:AddToNoAlpha(self.detbump)
+	self:Register(self.detbump,"detbump")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+    -- FXAA						  
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r2_fxaa", _st))
+	self.fxaa = xml:InitCheck("video_adv:check_r2_fxaa", _st)
+	self:AddToNoAlpha(self.fxaa)
+	self:Register(self.fxaa,"fxaa")
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	-- Сглаживание
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_ssample", _st))
+	self.ssample_dx9 = xml:InitTrackBar("video_adv:track_ssample", _st)
+	self:AddToNoAlpha(self.ssample_dx9)
+	self:Register(self.ssample_dx9,"ssample_dx9")
+	table.insert(handler.m_preconditions, {func=mode_less_3, control=_st})
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_ssample", _st))
+	self.ssample_dx10 = xml:InitComboBox("video_adv:combo_ssample", _st)
+	self:AddToNoAlpha(self.ssample_dx10)
+	self:Register(self.ssample_dx10,"ssample_dx10")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	
+	-- r3 DirectX 10.1
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r3_msaa_opt", _st))
+	self.msaa_101 = xml:InitCheck("video_adv:check_r3_msaa_opt", _st)
+	self:AddToNoAlpha(self.msaa_101)
+	self:Register(self.msaa_101,"msaa_101")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	
+	--MSAA alphatest
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r3_msaa_alphatest", _st))
+	self.msaa_alpha = xml:InitComboBox("video_adv:combo_r3_msaa_alphatest", _st)
+	self:AddToNoAlpha(self.msaa_alpha)
+	self:Register(self.msaa_alpha,"msaa_alpha")
+	handler.combo_r3_msaa_alphatest = ctl
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	
+    -- Объемный дым r25
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	self:AddToAlpha(xml:InitStatic("video_adv:cap_r3_volumetric_smoke", _st))
+	ctl = xml:InitCheck("video_adv:check_r3_volumetric_smoke", _st)
+	self:AddToNoAlpha(ctl)
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+
+    -- Steep parallax r2
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_steep_parallax", _st)
+	self.parallax = xml:InitCheck("video_adv:check_r2_steep_parallax", _st)
+	self:Register(self.parallax,"parallax")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+    -- Parallax intensity
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_parallax_h", _st)
+	self.parallax_h = xml:InitTrackBar("video_adv:track_r2_parallax_h", _st)
+	self:Register(self.parallax_h,"parallax_h")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	--if get_console():get_string("renderer") ~= "renderer_r1" or get_console():get_string("renderer") == nil then
+	--	-- POM
+	--	_st = xml:InitStatic("video_adv:templ_item", nil)
+	--	xml:InitStatic("video_adv:cap_r2_pom_quality", _st)
+	--	self.pom = xml:InitComboBox("video_adv:combo_r2_pom_quality", _st)
+	--	self:Register(self.pom,"pom")
+	--	handler.combo_pom = self.pom
+	--	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	--end
+	
+	-- Мягкие партиклы
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_soft_particles", _st)
+	ctl = xml:InitCheck("video_adv:check_soft_particles", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	-- Тесселяция only r4
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r4_tessellation", _st)
+	self.tess = xml:InitCheck("video_adv:check_r4_tessellation", _st)
+	self:Register(self.tess,"tess")
+	table.insert(handler.m_preconditions, {func=mode_4, control=_st})
+	
+	----Physics header
+	--_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	--xml:InitFrameLine("video_adv:cap_physics_header", _st)
+	--table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	--
+	----Collision quality
+	--_st = xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_ph_frequency", _st)
+	--xml:InitTrackBar("video_adv:track_ph_frequency", _st)
+	--table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	--
+	----Physics quality
+	--_st = xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_ph_iterations", _st)
+	--xml:InitTrackBar("video_adv:track_ph_iterations", _st)
+	--table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	--Grass header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_grass_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Плотность травы
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_detail_density", _st)
+	xml:InitTrackBar("video_adv:track_detail_density", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Радиус травы
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_detail_radius", _st)
+	xml:InitTrackBar("video_adv:track_detail_radius", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Размер травы
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_detail_scale", _st)
+	xml:InitTrackBar("video_adv:track_detail_scale", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Дальняя прорисовка травы
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_detail_fade", _st)
+	ctl = xml:InitCheck("video_adv:check_detail_fade", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	--Grass shadow
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r__enable_grass_shadow", _st)
+	self.grass_sh = xml:InitCheck("video_adv:check_r__enable_grass_shadow", _st)
+	self:Register(self.grass_sh,"grass_sh")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Shadows header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_shadows_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	--Shadows quality
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_particles_distance", _st)
+	ctl = xml:InitTrackBar("video_adv:track_particles_distance", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	--Sun shadows
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_sun", _st)
+	ctl = xml:InitCheck("video_adv:check_r2_sun", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+
+	---- Тень от актора
+	--_st = xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_r__actor_shadow", _st)
+	--ctl = xml:InitCheck("video_adv:check_r__actor_shadow", _st)
+	--table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Размер теневой карты
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_shadow_map", _st)
+	self.smap = xml:InitComboBox("video_adv:combo_shadow_map", _st)
+	self:Register(self.smap,"smap")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- AO
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	_st:SetWndSize(vector2():set(_st:GetWidth(), 106))
+	xml:InitStatic("video_adv:cap_ao", _st)
+	ctl = xml:InitTab("video_adv:radio_tab_ao_options", _st)
+	handler.tab_ao_opt = ctl
+	handler:Register(ctl, "tab_ao_opt")
+	self.ssao_type = handler.tab_ao_opt
+	self:Register(self.ssao_type, "ssao_type")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+
+	-- SSAO
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_ssao", _st)
+	ctl = xml:InitComboBox("video_adv:combo_ssao", _st)
+	handler.combo_ssao = ctl
+	self.ssao_quality = handler.combo_ssao 
+	self:Register(self.ssao_quality, "ssao_quality")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	--Light header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_light_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Дальность освещения	 
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_light_distance", _st)
+	self.lighting_dist = xml:InitTrackBar("video_adv:track_light_distance", _st)
+	self:Register(self.lighting_dist, "lighting_dist")
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	-- Интенсивность блеска
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_gloss_factor", _st)
+	xml:InitTrackBar("video_adv:track_r2_gloss_factor", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	-- 
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_sun_shafts", _st)
+	self.sunshafts_type = xml:InitComboBox("video_adv:combo_sun_shafts", _st)
+	self:Register(self.sunshafts_type, "sunshafts_type")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	-- Режим солнечных лучей (SS Sunshafts)
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_sun_shafts_mode", _st)
+	self.sunshafts = xml:InitComboBox("video_adv:list_r2_sun_shafts_mode", _st)
+	self:Register(self.sunshafts, "sunshafts")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+
+	-- Качество солнца
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r2_sun_quality", _st)
+	ctl = xml:InitComboBox("video_adv:list_r2_sun_quality", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	-- Объемное освещение
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_volumetric_light", _st)
+	self.vollight = xml:InitCheck("video_adv:check_volumetric_light", _st)
+	self:Register(self.vollight,"vollight")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	self.vollight_dem = xml:InitStatic("video_adv:dem_volumetric_light", self)
+	self.vollight_dem:Show(false)
+	
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_volumetric_zones", _st)
+	self.vollight = xml:InitCheck("video_adv:check_volumetric_zones", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	-- Фонарики НПС
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_npc_torch", _st)
+	xml:InitCheck("video_adv:check_npc_torch", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Glows intensity
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_glows_per_frame", _st)
+	ctl = xml:InitTrackBar("video_adv:track_glows_per_frame", _st)
+	table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	
+	-- Fog luminance
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_fog_luminance", _st)
+	ctl = xml:InitTrackBar("video_adv:track_fog_luminance", _st)
+	table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	
+	-- Light interpolation
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_lmodel_lerp", _st)
+	ctl = xml:InitTrackBar("video_adv:track_lmodel_lerp", _st)
+	table.insert(handler.m_preconditions, {func=mode_1, control=_st})
+	
+	-- Water header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_water_header", _st))
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+
+	-- Мягкие края воды
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_soft_water", _st)
+	ctl = xml:InitCheck("video_adv:check_soft_water", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	--Ripples and sslr
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_ripples", _st)
+	self.ripples = xml:InitCheck("video_adv:check_ripples", _st)
+	self:Register(self.ripples,"ripples")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	self.ripples_dem = xml:InitStatic("video_adv:dem_ripples", self)
+	self.ripples_dem:Show(false)
+	
+	--Mud and foam
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_mudfoam", _st)
+	self.mudfoam = xml:InitCheck("video_adv:check_mudfoam", _st)
+	self:Register(self.mudfoam,"mudfoam")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	self.mudfoam_dem = xml:InitStatic("video_adv:dem_mudfoam", self)
+	self.mudfoam_dem:Show(false)
+	
+    -- Мокрые поверхности
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r3_dynamic_wet_surfaces", _st)
+	self.wetsurf = xml:InitCheck ("video_adv:check_r3_dynamic_wet_surfaces", _st)
+	self:Register(self.wetsurf,"wetsurf")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	self.wetsurf_dem = xml:InitStatic("video_adv:dem_wetsurf", self)
+	self.wetsurf_dem:Show(false)
+	
+	-- Wet surfaces optimization
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r3_dynamic_wet_surfaces_opt", _st)
+	ctl = xml:InitCheck("video_adv:check_r3_dynamic_wet_surfaces_opt", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+
+	-- Мокрые поверхности вблизи
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r3_dynamic_wet_surfaces_near", _st)
+	ctl = xml:InitTrackBar("video_adv:track_r3_dynamic_wet_surfaces_near", _st)
+	handler.track_r3_dyn_wet_surf_near = ctl
+	handler:Register(ctl, "track_r3_dyn_wet_surf_near")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+
+	-- Мокрые поверхности вдали
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r3_dynamic_wet_surfaces_far", _st)
+	ctl = xml:InitTrackBar("video_adv:track_r3_dynamic_wet_surfaces_far", _st)
+	handler.track_r3_dyn_wet_surf_far = ctl
+	handler:Register(ctl, "track_r3_dyn_wet_surf_far")
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+
+	-- Оптимизация мокрых поверхностей
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_r3_dynamic_wet_surfaces_sm_res", _st)
+	ctl = xml:InitTrackBar("video_adv:track_r3_dynamic_wet_surfaces_sm_res", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_3, control=_st})
+	
+	--Postprocess header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_pp_header", _st))
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Postprocess
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_postprocess", _st)
+	self.check_pp = xml:InitCheck("video_adv:check_postprocess", _st)
+	self:Register(ctl,"check_pp")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	self.check_pp_dem = xml:InitStatic("video_adv:dem_postprocess", self)
+	self.check_pp_dem:Show(false)
+	
+	--Глубина поля
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_dof", _st)
+	self.dof = xml:InitCheck("video_adv:check_dof", _st)
+	self:Register(self.dof,"dof")
+	table.insert(handler.m_preconditions, {func=mode_ge_25, control=_st})
+	
+	--Luma sharpen
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_lumasharpen", _st)
+	self.lumasharpen = xml:InitTrackBar("video_adv:track_lumasharpen", _st)
+	self:Register(self.lumasharpen,"lumasharpen")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	self.lumasharpen_dem = xml:InitStatic("video_adv:dem_lumasharpen", self)
+	self.lumasharpen_dem:Show(false)
+	
+	--Luma sharpen pattern
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_lumapattern", _st)
+	self.lumapattern = xml:InitTrackBar("video_adv:track_lumapattern", _st)
+	self:Register(self.lumapattern,"lumapattern")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Curves contrast
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_curvescontr", _st)
+	self.curvescontr = xml:InitTrackBar("video_adv:track_curvescontr", _st)
+	self:Register(self.curvescontr,"curvescontr")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Curves formula
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_curvespatt", _st)
+	self.curvespatt = xml:InitTrackBar("video_adv:track_curvespatt", _st)
+	self:Register(self.curvespatt,"curvespatt")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Fake hdr
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_fakehdr", _st)
+	self.fakehdr = xml:InitTrackBar("video_adv:track_fakehdr", _st)
+	self:Register(self.fakehdr,"fakehdr")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--WD tonemap
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_wdtonemap", _st)
+	self.wdtone = xml:InitCheck("video_adv:check_wdtonemap", _st)
+	self:Register(self.wdtone,"wdtone")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Vignette
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_vignette", _st)
+	self.vignette = xml:InitCheck("video_adv:check_vignette", _st)
+	self:Register(self.vignette,"vignette")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Vignette power
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_vignette_power", _st)
+	self.vignette_power = xml:InitTrackBar("video_adv:track_vignette_power", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+
+	--Techni power
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_techni_power", _st)
+	self.technipow = xml:InitTrackBar("video_adv:track_techni_power", _st)
+	self:Register(self.technipow,"technipow")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	self.technipow_dem = xml:InitStatic("video_adv:dem_techni_power", self)
+	self.technipow_dem:Show(false)
+
+	--Techni amount
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_techni_amount", _st)
+	self.techniam = xml:InitTrackBar("video_adv:track_techni_amount", _st)
+	self:Register(self.techniam,"techniam")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	self.techniam_dem = xml:InitStatic("video_adv:dem_techni_amount", self)
+	self.techniam_dem:Show(false)
+	
+	--Techni red
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_techni_red", _st)
+	self.technired = xml:InitTrackBar("video_adv:track_techni_red", _st)
+	self:Register(self.technired,"technired")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Techni green
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_techni_green", _st)
+	self.technigreen = xml:InitTrackBar("video_adv:track_techni_green", _st)
+	self:Register(self.technigreen,"technigreen")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Techni blue
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_techni_blue", _st)
+	self.techniblue = xml:InitTrackBar("video_adv:track_techni_blue", _st)
+	self:Register(self.techniblue,"techniblue")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	-- Moution Blur (on/off)
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_mblur_enabled", _st)
+	ctl = xml:InitCheck("video_adv:check_mblur_enabled", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+
+	-- Moution Blur (диапазон)
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_mblur", _st)
+	xml:InitTrackBar("video_adv:track_mblur", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	--Bloom fast
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_bloom_fast", _st)
+	self.bloom = xml:InitCheck("video_adv:check_bloom_fast", _st)
+	self:Register(self.bloom,"bloom")
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	self.bloom_dem = xml:InitStatic("video_adv:dem_bloom", self)
+	self.bloom_dem:Show(false)
+	
+	--Bloom fast scale
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_bloom_fast_scale", _st)
+	ctl = xml:InitTrackBar("video_adv:track_bloom_fast_scale", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2a, control=_st})
+	
+	--Tonemap
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_tonemap", _st)
+	self.tonemap = xml:InitCheck("video_adv:check_tonemap", _st)
+	self:Register(self.tonemap,"tonemap")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Tonemap amount
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_tonemap_amount", _st)
+	ctl = xml:InitTrackBar("video_adv:track_tonemap_amount", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Tonemap lowlum
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_tonemap_lowlum", _st)
+	ctl = xml:InitTrackBar("video_adv:track_tonemap_lowlum", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Tonemap middlegray
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_tonemap_middlegray", _st)
+	ctl = xml:InitTrackBar("video_adv:track_tonemap_middlegray", _st)
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	
+	--Chromatic aberration
+	--_st	= xml:InitStatic("video_adv:templ_item", nil)
+	--xml:InitStatic("video_adv:cap_chrabb_power", _st)
+	--self.chrabpow = xml:InitTrackBar("video_adv:track_chrabb_power", _st)
+	--self:Register(self.chrabpow,"chrabpow")
+	--table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	--self.chrabpow_dem = xml:InitStatic("video_adv:dem_chrabb_power", self)
+	--self.chrabpow_dem:Show(false)
+	
+	--Chromatic aberration
+	_st	= xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_dofchrabb", _st)
+	self.chrabpowdof = xml:InitTrackBar("video_adv:track_dofchrabb", _st)
+	self:Register(self.chrabpowdof,"chrabpowdof")
+	table.insert(handler.m_preconditions, {func=mode_ge_2, control=_st})
+	self.chrabpowdof_dem = xml:InitStatic("video_adv:dem_dofchrabb", self)
+	self.chrabpowdof_dem:Show(false)
+
+	--Misc header
+	_st = xml:InitStatic("video_adv:templ_item_dem", nil)
+	self:AddToColorAlpha(xml:InitFrameLine("video_adv:cap_misc_header", _st))
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Disable Managed textures
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_no_ram_textures", _st)
+	self.noram = xml:InitCheck("video_adv:check_no_ram_textures", _st)
+	self:Register(self.noram,"noram")
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+	
+	-- Use multicore features
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_use_all_cores", _st)
+	xml:InitCheck("video_adv:check_use_all_cores", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- Вертикальная синхронизация
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_vsync", _st)
+	xml:InitCheck("video_adv:check_vsync", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	-- 60 ГГЦ
+	_st = xml:InitStatic("video_adv:templ_item", nil)
+	xml:InitStatic("video_adv:cap_60hz", _st)
+	xml:InitCheck("video_adv:check_60hz", _st)
+	table.insert(handler.m_preconditions, {func=all_modes, control=_st})
+
+	btn = xml:Init3tButton("video_adv:btn_to_simply", self)
+	self:AddToNoAlpha(btn)
+	handler:Register(btn, "btn_simply_graphic")
+	
+	self.hint_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = xml:InitTextWnd("hint_wnd:text",self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	self.anim_alpha = 0
+	self.is_quit = false
+	
+end
+
+function opt_video_adv:SetHint(text,pos)
+	if (text == "") then
+		return
+	end
+	
+	local str = game.translate_string("ui_mm_"..text.."_desc")
+	
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(str)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos = pos or GetCursorPosition()
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+	
+	if (self[text .. "_dem"]) then
+		self[text .. "_dem"]:Show(true)
+		--self[text .. "_dem"]:SetTextureColor(GetARGB(self.dem_alpha,255,255,255))
+	end
+end
+
+function opt_video_adv:Update()
+	CUIScriptWnd.Update(self)
+	
+	if self.dem_alpha < 255 and self.dem_active then
+		self.dem_alpha = self.dem_alpha + 5
+	end 
+
+	for ck_name,v in pairs(self.ck_states) do 
+		if (self[ck_name] and self[ck_name]:IsCursorOverWindow()) then
+			self:SetHint(ck_name)
+			self.dem_active = true
+			return
+		else
+			self:hidealldems()
+		end
+	end
+	self.hint_wnd:Show(false)
+end 
+
+function opt_video_adv:hidealldems()
+	for ck_name,v in pairs(self.ck_states) do 
+		if (self[ck_name .. "_dem"]) then
+			self[ck_name .. "_dem"]:Show(false)
+		end
+	end
+	self.dem_active = false
+	self.dem_alpha = 0
+end
+
+function opt_video_adv:UpdateVideoAdvTab()
+
+	if (self.anim_alpha < 255 and not self.is_quit) or (self.anim_alpha > 0 and self.is_quit) then
+		
+		if (not self.is_quit) then
+			self.anim_alpha = self.anim_alpha + 1
+		else
+			self.anim_alpha = self.anim_alpha - 1
+		end
+		
+		for i=1, #self.elements_alpha do
+			self.elements_alpha[i]:SetTextureColor(GetARGB(self.anim_alpha,255,255,255))
+			
+			local color = self.anim_color[i] or {255, 255, 255}
+			self.elements_alpha[i]:TextControl():SetTextColor(GetARGB(self.anim_alpha,color[1],color[2],color[3]))
+		end
+		
+		for i=1, #self.elements_alpha_color do
+			self.elements_alpha_color[i]:SetColor(GetARGB(self.anim_alpha,255,255,255))
+		end
+		
+	end
+	
+	if (self.anim_alpha == 254) or (self.anim_alpha == 1 and self.is_quit) then
+		for i=1, #self.elements_noalpha do
+			self.elements_noalpha[i]:Show(not self.is_quit)
+		end
+	end
+
+end
+
+function opt_video_adv:SetAlphaToZero()
+
+	self.scroll_v:ScrollToBegin()
+
+	self.anim_alpha = 0
+	for i=1, #self.elements_noalpha do
+		self.elements_noalpha[i]:Show(false)
+	end
+
+end
+
+function opt_video_adv:SetIsQuit()
+	self.is_quit = true
+end
+
+function opt_video_adv:UnsetIsQuit()
+	self.is_quit = false
+end
+
+function opt_video_adv:AddToAlpha(elem)
+	if not self.elements_alpha then self.elements_alpha = {} end
+	self.elements_alpha[#self.elements_alpha + 1] = elem
+end
+
+function opt_video_adv:AddToColorAlpha(elem)
+	if not self.elements_alpha_color then self.elements_alpha_color = {} end
+	self.elements_alpha_color[#self.elements_alpha_color + 1] = elem
+end
+
+function opt_video_adv:AddToNoAlpha(elem)
+	if not self.elements_noalpha then self.elements_noalpha = {} end
+	self.elements_noalpha[#self.elements_noalpha + 1] = elem
+end

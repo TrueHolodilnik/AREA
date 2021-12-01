@@ -1,0 +1,483 @@
+
+;------------------------------------------------
+; Sidorovich (Loner Trader) Default Storyline Task (no task, just send to next honcho)-
+
+[drx_sl_esc_m_trader_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_esc_m_trader_default_task_name
+descr = drx_sl_esc_m_trader_default_task_text
+job_descr = drx_sl_esc_m_trader_default_task_about
+task_complete_descr = drx_sl_esc_m_trader_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+; condlist_1 = {!task_giver_alive(drx_sl_esc_m_trader_default_task)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_default_task)%
+
+; ------------------------------------------------
+; Sidorovich (Loner Trader) Mutant Safari Storyline Task-
+[drx_sl_esc_m_trader_task_1]
+
+icon = ui_inGame2_PD_Ohotnik_na_mutantov
+storyline = true
+prior = 145
+repeat_timeout = 0
+precondition = { =drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+
+title = drx_sl_esc_m_trader_task_1_name
+descr = drx_sl_esc_m_trader_task_1_text
+job_descr = drx_sl_esc_m_trader_task_1_about
+task_complete_descr = drx_sl_esc_m_trader_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+condlist_0 = {!squad_exist(drx_sl_raid_companion_squad_stalker_1)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_companion_task(drx_sl_raid_companion_squad_stalker_1:esc_smart_terrain_2_12) =drx_sl_setup_assault_mutant(drx_sl_esc_m_trader_task_1_id)%
+on_complete = %=reward_random_money(8000:10000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_esc_m_trader_task_1) =pstor_reset(drx_sl_esc_m_trader_task_1_id) =pstor_reset(drx_sl_esc_m_trader_task_1_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_1) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_1_id) =pstor_reset(drx_sl_esc_m_trader_task_1_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_1) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_1_id) =pstor_reset(drx_sl_esc_m_trader_task_1_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_1) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_1_id) =pstor_reset(drx_sl_esc_m_trader_task_1_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_1) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_1)%
+
+;------------------------------------------------
+; Sidorovich (Loner Trader) Rookie Initiation Storyline Task-
+[drx_sl_esc_m_trader_task_2]
+
+icon = ui_inGame2_Issledovatelskaya_gruppa
+storyline = true
+prior = 165
+repeat_timeout = 0
+precondition = { =drx_sl_validate_assault_mutant_task(1:nil:false)} true, false
+
+title = drx_sl_esc_m_trader_task_2_name
+descr = drx_sl_esc_m_trader_task_2_text
+job_descr = drx_sl_esc_m_trader_task_2_about
+task_complete_descr = drx_sl_esc_m_trader_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = drx_sl_assault_mutant_task_status
+status_functor_params = stalker
+condlist_0 = {!squad_exist(drx_sl_raid_companion_squad_stalker_2)} fail
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_companion_task(drx_sl_raid_companion_squad_stalker_2:esc_smart_terrain_2_12) =drx_sl_setup_assault_mutant(drx_sl_esc_m_trader_task_2_id)%
+on_complete = %=reward_random_money(8000:10000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_esc_m_trader_task_2) =pstor_reset(drx_sl_esc_m_trader_task_2_id) =pstor_reset(drx_sl_esc_m_trader_task_2_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_2) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_2_id) =pstor_reset(drx_sl_esc_m_trader_task_2_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_2) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_2_id) =pstor_reset(drx_sl_esc_m_trader_task_2_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_2) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_m_trader_task_2_id) =pstor_reset(drx_sl_esc_m_trader_task_2_target_id) =remove_special_task_squad(drx_sl_raid_companion_squad_stalker_2) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_2)%
+
+;------------------------------------------------
+; Package stalker Simulation Task-
+
+[drx_sl_esc_m_trader_task_3]
+
+icon = ui_icons_find_case3
+storyline = false
+prior = 45
+repeat_timeout = 0
+precondition = {=all_avail_debt_targets_check} true, false
+type = package
+
+title = drx_sl_esc_m_trader_task_3_name
+descr = drx_sl_esc_m_trader_task_3_text
+job_descr = drx_sl_esc_m_trader_task_3_about
+task_complete_descr = drx_sl_esc_m_trader_task_3_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = package_task
+descr_functor  = package_task_descr
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_debt_task(drx_sl_esc_m_trader_task_3) =give_package(drx_sl_esc_m_trader_task_3)%
+on_complete = %=take_package_money(drx_sl_esc_m_trader_task_3) =reset_package_vars(drx_sl_esc_m_trader_task_3) =reward_random_item(chili:conserva:bullheads:beans:beef) =inc_task_stage(drx_sl_esc_m_trader_task_3) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_3) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_3)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_esc_m_trader_task_3) =fail_task_dec_goodwill(300:stalker) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_3) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_3)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_esc_m_trader_task_3) =fail_task_dec_goodwill(80:stalker) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_3) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_3)%
+on_reversed = %=drx_sl_meet_random_honcho() =reset_package_vars(drx_sl_esc_m_trader_task_3) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_3) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_3)%
+
+quest_timeout = 86400
+
+;------------------------------------------------
+; Debt Simulation Task-
+
+[drx_sl_esc_m_trader_task_4]
+
+icon = ui_icons_more_money1
+storyline = false
+prior = 45
+repeat_timeout = 259200
+precondition = {=all_avail_debt_targets_check} true, false
+type = debt
+
+title = drx_sl_esc_m_trader_task_4_name
+descr = drx_sl_esc_m_trader_task_4_text
+job_descr = drx_sl_esc_m_trader_task_4_about
+task_complete_descr = drx_sl_esc_m_trader_task_4_finish
+
+stage_complete = 1
+target_functor = dialog_task_target
+status_functor = debt_task
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=setup_debt_task(drx_sl_esc_m_trader_task_4)%
+on_complete = %=reward_debt_money(drx_sl_esc_m_trader_task_4:false:0.2) =take_debt_money(drx_sl_esc_m_trader_task_4) =reset_debt_vars(drx_sl_esc_m_trader_task_4) =reward_random_item(maps_kit:mili_maps) =inc_task_stage(drx_sl_esc_m_trader_task_4) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_4) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_4)%
+on_fail = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_esc_m_trader_task_4) =fail_task_dec_goodwill(150:stalker) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_4) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_4)%
+on_cancel = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_esc_m_trader_task_4) =fail_task_dec_goodwill(40:stalker) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_4) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_4)%
+on_reversed = %=drx_sl_meet_random_honcho() =reset_debt_vars(drx_sl_esc_m_trader_task_4) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_task_4) =drx_sl_reset_stored_task(drx_sl_esc_m_trader_task_4)%
+
+quest_timeout = 86400
+
+;------------------------------------------------
+; Xenotech (Loner Mechanic) Default Storyline Task (no task, just send to next honcho)-
+
+[drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task_name
+descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task_text
+job_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task_about
+task_complete_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(stalker)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_default_task)%
+
+;------------------------------------------------
+; Xenotech (Loner Mechanic) Rescue Missing Stalker Storyline Task-
+
+[drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1]
+
+icon = ui_inGame2_Reputatsiya
+storyline = true
+prior = 185
+repeat_timeout = 0
+precondition = {-hostage_companion_task_1_started -hostage_companion_task_1_hostage_rescued =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:nil:bandit) !squad_exist(hostage_companion_task_1)} true, false
+
+title = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_name
+descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_text
+job_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_about
+task_complete_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_finish
+
+stage_complete = 1
+target_functor = simulation_task_target
+status_functor = hostage_task
+status_functor_params = hostage_companion_task_1
+condlist_0 = {!squad_exist(hostage_companion_task_1)} fail
+condlist_1 = {!task_giver_alive(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)} reversed
+condlist_2 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_setup_sim_hostage_task(hostage_companion_task_1_stalker:nil:drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id:true:hostage_companion_task_1_started:bandit)% ;on_init = %=find_smart_under_faction_control_ex(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id:bandit) =setup_companion_task(hostage_companion_task_1_stalker:nil:drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id:true) +hostage_companion_task_1_started%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_special_task_squad(hostage_companion_task_1) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =inc_task_stage(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1) =unlock_smart(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_fail = %=unlock_smart(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_cancel = %=unlock_smart(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_reversed = %=unlock_smart(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_target_id) -hostage_companion_task_1_hostage_rescued -hostage_companion_task_1_started =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Klin (Loner Mechanic) Track Wounded Attacker Storyline Task-
+
+[drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2]
+
+icon = ui_inGame2_Propavshiy_chasovoy
+storyline = true
+prior = 175
+repeat_timeout = 0
+precondition = {=random_chance(125) =drx_sl_is_enemy(army) =all_avail_smart_stayed_squad_count_ge_by_faction(1:nil:false:army)} true, false
+
+title = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_name
+descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_text
+job_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_about
+task_complete_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = army
+condlist_0 = {!task_giver_alive(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=find_smart_under_faction_control(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_id:army)%
+on_complete = %=reward_random_money(9000:11000:roubles) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_target_id) =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+
+quest_timeout = 86400
+; \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+[drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3]
+
+icon = ui_inGame2_PD_Torgovets_informatsiey
+storyline = false
+prior = 39
+repeat_timeout = 259200
+precondition = { -drx_sl_quest_item_task_3_started} true, false
+
+title = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_name
+descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_text
+job_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_about
+task_complete_descr = drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_3_target
+status_functor = drx_sl_quest_item_task_3_status
+condlist_0 = {!task_giver_alive(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_create_quest_stash_3() +drx_sl_quest_item_task_3_started%
+on_complete = %=reward_random_money(5400:6000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_item(drx_sl_quest_item_3) =inc_task_stage(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) =drx_sl_reset_stored_task(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_fail = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) =drx_sl_reset_stored_task(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_cancel = %=fail_task_dec_goodwill(10:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) =drx_sl_reset_stored_task(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_reversed = %=pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) =drx_sl_reset_stored_task(drx_sl_esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+
+quest_timeout = 172800
+
+; ------------------------------------------------
+; Sidorovich (Loner Trader) Payoff Change Factions Task-
+[drx_sl_esc_m_trader_cf_task_1]
+
+icon = ui_inGame2_Sdelka
+storyline = true
+prior = 197
+repeat_timeout = 0
+precondition = true
+
+title = drx_sl_esc_m_trader_cf_task_1_name
+descr = drx_sl_esc_m_trader_cf_task_1_text
+job_descr = drx_sl_esc_m_trader_cf_task_1_about
+task_complete_descr = drx_sl_esc_m_trader_cf_task_1_finish
+
+stage_complete = 1
+target_functor = drx_sl_money_task_target
+status_functor = drx_sl_money_task_status
+; condlist_0 = {!task_giver_alive(drx_sl_esc_m_trader_cf_task_1)} fail
+; condlist_0 = {=drx_sl_is_enemy(stalker)} fail
+
+on_init = %=pstor_set(drx_sl_esc_m_trader_cf_task_1_fetch:10000) +drx_sl_on_cf_task%
+on_complete = %=drx_sl_money_task_payment(drx_sl_esc_m_trader_cf_task_1_fetch) =drx_sl_change_factions(stalker) =inc_task_stage(drx_sl_esc_m_trader_cf_task_1) =pstor_reset(drx_sl_esc_m_trader_cf_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_cf_task_1) -drx_sl_on_cf_task%
+on_fail = %=pstor_reset(drx_sl_esc_m_trader_cf_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_esc_m_trader_cf_task_1) -drx_sl_on_cf_task%
+
+;------------------------------------------------
+; Sidorovich (Loner Trader) Eliminate Car Park Bandits Task-
+
+[esc_m_trader_task_1]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = false
+prior = 85
+repeat_timeout = 259200
+precondition = { =drx_sl_is_enemy(bandit) =sim_avail(esc_smart_terrain_7_11) =smart_stayed_squad_count_ge_by_faction(atp_bandit_esc_smart_terrain_7_11:1:nil:false:bandit)} true, false
+
+title = esc_m_trader_task_1_name
+descr = esc_m_trader_task_1_text
+job_descr = esc_m_trader_task_1_about
+task_complete_descr = esc_m_trader_task_1_finish
+
+stage_complete = 1
+target_functor = esc_m_trader_task_target_1
+status_functor = check_specific_smart_under_faction_control_staged
+status_functor_params = esc_smart_terrain_7_11, bandit
+condlist_0 = {!sim_avail(esc_smart_terrain_7_11)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_complete = %=reward_random_money(11000:12000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(esc_m_trader_task_1) =remove_task_companion(esc_2_12_stalker_fanat_squad) =drx_sl_unregister_task_giver(esc_m_trader_task_1) =drx_sl_reset_stored_task(esc_m_trader_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =remove_task_companion(esc_2_12_stalker_fanat_squad) =drx_sl_unregister_task_giver(esc_m_trader_task_1) =drx_sl_reset_stored_task(esc_m_trader_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =remove_task_companion(esc_2_12_stalker_fanat_squad) =drx_sl_unregister_task_giver(esc_m_trader_task_1) =drx_sl_reset_stored_task(esc_m_trader_task_1)%
+on_reversed = %=remove_task_companion(esc_2_12_stalker_fanat_squad) =drx_sl_unregister_task_giver(esc_m_trader_task_1) =drx_sl_reset_stored_task(esc_m_trader_task_1)%
+
+;------------------------------------------------
+; Sidorovich (Loner Trader) Contract Killer Task-
+
+[esc_m_trader_task_2]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+repeat_timeout = 259200
+precondition = {=check_available_targets(stalker)} true, false
+type = bounty
+
+title = esc_m_trader_task_2_name
+descr = esc_m_trader_task_2_text
+job_descr = esc_m_trader_task_2_about
+task_complete_descr = esc_m_trader_task_2_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=on_init_bounty_hunt(esc_m_trader_task_2:stalker:killer:bandit:army)%
+on_complete = %=reward_money(5000) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(esc_m_trader_task_2) =drx_sl_unregister_task_giver(esc_m_trader_task_2) =drx_sl_reset_stored_task(esc_m_trader_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(esc_m_trader_task_2) =drx_sl_reset_stored_task(esc_m_trader_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_m_trader_task_2) =drx_sl_reset_stored_task(esc_m_trader_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(esc_m_trader_task_2) =drx_sl_reset_stored_task(esc_m_trader_task_2)%
+
+quest_timeout = 86400
+
+;------------------------------------------------
+; Nimble (Loner Trader) Find Weapon Task-
+
+[esc_2_12_stalker_nimble_task_1]
+
+icon = ui_inGame2_Neizvestnoe_oruzhie
+storyline = false
+prior = 28
+repeat_timeout = 518400
+precondition = true
+
+title = esc_2_12_stalker_nimble_task_1_name
+title_functor = general_fetch_task
+descr = esc_2_12_stalker_nimble_task_1_text
+descr_functor = general_fetch_task
+job_descr = esc_2_12_stalker_nimble_task_1_about
+fetch_descr = esc_2_12_stalker_nimble_task_1_fetch_about
+task_complete_descr = esc_2_12_stalker_nimble_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_nimble_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=drx_sl_setup_fetch_weapon(esc_2_12_stalker_nimble_task_1_fetch:1:1)%
+on_complete = %=drx_sl_fetch_reward_money(esc_2_12_stalker_nimble_task_1_fetch:1.7) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =inc_task_stage(esc_2_12_stalker_nimble_task_1) =pstor_reset(esc_2_12_stalker_nimble_task_1_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(esc_2_12_stalker_nimble_task_1_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(esc_2_12_stalker_nimble_task_1_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_1)%
+on_reversed = %=pstor_reset(esc_2_12_stalker_nimble_task_1_fetch) =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_1) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_1)%
+
+quest_timeout = 518400
+;------------------------------------------------
+; Nimble (Loner Trader) Retrieve PDA Dynamic Task-
+
+[esc_2_12_stalker_nimble_task_2]
+
+icon = ui_inGame2_PD_Torgovets_informatsiey
+storyline = false
+prior = 39
+repeat_timeout = 259200
+precondition = { -drx_sl_quest_item_task_3_started} true, false
+
+title = esc_2_12_stalker_nimble_task_2_name
+descr = esc_2_12_stalker_nimble_task_2_text
+job_descr = esc_2_12_stalker_nimble_task_2_about
+task_complete_descr = esc_2_12_stalker_nimble_task_2_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_3_target
+status_functor = drx_sl_quest_item_task_3_status
+condlist_0 = {!task_giver_alive(esc_2_12_stalker_nimble_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+on_init = %=drx_sl_create_quest_stash_3() +drx_sl_quest_item_task_3_started%
+on_complete = %=reward_random_money(5400:6000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:stalker) =remove_item(drx_sl_quest_item_3) =inc_task_stage(esc_2_12_stalker_nimble_task_2) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_2)%
+on_reversed = %=pstor_reset(drx_sl_quest_stash_3_id) -drx_sl_quest_item_task_3_started =drx_sl_unregister_task_giver(esc_2_12_stalker_nimble_task_2) =drx_sl_reset_stored_task(esc_2_12_stalker_nimble_task_2)%
+
+quest_timeout = 172800
+
+;------------------------------------------------
+; Xenotech (Loner Mechanic) Find Level 1 Toolkit Task-
+
+[esc_smart_terrain_5_7_loner_mechanic_stalker_task_1]
+
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 15
+precondition = {-esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_1} true, false
+
+title = esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_name
+title_functor = general_fetch_task
+descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_text
+descr_functor = general_fetch_task
+job_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_about
+fetch_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_fetch_about
+task_complete_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=setup_generic_fetch_task(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_fetch:1:itm_repairkit_tier_1)%
+on_complete = %=reward_money(1000) =complete_task_inc_goodwill(50:stalker) +esc_stalker_mechanic_start_weapon_craft_tier_1 =remove_fetch_item(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1_fetch) =inc_task_stage(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1) +esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_1 =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_1)%
+
+;------------------------------------------------
+; Xenotech (Loner Mechanic) Find Level 2 Toolkit Task-
+
+[esc_smart_terrain_5_7_loner_mechanic_stalker_task_2]
+
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 16
+precondition = {+esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_1 -esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_2} true, false
+
+title = esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_name
+title_functor = general_fetch_task
+descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_text
+descr_functor = general_fetch_task
+job_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_about
+fetch_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_fetch_about
+task_complete_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=setup_generic_fetch_task(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_fetch:1:itm_repairkit_tier_2)%
+on_complete = %=reward_money(3000) =complete_task_inc_goodwill(50:stalker) +esc_stalker_mechanic_start_weapon_craft_tier_2 =remove_fetch_item(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2_fetch) =inc_task_stage(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2) +esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_2 =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_2)%
+
+;------------------------------------------------
+; Xenotech (Loner Mechanic) Find Level 3 Toolkit Task-
+
+[esc_smart_terrain_5_7_loner_mechanic_stalker_task_3]
+
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 17
+precondition = {+esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_2 -esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_3} true, false
+
+title = esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_name
+title_functor = general_fetch_task
+descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_text
+descr_functor = general_fetch_task
+job_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_about
+fetch_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_fetch_about
+task_complete_descr = esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(stalker)} cancel
+
+fetch_func = %=setup_generic_fetch_task(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_fetch:1:itm_repairkit_tier_3)%
+on_complete = %=reward_money(6000) =complete_task_inc_goodwill(50:stalker) +esc_stalker_mechanic_start_weapon_craft_tier_3 =remove_fetch_item(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3_fetch) =inc_task_stage(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3) +esc_smart_terrain_5_7_loner_mechanic_stalker_upgrade_tier_3 =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:stalker) =drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(esc_smart_terrain_5_7_loner_mechanic_stalker_task_3)%

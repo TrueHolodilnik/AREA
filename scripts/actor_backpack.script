@@ -1,0 +1,150 @@
+--local keep_items = nil
+function on_game_start()
+	RegisterScriptCallback("on_key_release",on_key_release)
+end
+
+function on_key_release(key)
+	if (dik_to_bind(key) == key_bindings.kCUSTOM7) then 
+		local backpack = db.actor:item_in_slot(13)
+		if not (backpack) then 
+			return 
+		end
+		db.actor:drop_item(backpack)
+	end
+end
+
+function query_create_stash(obj)
+--	if (obj:clsid() == clsid.equ_backpack) then 
+		return game.translate_string("ui_st_create_stash")
+--	end
+end 
+
+function action_create_stash(obj)
+	get_hud():HideActorMenu()
+	local ui = actor_backpack_ui(obj)
+	if (ui) then
+		ui:ShowDialog(true)
+	end
+end
+--------- helper
+function is_ammo_for_wpn(sec)
+	local ini = system_ini()
+	for i=1,3 do
+		local wpn = db.actor:item_in_slot(i)
+		if (wpn) then
+			local ammos = alun_utils.parse_list(ini,wpn:section(),"ammo_class",true)
+			if (ammos[sec]) then 
+				return true 
+			end
+		end
+	end
+	return false
+end
+
+function is_in_slot(obj)
+	for i=1,12 do
+		local item = db.actor:item_in_slot(i)
+		if (item and item:id() == obj:id()) then 
+			return true
+		end
+	end
+	return false
+end
+-----------------
+-- UI 
+-----------------
+
+class "actor_backpack_ui" (CUIScriptWnd)
+function actor_backpack_ui:__init(backpack) super()
+	self:InitControls()
+	self:InitCallBacks()
+	self.backpack = backpack
+	self.section = backpack:section()
+end
+
+function actor_backpack_ui:__finalize() end
+
+function actor_backpack_ui:InitControls()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	if(device().width/device().height>(1024/768+0.01)) then
+		wide = true
+	end
+	self:SetAutoDelete(true)
+	self:Enable(true)
+
+	local xml					= CScriptXmlInit()
+	xml:ParseFile				("ui_itm_main.xml")
+
+	self.back					= xml:InitStatic("itm_backpack:background", self)
+
+	self.input = xml:InitEditBox("itm_backpack:input",self)
+	self:Register(self.input,"fld_input")
+
+	local btn = xml:Init3tButton("itm_backpack:btn_cancel", self.back)
+	self:Register(btn,"btn_cancel")
+
+	btn = xml:Init3tButton("itm_backpack:btn_ok", self.back)
+	self:Register(btn,"btn_ok")
+end
+
+function actor_backpack_ui:Update()
+	CUIScriptWnd.Update(self)
+end
+
+function actor_backpack_ui:InitCallBacks()
+	self:AddCallback("btn_ok", ui_events.BUTTON_CLICKED, self.OnAccept, self)
+	self:AddCallback("btn_cancel", ui_events.BUTTON_CLICKED, self.OnCancel, self)
+end
+
+function actor_backpack_ui:OnAccept()
+	local sec = self.section
+	local se_obj = sec and alife():create("inv_" .. sec,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
+	if (se_obj) then
+		local txt = self.input:GetText()
+		txt = txt ~= "" and txt or strformat(game.translate_string("st_itm_stash_of_character"), db.actor:character_name())
+		level.map_add_object_spot_ser(se_obj.id, "treasure_player", txt)
+		SetHudMsg(game.translate_string("st_stash_created"),4)
+		
+		local m_data = alife_storage_manager.get_state()
+		if not (m_data.player_created_stashes) then 
+			m_data.player_created_stashes = {}
+		end
+		
+		m_data.player_created_stashes[se_obj.id] = self.section
+		
+		coc_treasure_manager.caches[se_obj.id] = true
+		
+		local se_backpack = alife_object(self.backpack:id())
+		if (self.backpack and self.backpack:clsid() ~= clsid.inventory_box_s and self.backpack:clsid() ~= clsid.obj_pda_s) then
+		if (not self.backpack:is_inv_box_empty()) then
+			local function transfer_items( new_id, old_id )
+				local new_inv_box = level.object_by_id(new_id)
+				if new_inv_box then
+					if not bind_container.containers[old_id] then
+						return
+					end
+					local old_inv_box_id = bind_container.containers[old_id].id
+					if not old_inv_box_id then
+						return
+					end
+					local old_inv_box = level.object_by_id(old_inv_box_id)
+					local function itr_inv( old_inv_box, item )
+						old_inv_box:transfer_item( item, new_inv_box )
+					end
+					old_inv_box:iterate_inventory_box( itr_inv, old_inv_box )
+					return true
+				end
+				return false
+			end
+			CreateTimeEvent( db.actor:id(), "drop_backpack_".. self.backpack:id(), 0, transfer_items, se_obj.id, self.backpack:id() )
+			
+		end
+		end
+		alife():release(se_backpack,true)
+	end
+	self:HideDialog()
+end
+
+function actor_backpack_ui:OnCancel()
+	self:HideDialog()
+end

@@ -1,0 +1,122 @@
+[trade_routes]
+m_trader_caravan
+bar_visitors_barman_stalker_trader_caravan
+zat_b30_owl_stalker_trader_caravan
+mar_base_owl_stalker_trader_caravan
+yan_stalker_sakharov_caravan
+agr_smart_terrain_1_6_army_trader_stalker_caravan
+bar_dolg_general_petrenko_stalker_caravan
+val_smart_terrain_7_4_bandit_trader_stalker_caravan
+cit_killers_merc_trader_stalker_caravan
+mil_smart_terrain_7_10_freedom_trader_stalker_caravan
+pri_monolith_monolith_trader_stalker_caravan
+ 
+[m_trader_caravan]:online_offline_group ;esc_2_12_stalker_trader use different name
+faction = stalker
+target = esc_smart_terrain_2_12
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} bar_visitors
+npc = caravan_npc_26, caravan_npc_27, caravan_npc_28, caravan_npc_29, caravan_npc_30
+on_death = %+m_trader_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[bar_visitors_barman_stalker_trader_caravan]:online_offline_group
+faction = stalker
+target = bar_visitors
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12
+npc = caravan_npc_26, caravan_npc_27, caravan_npc_28, caravan_npc_29, caravan_npc_30
+on_death = %+bar_visitors_barman_stalker_trader_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[zat_b30_owl_stalker_trader_caravan]:online_offline_group
+faction = stalker
+target = zat_stalker_base_smart
+spawn_point = {+caravan_1} bar_visitors,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12
+npc = caravan_npc_26, caravan_npc_27, caravan_npc_28, caravan_npc_29, caravan_npc_30
+on_death = %+zat_b30_owl_stalker_trader_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[mar_base_owl_stalker_trader_caravan]:online_offline_group ;esc_2_12_stalker_trader use different name
+faction = csky
+target = mar_smart_terrain_base
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} yan_smart_terrain_6_4, {+caravan_3} jup_a6, {+caravan_4} bar_visitors, {+caravan_5} cit_killers
+npc = caravan_npc_06, caravan_npc_07, caravan_npc_08, caravan_npc_09, caravan_npc_10
+on_death = %+mar_base_owl_stalker_trader_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[yan_stalker_sakharov_caravan]:online_offline_group
+faction = ecolog
+target = yan_smart_terrain_6_4
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12
+npc = caravan_npc_21, caravan_npc_22, caravan_npc_23, caravan_npc_24, caravan_npc_25
+on_death = %+yan_stalker_sakharov_caravan_dead%
+;npc_in_squad = 5, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[agr_smart_terrain_1_6_army_trader_stalker_caravan]:online_offline_group
+faction = army
+target = agr_smart_terrain_1_6_near_2
+spawn_point = {+caravan_1} yan_smart_terrain_6_4 {+caravan_2} esc_smart_terrain_3_16, {+caravan_3} pri_b35_military, {+caravan_4} ds_kem2
+npc = caravan_npc_16, caravan_npc_17, caravan_npc_18, caravan_npc_19, caravan_npc_20
+on_death = %+agr_smart_terrain_1_6_army_trader_stalker_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[bar_dolg_general_petrenko_stalker_caravan]:online_offline_group
+faction = dolg
+target = bar_dolg_general
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12, {+caravan_5} agr_smart_terrain_1_6
+npc = caravan_npc_41, caravan_npc_42, caravan_npc_43, caravan_npc_44, caravan_npc_45
+on_death = %+bar_dolg_general_petrenko_stalker_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[val_smart_terrain_7_4_bandit_trader_stalker_caravan]:online_offline_group
+faction = bandit
+target = val_smart_terrain_7_4
+spawn_point = {+caravan_1} cit_bandits,{+caravan_2} mil_smart_terrain_7_10, {+caravan_3} ds2_lager_st, {+caravan_4} esc_smart_terrain_7_11
+npc = caravan_npc_11, caravan_npc_12, caravan_npc_13, caravan_npc_14, caravan_npc_15
+on_death = %+val_smart_terrain_7_4_bandit_trader_stalker_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[cit_killers_merc_trader_stalker_caravan]:online_offline_group
+faction = killer
+target = cit_killers
+spawn_point = {+caravan_1} zat_stalker_base_smart,{+caravan_2} mar_smart_terrain_base, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12,{+caravan_5} yan_smart_terrain_6_4
+npc = caravan_npc_31, caravan_npc_32, caravan_npc_33, caravan_npc_34, caravan_npc_35
+on_death = %+cit_killers_merc_trader_stalker_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[mil_smart_terrain_7_10_freedom_trader_stalker_caravan]:online_offline_group
+faction = freedom
+target = mil_smart_terrain_7_10
+spawn_point = {+caravan_1} yan_smart_terrain_6_4 {+caravan_2} val_smart_terrain_7_4, {+caravan_3} jup_a6, {+caravan_4} esc_smart_terrain_2_12, {+caravan_5} zat_stalker_base_smart
+npc = caravan_npc_36, caravan_npc_37, caravan_npc_38, caravan_npc_39, caravan_npc_40
+on_death = %+mil_smart_terrain_7_10_freedom_trader_stalker_caravan_dead%
+;npc_in_squad = 4, 5
+min_spawn_time = 84600
+max_spawn_time = 253800
+ 
+[pri_monolith_monolith_trader_stalker_caravan]:online_offline_group
+faction = monolith
+target = pri_monolith
+spawn_point = {+caravan_1} pri_sim_2 {+caravan_2} gen_smart_terrain_lab_entrance, {+caravan_3} aes2_monolith_camp3, {+caravan_4} katacomb_smart_terrain, {+caravan_5} lim_smart_terrain_10
+npc = caravan_npc_01, caravan_npc_02, caravan_npc_03, caravan_npc_04, caravan_npc_05
+on_death = %+pri_monolith_monolith_trader_stalker_caravan_dead%
+;npc_in_squad = 5, 5
+min_spawn_time = 84600
+max_spawn_time = 253800

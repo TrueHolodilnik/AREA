@@ -1,0 +1,777 @@
+-- ui_itm_cooking
+-- ponney68
+--[[
+Copyright (C) 2012 Alundaio
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License-]]
+--]]
+-- Remade by Nuor and Surs for A.R.E.A. (02.01.2019)
+-------------------------------------------------------------------
+-- campfire
+local camp_pan_id
+function campfire_cook()
+	for id,binder in pairs(bind_campfire.campfires_all) do
+		if (binder and binder.campfire) then
+			if db.actor:position():distance_to_sqr(binder.object:position()) < 1.5^2 then
+				if (binder.campfire:is_on()) then 
+					return true
+				end
+				return false
+			end
+		end
+	end
+end
+-- Called when a context option is required.
+function campfire_cook_functor(item)
+	if (campfire_cook()) then
+		return game.translate_string("st_campfire_cook")
+	end
+end
+-- Called when the context option is clicked.
+function campfire_cook_action_functor(item)
+	camp_pan_id = nil
+	if (campfire_cook()) then
+		local hud = get_hud()
+		hud:HideActorMenu()
+		camp_pan_id = item:id()
+		local ui = cooking_ui(hud,"campfire")
+		if (ui) then
+			ui:ShowDialog(true)
+		end
+	end
+end
+
+-------------------------------------------------------------------
+class "load_item" (CUIListBoxItem)
+function load_item:__init(height) super(height)
+	self.file_name		= "filename"
+
+	self:SetTextColor(GetARGB(255, 170, 170, 170))
+
+	self.fn = self:GetTextItem()
+	self.fn:SetFont(GetFontLetterica18Russian())
+	self.fn:SetEllipsis(true)
+end
+
+function load_item:__finalize()
+end
+
+-------------------------------------------------------------------
+class "cooking_ui" (CUIScriptWnd)
+
+function cooking_ui:__init(owner,section) super()
+	self.owner = owner
+	self.section = section
+	self.ini = system_ini()
+	self.stove_limit = 3		-- Limit number of loaded items
+
+	self.fuels = alun_utils.parse_list(self.ini,section,"fuel_type",true)
+
+	self.use_actor_effects = alun_utils.read_from_ini(nil,section,"use_actor_effects","bool",false)
+
+	self:InitControls()
+	self:InitCallBacks()
+	if self.section ~= "campfire" then
+		self:FuelList()
+		self:FireList()
+		self:PanList()
+	end
+	self:WaterList()
+	self:PartsList()
+ 
+end
+
+function cooking_ui:__finalize()
+end
+
+function cooking_ui:FuelList()
+	self.fuel_list_box:RemoveAll()
+	local function fill_list(actor,obj)
+		if (self.fuels and self.fuels[obj:section()]) then
+			self:AddItemToList(obj,self.fuel_list_box)
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+ 
+end
+
+function cooking_ui:FireList()
+	self.fire_list_box:RemoveAll()
+	local function fill_list(actor,obj)
+		if (self.ini:r_bool_ex(obj:section(),"fire_item", false)) then
+			self:AddItemToList(obj,self.fire_list_box)
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:WaterList()
+	self.water_list_box:RemoveAll()
+	local function fill_list(actor,obj)
+		if (self.ini:r_bool_ex(obj:section(),"water_item", false)) then
+			self:AddItemToList(obj,self.water_list_box)
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:PanList()
+	self.pan_list_box:RemoveAll()
+	local function fill_list(actor,obj)
+		if (self.ini:r_bool_ex(obj:section(),"pan_item", false)) then
+			self:AddItemToList(obj,self.pan_list_box)
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:PartsList()
+	self.parts_list_box:RemoveAll()
+	local function fill_list(actor,itm)
+		if (self.ini:r_string_ex(itm:section(),"can_be_cooked","") ~= "") then
+			self:AddItemToList(itm,self.parts_list_box)
+		end
+	end
+
+	db.actor:iterate_inventory(fill_list,db.actor)
+end
+
+function cooking_ui:InitControls()
+	self:SetWndRect			(Frect():set(0,0,1024,768))
+
+	self:SetWndPos			(vector2():set(240,120))
+	self:SetAutoDelete(true)
+	self.xml				= CScriptXmlInit()
+	local ctrl
+	self.xml:ParseFile		("ui_itm_main.xml")
+
+	ctrl					= CUIWindow()
+	self.xml:InitWindow		("itm_cooking:file_item:main",0,ctrl)
+
+	self.file_item_main_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow		("itm_cooking:file_item:fn",0,ctrl)
+	self.file_item_fn_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.xml:InitWindow		("itm_cooking:file_item:fd",0,ctrl)
+	self.file_item_fd_sz	= vector2():set(ctrl:GetWidth(),ctrl:GetHeight())
+
+	self.form				= self.xml:InitStatic("itm_cooking:form",self)
+	self.form:SetWndPos		(vector2():set(0, 0))
+
+	-- Item picture
+	self.picture_fuel		= self.xml:InitStatic("itm_cooking:form:icon_fuel",self.form)
+	self.picture_fire		= self.xml:InitStatic("itm_cooking:form:icon_fire",self.form)
+	self.picture_water		= self.xml:InitStatic("itm_cooking:form:icon_water",self.form)
+	self.picture_pan		= self.xml:InitStatic("itm_cooking:form:icon_pan",self.form)
+	self.picture_parts		= self.xml:InitStatic("itm_cooking:form:icon_parts",self.form)
+
+	-- Cooking tool picture
+	self.pic = self.xml:InitStatic("itm_cooking:form:icon_tool",self.form)
+	local w,h = 128,128
+	if self.section ~= "campfire" then
+		local inv_grid_width 	= self.ini:r_float_ex(self.section,"inv_grid_width",0)
+		local inv_grid_height 	= self.ini:r_float_ex(self.section,"inv_grid_height",0)
+		local inv_grid_x 		= self.ini:r_float_ex(self.section,"inv_grid_x",0)
+		local inv_grid_y 		= self.ini:r_float_ex(self.section,"inv_grid_y",0)
+	
+		local x1 				= inv_grid_x*50
+		local y1 				= inv_grid_y*50
+		w 						= inv_grid_width*50
+		h 						= inv_grid_height*50
+		local x2 				= x1 + w
+		local y2 				= y1 + h
+		
+		self.pic:InitTexture("ui\\ui_icon_equipment")
+		self.pic:SetTextureRect(Frect():set(x1,y1,x2,y2))
+	end	
+	
+	if (utils.is_widescreen()) then
+		w,h = w/1.5,h/1.2
+	else
+		w,h = w/1.3,h/1.3
+	end
+	
+	self.pic:SetWndSize(vector2():set(w,h))
+	
+	if not (self.pic.x) then
+		local pos = self.pic:GetWndPos()
+		local posform = self.form:GetWndPos()
+		self.pic.x = pos.x + posform.x
+		self.pic.y = pos.y + posform.y
+	end
+	
+	self.pic:SetWndPos(vector2():set(self.pic.x-w/2, self.pic.y-h/2))
+	
+	-- Caption
+	self.caption_fuel		= self.xml:InitTextWnd("itm_cooking:form:caption_fuel",self.form)
+	self.caption_fire		= self.xml:InitTextWnd("itm_cooking:form:caption_fire",self.form)
+	self.caption_water		= self.xml:InitTextWnd("itm_cooking:form:caption_water",self.form)
+	self.caption_pan		= self.xml:InitTextWnd("itm_cooking:form:caption_pan",self.form)
+	self.caption_parts 		= self.xml:InitTextWnd("itm_cooking:form:caption_parts",self.form)
+	-- Headers
+	self.xml:InitTextWnd("itm_cooking:form:caption_fuel_box",self.form)
+	self.xml:InitTextWnd("itm_cooking:form:caption_fire_box",self.form)
+	self.xml:InitTextWnd("itm_cooking:form:caption_water_box",self.form)
+	self.xml:InitTextWnd("itm_cooking:form:caption_pan_box",self.form)
+	self.xml:InitTextWnd("itm_cooking:form:caption_parts_box",self.form)
+	self.xml:InitTextWnd("itm_cooking:form:caption_chosen_box",self.form)
+ 
+
+	-- Fuel List Box
+	local fuel_frame		= self.xml:InitFrame("itm_cooking:form:fuel_list_frame",self.form)
+	self.fuel_list_box		= self.xml:InitListBox("itm_cooking:form:fuel_list_box",self.form)
+	self.fuel_list_box:ShowSelectedItem(true)
+	self:Register			(self.fuel_list_box, "fuel_window")
+	
+	-- Fire List Box
+	local fire_frame		= self.xml:InitFrame("itm_cooking:form:fire_list_frame",self.form)
+	self.fire_list_box		= self.xml:InitListBox("itm_cooking:form:fire_list_box",self.form)
+	self.fire_list_box:ShowSelectedItem(true)
+	self:Register			(self.fire_list_box, "fire_window")
+		
+	-- Water List Box
+	local water_frame		= self.xml:InitFrame("itm_cooking:form:water_list_frame",self.form)
+	self.water_list_box		= self.xml:InitListBox("itm_cooking:form:water_list_box",self.form)
+	self.water_list_box:ShowSelectedItem(true)
+	self:Register			(self.water_list_box, "water_window")
+			
+	-- Pan List Box
+	local pan_frame			= self.xml:InitFrame("itm_cooking:form:pan_list_frame",self.form)
+	self.pan_list_box		= self.xml:InitListBox("itm_cooking:form:pan_list_box",self.form)
+	self.pan_list_box:ShowSelectedItem(true)
+	self:Register			(self.pan_list_box, "pan_window")
+	
+	if camp_pan_id then
+		local pan = alife_object(camp_pan_id)
+		local sect = pan and pan:section_name()
+		local inv_grid_width 	= self.ini:r_float_ex(sect,"inv_grid_width",0)
+		local inv_grid_height 	= self.ini:r_float_ex(sect,"inv_grid_height",0)
+		local inv_grid_x 		= self.ini:r_float_ex(sect,"inv_grid_x",0)
+		local inv_grid_y 		= self.ini:r_float_ex(sect,"inv_grid_y",0)
+	
+		local x1 				= inv_grid_x*50
+		local y1 				= inv_grid_y*50
+		w 						= inv_grid_width*50
+		h 						= inv_grid_height*50
+		local x2 				= x1 + w
+		local y2 				= y1 + h
+		
+		if (utils.is_widescreen()) then
+			w,h = w/1.5,h/1.2
+		else
+			w,h = w/1.2,h/1.2
+		end
+	
+		self.picture_pan:InitTexture("ui\\ui_icon_equipment")
+		self.picture_pan:SetTextureRect(Frect():set(x1,y1,x2,y2))
+		self.picture_pan:SetWndSize(vector2():set(w,h))
+	
+		if not (self.picture_pan.x) then
+			local pos = self.picture_pan:GetWndPos()
+			self.picture_pan.x = pos.x
+			self.picture_pan.y = pos.y
+		end
+	
+		self.picture_pan:SetWndPos(vector2():set(self.picture_pan.x-w/2, self.picture_pan.y-h/2))
+		self.caption_pan:SetText(game.translate_string("st_ui_selected"))
+	end
+	
+	-- Parts List Box
+	local parts_frame 		= self.xml:InitFrame("itm_cooking:form:parts_list_frame",self.form)
+	self.parts_list_box		= self.xml:InitListBox("itm_cooking:form:parts_list_box",self.form)
+	self.parts_list_box:ShowSelectedItem(true)
+	self:Register(			self.parts_list_box, "parts_window")
+	
+	-- Chosen List Box
+	local chosen_frame 		= self.xml:InitFrame("itm_cooking:form:chosen_list_frame",self.form)
+	self.chosen_list_box	= self.xml:InitListBox("itm_cooking:form:chosen_list_box",self.form)
+	self.chosen_list_box:ShowSelectedItem(true)
+	self:Register			(self.chosen_list_box, "chosen_window")
+
+	-- Button cooking
+	ctrl					= self.xml:Init3tButton("itm_cooking:form:btn_cooking",	self.form)
+	self:Register			(ctrl, "button_cooking")
+
+	-- Button Cancel
+	ctrl 					= self.xml:Init3tButton	("itm_cooking:form:btn_cancel",	self.form)
+	self:Register			(ctrl, "button_back")
+end
+
+function cooking_ui:InitCallBacks()
+	self:AddCallback("button_cooking",		ui_events.BUTTON_CLICKED,         	self.OnButton_cooking,			self)
+	self:AddCallback("button_back",			ui_events.BUTTON_CLICKED,           self.OnButton_back_clicked,		self)
+
+	self:AddCallback("fuel_window", 		ui_events.LIST_ITEM_CLICKED, 		self.OnFuelListItemClicked,		self)
+	self:AddCallback("fuel_window", 		ui_events.WINDOW_LBUTTON_DB_CLICK,	self.OnPartsListItemDbClicked,	self)
+	
+	self:AddCallback("fire_window", 		ui_events.LIST_ITEM_CLICKED, 		self.OnFireListItemClicked,		self)
+	self:AddCallback("fire_window", 		ui_events.WINDOW_LBUTTON_DB_CLICK,	self.OnPartsListItemDbClicked,	self)
+	
+	self:AddCallback("water_window", 		ui_events.LIST_ITEM_CLICKED, 		self.OnWaterListItemClicked,	self)
+	self:AddCallback("water_window", 		ui_events.WINDOW_LBUTTON_DB_CLICK,	self.OnPartsListItemDbClicked,	self)
+	
+	self:AddCallback("pan_window", 			ui_events.LIST_ITEM_CLICKED, 		self.OnPanListItemClicked,		self)
+	self:AddCallback("pan_window", 			ui_events.WINDOW_LBUTTON_DB_CLICK,	self.OnPartsListItemDbClicked,	self)
+
+	self:AddCallback("parts_window", 		ui_events.LIST_ITEM_CLICKED, 		self.OnPartsListItemClicked,	self)
+	self:AddCallback("parts_window", 		ui_events.WINDOW_LBUTTON_DB_CLICK,  self.OnPartsListItemDbClicked,	self)
+	
+	self:AddCallback("chosen_window", 		ui_events.LIST_ITEM_CLICKED,		self.OnChosenListItemClicked,	self)
+	self:AddCallback("chosen_window", 		ui_events.WINDOW_LBUTTON_DB_CLICK,  self.OnPartsListItemDbClicked,	self)
+end
+
+function cooking_ui:ShowPartPicture(item)
+	if self.chosen_list_box:GetSize()==0 then
+		self.picture_parts:SetTextureRect(Frect():set(0,0,0,0))
+		self.caption_parts:SetText("")
+		return
+	end
+
+	local se_item = item.item_id and alife_object(item.item_id)
+	local sec = se_item and se_item:section_name()
+	if not (sec and db.actor:object(sec)) then
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+	self.picture_parts:InitTexture("ui\\ui_icon_equipment")
+	self.picture_parts:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_parts:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_parts.x) then
+		local pos = self.picture_parts:GetWndPos()
+		self.picture_parts.x = pos.x
+		self.picture_parts.y = pos.y
+	end
+
+	self.picture_parts:SetWndPos(vector2():set(self.picture_parts.x-w/2, self.picture_parts.y-h/2))
+	self.caption_parts:SetText(game.translate_string("st_ui_selected"))
+	
+	-- Cooked item picture
+	local cooked = self.ini:r_string_ex(sec, "can_be_cooked", "")
+	if cooked then
+		local inv_grid_width = self.ini:r_float_ex(cooked,"inv_grid_width",0)
+		local inv_grid_height = self.ini:r_float_ex(cooked,"inv_grid_height",0)
+		local inv_grid_x = self.ini:r_float_ex(cooked,"inv_grid_x",0)
+		local inv_grid_y = self.ini:r_float_ex(cooked,"inv_grid_y",0)
+		
+		self.picture_cooked = self.xml:InitStatic("itm_cooking:form:icon_cooked",self.form)
+	
+		local x1 = inv_grid_x*50
+		local y1 = inv_grid_y*50
+	
+		local w = inv_grid_width*50
+		local h = inv_grid_height*50
+	
+		local x2 = x1 + w
+		local y2 = y1 + h
+	
+		local w,h = w,h
+		if (utils.is_widescreen()) then
+			w,h = w/1.5,h/1.2
+		else
+			w,h = w/1.3,h/1.3
+		end
+		self.picture_cooked:InitTexture("ui\\ui_icon_equipment")
+		self.picture_cooked:SetTextureRect(Frect():set(x1,y1,x2,y2))
+		self.picture_cooked:SetWndSize(vector2():set(w,h))
+	
+		if not (self.picture_cooked.x) then
+			local pos = self.picture_cooked:GetWndPos()
+			local posform = self.form:GetWndPos()
+			self.picture_cooked.x = pos.x + posform.x
+			self.picture_cooked.y = pos.y + posform.y
+		end
+	
+		self.picture_cooked:SetWndPos(vector2():set(self.picture_cooked.x-w/2, self.picture_cooked.y-h/2))
+	else
+		self.picture_cooked:SetTextureRect(Frect():set(0,0,0,0))
+		self.caption_cooked:SetText("")
+	end
+
+end
+
+function cooking_ui:OnPartsListItemClicked()
+	if self.parts_list_box:GetSize()==0 then return end
+
+	local item = self.parts_list_box:GetSelectedItem()
+	if not (item) then
+		return
+	end
+	
+	if self.chosen_list_box:GetSize()>=self.stove_limit then
+		return
+	end
+	local obj = level.object_by_id(item.item_id)
+	self:AddItemToList(obj,self.chosen_list_box)
+	self.parts_list_box:RemoveItem(item)
+
+	self:ShowPartPicture(item)
+end
+
+function cooking_ui:OnChosenListItemClicked()
+	local item = self.chosen_list_box:GetSelectedItem()
+	if not (item) then
+		self.picture_parts:SetTextureRect(Frect():set(0,0,0,0))
+		self.caption_parts:SetText("")
+		return
+	end
+	
+	local obj = level.object_by_id(item.item_id)
+	self:AddItemToList(obj,self.parts_list_box)
+	self.chosen_list_box:RemoveItem(item)
+	
+	local se_item = item.item_id and alife():object(item.item_id)
+	local sec = se_item and se_item:section_name()
+	if not (sec and db.actor:object(sec)) then
+		return
+	end
+	
+	self:ShowPartPicture(item)
+end
+
+function cooking_ui:OnPartsListItemDbClicked()
+	self:OnButton_cooking()
+end
+
+function cooking_ui:OnFuelListItemClicked()
+	if self.fuel_list_box:GetSize()==0 then return end
+
+	local item = self.fuel_list_box:GetSelectedItem()
+
+	if not (item) then
+		self.picture_fuel:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.fuel_list_box:RemoveItem(item)
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+	self.picture_fuel:InitTexture("ui\\ui_icon_equipment")
+	self.picture_fuel:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_fuel:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_fuel.x) then
+		local pos = self.picture_fuel:GetWndPos()
+		self.picture_fuel.x = pos.x
+		self.picture_fuel.y = pos.y
+	end
+
+	self.picture_fuel:SetWndPos(vector2():set(self.picture_fuel.x-w/2, self.picture_fuel.y-h/2))
+	local obj = level.object_by_id(item.item_id)
+    local suff = obj and " " .. tostring(obj:get_remaining_uses()) or ""
+    self.caption_fuel:SetText(game.translate_string("st_ui_selected_uses") .. suff)
+end
+
+function cooking_ui:OnFireListItemClicked()
+	if self.fire_list_box:GetSize()==0 then return end
+
+	local item = self.fire_list_box:GetSelectedItem()
+
+	if not (item) then
+		self.picture_fire:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.fire_list_box:RemoveItem(item)
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+
+	self.picture_fire:InitTexture("ui\\ui_icon_equipment")
+	self.picture_fire:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_fire:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_fire.x) then
+		local pos = self.picture_fire:GetWndPos()
+		self.picture_fire.x = pos.x
+		self.picture_fire.y = pos.y
+	end
+
+	self.picture_fire:SetWndPos(vector2():set(self.picture_fire.x-w/2, self.picture_fire.y-h/2))
+	local obj = level.object_by_id(item.item_id)
+    local suff = obj and " " .. tostring(obj:get_remaining_uses()) or ""
+    self.caption_fire:SetText(game.translate_string("st_ui_selected_uses") .. suff)
+
+end
+
+function cooking_ui:OnWaterListItemClicked()
+	if self.water_list_box:GetSize()==0 then return end
+
+	local item = self.water_list_box:GetSelectedItem()
+
+	if not (item) then
+		self.picture_water:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.water_list_box:RemoveItem(item)
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+
+	self.picture_water:InitTexture("ui\\ui_icon_equipment")
+	self.picture_water:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_water:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_water.x) then
+		local pos = self.picture_water:GetWndPos()
+		self.picture_water.x = pos.x
+		self.picture_water.y = pos.y
+	end
+
+	self.picture_water:SetWndPos(vector2():set(self.picture_water.x-w/2, self.picture_water.y-h/2))
+	local obj = level.object_by_id(item.item_id)
+    local suff = obj and " " .. tostring(obj:get_remaining_uses()) or ""
+    self.caption_water:SetText(game.translate_string("st_ui_selected_uses") .. suff)
+	sound_object("interface\\inv_fill_saucepan"):play(db.actor,0,sound_object.s2d)
+end
+
+function cooking_ui:OnPanListItemClicked()
+	if self.pan_list_box:GetSize()==0 then return end
+
+	local item = self.pan_list_box:GetSelectedItem()
+
+	if not (item) then
+		self.picture_pan:SetTextureRect(Frect():set(0,0,0,0))
+		return
+	end
+
+	local se_item = alife():object(item.item_id)
+	if (se_item == nil or not db.actor:object(se_item:section_name())) then
+		self.pan_list_box:RemoveItem(item)
+		return
+	end
+
+	local w,h = item.width,item.height
+	if (utils.is_widescreen()) then
+		w,h = item.width/1.5,item.height/1.2
+	else
+		w,h = item.width/1.2,item.height/1.2
+	end
+
+	self.picture_pan:InitTexture("ui\\ui_icon_equipment")
+	self.picture_pan:SetTextureRect(Frect():set(item.x1,item.y1,item.x2,item.y2))
+	self.picture_pan:SetWndSize(vector2():set(w,h))
+
+	if not (self.picture_pan.x) then
+		local pos = self.picture_pan:GetWndPos()
+		self.picture_pan.x = pos.x
+		self.picture_pan.y = pos.y
+	end
+
+	self.picture_pan:SetWndPos(vector2():set(self.picture_pan.x-w/2, self.picture_pan.y-h/2))
+	--local obj = level.object_by_id(item.item_id)
+	--local suff = obj and " - " .. tostring(obj:get_remaining_uses()) or ""
+	self.caption_pan:SetText(game.translate_string("st_ui_selected"))
+end
+
+function cooking_ui:OnButton_back_clicked()
+	if self.section ~= "campfire" then
+		alife():create(self.section,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	end
+	self:HideDialog()
+end
+
+function cooking_ui:OnKeyboard(dik, keyboard_action)
+	local bind = dik_to_bind(dik)
+	CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (keyboard_action == ui_events.WINDOW_KEY_PRESSED) then
+		if (dik == DIK_keys.DIK_RETURN) then
+
+		elseif (dik == DIK_keys.DIK_ESCAPE) then
+			self:OnButton_back_clicked()
+		--elseif (bind == key_bindings.kUSE) then
+			--self:OnButton_back_clicked()
+		end
+	end
+	return true
+end
+
+function cooking_ui:OnButton_cooking()
+	if self.chosen_list_box:GetSize()==0 then return end
+	local pan_id = camp_pan_id
+	local fuel_id, fire_id, water_id, index
+	if self.section ~= "campfire" then
+		index = self.fuel_list_box:GetSelectedIndex()
+		if (index ~= -1) then
+			local item  = self.fuel_list_box:GetItemByIndex(index)
+			fuel_id = item and item.item_id
+			if not (fuel_id and alife_object(fuel_id)) then
+				return
+			end
+		end
+		
+		index = self.fire_list_box:GetSelectedIndex()
+		if (index ~= -1) then
+			local item  = self.fire_list_box:GetItemByIndex(index)
+			fire_id = item and item.item_id
+			if not (fire_id and alife_object(fire_id)) then
+				return
+			end
+		end
+		
+		index = self.pan_list_box:GetSelectedIndex()
+		if (index ~= -1) then
+			local item  = self.pan_list_box:GetItemByIndex(index)
+			pan_id = item and item.item_id
+			if not (pan_id and alife_object(pan_id)) then
+				return
+			end
+		end
+	end
+	index = self.water_list_box:GetSelectedIndex()
+ 	if (index ~= -1) then
+		local item  = self.water_list_box:GetItemByIndex(index)
+		water_id = item and item.item_id
+		if not (water_id and alife_object(water_id)) then
+			return
+		end
+	end
+	local fuel_obj = level.object_by_id(fuel_id)
+	local fire_obj = level.object_by_id(fire_id)
+	
+	if (fuel_obj and fire_obj) or self.section == "campfire" then
+		--A.R.E.A. Skills
+		area_skills.raise_skill("survival_skill",0.15)
+		for i = 0, self.chosen_list_box:GetSize() - 1 do
+			local item = self.chosen_list_box:GetItemByIndex(i)
+			local part_id = item and item.item_id
+			if not (part_id and alife_object(part_id)) then
+				return
+			end
+			actor_effects.use_item(self.section)
+			local part_obj = level.object_by_id(part_id)
+			local meal = part_obj and self.ini:r_string_ex(part_obj:section(),"can_be_cooked","")
+			if meal then			
+				alife():create(meal, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				alife():release(alife_object(part_id), true)
+			end
+		end
+		
+		if self.section ~= "campfire" then
+			local uses = fuel_obj:get_remaining_uses() or 1
+			uses = uses - 1
+			fuel_obj:set_remaining_uses(uses)
+			if uses <= 0 then
+				alife():release(alife_object(fuel_id), true)
+				local next_sec = self.ini:r_string_ex(fuel_obj:section(), "next_use_item")
+				if next_sec then
+					alife():create(next_sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+			end
+	
+			fire_obj:set_remaining_uses(fire_obj:get_remaining_uses() - 1)
+			if fire_obj:get_remaining_uses() == 0 then
+				alife():release(alife_object(fire_id), true)
+				local next_sec = self.ini:r_string_ex(fire_obj:section(), "next_use_item")
+				if next_sec then
+					alife():create(next_sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+			end
+		end
+		
+		local water_obj = level.object_by_id(water_id)
+		if water_obj then
+			water_obj:set_remaining_uses(water_obj:get_remaining_uses() - 1)
+			if water_obj:get_remaining_uses() == 0 then
+				alife():release(alife_object(water_id), true)
+				local next_sec = self.ini:r_string_ex(water_obj:section(), "next_use_item")
+				if next_sec then
+					alife():create(next_sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+			end
+		end
+		
+		local pan_obj = level.object_by_id(pan_id)
+		if pan_obj then
+			local losecond = self.section == "campfire" and 3 or 1
+			pan_obj:set_condition(pan_obj:condition() - (0.05*losecond))
+			if pan_obj:condition() <= 0 then
+				alife():release(alife_object(pan_id), true)
+				local next_sec = self.ini:r_string_ex(pan_obj:section(), "next_use_item")
+				if next_sec then
+					alife():create(next_sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+			end
+			camp_pan_id = nil
+		end
+		if self.section ~= "campfire" then
+			alife():create(self.section, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+	end
+	
+	self:HideDialog()
+
+	if (self.use_actor_effects and actor_effects) then
+		actor_effects.use_item(self.section.."_dummy")
+		level_weathers.get_weather_manager():forced_weather_change()
+	end
+end
+
+function cooking_ui:AddItemToList(item,listbox)
+
+	local _itm			= load_item(self.file_item_main_sz.y)
+	local sec 			= item and item:section()
+	local inv_name 		= item and game.translate_string(alun_utils.read_from_ini(nil,sec,"inv_name","string","error")) or "none"
+
+	_itm:SetWndSize		(self.file_item_main_sz)
+
+	_itm.fn:SetWndPos(vector2():set(0,0))
+	_itm.fn:SetWndSize	(self.file_item_fn_sz)
+	_itm.fn:SetText		(inv_name)
+
+	if (item) then
+		_itm.item_id = item:id()
+
+		local inv_grid_width = self.ini:r_float_ex(sec,"inv_grid_width",0)
+		local inv_grid_height = self.ini:r_float_ex(sec,"inv_grid_height",0)
+		local inv_grid_x = self.ini:r_float_ex(sec,"inv_grid_x",0)
+		local inv_grid_y = self.ini:r_float_ex(sec,"inv_grid_y",0)
+
+		_itm.x1 = inv_grid_x*50
+		_itm.y1 = inv_grid_y*50
+
+		_itm.width = inv_grid_width*50
+		_itm.height = inv_grid_height*50
+
+		_itm.x2 = _itm.x1 + _itm.width
+		_itm.y2 = _itm.y1 + _itm.height
+	end
+
+	listbox:AddExistingItem(_itm)
+end

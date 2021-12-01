@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<!--===========================================================
+<
+< TEXT  STRINGS FOR TASKS ON PRIPYAT MAP
+<	CoC 1.4.08 - DoctorX Questlines 1.6
+<
+<	Modified by: DoctorX
+<	Last revised: October 07, 2016
+<
+<===========================================================-->
+
+<string_table>
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- STORYLINE TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Default Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_default_task_name">
+		<text>Get Next Task</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_default_task_text">
+		<text>Receive your next task.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_default_task_about">
+		<text>You must meet with one of the Monolith elders. Go to him now.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_default_task_finish">
+		<text>Good luck.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Destroy the Non-Believers Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_1_name">
+		<text>Destroy the Non-Believers</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_1_text">
+		<text>Lead the Monolith attack against the infidels. The lead time is 6 hours.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_1_about">
+		<text>The time has come, my son. You must lead your brothers into battle. Fight fiecely and accept no surrender. Defeat the infidels for the good of the Monolith, so you have a quarter day.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_1_finish">
+		<text>You are a worthy warrior of the Monolith. Accept this gift on His behalf:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Collect Supplies Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_2_name">
+		<text>Collect %s for Monolith</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_2_text">
+		<text>Preacher has asked me to bring him %s.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_2_about">
+		<text>My son, your brothers need for you to collect provisions.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_2_fetch_about">
+		<text>%s - get it for the benefit of us. I give you three days to search. Let the Monolith show you the way.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_2_fetch_finish">
+		<text>This will benefit all of us, for the protection of the Almighty. I thank you. Accept these gifts:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Venture into the Zone Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_3_name">
+		<text>Venture into the Zone</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_3_text">
+		<text>You must prove your worth by surviving a journey into the Zone.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_3_about">
+		<text>My son, you must prove yourself to the almighty Monolith. You must travel alone deep into the Zone. Face all challenges that confront you. Destroy all enemies you encounter. Do this for the good of the Monolith.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_task_3_finish">
+		<text>You have done well, my son.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Cleric (Monolith Mechanic) Default Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_default_task_name">
+		<text>Get Next Task</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_default_task_text">
+		<text>Receive your next task.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_default_task_about">
+		<text>My son, you serve the Monolith well. Speak with one of the elders and ask what you may do to further help our great cause.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_default_task_finish">
+		<text>Good luck.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Cleric (Monolith Mechanic) Recover Stolen Equipment Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_1_name">
+		<text>Recover Stolen Monolith Equipment</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_1_text">
+		<text>A stalker has sabotaged the Brain Scorcher. Recover the equipment he removed. The lead time is 2 days.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_1_about">
+		<text>A stalker has stolen a vital piece of equipment from the Brain Scorcher. You must recover it for the good of the almighty Monolith. You have two days.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_1_finish">
+		<text>You have done well.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Cleric (Monolith Mechanic) Hunt for Food Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_2_name">
+		<text>Hunt for Food</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_2_text">
+		<text>Lead a hunt into the Zone to harvest meat for your Monolith brothers. The lead time is one day.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_2_about">
+		<text>We must replenish our food supplies. Need to go hunting. Go, but they should be here in a day.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_2_finish">
+		<text>You have all served the Monolith well. The meat you have brought will be served at tonights feast. As your reward, we will reserve the eyeballs for you.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Cleric (Monolith Mechanic) Monolith Weapon Arsenal Storyline Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_3_name">
+		<text>%s - bring it to Father Diodor</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_3_text">
+		<text>We need to get Father Diodore these weapons to strengthen the Monolith arsenal. It's a six-day runtime.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_3_about">
+		<text>We must have a powerful arsenal to achieve our glorious goals.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_3_fetch_about">
+		<text>%s is what we need. The success of this mission will largely serve the Monolith cause. It should be here in six days, go.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_mechanic_stalker_task_3_fetch_finish">
+		<text>You have done well, my son.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- CHANGE FACTIONS TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Payoff Change Factions Task -->
+
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_cf_task_1_name">
+		<text>Relinquish Payment to Join Monolith</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_cf_task_1_text">
+		<text>You are to become Monolith, you will have no more need for money. Give Preacher 1,000 UAH to let you join the almighty Monolith.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_cf_task_1_about">
+		<text>It's good you have come to your senses, my child. We will welcome you into the order of the Monolith but you must first relinquish all of your worldly possessions in the form of 1,000 UAH.</text>
+	</string>
+	<string id="drx_sl_pri_monolith_monolith_trader_stalker_cf_task_1_finish">
+		<text>Good. Welcome to the brotherhood of the Monolith.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- DYNAMIC TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Preacher (Monolith Trader) Assault Territory Task -->
+
+	<string id="pri_monolith_monolith_trader_stalker_task_1_name">
+		<text>Conquer the Enemy</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_1_text">
+		<text>You have been tasked to clear an area for the good of the almighty Monolith. Report back to Preacher after the job is done. The time of execution is 24 hours.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_1_about">
+		<text>I have an important mission for you, brother. You must destroy the infidel camp so that our brothers can establish themselves in this place. I will give you 24 hours. Are you ready?</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_1_finish">
+		<text>The task is done? Good. Praise Monolith.</text>
+	</string>
+
+
+	<!-- ASSASSINATION FOR MONOLITH TASK -->
+	<string id="pri_monolith_monolith_trader_stalker_task_2_name">
+		<text>Kill the Planner</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_2_text">
+		<text>A stalker is trying to deactivate the Brain Scorcher. Kill him. Time of execution - 3 days</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_2_about">
+		<text>There are many threats to the great works of the Zone. There is one who is once again planning to deactivate the Brain Scorcher. He must be stopped. You must find him and destroy him. I give you 3 days.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_2_finish">
+		<text>You have done well. The Collective is pleased.</text>
+	</string>
+
+
+	<!-- FIND WEAPON FOR MONOLITH TASK -->
+	<string id="pri_monolith_monolith_trader_stalker_task_3_name">
+		<text>Find a %s for Preacher</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_3_text">
+		<text>Preacher has requested a new rifle to add to the Monolith arsenal.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_3_about">
+		<text>We grow more powerful every day. We need more weaponry to continue to achieve our goals. You must find a new weapon for us so we may continue to grow our arsenal.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_3_fetch_about">
+		<text>Find a new %s and bring it to me.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_3_fetch_finish">
+		<text>This will do well.</text>
+	</string>
+
+
+	<!-- FIND MUTANT MEAT FOR MONOLITH TASK -->
+	<string id="pri_monolith_monolith_trader_stalker_task_4_name">
+		<text>Hunt for %s for Preacher</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_4_text">
+		<text>Hunt for and field dress %s. Return the meat to Preacher so he may prepare it. The execution time is 3 days.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_4_about">
+		<text>Our provisions run low. You must go out into the Zone and hunt for meat so that your Monolith brothers may feast.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_4_fetch_about">
+		<text>Hunt for and bring us %s. Remember these creatures are a gift of the Zone. Kill them swiftly and give thanks. Return the meat to me when you have succeeded. I expect them in 3 days.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_4_fetch_finish">
+		<text>You have succeeded in your task. Well done.</text>
+	</string>
+
+
+	<!-- FIND SUPPLIES FOR MONOLITH TASK -->
+	<string id="pri_monolith_monolith_trader_stalker_task_5_name">
+		<text>Collect %s for Preacher</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_5_text">
+		<text>Find %s and return to the Preacher. The execution time is 3 days.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_5_about">
+		<text>You must procure more supplies for us so we may continue our great works.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_5_fetch_about">
+		<text>You must provide more supplies for us so that we can continue our great works. Get there %s and come back. I give you three days to search.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_5_fetch_finish">
+		<text>You have done well to serve Monolith.</text>
+	</string>
+
+
+	<!-- FIND ARTEFACT FOR MONOLITH TASK -->
+	<string id="pri_monolith_monolith_trader_stalker_task_6_name">
+		<text>Find the %s Artefact for Preacher</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_6_text">
+		<text>Find the %s artefact. Bring it back to Preacher so he may prepare it as an offering.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_6_about">
+		<text>We must find another artifact to give as an offering. Will you help serve the good of the Monolith?</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_6_fetch_about">
+		<text>Find a %s. Bring it to me when you have succeeded so we may conduct the ceremony.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_task_6_fetch_finish">
+		<text>You serve the Monolith well. Join us tonight in the ceremonial offering. There will be chanting.</text>
+	</string>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- MECHANIC TASK TEXT  STRINGS
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 07, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Cleric (Monolith Mechanic) Find Level 1 Toolkit Task -->
+
+	<string id="pri_monolith_monolith_mechanic_stalker_task_1_name">
+		<text>Find %s for Cleric</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_1_text">
+		<text>%s are required by Cleric to install basic equipment upgrades, you should bring them back to him if you find any.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_1_about">
+		<text>I need you to do something for me. I need specific tools to tune our weapons.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_1_fetch_about">
+		<text>Okay, I need a %s. Go, now.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_1_fetch_finish">
+		<text>You've done well.</text>
+	</string>
+
+	<string id="pri_monolith_monolith_mechanic_stalker_task_2_name">
+		<text>Find %s for Cleric</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_2_text">
+		<text>%s are required by Cleric to install advanced equipment upgrades, you should bring them back to him if you find any.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_2_about">
+		<text>I need some more tools; better tools. Can you find what I ask, again?</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_2_fetch_about">
+		<text>I need a set of advanced tools. It should contain what I need. If you can bring some back for me I will be grateful, I will even offer you a discount from here on out.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_2_fetch_finish">
+		<text>Good. You've brought them to me.</text>
+	</string>
+
+	<!-- FIND LEVEL 3 TOOLKIT FOR CLERIC TASK -->
+	<string id="pri_monolith_monolith_mechanic_stalker_task_3_name">
+		<text>Find %s for Cleric</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_3_text">
+		<text>%s are required by Cleric to install expert equipment upgrades, you should bring them back to him if you find any.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_3_about">
+		<text>I need some more tools; better tools. Can you find what I ask, again?</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_3_fetch_about">
+		<text>I need a set of expert tools. It should contain what I need. If you can bring some back for me I will be grateful, I will even offer you a discount from here on out.</text>
+	</string>
+	<string id="pri_monolith_monolith_mechanic_stalker_task_3_fetch_finish">
+		<text>Good. You've brought them to me.</text>
+	</string>
+	
+</string_table>

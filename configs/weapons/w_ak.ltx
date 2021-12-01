@@ -1,0 +1,265 @@
+[wpn_ak]:default_weapon_params
+visual								= dynamics\weapons\wpn_ak\wpn_ak.ogf
+$spawn								= "weapons\ak-74"		; name and section in level editor
+$npc								= on
+class								= WP_AK74
+inv_name							= st_wpn_ak
+inv_name_short						= st_wpn_ak
+description							= st_wpn_ak_descr
+heating_rates						= ak1
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_7.62
+weapon_class						= assault_rifle
+inv_weight							= 3.3
+inv_volume							= 5
+ph_mass								= 5
+cost								= 22650
+upgrades							= up_gr_firstab_ak, up_gr_seconab_ak, up_gr_thirdab_ak, up_gr_fourtab_ak, up_gr_fifthab_ak, up_gr_fifthcd_ak
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_ak74
+;-ТТХ---------------------------------------------------------------------------
+hit_power							= 0.525, 0.525, 0.525, 0.525
+hit_impulse							= 34
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 715
+rpm									= 600
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_ak_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.7
+misfire_end_condition				= 0.05
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0007
+condition_queue_shot_dec			= 0.0007
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= -1, 1
+magazine_sect						= magazine_762x39_cnt_30, magazine_762x39_cnt_30_2, magazine_762x39_cnt_30_3, magazine_762x39_cnt_40, magazine_762x39_cnt_40_2, magazine_762x39_cnt_75
+ammo_class							= ammo_7.62x39_fmj, ammo_7.62x39_fmj_bad, ammo_7.62x39_fmj_verybad, ammo_7.62x39_ap, ammo_7.62x39_ap_bad, ammo_7.62x39_ap_verybad
+grenade_class						= ammo_vog-25, ammo_vog-25_bad, ammo_vog-25_verybad
+slot								= 2
+animation_slot						= 2
+;--Доф---------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+;--Дисперсия---------------------------------------------------------------------
+fire_dispersion_base				= 0.49					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.4f
+crosshair_inertion					= 5.8
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 10					;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 1.4
+cam_dispersion_inc					= 1.2
+cam_dispersion_frac					= 1.0					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					;максимальный угол отдачи
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.38					;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 10					; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 1.1
+zoom_cam_dispersion_inc				= 0.88
+zoom_cam_dispersion_frac			= 0.7
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.28
+
+PDM_disp_base						= 1.15
+PDM_disp_vel_factor					= 2.5
+PDM_disp_accel_factor				= 2.5
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+position							= -0.019, -0.165, 0.01
+orientation							= 0, 0, 0
+fire_point							= 0, 0.222, 0.555
+fire_point2							= 0, 0.161, 0.580
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= -0.02,0.212,0.10
+shell_particles						= weapons\762x39
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 25
+inv_grid_y							= 18
+
+upgr_icon_x							= 0
+upgr_icon_y							= 200
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 28
+kill_msg_width						= 84
+kill_msg_height						= 28
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 0						; 0 - no addon
+silencer_status						= 2						; 1 - permanent
+grenade_launcher_status				= 0						; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+scope_name							= wpn_addon_scope
+scope_x								= 33
+scope_y								= -2
+
+grenade_launcher_name				= wpn_addon_grenade_launcher
+grenade_launcher_x					= 120
+grenade_launcher_y					= 21
+
+silencer_name						= wpn_sil_pbs1
+silencer_x							= 244
+silencer_y							= 14
+silencer_hit_power 					= 0.485, 0.485, 0.485, 0.485
+silencer_hit_impulse				= 24
+silencer_fire_distance 				= 950
+silencer_bullet_speed				= 680
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\ak\ak_holster
+snd_empty							= weapons\ak\ak_empty
+snd_draw							= weapons\ak\ak_draw
+snd_reload							= weapons\ak74m\ak74m_reload_alt
+snd_reload_empty					= weapons\ak74m\ak74m_reload_empty_alt
+snd_reload_misfire					= weapons\ak74m\ak74m_reload_empty_alt,1,0,2.45
+snd_reload_detached					= weapons\ak74m\ak74m_reload_alt,1,0,1.2
+snd_reload_detached_empty			= weapons\ak74m\ak74m_reload_empty_alt,1,0,1.2
+snd_shoot_grenade					= weapons\ak\ak_grenshoot
+snd_reload_grenade					= weapons\ak\ak_grenload
+snd_shoot							= weapons\ak\ak_shoot_null
+snd_silencer_shot					= weapons\ak\ak_shot_sil_null
+snd_switch							= $no_sound
+snd_bore							= $no_sound
+snd_check_magazine                  = weapons\ak74m\ak74m_reload_alt
+
+;-------------------------------------------------------------------------------
+[wpn_ak_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_ak\wpn_ak_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.00804,0.065005,-0.082355
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= wpn_body
+fire_point							= 0,0.051841,0.535482
+fire_bone							= wpn_body
+fire_point2							= 0.0,-0.011,0.553
+fire_bone2							= wpn_body
+
+hands_position						= -0.10413,-0.115666,-0.049445
+hands_position_16x9					= -0.10413,-0.115666,-0.049445
+hands_orientation					= 1.256598,2.42189,0.149999
+hands_orientation_16x9				= 1.256598,2.42189,0.149999
+
+aim_hud_offset_pos					= -0.04745,0.0147,-0.11
+aim_hud_offset_pos_16x9				= -0.04745,0.0147,-0.11
+aim_hud_offset_rot					= 0.043266,0.020481,-0.006
+aim_hud_offset_rot_16x9				= 0.043266,0.020481,-0.006
+
+gl_hud_offset_pos					= -0.008385,-0.019515,-0.005
+gl_hud_offset_pos_16x9				= -0.008385,-0.019515,-0.005
+gl_hud_offset_rot					= -0.066,0.0042,-0.02
+gl_hud_offset_rot_16x9				= -0.066,0.0042,-0.02
+
+anm_bore							= lancew_akm_no_reload
+anm_bore_g							= lancew_akm_no_reload_w_gl
+anm_bore_w_gl						= lancew_akm_no_reload_w_gl
+anm_hide							= lancew_akm_holster
+anm_hide_g							= lancew_akm_holster_w_gl
+anm_hide_w_gl						= lancew_akm_holster_w_gl
+anm_idle							= lancew_akm_idle
+anm_idle_aim						= lancew_akm_idle_aim, idle_aim
+anm_idle_g							= lancew_akm_idle_w_gl
+anm_idle_g_aim						= lancew_akm_idle_aim_w_gl
+anm_idle_moving						= lancew_akm_moving_v2
+anm_idle_moving_g					= lancew_akm_moving_w_gl_v2
+anm_idle_moving_w_gl				= lancew_akm_moving_w_gl_v2
+anm_idle_moving_crouch				= akm_crouch
+anm_idle_moving_crouch_g			= akm_crouch_w_gl
+anm_idle_moving_crouch_w_gl			= akm_crouch_w_gl
+anm_idle_sprint						= lancew_akm_sprint_v2
+anm_idle_sprint_g					= lancew_akm_sprint_w_gl_v2
+anm_idle_sprint_w_gl				= lancew_akm_sprint_w_gl_v2
+anm_idle_w_gl						= lancew_akm_idle_w_gl
+anm_idle_w_gl_aim					= lancew_akm_idle_aim_w_gl, idle_aim
+anm_reload							= akm_reload_short, reload_short
+anm_reload_empty					= lancew_akm_reload, reload
+anm_reload_misfire					= lancew_akm_reload, reload, , 1.5
+anm_reload_detached					= akm_reload_short, reload_short, , 0.8
+anm_reload_detached_empty			= lancew_akm_reload, reload, , 0.8
+anm_reload_g						= lancew_akm_reload_g, reload_g
+anm_reload_w_gl						= akm_reload_short_w_gl, reload_short
+anm_reload_empty_w_gl				= lancew_akm_reload_w_gl, reload
+anm_reload_misfire_w_gl				= lancew_akm_reload_g, reload_g, , 0.4
+anm_reload_detached_w_gl			= akm_reload_short_w_gl, reload_short, , 0.8
+anm_reload_detached_empty_w_gl		= lancew_akm_reload_g, reload_g, , 0.8
+anm_shots							= lancew_akm_shoot, shoot
+anm_shots_empty						= lancew_akm_idle
+anm_shots_g							= lancew_akm_shoot_g, shoot_g
+anm_shots_w_gl						= lancew_akm_shoot_w_gl, shoot
+anm_shots_w_gl_empty				= lancew_akm_idle_w_gl
+anm_show							= lancew_akm_draw
+anm_show_g							= lancew_akm_draw_w_gl
+anm_show_w_gl						= lancew_akm_draw_w_gl
+anm_switch							= lancew_akm_no_reload_w_gl
+anm_switch_g						= lancew_akm_no_reload_w_gl
+anm_check_magazine                  = akm_reload_short, reload_short
+anm_check_magazine_w_g              = akm_reload_short_w_gl, reload_short
+anm_use_start                       = lancew_akm_holster, ,0.6
+anm_use_end                         = lancew_akm_draw, ,0.75
+anm_use_g_start                     = lancew_akm_holster_w_gl, ,0.6
+anm_use_g_end                       = lancew_akm_draw_w_gl, ,0.75
+anm_jump                            = lancew_akm_draw, ,1.6
+anm_jump_g                          = lancew_akm_draw_w_gl, ,1.5
+
+;-----------------------------------------------------------------------------
+[wpn_aks]:wpn_ak
+visual								= dynamics\weapons\wpn_ak\wpn_aks.ogf
+description							= st_wpn_aks_descr
+inv_weight							= 3.2
+inv_volume							= 4.5
+inv_name							= st_wpn_aks
+inv_name_short						= st_wpn_aks
+hud									= wpn_aks_hud
+inv_grid_y							= 20
+
+[wpn_aks_hud]:wpn_ak_hud
+item_visual							= dynamics\weapons\wpn_ak\wpn_aks_hud.ogf
+hands_position						= -0.10028,-0.118185,-0.033825
+hands_position_16x9					= -0.10028,-0.118185,-0.033825
+hands_orientation					= 0.55,2.39,0.149999
+hands_orientation_16x9				= 0.55,2.39,0.149999
+
+aim_hud_offset_pos					= -0.051915,0.01778,-0.11
+aim_hud_offset_pos_16x9				= -0.051915,0.01778,-0.11
+aim_hud_offset_rot					= 0.0423,0.00825,-0.006
+aim_hud_offset_rot_16x9				= 0.0423,0.00825,-0.006
+;-----------------------------------------------------------------------------

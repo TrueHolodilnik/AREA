@@ -1,0 +1,71 @@
+	; Guard 1
+
+[logic@yan_merc_guard_01]
+	active = beh@mar_smart_terrain_base_new_job_01
+	suitable = {=target_squad_name(ah_guard_kovalev_squad_01)} true
+	prior = 110
+	relationship = neutral   
+
+[beh@general_01]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = false
+	help_wounded_enabled = false
+	corpse_detection_enabled = false
+	invulnerable = {!actor_enemy} true, false 
+	relationship = neutral
+	meet = no_meet
+   
+[beh@mar_smart_terrain_base_new_job_01]:beh@general_01
+	pt1 = 25000, guard | pos:252.0274810791,0.34573775529861,-121.15168762207 look:252.78294372559,0.37958699464798,-113.6881942749
+	pt2 = 25000, guard_chasovoy | pos:267.97402954102,0.3807355761528,-120.55560302734 look:271.50085449219,0.45813202857971,-111.97210693359
+	pt3 = 25000, guard | pos:313.03033447266,1.0939404964447,-133.12911987305 look:321.25408935547,0.91945642232895,-136.66534423828
+	pt4 = 25000, guard_chasovoy | pos:251.2272644043,0.22838598489761,-161.48629760742 look:245.05766296387,0.45479255914688,-159.66151428223
+	pt5 = 25000, guard | pos:251.4972076416,0.27143305540085,-148.03753662109 look:244.18615722656,0.6968041062355,-148.0671081543
+	pt6 = 25000, guard_chasovoy | pos:269.32440185547,0.33962029218674,-129.59149169922 look:272.94528198242,0.39103364944458,-123.26805877686
+	pt7 = 25000, guard | pos:285.59231567383,0.6355567574501,-114.89406585693 look:284.84518432617,0.63320887088776,-109.09306335449
+	pt8 = 100000, sit_ass | pos:295.69189453125,0.66562885046005,-167.95054626465 look:291.22952270508,0.14341336488724,-167.35432434082 ;rest
+	path_end = loop
+
+	; Guard 2
+	
+[logic@yan_merc_guard_02]
+	active = beh@mar_smart_terrain_base_new_job_02
+	suitable = {=target_squad_name(ah_guard_kovalev_squad_02)} true
+	prior = 110
+	relationship = neutral   
+
+[beh@general_02]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = false
+	help_wounded_enabled = false
+	corpse_detection_enabled = false
+	invulnerable = {!actor_enemy} true, false 
+	relationship = neutral
+	meet = no_meet
+   
+[beh@mar_smart_terrain_base_new_job_02]:beh@general_02
+	pt1 = 25000, guard_chasovoy | pos:267.97402954102,0.3807355761528,-120.55560302734 look:271.50085449219,0.45813202857971,-111.97210693359
+	pt2 = 85000, sit_ass | pos:295.69189453125,0.66562885046005,-167.95054626465 look:291.22952270508,0.14341336488724,-167.35432434082 ;rest
+	pt3 = 25000, guard | pos:313.03033447266,1.0939404964447,-133.12911987305 look:321.25408935547,0.91945642232895,-136.66534423828
+	pt4 = 25000, guard | pos:252.0274810791,0.34573775529861,-121.15168762207 look:252.78294372559,0.37958699464798,-113.6881942749
+	pt5 = 25000, guard_chasovoy | pos:251.2272644043,0.22838598489761,-161.48629760742 look:245.05766296387,0.45479255914688,-159.66151428223
+	pt6 = 25000, guard_chasovoy | pos:269.32440185547,0.33962029218674,-129.59149169922 look:272.94528198242,0.39103364944458,-123.26805877686
+	pt7 = 25000, guard | pos:285.59231567383,0.6355567574501,-114.89406585693 look:284.84518432617,0.63320887088776,-109.09306335449
+	pt8 = 25000, guard | pos:251.4972076416,0.27143305540085,-148.03753662109 look:244.18615722656,0.6968041062355,-148.0671081543
+	path_end = loop

@@ -1,0 +1,1928 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+	<!-- PDA -->
+	<string id="pda_btn_encyclopedia">
+		<text>Files</text>
+	</string>
+	
+	<string id="pda_btn_encyclopedia_hint">
+		<text>Read</text>
+	</string>
+	
+	<!-- Interface components -->
+	<string id="pda_encyclopedia_title">
+		<text>Personal files</text>
+	</string>
+
+	<string id="pda_encyclopedia_image_checkbox">
+		<text>Image above text</text>
+	</string>
+
+	<string id="pda_encyclopedia_message_checkbox">
+		<text>Posts</text>
+	</string>
+	
+	<!-- Messages -->
+	<string id="pda_encyclopedia_notify">
+		<text>Added new information: %s</text>
+	</string>
+	
+	<!-- Locked articles -->
+	<string id="pda_encyclopedia_locked">
+		<text>No data</text>
+	</string>
+	
+	<string id="pda_encyclopedia_locked_text">
+		<text>
+			Article is locked.\n
+			\nArticles can be unlocked in the following ways:\n
+			\n• Loading data from digital storage devices.
+			\n• Census of notes from personal stalkers' diaries.
+			\n• Detection of unexplored locations.
+			\n• Extraction of mutant parts.
+			\n• Talking and interacting with stalkers.
+			\n• Use of items and equipment.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_world">
+		<text>Survival basics</text>
+	</string>
+	
+	<string id="encyclopedia_world_cooking">
+		<text>Cooking</text>
+	</string>
+	
+	<string id="encyclopedia_world_cooking_text">
+		<text>
+			\n%c[guide_green]Cooking%c[default] - one of the important skills for survival in the Zone. Proper nutrition contributes to the health of the body and allows you to keep yourself in good shape.
+			\nIn Area, good food is extremely rare, so for this stalkers often have to eat anything. However, if you have the necessary items for cooking, you can make it very nutritious.\n
+			\nIn order to cook something you need to have a fire, dishes, water and the necessary products, if there is no fire, you will have to look for fuel.\n
+			\nIt is worth considering that cooking takes a certain amount of time, and it’s better to do it in safe places.е.\n
+		
+			\n%c[0,215,215,215]• %c[0,140,140,140]Cooking on fuel %c[0,215,215,215]•%c[0,140,140,140].
+			\nIn order to start cooking you need to use a stove or burner. In the window that appears, you must choose: the subject for the arson of fire, fuel, dishes, water and cooking products. If at least one component is unavailable by cooking nothing will work out.
+			\nTo cook something in the field you need a fieldcooker or wood stove.
+			\nYou can load wood stove with coal or any wood item as fuel.
+			\nFieldcooker will need gasoline, gas or kerosene. In the Zone, any of these types of fuel are extremely rare, but they can be bought at some stalker bases.
+			\nAs a dish, you can use a saucepan or an army bowler. When cooking on fuel, the dishes wear out slowly. The condition of the dishes must be monitored, since it is extremely difficult to find something suitable for replacement in the Zone.
+		
+			\n%c[0,215,215,215]• %c[0,140,140,140]Cooking on campfire %c[0,215,215,215]•%c[0,140,140,140].
+			\nCooking on a fire differs from cooking on fuel in that, what it doesn't need to have fuel and burner.
+			\nFor cooking on campfire, it is enough to have the dishes and a lit fire. You need to be in close proximity to the fire and use the dishes.
+			\nWhen cooking on campfire, the dishes wear out much faster than on fuel, as the vessel is shrouded in a large flame.
+			\nIf the campfire is in an open place, then it is worth considering the weather, as in the rain the fire will likely go out.\n
+		</text>
+	</string>
+
+	<string id="encyclopedia_world_crafting">
+		<text>Crafting</text>
+	</string>
+	
+	<string id="encyclopedia_world_crafting_text">
+		<text>
+			\n%c[guide_green]Crafting%c[default] - very extensive topic. It includes: disassembling weapons, disassembling suits, creating items and repairing equipment.
+			\nDisassembly is done by directly dragging the right tool or set of tools (for costumes) to suit in your inventory.\n		
+		
+			\n%c[0,215,215,215]• %c[0,140,140,140]Disassembly of weapons %c[0,215,215,215]•%c[0,140,140,140].
+			\nWeapons are dismantled using special tool kits: simple, for thin and rough work. These kits can be collected most from various tools and materials.
+			\nThe set for rough work can disassemble 7.62 rifles, 9mm rifles, 5.56 rifles, 5.45 rifles, submachine guns, cut-offs, shotguns. Can not be used with: any pistols.
+			\nThe set for ordinary work can disassemble  7.62 rifles, 9mm rifles, 5.56 rifles, 5.45 rifles, submachine guns, cut-offs, shotguns, pistols.
+			\nThe set for thin work can only disassemble pistols, both worn out and rusty.\n
+		
+			\n%c[0,215,215,215]• %c[0,140,140,140]Disassembly of costumes %c[0,215,215,215]•%c[0,140,140,140].
+			\nDisassembly of the costumes is done with the tool sets: rough, ordinary and thin, and also with the help of a Swiss knife.
+			\nThe Swiss knife can cut only purely fabric objects: berets, hats, bandages, balaclava and other.
+			\nRough work tools can also cut the same as a Swiss knife. Designed for dismantling of low-tech items: all kinds of jackets, raincoats, some gas masks.	
+			\nOrdinary work tools can disassemble the same as rough ones. Designed for disassembling medium-technological items: stalker overalls (artisanal), stalker suits with:
+			\nArmored elements "SEVA" (Duty Ooutfit, dense coats, "Iolite" scientists), suits like "Yantar."
+			\nTools for thin work can also be disassembled in the same way as conventional tools. Designed for disassembling high-tech items: all variations of suits SEVA, suits of ecologists, heavy armor suits (Bulat, Scat), exoskeletons, heavy armor suits "Voskhod", and high-tech helmets (Spheres, tactical helmets). Do not allow to disassemble the helmet "Screen", like any other tools.\n
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_world_crafting_text2">
+		<text>
+			\n%c[0,215,215,215]• %c[0,140,140,140]Items craft %c[0,215,215,215]•%c[0,140,140,140].
+			\nCreating objects is perhaps the most extensive topic. The craftsmen come up with new ways of getting something permanently, the traders bring new all kinds of things to the Zone, from which something can be done.
+			\n\n
+			\nOne of the most important and used in the Technology Zone is decontamination of objects. Deactivation liquid can be obtained from mixing aquatables and any type of vodka.
+			\nMix aquatables and vodka by dragging one to the other in inventory. To deactivate an item, you need to drag the item onto the liquid or liquid on the item in your inventory.		
+			\n\n			
+			\nThey also receive basic necessities from improvised means. For example, bandages from rags and vodka, also dragging one to another.
+			\nRags can be obtained by cutting a Swiss knife of fabric things (bandages, hats, balaclava, bandanas, etc.). All these actions are carried out by dragging one item to another in the inventory.			
+			\nAlso, pieces of cloth can be obtained when disassembling the costumes, you can just find them. Some types of fabrics are sold from merchants.
+			\n\n
+			\nYou can also sew a backpack or a sleeping bag yourself. To do this, you need to buy from the merchant a sewing kit and the necessary materials, and then drag one to another in the inventory.			
+			\n\n
+			\nMerchants also sell materials for the manufacture of rolls. The obtained cigarettes are much more effective than cigarettes.
+			\nAlso sometimes in the range of merchants there are kits for making a cartridge, more often fractions. Selfmade shot is slightly less effective, but much cheaper than usual.\n
+			
+			\n%c[0,215,215,215]• %c[0,140,140,140]Substitution of components %c[0,215,215,215]•%c[0,140,140,140].
+			\nAlso very popular is the replacement of the constituent objects.	
+			\nThe most common replacement is a gun barrel replacement. To do this, you need to have the barrel in good condition, also the barrel gauge must match the caliber of the weapon.
+			\nIf the barrel is worn, it can be cleaned with kerosene, gasoline, vodka, weapons cleaners, cleaning kits, gun oil, repair kits.
+			\nIf the trunk is rusty, it can be brought to normal by gun cleaners, cleaning kits, gun oil, repair kits.
+			\nNext, you will need a set of a certain caliber to replace the barrel of the same caliber. With the help of a set and trunk, you can restore up to 50% of the strength of the weapon, regardless of the original one.
+			\n\n
+			\nIt is also possible to change the servo drives of exoskeletons. To do this, you need a servo, which can be obtained by disassembling the exoskeleton and a set for replacing the servo.
+			\nWith the help of a set and a servo drive, it is possible to restore up to 30% of the strength of the exoskeleton, regardless of the initial state of this.\n
+			\n%c[0,215,215,215]• %c[0,240,140,140]The article will be supplemented with time.
+		</text>
+	</string>	
+	<string id="encyclopedia_world_disguise">
+		<text>Disguise</text>
+	</string>
+	
+	<string id="encyclopedia_world_disguise_text">
+		<text>
+			\n%c[guide_green]Disguise%c[default] is a set of measures aimed at misleading the enemy regarding his location, actions and intentions.
+			\nDisguise is an important tool of tactics and one of the main measures of protection that should be taken into account while being in the Zone.\n
+			\nA good disguise will allow you to pass unnoticed by the enemy, start a conversation with him, and even bargain and take tasks from him. However, it is worth considering that the enemy is not a fool, and sooner or later he may suspect something, so the better the disguise, the more time you will have to stay secret.\n
+			
+			\n%c[guide_blue]The principle of masking:%c[default]
+			\nEach group in the zone has special equipment, unique equipment with different properties and color, which consists of a protective suit and headgear, as well as a unique patch.\n
+			\n%c[guide_green]Protective suit%c[default] is the most important thing in the equipment of a person in the zone. It is an outfit for the upper body (pants, boots, belt), top (jacket, suit, body armor) and head protection. Simple jackets and suits will give you an average bonus of disguise, and closed suits - the maximum. However, it is worth considering that some helmets and hats also give this bonus, but only those that belong to the factions.\n
+			\n%c[guide_green]Faction patch%c[default] is an important element of group equipment in the Zone. On it the sniper or scouts can determine from far to which squad or gang the target is on the horizon. The patch clings to velcro or is sewn on the forearm of the suit, on the chest or on the headdress of the suit. In order for the disguise to be used, you must fasten the patch, without it the enemy will get to the rhinestone.\n
+			\nIt is worth considering that the distance from the enemy also plays an important role in the detection of masking, the closer you are with the enemy, the faster he will suspect something. If you step into a dialogue, the enemy may ask some control questions. If you answer is not true, you will immediately be observed. \n
+			\nTo use camouflage it is necessary to place on the costume a patch of that grouping under which it is necessary to disguise, this will be enough. However, if you put a patch on a closed grouping costume or a costume with a grouping helmet, the time in which you manage to go unnoticed will be much more.\n
+		</text>
+	</string>
+	
+	<string id="encyclopedia_world_skills">
+		<text>Skills</text>
+	</string>
+	<string id="encyclopedia_world_skills_text">
+		<text>
+			\nThe character skills represent 7 abilities:\n %c[guide_green]craft, hunting, shooting, disassembly, search, survival and repair.%c[default]
+			\nEach skill is increased after this or that action by repetition or after other specific conditions. For example, the craft skill rises after successfully creating things, and the disassembly skill after disassembling items.\n		
+		
+			\n%c[0,215,215,215]• %c[0,140,140,140]%c[guide_blue]Impact of skills:%c[default] %c[0,215,215,215]•%c[0,140,140,140].
+			\nSkills somehow affect the character.  
+			\n%c[guide_green]Craft skill%c[default] affects the success of creating objects.
+			\n%c[guide_green]Hunting skill%c[default] affects the ability to save more valuable parts while skinning  mutants. With experience, the speed of cutting off parts from mutants will increase also.
+			\n%c[guide_green]Shooting skill%c[default] affects the buildup of the camera and the speed of rotation of the camera as in the aiming, as well as from the hip. Also this skill affects the speed of filling the magazine with ammo.
+			\n%c[guide_green]Disassembly skill%c[default] affects the quantity and rarity of items received during disassembly.
+			\n%c[guide_green]Search skills%c[default] affects the chance to find more valuable and rare items in stashes.
+			\n%c[guide_green]Survival skill%c[default] affects the thirst, hunger and drowsiness of the character. If you manage to survive the ejection or psi storm outside the shelter, or you can survive from exhaustion, then the survival skill will grow. The cooking of raw food at the stake will also increase the skill of survival in the Zone.
+			\n%c[guide_green]Repair skill%c[default] affects the received bonus from kits and additional interest when repairing equipment. For every tenth level, you can repair 1% more wear.\n
+			\n%c[0,215,215,215]•%c[0,140,140,140] %c[guide_blue]Coefficient of mastery%c[default] %c[0,215,215,215]•%c[0,140,140,140].
+			\nCoefficient of skill is the character's training in all skills. The higher it is - the slower the skills increase, so you can raise either all skills at once, or choose one specialty for yourself and benefit from it. Also, when the maximum skill level of 100 units is reached, the corresponding achievement opens, which gives certain bonuses and opportunities.
+			\nCoefficient of skill, as well as skills that can be viewed in the "Skills" in PDA.
+		</text>
+	</string>
+
+	<string id="encyclopedia_world_radiation">
+		<text>Irradiation of objects</text>
+	</string>
+	<string id="encyclopedia_world_radiation_text">
+		<text>
+			\nIn the Zone there is such a phenomenon as ionizing radiation. It affects both human and physical objects.\n			
+			\n%c[0,153,255,255]•%c[0,140,140,140] If you have an item in your inventory radiating radiation, then gradually the items that are in your inventory become irradiated.
+			\n%c[0,153,255,255]•%c[0,140,140,140] If radiation comes from outside (for example, you are in a hot spot), then the items will be irradiated depending on the protection of your suit.
+			\n%c[0,153,255,255]•%c[0,140,140,140] Irradiated objects can be cleaned by deactivation (see article Crafting).	
+			\n%c[0,153,255,255]•%c[0,140,140,140] The radioactive items in your inventory irradiate you depending on the protection of your suit.
+			\n%c[0,153,255,255]•%c[0,140,140,140] When the Ambient Radiation mode is activated, the radiation level will raise at all locations of the Zone, and the radiation background will depend on the weather. The background will be most affected by rainy and windy weather.
+			\n%c[0,153,255,255]•%c[0,140,140,140] The main possible source of radiation in your inventory is radiation-emitting artifacts.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_world_arts">
+		<text>Artefacts</text>
+	</string>
+	
+	<string id="encyclopedia_world_arts_text">
+		<text>
+			\n%c[0,215,215,215]• %c[0,140,140,140]%c[guide_blue]Artefacts and their specifications%c[default] %c[0,215,215,215]•%c[0,140,140,140].
+			\nThere are 5 levels of artefacts:\n artefacts of low anomalous activity, first level, second, third and legendary artefacts.
+
+			\nThe higher the level of an artifact, the less often it occurs on the outskirts of the zone and more often in its depth, and the higher the value of the artifact. Legendary artifacts are usually almost impossible to obtain. Artifacts of weak anomalous activity are found everywhere, you can find them in single anomalies with the naked eye.
+			\nArtifacts are more valuable for merchants and scientists.
+
+			\n%c[0,215,215,215]•%c[0,140,140,140] %c[guide_blue]Artefact discharge%c[default] %c[0,215,215,215]•%c[0,140,140,140].
+			\nArtifacts are a miniature storage of energy, and therefore, depending on the type of artifact, it has such a property as discharge.
+			\nDischarge - an instant release of energy by an artifact upon contact with a person.
+			\nUntill discharging different processes occur depending on the artifact. Each type of artifact (fire, electrical, chemical-biological and gravitational) has its own discharge effect.
+			\nTherefore, it makes more sense to collect the appropriate type of artifacts in the appropriate suit, which has good protection against the effects of this type of artifact.
+			\nPotential discharge damage can be reduced in two ways: by carrying artifact pliers or by having a suit of a certain type.
+			\nTongs reduce damage by 2 times. Suits of the SEVA type reduce the damage by half (that is, in total with the forceps by 4 times). Suits of the SSP type reduce the damage by another 3 times (i.e., in total with tongs, a little more than 5 times).
+			\nAlso until discharge the condition of the worn things deteriorates, depending on their protection from this type of impact. When discharging fiery artifacts, a suit with good fire resistance will be less damaged.
+
+		</text>
+	</string>	
+
+	<string id="encyclopedia_locations">
+		<text>Locations</text>
+	</string>
+			
+	<string id="encyclopedia_locations_Bolota">
+		<text>Marshes (Great swamp)</text>
+	</string>
+	
+	<string id="encyclopedia_locations_Bolota_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\nThe swamps were not always marshland. Before 1991, the area used to be a farming region, with villages and fields, several of which still remain in the area to this day. It was destroyed when the Soviet engineers, building a dam for the hydroelectric power plant nearby, flooded the area. Whether it was deliberate or an accident is unknown. What is known, however, that there were many casualties and the area was abandoned for years to come.
+			\nThe second Chernobyl incident, the birth of the Zone, has made the unpleasant experience of visiting the Swamps even more unpleasant. Apart from being almost completely inaccessible due to anomalies surrounding the area, it became a haven for Renegades, bandits and mutants. Coupled with the amount of anomalies and irradiated swampwater, it was a location to steer away from.  \n
+			\n\n
+			%c[0,215,215,215]                                                     Main objects.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Clear Sky base. %c[0,140,140,140]\n
+			The base of Clear Sky is located well hidden in [DELETED] of the Great swamp, in a [DELETED] that was flooded back in Soviet times. Due to that, it is not registered on any official maps, making finding it nearly impossible. \n
+			\n\n
+			%c[0,107, 142, 35]Pump station. %c[0,140,140,140]\n
+			The station is a makeshift drilling platform, made primarily out of wood, with large steel tanks partially submerged in the swamp water and a single watchtower in the center, providing good overview of the surrounding area. \n
+			\n\n
+			%c[0,107, 142, 35]Old church. %c[0,140,140,140]\n
+			In the northern part of the area there is a graveyard and a radiation patch extending to the hill northeast. A small building is situated in the south, which provides some cover. Almost in the center the church is located, with three doors facing north, west and south. There are several ways to the roof and the tower, from where one can have a fantastic view over the surrounding area. \n
+            \n\n	
+            %c[0,107, 142, 35]Fishing hamlet. %c[0,140,140,140]\n
+			The place consists of the remnants of three little huts, the biggest containing a box to store the loot. The fishing hamlet is build almost like a fort, as the buildings surround a square place. In the middle of the hamlet there's a little well, where one of the guides offers his service. \n
+			\n\n
+			%c[0,107, 142, 35]Burnt farmstead. %c[0,140,140,140]\n
+			The farm house is only recognizable by the fire place, and lies on the south side of the area. Directly across the yard to the north is a watchtower with a metal box of supplies on top and a storage trunk at the base. To the northwest of the tower is what's left of a building that still holds some treasures. The third build, which sits on the west side, is occupied by a Burner anomaly and radiation. \n
+			\n\n
+			%c[0,107, 142, 35]Machine yard. %c[0,140,140,140]\n
+			The Machine yard is made of the two warehouses, a parking lot with a panoply, the remnants of another storage house and several water tanks and other debris scattered around. It may have been used for construction work when the area was flooded in 1991. \n 
+			\n\n
+			%c[0,107, 142, 35]Northern farmstead. %c[0,140,140,140]\n
+			The farmstead is made of four houses, three of them can be accessed. The area is surrounded by a wooden fence, blocking the view inside. \n
+			\n\n
+			%c[0,107, 142, 35]Village ruins. %c[0,140,140,140]\n
+			The road that runs along the northern part of the swamps connects the village with the Machine yard. On the east side of the village, there are two wooden buildings along the north side of the road and a tower on the other side. \n
+			\n\n			
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Yupiter">
+		<text>Jupiter Outskirts</text>
+	</string>
+	<string id="encyclopedia_locations_Yupiter_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Like Zaton, Yanov is located in the northern sector of the zone, an area up until then known only for being Strelok's preferred area to operate within the Zone. The Yanov area is still relatively unsettled - much like Zaton, which was only settled after the Brain Scorcher was deactivated, Yanov is not heavily populated area. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Yanov Station. %c[0,140,140,140]\n
+			One of the main objects of location and the center of stalker life in these places is the old railway station. The safest place in the district, the place of collection of all stalkers after the raids, as well as during preparation for them. There is a bar, a mechanic's workshop, and a medical center. \n
+			\n\n
+			%c[0,107, 142, 35]Jupiter Factory. %c[0,140,140,140]\n
+			Actually in honor of it stalkers and call this area the Neighborhood of Jupiter. Actually it is a factory of radio materials, however, there are rumors that the plant was engaged in secret projects. Stalkers, who trade in the vicinity, prefer not to enter the territory of the plant, because they are afraid that they will inevitably die in the dark corps of "Jupiter". \n
+			\n\n
+			%c[0,107, 142, 35]Fins. %c[0,140,140,140]\n
+			Archianomaly its a swamp with acidic foci. There is also a mutated tree, probably a kind of weak likeness of the famous "Oakwood".\n
+            \n\n	
+            %c[0,107, 142, 35]Volkhov AA Complex. %c[0,140,140,140]\n
+			Also known as the SAM Site*ERROR#655&@#!!!. \n
+			\n\n
+			%c[0,107, 142, 35]Mobile Lab. %c[0,140,140,140]\n
+			The home of the Ecologists faction in the center of the zone, the second mobile laboratory to be deployed so far. \n
+			\n\n
+			%c[0,107, 142, 35]Kopachy Village. %c[0,140,140,140]\n
+			Located west of Yanov Station lies the ruined village of Kopachy. A relatively quiet part of Yanov. The area is radioactive, but not as a whole; there are smaller areas that are very "hot". \n        
+			\n\n
+			%c[0,107, 142, 35]Ventilation complex. %c[0,140,140,140]\n
+			Apparently, it was intended to serve unknown underground communications in the area of the Jupiter plant, located nearby. The complex has several exits to the surface - one on a hill, near the helipad with a domed structure at the top, and the second - near the apron, which is located at the foot of the hill. The outputs are interconnected by a complex system of ventilation ducts and pipes. In the complex it is possible to penetrate the ventilation pipes, but one must be cautious - who knows what or who can wait there for a stalker? \n        			
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_zaton">
+		<text>Zaton</text>
+	</string>
+	<string id="encyclopedia_locations_zaton_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Like the Great Swamps, Zaton is mainly set in a swampy area, with a few industrial factories scattered around it and derelict, grounded boats, some dating back before the incident. From the outlying structures and sizable number of grounded boats and tankers around, Zaton appears to have been drained of its water sometime after the Chernobyl incident, most likely to contain the radiation contamination in the water. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]«Skadovsk». %c[0,140,140,140]\n
+			The ship has three "decks" but is otherwise easy to navigate. The bottom floor is accessible through a door located in the ruined remains of the forward cargo hold. \n
+			\n\n
+			%c[0,107, 142, 35]«Shevchenko». %c[0,140,140,140]\n
+			Much smaller and less complicated if compared to its distant relative - Skadovsk. It has no signs of any kind of work put into some kind of reviving the ship, also it seems that it is in far worse shape. One can forget of such luxuries as company of fellow stalkers much less electricity. The interior is dark and rusted giving a very eerie feeling. \n
+			\n\n
+			%c[0,107, 142, 35]Preobrazhensky Bridge. %c[0,140,140,140]\n
+			ERROR#992 \n
+            \n\n	
+            %c[0,107, 142, 35]Dock Cranes. %c[0,140,140,140]\n
+			The place is represented by two port cranes for receiving cargo from ships, a "house" of incomprehensible purpose and empty containers. Sometimes stalkers hear how old cranes "crying", reminding of their former greatness.. \n
+			\n\n
+			%c[0,107, 142, 35]Krug Antenna Complex. %c[0,140,140,140]\n
+			VNZ "Krug" - a station for the return-inclined sounding of the ionosphere "Krug". "Circle" - an auxiliary system for ZGRPS. The system looks like two circles with a diameter of 300 meters, consisting of 240 ten-meter antennas (120 per circle). In the center of the circle is a low one-story building with reception equipment, on the roof of the building there is a central antenna. This is a kind of designator for "large" antennas of ZGRLS. Once, under the building was a lair of bloodshed, but who knows what an occasional stalker can find inside dark rooms? \n
+			\n\n
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_locations_army_warehouses">
+		<text>Army Warehouses</text>
+	</string>
+	<string id="encyclopedia_locations_army_warehouses_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Hilly area, covered with anomalies of various types. The largest anomalous field lies in the valley west of the Barrier; In the midst of it a broken Mi-24 helicopter.\n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Military base. %c[0,140,140,140]\n
+			The former military base, which is currently occupied by the battles of the Freedom group. On the territory there are barracks, a leadership building, a heliport and several observation towers on which snipers settled.. \n
+			\n\n
+			%c[0,107, 142, 35]Barrier. %c[0,140,140,140]\n
+			"Barrier" is the post of the "Freedom" grouping on the border of the Military Warehouses and Radar. It is designed to protect against the attacks of the group "Monolith" and mutants. Originally created by the military for the same purpose, but after losing their positions in warehouses moved to "Freedom". It is two slopes, which are strewn with building debris. On the slopes with the help of bags of sand created individual fire points, which are occupied by stalkers during the attack. On the west side of the road there is a tower, from the east - the body of the bus, which can also be used in battles. The command post - a green cabins - is located on the top of the eastern hill.\n
+			\n\n
+			%c[0,107, 142, 35]Abandoned village. %c[0,140,140,140]\n
+			The village is surrounded on almost all sides by a ravine. Of the notable places can be noted water tower. Stalkers say that there are bloodsuckers here, but even passing by the village you can feel that the village hides not only bloodsucking creatures, but also something worse ... \n
+            \n\n	
+            %c[0,107, 142, 35]Checkpoint. %c[0,140,140,140]\n
+			The checkpoint, which is a checkpoint with an automobile barrier. Inside there is a bus stop, the same as at the entrance to an abandoned village, as well as a couple of buses. \n      
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Deadcity">
+		<text>Dead city</text>
+	</string>
+	<string id="encyclopedia_locations_Deadcity_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n A mysterious place ... I personally was not there, although they say that this is a small town lost in the Zone. Around him, probably, such anomalies that no one can even come close. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]«Kooptorg». %c[0,140,140,140]\n
+			The building with a red inscription on the roof "Glory to Labor" in the form of metal letters. Probably, according to the plan, the building should have been the main point of sale when the city was not abandoned, and after the formation of the Zone - a convenient springboard for any factions. To the right of the building is a board of honor, decorated with a sickle and a hammer. It should also be noted that Kooptorg, as well as the LTPA cooperative Lokomotiv, could have appeared only in the year 88, after the law on cooperatives appeared, while the entire territory of the ChZO was resettled in 1986. Maybe the whole city is an anomaly? \n
+			\n\n
+			%c[0,107, 142, 35]Building "Gorkom CPSU". %c[0,140,140,140]\n
+			The building with red metal letters on the roof, which make up the inscription "Glory of the CPSU" - the city committee of the CPSU in the Dead City. After the formation of the Zone, like Kooptorg, it became a convenient base. On the facade of the staircase, you can see brick-laid figures "1984", which can serve as the date of construction of the city. \n
+			\n\n
+			%c[0,107, 142, 35]School № 1. %c[0,140,140,140]\n
+			A building with an entrance-portico. Perhaps the most beautiful building in the city. Nothing special stands out, except for directly its appearance and that, as well as the above-named objects. \n
+            \n\n	
+            %c[0,107, 142, 35]Destroyed five-story buildings. %c[0,140,140,140]\n
+			Two half-ruined five-story buildings on both sides of the square. Are remarkable sniper positions, from which you can see the whole main square. In some apartments, you can see the rare silhouettes of residents ... The blood is getting cold in the veins, right? \n
+			\n\n
+			%c[0,107, 142, 35]Lenin monument. %c[0,140,140,140]\n
+			Near the City Committee of the CPSU in the main square is a monument to Lenin. A large and unremarkable object. \n     
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_agroprom">
+		<text>Research Institute "Agroprom"</text>
+	</string>
+	<string id="encyclopedia_locations_Agroprom_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\nThe Research Institute and the plant, on whose territory the military was thoroughly settled. The area is constantly patrolled, so stalkers here especially do nothing, do not favor their warriors. Although the plant has a large network of catacombs, but even the military are afraid to go there, who knows what is hidden in the dark tunnels.?  \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Factory. %c[0,140,140,140]\n
+			It is a complex of iron-concrete structures, connected by elevated and underground transitions, as well as a railway platform for unloading coal. \n
+			\n\n
+			%c[0,107, 142, 35]Research Institute. %c[0,140,140,140]\n
+			The Institute is clearly military-oriented: it can be understood by iron hangars, observation towers and a small building with a medical room for operating in the field. Inside the main building are rusty medical, scientific, technical and military equipment scattered throughout the rooms. On the roof there is a helipad. Not far from the SRI is the smashed Mi24, apparently not able to land there. It is connected by underground communications with the boiler house. \n
+			\n\n
+			%c[0,107, 142, 35]Underground Catacombs. %c[0,140,140,140]\n
+			Darkness, dampness, cold and screaming from somewhere in the depths. Stalkers like to hawk bikes about this place, but some of them do not even guess what can hide in the depths. \n
+     	</text>
+	</string>
+	
+	<string id="encyclopedia_locations_agroprom_underground">
+		<text>"Agroprom" undergrounds</text>
+	</string>
+	<string id="encyclopedia_locations_agroprom_underground_text">
+		<text>
+			%c[guide_blue]"Agroprom" undergrounds%c[default] - a network of underground tunnels.\n
+			\n%c[guide_green]Information%c[default]
+			\nНеизвестно, what was the purpose of all this. Some of the compartments were clearly designed for household and storage needs, while others were clearly scientific in nature. \n.
+			\nВ Nowadays, the catacombs are abandoned and serve only for extracting artifacts from the abundance of anomalies present, and as hunting grounds for bandits and mutants who hunt unsuspecting stalkers.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_locations_cordon">
+		<text>Cordon</text>
+	</string>
+	<string id="encyclopedia_locations_cordon_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Think of it as the Zone's antechamber - it's a good place for rookies to get their head around. You'll find a trader in the vaults at the back of the village, next to the army outpost. Don't miss the chance to talk to him. You'd be advised to steer clear of the outpost itself, however. You don't want the soldiers to catch a sight of you - most of them shoot first and don't bother asking questions later. Yet, as always, there are some who can be bribed as long as the top brass is looking the other way. Attacking the soldiers is not recommended, unless they pose a direct threat. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Military checkpoint. %c[0,140,140,140]\n
+			The security service of Ukraine is calling all right minded and loyal citizens to collaborate with the authorities! Report all known cases of stalking! Do not let the looters hide behind your backs! They bring radioactive, unidentified items from the Zone that are highly dangerous for human health and life! Only with your help can we eliminate this hideous phenomenon! Do not put your lives and the lives of your families at risk for the sake of dubious profit! \n
+			\n\n
+			%c[0,107, 142, 35]Rookie Village. %c[0,140,140,140]\n
+			A small village, located on 25 October Street, was abandoned by its residents in 1986, when the first Chernobyl accident occurred. Residents were hastily evacuated, leaving all property. In subsequent years, houses were hacked, looted and destroyed. Some time after the second accident, Sidorovich moved to a small cellar in the west of the village, and began trading business. Here the newcomers, led by Volk, settled, who for a long time led the "young". After his departure in 2012, the Fan became the leader of the village. \n
+			\n\n
+			%c[0,107, 142, 35]ATP "Cooperative Locomotive". %c[0,140,140,140]\n
+			The ATP consists of four small buildings, all of which have a boneless roof. From several sides the territory is enclosed by a low wooden fence. Between the buildings there is a courtyard, in it there is an abandoned technique such as tractors and trucks. \n
+            \n\n	
+            %c[0,107, 142, 35]South outpost. %c[0,140,140,140]\n
+			The first line of defense from the Zone. This is the third post of the Military, holding back the onslaught of the Zone. It is a brick observation tower, a brick building of the commander, a barracks and a wooden toilet. In the left and right of the buildings there is a barbed wire, in front of which there is a minefield. \n
+			\n\n
+			%c[0,107, 142, 35]Railroad bridge. %c[0,140,140,140]\n
+			A checkpoint under the bridge is a checkpoint equipped with a collapsed bridge. It has a strategically important position, since it is the only safe passage through the mound. \n   
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Limansk">
+		<text>Limansk</text>
+	</string>
+	<string id="encyclopedia_locations_Limansk_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n This is an abandoned city, which until quite some time was completely closed - very few people knew about its existence. However, in 2011, everything changed when, after overshooting, the path to the location became free. In the struggle for the city, all the major factions of the Zone clashed. For a long time nothing had been heard about this city. The people believe that there was no Limansk at all. Only this they lie: the city is, I even knew it before the first accident. There, you know, the closed institute was a big one, and around it houses were built for scientists and servants. The name is still in the Institute of this ... "Radio wave", or something ... Antenna there was such a healthy-ovuyu otgrohali, with five-storey building a whole size! In general, the intelligentsia. Only here there was no peace in this Limansk. People all sort of on their minds, on the outsiders squinted, muttered something under his nose, and Soviet power extolled, even when supply disruptions happened. We, the village, usually side of Limansk bypassed: the people are not sincere, and it was not good to put a head on next to him, because of the antenna, one must think that. And as Chernobyl shandarahnul, from there even evacuation was not. Maybe in the documents they messed up or they were too smart with secrecy? But, in general, I have not heard about Limansk since that time. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Main street and square. %c[0,140,140,140]\n
+			The main street begins at the entrance to the city, and passes practically through the whole of Limansk. Behind the square is covered by a whole complex of "Voronok", so further it is necessary to go around the other streets. A small square in the center of Limansk is not remarkable, but the open space makes you alert, some stalkers think that the city is still alive. \n
+			\n\n
+			%c[0,107, 142, 35]River. %c[0,140,140,140]\n
+			A narrow river flowing through the whole city and conditionally dividing it into two parts. The water is highly radioactive, so it should only cross the bridge. \n
+			\n\n
+			%c[0,107, 142, 35]Radar station. %c[0,140,140,140]\n
+			Radar station in the northern part of the city. Most likely, it was serviced by the Research Institute "Radio wave". Because of the presence of the radar, the city at one time was classified. \n
+            \n\n	
+            %c[0,107, 142, 35]Research Institute "Radio wave". %c[0,140,140,140]\n
+			Research Institute "Radio wave". One of the largest buildings in the city in Limansk. Nearby there is a fire station with a bell tower - a convenient position for snipers. \n      
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Redforest">
+		<text>Red forest</text>
+	</string>
+	<string id="encyclopedia_locations_Redforest_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Red Forest (as the stalkers called the Liman Reserve) is located on the opposite from the Limansk coast of the river. After the formation of the Zone, all the trees in the reserve acquired a reddish-red color. This forest is notorious, not to mention the fact that virtually the entire territory has a strong radiation background. In the north of the Red Forest there is a drawbridge - the only road to Limansk. The former Liman reserve, bordering in the south with Amber, in the west with Limansky, in the east with the Dump, in the north with the Military warehouses. Hilly forest terrain with trees with yellowed foliage (hence the name of the location). In the forest itself there are a lot of anomalies and mutants and it's dark enough. The forest area is fenced with 3 destroyed concrete gates, denoting the territory of the former Liman reserve, as indicated by the information road sign in the south, the inscription on the main gate in the north (only the word "Limanskiy") and the map-guide near the gate. Prior to the first overshoot, the territory was closed from most stalkers, the only permanent inhabitant is Lesnik, the former conservator of the reserve, who lived here before the First Catastrophe. After the disaster he remained in the reserve. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Coal Mine. %c[0,140,140,140]\n
+			Abandoned brick mine pitcher, intended for lifting and lowering loads from the mine. The building of the kopera consists of 2 floors: on the 1st there is an entrance to the mine cage, and on the 2 nd - a small room in which Lesnik is located. The lift has a powerful enough structure, so, most likely, it could be intended for both transporting people (miners) and for transporting goods. The winch itself is either not working or damaged. Next to the carpenter is a one-story building, in which, judging by the ropes entering it, there is a winch (lifting machine) lifting the mine cage. Perhaps, it also houses a warehouse that Lesnik used after the events when the mine was working. Around the copter are scattered various radioactive construction debris and materials (pipes, containers), also there is an abandoned technique (trolleys). \n
+			\n\n
+			%c[0,107, 142, 35]Anomaly "Symbiont". %c[0,140,140,140]\n
+			A big anomaly in the east of the location, around which, unlike the rest of the territory, there are almost no trees. Nearby is the parking stalkers "Devil's Parking". \n
+			\n\n
+			%c[0,107, 142, 35]Мост. %c[0,140,140,140]\n
+			An old metal bridge connecting the Red Forest and Limansk, separated by a river, presumably, Uzh. The control panel is on the bank of Limansk. On the shore of the Red Forest there is a small checkpoint in the form of a 2-storey tower; on the bank of Limansk, too, there are 2 buildings, but one is destroyed, and the other is not finished. \n
+            \n\n	
+            %c[0,107, 142, 35]Tunnel. %c[0,140,140,140]\n
+			Transport tunnel, which, according to the location map, was leading to Limansk. And the tunnel is interrupted and then there is just a road, almost immediately having a branch - a ruined bridge into the city. Even further along the road there is also a short tunnel, after which there is another destroyed bridge to Limansk. \n     
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Bar">
+		<text>100 Rads</text>
+	</string>
+	<string id="encyclopedia_locations_Bar_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n In the basement by the hangar you'll find the 100 Rads bar. The place is run by the local trader who doubles up as a barman. If you want to trade, talk, get a mission or find out the latest news, that's the place to go. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Outpost of "Duty". %c[0,140,140,140]\n
+			The barrier blocking the advance of the flocks of mutants before Emissions. It is made in the form of an interrupted land with wooden cola and trench. Directly at the entrance to the territory of the "Duty" are iron barriers and concrete blocks. On the perimeter periodically are on duty debtors, for evacuation during the ejection nearby a dugout was dug.\n
+			\n\n
+			%c[0,107, 142, 35]100 Rads Bar. %c[0,140,140,140]\n
+			The 100 Rads is a bar located underground in Rostok, in what's likely an old fallout shelter. It is run by the Barkeep and provides travelers with a place to rest, eat, drink and talk. The more adventurous can find jobs and quests, usually given by the Barkeep. The bar is the main meeting point for stalkers in the zone. Drawing a weapon in the bar is not allowed. \n
+			\n\n
+			%c[0,107, 142, 35]Base of «Duty». %c[0,140,140,140]\n
+			Well-guarded base. In a well-furnished room, the main headquarters of the group, headed by General Voronin, is located. The abandoned shop next door, strewn with anomalies, is locked. However, before, it served as a test when entering into Duty. \n 
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Darkdolina">
+		<text>Dark Valley</text>
+	</string>
+	<string id="encyclopedia_locations_Darkdolina_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Always gloomy, always misty and always rainy. Stalkers venturing into the Dark Valley are likely to find valuable artifacts, instant death, or both. A place frequented by some of the most experienced old-timers, though you may also stumble upon some common bandits. There's supposed to be an underground lab around there somewhere, so it might be worth to look for a hidden entrance along the way. No one has returned from there alive though and no one can tell for sure just what nasty surprises await you there.  There is an old descent to the ground, only from there no one returned, therefore I do not advise you to go there... Like pigmi, and maybe that's more terrible... \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Abandoned building. %c[0,140,140,140]\n
+			The abandoned (probably after the Chernobyl catastrophe) construction of some kind of enterprise. On the territory there are several factory buildings and two administrative buildings: unfinished brick and almost finished concrete. A long conveyor belt was also built on the construction site, designed to unload sand or other materials into trucks or on land. The unloading area was surrounded by a low latticed fence with a gate. \n
+			\n\n
+			%c[0,107, 142, 35]Factory "Crystal". %c[0,140,140,140]\n
+			Factory complex, located east of the construction site. The purpose of the buildings of the enterprise is difficult to establish, most likely, it was engaged in mechanical engineering and served the needs of the underground structure. \n
+			\n\n
+			%c[0,107, 142, 35]Gas filling station. %c[0,140,140,140]\n
+			The gas station is opposite the camp of bandits at the construction site and consists of fueling columns, cisterns and a two-story office building. \n
+            \n\n	
+            %c[0,107, 142, 35]Swamp. %c[0,140,140,140]\n
+			In the Dark Valley is at least two swamps - the first is near the abandoned construction site, the second is in the center of the map. The swamp in the center is divided into 2 parts passing through it by an automobile bridge, in the middle of each of the parts there are several islets. In the marshes there is an increased radioactive background, the water surface is overgrown with duckweed. \n
+			\n\n
+			%c[0,107, 142, 35]Pig farm. %c[0,140,140,140]\n
+			Two brick buildings of white color, fenced with a brick fence with an iron gate. In one place the fence was destroyed, probably by a rocket from a helicopter. The territory of the farm had its own water tower, as well as its own transformer. In the southern corner of the farm there is a rusty water tank. \n      
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_yantar">
+		<text>Yantar</text>
+	</string>
+	<string id="encyclopedia_locations_yantar_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n The legendary lake in the sector of the same name dried up a long time ago, leaving a shallow swamp in its place. The place is morbid and sodden with death. Great danger signs await any adventurous soul foolish enough to get near it. Anyone who dares to go too far goes insane. Yantar wasn't always a swampy, desolate place. A long time ago it was a large lake, however, its fate was sealed when it was chosen as the perfect location for a factory. The construction crew caused an accident underground and the water drained from the lake, leaving a stinking swamp in its wake. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Bunker of scientists. %c[0,140,140,140]\n
+			The research mobile base of ecologists is the first and the main one in the Zone. The mobile laboratory looks like a small metal bunker with small tinted windows. It is able to withstand almost all known human injuries of any kind. Can be transferred to a fully autonomous mode for several months, for which it is equipped with reliable life support systems. The Zone is delivered by a cargo helicopter. Personnel never let outsiders further than the external airlock chamber, so none of the stalkers penetrated into the laboratory. \n
+			\n\n
+			%c[0,107, 142, 35]Wet lake. %c[0,140,140,140]\n
+			The remains of the lake lie just west of the scientists bunker, just outside the fence. A small swamp, swarming with snorks and zombies, is contaminated with radiation. The Bolotze is littered with rubbish, which, it seems, is a hotbed of radiation. To the west of the lake lies a fallen Mi-6 helicopter. \n
+			\n\n
+			%c[0,107, 142, 35]Factory. %c[0,140,140,140]\n
+			A medium-sized plant, located north of the lake and most likely was created to create chemicals whose wastes were dumped into the lake. \n     
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_wild_territory">
+		<text>Wild Territory</text>
+	</string>
+	<string id="encyclopedia_locations_wild_territory_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n The Wild Territory used to be the site of a rather large manufacturing plant, currently in ruins. Many Stalkers met their death there, as the place is swarming with all sorts of monsters. The beasts are literally streaming over there from the entire Zone. It is said that something of great importance is hidden at this site, so there are always plenty of daredevils willing to try their luck. \n
+			\n\n
+			%c[0,215,215,215]                                                     Information.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Wild land. %c[0,140,140,140]\n
+			Part of the abandoned plant "Rostock", called the Wild Territory, unlike Bar, is really wild. The terrain is a haven of various mutants. The wild territory would have been completely ignored by most stalkers, were it not for its strategically important location: the shortest path from Bar to the Yantar Lake runs through the territory, where the mobile laboratory of scientists is located. \n
+			\n\n
+			%c[0,107, 142, 35]Anomalies. %c[0,140,140,140]\n
+			At the location there are many artifacts of electrical and fiery nature. It is rumored that expensive electric artifacts usually appear after midnight. \n      
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_garbage">
+		<text>Garbage</text>
+	</string>
+	<string id="encyclopedia_locations_garbage_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n A vast machinery graveyard. Right after the first accident whole heaps of radioactive waste were dumped there. Mostly ruins of old buildings infested with mutants. Much like the outskirts of the Zone, the place swarms with rookie stalkers, with an occasional bandit loitering around, always on the lookout for freebies. Some artifacts to be found here, but most of them are just not worth the effort. You'll be better off elsewhere. Going North, you will get to the Wild Territory, West lays the entrance to the Dark Valley, with the road to the Agroprom Research Institute to the East. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Factory management. %c[0,140,140,140]\n
+			An incomprehensible ruined building made of reinforced concrete. Located in the north of the location, opposite the northern outpost, and also to it was added the remains of scaffolding and two lonely standing fuel tanks with a volume of about 300 cubic meters. each. Judging by the large site with the "Sickle and Hammer" pedestal installed on it, this building was supposed to be administrative. It is located near the scaffolding. It is well known that the building should have at least two floors with remnants of the reinforced concrete shaft of the elevator (sticks in the sky), stairs, had its own gas distribution point (barred house near the square), a transformer substation RU 6kV with an unknown transformer pulled from it by an unknown force. Of the surviving items of the exterior of the building itself there was only an electric board and two steel pipes coming out into the ground about half a meter in diameter. \n
+			\n\n
+			%c[0,107, 142, 35]Parking of abandoned equipment. %c[0,140,140,140]\n
+			Separated by barbed wire and a barrier, the place on which is located abandoned after the accident at the Chernobyl nuclear power plant and several helicopters. It is located in a hollow, with respect to an asphalt road passing on the side. \n
+			\n\n
+			%c[0,107, 142, 35]Marshes. %c[0,140,140,140]\n
+			Small marshes, overgrown with reeds. Bolotse in the south is green from the anomalies "Chillots". In it lie the remains of the tower crane and the grave of the stalker. Next to the swamp are reinforced concrete slabs. \n
+            \n\n	
+            %c[0,107, 142, 35]Heaps of radioactive debris. %c[0,140,140,140]\n
+			The main attraction of these places. Hills reaching in height from a five-story building. It was here that the pieces of technology contaminated with radiation were brought after the Chernobyl accident. These places can boast of a huge amount of radiation to this day. \n
+			\n\n
+			%c[0,107, 142, 35]Hangar. %c[0,140,140,140]\n
+			It is a structure made of prefabricated reinforced concrete, with a spacious courtyard, surrounded by a brick wall. The roof of the building was partly collapsed as a result of the fall of the BK-100 crane beside the hangar in the courtyard. Inside the yard there is a parking lot for cars. The hangar is part of the railway infrastructure - inside there are two dead-end roads on which the freight cars are chaotic, and the part of the floor to the right and left of the tracks has become an automobile passage, apparently serving to load the goods into carriages. To somehow justify the purpose of this building, the gate at the eastern entrance received the symbolism of the railway transport (a hammer crossed with a swivel key). Across the road opposite the gate is a bus stop. \n
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Loshina">
+		<text>Dell</text>
+	</string>
+	<string id="encyclopedia_locations_Loshina_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n The locality is an elongated plain bounded by rocks. In the north, the rocks form a gorge through which the railway bridge is stretched, in the middle part the gorge expands. Through the entire location stretches an asphalt road from the Dark Valley to Cordon. The territory was mostly covered with forest. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140] \n
+			\n\n
+			\n%c[0,107, 142, 35]Road. %c[0,140,140,140]\n
+			Across the location stretches an asphalt road, which is very well preserved. \n
+			\n\n
+			%c[0,107, 142, 35]Gas station. %c[0,140,140,140]\n
+			There is nothing special about it, gasoline has long since ended, and the building itself has slowly but surely come to full disrepair. \n
+			\n\n
+			%c[0,107, 142, 35]Forest. %c[0,140,140,140]\n
+			High trees stretched along the road. Not every stalker will venture into the thicket.\n
+            \n\n	
+            %c[0,107, 142, 35]Railroad bridge. %c[0,140,140,140]\n
+			A huge bridge passing over the road and smoothly passing into the tunnels, perhaps they can find something interesting, they say at the construction of underground railroad communications a cave was found, but is it worth believing rumors? \n
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Polyana">
+		<text>Glade</text>
+	</string>
+	<string id="encyclopedia_locations_Polyana_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n A small location with an unremarkable factory and a clearing, thanks to which the stalkers called this place. At first glance, there is nothing dangerous here, but rare visitors complain of a severe headache, which disappears as suddenly as it appears.. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n			\n042"*#D\u0442\u0438\u0020\u0;!442\u04:;*32\u0430\u0440\u0438\u0020\u0443\u0020\u043C\u0435\u043D\u044F\u0020\u0432\u0020\u0433/:?\u043E\u043B\u0;:!43E\u0432\u0435\u0021\u0020\u041C\u043:::D\u0435\u0020\u043D\u0443\u04'"36\u043D\u043E\u0020\"*u0432\u044B\u0440\u0432\u0430\u0442\u044C\u0020;?\u0438\u0445\u002E\u0020\u041E\u043D\u0438\u002~??0\u0432\u0020\u043C\u043E\u0437\ %c[0,140,140,140] \n
+		    \n%c[0,205, 92, 92]NO DATA...%c[0,140,140,140]\n	??????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????. \n					
+		    \n%c[0,205, 92, 92]Formatting....%c[0,140,140,140] \n042"*#D\u0442\u0438\u0020\u0;!442\u04:;*32\u0430\u0440\u0438\u0020\u0443\u0020\u043C\u0435\u043D\u044F\u0020\u0432\u0020\u0433/:?\u043E\u043B\u0;:!43E\u0432\u0435\u0021\u0020\u041C\u043:::D\u0435\u0020\u043D\u0443\u04'"36\u043D\u043E\u0020\"*u0432\u044B\u0440\u0432\u0430\u0442\u044C\u0020;?\u0438\u0445\u002E\u0020\u041E\u043D\u0438\u002~??0\u0432\u0020\u043C\u043E\u0437\u0433\u0443\u002_/@E\u002&0\u0421\u0442\u04$^40\u0430\u0448\u043+/+9D\u043E\u002E\u0020\u0413\u043E\u043=%B\u043E\u0432\u0430+#\u002E\u0. \n
+			\n\n
+			???????????????????????с?????????????????????????\n
+			Н???????????????????????S?????????????????????????????. \n            
+            \n%c[0,205, 92, 92]Encoded text%c[0,140,140,140] 042"*#D\u0442\u0438\u0020\u0;!442\u04:;*32\u0430\u0440\u0438\u0020\u0443\u0020\u043C\u0435\u043D\u044F\u0020\u0432\u0020\u0433/:?\u043E\u043B\u0;:!43E\u0432\u0435\u0021\u0020\u041C\u043:::D\u0435\u0020\u043D\u0443\u04'"36\u043D\u043E\u0020\"*u0432\u044B\u0440\u0432\u0430\u0442\u044C\u0020;. \n			
+			??? ? ? ?? ? ??? ? ??? ? ? ? ? ? ? ?. \n
+			--------. \n					
+			V??????????????????????S??????????????????????о????. \n        
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Vostpripyat">
+		<text>Eastern Pripyat</text>
+	</string>
+	<string id="encyclopedia_locations_Vostpripyat_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n It was a city of power engineers - it was built together with the ChNPP. No small was the town... Only now no one lives there - except, of course, the evil spirits of all sorts of mutants and zombies. To go there, apparently, and at all it is impossible: the Burnout of brains closes a way. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]The anomaly "Volcano". %c[0,140,140,140]\n
+			A small "dent" on the ground, infested with fiery anomalies. \n
+			\n\n
+			%c[0,107, 142, 35]Anomaly "Vine". %c[0,140,140,140]\n
+			A long overgrown branch, which is surrounded by two high-rise buildings. The branch "patrols" a biochemical comet. \n
+			\n\n
+			%c[0,107, 142, 35]Deli. %c[0,140,140,140]\n
+			Deli is one of the buildings in Pripyat. Almost nothing interesting in the grocery store. \n
+            \n\n	
+            %c[0,107, 142, 35]Kindergarten "Ivushka". %c[0,140,140,140]\n
+			An abandoned kindergarten, located in Pripyat. Inside, strange creatures settled, and because of the unknown antenna collected by an unknown person, a high level of psy-radiation formed around it. \n
+			\n\n
+			%c[0,107, 142, 35]River port. %c[0,140,140,140]\n
+			A river port in the east of Pripyat, which is quite well located from the point of view of navigation. Before the disaster, hydrofoil ships such as the Rocket, the Comet, the Meteor to Kiev and Mozyr regularly went there from time to time. At first glance, the place is deserted and inconspicuous - only a cold wind walks through the weeds overgrown with plots in front of the port itself. But the trained eye will immediately see several sniper positions. \n 
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Centrpripyat">
+		<text>Central Pripyat</text>
+	</string>
+	
+	<string id="encyclopedia_locations_Centrpripyat_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Pripyat was founded on February 4, 1970. The city received the status in 1979. The reason for the foundation was the construction and subsequent operation of one of the largest nuclear power plants in Europe, the Chernobyl Nuclear Power Plant, which gave Pripyat the title of nuclear power plant. Pripyat became the ninth in the Soviet Union atomograd. The population of the city was evacuated on April 29, 1986 because of the Chernobyl accident. To accommodate the staff of the Chernobyl NPP, a new satellite town of Slavutich was built 50 km from the Chernobyl nuclear power plant. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Cinema "Prometheus". %c[0,140,140,140]\n
+			The Prometheus Cinema is one of the most famous places in the city. A strange stalker told me that he somehow became a witness of a film show, believe it or not, you decide. \n
+			\n\n
+			%c[0,107, 142, 35]Hotel «Polesie». %c[0,140,140,140]\n
+			A former hotel in which tourists once rested. They say that now it is teeming with monoliths. \n
+			\n\n
+			%c[0,107, 142, 35]Ferris wheel. %c[0,140,140,140]\n
+			A large metal structure, a Ferris wheel. There are many legends about him. According to some stalkers, it is under it that the Oasis is located. \n
+            \n\n	
+            %c[0,107, 142, 35]Avangard Stadium. %c[0,140,140,140]\n
+			Abandoned stadium, most likely, football. It swarms with anomalies. Leads to the Chernobyl nuclear power plant. \n     
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_truck_cemetery">
+		<text>Dump Technique</text>
+	</string>
+	
+	<string id="encyclopedia_locations_truck_cemetery_text">
+		<text>\n%c[0,143,188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n The liquidation of the accident at the Chernobyl nuclear power plant has become a difficult test. The atom, which suddenly became an unarmed atom, spared no one: neither people, nor technology. The helicopters, engineering cars and other special equipment that got to Chernobyl received a dose of radiation, which precluded their further use. It was decided to put all of this technique to conserve and forget about it for many decades. But something went wrong and life made its own adjustments. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107,142,35]Dump. %c[0,140,140,140]\n
+			The whole location is a huge dump of machinery, nothing special here, except that sometimes bandits wander and every trash. For a while this place is a kind of magnet, and everywhere you can find a motley zoo. \n
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_Gospital">
+		<text>Hospital</text>
+	</string>
+	
+	<string id="encyclopedia_locations_Gospital_text">
+		<text>\n%c[0,143,188,143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n Location in the north of the Zone. The ruins of an old, abandoned and ruined Soviet hospital. This place is covered in secrecy, very few people know what the stalker is waiting for. \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107,142,35]Вход. %c[0,140,140,140]\n
+			The beginning of the location is an open area. The way back is limited to the excavation, ahead - the road directly to the hospital, passing under the collapsed power line support. The entrance to the building is almost completely destroyed, there is only a small hole under the ground. \n
+			\n\n
+			\n%c[0,205,92,92] INFO IS CORRUPTED. %c[0,140,140,140]\n			l?????????????????????????????????????||??|????????l??????????????????????????????????????????????????????|??|||??|????????l???????????????????????????????. \n
+			\n\n
+			%c[0,205,92,92]INFO IS CORRUPTED. %c[0,140,140,140]\n
+			u0432\u0020\u0433/:?\u043E\u043B\u0;:!43E\u0432\u0435\u0021\u0020\u041C\u043:::D\u0435\u0020\u043D\u0443\u04'"36\u043D\u043E\u0020\"*u0432\u044B \n    
+        </text>
+	</string>	
+	
+	<string id="encyclopedia_locations_radar">
+		<text>Radar</text>
+	</string>
+	
+	<string id="encyclopedia_locations_radar_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]                                                      General information.%c[0,140,140,140]\n
+			\n\n
+			\n A dark and very dangerous place to survive here, you need to be well-equipped. Most of the territory of the Radar is covered by the Dead Forest, which is inhabited by dangerous mutants. Almost the entire area is covered by the "Brainworm". \n
+			\n\n
+			%c[0,215,215,215]                                                     Interesting zones.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,107, 142, 35]Checkpoint. %c[0,140,140,140]\n
+			Radar meets stalkers with a roadblock with a barrier. Probably was built between the first and second catastrophes. The first obstacle in the way of the stalker to the antennas. \n
+			\n\n
+			%c[0,107, 142, 35]Dead forest. %c[0,140,140,140]\n
+			Mountainous mutated forest, strongly irradiated and inhabited by mutants. In the center of the forest lies a helicopter, which rumors were rumored flying scientists. \n
+			\n\n
+			%c[0,107, 142, 35]Pover line. %c[0,140,140,140]\n
+			A long concrete power line running from the mountain opposite the Antennas. It is a continuation of the mysterious railway track from the plant. \n
+            \n\n	
+            %c[0,107, 142, 35]Factory. %c[0,140,140,140]\n
+			A factory with a railway leading to a strange underground structure. There are barracks, perhaps for workers or soldiers. There is a unloading unit and a concrete bath. On the territory of the plant is a group of psi-antennas located in the north-west of the location. They are similar to the simplified design of the Duga radar. \n
+        </text>
+	</string>	
+
+	
+	<string id="encyclopedia_folk">
+		<text>Local folklore</text>
+	</string>
+	
+	<string id="encyclopedia_folk_illuziadolga">
+		<text>Duty illusion</text>
+	</string>
+	<string id="encyclopedia_folk_illuziadolga_text">
+		<text>\n%c[0,143, 188, 143]Duty illusion:
+		    \n\n
+			\n%c[0,173, 216, 230] 	I'll tell you something. I was right there when them duty guys captured that Illusionist! Stumbled over them by pure accident! My car, you know, my Niva, had its right front wheel broken off. The bolts chopped off on some hummock. And not a single spare part in stock. Well, I cussed for a minute, and then i thought, why don't I go to the plant, pick me up what I need. It was 'bout half a kilometer away, about thirty minutes walk both ways. Besides, I'd already been there before... All of a sudden, I seem them Duty boys! And not just a patrol, but about fifty of them! What the heck, I thought! So i hid in the bushes right where I was standing. "If they saw me and start combing the area, that'll be the end of me", I thought! Anyway, I'm lying low, holding my breath. All of a sudden I hear a salvo and they start blazing away like crazy! Only once in my life have i heard such blasts and firing... The first base assault, remember guys? Anyway, I'm lying there, listening closely... and it's all like WHAM! and BANG! Five minutes later all goes quiet and I'm listening for anyone walking my way. Nothing. Well, I get my balls together and peep out through the binocs. the guys are trailing out of the workshop... all messy, dragging their dead and the illusionist on a tarpaulin... or the remains of the illusionist rather... and disappear into the glen. Then I hear the sound of engines and the sound dies away. I waited a little more, to make sure they were all gone. And then i went inside. Well, you know what they say - the Duty guys don't leave leftovers! But i wanted to check it out anyway. And what a sight it was! The walls were all pierced almost all the way through. the joists lay all over the floor, part of the roof collapsed. Up to my knees in shells, a real shooting ground. Blood, some scraps... Didn't find anything useful though, well, two full jets and a machine gun crushed down so bad you couldn't get it out... Needless to say, I didn't even think about the bolts... So i went back to my car, chewed the cud for a while, took one bolt off each of the other wheels, and went back on low gear... And what if i had come out there half an hour earlier? Makes you think, doesn't it ?
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_tenpriz">
+		<text>Ghost's Shadow</text>
+	</string>
+	<string id="encyclopedia_folk_tenpriz_text">
+		<text>\n%c[0,143, 188, 143]Ghost's shadow:
+		    \n\n
+			\n%c[0,173, 216, 230]Does anybody knows the score on these top secret labs deep in the Zone? They're still functioning, aren't they... Well, yeah... How the heck does anybody manage to survive there at all... No food or energy... So the question is: what if it's not even people working there? I talked to this one guy... He didn't see the labs himself... ...No, he didn't see them with his own eyes, but his scanner lapped some weird talks in Yantar. they were talking about some laboratory. And the other guy was swearing to the first one that he had run into this figure dressed in a suit like the stalkers wear, but much fancier... And this translucent figure as if told him to piss off. Something like, be gone, we're working here. Scared the shit out of him, I'm telling you! I mean, have you seen anything like that before?... But on the other hand, it all sort of happened not far from the Red Forest... You know what i mean... Right. So it probably ain't true... But then again... mutations, they take different forms, right? So maybe those are not people any more, but some sort of energy entities? Could be, eh? C'mon, what are you laughing at... Cracking up over nothing...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_sverprovodnik">
+		<text>Superconductor</text>
+	</string>
+	<string id="encyclopedia_folk_sverprovodnik_text">
+		<text>\n%c[0,143, 188, 143]Superconductor:
+		    \n\n
+			\n%c[0,173, 216, 230]Have you heard about Guide? The very first true stalker. He was the one who originally broke into the Zone and he's still alive. People say he can take you to any place, you just need to name it. Now finding him's a bit tricky, ain't no posters around with his address... And he won't go with anybody, either. But from what I hear, he charges quite a bit. But if you find him and you have enough cash, you can rest assured he'll take you where you need to go. Now, that's someone I'd like to have a chat with. You can bet he's been past the Red Forest...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_koshmar">
+		<text>A nightmare-proof bucket</text>
+	</string>
+	<string id="encyclopedia_folk_koshmar_text">
+		<text>\n%c[0,143, 188, 143]A nightmare-proof bucket:
+		    \n\n
+			\n%c[0,173, 216, 230]Here's what I'll tell you. You almost can't sleep at all in this part of the Zone... I'm lucky I can't sleep anyway, but the nightmares people see... Sometimes they don't wake up in the morning. Some get a heart attack, for example. Some fly off the handle, some go nuts... but rumor has it there's actually one cure. If you need to sleep real bad, you should find an old bucket... a big pot will do... a cauldron or something... As long as it has no holes... You stick your head into it and have a good night... there now, you may laugh all you want. I'll see you in a couple of days when you are ready to drop dead from exhaustion. Morons... So tell me, what the heck are the grunts roaming about sporting these fancy helmets now, eh? Well yeah! For about two years neither hide nor hair, and now they're all over the place! And the brain buckets are something new. Someone found the body of one such grunt, they've seen it. There's a mesh inside, made of thin copped wire, attached to the liner. What the hell is it doing there? Mark my words, there's something strange behind all this mumbo-jumbo. This place is useless in terms of anomalies, these are not the grounds for those, other areas are safer and with much better swag in store... So I reckon they're researching the grounds. Marking the area for they base. They want to get through to the Sarcophagus. I'm telling you... What we should do is try and stay as far away as possible from them when the moment comes...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_hroniki">
+		<text>The chronicles of egghead globalists</text>
+	</string>
+	<string id="encyclopedia_folk_hroniki_text">
+		<text>\n%c[0,143, 188, 143]The chronicles of egghead globalists:
+		    \n\n
+			\n%c[0,173, 216, 230]Right... I seem to remember you asking me about something last night, though I can't recall... Ah, got it. You wanted to know why it's only our eggheads messing around in the Zone. Curious why the foreigners won't show up, even though there's enough stuff here for thousands of Nobles prizes... Alright, let's see. First of all, what the heck do they need coming down here for, when they can simply pay some of our guys and get the results on a silver plate? Second of all, they've actually been there themselves, and quite a lot of them, too. It's just that in the last two years these gringos have been badly scared of going into the Zone... There was this incident, you see. So now they stick to buying loot and information. And they're paying pretty well, so many loners work for them, and the looters, too... What, haven't you heard this story? C'mon! The whole Zone was buzzing about it, and you mean to tell me you haven't heard? Ah, what the heck. There was this large expedition, you see. The scientist alone counted about thirty, people form all over the world... All stars, you know, big shots and stuff... They were all rigged out: all premium-quality gear, heaps of it. Had a whole platoon guarding them, and a couple of our guides. So they all got onto their APCs and took off. Well, what happened them? Came back about a week later... Twelve people in a wreck of an APC. They got as far as the spiker by the Rotten Forest when they fell into an ambush... The looters... Oh yeah... The bastards couldn't care less where you come from... Finished off almost everyone. Only three people managed to get out across the border line, two stalkers and one egghead. The latter went bananas from all the excitement, so they had to send him off to a nut-house. Now he's writing a book about the Zone I hear. The stalkers didn't seem that bad. Must be down to the experience, we thought. Except... I guess they also lost it in their own way: One of them took off to the radar and vanished, the other went back to the Big Place. And the rest were taken by the Zone. Ever heard about Station Thirty-Two? That's where they all bit the bullet. It was all quiet at first, pretty much normal... They'd be reading their meters, taking samples, poking their gear into anomalies... And then they all started going nuts. Every friggin one of them. Everyone slowly going off their rocker. One of ours, the one that retired eventually, told me about it... Some actually ripped their own throats open, other would smash their heads against the wall, and some would simply... Gun in their mouth and... And then the beasts started swarming all over them. Those few who were still sane enough barricaded themselves in the house. You get the picture, right? Dark night, all the local beasties outside, and people going nuts one after another inside. In short, in the morning those who still had it together broke out of there somehow. Went straight on, even got caught in some anomalies... Got to the Rotten Forest... But none of those who had been left behind have been found. they say loads of controllers were recorded in that area. that's how it was... Since then, no one goes anywhere near Station Thirty-Two, and the foreigners steer clear of the Zone...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_luk">
+		<text>The hatch into heaven</text>
+	</string>
+	<string id="encyclopedia_folk_luk_text">
+		<text>\n%c[0,143, 188, 143]The hatch into heaven:
+		    \n\n
+			\n%c[0,173, 216, 230]Now, having dough and having lots of dough, that’s two different things… You think moolah is easy to get? No fucking way! For buckshee you only cop it here with something fugly or get popped by a stalker… You’ve got to use your noddle. You’ve got to use your noddle over there, and even better over here. Roughnecks don’t last long around here. Ain't gonna go far if all you got is rats in the attic… Anyway, here’s how it was. The three of us, the late Bruise and Loop, were rambling across the farmstead, to take a shortcut. All of a sudden we see some bloke hotfooting our way. So we lay low. The bloke is walking right by us, totally unawares. And the guys all tiny, and hauling this huge sack along. The subgun hanging at the ready, we’d be stuffed with lead at the drop of a hat. So Bruise says to me, why don’t we shake him up some, see what he’s got over there? And I says, quiet you moron, watch where he’s about to stow away the loot! … Well.. Suddenly, the bloke vanishes into thin air! We didn’t see a damn thing! Alright, so we sit and wait. He pops up in ‘bout 20 minutes. And while he’s standing there, shaking off dust, Loop sneaks up behind and blasts half his head off. So him and Bruise start frisking this guy, he had a royal bulletproof vest, and a fanny pack, too… I had to piss so I walked off, I knew the guys would always give me my share, so no prob. All of a sudden - KABOOM! Turns out that nerd had his vest all wired so it would blow up if someone tried to take it off. I buzzed off right away, who knows who’s gonna show up for the gun shot and the explosion… Went back there a month later. Not a bone left of Loop, Bruise and that bloke. Nada. So I reckoned where he could’ve dived into the ruins, and crawled in there myself… Passed three rooms, zilch! Suddenly I see a bunch of beds piled up in one corner. What the heck are they all doing there? Started taking them apart. And what do I see in there? Holy cats, a hatch! So I lift it up and turn on my flashlight. Good grief, I’m in heaven!.. Well, what I saw there is my business… I didn’t come off the loser. But think of it, had I dragged my feet, I would’ve been dead already or running around barefoot and slobbering, as some do… 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_patologoanatom">
+		<text>Pathologist's supper</text>
+	</string>
+	<string id="encyclopedia_folk_patologoanatom_text">
+		<text>\n%c[0,143, 188, 143]Pathologist's supper:
+		    \n\n
+			\n%c[0,173, 216, 230]Anyway, here's what this one friend of mine told me. His boss wakes him in the middle of the night, tells him to hurry to the lab. There's, like, some cargo there. So my friend's half asleep, doesn't know what's going on. What the heck is with this cargo? And the boss is like, you drunk or something? There is a fresh corpse on the table, the dinner is served! Anyway, he goes to the table and sees SOMETHING... Now, he had seen all sorts of stiffs from the Zone: boiled, grilled and ripped apart, not to mention dozens of mutants... But the sight of that thing - gag-a-maggot! Anyway, at first glance it looked just like a human being, except that the head was way out of proportion: huge and ribbed like a pumpkin. And the body? Man, straight from a concentration camp, skin and bones. But that's what he figured out afterwards. At first, he says, he only saw a lump of flesh all smeared with some orange-red muck, blood or something... Those pricks sure didn't spare their ammo. Ya know all they talk about duty... searching for anomalous objects, dang it... search my foot! My friend says it looked like something between a colander and a torn-up hot water bottle... and they obviously trampled it with their shitkickers. Not an object, but a damn piece of meat in black rags. So he worked his butt out the rest of the night and half of the morning. Turns out it was that very creature the locals had been calling the Illusionist: black rags, sending hallucinations onto stalkers, the head about a yard around... You know what is funny? What they thought was its face turned out to be the top of its head. No, it does have a face, but it's tiny-winy: the winkers always shut and the nose the size of a pin, but the cake-hole as wide as a gate. Probably when it walked its head would always hang down, 'cause there's no strength to keep it up... a snip... And get what these creatures eat for lunch. Mushrooms! Damn mushrooms! You've all seen 'em! The Zone's full of mushrooms, so the old-timers swear these creatures squeeze the juice out of them. Talk about shitty food... You know what else he was hiding in his little baggy on his hip? Well? How would you know! Alright, it was dried brains. And you know who's brain it was? The controllers'!...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_angar">
+		<text>On the creature in the hangar</text>
+	</string>
+	<string id="encyclopedia_folk_angar_text">
+		<text>\n%c[0,143, 188, 143]On the creature in the hangar:
+		    \n\n
+			\n%c[0,173, 216, 230]So we’re creeping into this hangar, right? Dust and cobwebs everywhere. Filth up to the rafters. The detectors are dead silent - like, not only there's no-one around, but even we seem pretty much non-existent. So we’re getting into positions along the perimeter: Sanyok leading the way, the rest covering his back... then all of a sudden: WHAMMO! There were these huge iron joists rusting under the ceiling, so one of them breaks off and goes plummeting down! Somehow, Sanyok managed to dodge, and the shit slams into the floor right where he had been standing a moment earlier. Well, Sanyok dives down, rolls over, doesn’t even get up to his feet and, still there on the floor, starts blasting away! So we all freak out and start off firing like crazy. Then Sanoyk starts screaming blue murder, something about a creature in the corner. I look over there, and don’t see a thing... That's right, the entire operation is ruined, total clusterfuck... So we go looking around the ruins for about five minutes, stepping carefully, making sure we don’t get under any joists. And it was really creepy, man, one after another sees something and lets bullets fly at sweet Fanny Adams. Two of our guys got completely screwed: one fell into a pit, and the other got bashed by the door that flew off its hinges. Now we really got worked up, it’s plain some bitch is fucking with us! So we spark off our psi-protection, toss a gas grenade in each corner and wait, fingers on the triggers. So we’re waiting, and waiting... Turns out the motherfucker was flying or something like that... So while we were all running around on the floor it was lurking on the ceiling and having itself a ball… It dawned on us too late, and by pure accident. That piece of shit shook loose some more joists, so half the roof comes crashing down to the floor, dead right on our heads, four of our guys get squashed flat right there... But we got that son of a bitch! As soon as Sanyok heard it rustling on the ceiling, he blazed away by reflex – a damn good reflex, I must tell you! You should’ve heard that thing yelping! We all jump up firing with every gun... That bitch tumbled down squalling so loud my ears almost started bleeding. Man, we gave that thing hell, clubbing and kicking, and Sanyok, he flicked out his knife to slit it open... Well, the commander dragged us all off, otherwise we would have shredded the motherfucker to pieces...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_yjas">
+		<text>Horror at the Research Institute</text>
+	</string>
+	<string id="encyclopedia_folk_yjas_text">
+		<text>\n%c[0,143, 188, 143]Horror at the Research Institute:
+		    \n\n
+			\n%c[0,173, 216, 230]My partner and I had been keeping an eye on this Research Institute for a while. Too bleak of a place it was. No animals around, no mutants. Except, every time someone went in there, they returned either scared to death, or gone bananas, or never returned at all. So we thought we’d give it a try and check it out ourselves. We left before dawn, but by the time we got there it was already bright daylight. Left the car on the road and walked to the edge of the forest. There we stopped, my partner stayed on the ground and I climbed up the tree with the optics to look around the area. So I climb up there and see the Institute facilities, and they don’t look that desolate at all. The windows aren’t broken, little grass in the yard, not up to your waist like in other places… By all appearances it looked as though the place was inhabited, but it was dead silent and not a single movement anywhere. Then suddenly there's a burst of fire to my right. Someone's blazing away from a machine gun. So I zoom in there and see a stranger on the roof of one of the buildings, running to and fro like a cat in heat and firing away in all directions. I looked and looked but couldn’t make out who he was shooting at - he was all by himself. And then… it started. [short pause] Right before my eyes. The subgun broke loose from his grip as if on its own… Like it suddenly got wings!.. The guy opened his mouth, probably started screaming, whipped up his knife and held it up. And then I saw – I swear – another knife hanging right in front of him! Just hanging there in the air pointing at him, and no one holding it. What happened next is best not be told before daylight… That thing started shredding that stranger for about five minutes… Bit by bit, son of a bitch, a little stab here, another cut there… The bloke was bleeding all over… When he started staggering, his knife got kicked out of his hand too. Then he was lifted up in the air and like... twisted one time and another… I’d never seen anything like it before, like he was a rag doll or something… I was soaked in sweat by then. After that… No, I’m not going to tell… Anyway, after I caught my breath, I looked around the whole area for another five minutes. Hands shaking, the binocs all dripping with sweat… Not a single damn thing! Not in the regular range, not in infrared, no-thing. When I climbed down, my partner looked at me, and decided not to ask questions. When we got back to the base I started tanking up for about a week… Then, when I snapped out of it I tried to ask people around if they had heard anything like that before. But they kept giving me this strange look like I had gone mental or something. So that’s the thing…
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_dobucha">
+		<text>An easy prey for a controller</text>
+	</string>
+	<string id="encyclopedia_folk_dobucha_text">
+		<text>\n%c[0,143, 188, 143]An easy prey for a controller:
+		    \n\n
+			\n%c[0,173, 216, 230]Once we had this one retard tailing along… So we’re going our way, stopping every now and then for a brief rest, and as soon as we do he drops on his butt and starts snoring. And when it’s time to go he’d be the last one to lift his ass off the ground. Well, once he finally did it… He fell behind, and that’s when the controller got him - zap! - and brain was gone. You rookies better pay attention. Any rustle, any movement… Even if a fricking bunny darts by… Though, Lord save you from running into any of the local bunnies… Anyway, you have to be alert every stinking second. Clips and grenades at hand, finger always on the trigger. The moment you spot something, fire off half a clip right away. There's something behind the bush? Shoot first and ask for credentials later. That’s the basic training around here: think too much and you'll be dogfood in no time! And about the controllers, now this is a different story. You burst a fire at the rustle and drop down right away, that very second! On your back or face down, it doesn’t matter. The controller grabs you if he sees you, he needs to concentrate or something. So you lay low and listen for any noise, checking if any scum is heading your way. You may quietly recharge your gun, take out your grenades… Anyway, if all is quiet, count till three and… Get your ass out of there! As far away as possible! You all got it? You yardbirds… Be on guard every second, that’s the only way to survive…
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_seryi">
+		<text>Seriy in Pripyat</text>
+	</string>
+	<string id="encyclopedia_folk_seryi_text">
+		<text>\n%c[0,143, 188, 143]Seriy in Pripyat:
+		    \n\n
+			\n%c[0,173, 216, 230]Yeah, so I got as far as Pripyat outskirts that time. Well, I though I’d look around first. Found the highest spot, this huge boiler-house with a chimney. I walk in there on tip-toes. Seems alright, dust everywhere, no footprints… So I crawl into the fire-chamber and start clambering up the stairs inside the chimney. So I’m climbing up, and the soot is not even smudging, hard as a rock! I get to the top and peep out… Beautiful view! Half the city spread right there before my eyes! So I take out my binocs and look around. [small pause] And then… I was about to climb down, when suddenly I realize that I’d completely forgotten to check out what’s going on right under my nose! So I bend over slightly, look this way, look that way… Holy shit! That would’ve been some mess! There's this dwarf strolling around the courtyard! And I had almost climbed down! It’s a good thing he didn’t see me. But I couldn’t knock him down either: the Akm hanging on my back, and the chimney way too narrow to stir in it. The Makarov under my arm wouldn't be of much help either, it was about fifty meters, plus the height of the chimney… if I didn’t get him the first time, he’d do me in. So I’m sitting there, thinking. And watching what he’s up to. And he was up to something weird, I’m telling you. First he was rummaging in a pile of lumber, rubbish flying left and right. And then suddenly he stood stock-still. Sort of listening to something. And then it all started. The garbage in the pile started stirring. The dwarf sprang back, stood up straight, put his hands to his head and twisted them somehow weird… and all of a sudden that rubbish goes flying at him! From everywhere!.. Bits of iron, bricks, rubber, tree branches, crap… Covered him from top to toe. Holy shit, I thought. The little guy's dead and buried. End of the story. But no! For about two seconds the rubbish lay still, and then wham! It goes splattering everywhere! There were iron pipes there, those stuck right into the concrete fence. The dwarf stood there for about a minute, thought something to himself, then turned around and trotted inside the building. It took me a while to catch my breath. "Well, I thought, time to save my bacon". And then, I smell smoke. And it starts getting hot. Holy shit! Someone made a fire down below! A minute later I couldn’t breathe anymore. I managed to climb out to the edge of the chimney, but there was no platform or anything, so I just perched there dangling my feet… The smoke was really eating my eyes out by now, I was choking for air… Anyway, I needed to get my ass out of there! Thank God I always have about forty meters of rope with me, just in case, you know. So I folded the rope, it wasn’t too thick, barely fixed it to the chimney, tore my necktie in half, wrapped around my hands and started climbing down praying to all gods in heaven… All I could think about was: don’t let me fall down! No safety rope, right? Nothing! The rope was really cutting into my hands… and sure enough, as bad luck would have it, it ended about five yards above the ground. Had to jump. I had no choice, did I? And I went crashing down! I was lucky not to break a bone, though I did get quite a few bruises and sprained my right leg alright! Hurt like hell, all over my body. And yet, I took off so fast I could’ve probably won a gold medal in racing…
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_lone">
+		<text>Mans loneliness</text>
+	</string>
+	<string id="encyclopedia_folk_lone_text">
+		<text>\n%c[0,143, 188, 143]Mans loneliness:
+		    \n\n
+			\n%c[0,173, 216, 230]I couldn't even believe my eyes then. You know, I thought I'd seen some really beautiful girls, right? But this one...she was... Perfect. Yes. That's it.Perfect. It felt as if the whole world around her was black and white and sort of blurry. But she... She was sharp and clear and full of color. And the way she moved! Man, I hadn't seen anything like that before. I mean, I had a lump in my throat. What does she have to do with all this science? What has she got to do in the Zone?... That's right, in the Zone! It was break of night...There's this nine story block of flats by the bus station. First something flashed by in the window on the third floor. So i unlock my Akm right away, and suddenly there she is, coming out of the building... I nearly rubbed my eyes, I mean, you know you can expect anything from the Zone! So, she comes my way. And I'm just standing there like a moron, staring at her... but holding my gun ready, you know, out of habit... Then she noticed me... Smiled... Said hello... And so I'm listening to her but not hearing what she says, just staring at her. She was wearing blue overalls, bright blue... but it wasn't loose at all, almost like a catsuit... And her body... Talk about amazing! And then I realize that I'm not even paying attention to what she says, just grinning from ear to ear... Turns out she was from the research group. Asked me if i could help her. Help her! I would jump into an anomaly for her right there! She said she was studying the... whatchamacallit... Zone endemics. You know the plants that don't grow anywhere else but here. Said she had run off from security because she didn't like having them constantly sniffing around and came there all on her own. I don't know. I believed her. So i agreed to help her, bring her some stuff. Two days later she came back just as we had agreed. Nearly got knocked out about five times while gathering all that stuff for her. So I'm going there with this one thought in my head: I'm going to see her again! And nothing, I didn't even see the house where I'd met her. And that's it... But you should've seen her! She was like... all glowing from the inside.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_monolitson">
+		<text>About the Monolith in my dreams</text>
+	</string>
+	<string id="encyclopedia_folk_monolitson_text">
+		<text>\n%c[0,143, 188, 143]About the Monolith in my dreams:
+		    \n\n
+			\n%c[0,173, 216, 230]Brothers, the Monolith called me at night. I spoke to him. He was beautiful in his greatness. I was almost blind, but his light filled me with great power! I know, I feel that his power is with all of us! He told me that to defeat evil must be a firm faith. He said that his power would fill only the faithful. He also revealed to me that our victory is near!
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_antena">
+		<text>On those who got to the antennae</text>
+	</string>
+	<string id="encyclopedia_folk_antena_text">
+		<text>\n%c[0,143, 188, 143]On those who got to the antennae:
+		    \n\n
+			\n%c[0,173, 216, 230]Brothers, did you hear about unbelievers who broke through to the antennae? Fortunately, the Monolith guided us and the brothers picked them off just in time. One was eliminated immediately, the other two ran away. Cowards! They're all cowards! True faith leaves no room for fear! Two managed to escape, but the monolith is wise and omniscient. It would not have let them live without a reason.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_blackforest">
+		<text>Turning into the Black Forest</text>
+	</string>
+	<string id="encyclopedia_folk_blackforest_text">
+		<text>\n%c[0,143, 188, 143]Turning into the Black Forest:
+		    \n\n
+			\n%c[0,173, 216, 230]Brothers, we've been patrolling the outskirts of the Black Forest, and we've stumbled upon an infidel lonely man there. He started turning, so we didn't kill him, but he was still half in his animal state... I know the wise Monolith did this for all of us: he showed us again the true face of his enemies. Now our faith has been strengthened even more! It's coming, brothers... The victory over the unbelievers is near, and then the Monolith will fulfill our innermost desire! He will bring the truly faithful to himself, to his glory, to his greatness! We will come forever in his radiance...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_vera">
+		<text>About the test of faith</text>
+	</string>
+	<string id="encyclopedia_folk_vera_text">
+		<text>\n%c[0,143, 188, 143]About the test of faith:
+		    \n\n
+			\n%c[0,173, 216, 230]Brothers, recently the Monolith tested my faith and I almost lost my way. But I survived! Praise the Monolith! His trials are hardening us! We were on our way back from the Dark Valley and I almost lost my brothers. Evil took advantage of it and suddenly started playing with me. И... ...I doubted. The true images were distorted: the enemy whispered to me that the Monolith was using us as slaves. But then I realized it was a test. I remembered the power and radiance of the Monolith and then my will and confidence returned to me. Since then, I am no longer afraid of any trial or doubt. Praise be to the Monolith!
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_darkvaleybattle">
+		<text>About the fight in the Dark Valley</text>
+	</string>
+	<string id="encyclopedia_folk_darkvaleybattle_text">
+		<text>\n%c[0,143, 188, 143]About the fight in the Dark Valley:
+		    \n\n
+			\n%c[0,173, 216, 230]I was in the Dark Valley. There are so many infidels there, because the power of Monolith has not yet reached these places. We were guarding. We were attacked in the night. We fought fiercely against these animals. The merits of the brothers were great: soon the Monolith called them to himself. For me, he had prepared another test. My weapon did not fire. But then the Monolith said to me, "You are with me, and my strength is with you. If you are firm in your faith, you will crush my enemies and come near me!". That's when I became a shadow. I ducked down and circled them on my right. The stupid spies didn't notice anything. They thought they were done with us and laughed at the empty bodies of our brothers. But I already saw them from behind. And then the power of the Monolith hit me from my hands. So he killed them all. I am happy to serve you, Perfect!
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_leghim">
+		<text>The legend of the chimera</text>
+	</string>
+	<string id="encyclopedia_folk_leghim_text">
+		<text>\n%c[0,143, 188, 143]The legend of the chimera:
+		    \n\n
+			\n%c[0,173, 216, 230]The legend of a huge chimera, who raised three little homeless kittens as their own children, is still long in the Stalker companies that gather at nights by the bonfires. It is said that their silhouettes can be seen at sunset every day, in any place, if you look long and in the right direction. Some add that in the night expanses of the Zone you can hear the roar of four mysterious creatures who found their home in the Zone and became one great family.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_blackkristal">
+		<text>The legend of the Black Crystal</text>
+	</string>
+	<string id="encyclopedia_folk_blackkristal_text">
+		<text>\n%c[0,143, 188, 143]The legend of the Black Crystal:
+		    \n\n
+			\n%c[0,173, 216, 230]Some stalker by the fire told me the story that there was a unique Black Crystal artifact. The artifact could have caused any anomalies. The general method was to cause a certain emotion by holding the Crystal in your hand or by touching it with any other part of your body. It would work most accurately if you squeeze it in your hand. Crystal was able not only to create anomalies, but also to remove them. To do this, it was necessary to do the same as to create them, but only with the difference that it had to concentrate on a specific anomaly. Everything always ended with the appearance of artifacts. The artifact was so powerful that it could create a local zone. Stalker also claimed that the crystal was the missing piece of the legendary Monolith, but no one dared to test it. The Monoliths wanted to take possession of the crystal. So the artifact was destroyed. Me, and I don't think the other stalkers believed it. And you, the stalker, do you believe it? 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_zaslon">
+		<text>The legend about curtain</text>
+	</string>
+	
+	<string id="encyclopedia_folk_zaslon_text">
+		<text>\n%c[0,143, 188, 143]The legend about curtain:
+		    \n\n
+			\n%c[0,173, 216, 230]Stalkers who were among the first to enter the Zone say that Pripyat and Chernobyl were previously unavailable. The dense wall, as if it consisted of a tightly knocked down smoke, enveloped a huge area of the Zone with a smooth arc and rose upwards, to heaven. On the right and left, a narrow strip of land between curtain and the forest was visible. This was the northernmost point of the Zone, free to access. According to the most conservative estimates, the circumference of Saslon at the sight of a satellite was at least fifteen kilometers in diameter. To be exact, the satellite refused to count for unexplained reasons. It had already broken down once, when it was looking at curtain for a long time with its ultramodern lenses. But after a while, the Shuttle disappeared for an unexplained reason and never appeared again. It was in Red Forest.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_pautinaelektr">
+		<text>The legend of the electric spider web</text>
+	</string>
+	<string id="encyclopedia_folk_pautinaelektr_text">
+		<text>\n%c[0,143, 188, 143]The legend of the electric spider web:
+		    \n\n
+			\n%c[0,173, 216, 230]Located in the dungeons of Pripyat. Stalkers say it looks like the Elektru, frozen in the moment of discharge. Imagine a spacious grotto that is filled with glowing blue threads and nets. Through this spider web you can see the scattering of artifacts, but it's unreal to take them - each thread hits like a good lightning. On the doorstep of the grotto even the hair stands up, so it has accumulated a charge of electricity. It is enough to come up to half a meter, and all the batteries in all devices become like new, and if you have artifacts, they begin to work half as efficiently. 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_icegrot">
+		<text>The legend of the Ice Grot:</text>
+	</string>
+	<string id="encyclopedia_folk_icegrot_text">
+		<text>\n%c[0,143, 188, 143]The legend of the Ice grot:
+		    \n\n
+			\n%c[0,173, 216, 230]The ice grot is such a huge hall, which is as if dug in permafrost. It is in the dungeons of Pripyat. And in the ice walls there are mutants in different poses and with creepy splinters. There are hundreds of them in the ice, from the earliest to the present. It seems that the ice was formed in an instant, and this sharp cooling caught all mutants by surprise. It's terribly cold there, even a warm jumpsuit can't save you. According to measurements of temperature in ten meters from the entrance - minus twenty, and in forty for thirty is off the charts. They say the temperature in the center is minus one hundred and eighty. There's nothing to do without a suit. Stalkers have a belief that one day the hall will melt, the evil will wake up from the ice hibernation, will eat all the people in the Zone and go hunting outside of it. But they say "when the hall melts" in the same sense as "when the cancer on the mountain whistles", I mean never. 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_podjemelyaprip">
+		<text>The legend of the Pripyat undegrounds</text>
+	</string>
+	
+	<string id="encyclopedia_folk_podjemelyaprip_text">
+		<text>\n%c[0,143, 188, 143]The legend of the Pripyat undegrounds:
+		    \n\n
+			\n%c[0,173, 216, 230]Stalkers who say they've been there tell you this: there are airtight compartments at the dungeon door. They've got a self-contained power system, battery powered. But there's a mystery - there's always light in an underground town, but there are no dynamo machines. How these batteries are recharged, that's the question. And why do even dead batteries work there as soon as they've just been bought? And who changes the light bulbs, which are not, no, and burst from the sharp shots of some enthusiast? An hour later you're on the same route, it's light again! And the cars in the local "subway" are always in good order, though, sometimes rats chew out all the giblets, only frames and wheels remain. And where does the air come from in tunnels - clean as in the mountains?! If you stand by the air grid, you'll rest in the Alps. No dust, no isotope, no foreign smell. Anyway, the underground Pripyat is a crossword puzzle. It's as mysterious as it is on the surface of the Zone. 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_amnezia">
+		<text>The Legend of Stalker with Amnesia</text>
+	</string>
+	<string id="encyclopedia_folk_amnezia_text">
+		<text>\n%c[0,143, 188, 143]The Legend of Stalker with Amnesia:
+		    \n\n
+			\n%c[0,173, 216, 230]A man woke up next to a crashed truck and realized he couldn't remember anything about himself. Only two words are spinning around in his head: "kill Gunslinger." And who the Gunslinger is, and why he needs to be cut, is empty. And a man went to wander the Zone to find out what was going on. And he understood that the Gunslinger is the main source of all troubles, because he had been in the center three times and had probably done something there, so now he is like a sharp bone in his throat. And all the other stalkers are with him, which means that in order for the Zone to be fertilized, you have to pull out this bone.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_zov">
+		<text>The Legend of the Call</text>
+	</string>
+	
+	<string id="encyclopedia_folk_zov_text">
+		<text>\n%c[0,143, 188, 143]The Legend of the Call:
+		    \n\n
+			\n%c[0,173, 216, 230]Especially old and experienced stalkers tell us that there used to be a Call. Here's how they describe what used to be: who called and why - is unknown, but even the controllers lost the will and walked towards Pripyat on the damn call. Only once a week, a day before the Vyssa, the call started and then disappeared. The call wasn't just for people. Even rats with wolves were coming at him. And not everybody was called, but those who were close to the center, about three or four kilometers away. One way or another, another important thing is that those who went to the call did not return, but at the close approaches to the "source" the reaction to the call of the people going to the call changed dramatically. Complete indifference and sluggishness were replaced by aggressiveness and the desire to destroy the competitors, but the best specimens of them got to the point of gathering. And mutants and people. On them to put experiments best, so the most reliable version is that there was once a secret laboratory, where there was a psychotropic radiator. Some stalkers say that this Call was a particularly powerful controller. It penetrated into Pripyat, sat there, in the "Energy" and trumpeted the "general assembly". And the Zone was amplifying the call. They think that the call stopped because he was killed. Some believe that perhaps the controllers have learned to "choir" the Stalkers' consciousness to fog and the Call only, it seems. Some think it is a Monolithic call, but they can't explain the disappearance of the Call. Some people think it is the Call of the Zone itself, and the source of the Call is hidden under the sarcophagus itself, and the Call has not disappeared, but has become accustomed to it and stopped being perceived.  
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_trupy">
+		<text>The legend of the corpses near the cordon</text>
+	</string>
+	<string id="encyclopedia_folk_trupy_text">
+		<text>\n%c[0,143, 188, 143]The legend of the corpses near the cordon::
+		    \n\n
+			\n%c[0,173, 216, 230]In the army unit there is a story about a small man, who was tied up for some sins of dembele and left near the cordon in the swamp at night. In the morning there were legs and upper part of the body, and all the hearts were taken out with a razor. Then Vostryakov's soldier disappeared, only the beret was found, and in the beret - his redhead. Vostryakov went past the swamp, right along the first line to the Ukrainian checkpoint to shoot a cigarette - drunk, of course. Ukrainians swore that he did not show up, and the distance there was - three hundred meters. Although, of course, they could, even had to open fire to kill, but then where is the body?  
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_vodonapor">
+		<text>The Legend of the Water Tower</text>
+	</string>
+	<string id="encyclopedia_folk_vodonapor_text">
+		<text>\n%c[0,143, 188, 143]The Legend of the Water Tower:
+		    \n\n
+			\n%c[0,173, 216, 230]Somewhere in the Zone stands a water tower. Many claim that they saw with their own eyes how it collapses, but the tower is always safe. 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_dolinaleg">
+		<text>The Legend of the Valley</text>
+	</string>
+	<string id="encyclopedia_folk_dolinaleg_text">
+		<text>\n%c[0,143, 188, 143]The Legend of the Valley:
+		    \n\n
+			\n%c[0,173, 216, 230]Stalkers say that there is a place called the Valley. There they get in different ways: someone went on the road, and disappeared, someone survived in the anomaly and suddenly found himself in the Valley, some after the ejection. There is a settlement. It is rumored that it was the Evil One. There is no money in the village, but all the settlers who cultivate the land, watch for live animals or hunt in the surrounding woods, pay for the products - they help the owner. Residents of the village pay tribute to the military - a lost platoon. The military chief is Captain Piersnyak. In the village there are emissions, but they are much weaker. Sometimes creatures from the Zone fall into the village: wild boars, blind dogs, bureurs. Few stalkers believe that on one of the Valley's mountains is a field of artifacts.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_poleart">
+		<text>The legend about the field of artifacts</text>
+	</string>
+	<string id="encyclopedia_folk_poleart_text">
+		<text>\n%c[0,143, 188, 143]The legend about the field of artifacts:
+		    \n\n
+			\n%c[0,173, 216, 230]It is rumored that there is a place where there are a lot of artifacts. They are there, about fifty - artifacts of different types and sizes, hanging in the air without visible support or lying directly on smooth stones. They form some wonderful fantastic garden, and the centers of this garden are three large anomalies: located close to each other: frying, mosquito bald patch and a tall shaggy sheaf of rusty hair. 
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_brodbase">
+		<text>The legend of the roaming base</text>
+	</string>
+	<string id="encyclopedia_folk_brodbase_text">
+		<text>\n%c[0,143, 188, 143]The legend of the roaming base:
+		    \n\n
+			\n%c[0,173, 216, 230]There is a base that the fighters in the Zone have secretly built up for some tricky experiments. Not that they were going to perfect it on it, not something else. And at some point she disappeared from them. Well, that is, everything disappeared completely, the connection was cut off, and when the helicopters were sent there, only a crack in the ground was seen, narrow, but long and straight. And then, then, the base in another place appeared, a year later stalkers accidentally stumbled upon it, recently, maybe several months ago. But already abandoned, there are no people, and this base is dilapidated all. Somehow the news reached the soldiers, and they quickly sent helicopters back. Landed a team of paratroopers of ten people, examined all - empty. By radio, everyone explained, they were told that now some specialists from Cordon will be sent, with instruments to measure everything there, - the experts arrive. There is no database. It disappeared with the paratroopers, as if someone had taken it and transferred it to another place. Well, then it then disappears, it occurs in different places, but it appears less and less.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_unclemiha">
+		<text>Uncle Misha</text>
+	</string>
+	
+	<string id="encyclopedia_folk_unclemiha_text">
+		<text>\n%c[0,143, 188, 143]Uncle Misha:
+		    \n\n
+			\n%c[0,173, 216, 230]"Uncle Misha" - a place in the Dark Valley, where a deafening mechanical rumble is heard, and one after another there are impressive, one and a half meter long, oval impressed impressions. It looks like a giant and invisible two-legged beast, emerging from nowhere, quickly crossed the route and again disappeared into nowhere. Stalkers call this thing "Uncle Misha". Faced with her first, Dron went insane, when an invisible giant stepped over him; when he was asked what had happened, he answered, trembling with a tremulous tremor: "Uncle Misha has passed." Whom he saw after his brains burned, a huge bear or some terrible man walking along it, it is not known. This thing was called - "Uncle Misha", although the matter was most likely simply in consecutive gravitational concentrations arising from anomalous stresses in a certain section of the earth's crust. In any case, come across Uncle Misha's way is not worth it.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_deadcityleg">
+		<text>Legend of the Dead City</text>
+	</string>
+	<string id="encyclopedia_folk_deadcityleg_text">
+		<text>\n%c[0,143, 188, 143]Legend of the Dead City:
+		    \n\n
+			\n%c[0,173, 216, 230]A lousy place, a little better than a Swamp. When the first time was rushed, the workers of the nuclear power plant lived here. They were evacuated in terrible haste, not even letting them get dressed, forcing them to leave flats and property. Twenty years after this deserted city - a ghost in which people never returned, stood here, gradually shabby and collapsing, pawing at the broken windows of windows. However, after the second explosion in Chernobyl, it again found itself populated. Zombies who lost controllers or lost their minds on the Amber Lake, who got out of the Sarcophagus area or got under the most powerful psionic shock of the brain, flasks on the Swamp, flocked here from all parts of the Zone and began to live here some ridiculous, bizarre, stupid parody of a normal a life. They lived in the city, as if nothing had happened, busily paced the streets simulating conscious activity, "slept" in empty apartments, jostled in former shops and cafes, sat on benches - in a word, created a strange and slightly frightening appearance of the fact that they still normal people. What they needed it for, what brought them here, why the Dead City affected them so much, after all, they again became stupid, aimlessly staggering around the neighborhood with vegetables, no one could say. However, there are a lot of strangeness in the Zone, and this is no more surprising than for years the excavator or, say, the devil hanging on the edge of the foundation ditch?
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_yantarlake">
+		<text>Legend of the Yantar Lake</text>
+	</string>
+	<string id="encyclopedia_folk_yantarlake_text">
+		<text>\n%c[0,143, 188, 143]Legend of the Yantar Lake:
+		    \n\n
+			\n%c[0,173, 216, 230]Those stalkers, who are trying to break into the sectors of increased abnormal activity on the other side of the lake, take control of something unknown. What kind of creature or powerful anomaly, perhaps, is still a working installation of psi control, which seems to have once been experienced. People go to the center of the lake, and nothing more is known about them. Perhaps they are just drowning. There are rumors that there is a hole in the middle of the lake, and zombies are falling into another world where unknown creatures use them as labor in the quarries to extract marble for their temples. There is no shortage in the labor force, because there are always a lot of people willing to touch that shore - there are real scattered rare and valuable artifacts. However, one of ten returns from there, and only half of the returnees are with the hood. There are places on the other side of the river where the tension of the psi is such that people's brains start boiling in the skulls. There were absolutely wild obituaries from the PDA. Most of the guys just disappeared without a trace.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_elektrichestvo">
+		<text>Legend of electricity in the Zone</text>
+	</string>
+	<string id="encyclopedia_folk_elektrichestvo_text">
+		<text>\n%c[0,143, 188, 143]Legend of electricity in the Zone:
+			\n\n
+			\n%c[0,173, 216, 230]In the Zone, a lot of electricity is monstrous. It is rumored that twenty years after the last power unit at the Chernobyl nuclear power plant was shut down, all the electrical engineering here continues to work - the one that has not yet crumbled to dust and not rusted through. The abandoned machines are built without batteries. Lighting and conveyor lines in the shops of dilapidated plants, protective circuits, signaling and equipment of secret laboratories, derailed and overturned electric locomotives, even lanterns in the Dead City - all this, long ago de-energized and cut off from power sources, continues to function properly. They say that in one of the deaf corners of the Military Depots for twenty years a military truck has been continuously gasping on the spot. Its tires have long been worn out in the dust, rims have struck deep ruts in the ground, because of which the truck has grown belly into the ground, a young birch tree has grown through the cab - however the engine is working properly until now, although in the gasoline tank for sure it has long been dry. Here is the trouble? Then! This is explained by the fact that the nuclear reaction in the reactor of the Chornobyl station for an unknown reason continues to this day, and the huge amount of energy previously spread across Ukraine and Belarus through the power line wires, now remains in the Zone. The presence of energy in space here is sometimes felt without any instruments - suddenly the hairs on the nape begin to stand on end, suddenly you feel a painful prick under the shoulder blade, suddenly you catch how it tingles at the tips of your fingers. Energy is liberally dissolved in this insane space. And the mutated creatures are batteries of this painful, strange energy. The body of an experienced stalker reacts immediately to their presence, as if approaching a huge capacitor coil. However, they say that it happens, and vice versa - any technique will stop working in wandering dead zones with a diameter of several meters to a kilometer. The PDA is cut, the cars stop, only the Geiger counters continue to chatter, fixing the increased level of radiation. The Zone has many different masks.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_velosiped">
+		<text>The Legend of the Strange Bike</text>
+	</string>
+	<string id="encyclopedia_folk_velosiped_text">
+		<text>\n%c[0,143, 188, 143]The Legend of the Strange Bike:
+			\n\n
+			\n%c[0,173, 216, 230]Closer to the Amber Lake is an old three-wheeled bicycle with a red seat, thrown in the middle of the street. As the legend says: from a stalker named Shkilet who once for some reason just kicked this children's bicycle, there was not even a corpse left - just a few drops of blood in the road dust. And a week later, a friend of the Skillet, who had gone by the name of Bismarck, in his heart from twenty paces saddled from the rifle on this very bike that took his partner from him. From Bismarck, curiously, something remained - his colleagues in the clan managed to fill up a plastic bag of medium size to further burial. Since then, stalkers by the tenth way have bypassed this strange artifact, one of the most bizarre and dangerous in the entire Zone.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_folk_battledruids">
+		<text>The Story of Battle Druids</text>
+	</string>
+	<string id="encyclopedia_folk_battledruids_text">
+		<text>\n%c[0,143, 188, 143]The story of the battle druids:
+			\n\n
+			\n%c[0,173, 216, 230]Stalker say that there is one group of comrades ... They are called shamans, and when they are druids. They say they don’t carry electronic equipment with them - they’re closer to nature, they say, and so on ... Well, they say that the Zone influences electronics ... any electromagnetic radiation reacts more strongly to radiation ... yes, and monsters against you. As in their language it turns out, so the Zone is a living organism. It is impossible, they say, to climb into it with the instruments - the right person and without any extra hinges will cope. True, they take the machine guns with them, goats, haul it ... There is no way to try it with teeth and claws ... On the other hand, it seems that they are dying a lot in the Zone. Not more often than we, they use flippers to glue together ... So, maybe they’ve got it right ... They, however, seem to come to the Zone more from the Belarusian side ... And it would be nice to have a look at them ... but check how they have artifacts in their pockets ...
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_perehvat">
+		<text>Interception - depth occupant</text>
+	</string>
+	<string id="encyclopedia_folk_perehvat_text">
+		<text>\n%c[0,143, 188, 143]Interception - depth occupant:
+			\n\n
+			\n%c[0,173, 216, 230]Hear, men, do you know anything about “Interception”? Well, they say, special, warriors personnel! But how do they work, huh ?! How do they work! This is not your asshole on the cordon! Not only do they climb at the very zazhopye, they also sit in the Zone for months! Yes, I do not drive! The bases they have, a few pieces at once, caches to the fig, and to the perimeter they hover the turntables in supplies. The commander of them is Gromov of some kind... I think the name is bullshit, not real - they call him either “Major” or “Thunder”. Do not believe ?! So Pakhomych intercepted somehow caught! I caught it and god forbid my legs, otherwise I would have burst into great life... secrecy, so is it! Pahomycha everyone knows? Well, that's it! Not bullshit, but a serious team. Fuck knows what they see here is so interesting, but they work - my dear mother! I would be in the third - not ten percent would be so! - I would have built a house in Sochi for ten floors already... They say they have such a thing... to detect monsters in two hundred meters. Any creature! Fuck is clear, then go and spit around the Zone ... And they also say that there are some figures... Not warriors, but sort of like ours... In general, some have crept to the center of the Zone. Not only have they snuck in - they, they say, are able to tame creatures! They generally do not go beyond the perimeter, to the Big Earth - and nobody, too, goes to them ... well, except for those, probably, who has written their way to the Sarcophagus... Already they have worn out artifacts! "Dolgovtsy" something they know about them well ... they know, reptiles, they fight - and they are silent! You ask one of these policemen: "Fairy tales," - says. Well, not bitches, well ?!
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_folk_underwaterrock">
+		<text>Underwater rocks</text>
+	</string>
+	
+	<string id="encyclopedia_folk_underwaterrock_text">
+		<text>\n%c[0,143, 188, 143]Underwater rocks:
+			\n\n
+			\n%c[0,173, 216, 230]What do I think... Not even what I think - so, I estimate... And what if all - that's all there is - an experiment with people? This may be some kind of little green men... Why? The version is not worse than others... It is interesting to me: if it is something like a polygon, then what exactly are they running around here? Check for some artifacts, we let the most saliva? Or is it any bombs at all, eh? They drove them all over the world, to everybody in the laboratories, the rich people did it... No, well, this is great! .. That would be my pleasure! everyone, "envy, rams... but it... it... ka-ak heranet! .. Oh, class! .. Oh, I can't! .. Oh... uh-ff... in fact... Is the one who went for the radar, can tell about it... Well, yes, they, maybe, they know, just can not say - mooing and drooling. Maybe that's why they just let... Eh... So all sorts of thoughts climb... It is not fun at all...
+		</text>
+	</string>
+
+	<string id="encyclopedia_factions">
+		<text>Factions</text>
+	</string>
+
+	<string id="encyclopedia_factions_duty">
+		<text>Duty</text>
+	</string>
+	<string id="encyclopedia_factions_duty_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]Protecting the world from Zone.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]General Tachenko, General Krylov, General Voronin.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Colonel Petrenko, Lieutenant Colonel Shulga.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]100 Rad Bar. \n
+			\n\n
+			%c[0,215,215,215]														Description.%c[0,140,140,140]\n
+			\n\n
+			\n%c[0,178, 34, 34]Duty%c[0,140,140,140] - paramilitary group known for its discipline, whose members live according to a strict code. Duty members are the only group to refuse to trade unique items from the Zone with the outside world. According to rumors, all artifacts are passed on to scientists. Its members consider protecting the outside world from the Zone's dangers their primary objective. Most of the group's operations concern destroying monsters, hence Duty raids often save normal stalkers from serious trouble. The faction has long been at war with Freedom. \n
+			\n\n
+			%c[0,215,215,215]														Ideology of group.%c[0,140,140,140]\n
+			\n\n			
+			\n %c[0,178, 34, 34]Duty%c[0,140,140,140] - obviously militarized grouping. Its members live according to strict military regulations, is distinguished by a rather strict discipline and military attributes. In the grouping there are divisions of soldiers for military ranks. Ideology of group is built on the protection of peaceful humanity from the dangers of the Zone, and then its complete destruction, in view of this, Duty deals with internal problems of the Zone: the destruction of mutants and bandits, which sufficiently facilitate the life of ordinary stalkers. It is known that only Duty does not bargain with representatives of the trading business of the Zone, all artifacts that Duty representatives find during raids, they are handed over by the Scientist, getting from them the necessary weapons and equipment (at least, they usually do so, but they can keep it ). The motto: "We will protect the world from the Zone". \n
+			According to rumors, they are funded by the government of Ukraine, among them you can often meet former military men. They are in contact with the Ministry of Defense of Ukraine, in particular, with the SBU (on the basis of the group there is even an official recruiter, call sign "Prapor"), so that the general relations with the Military can be called "secret cooperation", since they have common Objectives - containment, study and the destruction of the Zone. \n
+			%c[0,85, 107, 47]Military%c[0,140,140,140] и %c[0,178, 34, 34]Duty%c[0,140,140,140] conflict with members of the group %c[0,0, 128, 0]Freedom%c[0,140,140,140] - anarchists who believe that the Zone needs to be preserved and peacefully coexisted, exploring its miracles. \n
+			\n\n
+		</text>
+	</string>
+	
+	<string id="encyclopedia_factions_duty_text2">
+		<text>\n%c[0,215,215,215]													Chronology of the group.%c[0,140,140,140]\n
+			\n\n
+			\n Approximately at %c[0,215,215,215]2009%c[0,140,140,140] the group is founded by Captain Tachenko. During one \ n of military expeditions, the helicopter on which it was flying was damaged. After an urgent landing and a loss of hope for the speedy arrival of assistance, Captain Tachenko announced the creation of a paramilitary group in the Zone, whose goal is to fulfill military duty within the Zone: protecting the Big Land from spawning the Zone. The captain himself took the rank of Duty General, but then died in a spatial anomaly. \n
+			%c[0,215,215,215]2010%c[0,140,140,140] year - there is an ideological opponent - a grouping of Freedom. Also Duty begins the fight with the Bandits. Grouping is growing due to the replenishment of the ranks of free stalkers, former military and law enforcement officers. The Duty base is located on the territory of the scientific research institute "Agroprom". \n
+			%c[0,215,215,215]2011%c[0,140,140,140] year - a war of factions. As a result of a powerful overshoot, a road opens into the city of Limansk. Detachment Duty enters the city after the destruction of the Renegades, but there faces a serious resistance to Liberty and Monolith. During the second overshoot, after the loss of troops in Limansk, the group is forced to move to Rostok, where it becomes the protection of the newly formed bar "100 Xray". \n
+			%c[0,215,215,215]2012%c[0,140,140,140] year - the war with the Freedom group and the bandits continues. Organized are barriers that block the mutants from the Dark Valley to the Bar. At the same time, the Skull makes an attempt to destroy the leader of Freedom Lukash, despite the fact that General Voronin refused to do this operation. \n
+			\n\n
+			%c[0,215,215,215]														Hostile groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries.\n
+			\n\n
+			%c[0,215,215,215]														Friendly groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Military.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists. \n
+			\n\n
+			%c[0,173, 216, 230]"Explicitly militarized group, characterized by strict discipline: members live virtually by the rules. Only representatives of "Duty" do not trade in the unique creations of the Zone with the outside world: according to rumors, all the artifacts found by these people are surrendered by the Scientist. Each member of the group Duty considers its main goal to protect the world from the impact of the Zone. Most grouping operations are associated with the extermination of monsters, so raids "Duty" often relieve ordinary stalkers from many pressing problems. For a long time and fiercely fights with the group "Freedom". Encyclopedia.\n 			
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_freedom">
+		<text>Freedom</text>
+	</string>
+	<string id="encyclopedia_factions_freedom_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]Separation of the Zone as a free territory without laws and rulers.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Founders%c[0,143, 188, 143] - %c[0,215,215,215]Chekhov.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Chekhov (2008-2011), Miklukha (2012), Lukash (2012 - н. в.)
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Military (Army warehouses). \n
+			\n\n
+			%c[0,215,215,215]														Description.%c[0,140,140,140]\n
+			\n\n
+			\n %c[0,0, 128, 0]Freedom%c[0,140,140,140] - Do you want to earn the respect of fellow stalkers? Do you want to build a team of loyal friends who will stick up for you in times of trouble? Do you dream of kicking some Duty ass? All this and many other opportunities awaits you if you join Freedom! \n
+			Freedom is in conflict with %c[0,178, 34, 34]Duty%c[0,140,140,140], whose members believe that it is possible to destroy the Zone and are eager to do so. This war is the largest on the territory of the Zone. \n
+			\n\n
+			%c[0,215,215,215]														Ideology of group.%c[0,140,140,140]\n
+			\n\n			
+			\n Freedom is a clan of stalkers who fight for free access to the Zone, and their views are somewhat communistic, believing in collective ownership of the Zone and seeing it both as a scientific marvel and as a free life inside the Zone's borders. Because of their ideals they constantly find themselves in conflict with the Military and their long time nemesis, Duty. They view Duty as no more than a clan of jarheads who see nothing, hear nothing, and only know how to pull a trigger, as instead of finding a way to co-exist with the Zone, they attempt to destroy it, whereby the Zone retaliates with mutant attacks, anomalies, radiation hazards and blowouts. Similar in size and manpower to Duty, they have the offensive strength but medium and at times low resources to wage a faction war against Duty.. \n
+			\n\n
+		</text>	
+	</string>
+	
+	<string id="encyclopedia_factions_freedom_text2">
+		<text>\n%c[0,215,215,215]													Chronology of the group.%c[0,140,140,140]\n
+			\n\n			
+			\n Freedom was founded by a group of free stalkers aiming to research the Zone and make its fruit, artifacts and anomalies (in the words of Chekhov a ready-made outdoor lab), available to the general public. The core principle, liberty for all its members, has led its opponents to view it as a volatile mix of anarchists and rogues.\n
+			\n\n
+			\n By %c[0,215,215,215]2011%c[0,140,140,140], Freedom occupied and secured the Dark Valley, reinforcing the unfinished research facility as their base of operations. In September, all Freedom units not deployed elsewhere were recalled to the valley in response to a series of mysterious attacks that claimed many Freedom fighter lives. As discovered by Scar, these attacks were the work of a group of mercenaries hired by an unknown employer, who used their mole, Commandant Lingov, to plan raids on Freedom positions. With Scar's help, the mercenaries were driven from the valley and entrances to the underground tunnel network collapsed.
+
+			Elsewhere, in the Army Warehouses, a separate detachment under the command of Kostyan has set up operations near the western passage to Red Forest. Their plan was simple: eliminate the weak military presence in the warehouses and claim them for the faction. The soldiers were stranded in the base following the second emission, unable to call for reinforcements or extraction. Eventually, with Scar's help, the stalkers succeeded and the warehouses became Freedom's second base, temporarily granting them the status of the most powerful faction in the Zone. \n
+			\n\n
+			\n This did not last. Freedom has spread its forces too thin in the course of its conquest and the war with Duty. Bandits led by Borov exploited their weakness and pushed them out of Dark Valley, claiming it for themselves. In response, Freedom moved its headquarters to the Army Warehouses and recalled their forces from all territories south of the Bar. Chekhov apparently either resigned or died during this period, with Lukash becoming the next leader of the faction.
+
+			Under his leadership, Freedom ceased to actively fight Duty. While relations were still hostile between the two groups, both Lukash and General Voronin were reluctant to continue the war, as it would weaken both factions for no real benefit. Another factor was that Freedom took it upon themselves to maintain the Barrier and defend it from mutants and Monolith Fanats attempting to breach it. \n
+			\n\n			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Duty.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries. \n
+			\n\n
+			%c[0,215,215,215]														Friendly groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists. \n
+			\n\n
+			%c[0,173, 216, 230]"Anarchists and daredevils who declare themselves fighters for a free access to the Zone and consequently find themselves in constant conflict with the army, military stalkers and the Duty faction. These so-called freedom warriors believe in sharing all information about the Zone with the rest of the world and challenge the state's monopoly over the Zone's secrets and wonders."%c[0,215,215,215] Encyclopedia.\n
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_loner">
+		<text>Stalkers (Loners)</text>
+	</string>
+	<string id="encyclopedia_factions_loner_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]They come to the Zone to earn money.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Father Valerian, Orestes, Beard.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Doctor, Wolf, Fan, Pathfinder.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Cordon (Novice Village). \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n %c[0,240, 230, 140]Loners%c[0,140,140,140] represent the stalkers who haven't joined any faction and operate in the Zone by themselves. However, unlike most factions, they do not have a single leader - much like Mercenaries, Loners include several groups led by chosen leaders, such as the Rookie Village group led by Wolf and later Fanat. \n
+			\n Their main rival faction are Bandits, who have a history of preying on stalkers to extort them. They are also hostile to the Monolith although there are few encounters between them.
+
+			The loners also hold a shaky relationship with the Military. While the loners are involved with the military in the illicit trade of firearms and artifacts in the Zone, the military do have the power to shoot stalkers on sight and have been known to abuse their power over stalkers, which generally makes most Loners resentful against the military. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Ideology of group.%c[0,140,140,140]\n
+			\n\n			
+			\n Their main rival faction are Bandits, who have a history of preying on stalkers to extort them. They are also hostile to the Monolith although there are few encounters between them.
+
+			The loners also hold a shaky relationship with the Military. While the loners are involved with the military in the illicit trade of firearms and artifacts in the Zone, the military do have the power to shoot stalkers on sight and have been known to abuse their power over stalkers, which generally makes most Loners resentful against the military.. \n
+			\n\n
+		</text>	
+	</string>		
+	
+	<string id="encyclopedia_factions_loner_text2">
+		<text>\n%c[0,215,215,215]                                                      History.%c[0,140,140,140]\n
+			\n\n			
+			\n It is not known when exactly the Loners group was founded, however due to the arrival of illegal personnel in the Zone shortly after 2006, it can be assumed it was one of the very first factions created in the Zone. They quickly became hostile to the army due to their illegal presence, though they would eventually make deals with the soldiers - this includes information and access to the military checkpoints. They also had a notable hostility to the Bandits faction. The Loners were mostly independant to each other, leaving the faction with no official leader nor base. Multiple Loners later formed other factions - this include a group that went past the Brain Scorcher and became a faction known as the Monolith.
+
+			By 2011, most of the Loners operated under Father Valerian in the Cordon, and another, smaller group operated in the Agroprom Research Institute, close to Duty's base, under the leadership of Orest. It was in 2011 that the Loners became hostile to the army for good after their commander, Major Khaletskiy, sold the Bandits information about the Loners, which allowed a Bandits team to ambush and kidnap a group of Loners, which would become slaves of the Bandits. In retaliation, the Loners kidnapped Khaletskiy and held him as an hostage in their main base, which reduced the amount of military raids onto the Loners[2]. With the help of Scar, Valerian later managed to kill two of Khaletskiy's closest friends, in order to force Khaletskiy to reveal where he stashed the briefcase wanted by Sidorovich[3]. Khaletskiy's status is determined by Scar's choice - he can hand him a weapon, allowing him to shoot two men and run out to the forest[4], or he disappears from his cell, meaning he was most likely executed by the Loners. The Loners would continue their war against the Bandits, and it's up to the player's choice to either help them dispose of the Bandits, or help the Bandits take control of the Loners bases in the Cordon. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries. \n
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Duty.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists. \n
+			\n\n      
+            %c[0,173, 216, 230]"Stalkers exploring the Zone on their own. Most stalkers work this way since being a member of a group takes precious time, and part of the loot. Then there are some who simply prefer solitude and independence."%c[0,215,215,215] Encyclopedia.\n 			
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_mercenary">
+		<text>Mercenaries</text>
+	</string>
+	<string id="encyclopedia_factions_mercenary_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]Adventurers and thugs from all over the world, not shunning any, even the diry job.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Dusman, Wolfhound.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Wolfhound, Skull, Slasher, Scar.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Dead City. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n %c[0,65, 105, 225]Mercenaries%c[0,140,140,140] are experienced fighters from all walks of life who offer their services as hired soldiers. They are perhaps ex-military soldiers, ex-special forces operators, or possibly underground fighters such as elite resistance/guerrilla troops, a private military company or notorious terrorists of various nations who offer their services to the highest bidder. Having seen combat outside of the Zone, the mercs are capable of dealing with virtually any kind of armed resistance using careful tactics, military precision, and excellent equipment. However, their only drawback is that they lack the extensive knowledge of the Zone that many Stalkers have.  \n
+            %c[0,65, 105, 225]Mercenaries%c[0,140,140,140],  often charge their clients large amounts of money or anything of the same value (artifacts for example). They are usually hired by wealthy and powerful corporations to retrieve artifacts and other unique objects in the Zone. \n
+             Because %c[0,65, 105, 225]mercenaries%c[0,140,140,140] have no established code of ethics to abide to, each mercenary group's sense of morality could be quite different from another. Thus, mercenary groups are ultimately unpredictable as there are those who are civilized enough to negotiate and reach a mutual understanding, such as Hog and Hatchet, while there are also those who will simply kill anyone that gets in their way or witness their brutality, such as Wolfhound.
+
+			It is this bit of unpredictability than has earned all mercenaries the distrust of most stalkers as they fear that they might get a bullet in the head than a mutual understanding when talking to mercenaries. \n
+			\n\n
+		</text>	
+	</string>		
+	
+	<string id="encyclopedia_factions_mercenary_text2">
+		<text>\n%c[0,215,215,215]													Ideology of group.%c[0,140,140,140]\n
+			\n\n			
+			\n %c[0,65, 105, 225]Mercenaries%c[0,140,140,140] operate in independent teams. In fact, referring to them as a single faction is erroneous - mercenary teams operate independently of each other, completely autonomously. They have no set goal and no headquarters or central command. As such, mercenaries operating in the Zone can be violent thugs on the payroll of bandits (eg. Wolfhound's or Dushman's mercs) and at the same time well-equipped professionals who do the job with as little bloodshed as possible (Hog and Leshiy). Their modus operandi and organization in general depend on the employer and the assigned objective. Likewise, in Clear Sky, the Dark Valley mercs are hostile to Freedom while Hog's mercs aren't, meaning their contractors likely influence on their relations with other factions in the Zone. This is further proven by the fact that Scar, a mercenary, is hostile to the Dark Valley mercs, but not Hog's nor the Limansk ones.
+
+			Nonetheless, they seem to be at first a faction itself, considering they're issued the same gear - same suits and NATO weaponry. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Stalkers
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries. \n
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]			
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists. \n
+			\n\n      
+            %c[0,173, 216, 230]"The most clandestine and secretive faction in the Zone; some don't even believe in its existence. There are those who regularly use the Mercs' services as they are true pros, able to quickly deal with any stalker and even annihilate a small group of opponents. Their services do not come cheap - the Mercs demand a king's ransom for their services in money or artifacts. The location of their base remains a secret, suggesting that it is deep inside the Zone."%c[0,215,215,215] Encyclopedia.\n 			
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_ecologist">
+		<text>Scientists</text>
+	</string>
+	<string id="encyclopedia_factions_ecologist_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]The main task of scientists is the exploring of the Zone.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Professor Sakharov, Herman.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Kruglov, Ozersky.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Bunker on Amber and in the vicinity of "Jupiter". \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n  The %c[0,255, 215, 0]Ecologists%c[0,140,140,140] are government-funded researchers operating into the Zone.
+
+			Operating under orders from the Ukrainian government, the Ecologists are a group focusing on researching the Zone, in order to properly harness its potential for the good of mankind. Their base of operations is a sturdy bunker at Lake Yantar, filled with scientific apparatuses and a steady supply of weapons and ammunition. The head researcher is Professor Sakharov, a veteran Ecologist, who participated in the first expeditions into the Zone in 2007. Originally the Ukrainian Military itself protected the scientists' bunker, but their garrison force was all but obliterated by emissions of the Miracle Machine in lab X16, turning the survivors into zombies. The scientists now greatly rely on Loners and Mercenaries looking for work, or Duty to do their field work, since most Ecologists aren't very combat-proficient. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Ideology of group.%c[0,140,140,140]\n
+			\n\n			
+			\n The Ecologists focus primarily on research of new energy sources, antigravity, genome modification and teleportation, spearheading revolutionary research by studying and dissecting artifacts and mutants.
+
+			Another one of their key areas of research was Lab X-16 and the psi emitter located within. In order to be able to explore the area safely, they created a special Psi-Helmet, which can protect the wearer from low intensity psionic fields. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]			
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith. \n			
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]			
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Mercenaries.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Military.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Duty. \n			 		
+			\n\n      
+            %c[0,173, 216, 230]"I used to see him now and then in the research camp when I came with a loot to sell. He looked a normal buddy. Big and robust, you'd never think him one of the eggheads. He gave me good price on artifacts, was always happy to chat about this and that... and what a stupid end. He was fussing with his gear right near the ‘Whirligig’ when these rascals started to shoot. He got thrown into the anomaly, then twisted. When we finished the combat, there was left nothing but shreds of his overalls at the ‘whirligig’."%c[0,215,215,215] Encyclopedia.\n 	
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_bandit">
+		<text>Bandits</text>
+	</string>
+	<string id="encyclopedia_factions_bandit_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]The main goal is profit, and leaving from the authorities.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Yoga (2011), Borov (2012), Sultan.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Yoga, Valet.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Dark Valley. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n Bandits are a group of mostly ex-criminals who came in the Zone either to escape a crime, trade weapons or make money. Bandits are ruthless and generally hostile to anyone not in their gang. They are one of the most poorly-equipped factions of the Zone, usually relying on low-grade weaponry and light armors. \n
+			\n\n
+		    %c[0,215,215,215]                                                      History of group.%c[0,140,140,140]\n
+			\n The history of the Bandits remains unclear for the most part. It is known they've existed for quite a while prior to September 2011, and had a rough relation with the Loners, due to them having a history of preying on stalkers to extort them. The faction's war escalated by the events of Clear Sky as the military (under the orders of Major Khaletskiy) was providing the bandits with information on the Loners positions in the Cordon[1].
+			\nBy 2011, the faction fell under the control of Yoga, who set up their camp in the old Train hangar in the Garbage. Yoga, however, was not trusted by all bandits. This included the faction's barman, Borov, who believed that Yoga's actions against the stalkers would lead him or his faction to their downfall[2]. In reality, Borov believed that he would be a much better leader than Yoga[3].
+			\nBy 2011, the Bandits have been involved in a war against the Loners, who had their base in the nearby Cordon. The Bandits would be able to slowly win the war as they were obtaining precious information from the military about the Loners' whereabouts. This stopped however when a Loners strike team managed to capture Khaletskiy alive. The Loners later expanded in the Cordon, leaving the Bandits only two outposts: a farm close to the Loners base, and the northern checkpoint to the Garbage. The outcome of the war is decided by the player's actions - either Scar helps the Loners leader Father Valerian to secure the Train hangar and wipe out the Bandits base, or he assists Yoga in taking down the Loners base, allowing the Bandits to extend their territory to the northern Cordon.\n
+			\nAside from the war, the Bandits were also operating in various areas. A group of them was attempting to take down a Loners base in the Agroprom Research Institute, another group secured a mineshaft in the Red Forest (and stole Forester's compass), and another group secured the bridge to Limansk, although the two latter are wiped out during the storyline, and the first can be wiped out on orders of Orest. Their allied faction, the Renegades, were also involved in a war against the Clear Sky faction in the Great Swamp.\n
+			\n\n
+		</text>	
+	</string>		
+	
+	<string id="encyclopedia_factions_bandit_text2">
+		<text>\n Between 2011 and 2012, Borov somehow managed to overthrow Yoga and became the leader of the faction. The faction relocated their main base to the old Freedom base in the Dark Valley, leaving their old base to Seriy's loners. Borov's bandits, much like Yoga's, were still trying to eliminate the Loners (and even Duty members). However, on orders of the Barkeep, Borov was later killed by the Marked One to recover the second key to Lab X-18, and most of his guards were also killed in the process.
+			\nBy August 2012, the faction has collapsed into multiple subgroups. Sultan took control of most of the bandits in the center of the Zone (namely the ones in Zaton), while those in Yanov were split between Jack's group and Shishak's group. Sultan seems to lead most of the bandit seen in-game (and it can be assumed his control expands outside Yanov and Zaton). Under Sultan's leadership, the bandits act more secretively than before and in a very organized way. They are less chaotic and randomly violent, at least when compared to their predecessors. They were also securing deals with other factions (namely with Duty officer Morgan), but would still attack Loners out of stalkers camps. On the other hand, Shishak and Jack were both operating independently from each other - Jack was leading a loan shark business, and Shishak kidnapped Loners to use as a ransom for money/artifacts. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]			
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Scientists.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Duty.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith. \n			
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]	
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Mercenaries. \n
+            \n\n			
+			%c[0,173, 216, 230]"Members of the criminal underworld who came to the Zone for different reasons: to make money by selling artifacts, hide from the law or trade in weapons. The Zone is full of bandits, ranging from common thugs to serious criminals, most of whom are members of one gang or another. Although the Zone gangs frequently fight among themselves, the criminal element still poses a serious problem for normal stalkers."%c[0,215,215,215] Encyclopedia.\n 	
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_monolith">
+		<text>Monolith</text>
+	</string>
+	<string id="encyclopedia_factions_monolith_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]To the glory of Monolith.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]ERROR.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]ERROR.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]ERROR. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n A religious cult that is hostile to all but their own, the Monolithians believe in the power of the Wish Granter, rumored to be an alien artifact hidden in the center of the Zone. Members of this faction devote their lives to protecting the secret of the Great Crystal, ensuring that no one ever reaches the center of the Zone. While physically, they are on par with other stalkers, their religious fervor sets them apart and allows them to ignore wounds and continue to fight, even after they run out of ammo. Stories abound of Fanatal Monolith Stalkers, after running out of ammo, ditch their weapons and attempt to kill the enemy with their bare hands, no matter how grievous their wounds. This same fervor also prevents others from capturing a Monolith member – if taken into custody, he will commit suicide in any way possible (even by smashing his head against the wall).\n  
+			\n\n
+		    %c[0,215,215,215]                                                      History of group.%c[0,140,140,140]\n
+			\n\n			
+			\n The Monolith clan was originally a group of stalkers, united by their fascination with the Zone. Fascination turned to obsession and obsession turned to fanatism; eventually, the stalkers became convinced that there is a massive artifact in the center of the Zone, a Monolith, and declared themselves its protectors, growing increasingly hostile to other stalkers.
+			\nThey disappeared in 2011, just before ERROR the Brain Scorcher, shortly before an emission. No one has heard from them since... or so they thought, as later in 2011, very aggressive stalkers began storming the Barrier. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]			
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Scientists.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Duty.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries. \n			
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]				
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Нет. \n	
+            \n\n			
+			%c[0,173, 216, 230]"We thank you, oh Monolith, for revealing the cunning plans of your enemies to us.
+			\nMay your light shine down on the souls of the brave soldiers who gave their lives in service to your will.
+			\nOnward warriors of the Monolith, avenge your fallen brothers, blessed as they are in their eternal union with the Monolith.
+			\nBring death to those who spurned the holy power of the Monolith
+			\nOh Monolith, we do not hear you, why have you left us, oh Monolith? We await your orders, oh Monolith."%c[0,215,215,215] Encyclopedia.\n 	
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_clear_sky">
+		<text>Clear Sky</text>
+	</string>
+	<string id="encyclopedia_factions_clear_sky_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]Researchers of the phenomena of the Zone.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Lebedev.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Suslov, Novikov, Holod, Calancha
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Great Swamp. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n One of the first factions established in the Zone, %c[0,135, 206, 250]Clear Sky%c[0,140,140,140] was dedicated to researching the Zone and learning its inner workings, and are not averse to hiring mercenaries to perform missions, much like the Ecologists faction. However, unlike the Ecologists, they are more than willing to resort to violence to get their way, and are as fiercely protective of the Zone as Freedom, or even the Monolith.
+			\nThe faction is neutral to all other factions of the Zone, with the exception of Renegades, Bandits and the Monolith.\n
+			\nThe Clear Sky faction headquarters are located in an isolated village in the Great Swamps. They are poorly-equipped at the beginning of the game, likely due to the fact they didn't have to fight anything other than mutants as the Swamps were mostly inaccessible prior to the Second Emission. \n
+			\n\n
+		    %c[0,215,215,215]                                                      History of group.%c[0,140,140,140]\n
+			\n\n			
+			\Clear Sky was formed after a split occured among members of the research team that caused the Zone to emerge in the first place. Disputes concerning cleaning up the aftermath of the failed experiment caused approximately a half of the scientists to leave. Three of them (N.A. Lebedev, V.I. Suslov and E.F. Kalancha) formed Clear Sky in order to research the Zone and find a way to remove the fracture in the noosphere or at least contain it so that it can be lived with.
+			\nThe faction set up a camp in the isolated Swamps. Unlike most of the Zone factions, only their members know the location of their base: if the player needs to go there, the guide will blindfold Scar, so he cannot memorize the road. \n
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]	
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Military.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith. \n			
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]	
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Duty.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Mercenaries. \n		
+			 %c[0,173, 216, 230]"We're researchers. We're trying to figure out the nature of the Zone, determine the reasons which caused it to appear, and formulate the rules that govern its existence. We are not consumed by a quest for money, we don't seek fields of artifacts, and we're not interested in turf wars with other factions. That is why we're hiding here in the Swamps and concentrating on our research. Our forte is not combat, but knowledge - knowledge of the Zone, accumulated over years of research. We know more about it than stalkers and the government combined, and our research was finally shaping up into a sound, coherent picture... until the massive emission a few days ago..."\n	
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_factions_military">
+		<text>Military</text>
+	</string>
+	<string id="encyclopedia_factions_military_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]Protection of the perimeter of the Zone.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]Unknown.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]Unknown.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]Research Institute Agroprom. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			\n The Ukrainian government, through its Ministry of Internal Affairs (Ukrainian: Міністерство Внутрішніх Справ України (МВС України), maintains the Zone's perimeter with internal troops from the State Security Service. The internal troops, who are often referred to simply as the Military, are tasked with providing and maintaining security along the borders of the Zone, in order to prevent unauthorized incursions by stalkers, and by extension, distribution of artifacts to the outside world without government supervision. They are in practice however, one of the most corrupt groups operating within the Zone; security personnel frequently shoot at stalkers for sport, engage in extortion, and accept bribes in exchange for ignoring smuggling operations.. \n	
+			Soldiers who have undergone special training after serving in the Zone, or stalkers who have signed a contract with the army. They are usually equipped with a large number of auxiliary equipment and are well armed. They are mainly used to study the causes and consequences of the disaster, and are also involved in the mapping of the Zone. They can walk both singly and in groups of up to five people. Ordinary stalkers are not allowed to approach themselves - they immediately open fire.
+			\n\n
+			%c[0,215,215,215]                                                      Hostile groups.%c[0,140,140,140]	
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Mercenaries.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Stalkers.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Freedom.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Clear Sky.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Bandits.
+			\n%c[0,143, 188, 143]•%c[0,205, 92, 92] Monolith. \n			
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]				
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Scientists.
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Duty. \n	
+			\n\n
+            %c[0,173, 216, 230]"Soldiers of regular army units guard the approaches to the closed territory of the Zone, patrolling the perimeter, shooting mutants and catching looters. Army special forces - elite units. As a rule, they land in the Zone for rescue and special operations."%c[0,215,215,215] Encyclopedia.\n			
+		</text>
+	</string>
+	
+	<string id="encyclopedia_factions_zombified">
+		<text>Zombies</text>
+	</string>
+	<string id="encyclopedia_factions_zombified_text">
+		<text>\n%c[0,143, 188, 143]Information:\n 
+		    \n%c[0,143, 188, 143]•%c[0,154, 205, 50] Objectives%c[0,143, 188, 143] - %c[0,215,215,215]ERROR.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Leaders%c[0,143, 188, 143] - %c[0,215,215,215]ERROR.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Famous Representatives%c[0,143, 188, 143] - %c[0,215,215,215]ERROR.
+			\n%c[0,143, 188, 143]•%c[0,154, 205, 50] Controlled positions%c[0,143, 188, 143] - %c[0,215,215,215]ERROR. \n
+			\n\n
+		    %c[0,215,215,215]                                                      Description.%c[0,140,140,140]\n
+			\n\n
+			%c[guide_blue]These creatures ceased being human: they have no cognitive abilities, and so their behavior is the result of whatever remains of their purely animal instincts.%c[default] 
+			\n\n
+			%c[0,215,215,215]                                                      Friendly groups.%c[0,140,140,140]				
+			\n%c[0,143, 188, 143]•%c[0,107, 142, 35] Monolith.
+			\n\n
+		</text>
+	</string>
+
+	<string id="encyclopedia_crafting">
+		<text>Items craft</text>
+	</string>
+		<string id="encyclopedia_crafting_adrenaline">
+			<text>Adrenalin</text>
+		</string>
+		<string id="encyclopedia_crafting_adrenaline_text">
+			<text>\n%c[0,143, 188, 143]Information: \n
+				\n\n
+				%c[0,215,215,215]Description.%c[0,140,140,140]\n
+				\n\n
+				\n Adrenalin® (epinephrine injection, USP) is a clear, colorless, sterile solution containing 1 mg/mL (1:1000) epinephrine, packaged as 1 mL of solution in a single-use clear glass vial or 30 mL of solution in a multiple-dose amber glass vial. In the 1 mL vial, each 1 mL of Adrenalin® solution contains 1 mg epinephrine, 9.0 mg sodium chloride, 1.0 mg sodium metabisulfite, hydrochloric acid to adjust pH, and water for injection. In the 30 mL vial, each 1 mL of Adrenalin® solution contains 1 mg epinephrine, 6.15 mg sodium chloride, 0.457 mg sodium metabisulfite, 0.920 mg sodium hydroxide, 2.25 mg tartaric acid, 0.20 mg disodium edetate dihydrate, hydrochloric acid to adjust pH, 5.25 mg chlorobutanol as a preservative and water for injection. The pH range is 2.2-5.0. \n
+				\n\n
+				%c[0,215,215,215]Components.%c[0,140,140,140]\n
+				\n\n
+				\n A kit for creating narcotic substances and amphetamine.
+				\n\n
+				%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+				\n\n
+				\n It is enough to mix the Components of the kit for drug creation and amphetamine. Do not abuse - it's dangerous.
+			</text>
+		</string>
+		
+	<string id="encyclopedia_crafting_ammo_12x70_self">
+		<text>Ammo 12x70 handmade buck</text>
+	</string>
+	<string id="encyclopedia_crafting_ammo_12x70_self_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\nOh, this devaluation, every day it is harder to earn money in the Zone, but sometimes you can find very interesting and elegant ways to save money. Take for example the self-made making of cartridges \n
+			\n\n
+			%c[0,215,215,215]We will need...%c[0,140,140,140]\n
+			\n\n
+			\n Set to make ammo of 12x70, a tool for creating cartridges.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n Already having these sets, we can say that everything is ready, but it will only remain to combine the components of these cartridges together.
+		</text>
+	</string>
+
+	<string id="encyclopedia_crafting_ammo_12x70_zhekan">
+		<text>Ammo 12x76 Zhekan</text>
+	</string>
+	<string id="encyclopedia_crafting_ammo_12x70_zhekan_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n  A real hunter himself must be able to create his own ammunition, and not only be able to shoot from any slingshot, sit quietly on this and write down how it is done ...\n
+			\n\n
+			%c[0,215,215,215]We will need...%c[0,140,140,140]\n
+			\n\n
+			\n Set for the manufacture of cartridges 12x76 Zhekan, a tool for creating cartridges.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n Already having these sets it can be said that the matter is in a hat, it will remain to fill the cartridges and the jamb is ready.
+		</text>
+	</string>
+		
+		<string id="encyclopedia_crafting_bandage">
+			<text>Bandage</text>
+		</string>
+		<string id="encyclopedia_crafting_bandage_text">
+			<text>\n%c[0,143, 188, 143]Information: \n
+				\n\n
+				%c[0,215,215,215]Description.%c[0,140,140,140]\n
+				\n\n
+				\n The most necessary things end at the most inopportune moment. In order to quickly and safely stop the blood, you can use an improvised bandage. \n
+				\n\n
+				%c[0,215,215,215]Components.%c[0,140,140,140]\n
+				\n\n
+				\n Alcohol (any) and cloth (rag).
+				\n\n
+				%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+				\n\n
+				\n As follows, soak the tissue with alcohol, it will help not to infect the infection, to pre-diagnose the wound and stop the blood until the moment you get to the nearest doctor.
+			</text>
+		</string>
+		
+		<string id="encyclopedia_crafting_bandage_enhanced">
+			<text>Enhanced bandage</text>
+		</string>
+		<string id="encyclopedia_crafting_bandage_enhanced_text">
+			<text>\n%c[0,143, 188, 143]Information: \n
+				\n\n
+				%c[0,215,215,215]Description.%c[0,140,140,140]\n
+				\n\n
+				\n That one military doctor showed me their new development, such a dense antiseptic tissue that stops bleeding for one, two. So you need to thoroughly soak a regular bandage with some salicylic solution. \n
+				\n\n
+				%c[0,215,215,215]Components.%c[0,140,140,140]\n
+				\n\n
+				\n Bandage and salicylic acid.
+				\n\n
+				%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+				\n\n
+				\n Take a sterile bandage and moisten well in salicylic acid, leave to soak for 5-10 minutes. Place in tightly closed packaging so that the contents do not dry out.
+			</text>
+		</string>
+		
+	<string id="encyclopedia_crafting_bandage_special">
+		<text>Special bandage</text>
+	</string>
+	<string id="encyclopedia_crafting_bandage_special_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n If the bleeding don't stops, you can enhance the special bandage with ordinary bandage. Stops the blood on a one-two, irreplaceable thing in the realities of the Zone! \n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Enhanced bandage and ordinary bandage.
+			\n\n
+			%c[0,215,215,215]Способ создания.%c[0,140,140,140]\n
+			\n\n
+			\n На спец. бинт двойным слоем накладывается обычный стерильный бинт. Поместить в плотно закрытую упаковку чтобы содержимое не высохло.
+		</text>
+	</string>
+
+		<string id="encyclopedia_crafting_dezactivation">
+			<text>Deactivating agent</text>
+		</string>
+		<string id="encyclopedia_crafting_dezactivation_text">
+			<text>\n%c[0,143, 188, 143]Information: \n
+				\n\n
+				%c[0,215,215,215]Description.%c[0,140,140,140]\n
+				\n\n
+				\n Use a dosimeter more often, because it will help you not only to keep your health, but also leave the food unharmed! \n
+				\n\n
+				%c[0,215,215,215]Components.%c[0,140,140,140]\n
+				\n\n
+				\n Alcohol (any) and aquatables.
+				\n\n
+				%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+				\n\n
+				\n Thoroughly stir the tablets in any alcoholic beverage, but to get the maximum effect you need imported vodka.
+			</text>
+		</string>	
+		
+	<string id="encyclopedia_crafting_deactivation_mix">
+		<text>Deactivate mix</text>
+	</string>
+	<string id="encyclopedia_crafting_deactivation_mix_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\nUse the dosimeter more often, because it will help you not only to stay healthy, but also to leave food safe and sound!\n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\nAlcohol (any) and aquatabs.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\nStir the tablets properly in any alcoholic beverage, but for a full effect imported vodka is ideal.
+		</text>
+	</string>
+		
+	<string id="encyclopedia_crafting_duplet">
+		<text>Doublet</text>
+	</string>
+	<string id="encyclopedia_crafting_duplet_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n What is not happening in the Zone... I decided to go somehow to artifacts in the Dark Valley. In truth, a dark place, ravines everywhere, crow's are full and constant feeling, as if someone is watching. The comrades told me that somewhere the laboratory was located there and that monstrous experiments on people and animals had been conducted in it, but I always responded to these tales only with yawn, but in vain... Approaching the intended place, I took out the detector and started driving them back and forth . Empty, I have already started to think about those denzhishchah that he spent on the suit, the detector, drugs and grub, all for nothing. But suddenly the detector howled like mad, a pile of dots appeared on the screen, signaling about a large number of artifacts and I already eased, but it was not there... I started to crack wildly, such nasty voices ran in my brain, but in the depths my skull was like a worm. Well, I think everything, the end, grabbed the Zone and will not let go. And besides, all sorts of incomprehensible flashes began to appear, the spiders crawling with a huge carpet in my direction, all as in a fog. And then he appeared, literally a meter away from me was a terrifying sight, a supported peasant with a bloated watermelon overflowing his head and pulled his clawed paws towards me... I never believed in higher forces, but help could only be expected from them. Cotton, then the second and I felt a warm mass flowing down my face. I woke up at night by the fire, next to me sat a stalker in a raincoat and quietly muttered something under his breath. I never saw the sincere smile of a stranger, but it seemed to me that he was even more than happy that I was alive. Already finally recovering and ceasing to delirious, I began to thank my savior, to which he responded only with a strong handshake. We talked, he told the story of my luck and salvation. The man turned out to be very interesting, he told that he arrived in the Zone from nothing to do, about his life on the big earth, and then began to show off his "weapon of salvation." This garage Kulibin told about how to make a real trunk with his own hands. He called this miracle "Duplet" which is a homemade cut. "An irreplaceable and compact thing!", He said and described to me the scheme of its creation. Since then, and I go with "Duple", somehow calmer than me with him. And this man has left. He left as he said deep into the Zone. I did not see him again, I wonder if he is still alive... \n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Spare parts for pistols and shotguns, wooden parts, a double trigger and, well, the mated barrel itself from a shotgun.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n To begin with, you'll need to assemble the parts you need, for this, pistol spare parts and spare parts for the shotgun will fit together. Then, it is necessary to screw there a double trigger. After, add a butt, a kind of forearm and a hilt. And finally, the most important thing is that we add a paired trunk to all this..
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_crafting_selfroll">
+		<text>Selfmade cigarette</text>
+	</string>
+	<string id="encyclopedia_crafting_selfroll_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n I'm tired of import nonsense to horror. I decided to pervert and come up with something my own. Fortunately in the Zone a lot of stuff grows, and even in the Nychka, someone found a set to create buzz. Guys will be happy, I give a tooth!  \n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Set for a cigarette and a set for creating drugs..
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n Mix as many different rubbish from the drug kit as possible and carefully wrap them using a set of scooters.
+		</text>
+	</string>		
+	
+	<string id="encyclopedia_crafting_ied_rpg">
+		<text>Homemade explosive device (RPG-7)</text>
+	</string>
+
+	<string id="encyclopedia_crafting_ied_rpg_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n I recently watched the military near the post, they mined the field. At night I decided to make my way and unearth a couple of babies, whether they were of little use. Imagine my surprise when I saw that these were improvised explosive devices. I thought Military did not save on equipment. But do not say anything, came up with great, because as they say - all ingenious is simple.		\n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Detonator, OG-7 projectile.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n All to the ugliness is simple - it is enough to attach the detonator to any OG charge and is ready. Even a beginner can cope with this. Although...
+		</text>
+	</string>	
+ 
+	<string id="encyclopedia_crafting_medkit_scientic">
+		<text>Scientic first aid kit</text>
+	</string>
+	<string id="encyclopedia_crafting_medkit_scientic_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n Advanced personal protective equipment, has good performance in the tests. Included in the equipment of scientific researchers of anomalous formations. \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n Military first-aid kit and antiradiation drug B-190 "Indralin".
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n It is necessary to mix the anti-radiation drug B-190 "Indralin" with potassium iodide from the military medicine cabinet. Take protective equipment in pairs.
+		</text>
+	</string>
+
+	<string id="encyclopedia_crafting_medkit_elite">
+		<text>Elite first aid kit</text>
+	</string>
+	<string id="encyclopedia_crafting_medkit_elite_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n The most modern first-aid kit, which has a wide range of drugs to protect and treat the body. \n
+			\n\n
+			%c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n Military scientific first aid kit and anti-radiation drug B-190 "Indralin".
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n It is necessary to mix the anti-radiation drug B-190 "Indralin" with potassium iodide from the scientific kit. Take protective equipment in pairs.
+		</text>
+	</string>
+	<string id="encyclopedia_crafting_mine">
+		<text>Explosive device</text>
+	</string>
+	<string id="encyclopedia_crafting_mine_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n  At leisure, I met an old acquaintance of a stalker. In narrow circles, he is known as a jack of all trades, well, I asked him to share his experience in making all sorts of things. It turns out quite simply to make your own mine with minimal financial costs.		\n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Powder bank and detonator.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n A detonator should be attached to an inconspicuous can of powder. This is done through ... [A long list of technical nuances] ... and then ready for use.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_crafting_sandwich">
+		<text>Sandwich with sausage</text>
+	</string>
+	<string id="encyclopedia_crafting_sandwich_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n  It is much more pleasant to have this stale bread when there are several fresh slices of doctor's sausage on it. An excellent aperitif in any conditions and with minimal costs.\n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Actually bread, sausage.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n The whole point is to cut the bread as thin as possible, and the pieces of sausage as thick as possible. Should be enough for 4 sandwiches.
+		</text>
+	</string>
+
+	<string id="encyclopedia_crafting_sleeping_bag">
+		<text>Sleeping bag</text>
+	</string>
+	<string id="encyclopedia_crafting_sleeping_bag_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n  Somehow I started to get very cold during sleep, and there was not money for sleeping, so I had to improvise. In fact, everything turned out to be quite simple. \n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Set for sewing, a set of fabric, thread and lightning.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n Anyone has probably seen at least once what a sleeping bag looks like and on the basis of these memories one should firmly sew a "bed" himself, through the joint use of a sewing kit and a set of fabric, thread and lightning.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_crafting_tent">
+		<text>Tent</text>
+	</string>
+	<string id="encyclopedia_crafting_tent_text">
+		<text>\n%c[0,143, 188, 143]Information: \n
+		    \n\n
+		    %c[0,215,215,215]Description.%c[0,140,140,140]\n
+			\n\n
+			\n A tent in the Zone is an extremely necessary thing. Will help to hide from the weather in the open field, light a fire and sleep. Unfortunately not every stalker can afford it and therefore it will be useful to know how to make a "house" literally "on your knee"! \n
+			\n\n
+			%c[0,215,215,215]Components.%c[0,140,140,140]\n
+			\n\n
+			\n Tarpaulins, ropes and a set for sewing.
+			\n\n
+			%c[0,215,215,215]Method of creation.%c[0,140,140,140]\n
+			\n\n
+			\n First you need to sew the base of the tent with a sewing kit and tarpaulin. Then you need to attach another tarpaulin to the base, to strengthen it. And of course we will attach a rope (ordinary or synthetic) to our fortified base.
+		</text>
+	</string>
+</string_table>

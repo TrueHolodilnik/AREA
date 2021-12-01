@@ -1,0 +1,7 @@
+[logic]
+; active = nil
+active = sr_idle@search
+
+[sr_idle@search]
+on_actor_inside = {-dt2_in_the_forester_house} %+dt2_in_the_forester_house%
+on_actor_outside = {+dt2_in_the_forester_house} %-dt2_in_the_forester_house%

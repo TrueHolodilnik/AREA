@@ -1,0 +1,97 @@
+[logic@pri_monolith_newbees_1]
+suitable = {-talk_to_teacher_monolith_mlr =target_squad_name(newbees_squad_start_monolith_mlr) =actor_community(actor_monolith)} true
+prior = 150
+active = animpoint@newbee_1
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@newbee_1]
+cover_name = pri_smart_cover_newbee_mlr_1
+avail_animations = salut_free
+use_camp = false
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@pri_monolith_newbees_2]
+suitable = {-talk_to_teacher_monolith_mlr =target_squad_name(newbees_squad_start_monolith_mlr) =actor_community(actor_monolith)} true
+prior = 150
+active = animpoint@newbee_2
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@newbee_2]
+cover_name = pri_smart_cover_newbee_mlr_2
+avail_animations = salut_free
+use_camp = false	
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@pri_monolith_newbees_3]
+suitable = {-talk_to_teacher_monolith_mlr =target_squad_name(newbees_squad_start_monolith_mlr) =actor_community(actor_monolith)} true
+prior = 150
+active = animpoint@newbee_3
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@newbee_3]
+cover_name = pri_smart_cover_newbee_mlr_3
+avail_animations = salut_free
+use_camp = false
+meet = no_meet
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[logic@pri_monolith_newbees_4]
+suitable = {+main_monolith_mlr_task_2_dlg_3} false, {=target_squad_name(newbees_squad_start_monolith_mlr) =actor_community(actor_monolith)} true
+prior = 150
+active = animpoint@newbee_4
+can_select_weapon = true
+dont_keep_items = true
+
+[animpoint@newbee_4]
+cover_name = pri_smart_cover_newbee_mlr_4
+avail_animations = salut_free
+use_camp = false
+meet = no_meet
+on_info = {+talk_to_teacher_monolith_mlr} walker@newbee_4_1
+combat_ignore_cond = {=is_enemy_actor_or_companion} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[walker@newbee_4_1]
+path_walk = newbee_to_prisoners_1_walk
+path_look = newbee_to_prisoners_1_look
+use_camp = false
+meet = no_meet
+on_info = {+main_monolith_mlr_task_2_dlg_prisoners_dead} remark@newbee_4_1_free
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+reach_distance = 10
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+[remark@newbee_4_1_free]:walker@newbee_4_1
+anim = guard

@@ -1,0 +1,80 @@
+[logic@ano_german]
+suitable = {=check_npc_name(ano_ecolog_german)} true
+active = camper@actor_away
+trade = misc\trade\trade_sciencist.ltx
+prior = 200
+can_select_weapon = false
+level_spot = trader
+dont_keep_items = true
+
+[camper@default]
+meet = meet
+combat_ignore_cond = {=actor_enemy =check_enemy_name(actor)} false, true
+combat_ignore_keep_when_attacked = true
+invulnerable = {!actor_enemy} true, false
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+out_restr = ano_smart_terrain_3_1_surge_hide_a3
+aggressive = false
+use_camp = false
+turn_on_campfire = false
+on_info = {!npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=teleport_npc(ano_smart_terrain_3_1_german_walker_1_walk)%
+
+[camper@wait_actor]:camper@default
+path_walk = german_walker_1_walk
+path_look = german_walker_1_look
+on_info = {+ano_actor_away_german} camper@actor_away
+on_info2 = {!npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=teleport_npc(ano_smart_terrain_3_1_german_walker_1_walk)%
+
+[camper@actor_away]:camper@default
+on_timer = 17000 | camper@actor_away2
+path_walk = german_walker_3_walk
+path_look = german_walker_3_look
+on_info = {-ano_actor_away_german} camper@wait_actor
+on_info2 = {!npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=teleport_npc(ano_smart_terrain_3_1_german_walker_1_walk)%
+
+[camper@actor_away2]:camper@default
+on_timer = 13000 | camper@actor_away
+path_walk = german_walker_2_walk
+path_look = german_walker_2_look
+on_info = {-ano_actor_away_german} camper@wait_actor
+
+[meet]
+close_snd_hello = ano_ecolog_german_greeting
+close_snd_bye = ano_ecolog_german_farewell
+close_anim 		= wait
+close_victim 	= actor
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 2
+far_distance 	= 6
+close_snd_distance = 5
+use = {=actor_enemy} false, true
+allow_break = false
+trade_enable = true
+meet_dialog = {-ano_german_firstmeet_1} ano_german_firstmeet_1, ano_german_1meet 
+
+[logic@ano_ozersky]
+suitable = {=check_npc_name(ano_ecolog_ozersky)} true
+active = animpoint@ano_ozersky
+prior = 200
+can_select_weapon = false
+dont_keep_items = true
+
+[animpoint@ano_ozersky]:camper@default
+meet = no_meet
+cover_name = ano_smart_terrain_3_1_ozersky_sit_1
+use_camp = false
+turn_on_campfire = false
+reach_distance = 30
+on_info = {!npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=teleport_npc(ano_smart_terrain_3_1_german_walker_2_walk)%
+on_timer = 10000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\marsh_beep_1:ano_sci_bunker_sounds:0)%
+on_timer2 = 15000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\marsh_beep_2:ano_sci_bunker_sounds:0)%
+on_timer3 = 13000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\device_hum_1:ano_sci_bunker_sounds:1)%
+on_timer4 = 17000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\device_hum_2:ano_sci_bunker_sounds:1)%
+on_timer5 = 13000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\marsh_click_1:ano_sci_bunker_sounds:2)%
+on_timer6 = 15000 | {~1 =actor_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} %=play_sound_at_pos(ambient\special\marsh_click_2:ano_sci_bunker_sounds:2)%
+on_info2 = {+ano_kymis_work_1_4 -ano_kymis_work_1_complete =distance_to_obj_le(ano_ecolog_kymis:10) =distance_to_obj_le(ano_ecolog_german_squad:25)} %+ano_kymis_work_1_complete%
+on_info3 = {+ano_broker_1 -ano_kymis_work_2_complete =distance_to_obj_le(ano_ecolog_broker:10) =distance_to_obj_le(ano_ecolog_german_squad:25)} %+ano_kymis_work_2_complete%
+; on_info4 = {+ano_broker_2 =distance_to_obj_ge(ano_ecolog_ozersky:100)} %=remove_squad(ano_ecolog_kymis_squad)% ;TODO...

@@ -1,0 +1,239 @@
+-----------------------------------------
+------- Added by Surs for A.R.E.A. ------
+-----------------------------------------
+
+cond_info_table = area_health_system.cond_info_table
+local SINGLETON = nil
+function get_ui()
+	SINGLETON = SINGLETON or ui_pda_skills_tab()
+	return SINGLETON
+end
+
+-- Constructor.
+class "ui_pda_skills_tab" (CUIScriptWnd)
+function ui_pda_skills_tab:__init() super()
+	self.list = {
+		"craft",
+		"hunting",
+		"shooting",
+		"uncrafting",
+		"marauder",
+		"survival",
+		"repair",
+		"slowing_coeff"
+		}
+	self.skill = {"craft_skill","hunting_skill","shooting_skill","uncraft_skill","marauder_skill","survival_skill","repair_skill"}
+	
+	self.color_codes = {
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		GetARGB(255,255,128,0),
+		}
+	
+	self.to_text		= true
+	self._tmr 			= time_global()
+	
+	self:InitControls()
+end
+
+
+-- Finalize.
+function ui_pda_skills_tab:__finalize()
+	SINGLETON = nil 
+end
+
+-- Initialise the interface.
+function ui_pda_skills_tab:InitControls()
+	self:SetWndRect(Frect():set(0, 0, 1024, 768))
+	
+	-- Main frame.
+	local xml = CScriptXmlInit()
+	xml:ParseFile("pda_skills.xml")
+
+	xml:InitFrame("frame",self)
+	xml:InitStatic("center_background", self)
+	self.tab = xml:InitStatic("tab", self)
+	xml:InitStatic("tab:caption", self.tab)
+	xml:InitStatic("cond_text", self)
+	
+	-- Hint Window
+	self.hint_wnd = xml:InitFrame("hint_wnd:background", self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = xml:InitTextWnd("hint_wnd:text", self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	self.temp_text = xml:InitTextWnd("temperature", self)
+
+	--Skill Matrix
+	self.skills = {}
+	
+	local is_widescreen = utils.is_widescreen()
+	local x = is_widescreen and 40 or 55
+	local c_width = is_widescreen and 75 or 90
+	local c_height = 35
+
+	for i=1, #self.list do
+		x = x + c_width
+		local iobj = xml:InitTextWnd("tab:skills", self.tab)
+		iobj:SetWndPos(vector2():set(x,65))
+		iobj:SetText(game.translate_string(self.list[i]))
+		
+		self.skills[i] = {}
+		local y = 60
+		self.skills[i] = xml:InitTextWnd("tab:cell",self.tab)
+		self.skills[i]:SetWndPos(vector2():set(x,y+c_height))
+			--alun_utils.print_table(skills_table,"Skills Table")
+	end
+	
+		-- Message Window 
+	self.msg_wnd = xml:InitFrame("hint_wnd:background",self)
+	self.msg_wnd:SetAutoDelete(false)
+	self.msg_wnd_text = xml:InitTextWnd("hint_wnd:text",self.msg_wnd)
+	self.msg_wnd_text:SetTextAlignment(2)
+	
+	self.msg_wnd:Show(false)
+	self.msg_wnd:SetColor(GetARGB(255,0,0,0))
+
+	self.cond_info = {}
+	--Condtions
+	self.condition_list = xml:InitScrollView("condition_list", self)
+
+	for i=1, #cond_info_table do
+		self:AddCond("st_" .. cond_info_table[i], "st_" .. cond_info_table[i] .. "_descr")
+	end
+	
+end
+
+-- Set the hint window text.
+function ui_pda_skills_tab:SetHint(text, pos)
+	if (text == "") then 
+		return
+	end
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(text)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(), self.hint_wnd_text:GetHeight() + 44))
+	
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+end
+
+function float_to_string_descr(val)
+	str = ""
+	if val <= 5 then str = game.translate_string("st_absent")
+	elseif val <= 20 then str = game.translate_string("st_bad")
+	elseif val <= 40 then str = game.translate_string("st_bad_av")
+	elseif val <= 60 then str = game.translate_string("st_av")
+	elseif val <= 80 then str = game.translate_string("st_av_good")
+	else str = game.translate_string("st_good") end
+	return str
+end
+
+function ui_pda_skills_tab:Update()
+	CUIScriptWnd.Update(self)
+	-- option to auto update values
+	
+	local text = tostring(area_health_system.get_environment_temp())
+	
+	self.temp_text:SetText("t = " .. text .. " °C")
+	self.temp_text:AdjustHeightToText()
+
+	for i=1, #self.list do
+		if i == #self.list then
+			self.skills[i]:SetText(float_to_string_descr(area_skills.skill_up_slowing_coeff))
+		else
+			self.skills[i]:SetText(float_to_string_descr(area_skills.skills_table[self.skill[i]]))
+		end
+		self.skills[i]:SetTextColor(GetARGB(255, 1, 255, 1))
+	end
+	-- Warning messages timer 
+	if (self.msg_wnd_timer and time_global() > self.msg_wnd_timer) then 
+		self.msg_wnd_timer = nil
+		self.msg_wnd:Show(false)
+	end
+	self.mouse_over_id = nil
+	self.hint_wnd:Show(false)
+end
+
+function ui_pda_skills_tab:btn_to_text()
+	self.to_text = not self.to_text
+	if self.to_text then
+		self.btn:TextControl():SetText(game.translate_string("pda_table_value_off"))
+	else
+		self.btn:TextControl():SetText(game.translate_string("pda_table_value_on"))
+	end
+	
+	self:Reset()
+end
+
+function ui_pda_skills_tab:SetMsg(text,tmr)
+	if (text == "") then 
+		return 
+	end
+	self.msg_wnd:Show(true)
+	self.msg_wnd_text:SetText(text)
+	self.msg_wnd_text:AdjustHeightToText()
+	self.msg_wnd_text:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+10))
+	self.msg_wnd_text:SetWndPos(vector2():set(0,20))
+	
+	self.msg_wnd:SetWndSize(vector2():set(820,self.msg_wnd_text:GetHeight()+44))
+	self.msg_wnd:SetWndPos(vector2():set(0,80))
+
+	self.msg_wnd_timer = time_global() + 1000*tmr
+end
+
+function ui_pda_skills_tab:SetHint(text,pos)
+	if (text == "") then
+		return
+	end
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(text)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+end
+
+function ui_pda_skills_tab:Reset()
+
+	for i=1, #self.list do
+		if i == #self.list then
+			self.skills[i]:SetText(string.format("%5.4f",area_skills.skill_up_slowing_coeff))
+		else
+			self.skills[i]:SetText(string.format("%5.4f",area_skills.skills_table[self.skill[i]]))
+		end
+		self.skills[i]:SetTextColor(GetARGB(255, 1, 255, 1))
+	end
+	self:autoupdate()
+end
+
+function ui_pda_skills_tab:AddCond(name, descr)
+
+	local x = is_widescreen and 20 or 35
+	local y = 0
+	local xml = CScriptXmlInit()
+	xml:ParseFile("pda_skills.xml")
+	local twnd = xml:InitTextWnd("information", nil)
+	local text = tostring(game.translate_string(name) .. ". " .. game.translate_string(descr))
+	
+	twnd:SetText(text)
+	twnd:SetAutoDelete(false)
+	twnd:SetWndSize(vector2():set(700,22))
+	twnd:SetWndPos(vector2():set(x,y+65))
+	twnd:AdjustHeightToText()
+	twnd:SetWndSize(vector2():set(twnd:GetWidth(), twnd:GetHeight() + 20))
+	
+	self.condition_list:AddWindow(twnd, true)
+end

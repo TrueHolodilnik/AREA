@@ -1,0 +1,242 @@
+[wpn_sr25]:default_weapon_params
+$spawn								= "weapons\lr-300"	; option for Level Editor
+$npc								= on				; option for Level Editor
+class								= WP_AK74
+visual								= dynamics\weapons\wpn_sr25\wpn_sr25.ogf
+inv_name							= st_wpn_sr25
+inv_name_short						= st_wpn_sr25
+description							= st_wpn_sr25_descr
+heating_rates						= sniper3
+parent_section						= wpn_sr25
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_7.62
+cost								= 50780
+weapon_class						= assault_rifle
+ph_mass								= 3
+inv_weight							= 4.31
+inv_volume							= 6
+upgrades							= up_gr_firstab_m4, up_gr_seconab_m4, up_gr_thirdab_m4, up_gr_fourtab_m4, up_gr_fifthab_m4
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_lr300
+repair_type							= rifle_7
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.65, 0.65, 0.65, 0.65
+hit_impulse							= 38
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 975
+rpm									= 700
+rpm_empty_click						= 200
+time_to_aim							= 2.0
+hud									= wpn_sr25_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.84
+misfire_end_condition				= 0.12
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0023
+condition_queue_shot_dec			= 0.0024
+
+ammo_elapsed						= 10
+ammo_mag_size						= 10
+fire_modes							= 1, -1
+magazine_sect						= mag_762x51_cnt_10_sr25
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;--DOF--------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+;--дисперсия--------------------------------------------------------------------
+fire_dispersion_base				= 0.23				;угол базовой дисперсии оружия
+control_inertion_factor				= 1.8f
+crosshair_inertion					= 6.85
+
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 1.58
+cam_dispersion_inc					= 1.16
+cam_dispersion_frac					= 0.7				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.36				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.2
+PDM_disp_vel_factor					= 2.75
+PDM_disp_accel_factor				= 2.75
+PDM_disp_crouch						= 1.0 
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10				; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 1.18
+zoom_cam_dispersion_inc				= 0.96
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.24
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 25
+inv_grid_y							= 38
+
+upgr_icon_x							= 2050
+upgr_icon_y							= 200
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 175
+kill_msg_y							= 0
+kill_msg_width						= 82
+kill_msg_height						= 28
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.130,0
+orientation							= 0,0,0
+fire_point							= 0,0.199,0.575
+fire_point2							= 0,0.199,0.575
+flame_particles						= weapons\new_effects\a1_type_ar15
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= 0.12,0,0.07
+shell_dir							= 0,0,0.4
+shell_particles						= weapons\762x51
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.1
+light_time							= 0.2
+
+;addons
+scopes								= tars101
+scope_status						= 2 ; 0 - no addon
+silencer_status						= 2 ; 1 - permanent
+grenade_launcher_status				= 2 ; 2 - attachable
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_name						= wpn_sil_sr25
+silencer_x							= 214
+silencer_y							= 20
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 128
+grenade_launcher_y					= 28
+
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\sr25\sr25_holster
+snd_draw							= weapons\sr25\sr25_draw
+snd_empty							= weapons\sr25\sr25_empty
+snd_reload							= weapons\sr25\sr25_reload
+snd_shoot_grenade					= weapons\sr25\sr25_grenshoot
+snd_reload_grenade					= weapons\sr25\sr25_grenreload
+snd_switch							= weapons\sr25\sr25_switch
+snd_shoot							= weapons\sr25\sr25_shoot_null
+snd_silencer_shot					= weapons\sr25\sr25_shot_sil_null
+snd_bore							= $no_sound
+;--Магазины---------------------------------------------------------------------
+[mag_762x51_cnt_10_sr25]
+magazine_name						= magazine_762x51_cnt_10
+magazine_x							= 86
+magazine_y							= 45
+custom_icon 						= 10,2,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_sr25_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_sr25\wpn_sr25_hud.ogf
+zoom_hide_crosshair					= false
+shell_point							= 0,0,0
+shell_dir							= 0,1,0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= muzzle_gl
+
+item_position						= 0,0,0
+item_orientation					= 0,-2.6,0
+
+hands_position						= -0.09904,-0.14096,-0.075089
+hands_position_16x9					= -0.09904,-0.14096,-0.075089
+hands_orientation					= 0,3.823075,0
+hands_orientation_16x9				= 0,3.823075,0
+
+aim_hud_offset_pos					= -0.05135,0.01769,-0.045316
+aim_hud_offset_pos_16x9				= -0.05135,0.01769,-0.045316
+aim_hud_offset_rot					= 0.0170,-0.0008,-0.0125
+aim_hud_offset_rot_16x9				= 0.0170,-0.0008,-0.0125
+
+aim_hud_offset_pos_alt 				= -0.03976,0.01769,-0.045316
+aim_hud_offset_pos_alt_16x9			= -0.03976,0.01769,-0.045316
+aim_hud_offset_rot_alt				= 0.017,-0.0008,-0.0125
+aim_hud_offset_rot_alt_16x9			= 0.017,-0.0008,-0.0125
+
+gl_hud_offset_pos					= -0.049465,-0.009725,-0.0125
+gl_hud_offset_pos_16x9				= -0.049465,-0.009725,-0.0125
+gl_hud_offset_rot					= 0.016242,-0.011214,-0.0125
+gl_hud_offset_rot_16x9				= 0.016242,-0.011214,-0.0125
+
+anm_show							= m16_draw
+anm_hide							= m16_holster
+anm_idle							= m16_idle
+anm_idle_sprint						= m16_sprint
+anm_idle_moving						= m16_move
+anm_idle_moving_crouch				= m16_move, , 0.5
+anm_shots							= m16_shoot, shoot
+anm_shots_empty						= m16_idle
+anm_reload							= m16_reload, reload
+anm_idle_aim						= m16_aim
+anm_switch							= m16_switch_off, switch_off
+anm_switch_g						= m16_switch_on, switch_on
+anm_bore							= m16_aim
+anm_hide_w_gl						= m16_holster_w_gl
+anm_show_w_gl						= m16_draw_w_gl
+anm_idle_w_gl						= m16_idle_w_gl
+anm_shots_w_gl						= m16_shoot_w_gl, shoot
+anm_shots_w_gl_empty				= m16_idle_w_gl
+anm_reload_w_gl						= m16_reload_w_gl, reload
+anm_idle_w_gl_aim					= m16_aim_w_gl
+anm_idle_sprint_w_gl				= m16_sprint_w_gl
+anm_idle_moving_w_gl				= m16_move_w_gl
+anm_idle_moving_w_gl_crouch			= m16_move_w_gl, , 0.5
+anm_bore_w_gl						= m16_aim_w_gl
+anm_show_g							= m16_draw_g, idle_g
+anm_hide_g							= m16_holster_g, idle_g
+anm_idle_g							= m16_idle_g, idle_g
+anm_reload_g						= m16_reload_g, reload_g
+anm_idle_g_aim						= m16_aim_g, idle_g
+anm_shots_g							= m16_shoot_g, shoot_g
+anm_idle_sprint_g					= m16_sprint_g, idle_g
+anm_idle_moving_g					= m16_move_g, idle_g
+anm_bore_g							= m16_aim_g, idle_g
+;-------------------------------------------------------------------------------
+;	Scopes
+;-------------------------------------------------------------------------------
+[wpn_sr25_tars101]:wpn_sr25
+scope_name							= tars101
+scope_x								= 60
+scope_y								= 2
+hud									= wpn_sr25_tars101_hud
+
+[wpn_sr25_tars101_hud]:wpn_sr25_hud
+item_visual							= dynamics\weapons\wpn_sr25\wpn_sr25_tars101_hud.ogf
+aim_hud_offset_pos					= -0.051680,-0.014755,-0.121817
+aim_hud_offset_pos_16x9				= -0.051680,-0.014755,-0.121817
+;-------------------------------------------------------------------------------

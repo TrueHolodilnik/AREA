@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding="windows-1251"?>
+
+<!--===========================================================
+<
+< CHARACTER DESCRIPTIONS FOR DEAD CITY MAP
+<	CoC 1.4.07 - DoctorX Questlines 1.6
+<
+<	Modified by: DoctorX
+<	Last revised: October 05, 2016
+<
+<===========================================================-->
+
+
+<xml>
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- Dushman (Mercenary Trader) Character Description
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 05, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="cit_killers_merc_trader_stalker" team_default="1">
+    <name>cit_killers_merc_trader_stalker_name</name>
+    <icon>ui_inGame2_merc_trade</icon>
+    <bio>??????? ???????. ƒ???????¤ ?????????¤ ???????????.</bio>
+    <class>cit_killers_merc_trader_stalker</class>
+    <community>killer</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>7661</rank>
+    <reputation>-818</reputation>
+    <money min="1000000" max="1000000" infinitive="1"/>
+    <visual>actors\stalker_merc\stalker_ki_head_2</visual>
+    <snd_config>characters_voice\human_01\alternative_1\</snd_config>
+    <supplies>
+		#include "gameplay\loadouts\killer_base.ltx"
+		#include "gameplay\loadouts\killer_tier_4.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+		<actor_dialog>dm_trade_add</actor_dialog>
+		<actor_dialog>dm_buy_box_dialog</actor_dialog>
+		<actor_dialog>drx_sl_cit_killers_merc_trader_stalker_game_start_dialog_1</actor_dialog>
+		<actor_dialog>drx_sl_cf_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_task_completed_dialog</actor_dialog>
+		<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_cit_killers_merc_trader_stalker_meet_dialog</actor_dialog>
+		<actor_dialog>dm_broker_dialog</actor_dialog>
+		<actor_dialog>buy_perehod</actor_dialog>	
+		<actor_dialog>dm_merc_orders_dialog</actor_dialog>
+		<actor_dialog>dm_merc_orders_processing_dialog</actor_dialog>
+		<actor_dialog>about_order_bad_rep_merc</actor_dialog>
+		<actor_dialog>about_order_merc</actor_dialog>
+		<actor_dialog>about_order_not_merc</actor_dialog>
+		<actor_dialog>dm_ordered_task_dialog</actor_dialog>
+		<actor_dialog>change_faction_to_killer</actor_dialog>
+		<actor_dialog>find_blackbox_mlr_reward_killer</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+    </specific_character>
+
+	<!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+
+
+	<!-- /////////////////////////////////////////////////////////////////////////////////////////////
+	<!--
+	<!-- Hog (Mercenary Mechanic) Character Description
+	<!--
+	<!--	Modified by DoctorX
+	<!--	for DoctorX Questlines 1.6
+	<!--	October 05, 2016
+	<!--
+	<!-- ----------------------------------------------------------------------------------------- -->
+
+    <specific_character id="cit_killers_merc_mechanic_stalker" team_default="1">
+    <name>cit_killers_merc_mechanic_stalker_name</name>
+    <icon>ui_inGame2_merc_tech</icon>
+    <bio>??????? ???????. ƒ???????¤ ?????????¤ ???????????.</bio>
+    <class>cit_killers_merc_mechanic_stalker</class>
+    <community>killer</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <mechanic_mode>1</mechanic_mode>
+    <rank>7049</rank>
+    <reputation>149</reputation>
+    <visual>actors\stalker_merc\stalker_merc_2_face_2</visual>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <supplies>
+		#include "gameplay\loadouts\killer_base.ltx"
+		#include "gameplay\loadouts\killer_tier_4.ltx"
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+		<start_dialog>hog_start_dialog</start_dialog>
+		<actor_dialog>drx_sl_task_completed_dialog</actor_dialog>
+		<actor_dialog>dm_ordered_task_completed_dialog</actor_dialog>
+		<actor_dialog>drx_sl_cit_killers_merc_mechanic_stalker_meet_dialog</actor_dialog>
+		<actor_dialog>drx_sl_mechanic_task_dialog</actor_dialog>
+		<actor_dialog>detector_repair_uni</actor_dialog>
+		<actor_dialog>dm_tech_repair</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+		<actor_dialog>cit_killers_merc_mechanic_stalker_upgrade_flashdisk</actor_dialog>
+		<actor_dialog>hog_info</actor_dialog>
+		<actor_dialog>hog_limansk</actor_dialog>
+		<actor_dialog>tech_trade</actor_dialog>
+
+    </specific_character>
+
+	<!-- Surgeon (Mercenary Medic) -->
+
+	<specific_character id="cit_killers_merc_medic_stalker" team_default="1">
+    <name>cit_killers_merc_medic_stalker_name</name>
+    <icon>ui_inGame2_merc_2</icon>
+    <bio>??????? ???????. ƒ???????¤ ?????????¤ ???????????.</bio>
+    <class>cit_killers_merc_medic_stalker</class>
+    <community>killer</community>
+    <map_icon x="1" y="0"/>
+    <terrain_sect>stalker_terrain</terrain_sect>
+    <rank>3049</rank>
+    <reputation>1149</reputation>
+    <visual>actors\stalker_merc\n_stalker_merc_novice_glasses_1</visual>
+    <snd_config>characters_voice\human_01\killer\</snd_config>
+    <supplies>
+
+    </supplies>
+	#include "gameplay\character_criticals.xml"
+		<actor_dialog>dm_trade_add</actor_dialog>
+		<actor_dialog>jup_a6_stalker_medik_need_health_care</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+	</specific_character>
+	
+	<!-- Zhenya "Hatchet" (Mercenary Trader) -->
+	
+	<specific_character id="cit_killers_merc_barman_stalker" team_default="1">
+		<name>cit_killers_merc_barman_stalker_name</name>
+		<map_icon x="1" y="0"/>
+		<icon>ui_inGame2_merc_2</icon>
+		<bio>Информация отсутствует.</bio>
+		<class>cit_killers_merc_barman_stalker</class>
+		<community>killer</community>
+		<terrain_sect>stalker_terrain</terrain_sect>   
+		<rank>5100</rank>
+		<reputation>-1300</reputation>
+		<money min="1000000" max="1000000" infinitive="1"/>
+		<visual>actors\stalker_merc\n_stalker_merc_heavy_2_mask</visual>
+		<snd_config>characters_voice\human_01\killer\</snd_config>
+		<supplies>
+		[spawn] \n
+		wpn_lr300 \n 
+		ammo_5.56x45_ap = 1 \n 
+		#include "gameplay\character_food.xml"
+		#include "gameplay\character_drugs.xml"
+		</supplies>
+		#include "gameplay\character_criticals.xml"
+		<start_dialog>Jeka_topor_start_and_Hi</start_dialog>
+		<actor_dialog>dm_trade_add</actor_dialog>
+		<actor_dialog>actor_break_dialog</actor_dialog>
+	</specific_character>
+
+</xml>

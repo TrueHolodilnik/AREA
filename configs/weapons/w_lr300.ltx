@@ -1,0 +1,806 @@
+﻿;----------------------------------------------------------------------------------------
+; LR-300 from STCOP 3.4, remade by Surs for A.R.E.A. (15.06.2019)
+;----------------------------------------------------------------------------------------
+[wpn_lr300]:default_weapon_params
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300.ogf
+$spawn								= "weapons\lr-300"	; option for Level Editor
+$npc								= on				; option for Level Editor
+class								= WP_AK74
+inv_name							= st_wpn_lr300
+inv_name_short						= st_wpn_lr300
+description							= st_wpn_lr300_descr
+parent_section						= wpn_lr300
+heating_rates						= nato2
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_5.56
+cost								= 32500
+weapon_class						= assault_rifle
+inv_weight							= 3.1
+inv_volume							= 4.8
+ph_mass								= 3
+upgrades							= up_gr_firstab_lr300, up_gr_seconab_lr300, up_gr_thirdab_lr300, up_gr_fourtab_lr300, up_gr_fifthab_lr300
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_lr300
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.54, 0.54, 0.54, 0.54
+hit_impulse							= 32
+hit_type							= fire_wound
+fire_distance						= 800
+bullet_speed						= 980
+rpm									= 950
+rpm_empty_click						= 200
+time_to_aim							= 2.0
+hud									= wpn_lr300_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.86
+misfire_end_condition				= 0.12
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0009
+condition_queue_shot_dec			= 0.0009
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= -1, 1
+magazine_sect						= mag_556_cnt_30_lr300, mag_556_cnt_30_2_lr300, mag_556_cnt_30_g36_lr300, mag_556_cnt_35_ace_lr300, mag_556_cnt_60_lr300
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;--DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 4.6
+;--дисперсия-------------------------------------------------------------------
+fire_dispersion_base				= 0.325
+control_inertion_factor				= 1.16f
+crosshair_inertion					= 4.5
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 12				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.70
+cam_dispersion_inc					= 0.42
+cam_dispersion_frac					= 1.0				;ствол будет подыматьс¤ на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0 				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.47				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.87
+PDM_disp_vel_factor					= 1.745
+PDM_disp_accel_factor				= 1.745
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_dispersion					= 0.3
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_dispersion_inc				= 0.2
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 10.0
+zoom_cam_relax_speed				= 5
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_step_angle_horz			= 2
+
+fire_dispersion_condition_factor	= 0.001
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 30
+inv_grid_y							= 42
+
+upgr_icon_x							= 600
+upgr_icon_y							= 100
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 175
+kill_msg_y							= 0
+kill_msg_width						= 82
+kill_msg_height						= 28
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.130, 0.0
+orientation							= 0.0, 0.0, 0.0
+fire_point							= 0.0, 0.199, 0.575
+fire_point2							= 0.0, 0.199, 0.575
+flame_particles						= weapons\new_effects\akmsl
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= 0.120000, 0.000000, 0.070000
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\556x45
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.1
+light_time							= 0.2
+
+;addons
+scope_status						= 2					; 0 - no addon
+silencer_status						= 2					; 1 - permanent
+grenade_launcher_status				= 0					; 2 - attachable
+
+scopes								= ac10632, ac11090, acog, aimpoint, coyote, eot, c-more, pn23, specter, tars101
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+scope_inertion_factor				= 1.0
+scope_zoom_hud_fov					= 0.35
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 139
+grenade_launcher_y					= 26
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 227
+silencer_y							= 14
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\lr300\lr300_holster
+snd_draw							= weapons\lr300\lr300_draw
+snd_empty							= weapons\lr300\lr300_empty	
+snd_reload							= weapons\lr300\lr300_reload
+snd_reload_empty					= weapons\lr300\lr300_reload_empty
+snd_reload_misfire					= weapons\lr300\lr300_reload_empty,1,0,2.4
+snd_reload_detached					= weapons\lr300\lr300_reload,1,0,1.1
+snd_reload_detached_empty			= weapons\lr300\lr300_reload_empty,1,0,1.1
+snd_shoot_grenade					= weapons\lr300\lr300_grenshoot
+snd_reload_grenade					= weapons\lr300\lr300_grenreload
+snd_switch							= weapons\lr300\lr300_switch 
+snd_shoot							= weapons\lr300\lr300_shoot_null
+snd_silencer_shot					= weapons\lr300\lr300_shot_sil_null
+snd_bore							= $no_sound
+;--Магазины-------------------------------------------------------------------
+[mag_556_cnt_30_lr300]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 109
+magazine_y							= 50
+custom_icon 						= 0,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_2_lr300]
+magazine_name						= magazine_556_cnt_30_2
+magazine_x							= 109
+magazine_y							= 51
+custom_icon 						= 1,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_g36_lr300]
+magazine_name						= magazine_556_cnt_30_g36
+magazine_x							= 108
+magazine_y							= 50
+custom_icon 						= 2,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_35_ace_lr300]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 111
+magazine_y							= 53
+custom_icon 						= 3,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_60_lr300]
+magazine_name						= magazine_556_cnt_60
+magazine_x							= 110
+magazine_y							= 53
+custom_icon 						= 4,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_lr300_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.02275,0.059835,-0.025391
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.072761,0.524496
+fire_bone							= wpn_body
+fire_point2							= 0,-0.009,0.601
+fire_bone2							= wpn_body
+
+hands_position						= -0.102125,-0.152185,-0.06475
+hands_position_16x9					= -0.102125,-0.152185,-0.06475
+hands_orientation					= 0.55,2.4,0.15
+hands_orientation_16x9				= 0.55,2.4,0.15
+
+aim_hud_offset_pos					= -0.05011,-0.007965,-0.0294
+aim_hud_offset_pos_16x9				= -0.05011,-0.007965,-0.0294
+aim_hud_offset_rot					= 0.039,0.0097,0
+aim_hud_offset_rot_16x9				= 0.039,0.0097,0
+
+aim_hud_offset_pos_alt				= -0.014335,-0.02257,0
+aim_hud_offset_pos_alt_16x9			= -0.014335,-0.02257,0
+aim_hud_offset_rot_alt				= -0.001532,-0.001021,0.614386
+aim_hud_offset_rot_alt_16x9			= -0.001532,-0.001021,0.614386
+
+gl_hud_offset_pos					= -0.048955,-0.01626,-0.0294
+gl_hud_offset_pos_16x9				= -0.048955,-0.01626,-0.0294
+gl_hud_offset_rot					= -0.009242,0.010466,0
+gl_hud_offset_rot_16x9				= -0.009242,0.010466,0
+
+anm_show							= m4_draw
+anm_hide							= m4_holster
+anm_idle							= m4_idle
+anm_idle_sprint						= m4_idle_sprint
+anm_idle_moving						= m4_idle_moving
+anm_idle_moving_crouch				= m4_idle_crouch
+anm_shots							= m4_shoot, shoot
+anm_shots_empty						= m4_idle
+anm_reload							= m4_reload, reload
+anm_reload_empty					= m4_reload_empty, reload_empty
+anm_reload_misfire					= m4a1_misfire, misfire
+anm_reload_detached					= m4_reload, reload, , 1.1
+anm_reload_detached_empty			= m4_reload_empty, reload_empty, , 1.1
+anm_idle_aim						= m4_idle_aim
+anm_switch							= m4_switch_off, switch_off
+anm_switch_g						= m4_switch_on, switch_on
+anm_bore							= m4_idle_aim
+anm_hide_w_gl						= m4_holster_w_gl
+anm_show_w_gl						= m4_draw_w_gl
+anm_idle_w_gl						= m4_idle_w_gl
+anm_shots_w_gl						= m4_shoot_w_gl, shoot_w_gl
+anm_shots_w_gl_empty				= m4_idle_w_gl
+anm_reload_w_gl						= m4_reload_w_gl, reload_w_gl
+anm_reload_empty_w_gl				= m4_reload_empty_w_gl, reload_empty_w_gl
+anm_reload_detached_w_gl			= m4_reload_w_gl, reload_w_gl, , 1.1
+anm_reload_detached_empty_w_gl		= m4_reload_empty_w_gl, reload_empty_w_gl, , 1.1
+anm_reload_misfire_w_gl				= m4a1_misfire_w_gl, misfire_w_gl
+anm_idle_moving_crouch_w_gl			= m4_idle_crouch_w_gl
+anm_idle_w_gl_aim					= m4_idle_aim_w_gl
+anm_idle_sprint_w_gl				= m4_idle_sprint_w_gl
+anm_idle_moving_w_gl				= m4_idle_moving_w_gl
+anm_bore_w_gl						= m4_idle_aim_w_gl
+anm_show_g							= m4_draw_g, idle_g
+anm_hide_g							= m4_holster_g, idle_g
+anm_idle_g							= m4_idle_g, idle_g
+anm_reload_g						= m4_reload_g, reload_g
+anm_idle_g_aim						= m4_idle_aim_g, idle_g
+anm_shots_g							= m4_shoot_g, shoot_g
+anm_idle_sprint_g					= m4_idle_sprint_g, idle_g
+anm_idle_moving_g					= m4_idle_moving_g, idle_g
+anm_idle_moving_crouch_g			= m4_idle_crouch_g, idle_g
+anm_bore_g							= m4_idle_aim_g, idle_g
+;-------------------------------------------------------------------------------
+; 	Scopes
+;-------------------------------------------------------------------------------
+[wpn_lr300_ac10632]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 88
+scope_y								= -10
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf, dynamics\weapons\marks\ekp3.ogf
+scope_dot_pos						= 0.0008, 0.1396, 0.55
+scope_dot_scale						= 5.0
+hud									= wpn_lr300_ac10632_hud
+
+[wpn_lr300_ac10632_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_hud.ogf
+anm_shots_when_aim					= m4_shoot_scope
+anm_shots_w_gl_when_aim				= m4_shoot_scope_w_gl
+aim_hud_offset_pos					= -0.04962,0.00177,-0.107371
+aim_hud_offset_pos_16x9				= -0.04962,0.00177,-0.107371
+;-------------------------------------------------------------------------------
+[wpn_lr300_ac11090]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 101
+scope_y								= -9
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos						= 0.0009, 0.1458, 0.250
+scope_dot_scale						= 3.0
+hud									= wpn_lr300_ac11090_hud
+
+[wpn_lr300_ac11090_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.04994,-0.00354,-0.035865
+aim_hud_offset_pos_16x9				= -0.04994,-0.00354,-0.035865
+;-------------------------------------------------------------------------------
+[wpn_lr300_acog]:wpn_lr300
+scope_name							= acog
+scope_x								= 98
+scope_y								= -9
+hud									= wpn_lr300_acog_hud
+
+[wpn_lr300_acog_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_acog_hud.ogf
+aim_hud_offset_pos					= -0.049425,0.00265,-0.153359
+aim_hud_offset_pos_16x9				= -0.049425,0.00265,-0.153359
+;-------------------------------------------------------------------------------
+[wpn_lr300_aimpoint]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint.ogf
+scope_name							= aimpoint
+scope_x								= 98
+scope_y								= -9
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\blue_dot.ogf, dynamics\weapons\marks\eot2.ogf
+scope_dot_pos						= 0.00040, 0.1415, 0.585
+scope_dot_scale						= 5.0
+hud									= wpn_lr300_aimpoint_hud
+
+[wpn_lr300_aimpoint_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_hud.ogf
+aim_hud_offset_pos					= -0.049535,-0.000370,-0.034606
+aim_hud_offset_pos_16x9				= -0.049535,-0.000370,-0.034606
+;-------------------------------------------------------------------------------
+[wpn_lr300_c-more]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_c-more.ogf
+scope_name							= c-more
+scope_x								= 95
+scope_y								= -9
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos						= 0.0008, 0.1438, 0.285
+scope_dot_scale						= 5.0
+hud									= wpn_lr300_c-more_hud
+
+[wpn_lr300_c-more_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_hud.ogf
+aim_hud_offset_pos					= -0.049745,-0.002155,-0.044686
+aim_hud_offset_pos_16x9				= -0.049745,-0.002155,-0.044686
+;-----------------------------------------------------------------------------
+[wpn_lr300_coyote]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_coyote.ogf
+scope_name							= coyote
+scope_x								= 98
+scope_y								= -6
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\green_dot.ogf, dynamics\weapons\marks\red_dot.ogf, dynamics\weapons\marks\blue_dot.ogf
+scope_dot_pos						= 0.0008, 0.1442, 0.285
+scope_dot_scale						= 4.0
+hud									= wpn_lr300_coyote_hud
+
+[wpn_lr300_coyote_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_hud.ogf
+aim_hud_offset_pos					= -0.049845,-0.003545,-0.073876
+aim_hud_offset_pos_16x9				= -0.049845,-0.003545,-0.073876
+;-------------------------------------------------------------------------------
+[wpn_lr300_eot]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_eot.ogf
+scope_name							= eot
+scope_x								= 100
+scope_y								= -3
+scope_dot_enable					= true
+scope_dot_visuals					= dynamics\weapons\marks\eot.ogf, dynamics\weapons\marks\eot2.ogf, dynamics\weapons\marks\red_dot.ogf
+scope_dot_pos						= 0.0005, 0.1498, 0.285
+scope_dot_scale						= 3.0
+hud									= wpn_lr300_eot_hud
+
+[wpn_lr300_eot_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_eot_hud.ogf
+aim_hud_offset_pos					= -0.04954,-0.00753,-0.049201
+aim_hud_offset_pos_16x9				= -0.04954,-0.00753,-0.049201
+;-------------------------------------------------------------------------------
+[wpn_lr300_pn23]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_pn23.ogf
+scope_name							= pn23
+scope_x								= 95
+scope_y								= -7
+hud									= wpn_lr300_pn23_hud
+
+[wpn_lr300_pn23_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_hud.ogf
+aim_hud_offset_pos					= -0.048905,-0.013655,-0.0903
+aim_hud_offset_pos_16x9				= -0.048905,-0.013655,-0.0903
+;-----------------------------------------------------------------------------
+[wpn_lr300_specter]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_specter.ogf
+scope_name							= specter
+scope_x								= 95
+scope_y								= -8
+hud									= wpn_lr300_specter_hud
+
+[wpn_lr300_specter_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_specter_hud.ogf
+aim_hud_offset_pos					= -0.049495,-0.002035,-0.14175
+aim_hud_offset_pos_16x9				= -0.049495,-0.002035,-0.14175
+aim_hud_offset_pos_alt				= -0.00021,-0.024805,0.00984
+aim_hud_offset_pos_alt_16x9			= -0.00021,-0.024805,0.00984
+aim_hud_offset_rot_alt				= 0,0,0
+aim_hud_offset_rot_alt_16x9			= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_lr300_tars101]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_tars101.ogf
+scope_name							= tars101
+scope_x								= 70
+scope_y								= -14
+hud									= wpn_lr300_tars101_hud
+
+[wpn_lr300_tars101_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_hud.ogf
+aim_hud_offset_pos					= -0.049375,-0.007475,-0.091371
+aim_hud_offset_pos_16x9				= -0.049375,-0.007475,-0.091371
+;-----------------------------------------------------------------------------
+; 	Camo
+;-----------------------------------------------------------------------------
+[wpn_lr300_camo]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_sk1.ogf
+parent_section						= wpn_lr300_camo
+installed_upgrades					= up_fiftha_lr300, up_fourta_lr300
+inv_name							= st_wpn_lr300_camo
+inv_name_short						= st_wpn_lr300_camo
+cost								= 35000
+hit_power							= 0.54, 0.54, 0.54, 0.54
+bullet_speed						= 985
+rpm									= 955
+misfire_start_condition				= 0.82
+misfire_end_condition				= 0.1
+misfire_start_prob 					= 0.003
+misfire_end_prob 					= 0.02
+condition_shot_dec					= 0.00075
+condition_queue_shot_dec			= 0.00075
+fire_dispersion_base				= 0.26
+hud									= wpn_lr300_sk1_hud
+inv_grid_x							= 30
+inv_grid_y							= 44
+upgr_icon_x							= 2350
+upgr_icon_y							= 900
+
+[wpn_lr300_sk1_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_ac10632]:wpn_lr300_ac10632,wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk1.ogf
+hud									= wpn_lr300_ac10632_sk1_hud
+
+[wpn_lr300_ac10632_sk1_hud]:wpn_lr300_ac10632_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_ac11090]:wpn_lr300_ac11090,wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk1.ogf
+hud									= wpn_lr300_ac11090_sk1_hud
+
+[wpn_lr300_ac11090_sk1_hud]:wpn_lr300_ac11090_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_acog]:wpn_lr300_acog, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk1.ogf
+hud									= wpn_lr300_acog_sk1_hud
+
+[wpn_lr300_acog_sk1_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_aimpoint]:wpn_lr300_aimpoint, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk1.ogf
+hud									= wpn_lr300_aimpoint_sk1_hud
+
+[wpn_lr300_aimpoint_sk1_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_c-more]:wpn_lr300_c-more, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk1.ogf
+hud									= wpn_lr300_c-more_sk1_hud
+
+[wpn_lr300_c-more_sk1_hud]:wpn_lr300_c-more_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_camo_coyote]:wpn_lr300_coyote, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk1.ogf
+hud									= wpn_lr300_coyote_sk1_hud
+
+[wpn_lr300_coyote_sk1_hud]:wpn_lr300_coyote_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk1_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_camo_eot]:wpn_lr300_eot, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk1.ogf
+hud									= wpn_lr300_eot_sk1_hud
+
+[wpn_lr300_eot_sk1_hud]:wpn_lr300_eot_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_camo_pn23]:wpn_lr300_pn23, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk1.ogf
+hud									= wpn_lr300_pn23_sk1_hud
+
+[wpn_lr300_pn23_sk1_hud]:wpn_lr300_pn23_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_camo_specter]:wpn_lr300_specter, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk1.ogf
+hud									= wpn_lr300_specter_sk1_hud
+
+[wpn_lr300_specter_sk1_hud]:wpn_lr300_specter_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_camo_tars101]:wpn_lr300_tars101, wpn_lr300_camo
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk1.ogf
+hud									= wpn_lr300_tars101_sk1_hud
+
+[wpn_lr300_tars101_sk1_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+; 	Custom
+;-----------------------------------------------------------------------------
+[wpn_lr300_custom]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_sk2.ogf
+parent_section						= wpn_lr300_custom
+installed_upgrades					= up_fiftha_lr300
+inv_name							= st_wpn_lr300_custom
+inv_name_short						= st_wpn_lr300_custom
+inv_weight							= 3.0
+cost								= 38000
+hit_power							= 0.55, 0.55, 0.55, 0.55
+bullet_speed						= 990
+rpm									= 960
+misfire_start_condition				= 0.78
+misfire_end_condition				= 0.08
+misfire_start_prob					= 0.003
+misfire_end_prob 					= 0.02
+condition_shot_dec					= 0.00077
+condition_queue_shot_dec			= 0.00077
+fire_dispersion_base				= 0.285
+inv_grid_x							= 30
+inv_grid_y							= 46
+hud									= wpn_lr300_sk2_hud
+
+[wpn_lr300_sk2_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_ac10632]:wpn_lr300_ac10632, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk2.ogf
+hud									= wpn_lr300_ac10632_sk2_hud
+
+[wpn_lr300_ac10632_sk2_hud]:wpn_lr300_ac10632_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_ac11090]:wpn_lr300_ac11090, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk2.ogf
+hud									= wpn_lr300_ac11090_sk2_hud
+
+[wpn_lr300_ac11090_sk2_hud]:wpn_lr300_ac11090_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_acog]:wpn_lr300_acog, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk2.ogf
+hud									= wpn_lr300_acog_sk2_hud
+
+[wpn_lr300_acog_sk2_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_aimpoint]:wpn_lr300_aimpoint, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk2.ogf
+hud									= wpn_lr300_aimpoint_sk2_hud
+
+[wpn_lr300_aimpoint_sk2_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_c-more]:wpn_lr300_c-more, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk2.ogf
+hud									= wpn_lr300_c-more_sk2_hud
+
+[wpn_lr300_c-more_sk2_hud]:wpn_lr300_c-more_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_custom_coyote]:wpn_lr300_coyote, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk2.ogf
+hud									= wpn_lr300_coyote_sk2_hud
+
+[wpn_lr300_coyote_sk2_hud]:wpn_lr300_coyote_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk2_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_custom_eot]:wpn_lr300_eot, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk2.ogf
+hud									= wpn_lr300_eot_sk2_hud
+
+[wpn_lr300_eot_sk2_hud]:wpn_lr300_eot_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_custom_pn23]:wpn_lr300_pn23, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk2.ogf
+hud									= wpn_lr300_pn23_sk2_hud
+
+[wpn_lr300_pn23_sk2_hud]:wpn_lr300_pn23_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_custom_specter]:wpn_lr300_specter, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk2.ogf
+hud									= wpn_lr300_specter_sk2_hud
+
+[wpn_lr300_specter_sk2_hud]:wpn_lr300_specter_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_custom_tars101]:wpn_lr300_tars101, wpn_lr300_custom
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk2.ogf
+hud									= wpn_lr300_tars101_sk2_hud
+
+[wpn_lr300_tars101_sk2_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+; 	Worn
+;-----------------------------------------------------------------------------
+[wpn_lr300_worn]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_sk3.ogf
+parent_section						= wpn_lr300_worn
+upgrades							= up_gr_firstab_lr300_worn, up_gr_seconab_lr300_worn, up_gr_thirdab_lr300_worn, up_gr_fourtab_lr300_worn, up_gr_fifthab_lr300_worn
+inv_name							= st_wpn_lr300_worn
+inv_name_short						= st_wpn_lr300_worn
+cost								= 27000
+hit_power							= 0.48, 0.48, 0.48, 0.48
+bullet_speed						= 940
+rpm									= 925
+misfire_start_condition				= 0.82
+misfire_end_condition				= 0.11
+condition_shot_dec					= 0.0010
+condition_queue_shot_dec			= 0.0010
+fire_dispersion_base				= 0.35
+inv_grid_x							= 30
+inv_grid_y							= 48
+hud									= wpn_lr300_sk3_hud
+
+[wpn_lr300_sk3_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_ac10632]:wpn_lr300_ac10632, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk3.ogf
+hud									= wpn_lr300_ac10632_sk3_hud
+
+[wpn_lr300_ac10632_sk3_hud]:wpn_lr300_ac10632_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_ac11090]:wpn_lr300_ac11090, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk3.ogf
+hud									= wpn_lr300_ac11090_sk3_hud
+
+[wpn_lr300_ac11090_sk3_hud]:wpn_lr300_ac11090_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_acog]:wpn_lr300_acog, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk3.ogf
+hud									= wpn_lr300_acog_sk3_hud
+
+[wpn_lr300_acog_sk3_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_aimpoint]:wpn_lr300_aimpoint, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk3.ogf
+hud									= wpn_lr300_aimpoint_sk3_hud
+
+[wpn_lr300_aimpoint_sk3_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_c-more]:wpn_lr300_c-more, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk3.ogf
+hud									= wpn_lr300_c-more_sk3_hud
+
+[wpn_lr300_c-more_sk3_hud]:wpn_lr300_c-more_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_worn_coyote]:wpn_lr300_coyote, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk3.ogf
+hud									= wpn_lr300_coyote_sk3_hud
+
+[wpn_lr300_coyote_sk3_hud]:wpn_lr300_coyote_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk3_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_worn_eot]:wpn_lr300_eot, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk3.ogf
+hud									= wpn_lr300_eot_sk3_hud
+
+[wpn_lr300_eot_sk3_hud]:wpn_lr300_eot_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_worn_pn23]:wpn_lr300_pn23, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk3.ogf
+hud									= wpn_lr300_pn23_sk3_hud
+
+[wpn_lr300_pn23_sk3_hud]:wpn_lr300_pn23_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_worn_specter]:wpn_lr300_specter, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk3.ogf
+hud									= wpn_lr300_specter_sk3_hud
+
+[wpn_lr300_specter_sk3_hud]:wpn_lr300_specter_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_worn_tars101]:wpn_lr300_tars101, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk3.ogf
+hud									= wpn_lr300_tars101_sk3_hud
+
+[wpn_lr300_tars101_sk3_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+; 	Rusty
+;-----------------------------------------------------------------------------
+[wpn_lr300_rusty]:wpn_lr300
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_sk4.ogf
+parent_section						= wpn_lr300_rusty
+upgrades							= up_gr_firstab_lr300_rusty, up_gr_seconab_lr300_rusty, up_gr_thirdab_lr300_rusty, up_gr_fourtab_lr300_rusty, up_gr_fifthab_lr300_rusty
+inv_name							= st_wpn_lr300_rusty
+inv_name_short						= st_wpn_lr300_rusty
+description							= st_wpn_lr300_rusty_descr
+cost								= 21000
+hit_power							= 0.42, 0.42, 0.42, 0.42
+bullet_speed						= 890
+rpm									= 890
+misfire_start_condition				= 0.9
+misfire_end_condition				= 0.15
+condition_shot_dec					= 0.0011
+condition_queue_shot_dec			= 0.0011
+fire_dispersion_base				= 0.4
+hud									= wpn_lr300_sk4_hud
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 30
+inv_grid_y							= 50
+silencer_status						= 0
+
+[wpn_lr300_sk4_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_ac10632]:wpn_lr300_ac10632, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk4.ogf
+hud									= wpn_lr300_ac10632_sk4_hud
+
+[wpn_lr300_ac10632_sk4_hud]:wpn_lr300_ac10632_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac10632_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_ac11090]:wpn_lr300_ac11090, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk4.ogf
+hud									= wpn_lr300_ac11090_sk4_hud
+
+[wpn_lr300_ac11090_sk4_hud]:wpn_lr300_ac11090_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_ac11090_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_acog]:wpn_lr300_acog, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk4.ogf
+hud									= wpn_lr300_acog_sk4_hud
+
+[wpn_lr300_acog_sk4_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_acog_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_aimpoint]:wpn_lr300_aimpoint, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk4.ogf
+hud									= wpn_lr300_aimpoint_sk4_hud
+
+[wpn_lr300_aimpoint_sk4_hud]:wpn_lr300_acog_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_aimpoint_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_c-more]:wpn_lr300_c-more, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk4.ogf
+hud									= wpn_lr300_c-more_sk4_hud
+
+[wpn_lr300_c-more_sk4_hud]:wpn_lr300_c-more_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_c-more_sk4_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_rusty_coyote]:wpn_lr300_coyote, wpn_lr300_worn
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk4.ogf
+hud									= wpn_lr300_coyote_sk4_hud
+
+[wpn_lr300_coyote_sk4_hud]:wpn_lr300_coyote_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_coyote_sk4_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_lr300_rusty_eot]:wpn_lr300_eot, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk4.ogf
+hud									= wpn_lr300_eot_sk4_hud
+
+[wpn_lr300_eot_sk4_hud]:wpn_lr300_eot_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_eot_sk4_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_rusty_pn23]:wpn_lr300_pn23, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk4.ogf
+hud									= wpn_lr300_pn23_sk4_hud
+
+[wpn_lr300_pn23_sk4_hud]:wpn_lr300_pn23_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_pn23_sk4_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_rusty_specter]:wpn_lr300_specter, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk4.ogf
+hud									= wpn_lr300_specter_sk4_hud
+
+[wpn_lr300_specter_sk4_hud]:wpn_lr300_specter_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_specter_sk4_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_lr300_rusty_tars101]:wpn_lr300_tars101, wpn_lr300_rusty
+visual								= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk4.ogf
+hud									= wpn_lr300_tars101_sk4_hud
+
+[wpn_lr300_tars101_sk4_hud]:wpn_lr300_hud
+item_visual							= dynamics\weapons\wpn_lr300\wpn_lr300_tars101_sk4_hud.ogf
+;-----------------------------------------------------------------------------

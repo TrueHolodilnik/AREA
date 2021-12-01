@@ -1,0 +1,497 @@
+--=============================================================
+--  Dynamic anomalies script
+--	Reworked by Holodilnik for A.R.E.A.
+--  Based on DoctorX Dynamic Anomalies
+--=============================================================
+
+local upd_time = 0
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_update", update_dynamic_anomalies)
+	--RegisterScriptCallback("on_game_load", on_game_load_callback)
+end
+
+local function on_game_load_callback()
+	if (not db.actor) then
+		return false
+	end
+	utils.save_var(db.actor, "drx_da_anoms_need_refresh", true)
+end
+
+function update_dynamic_anomalies()
+
+	local tg = time_global()
+	if tg > upd_time then
+		upd_time = tg + 1000
+	else
+		return
+	end
+
+	if (not db.actor) then
+		return
+	end
+
+	local surgeman = surge_manager.get_surge_manager()
+	local psiman = psi_storm_manager.get_psi_storm_manager()
+	local surge_end_time = surgeman.last_surge_time
+	local psi_storm_end_time = psiman.last_psi_storm_time
+	if (not surge_end_time) then
+		surge_end_time = game.get_game_time()
+	end
+	if (not psi_storm_end_time) then
+		psi_storm_end_time = game.get_game_time()
+	end
+	
+	local level_name = level.name()
+	if ((not level_name) or (level_name == "")) then
+		return
+	end
+	
+	local last_surge_time = utils.load_ctime(db.actor, "drx_da_last_surge_time", nil)
+	local last_psi_storm_time = utils.load_ctime(db.actor, "drx_da_last_psi_storm_time", nil)
+	
+	if (not last_surge_time) then
+		utils.save_ctime(db.actor, "drx_da_last_surge_time", surge_end_time)
+	end
+	
+	if (not last_psi_storm_time) then
+		utils.save_ctime(db.actor, "drx_da_last_psi_storm_time", psi_storm_end_time)
+	end
+
+	if ((last_surge_time and surge_end_time:diffSec(last_surge_time) > 0) or (last_psi_storm_time and psi_storm_end_time:diffSec(last_psi_storm_time) > 0)) then
+		utils.save_ctime(db.actor, "drx_da_last_surge_time", game.get_game_time())
+		utils.save_ctime(db.actor, "drx_da_last_psi_storm_time", game.get_game_time())
+		randomize_anomalies(level_name)
+		update(level_name)
+		respawn(level_name)
+	end
+	
+	if (utils.load_var(db.actor, strformat("drx_da_anomalies_spawned_%s", level_name), false) == false) then
+		spawn_anomalies_current_level(level_name)
+		respawn(level_name)
+	elseif (utils.load_var(db.actor, "drx_da_anoms_need_refresh", false) == true) then
+		refresh_anomalies(level_name)
+	end
+
+end
+
+function spawn_anomalies_current_level(level_name)
+	
+	if ( not db.actor ) then
+		return false
+	end
+	
+	local level_ini = ini_file("plugins\\dynamic_anomalies\\" .. level_name .. "_anomaly_list.ltx") or nil
+	if (level_ini == nil) then
+		return
+	end
+
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+	local anomaly_max_number = (level_ini:r_float_ex("spawn_properties", "anomaly_max_number") or 0)
+	local anomaly_min_number = (level_ini:r_float_ex("spawn_properties", "anomaly_min_number") or 0)
+	local anomaly_list = alun_utils.collect_section(level_ini, "anomaly_types")
+
+	local max_offset_x = (level_ini:r_float_ex("location_offset", "max_offset_x") or 0)
+	local max_offset_y = (level_ini:r_float_ex("location_offset", "max_offset_y") or 0)
+	local max_offset_z = (level_ini:r_float_ex("location_offset", "max_offset_z") or 0)
+	local min_radius = (level_ini:r_float_ex("radius_properties", "min_radius") or 1)
+	local max_radius = (level_ini:r_float_ex("radius_properties", "max_radius") or 2)
+	local num_tries = (level_ini:r_float_ex("location_offset", "max_offset_z") or 1)
+
+	for i, smart_name in pairs(smart_list) do
+		spawn_anomaly_field_at_smart(smart_name, anomaly_max_number, max_offset_x, max_offset_y, max_offset_z, num_tries, min_radius, max_radius, anomaly_min_number, anomaly_list)
+	end
+
+	utils.save_var(db.actor, strformat("drx_da_anomalies_spawned_%s", level_name), true)
+
+end
+
+function spawn_anomaly_field_at_smart(smart_name, anomaly_max_number, max_offset_x, max_offset_y, max_offset_z, num_tries, min_radius, max_radius, anomaly_min_number, anomaly_list)
+
+	if ( not db.actor ) then
+		return false
+	end
+
+	local smart = SIMBOARD.smarts_by_names[smart_name]
+	if (not smart) then
+		return false
+	end
+
+	local anomaly_number = math.random(anomaly_min_number,anomaly_max_number)
+
+	for i = 1, (anomaly_number) do
+
+		local pos = generate_position(smart_name, max_offset_x, max_offset_y, max_offset_z, num_tries)
+		if (pos) then
+
+			local lvid = level.vertex_id(pos)
+			local t = spawn_anomaly(pos, lvid, smart.m_game_vertex_id, min_radius, max_radius, anomaly_list)
+			
+			local anom_id = t[1]
+			local vis_id = t[2]
+
+			if (anom_id) then
+				utils.save_var(db.actor, strformat("drx_da_anom_id_%s_%s", smart_name, i), anom_id)
+			end
+			
+			if (vis_id) then
+				utils.save_var(db.actor, strformat("drx_da_anom_vis_id_%s_%s", smart_name, i), vis_id)
+			end
+
+		end
+
+	end
+
+end
+
+function spawn_anomaly(pos, lvid, gvid, min_radius, max_radius, anomaly_list)
+	
+	local anom_type = anomaly_list[math.random(#anomaly_list)]
+	local se_obj = alife():create(anom_type, pos, lvid, gvid)
+	
+	if ( not se_obj ) then
+		return
+	end
+	
+	local v_id = false
+	local temp_acidic = {
+		["zone_mine_acidic"] = true,
+		["zone_mine_acidic_weak"] = true,
+		["zone_mine_acidic_average"] = true,
+		["zone_mine_acidic_strong"] = true,
+		["zone_mine_acidic_big"] = true,
+		["zone_mine_chemical"] = true,
+		["zone_mine_chemical_weak"] = true,
+		["zone_mine_chemical_average"] = true,
+		["zone_mine_chemical_strong"] = true,
+	}
+	local temp_hairs = {
+		["zone_mine_hairs_bottom"] = true,
+	}
+	local vist_acidic	= {"studen_object_1", "studen_object", "studen_object_2", "studen_object_3"}
+	local vist_hairs = {"hairs_object_1", "hairs_object_2", "hairs_object_3", "hairs_object_4", "hairs_object_5"}
+	
+	--if temp_acidic[anom_type] then
+	--	local v_se_obj = alife():create(vist_acidic[math.random(1,#vist_acidic)], pos, lvid, gvid)
+	--	v_id = v_se_obj.id
+	--elseif temp_hairs[anom_type] then
+	--	local v_se_obj = alife():create(vist_hairs[math.random(1,#vist_hairs)], pos, lvid, gvid)
+	--	v_id = v_se_obj.id
+	--end
+	
+	local t = {se_obj.id, v_id}
+
+	local data = stpk_utils.get_anom_zone_data(se_obj)
+	if (not data) then
+		return t
+	end
+
+	data.shapes[1] = {}
+	data.shapes[1].shtype = 0
+	data.shapes[1].offset = vector( ):set( 0, 0, 0 )  -- Leave for compatibility with CoC 1.4.22, delete later
+	data.shapes[1].center = vector():set(0, 0, 0)
+	local rad = math.random(min_radius, max_radius)
+	if rad < 1 then 
+		rad = 1
+	end
+	data.shapes[1].radius = rad
+	stpk_utils.set_anom_zone_data(data, se_obj)
+
+	return t
+
+end
+
+function generate_position(smart_name, max_offset_x, max_offset_y, max_offset_z, num_tries)
+
+	local smart = SIMBOARD.smarts_by_names[smart_name]
+	if (not smart) then
+		return
+	end
+
+	local pos = vector():set(0, 0, 0)
+	local valid_lvid = false
+	while ((valid_lvid ~= true) and (num_tries > 0)) do
+
+		local offset_x = (max_offset_x * math.random())
+		if (math.random() <= 0.5) then
+			offset_x = -(offset_x)
+		end
+		local pos_x = (smart.position.x + offset_x)
+
+		local offset_y = (max_offset_y * math.random())
+		if (math.random() <= 0.5) then
+			offset_y = -(offset_y)
+		end
+		local pos_y = (smart.position.y + offset_y)
+
+		local offset_z = (max_offset_z * math.random())
+		if (math.random() <= 0.5) then
+			offset_z = -(offset_z)
+		end
+		local pos_z = (smart.position.z + offset_z)
+
+		pos = vector():set(pos_x, pos_y, pos_z)
+		local lvid = level.vertex_id(pos)
+		if (lvid < 4294967295) then
+			pos = level.vertex_position(lvid)
+			valid_lvid = true
+		end
+
+		num_tries = (num_tries - 1)
+		if ((num_tries <= 0) and (valid_lvid ~= true)) then
+			return
+		end
+
+	end
+
+	return pos
+
+end
+
+function randomize_anomalies(level_name)
+
+	local level_list = alun_utils.collect_section(ini_file("plugins\\dynamic_anomalies\\dynamic_anomalies.ltx"), "anomaly_levels")
+	if ((not level_list) or (#level_list < 1)) then
+		return false
+	end
+
+	for k, level_name in pairs(level_list) do
+
+		local level_ini = ini_file("plugins\\dynamic_anomalies\\" .. level_name .. "_anomaly_list.ltx") or nil
+	
+		if (level_ini == nil) then
+			return
+		end
+
+		local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+		local anomaly_max_number = (level_ini:r_float_ex("spawn_properties", "anomaly_max_number") or 0)
+		local anomaly_max_active = (level_ini:r_float_ex("spawn_properties", "anomaly_max_active") or 0)
+		local spawn_percent = (level_ini:r_float_ex("spawn_properties", "spawn_percent") or 0)
+
+		if ((smart_list) and (#smart_list > 0)) then
+			for i, smart_name in pairs(smart_list) do
+
+				if (math.random() > spawn_percent) then
+					for j = 1, (anomaly_max_number) do
+						utils.save_var(db.actor, strformat("drx_da_anom_active_%s_%s", smart_name, j), false)
+					end
+
+				else
+
+					local anoms_list = {}
+					for k = 1, (anomaly_max_number) do
+						table.insert(anoms_list, string.format("drx_da_anom_id_%s_%s", smart_name, k))
+					end
+
+					local anoms_to_activate = {}
+					local num_active = math.random(1, anomaly_max_active)
+					for m = 1, (num_active) do
+						if (#anoms_list < 1) then
+							break
+						end
+						local random_number = math.random(1, #anoms_list)
+						table.insert(anoms_to_activate, string.format("drx_da_anom_id_%s_%s", smart_name, random_number))
+						table.remove(anoms_list, random_number)
+					end
+
+					for p = 1, (anomaly_max_number) do
+						local current_anom = string.format("drx_da_anom_id_%s_%s", smart_name, p)
+						local active = false
+						for n = 1, (#anoms_to_activate) do
+							if (current_anom == anoms_to_activate[n]) then
+								active = true
+								break
+							end
+						end
+						utils.save_var(db.actor, strformat("drx_da_anom_active_%s_%s", smart_name, p), active)
+					end
+
+				end
+
+			end
+		end
+	end
+
+	utils.save_var(db.actor, "drx_da_anoms_need_refresh", true)
+
+end
+
+function refresh_anomalies(anomaly_max_number)
+
+	local level_name = level.name()
+	if ((not level_name) or (level_name == "")) then
+		return false
+	end
+	
+	local level_ini = ini_file("plugins\\dynamic_anomalies\\" .. level_name .. "_anomaly_list.ltx") or nil
+	local anomaly_max_number = (level_ini:r_float_ex("spawn_properties", "anomaly_max_number") or 0)
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+
+	for i, smart_name in pairs(smart_list) do
+		local anoms_active_on_smart = false
+		for j = 1, (anomaly_max_number) do
+			local anom_id = utils.load_var(db.actor, strformat("drx_da_anom_id_%s_%s", smart_name, j), nil)
+			if (anom_id) then
+				local anom_obj = level.object_by_id(anom_id)
+				if (anom_obj) then
+					anom_obj:enable_anomaly()
+					if (utils.load_var(db.actor, strformat("drx_da_anom_active_%s_%s", smart_name, j), false) == false) then
+						anom_obj:disable_anomaly()
+					else
+						anoms_active_on_smart = true
+					end
+				end
+			end
+		end
+	end
+
+	utils.save_var(db.actor, "drx_da_anoms_need_refresh", false)
+
+end
+
+function update(level_name)
+	
+	local level_ini = ini_file("plugins\\dynamic_anomalies\\" .. level_name .. "_anomaly_list.ltx") or nil
+	
+	local anomaly_max_number = (level_ini:r_float_ex("spawn_properties", "anomaly_max_number") or 0)
+
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+	if ((not smart_list) or (#smart_list < 1)) then
+		return false
+	end
+	
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+	local max_offset_x = (level_ini:r_float_ex("location_offset", "max_offset_x") or 0)
+	local max_offset_y = (level_ini:r_float_ex("location_offset", "max_offset_y") or 0)
+	local max_offset_z = (level_ini:r_float_ex("location_offset", "max_offset_z") or 0)
+	local num_tries = (level_ini:r_float_ex("location_offset", "max_tries") or 1)
+	
+	for i, smart_name in pairs(smart_list) do
+		local smart = SIMBOARD.smarts_by_names[smart_name]
+		
+		for j = 1, (anomaly_max_number) do
+			local anom_id = utils.load_var(db.actor, strformat("drx_da_anom_id_%s_%s", smart_name, j), nil)
+			if (anom_id) then
+				local se_obj = alife_object(anom_id)
+				if (se_obj) then
+					
+					local anom_obj = level.object_by_id(anom_id)
+					local pos = generate_position(smart_name, max_offset_x, max_offset_y, max_offset_z, num_tries)
+					
+					if (pos) then
+						se_obj.position = pos
+						
+						if (anom_obj) then
+							local power = 1 + (math.random(1,10)/10)
+							anom_obj:set_anomaly_power(power)
+						end
+					end
+					
+					local vis_id = utils.load_var(db.actor, strformat("drx_da_anom_vis_id_%s_%s", smart_name, j), nil)
+					
+					--if vis_id then
+					--	local se_obj = alife_object(vis_id)
+					--	if se_obj then
+					--		se_obj.position = pos
+					--	end
+					--end
+					
+				end
+			end
+		end
+	end
+
+end
+
+function respawn(level_name)
+
+	printf("A.R.E.A.: Dynamic artefacts updated")
+
+	local level_ini = ini_file("plugins\\dynamic_anomalies\\" .. level_name .. "_anomaly_list.ltx") or nil
+	
+	local anomaly_max_number = (level_ini:r_float_ex("spawn_properties", "anomaly_max_number") or 0)
+
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+	if ((not smart_list) or (#smart_list < 1)) then
+		return false
+	end
+	
+	for n=1, 65534 do
+		local se_obj = alife():object(n)
+		if se_obj and se_obj.parent_id == 65535 and IsArtefact(se_obj) then
+			local sec = se_obj:section_name()
+			local rank = system_ini():r_float_ex(sec,"af_rank",1)
+			if rank == 0 then
+				safe_release_manager.release(se_obj)
+				--printf("A.R.E.A.: artefact released: %s", sec)
+			end
+		end
+	end
+	
+	local smart_list = alun_utils.collect_section(level_ini, "available_smarts")
+
+	local l_temp = {
+		["k00_marsh"]               = 4,
+		["l01_escape"]				= 4,					
+		["k01_darkscape"]		    = 5,
+		["l02_garbage"]	            = 6,
+		["k02_trucks_cemetery"]		= 8,
+		["l03_agroprom"]		    = 10,
+		["l03u_agr_underground"]    = 12,
+		["l04_darkvalley"]		    = 8,
+		["y04_pole"]                = 6,
+		["l04u_labx18"]             = 12,
+		["l06_rostok"]	            = 10,
+		["l07_military"]		    = 10,
+		["l08_yantar"]              = 15,
+		["l08u_brainlab"]	        = 20,
+		["l09_deadcity"]            = 15,
+		["l10_radar"]               = 12,
+		["l10u_bunker"]             = 25,
+		["l10_red_forest"]		    = 30,
+		["l10_limansk"]             = 20,
+		["l11_hospital"]            = 25,
+		["l11_pripyat"]             = 20,
+		["l12_stancia"]             = 50,
+		["l12_stancia_2"]           = 50,
+		["l12u_control_monolith"]   = 80,
+		["l12u_sarcofag"]           = 80,
+		["l13_generators"]          = 80,
+		["l13u_warlab"]             = 80,
+		["labx8"]                   = 50,
+		["jupiter"]		            = 20,
+		["jupiter_underground"]		= 40,			
+		["pripyat"]				    = 25,
+		["zaton"]	                = 25
+	}
+	local art_list = alun_utils.collect_section(ini_file("plugins\\dynamic_anomalies\\dynamic_anomalies.ltx"), "misc_artefacts")
+	
+	for i, smart_name in pairs(smart_list) do
+		local smart = SIMBOARD.smarts_by_names[smart_name]
+		
+		for j = 1, (anomaly_max_number) do
+			local anom_id = utils.load_var(db.actor, strformat("drx_da_anom_id_%s_%s", smart_name, j), nil)
+			if (anom_id) then
+				local se_obj = alife_object(anom_id)
+				if (se_obj) then
+				
+					local chance = (l_temp[level_name] or 4)/4
+					if art_list then
+						if math.random(1,100) >= chance then
+							local art = art_list[math.random(1,#art_list)]
+							if art then
+								local lvid = game_graph():vertex(smart.m_game_vertex_id):level_id()
+								if not lvid then
+									return
+								end
+								local v_se_obj = alife():create(art, se_obj.position, lvid, smart.m_game_vertex_id)
+							end
+						end
+					end
+				
+				end
+			end
+		end
+	end
+
+end

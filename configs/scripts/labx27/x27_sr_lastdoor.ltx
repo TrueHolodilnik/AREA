@@ -1,0 +1,22 @@
+[logic]
+active = sr_idle@wait
+
+[sr_idle@wait]
+on_actor_inside = {+x27_lastdoor_in_progress -x27_lastdoor_open =actor_has_item(maneken_decoder)} sr_timer@timer
+on_info = {+x27_lastdoor_open} nil
+
+[sr_timer@timer]
+type = dec
+start_value = 180000
+
+on_timer = 500 | {-x27_phase1} %+x27_phase1 =remove_af(electric) =play_sound_from_obj(ambient\x27\labx27_open)%
+on_timer2 = 5000 | {-x27_phase2} %+x27_phase2 =play_sound_at_pos(monsters\psysucker\attack_1:x27_3floor_monster_sound:0) =create_squad(x27_psysuckers:x27_smart_terrain_1_1)%
+on_timer3 = 60000 | {-x27_phase3} %+x27_phase3 =play_sound_at_pos(monsters\poltergeist\attack_0:x27_3floor_monster_sound:1) =create_squad(x27_polters:x27_smart_terrain_1_1)%
+on_timer4 = 120000 | {-x27_phase4} %+x27_phase4 =play_sound_at_pos(monsters\controller\controller_script_attack_1:x27_3floor_monster_sound:2) =create_squad(x27_controller:x27_smart_terrain_1_1)%
+on_timer5 = 179500 | {-x27_phase5} %+x27_phase5 =destroy_object(story:x27_forbidden_zone) =spawn_corpse(x27_ecolog_inaev:x27_inaev_corpse_walk)%
+on_timer6 = 180000 | {-x27_phase6} %+x27_phase6 +x27_lastdoor_open =create_squad(x27_monolith_squad:x27_smart_terrain_3_3) =create_squad(x27_zombies:x27_smart_terrain_3_4) -x27_lastdoor_in_progress% sr_idle@stop
+on_info = {=actor_dead} sr_idle@stop
+string = st_x27_timer
+
+[sr_idle@stop]
+on_info = %-x27_phase1 -x27_phase2 -x27_phase3 -x27_phase4 -x27_phase5 -x27_phase6% nil

@@ -1,0 +1,338 @@
+---------------------------------------------------------------------------------
+--	A.R.E.A Craft by Surs and Holodilnik
+--	Reworked by Nuor (25.12.2018)
+--	Reworked by MAGILA (01.03.2021)
+---------------------------------------------------------------------------------
+local ini = system_ini()
+local craft = ini_file_ex("plugins\\area_craft.ltx")
+local save_craft_table = {}
+local new_table = {}
+
+--available for lee craft items
+local function verify_ingredients(table,sec_1,sec_2)
+	local function verify(ingr,sec)
+		if type(ingr) == "table" then
+			for a,b in pairs(ingr) do
+				if b == sec or b == sec:gsub("_radiated","") then
+					return true
+				end
+			end
+		elseif ingr == sec or ingr == sec:gsub("_radiated","") then
+			return true
+		end
+	end
+	return verify(table.ingredients,sec_1) and verify(table.ingredients_2,sec_2)
+end
+
+--Parse the configuration and determine whether there is crafting on the items
+local function craft_table(section_from,section_to)
+	local result = {status = false,section = false}
+	local function parse(section)
+		if result.status then return true end
+		if not save_craft_table[section] then
+			local tmp={}
+			if craft.ini:section_exist(section) then
+				for a=0,craft.ini:line_count(section)-1 do
+					local result, id, value = craft.ini:r_line_ex(section,a)
+					if result and id and value then
+						local number = tonumber(value)
+						if number or number == 0 then
+							tmp[id] = number
+						elseif value == "true" or value == "false" then
+							tmp[id] = craft.ini:r_bool_ex(section,id)
+						elseif value:find(",") then
+							tmp[id] = alun_utils.str_explode(value,",")
+						else
+							tmp[id] = value
+						end
+					end
+				end
+				save_craft_table[section] = tmp
+				result["status"] = verify_ingredients(tmp,section_from,section_to)
+				result["section"] = section
+			end
+		else
+			result["status"] = verify_ingredients(save_craft_table[section],section_from,section_to)
+			result["section"] = section
+		end
+	end
+	
+	craft.ini:section_for_each(parse)
+	return result
+end
+
+local function init_recipes()
+	ini:section_for_each(
+		function(section)
+			if save_craft_table[section] then return end
+			if ini:line_exist(section,"craft_ingredient1") and ini:line_exist(section,"craft_ingredient2") then
+				local igr1 = alun_utils.parse_list(ini,section,"craft_ingredient1")
+				local igr2 = alun_utils.parse_list(ini,section,"craft_ingredient2")
+				local fail = ini:r_float_ex(section,"craft_fail")
+				local exp = ini:r_float_ex(section,"craft_skill_exp")
+				local amt = ini:r_float_ex(section,"craft_amt")
+				local timer = ini:r_float_ex(section,"craft_time")
+				local anim = ini:r_string_ex(section,"craft_anim") or "make_something"
+				local skill = ini:r_string_ex(section,"craft_skill") or "craft"
+				skill = skill.."_skill"
+				--recipes[section] = #igr1 > 0 and #igr2 > 0 and {ingredients = {igr1,igr2}, options = {fail,exp,amt,timer,anim,skill}}
+				if #igr1 > 0 and #igr2 > 0 then
+					save_craft_table[section].ingredients = igr1
+					save_craft_table[section].ingredients_2 = igr2
+					save_craft_table[section].fail = fail
+					save_craft_table[section].exp = exp
+					save_craft_table[section].amount = amt
+					save_craft_table[section].s_time = timer
+					save_craft_table[section].anim = anim
+					save_craft_table[section].skill = skill
+					if craft.ini:section_exist(section) and craft.ini:r_string_ex(section,"remove_ingredients",false) == "ignore" then 
+						save_craft_table[section].remove_ingredients = "ignore"
+					else
+						save_craft_table[section].remove_ingredients = false
+					end
+				end
+			end
+		end)
+	--alun_utils.print_table(recipes, "recipes table")
+end
+
+function on_game_start()
+    RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+	local function actor_on_first_update()
+		init_recipes()
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+end
+
+-- Remove ingredients used in recipes
+local function EditIngredients(item,item_sec,remove_ingredients,ingredients)
+	local use_remove = ini:r_bool_ex(item_sec,"remove_after_use",true)
+	local uses = ini:r_bool_ex(item_sec,"use_condition",false) and item:get_remaining_uses() or 1
+	if (IsWeapon(item) and not remove_ingredients) or remove_ingredients == "ignore" then
+		return
+	end
+	local function remove_item()
+		local se_obj = alife_object(item:id())
+		if (se_obj) then
+			alife():release(se_obj,true)
+		end
+	end
+		
+	if remove_ingredients == "all" or (use_remove and (uses <= 1)) or item_sec:find("_radiated") then
+		remove_item()
+	elseif remove_ingredients then
+		local function pairs_table(table,value)
+			local stop = false
+			if type(table) == "table" then
+				for g,sect in pairs(table) do
+					if sect == value then
+						remove_item()
+						stop = true
+						break
+					end
+				end
+			else
+				if value == table then
+					remove_item()
+					stop = true
+				end
+			end
+			return stop
+		end
+
+		if type(remove_ingredients) == "table" then
+			for a,b in pairs(remove_ingredients) do
+				if pairs_table(ingredients,b) then break end
+			end
+		else
+			pairs_table(ingredients,remove_ingredients)
+		end
+	elseif (uses > 0) then
+		item:set_remaining_uses(uses-1)
+	end
+	
+	local next_items = ini:line_exist(item_sec,"next_use_item") and alun_utils.parse_list(ini,item_sec,"next_use_item") or {}
+	if (#next_items > 0) and uses <= 1 and not (item_sec:find("_radiated")) then
+		if next_items[#next_items] == "random" then
+			alife():create(next_items[math.random(1,#next_items-1)], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		else
+			for z,val in pairs(next_items) do
+				if val ~= "random" then
+					alife():create(val, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				end
+			end
+		end
+	end
+end
+
+-- Combine items to increase charge count (by Surs)
+local function increase_number_charges(itm_from,itm_to,section_from,section_to)
+	if ini:r_bool_ex(section_to,"use_condition",true) then
+		if section_from == section_to then
+			local r_uses_to,r_uses_from = itm_to:get_remaining_uses(),itm_from:get_remaining_uses()
+			local max_uses, t_uses = itm_to:get_max_uses(), r_uses_to + r_uses_from
+			if (r_uses_to == max_uses) and (r_uses_from == max_uses) then return end
+			local n_uses_to = t_uses >= max_uses and max_uses or t_uses
+			local n_uses_from = t_uses > max_uses and (t_uses - max_uses) or 0
+			-- printf("Combine to:%s from:%s", n_uses_to,n_uses_from)
+			local to_id, from_id = itm_to:id(), itm_from:id()
+			local from_item = itm_from
+			local function itr(dummy,item)
+				if item:section() == section_to and item:id() ~= to_id and item:get_remaining_uses() == r_uses_to then
+					from_item = item
+					return true
+				end
+			end
+			if to_id == from_id then
+				db.actor:iterate_inventory(itr,db.actor)
+			end
+			if from_item:id() == to_id then return end
+			itm_to:set_remaining_uses(n_uses_to)
+			from_item:set_remaining_uses(n_uses_from)
+			
+			if n_uses_from <= 0 then
+				local next_item = ini:r_string_ex(section_from, "next_use_item",false)
+				if next_item then
+					alife():create(next_item,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+				end
+				if (ini:r_bool_ex(section_from,"remove_after_use",true)) then
+					local remove = alife_object(from_item:id())
+					if remove then
+						alife():release(remove,true)
+					end
+				end
+			end
+			return true
+		end
+	end
+end
+
+-- Set condition on newly crafted items
+local function CondSpawn(new_sec,amount,to_sec,from_sec,itm_from,itm_to)
+	amount = amount or 1
+	local new_use = ini:r_float_ex(new_sec,"max_uses",1)
+	local use_condition = ini:r_bool_ex(new_sec,"use_condition",false)
+	local condition = nil
+	
+	if new_use > 1 then
+		if to_sec:find("_radiated") then
+			new_use = itm_to:get_remaining_uses()
+		elseif from_sec:find("_radiated") then
+			new_use = itm_from:get_remaining_uses()
+		else
+			new_use = new_use - math.floor((itm_to:get_max_uses() - itm_to:get_remaining_uses() + itm_from:get_max_uses() - itm_from:get_remaining_uses())/2)
+		end
+		--printf("NewUse:%s to_rem:%s from_rem:%s", new_use, itm_to:get_remaining_uses(), itm_from:get_remaining_uses())
+	elseif use_condition then
+		condition = (itm_to:condition() + itm_from:condition())/2
+	end
+	
+	condition = condition and utils.round(condition, 3)
+	for i = 1, amount do
+		local se_obj = alife():create(new_sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		-- printf("-uses:%s cond:%s", new_use, condition)
+		CreateTimeEvent("spawn_item",se_obj.id,0,function(id)
+			local new_obj = level.object_by_id(id)
+			if new_obj then
+				if condition then
+					if use_condition then
+						new_obj:set_condition(condition)
+						-- printf("spawn cond: %s", new_obj:condition())
+					end	
+				else
+					new_obj:set_remaining_uses(new_use)
+					-- printf("spawn uses: %s", new_use)
+				end
+				return true
+			end
+		end,se_obj.id)
+	end
+end
+
+-- Deactivate irradiated item
+local function deactivate_irradiated(itm_from,itm_to,section_from,section_to)
+	if (section_from == "deactivate_mix") and (section_to:find("_radiated")) then
+		local rad_sec, d_sec = section_from, section_to
+		if section_to:find("_radiated") then
+			rad_sec, d_sec = section_to, section_from
+		end
+		if (ini:r_bool_ex(rad_sec,"can_clean",true)) then
+			CondSpawn(rad_sec:gsub("_radiated",""),1,section_to,section_from,itm_from,itm_to)
+			actor_effects.use_item("deactivate_mix")
+			EditIngredients(itm_to,section_to)
+			EditIngredients(itm_from,section_from)
+			return true
+		end
+	end
+end
+
+-- Process drag and drop recipes
+local function CreateToSpawn(itm_from,itm_to,section_from,section_to,craft_data)
+	local craft_table = save_craft_table[craft_data.section]
+	local fail = craft_table.fail or 0
+	local exp = craft_table.exp or 0.025
+	local amount = craft_table.amount or 1
+	local s_time = craft_table.s_time or 0
+	local anim = craft_table.anim or "make_something"
+	local skill = craft_table.skill or "craft_skill"
+	local notify_player = craft_table.notify_player
+	local craft_chance = area_skills and area_skills.skills_table[skill] and (50+(50*(area_skills.skills_table[skill]/area_skills.max_skills_level))) or 100
+	local craft_section = craft_data.section
+
+	if (craft_chance >= fail) then
+		if actor_effects then actor_effects.use_item(anim) end
+		if (s_time) then
+			level.change_game_time(0,0,s_time)
+		end
+		if area_skills and area_skills.skills_table[skill] then
+			area_skills.raise_skill(skill,exp)
+			if notify_player then
+				SetHudMsg(game.translate_string("st_craft_skill_success"),4)
+			end
+		end
+
+		local ammo_cnt = ini:r_float_ex(craft_section,"box_size")
+		if (section_from:find("_radiated") or section_to:find("_radiated")) then
+			if ini:section_exist(craft_section.."_radiated") then 
+				craft_section = craft_section.."_radiated"
+			elseif craft_table.rad_add_from_sec and craft_table.rad_remove_from_sec then
+				local changing_ection = craft_section:gsub(craft_table.rad_remove_from_sec, craft_table.rad_add_from_sec)
+				if ini:section_exist(changing_ection) then
+					craft_section = changing_ection
+				end
+			end
+		end
+		if ammo_cnt then
+			alife():create_ammo(craft_section, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id(), ammo_cnt)
+		else
+			CondSpawn(craft_section, amount,section_to,section_from,itm_from,itm_to)
+		end
+	else
+		if notify_player then SetHudMsg(game.translate_string("st_craft_skill_fail"),3) end
+		if actor_effects then actor_effects.use_item("toolkit_p_dummy") end
+	end	
+	EditIngredients(itm_to,section_to,craft_table.remove_ingredients,craft_table.ingredients)
+	EditIngredients(itm_from,section_from,craft_table.remove_ingredients_2,craft_table.ingredients_2)
+end
+
+function OnItemDropped(itm_from,itm_to,slot_from,slot_to)
+	if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
+        return
+	end
+	local section_from = itm_from and itm_from:section()
+	local section_to = itm_to and itm_to:section()
+
+	if increase_number_charges(itm_from,itm_to,section_from,section_to) then return end
+
+	if deactivate_irradiated(itm_from,itm_to,section_from,section_to) then return end
+    local defold = craft_table(section_from,section_to)
+	if defold.status then
+		CreateToSpawn(itm_from,itm_to,section_from,section_to,defold)
+		return
+	end
+	local revers = craft_table(section_to,section_from)
+	if revers.status then
+		CreateToSpawn(itm_from,itm_to,section_from,section_to,revers)
+		return
+	end
+end

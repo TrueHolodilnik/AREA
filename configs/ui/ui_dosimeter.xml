@@ -1,0 +1,19 @@
+<w>
+	<dosimeter x="0" y="0" width="0.0576" height="0.016">
+		<wrk_area width="0.0576" height="0.016">
+			<auto_static width="0.0576" height="0.016" stretch="1"/>
+		</wrk_area>
+								<!-- dosimeter dial -->
+		<digit	x = "0.0035"	y = "0.023"	width="0.014"	height="0.014"	stretch="1"/>
+		<digit	x = "0.0182"	y = "0.023"	width="0.014"	height="0.014"	stretch="1"/>
+		<digit	x = "0.0302"	y = "0.023"	width="0.014"	height="0.014"	stretch="1"/>
+		<digit	x = "0.0421"	y = "0.023"	width="0.014"	height="0.014"	stretch="1"/>
+		<dot	x = "0.0155"	y = "0.033"	width="0.003"	height="0.003"	stretch="1">
+			<texture shader="hud\p3d"color="green">green_dot</texture>
+		</dot>
+								<!-- flashing diode -->
+		<work	x = "-0.0006"	y = "0.0116"	width="0.006"	height="0.006"	stretch="1">
+			<texture shader="hud\p3d" color="red">red_diod</texture>
+		</work>
+	</dosimeter>
+</w>

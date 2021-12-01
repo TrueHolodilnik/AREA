@@ -1,0 +1,1499 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<		   DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					  A.R.E.A - DIALOG
+<			    ------ by Las Plagas -----
+<===========================================================-->
+<game_dialogs>
+
+<!----- Test military ------>
+    <dialog id="jurov_start">
+        <phrase_list>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+            </phrase>
+            <phrase id="2">
+                <text>jurov_start_2</text>
+                <dont_has_info>jurov_start</dont_has_info>
+                <give_info>jurov_start</give_info>
+                <next>21</next>
+            </phrase>
+            <phrase id="21">
+                <text>jurov_start_21</text>
+                <next>22</next>
+            </phrase>
+            <phrase id="22">
+                <text>jurov_start_22</text>
+            </phrase>
+            <phrase id="3">
+                <text>jurov_start_3</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="4">
+                <text>jurov_start_4</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="5">
+                <text>jurov_start_5</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="6">
+                <text>jurov_start_6</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="7">
+                <text>jurov_start_7</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="8">
+                <text>jurov_start_8</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="9">
+                <text>jurov_start_9</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="10">
+                <text>jurov_start_10</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="11">
+                <text>jurov_start_11</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="12">
+                <text>jurov_start_12</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="13">
+                <text>jurov_start_13</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="14">
+                <text>jurov_start_14</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+            <phrase id="15">
+                <text>jurov_start_15</text>
+                <has_info>jurov_start</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="serega_start">
+        <phrase_list>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>18</next>
+            </phrase>
+            <phrase id="3">
+                <text>serega_start_3</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="6">
+                <text>serega_start_6</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="9">
+                <text>serega_start_9</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="12">
+                <text>serega_start_12</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="2">
+                <text>serega_start_2</text>
+                <dont_has_info>serega_start</dont_has_info>
+                <give_info>serega_start</give_info>
+            </phrase>
+            <phrase id="4">
+                <text>serega_start_4</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="5">
+                <text>serega_start_5</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="7">
+                <text>serega_start_7</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="8">
+                <text>serega_start_8</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="10">
+                <text>serega_start_10</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="11">
+                <text>serega_start_11</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="13">
+                <text>serega_start_13</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="14">
+                <text>serega_start_14</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="15">
+                <text>serega_start_15</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="16">
+                <text>serega_start_16</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="17">
+                <text>serega_start_17</text>
+                <has_info>serega_start</has_info>
+            </phrase>
+            <phrase id="18">
+                <text>serega_start_18</text>
+            </phrase>
+        </phrase_list>
+    </dialog>
+	
+		<!----- Hog ------>
+		
+    <dialog id="hog_info">
+        <phrase_list>
+            <phrase id="0">
+                <text>hog_info_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>hog_info_1</text>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="hog_start_dialog">
+        <phrase_list>
+            <phrase id="7">
+                <text>hog_start_dialog_7</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="15">
+                <text>hog_start_dialog_15</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>18</next>
+                <next>19</next>
+                <next>20</next>
+                <next>21</next>
+                <next>22</next>
+                <next>23</next>
+                <next>24</next>
+                <next>25</next>
+            </phrase>
+            <phrase id="13">
+                <text>hog_start_dialog_13</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="12">
+                <text>hog_start_dialog_12</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="11">
+                <text>hog_start_dialog_11</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="10">
+                <text>hog_start_dialog_10</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="9">
+                <text>hog_start_dialog_9</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="5">
+                <text>hog_start_dialog_5</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="4">
+                <text>hog_start_dialog_4</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="3">
+                <text>hog_start_dialog_3</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="2">
+                <text>hog_start_dialog_2</text>
+                <dont_has_info>hello_hog</dont_has_info>
+                <give_info>hello_hog</give_info>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="6">
+                <text>hog_start_dialog_6</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="8">
+                <text>hog_start_dialog_8</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="14">
+                <text>hog_start_dialog_14</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="19">
+                <text>hog_start_dialog_19</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="20">
+                <text>hog_start_dialog_20</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="18">
+                <text>hog_start_dialog_18</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="17">
+                <text>hog_start_dialog_17</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="16">
+                <text>hog_start_dialog_16</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="21">
+                <text>hog_start_dialog_21</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="22">
+                <text>hog_start_dialog_22</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="23">
+                <text>hog_start_dialog_23</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="24">
+                <text>hog_start_dialog_24</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+            <phrase id="25">
+                <text>hog_start_dialog_25</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+                <has_info>hello_hog</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="hog_limansk">
+		<dont_has_info>limansk_dialog_close_hog</dont_has_info>
+        <has_info>limansk_dialog_start</has_info>
+        <phrase_list>
+            <phrase id="31">
+                <text>hog_limansk_31</text>
+                <next>32</next>
+                <next>34</next>
+            </phrase>
+            <phrase id="32">
+                <text>hog_limansk_32</text>
+                <next>33</next>
+            </phrase>
+            <phrase id="34">
+                <text>hog_limansk_34</text>
+                <next>35</next>
+            </phrase>
+            <phrase id="21">
+                <text>hog_limansk_21</text>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="33">
+                <text>hog_limansk_33</text>
+                <next>2</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="35">
+                <text>hog_limansk_35</text>
+                <next>2</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="41">
+                <text>hog_limansk_41</text>
+                <next>42</next>
+                <next>43</next>
+            </phrase>
+            <phrase id="42">
+                <text>hog_limansk_42</text>
+                <next>44</next>
+            </phrase>
+            <phrase id="43">
+                <text>hog_limansk_43</text>
+                <next>45</next>
+            </phrase>
+            <phrase id="44">
+                <text>hog_limansk_44</text>
+                <next>2</next>
+                <next>3</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="45">
+                <text>hog_limansk_45</text>
+                <next>2</next>
+                <next>3</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="6">
+                <text>hog_limansk_6</text>
+            </phrase>
+            <phrase id="2">
+                <text>hog_limansk_2</text>
+                <dont_has_info>limansk_dialog_eyes</dont_has_info>
+                <give_info>limansk_dialog_eyes</give_info>
+                <next>21</next>
+            </phrase>
+            <phrase id="4">
+                <text>hog_limansk_4</text>
+                <dont_has_info>limansk_dialog_search_brat</dont_has_info>
+                <give_info>limansk_dialog_search_brat</give_info>
+                <next>41</next>
+            </phrase>
+            <phrase id="3">
+                <text>hog_limansk_3</text>
+                <dont_has_info>limansk_dialog_signal_01</dont_has_info>
+                <give_info>limansk_dialog_signal_01</give_info>
+                <next>31</next>
+            </phrase>
+            <phrase id="5">
+                <text>hog_limansk_5</text>
+                <give_info>limansk_dialog_close_hog</give_info>
+                <has_info>limansk_dialog_signal_01</has_info>
+                <next>6</next>
+            </phrase>
+            <phrase id="1">
+                <text>hog_limansk_1</text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="0">
+                <text>hog_limansk_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+
+	<!----- Vikari ------>
+	<dialog id="ds_killer_mlr_book1_complete">
+        <precondition>dialogs_area.have_quest_book_01</precondition>
+        <has_info>vikarii_quest_book_init</has_info>
+        <dont_has_info>vikarii_quest_book_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>ds_killer_mlr_book1_complete_1</text>
+				<give_info>vikarii_quest_book_end</give_info>
+                <action>dialogs_area.reward_quest_book_01</action>
+                <disable_info>vikarii_quest_init</disable_info>
+				<action>dialogs_area.take_actor_quest_book_01</action>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_mlr_book1_complete_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_medic_mlr_start_dialog">
+        <phrase_list>
+            <phrase id="1112">
+                <text>ds_killer_medic_mlr_start_dialog_1112</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1113">
+                <text>ds_killer_medic_mlr_start_dialog_1113</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1118">
+                <text>ds_killer_medic_mlr_start_dialog_1118</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1117">
+                <text>ds_killer_medic_mlr_start_dialog_1117</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1116">
+                <text>ds_killer_medic_mlr_start_dialog_1116</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1115">
+                <text>ds_killer_medic_mlr_start_dialog_1115</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1114">
+                <text>ds_killer_medic_mlr_start_dialog_1114</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1119">
+                <text>ds_killer_medic_mlr_start_dialog_1119</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1120">
+                <text>ds_killer_medic_mlr_start_dialog_1120</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1121">
+                <text>ds_killer_medic_mlr_start_dialog_1121</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1122">
+                <text>ds_killer_medic_mlr_start_dialog_1122</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1123">
+                <text>ds_killer_medic_mlr_start_dialog_1123</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1124">
+                <text>ds_killer_medic_mlr_start_dialog_1124</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="1125">
+                <text>ds_killer_medic_mlr_start_dialog_1125</text>
+                <has_info>hi_vikarii</has_info>
+            </phrase>
+            <phrase id="121">
+                <text>ds_killer_medic_mlr_start_dialog_121</text>
+                <next>1211</next>
+            </phrase>
+            <phrase id="1211">
+                <text>ds_killer_medic_mlr_start_dialog_1211</text>
+                <next>1221</next>
+            </phrase>
+            <phrase id="1221">
+                <text>ds_killer_medic_mlr_start_dialog_1221</text>
+                <next>124</next>
+                <next>125</next>
+                <next>126</next>
+                <next>127</next>
+            </phrase>
+            <phrase id="1241">
+                <text>ds_killer_medic_mlr_start_dialog_1241</text>
+                <next>123</next>
+                <next>125</next>
+                <next>126</next>
+                <next>127</next>
+            </phrase>
+            <phrase id="1251">
+                <text>ds_killer_medic_mlr_start_dialog_1251</text>
+                <next>1252</next>
+            </phrase>
+            <phrase id="1252">
+                <text>ds_killer_medic_mlr_start_dialog_1252</text>
+                <next>1253</next>
+            </phrase>
+            <phrase id="1253">
+                <text>ds_killer_medic_mlr_start_dialog_1253</text>
+                <next>123</next>
+                <next>124</next>
+                <next>126</next>
+                <next>127</next>
+            </phrase>
+            <phrase id="1262">
+                <text>ds_killer_medic_mlr_start_dialog_1262</text>
+                <next>1263</next>
+            </phrase>
+            <phrase id="1263">
+                <text>ds_killer_medic_mlr_start_dialog_1263</text>
+                <next>123</next>
+                <next>124</next>
+                <next>125</next>
+                <next>127</next>
+            </phrase>
+            <phrase id="122">
+                <text>ds_killer_medic_mlr_start_dialog_122</text>
+                <next>123</next>
+                <next>124</next>
+                <next>125</next>
+                <next>126</next>
+            </phrase>
+            <phrase id="12">
+                <text>ds_killer_medic_mlr_start_dialog_12</text>
+                <next>122</next>
+            </phrase>
+            <phrase id="13">
+                <text>ds_killer_medic_mlr_start_dialog_13</text>
+                <next>131</next>
+            </phrase>
+            <phrase id="131">
+                <text>ds_killer_medic_mlr_start_dialog_131</text>
+            </phrase>
+            <phrase id="11">
+                <text>ds_killer_medic_mlr_start_dialog_11</text>
+                <give_info>vikarii_healinf_end</give_info>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <next>1111</next>
+                <next>1112</next>
+                <next>1113</next>
+                <next>1114</next>
+                <next>1115</next>
+                <next>1116</next>
+                <next>1117</next>
+                <next>1118</next>
+                <next>1119</next>
+                <next>1120</next>
+                <next>1121</next>
+                <next>1122</next>
+                <next>1123</next>
+                <next>1124</next>
+                <next>1125</next>
+            </phrase>
+            <phrase id="1111">
+                <text>ds_killer_medic_mlr_start_dialog_1111</text>
+                <dont_has_info>hi_vikarii</dont_has_info>
+                <give_info>hi_vikarii</give_info>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+            </phrase>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1261">
+                <text>ds_killer_medic_mlr_start_dialog_1261</text>
+                <next>1262</next>
+            </phrase>
+            <phrase id="126">
+                <text>ds_killer_medic_mlr_start_dialog_126</text>
+                <dont_has_info>vikarii_healinf_psy</dont_has_info>
+                <give_info>vikarii_healinf_psy</give_info>
+                <next>1261</next>
+            </phrase>
+            <phrase id="123">
+                <text>ds_killer_medic_mlr_start_dialog_123</text>
+                <dont_has_info>vikarii_healinf_blood</dont_has_info>
+                <give_info>vikarii_healinf_blood</give_info>
+                <next>121</next>
+            </phrase>
+            <phrase id="124">
+                <text>ds_killer_medic_mlr_start_dialog_124</text>
+                <dont_has_info>vikarii_healinf_regen</dont_has_info>
+                <give_info>vikarii_healinf_regen</give_info>
+                <next>1241</next>
+            </phrase>
+            <phrase id="125">
+                <text>ds_killer_medic_mlr_start_dialog_125</text>
+                <dont_has_info>vikarii_healinf_rad</dont_has_info>
+                <give_info>vikarii_healinf_rad</give_info>
+                <next>1251</next>
+            </phrase>
+            <phrase id="127">
+                <text>ds_killer_medic_mlr_start_dialog_127</text>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_mlr_heal_info">
+	<dont_has_info>vikarii_healinf_end</dont_has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>ds_killer_mlr_heal_info_1</text>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="111">
+                <text>ds_killer_mlr_heal_info_111</text>
+                <next>112</next>
+            </phrase>
+            <phrase id="112">
+                <text>ds_killer_mlr_heal_info_112</text>
+                <next>113</next>
+            </phrase>
+            <phrase id="131">
+                <text>ds_killer_mlr_heal_info_131</text>
+                <next>132</next>
+            </phrase>
+            <phrase id="132">
+                <text>ds_killer_mlr_heal_info_132</text>
+                <next>133</next>
+            </phrase>
+            <phrase id="141">
+                <text>ds_killer_mlr_heal_info_141</text>
+                <next>142</next>
+            </phrase>
+            <phrase id="142">
+                <text>ds_killer_mlr_heal_info_142</text>
+                <next>143</next>
+            </phrase>
+            <phrase id="11">
+                <text>ds_killer_mlr_heal_info_11</text>
+                <dont_has_info>vikarii_healinf_blood</dont_has_info>
+                <give_info>vikarii_healinf_blood</give_info>
+                <give_info>vikarii_healinf_startend</give_info>
+                <next>111</next>
+            </phrase>
+            <phrase id="113">
+                <text>ds_killer_mlr_heal_info_113</text>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="12">
+                <text>ds_killer_mlr_heal_info_12</text>
+                <dont_has_info>vikarii_healinf_regen</dont_has_info>
+                <give_info>vikarii_healinf_regen</give_info>
+                <give_info>vikarii_healinf_startend</give_info>
+                <next>121</next>
+            </phrase>
+            <phrase id="14">
+                <text>ds_killer_mlr_heal_info_14</text>
+                <dont_has_info>vikarii_healinf_psy</dont_has_info>
+                <give_info>vikarii_healinf_psy</give_info>
+                <give_info>vikarii_healinf_startend</give_info>
+                <next>141</next>
+            </phrase>
+            <phrase id="13">
+                <text>ds_killer_mlr_heal_info_13</text>
+                <dont_has_info>vikarii_healinf_rad</dont_has_info>
+                <give_info>vikarii_healinf_rad</give_info>
+                <give_info>vikarii_healinf_startend</give_info>
+                <next>131</next>
+            </phrase>
+            <phrase id="121">
+                <text>ds_killer_mlr_heal_info_121</text>
+                <next>11</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="133">
+                <text>ds_killer_mlr_heal_info_133</text>
+                <next>11</next>
+                <next>12</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="143">
+                <text>ds_killer_mlr_heal_info_143</text>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>15</next>
+                <next>16</next>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_mlr_heal_info_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="15">
+                <text>ds_killer_mlr_heal_info_15</text>
+            </phrase>
+            <phrase id="16">
+                <text>ds_killer_mlr_heal_info_16</text>
+                <give_info>vikarii_healinf_end</give_info>
+                <has_info>vikarii_healinf_startend</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_medic_mlr_quest_book">
+        <phrase_list>
+            <phrase id="112">
+                <text>ds_killer_medic_mlr_quest_book_112</text>
+                <action>dialogs_area.deadcity_create_quest_book_v2_01</action>
+            </phrase>
+            <phrase id="113">
+                <text>ds_killer_medic_mlr_quest_book_113</text>
+                <action>dialogs_area.deadcity_create_quest_book_v3_01</action>
+            </phrase>
+            <phrase id="31">
+                <text>ds_killer_medic_mlr_quest_book_31</text>
+                <action>dialogs_area.vikarii_medpreparat_give_quest</action>
+                <give_info>vikarii_quest_init</give_info>
+                <give_info>vikarii_quest_medpreparat_init</give_info>
+                <next>311</next>
+            </phrase>
+            <phrase id="311">
+                <text>ds_killer_medic_mlr_quest_book_311</text>
+                <next>3111</next>
+            </phrase>
+            <phrase id="3111">
+                <text>ds_killer_medic_mlr_quest_book_3111</text>
+            </phrase>
+            <phrase id="32">
+                <text>ds_killer_medic_mlr_quest_book_32</text>
+            </phrase>
+            <phrase id="11">
+                <text>ds_killer_medic_mlr_quest_book_11</text>
+                <action>dialogs_area.vikarii_book1_quest_give_quest</action>
+                <give_info>vikarii_quest_book_init</give_info>
+                <give_info>vikarii_quest_init</give_info>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="12">
+                <text>ds_killer_medic_mlr_quest_book_12</text>
+            </phrase>
+            <phrase id="3">
+                <text>ds_killer_medic_mlr_quest_book_3</text>
+                <dont_has_info>vikarii_quest_medpreparat_init</dont_has_info>
+                <has_info>vikarii_quest_book_end</has_info>
+                <next>31</next>
+                <next>32</next>
+            </phrase>
+            <phrase id="4">
+                <text>ds_killer_medic_mlr_quest_book_4</text>
+                <dont_has_info>vikarii_quest_init</dont_has_info>
+            </phrase>
+            <phrase id="111">
+                <text>ds_killer_medic_mlr_quest_book_111</text>
+                <action>dialogs_area.deadcity_create_quest_book_v1_01</action>
+            </phrase>
+            <phrase id="1">
+                <text>ds_killer_medic_mlr_quest_book_1</text>
+                <dont_has_info>vikarii_quest_book_init</dont_has_info>
+                <dont_has_info>vikarii_quest_book_end</dont_has_info>
+                <next>11</next>
+                <next>12</next>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_medic_mlr_quest_book_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+            </phrase>
+            <phrase id="2">
+                <text>ds_killer_medic_mlr_quest_book_2</text>
+                <has_info>vikarii_quest_init</has_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_kiler_mlr_medpreparat_end">
+        <precondition>dialogs_area.have_mutant_part_tushkano_head</precondition>
+        <has_info>vikarii_quest_medpreparat_init</has_info>
+        <phrase_list>
+            <phrase id="1">
+                <text>ds_kiler_mlr_medpreparat_end_1</text>
+                <action>dialogs_area.start_timer_medpreparat</action>
+                <action>dialogs_area.function_onetimer</action>
+            </phrase>
+            <phrase id="0">
+                <text>ds_kiler_mlr_medpreparat_end_0</text>
+                <action>dialogs_area.take_actor_mutant_part_tushkano_head</action>
+                <give_info>vikarii_quest_medpreparat_end</give_info>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_medic_mlr_heal_new">
+        <phrase_list>
+            <phrase id="3">
+                <text>ds_killer_medic_mlr_heal_new_3</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>3001</next>
+            </phrase>
+            <phrase id="11">
+                <text>ds_killer_medic_mlr_heal_new_11</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="7">
+                <text>ds_killer_medic_mlr_heal_new_7</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>7001</next>
+            </phrase>
+            <phrase id="8">
+                <text>ds_killer_medic_mlr_heal_new_8</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>8001</next>
+            </phrase>
+            <phrase id="9">
+                <text>ds_killer_medic_mlr_heal_new_9</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>9001</next>
+            </phrase>
+            <phrase id="10">
+                <text>ds_killer_medic_mlr_heal_new_10</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>10001</next>
+            </phrase>
+            <phrase id="12">
+                <text>ds_killer_medic_mlr_heal_new_12</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>12001</next>
+            </phrase>
+            <phrase id="13">
+                <text>ds_killer_medic_mlr_heal_new_13</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>13001</next>
+            </phrase>
+            <phrase id="14">
+                <text>ds_killer_medic_mlr_heal_new_14</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>14001</next>
+            </phrase>
+            <phrase id="15">
+                <text>ds_killer_medic_mlr_heal_new_15</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>15001</next>
+            </phrase>
+            <phrase id="5">
+                <text>ds_killer_medic_mlr_heal_new_5</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>5001</next>
+            </phrase>
+            <phrase id="6">
+                <text>ds_killer_medic_mlr_heal_new_6</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>6001</next>
+            </phrase>
+            <phrase id="113">
+                <text>ds_killer_medic_mlr_heal_new_113</text>
+                <next>1131</next>
+                <next>1132</next>
+                <next>1133</next>
+            </phrase>
+            <phrase id="11113">
+                <text>ds_killer_medic_mlr_heal_new_11113</text>
+            </phrase>
+            <phrase id="11201">
+                <text>ds_killer_medic_mlr_heal_new_11201</text>
+            </phrase>
+            <phrase id="11301">
+                <text>ds_killer_medic_mlr_heal_new_11301</text>
+            </phrase>
+            <phrase id="1131">
+                <text>ds_killer_medic_mlr_heal_new_1131</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <action>dialogs.health_care_actor_transfer_money</action>
+                <next>11111</next>
+            </phrase>
+            <phrase id="1122">
+                <text>ds_killer_medic_mlr_heal_new_1122</text>
+                <precondition>dialogs.actor_needs_rad_health</precondition>
+                <action>dialogs.health_care_actor_transfer_rad_money</action>
+                <next>11112</next>
+            </phrase>
+            <phrase id="1112">
+                <text>ds_killer_medic_mlr_heal_new_1112</text>
+                <precondition>dialogs.actor_needs_rad_health</precondition>
+                <action>dialogs.health_care_actor_transfer_rad_money</action>
+                <next>11112</next>
+            </phrase>
+            <phrase id="1132">
+                <text>ds_killer_medic_mlr_heal_new_1132</text>
+                <precondition>dialogs.actor_needs_rad_health</precondition>
+                <action>dialogs.health_care_actor_transfer_rad_money</action>
+                <next>11112</next>
+            </phrase>
+            <phrase id="1133">
+                <text>ds_killer_medic_mlr_heal_new_1133</text>
+                <next>11301</next>
+            </phrase>
+            <phrase id="112">
+                <text>ds_killer_medic_mlr_heal_new_112</text>
+                <next>1121</next>
+                <next>1122</next>
+                <next>1123</next>
+            </phrase>
+            <phrase id="2001">
+                <text>ds_killer_medic_mlr_heal_new_2001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="2">
+                <text>ds_killer_medic_mlr_heal_new_2</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>2001</next>
+            </phrase>
+            <phrase id="3001">
+                <text>ds_killer_medic_mlr_heal_new_3001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="4001">
+                <text>ds_killer_medic_mlr_heal_new_4001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="5001">
+                <text>ds_killer_medic_mlr_heal_new_5001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="6001">
+                <text>ds_killer_medic_mlr_heal_new_6001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="7001">
+                <text>ds_killer_medic_mlr_heal_new_7001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="8001">
+                <text>ds_killer_medic_mlr_heal_new_8001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="9001">
+                <text>ds_killer_medic_mlr_heal_new_9001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="10001">
+                <text>ds_killer_medic_mlr_heal_new_10001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="12001">
+                <text>ds_killer_medic_mlr_heal_new_12001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="13001">
+                <text>ds_killer_medic_mlr_heal_new_13001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="14001">
+                <text>ds_killer_medic_mlr_heal_new_14001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="15001">
+                <text>ds_killer_medic_mlr_heal_new_15001</text>
+                <next>111</next>
+                <next>112</next>
+                <next>113</next>
+            </phrase>
+            <phrase id="1111">
+                <text>ds_killer_medic_mlr_heal_new_1111</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <action>dialogs.health_care_actor_transfer_money</action>
+                <next>11111</next>
+            </phrase>
+            <phrase id="1113">
+                <text>ds_killer_medic_mlr_heal_new_1113</text>
+                <next>11113</next>
+            </phrase>
+            <phrase id="111">
+                <text>ds_killer_medic_mlr_heal_new_111</text>
+                <next>1111</next>
+                <next>1112</next>
+                <next>1113</next>
+            </phrase>
+            <phrase id="11111">
+                <text>ds_killer_medic_mlr_heal_new_11111</text>
+                <action>dialogs.medic_magic_potion</action>
+                <action>actor_effects.medic_anim</action>
+            </phrase>
+            <phrase id="11112">
+                <text>ds_killer_medic_mlr_heal_new_11112</text>
+                <action>dialogs.medic_rad_potion</action>
+                <action>actor_effects.medic_rad_anim</action>
+            </phrase>
+            <phrase id="1121">
+                <text>ds_killer_medic_mlr_heal_new_1121</text>
+                <precondition>dialogs.actor_needs_health</precondition>
+                <action>dialogs.health_care_actor_transfer_money</action>
+                <next>11111</next>
+            </phrase>
+            <phrase id="1123">
+                <text>ds_killer_medic_mlr_heal_new_1123</text>
+                <next>11201</next>
+            </phrase>
+            <phrase id="4">
+                <text>ds_killer_medic_mlr_heal_new_4</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>4001</next>
+            </phrase>
+            <phrase id="1">
+                <text>ds_killer_medic_mlr_heal_new_1</text>
+                <precondition>dialogs.actor_needs_bless</precondition>
+                <next>11</next>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_medic_mlr_heal_new_0</text>
+                <next>1</next>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+                <next>16</next>
+                <next>17</next>
+                <next>18</next>
+                <next>19</next>
+            </phrase>
+            <phrase id="16">
+                <text>ds_killer_medic_mlr_heal_new_16</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+            </phrase>
+            <phrase id="18">
+                <text>ds_killer_medic_mlr_heal_new_18</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+            </phrase>
+            <phrase id="17">
+                <text>ds_killer_medic_mlr_heal_new_17</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+            </phrase>
+            <phrase id="19">
+                <text>ds_killer_medic_mlr_heal_new_19</text>
+                <precondition>dialogs.actor_is_damn_healthy</precondition>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_mlr_medpreparat_time">
+        <has_info>vikarii_quest_medpreparat_time</has_info>
+        <phrase_list>
+            <phrase id="3">
+                <text>ds_killer_mlr_medpreparat_time_3</text>
+                <next>4</next>
+            </phrase>
+            <phrase id="4">
+                <text>ds_killer_mlr_medpreparat_time_4</text>
+            </phrase>
+            <phrase id="1">
+                <text>ds_killer_mlr_medpreparat_time_1</text>
+                <action>dialogs_area.reward_quest_medpreparat</action>
+				<action>dialogs_area.give_actor_mutagen</action>
+                <disable_info>vikarii_quest_init</disable_info>
+                <disable_info>vikarii_quest_medpreparat_time</disable_info>
+                <give_info>ds_killer_mlr_medpreparat_time_end</give_info>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_mlr_medpreparat_time_0</text>
+                <next>1</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="ds_killer_mlr_info">
+        <phrase_list>
+            <phrase id="21">
+                <text>ds_killer_mlr_info_21</text>
+                <next>22</next>
+            </phrase>
+            <phrase id="22">
+                <text>ds_killer_mlr_info_22</text>
+                <next>23</next>
+            </phrase>
+            <phrase id="4251">
+                <text>ds_killer_mlr_info_4251</text>
+            </phrase>
+            <phrase id="42001">
+                <text>ds_killer_mlr_info_42001</text>
+                <next>42002</next>
+            </phrase>
+            <phrase id="4201">
+                <text>ds_killer_mlr_info_4201</text>
+                <next>42001</next>
+            </phrase>
+            <phrase id="23">
+                <text>ds_killer_mlr_info_23</text>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="42002">
+                <text>ds_killer_mlr_info_42002</text>
+                <next>2</next>
+                <next>3</next>
+                <next>5</next>
+                <next>43</next>
+            </phrase>
+            <phrase id="4202">
+                <text>ds_killer_mlr_info_4202</text>
+                <next>2</next>
+                <next>3</next>
+                <next>5</next>
+                <next>43</next>
+            </phrase>
+            <phrase id="2">
+                <text>ds_killer_mlr_info_2</text>
+                <dont_has_info>vikarii_inf_profile</dont_has_info>
+                <give_info>vikarii_inf_profile</give_info>
+                <next>21</next>
+            </phrase>
+            <phrase id="31">
+                <text>ds_killer_mlr_info_31</text>
+                <next>2</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="1">
+                <text>ds_killer_mlr_info_1</text>
+                <next>2</next>
+                <next>3</next>
+                <next>4</next>
+                <next>5</next>
+            </phrase>
+            <phrase id="425">
+                <text>ds_killer_mlr_info_425</text>
+                <next>4251</next>
+            </phrase>
+            <phrase id="424">
+                <text>ds_killer_mlr_info_424</text>
+                <dont_has_info>vikarii_inf_army_sclad</dont_has_info>
+                <give_info>vikarii_inf_army_sclad</give_info>
+                <next>431</next>
+            </phrase>
+            <phrase id="423">
+                <text>ds_killer_mlr_info_423</text>
+                <give_info>limansk_dialog_start</give_info>
+                <next>4202</next>
+            </phrase>
+            <phrase id="41">
+                <text>ds_killer_mlr_info_41</text>
+                <next>42</next>
+                <next>43</next>
+            </phrase>
+            <phrase id="4">
+                <text>ds_killer_mlr_info_4</text>
+                <dont_has_info>limansk_dialog_start</dont_has_info>
+                <next>41</next>
+            </phrase>
+            <phrase id="422">
+                <text>ds_killer_mlr_info_422</text>
+                <give_info>limansk_dialog_start</give_info>
+                <next>4201</next>
+            </phrase>
+            <phrase id="421">
+                <text>ds_killer_mlr_info_421</text>
+                <next>422</next>
+                <next>423</next>
+                <next>424</next>
+                <next>425</next>
+            </phrase>
+            <phrase id="42">
+                <text>ds_killer_mlr_info_42</text>
+                <dont_has_info>limansk_dialog_start</dont_has_info>
+                <next>421</next>
+            </phrase>
+            <phrase id="43">
+                <text>ds_killer_mlr_info_43</text>
+                <dont_has_info>vikarii_inf_army_sclad</dont_has_info>
+                <give_info>vikarii_inf_army_sclad</give_info>
+                <next>431</next>
+            </phrase>
+            <phrase id="5">
+                <text>ds_killer_mlr_info_5</text>
+            </phrase>
+            <phrase id="3">
+                <text>ds_killer_mlr_info_3</text>
+                <dont_has_info>vikarii_inf_deadcity</dont_has_info>
+                <give_info>vikarii_inf_deadcity</give_info>
+                <next>31</next>
+            </phrase>
+            <phrase id="0">
+                <text>ds_killer_mlr_info_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="431">
+                <text>ds_killer_mlr_info_431</text>
+                <next>42</next>
+                <next>3</next>
+                <next>2</next>
+                <next>5</next>
+            </phrase>
+        </phrase_list>
+    </dialog>
+	
+	    <!----- Sidor_vodka ------>
+	
+    <dialog id="sidorovych_start_dialog">
+        <phrase_list>
+            <phrase id="0">
+                <text></text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text></text>
+                <next>1111</next>
+                <next>1112</next>
+                <next>1113</next>
+                <next>1114</next>
+                <next>1115</next>
+                <next>1116</next>
+                <next>6</next>
+                <next>7</next>
+                <next>8</next>
+                <next>9</next>
+                <next>10</next>
+                <next>11</next>
+                <next>12</next>
+                <next>13</next>
+                <next>14</next>
+                <next>15</next>
+            </phrase>
+            <phrase id="1111">
+                <text>sidorovych_start_dialog_1111</text>
+                <dont_has_info>esc_m_trader_on_first_meet</dont_has_info>
+                <give_info>esc_m_trader_on_first_meet</give_info>
+                <next>102</next>
+                <next>103</next>
+            </phrase>
+            <phrase id="102">
+                <text>sidorovych_start_dialog_102</text>
+                <next>10201</next>
+            </phrase>
+            <phrase id="103">
+                <text>sidorovych_start_dialog_103</text>
+                <next>10301</next>
+            </phrase>
+            <phrase id="10201">
+                <text>sidorovych_start_dialog_10201</text>
+            </phrase>
+            <phrase id="10301">
+                <text>sidorovych_start_dialog_10301</text>
+            </phrase>
+            <phrase id="1112">
+                <text></text>
+                <has_info>esc_m_trader_on_first_meet</has_info>
+            </phrase>
+            <phrase id="1113">
+                <text>sidorovych_start_dialog_1113</text>
+            </phrase>
+            <phrase id="1114">
+                <text>sidorovych_start_dialog_1114</text>
+            </phrase>
+            <phrase id="1115">
+                <text>sidorovych_start_dialog_1115</text>
+            </phrase>
+            <phrase id="1116">
+                <text>sidorovych_start_dialog_1116</text>
+                <precondition>dialogs_area.esc_stalker_trader_have_money_1200</precondition>
+                <dont_has_info>vodka_trade</dont_has_info>
+                <next>201</next>
+                <next>202</next>
+            </phrase>
+            <phrase id="201">
+                <text>sidorovych_start_dialog_201</text>
+                <action>dialogs_area.esc_stalker_trader_1200</action>
+                <give_info>vodka_trade</give_info>
+                <next>2011</next>
+            </phrase>
+            <phrase id="202">
+                <text>sidorovych_start_dialog_202</text>
+                <next>1202</next>
+            </phrase>
+            <phrase id="1202">
+                <text>sidorovych_start_dialog_1202</text>
+                <next>1203</next>
+                <next>1204</next>
+                <next>1205</next>
+            </phrase>
+            <phrase id="1203">
+                <text>sidorovych_start_dialog_1203</text>
+                <action>dialogs_area.esc_stalker_trader_1100</action>
+                <give_info>vodka_trade</give_info>
+                <next>2011</next>
+            </phrase>
+            <phrase id="2011">
+                <text>sidorovych_start_dialog_2011</text>
+                <action>dialogs_area.give_actor_bottle_metal_quest_3</action>
+            </phrase>
+            <phrase id="1204">
+                <text>sidorovych_start_dialog_1204</text>
+                <next>1301</next>
+            </phrase>
+            <phrase id="1301">
+                <text>sidorovych_start_dialog_1301</text>
+                <next>1302</next>
+                <next>1303</next>
+            </phrase>
+            <phrase id="1302">
+                <text>sidorovych_start_dialog_1302</text>
+                <action>dialogs_area.esc_stalker_trader_800</action>
+                <give_info>vodka_trade</give_info>
+                <next>13021</next>
+            </phrase>
+            <phrase id="13021">
+                <text>sidorovych_start_dialog_13021</text>
+                <action>dialogs_area.give_actor_bottle_metal_quest_2</action>
+            </phrase>
+            <phrase id="1303">
+                <text>sidorovych_start_dialog_1303</text>
+            </phrase>
+            <phrase id="1205">
+                <text>sidorovych_start_dialog_1205</text>
+                <next>1206</next>
+            </phrase>
+            <phrase id="1206">
+                <text>sidorovych_start_dialog_1206</text>
+            </phrase>
+            <phrase id="6">
+                <text>sidorovych_start_dialog_6</text>
+            </phrase>
+            <phrase id="7">
+                <text>sidorovych_start_dialog_7</text>
+            </phrase>
+            <phrase id="8">
+                <text>sidorovych_start_dialog_8</text>
+            </phrase>
+            <phrase id="9">
+                <text>sidorovych_start_dialog_9</text>
+            </phrase>
+            <phrase id="10">
+                <text>sidorovych_start_dialog_10</text>
+            </phrase>
+            <phrase id="11">
+                <text>sidorovych_start_dialog_11</text>
+            </phrase>
+            <phrase id="12">
+                <text>sidorovych_start_dialog_12</text>
+            </phrase>
+            <phrase id="13">
+                <text>sidorovych_start_dialog_13</text>
+            </phrase>
+            <phrase id="14">
+                <text>sidorovych_start_dialog_14</text>
+            </phrase>
+            <phrase id="15">
+                <text>sidorovych_start_dialog_15</text>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="sidorovych_trader_vodka_trade">
+        <precondition>dialogs_area.have_bottle_metal_quest</precondition>
+        <has_info>vodka_trade</has_info>
+        <dont_has_info>vodka_trade_next</dont_has_info>
+        <phrase_list>
+            <phrase id="0">
+                <text>sidorovych_trader_vodka_trade_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>sidorovych_trader_vodka_trade_1</text>
+                <give_info>vodka_trade_next</give_info>
+            </phrase>
+        </phrase_list>
+    </dialog>
+    <dialog id="sidor_swamp_quest_1">
+        <phrase_list>
+            <phrase id="0">
+                <text>sidor_swamp_quest_1_0</text>
+                <next>1</next>
+            </phrase>
+            <phrase id="1">
+                <text>sidor_swamp_quest_1_1</text>
+                <action>dialogs_area.sidor_quest_swamp_v1_01</action>
+            </phrase>
+        </phrase_list>
+    </dialog>
+</game_dialogs>

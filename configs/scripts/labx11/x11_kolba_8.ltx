@@ -1,0 +1,5 @@
+[logic]
+active = ph_idle
+
+[ph_idle]
+hit_on_bone = 1 | {!active_weapon_section(knife) +x11_switcher_primary_off} %=inc_counter(x11_kolba_destroyed) =destroy_object =play_sound_at_pos(weapons\rpg7_explode:x11_mortal_kolba_8_point) =play_particle_on_path(explosions\explosion_01b00:x11_mortal_kolba_8_point) =spawn_object(x11_kolba_broken:x11_mortal_kolba_8_point)% nil

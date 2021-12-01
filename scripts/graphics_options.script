@@ -1,0 +1,286 @@
+dlg_ui = nil
+
+function start_ui(options)
+	if not dlg_ui then
+		local hud = get_hud()
+		if (hud) then
+			hud:HideActorMenu()
+		end
+		dlg_ui = GraphicsSettings(options)
+		dlg_ui:ShowDialog(true)
+	end
+end
+
+function stop_ui()
+	if dlg_ui then
+		dlg_ui:OnBtnCancel()
+	end
+end
+
+class "GraphicsSettings" (CUIScriptWnd)
+function GraphicsSettings:__init(options)  super()
+	self.options = options or {}
+	self:InitControls()
+	self:InitCallBacks()
+	self.edit_opt = {}
+	local abc_opt, opts, elements = {}, {}, {}
+	local _st 
+	self.scroll_v:Clear()
+	
+	self.hint_wnd = self.vxml:InitFrame("hint_wnd:background",self)
+	self.hint_wnd:SetAutoDelete(false)
+	self.hint_wnd_text = self.vxml:InitTextWnd("hint_wnd:text",self.hint_wnd)
+	self.hint_wnd:Show(false)
+	
+	self.ck_states = {
+		["postprocess_control"] = "check_pp",
+		["r2_ssa_lod_a"] = "objlod",
+		["chrabb_power"] = "chrabpow",
+		["dofchrabb"] = "chrabpowdof",
+		["lumasharpen"] = "lumasharpen",
+		["lumapattern"] = "lumapattern",
+		["fakehdr"] = "fakehdr",
+		["techni_amount"] = "techniam",
+		["techni_power"] = "technipow",
+		["bloom_control"] = "bloom",
+		["r2_ssa_lod_b"] = "lodq2",
+		["r2_ssa_lod_a"] = "lodq4",
+		["curvespatt"] = "curvespatt",
+		["curvescontr"] = "curvescontr",
+		["check_fxaa"] = "fxaa",
+		["fake_tonemap"] = "wdtone",
+		["vignette_control"] = "vignette",
+		["tonemap_on"] = "tonemap",
+	}
+	
+	for cap,t in pairs(self.options) do
+		_st = self.xml:InitStatic("tab_gameplay:templ_item", nil)
+		local ctrl
+		if (t.typ == "check") then
+			ctrl = self.xml:InitStatic("tab_gameplay:check_text",_st)
+			ctrl:TextControl():SetText(t.txt)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			ctrl = self.xml:InitCheck("tab_gameplay:check",_st)
+			self:Register(ctrl,"ck_"..cap)
+		elseif(t.typ == "list") then
+			ctrl = self.xml:InitStatic("tab_gameplay:list_text",_st)
+			ctrl:TextControl():SetText(t.txt)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			ctrl = self.xml:InitComboBox("tab_gameplay:list",_st)
+			for i,v in ipairs(t.list) do 
+				ctrl:AddItem(v,i-1)
+			end
+			self:Register(ctrl,"lst_"..cap)
+			if (t.on_list_item_select) then
+				local _wrapper = function(handler)
+				t.on_list_item_select(handler,ctrl)
+				end
+				self:AddCallback("lst_"..cap, ui_events.LIST_ITEM_SELECT,_wrapper,self)
+			end
+		elseif(t.typ == "edit") then
+			ctrl = self.xml:InitStatic("tab_gameplay:edit_text",_st)
+			ctrl:TextControl():SetText(t.txt)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			ctrl = self.xml:InitEditBox("tab_gameplay:edit",_st)
+			self:Register(ctrl,"edt_"..cap)
+			self.edit_opt[cap]=axr_main.config:r_value("graphics_settings",cap,0,t.default)
+		elseif(t.typ == "track") then
+			ctrl = self.xml:InitStatic("tab_gameplay:edit_text",_st)
+			ctrl:TextControl():SetText(t.txt)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+			ctrl = self.vxml:InitTrackBar("video_adv:track_" .. cap, _st)
+			self:Register(ctrl,"edt_"..cap)
+			self.edit_opt[cap]=axr_main.config:r_value("graphics_settings",cap,0,t.default)
+		elseif (t.typ == "text") then
+			ctrl = self.xml:InitStatic("tab_gameplay:label",_st)
+			ctrl:TextControl():SetText(t.default)
+			opts[t.num] = ctrl:TextControl():GetText()
+			elements[ctrl:TextControl():GetText()] = _st
+		end
+		self.options[cap].ctrl = ctrl
+	end
+	for k in pairs(opts) do
+		abc_opt[#abc_opt + 1] = k
+	end
+	table.sort(abc_opt)
+	for i=1,#abc_opt do
+		abc_opt[i] =  opts[abc_opt[i]]
+		self.scroll_v:AddWindow(elements[abc_opt[i]],true) 
+		elements[abc_opt[i]]:SetAutoDelete(false)
+	end
+	self:SetCurrentValues()
+end
+
+function GraphicsSettings:__finalize()
+end
+
+function GraphicsSettings:InitControls()
+	self:SetWndRect(Frect():set(0,0,1024,768))
+	self:SetAutoDelete(true)
+	self:Enable(true)
+	self.xml = CScriptXmlInit()
+	self.vxml = CScriptXmlInit()
+	self.xml:ParseFile("graphics_options_menu.xml")
+	self.vxml:ParseFile("ui_mm_opt.xml")
+	self.dialog = self.xml:InitStatic("main_dialog:dialog", self)
+	self.xml:InitStatic("main_dialog:header", self.dialog)
+	self.opt_dialog = graphics_options_window()
+	self.opt_dialog:InitControls(0,0, self.xml, self)
+	self.opt_dialog:Show(true)
+	self.dialog:AttachChild(self.opt_dialog)
+	self.xml:InitWindow("tab_size", 0, self.opt_dialog)
+	local btn
+	--btn = self.xml:Init3tButton("main_dialog:btn_accept", self.dialog)
+	--self:Register(btn, "btn_accept")
+	btn = self.xml:Init3tButton("main_dialog:btn_cancel", self.dialog)
+	self:Register(btn, "btn_cancel")
+	btn = self.xml:Init3tButton("main_dialog:btn_default", self.dialog)
+	self:Register(btn, "btn_default")
+end
+
+function GraphicsSettings:InitCallBacks()
+	self:AddCallback("btn_accept",ui_events.BUTTON_CLICKED,	self.OnBtnAccept,self)
+	self:AddCallback("btn_cancel",ui_events.BUTTON_CLICKED,	self.OnBtnCancel,self)
+	self:AddCallback("btn_default",ui_events.BUTTON_CLICKED,self.SetDefValues,self)
+end
+
+function GraphicsSettings:SetDefValues()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+			get_console():execute(v.name.." "..bool_to_number(v.ctrl:GetCheck()))
+			v.ctrl:SetCheck(v.default)
+		elseif (v.typ=="track") then
+			get_console():execute(v.name.." "..v.default)
+			v.ctrl:SetCurrentValue(get_console():get_float(v.name))
+		elseif (v.typ=="edit")  then
+			get_console():execute(v.name.." "..v.ctrl:GetText())
+			v.ctrl:SetText(v.default)
+		end
+	end
+	--self.edit_opt = self.edit_opt or {}
+	--for k in pairs(self.edit_opt) do
+	--	local v = self.options[k]
+	--	local t = v.ctrl:GetFValue()
+	--	self.edit_opt[k] = t
+	--end
+end
+
+function bool_to_number(value)
+	return value and 1 or 0
+end
+
+function GraphicsSettings:OnBtnAccept()
+local optMgr = COptionsManager()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+			get_console():execute(v.name.." "..bool_to_number(v.ctrl:GetCheck()))
+		elseif (v.typ=="edit") then
+			get_console():execute(v.name.." "..v.ctrl:GetText())
+		elseif (v.typ=="track") then
+			get_console():execute(v.name.." "..v.ctrl:GetFValue())
+		elseif (v.typ=="list") then
+			axr_main.config:w_value("graphics_settings",k,v.ctrl:GetText() or v.default)
+		end
+		if (v.on_accept) then 
+			v.on_accept(self,optMgr,v.ctrl)
+		end
+	end
+	self:SetCurrentValues()
+end
+
+function GraphicsSettings:SetCurrentValues()
+	for k,v in pairs(self.options) do
+		if (v.typ=="check") then
+			v.ctrl:SetCheck(get_console():get_bool(v.name))
+		elseif (v.typ=="edit") then
+			v.ctrl:SetText(get_console():get_string(v.name))
+		elseif (v.typ=="track") then
+			v.ctrl:SetCurrentValue(get_console():get_float(v.name))
+		elseif (v.typ=="list") then
+			v.ctrl:SetText(axr_main.config:r_value("graphics_settings",k,0,v.default))
+		end
+	end 
+end
+
+function GraphicsSettings:OnBtnCancel()
+	self:TextChange()
+	self:HideDialog()
+	dlg_ui = nil
+end
+
+function GraphicsSettings:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if res == false then
+		if keyboard_action == ui_events.WINDOW_KEY_PRESSED then
+			if dik_to_bind(dik) == key_bindings.kQUIT then
+				self:OnBtnCancel()
+			end
+		end
+	end
+	return res
+end
+
+function GraphicsSettings:TextChange()
+	--self.edit_opt = self.edit_opt or {}
+	--for k in pairs(self.edit_opt) do
+	--	local v = self.options[k]
+	--	local t = axr_main.config:r_value("graphics_settings",k,0,v.default)
+	--	v.ctrl:SetCurrentValue(t)
+	--	self.edit_opt[k] = t
+	--end
+end
+
+function GraphicsSettings:Update()
+	CUIScriptWnd.Update(self)
+	self:OnBtnAccept()
+	for k,v in pairs(self.options) do 
+		if (v.ctrl and v.ctrl:IsCursorOverWindow()) then
+			self:SetHint(self.ck_states[k])
+			return
+		end
+	end
+	self.hint_wnd:Show(false)
+end
+
+function GraphicsSettings:SetHint(text,pos)
+	if (text == "" or text == nil) then
+		return
+	end
+	
+	local str = game.translate_string("ui_mm_"..text.."_desc")
+	if str == "ui_mm_"..text.."_desc" then
+		return
+	end
+	
+	self.hint_wnd:Show(true)
+	self.hint_wnd_text:SetText(str)
+	self.hint_wnd_text:AdjustHeightToText()
+	self.hint_wnd:SetWndSize(vector2():set(self.hint_wnd:GetWidth(),self.hint_wnd_text:GetHeight()+44))
+	
+	pos = pos or GetCursorPosition()
+	pos.y = pos.y - self.hint_wnd:GetHeight()
+	pos.x = pos.x - self.hint_wnd:GetWidth()
+	self.hint_wnd:SetWndPos(pos)
+	
+	FitInRect(self.hint_wnd,Frect():set(0,0,1024,768),0,100)
+	
+end
+
+class "graphics_options_window" (CUIWindow)
+function graphics_options_window:__init() super()
+end
+
+function graphics_options_window:__finalize()
+end
+
+function graphics_options_window:InitControls(x, y, xml, handler)
+	self:SetWndPos(vector2():set(x,y))
+	self:SetWndSize(vector2():set(738,416))
+	self:SetAutoDelete(true)
+	self.scroll_v = xml:InitScrollView("tab_gameplay:scroll_v", self)
+	handler.scroll_v = self.scroll_v
+end

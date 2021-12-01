@@ -1,0 +1,657 @@
+;----------------------------------------------------------------------------------------
+; AC Val from STCoP 3.3, remade by Surs for A.R.E.A. (15.08.2020)
+;----------------------------------------------------------------------------------------
+[wpn_val]:default_weapon_params
+visual							= dynamics\weapons\wpn_val\wpn_val.ogf
+$spawn							= "weapons\val"			; option for Level Editor
+$npc							= off					; option for Level Editor
+class							= WP_VAL
+inv_name						= st_wpn_val
+inv_name_short					= st_wpn_val
+description						= st_wpn_val_descr
+heating_rates					= ak3
+scopes							= 1p29, 1p78, ekp, kobra, pso, okp
+parent_section					= wpn_val
+ef_main_weapon_type				= 2
+ef_weapon_type					= 8
+default_to_ruck					= false
+sprint_allowed					= true
+weapon_class					= assault_rifle
+repair_type						= rifle_9x39
+cost							= 38860
+inv_weight						= 2.5
+inv_volume						= 3.8
+ph_mass							= 3
+upgrades						= up_gr_firstab_val, up_gr_seconab_val, up_gr_thirdab_val, up_gr_fourtab_val, up_gr_fifthab_val
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_val
+;--TTX----------------------------------------------------------------------------
+hit_power						= 0.48, 0.48, 0.48, 0.48
+hit_impulse						= 33
+hit_type						= fire_wound
+fire_distance					= 400
+bullet_speed					= 300
+rpm								= 900
+rpm_empty_click					= 200
+time_to_aim						= 3.0
+hud								= wpn_val_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.82
+misfire_end_condition			= 0.11
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.11
+condition_shot_dec				= 0.0010
+condition_queue_shot_dec		= 0.0010
+
+ammo_elapsed					= 20
+ammo_mag_size					= 20
+fire_modes						= 1, -1
+magazine_sect					= mag_9x39_cnt_20_4_val, mag_9x39_cnt_10_val, mag_9x39_cnt_20_2_val, mag_9x39_cnt_20_3_val, mag_9x39_cnt_30_val
+ammo_class						= ammo_9x39_pab9, ammo_9x39_pab9_bad, ammo_9x39_pab9_verybad, ammo_9x39_ap, ammo_9x39_ap_bad, ammo_9x39_ap_verybad
+slot							= 2
+animation_slot					= 2
+;--дисперсия----------------------------------------------------------------------------
+fire_dispersion_base			= 0.33				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 1.16f
+crosshair_inertion				= 4.8
+
+cam_return						= 0
+cam_relax_speed					= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai				= 360
+cam_dispersion					= 0.82
+cam_dispersion_inc				= 0.70
+cam_dispersion_frac				= 0.9				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 43.0				;максимальный угол отдачи
+cam_max_angle_horz				= 43.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 0.59				;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 0.73
+PDM_disp_vel_factor				= 1.745
+PDM_disp_accel_factor			= 1.745
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 10				; scope & ironsight
+zoom_cam_relax_speed_ai			= 120.75
+zoom_cam_dispersion				= 0.76
+zoom_cam_dispersion_inc			= 0.64
+zoom_cam_dispersion_frac		= 0.9
+zoom_cam_max_angle				= 43.0
+zoom_cam_max_angle_horz			= 43.0
+zoom_cam_step_angle_horz		= 0.41
+fire_dispersion_condition_factor = 0.001			; увеличение дисперсии в процентах при максимальном износе
+;---DOF-------------------------------------------------------------------------
+zoom_dof						= 0.5, 1.0, 180
+reload_dof						= 0.0, 0.5, 5, 2
+;-------------------------------------------------------------------------------
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 30
+inv_grid_y						= 18
+	
+upgr_icon_x						= 600
+upgr_icon_y						= 800
+upgr_icon_width					= 300
+upgr_icon_height				= 100
+
+kill_msg_x						= 0
+kill_msg_y						= 154
+kill_msg_width					= 78
+kill_msg_height					= 21
+;----------------------------------------------------------------------------
+position						= -0.026, -0.131, 0
+orientation						= 0, 0, 0
+fire_point						= 0,0.174,0.562
+fire_point2						= 0, 0.097, 0.722
+
+;flame_particles				= weapons\generic_weapon05
+smoke_particles					= weapons\new_effects\smoke_silencer_vss
+grenade_flame_particles			= weapons\generic_weapon01
+
+shell_point						= -0.02,0.167,0.082
+shell_dir						= 0,1,0
+shell_particles					= weapons\9x39
+
+light_disabled					= true
+light_color						= 0.6,0.5,0.3
+light_range						= 0.01
+light_var_color					= 0.05
+light_var_range					= 0.5
+light_time						= 0.2
+
+;addons
+scope_status					= 2
+silencer_status					= 1
+grenade_launcher_status			= 0
+
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+scope_zoom_factor				= 1.03
+
+silencer_name					= wpn_addon_silencer
+silencer_x						= 221
+silencer_y						= 16
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time				= 0.2
+;silencer_flame_particles		= weapons\generic_weapon01
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster						= weapons\val\val_holster
+snd_draw						= weapons\val\val_draw
+snd_empty						= weapons\val\val_empty
+snd_reload						= weapons\val\val_reload
+snd_reload_empty				= weapons\val\val_reload_empty
+snd_reload_misfire				= weapons\val\val_reload_misfire
+snd_reload_detached				= weapons\val\val_reload, , ,0.7
+snd_reload_detached_empty		= weapons\val\val_reload_empty, , ,0.7
+snd_shoot						= weapons\val\val_shoot_null
+snd_silencer_shot				= weapons\val\val_shot_sil_null
+;--Магазины-------------------------------------------------------------------
+[mag_9x39_cnt_20_4_val]
+magazine_name					= magazine_9x39_cnt_20_4
+magazine_x						= 100
+magazine_y						= 42
+custom_icon 					= 1,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_10_val]
+magazine_name					= magazine_9x39_cnt_10
+magazine_x						= 100
+magazine_y						= 42
+custom_icon 					= 0,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_20_2_val]
+magazine_name					= magazine_9x39_cnt_20_2
+magazine_x						= 100
+magazine_y						= 44
+custom_icon 					= 3,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_20_3_val]
+magazine_name					= magazine_9x39_cnt_20_3
+magazine_x						= 100
+magazine_y						= 42
+custom_icon 					= 2,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_9x39_cnt_30_val]
+magazine_name					= magazine_9x39_cnt_30
+magazine_x						= 100
+magazine_y						= 46
+custom_icon 					= 4,9,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_val_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_val\wpn_val_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= 0,0,0
+shell_dir						= 0,1,0
+shell_bone						= gilza
+fire_point						= 0,0,0
+fire_bone						= muzzle
+fire_point2						= 0,0,0
+fire_bone2						= muzzle
+
+hands_position					= -0.113370,-0.091401,-0.076559
+hands_position_16x9				= -0.113370,-0.091401,-0.076559
+hands_orientation				= 0.550000,2.390000,0.149999
+hands_orientation_16x9			= 0.550000,2.390000,0.149999
+
+aim_hud_offset_pos				= -0.03807,0.01709,-0.132105
+aim_hud_offset_pos_16x9			= -0.03807,0.01709,-0.132105
+aim_hud_offset_rot				= 0.035101,0.0091,-0.01
+aim_hud_offset_rot_16x9			= 0.035101,0.0091,-0.01
+
+aim_hud_offset_pos_alt			= -0.015150,0.000505,0.000000
+aim_hud_offset_pos_alt_16x9		= -0.015150,0.000505,0.000000
+aim_hud_offset_rot_alt			= 0.011116,-0.030820,0.297593
+aim_hud_offset_rot_alt_16x9		= 0.011116,-0.030820,0.297593
+
+anm_show						= vihr_draw
+anm_hide						= vihr_hide
+anm_idle						= vihr_idle
+anm_idle_sprint					= vihr_idle_sprint
+anm_idle_moving					= vihr_idle_moving
+anm_idle_moving_crouch			= vihr_idle_moving_crouch
+anm_shots						= vihr_shoot, shoot
+anm_shots_empty					= vihr_idle
+anm_reload						= val_reload, reload
+anm_reload_empty				= val_reload_empty, reload_empty
+anm_reload_misfire				= vihr_misfire, misfire
+anm_reload_detached				= val_reload, reload, , 1.1
+anm_reload_detached_empty		= val_reload_empty, reload_empty, ,1.1
+anm_idle_aim					= vihr_idle_aim
+anm_bore						= vihr_idle_aim
+;-----------------------------------------------------------------------------
+[wpn_val_1p29]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p29.ogf
+scope_name						= 1p29
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p29_hud
+
+[wpn_val_1p29_hud]:wpn_val_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p29_hud.ogf
+aim_hud_offset_pos				= -0.044265,-0.024070,-0.103860
+aim_hud_offset_pos_16x9			= -0.044265,-0.024070,-0.103860
+aim_hud_offset_pos_alt			= 0.00623,0.04099,0.014525
+aim_hud_offset_pos_alt_16x9		= 0.00623,0.04099,0.014525
+aim_hud_offset_rot_alt			= 0,0,0
+aim_hud_offset_rot_alt_16x9		= 0,0,0
+;-----------------------------------------------------------------------------
+[wpn_val_1p78]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p78.ogf
+scope_name						= 1p78
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p78_hud
+
+[wpn_val_1p78_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p78_hud.ogf
+aim_hud_offset_pos				= -0.037755,-0.00958,-0.099135
+aim_hud_offset_pos_16x9			= -0.037755,-0.00958,-0.099135
+aim_hud_offset_pos_alt			= -0.00028,0.026605,0.014525
+aim_hud_offset_pos_alt_16x9		= -0.00028,0.026605,0.014525
+;-----------------------------------------------------------------------------
+[wpn_val_ekp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_ekp.ogf
+scope_name						= ekp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_ekp_hud
+
+[wpn_val_ekp_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_ekp_hud.ogf
+aim_hud_offset_pos				= -0.037650,-0.020605,-0.09378
+aim_hud_offset_pos_16x9			= -0.037650,-0.020605,-0.09378
+aim_hud_offset_pos_alt			= -0.00049,0.037945,0.014525
+aim_hud_offset_pos_alt_16x9		= -0.00049,0.037945,0.014525
+;-----------------------------------------------------------------------------
+[wpn_val_kobra]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_kobra.ogf
+scope_name						= kobra
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_kobra_hud
+
+[wpn_val_kobra_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_kobra_hud.ogf
+aim_hud_offset_pos				= -0.037965,-0.015880,-0.103860
+aim_hud_offset_pos_16x9			= -0.037965,-0.015880,-0.103860
+aim_hud_offset_pos_alt			= -0.00007,0.0328,0.014525
+aim_hud_offset_pos_alt_16x9		= -0.00007,0.0328,0.014525
+;-----------------------------------------------------------------------------
+[wpn_val_okp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_okp.ogf
+scope_name						= okp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_okp_hud
+
+[wpn_val_okp_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_okp_hud.ogf
+aim_hud_offset_pos				= -0.033975,-0.00034,-0.10386
+aim_hud_offset_pos_16x9			= -0.033975,-0.00034,-0.10386
+aim_hud_offset_pos_alt			= -0.00427,0.017365,0.014525
+aim_hud_offset_pos_alt_16x9		= -0.00427,0.017365,0.014525
+;-----------------------------------------------------------------------------
+[wpn_val_pso]:wpn_val
+scope_name						= pso
+scope_x							= 50
+scope_y							=  2
+hud								= wpn_val_pso_hud
+
+[wpn_val_pso_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_hud.ogf
+aim_hud_offset_pos				= -0.03114,-0.01231,-0.08433
+aim_hud_offset_pos_16x9			= -0.03114,-0.01231,-0.08433
+aim_hud_offset_pos_alt			= -0.00721,0.02923,-0.007
+aim_hud_offset_pos_alt_16x9		= -0.00721,0.02923,-0.007
+;-----------------------------------------------------------------------------
+[wpn_val_modern]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_sk1.ogf
+inv_name						= st_wpn_val_modern
+inv_name_short					= st_wpn_val_modern
+description						= st_wpn_val_modern_descr
+parent_section					= wpn_val_modern
+cost							= 42000
+hit_power						= 0.5, 0.5, 0.5, 0.5
+bullet_speed					= 305
+rpm								= 840
+hud								= wpn_val_sk1_hud
+misfire_start_condition			= 0.8
+misfire_end_condition			= 0.09
+condition_shot_dec				= 0.00105
+condition_queue_shot_dec		= 0.00105
+fire_dispersion_base			= 0.3
+inv_grid_x						= 30
+inv_grid_y						= 20
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_reload						= weapons\val\val_modern_reload
+
+[wpn_val_sk1_hud]:wpn_val_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_1p29]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p29_sk1.ogf
+scope_name						= 1p29
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p29_sk1_hud
+
+[wpn_val_1p29_sk1_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p29_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_1p78]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p78_sk1.ogf
+scope_name						= 1p78
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p78_sk1_hud
+
+[wpn_val_1p78_sk1_hud]:wpn_val_1p78_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p78_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_ekp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_ekp_sk1.ogf
+scope_name						= ekp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_ekp_sk1_hud
+
+[wpn_val_ekp_sk1_hud]:wpn_val_ekp_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_ekp_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_kobra]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_kobra_sk1.ogf
+scope_name						= kobra
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_kobra_sk1_hud
+
+[wpn_val_kobra_sk1_hud]:wpn_val_kobra_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_kobra_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_okp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_okp_sk1.ogf
+scope_name						= okp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_okp_sk1_hud
+
+[wpn_val_okp_sk1_hud]:wpn_val_okp_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_okp_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_modern_pso]:wpn_val
+scope_name						= pso
+scope_x							= 50
+scope_y							=  2
+hud								= wpn_val_pso_sk1_hud
+
+[wpn_val_pso_sk1_hud]:wpn_val_pso_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_sk2.ogf
+inv_name						= st_wpn_val_worn
+inv_name_short					= st_wpn_val_worn
+parent_section					= wpn_val_worn
+upgrades						= up_gr_firstab_val_worn, up_gr_seconab_val_worn, up_gr_thirdab_val_worn, up_gr_fourtab_val_worn, up_gr_fifthab_val_worn
+cost							= 28760
+hit_power						= 0.445, 0.445, 0.445, 0.445
+bullet_speed					= 288
+rpm								= 880
+hud								= wpn_val_sk2_hud
+misfire_start_condition			= 0.84
+misfire_end_condition			= 0.13
+condition_shot_dec				= 0.0011
+condition_queue_shot_dec		= 0.0011
+fire_dispersion_base			= 0.368
+inv_grid_x						= 30
+inv_grid_y						= 22
+
+[wpn_val_sk2_hud]:wpn_val_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_1p29]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p29_sk2.ogf
+scope_name						= 1p29
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p29_sk2_hud
+
+[wpn_val_1p29_sk2_hud]:wpn_val_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p29_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_1p78]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_1p78_sk2.ogf
+scope_name						= 1p78
+scope_x							= 68
+scope_y							= 1
+hud								= wpn_val_1p78_sk2_hud
+
+[wpn_val_1p78_sk2_hud]:wpn_val_1p78_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_1p78_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_ekp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_ekp_sk2.ogf
+scope_name						= ekp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_ekp_sk2_hud
+
+[wpn_val_ekp_sk2_hud]:wpn_val_ekp_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_ekp_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_kobra]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_kobra_sk2.ogf
+scope_name						= kobra
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_kobra_sk2_hud
+
+[wpn_val_kobra_sk2_hud]:wpn_val_kobra_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_kobra_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_okp]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_okp_sk2.ogf
+scope_name						= okp
+scope_x							= 80
+scope_y							= 3
+hud								= wpn_val_okp_sk2_hud
+
+[wpn_val_okp_sk2_hud]:wpn_val_okp_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_okp_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_val_worn_pso]:wpn_val
+scope_name						= pso
+scope_x							= 50
+scope_y							=  2
+hud								= wpn_val_pso_sk2_hud
+
+[wpn_val_pso_sk2_hud]:wpn_val_pso_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_okp_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+;  AC Val Tactical, added and modified by Surs
+;-----------------------------------------------------------------------------
+[wpn_val_grip]:wpn_val
+visual							= dynamics\weapons\wpn_val\wpn_val_grip.ogf
+$spawn							= "weapons\val_grip"
+inv_name						= st_wpn_val_grip
+inv_name_short					= st_wpn_val_grip
+description						= st_wpn_val_grip_descr
+repair_type						= rifle_9x39
+heating_rates					= ak3
+weapon_class					= assault_rifle
+parent_section					= wpn_val_grip
+cost 							= 52000
+inv_weight						= 2.6
+inv_volume						= 4.0
+ph_mass							= 3
+hud								= wpn_val_grip_hud
+upgrades						= up_gr_firstab_val, up_gr_seconab_val, up_gr_thirdab_val, up_gr_fourtab_val, up_gr_fifthab_val
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_val
+
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 56
+inv_grid_y						= 8
+
+upgr_icon_x						= 600
+upgr_icon_y						= 800
+upgr_icon_width					= 300
+upgr_icon_height 				= 100
+
+hit_power						= 0.50, 0.50, 0.50, 0.50
+hit_impulse						= 10
+hit_type						= fire_wound
+fire_distance					= 800
+bullet_speed					= 290
+rpm								= 800
+rpm_empty_click					= 200
+time_to_aim						= 3.0
+
+fire_dispersion_base			= 0.2
+fire_dispersion_condition_factor = 16
+control_inertion_factor			= 1.2f
+crosshair_inertion				= 5.65
+
+cam_return						= 0
+cam_relax_speed					= 10			;скорость возврата в исходное положение
+cam_relax_speed_ai				= 360
+cam_dispersion					= 0.82
+cam_dispersion_inc				= 0.70
+cam_dispersion_frac				= 0.9			;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 43.0			;максимальный угол отдачи
+cam_max_angle_horz				= 43.0			;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 0.59			;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed			= 4
+zoom_cam_relax_speed_ai			= 120.75
+zoom_cam_dispersion				= 0.45
+zoom_cam_dispersion_inc			= 0.22
+zoom_cam_dispersion_frac		= 0.7
+zoom_cam_max_angle				= 50.0
+zoom_cam_max_angle_horz			= 50.0
+zoom_cam_step_angle_horz		= 0.5
+
+PDM_disp_base					= 0.5
+PDM_disp_vel_factor				= 1.5
+PDM_disp_accel_factor			= 1.5
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+;-------------------------------------------------------------------------------
+position						= -0.026, -0.131, 0.0
+orientation						= 0, 0, 0
+fire_point						= 0.000000,0.174,0.562
+fire_point2						= 0.0, 0.097, 0.722
+smoke_particles					= weapons\generic_shoot_00
+grenade_flame_particles			= amik\weapons\grenade_flame_particles\grenade_flame_particles_00
+shell_point						= -0.020000,0.167000,0.082000
+shell_dir						= 0.0, 1.0, 0.0
+shell_particles					= weapons\9x39
+;-------------------------------------------------------------------------------
+[wpn_val_grip_hud]:wpn_val_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_hud.ogf
+shell_point						= 0.02,0.04,0.131
+shell_dir						= 0.0, 1.0, 0.0
+shell_bone						= wpn_body
+fire_point						= 0,0.037,0.626
+fire_bone						= wpn_body
+fire_point2						= -0.014,0.01,-0.037
+fire_bone2						= wpn_body
+grenade_bone					= grenade
+
+hands_position					= -0.09995,-0.098721,0.001826
+hands_position_16x9				= -0.09995,-0.098721,0.001826
+hands_orientation				= 0.55,2.39,0.149999
+hands_orientation_16x9			= 0.55,2.39,0.149999
+
+aim_hud_offset_pos				= -0.049355,0.01831,-0.144
+aim_hud_offset_pos_16x9			= -0.049355,0.01831,-0.144
+aim_hud_offset_rot				= 0.035101,0.0091,-0.01
+aim_hud_offset_rot_16x9			= 0.035101,0.0091,-0.01
+
+aim_hud_offset_pos_alt			= -0.015150,0.000505,0.000000
+aim_hud_offset_pos_alt_16x9		= -0.015150,0.000505,0.000000
+aim_hud_offset_rot_alt			= 0.011116,-0.030820,0.297593
+aim_hud_offset_rot_alt_16x9		= 0.011116,-0.030820,0.297593
+
+anm_show						= lancew_val_grip_draw
+anm_hide						= lancew_val_grip_holster
+anm_idle						= lancew_val_grip_idle 
+anm_idle_sprint					= lancew_val_grip_sprint
+anm_idle_moving					= lancew_val_grip_moving
+anm_idle_moving_crouch			= lancew_val_grip_moving, , 0.5
+anm_shots						= lancew_val_grip_shoot, shoot
+anm_shots_empty					= lancew_val_grip_idle
+anm_reload                      = val_reload_short, reload_short
+anm_reload_empty                = lancew_val_grip_reload, reload
+anm_reload_detached				= val_reload_short, reload_short, , 1.1
+anm_reload_detached_empty		= lancew_val_grip_reload, reload, ,1.1
+anm_idle_aim					= lancew_val_grip_idle_aim, idle_aim
+anm_bore						= lancew_val_grip_no_reload
+;-------------------------------------------------------------------------------
+[wpn_val_grip_1p29]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_1p29.ogf
+scope_name						= 1p29
+scope_x							= 72
+scope_y							= -2
+hud								= wpn_val_grip_1p29_hud
+
+[wpn_val_grip_1p29_hud]:wpn_val_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_1p29_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_val_grip_1p78]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_1p78.ogf
+scope_name						= 1p78
+scope_x							= 72
+scope_y							= -2
+hud								= wpn_val_grip_1p78_hud
+
+[wpn_val_grip_1p78_hud]:wpn_val_grip_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_1p78_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_val_grip_ekp]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_ekp.ogf
+scope_name						= ekp
+scope_x							= 81
+scope_y							= 0
+hud								= wpn_val_grip_ekp_hud
+
+[wpn_val_grip_ekp_hud]:wpn_val_grip_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_ekp_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_val_grip_kobra]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_kobra.ogf
+scope_name						= kobra
+scope_x							= 83
+scope_y							= 4
+hud								= wpn_val_grip_kobra_hud
+
+[wpn_val_grip_kobra_hud]:wpn_val_grip_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_kobra_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_val_grip_okp]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_okp.ogf
+scope_name						= okp
+scope_x							= 43
+scope_y							= 3
+hud								= wpn_val_grip_okp_hud
+
+[wpn_val_grip_okp_hud]:wpn_val_grip_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_okp_hud.ogf
+;-------------------------------------------------------------------------------
+[wpn_val_grip_pso]:wpn_val_grip
+visual							= dynamics\weapons\wpn_val\wpn_val_grip_pso.ogf
+scope_name						= pso
+scope_x							= 43
+scope_y							= 3
+hud								= wpn_val_grip_pso_hud
+
+[wpn_val_grip_pso_hud]:wpn_val_grip_1p29_hud
+item_visual						= dynamics\weapons\wpn_val\wpn_val_grip_hud.ogf
+aim_hud_offset_pos				= -0.04337,-0.0092,-0.171823
+aim_hud_offset_pos_16x9			= -0.04337,-0.0092,-0.171823
+;-------------------------------------------------------------------------------

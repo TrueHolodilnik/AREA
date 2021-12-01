@@ -1,0 +1,53 @@
+[logic@zagon1]
+active = mob_home@zagon1
+suitable = {=check_squad_name(x11_polters)} true
+prior = 100
+monster_job = true
+; on_death = death
+
+[mob_home@zagon1]
+path_home = polter_home_1
+actor_friendly = false
+home_min_radius = 5
+home_max_radius = 10
+aggressive = true
+out_restr = x11_sr_polter_gulag
+; combat_ignore_cond = {=check_enemy_name(lx8_snork_1_jump:lx8_snork_2_jump:lx8_snork)} true
+on_info = {!squad_in_zone(x11_polters:x11_sr_polter_gulag)} %=teleport_npc(x11_smart_terrain_2_1_polter_home_1)%
+
+[logic@zagon2]
+active = mob_home@zagon2
+suitable = {=check_squad_name(x11_polters)} true
+prior = 100
+monster_job = true
+; on_death = death
+
+[mob_home@zagon2]
+path_home = polter_home_2
+actor_friendly = false
+home_min_radius = 5
+home_max_radius = 10
+aggressive = true
+out_restr = x11_sr_polter_gulag
+; combat_ignore_cond = {=check_enemy_name(lx8_snork_1_jump:lx8_snork_2_jump:lx8_snork)} true
+on_info = {!squad_in_zone(x11_polters:x11_sr_polter_gulag)} %=teleport_npc(x11_smart_terrain_2_1_polter_home_2)%
+
+[logic@zagon3]
+active = mob_home@zagon3
+suitable = {=check_squad_name(x11_polters)} true
+prior = 100
+monster_job = true
+; on_death = death
+
+[mob_home@zagon3]
+path_home = polter_home_3
+actor_friendly = false
+home_min_radius = 5
+home_max_radius = 10
+aggressive = true
+out_restr = x11_sr_polter_gulag
+; combat_ignore_cond = {=check_enemy_name(lx8_snork_1_jump:lx8_snork_2_jump:lx8_snork)} true
+on_info = {!squad_in_zone(x11_polters:x11_sr_polter_gulag)} %=teleport_npc(x11_smart_terrain_2_1_polter_home_3)%
+
+[death]
+on_info = %+lx8_controller_dead%

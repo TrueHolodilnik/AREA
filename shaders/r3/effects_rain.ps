@@ -1,0 +1,33 @@
+#include "common.h"
+
+//By Holodilnik
+
+struct 	v2p
+{
+	float2 tc0	: TEXCOORD0;		// base
+	float2 tcss	: TEXCOORD1;
+	float4 color	: COLOR0; 
+	float4 fade	 : COLOR1; 
+	//float  fog	: FOG;
+	float4 hpos	: SV_Position;
+};
+
+Texture2D s_distort;
+Texture2D s_frame;
+
+float4 main ( v2p I ) : SV_Target
+{
+
+	if (I.fade.a < 3) return 0;
+	
+	float4 t_base = s_base.Sample( smp_base, I.tc0 );
+	
+	float4 distort	= s_distort.Sample( smp_linear, I.tc0 );
+	
+	distort.x += 0.05;
+	
+	float2 center = I.tcss + distort.xy*0.02;
+	float4 img = s_frame.Sample(smp_rtlinear,center);
+
+	return float4(img.rgb + I.color.rgb/13, (distort.r + distort.g + distort.b)*2*I.color.w);
+}

@@ -1,0 +1,502 @@
+[wpn_colt1911]:default_weapon_params, strap_pistol
+$spawn                  	= "weapons\colt1911"		; option for Level Editor
+$npc			 			= on						; option for Level Editor
+visual                   	= dynamics\weapons\wpn_colt1911\wpn_colt1911.ogf
+class                   	= WP_PM
+inv_name					= st_wpn_colt1911
+inv_name_short				= st_wpn_colt1911
+description					= st_wpn_colt1911_descr
+ef_weapon_type				= 5
+repair_type 				= pistol
+cost						= 8560
+inv_weight					= 1.075
+inv_volume					= 1.25
+ph_mass			 			= 1
+heating_rates 				= pistol3
+default_to_ruck				= false
+sprint_allowed				= true
+control_inertion_factor 	= 1.0
+upgrades                	= up_gr_firstab_colt1911, up_gr_seconab_colt1911, up_gr_thirdab_colt1911, up_gr_fourtab_colt1911, up_gr_fifthab_colt1911
+installed_upgrades      	=
+upgrade_scheme          	= upgrade_scheme_colt1911
+;--TTX------------------------------------------------------------------------
+hit_power           		= 0.45, 0.45, 0.45, 0.45
+hit_impulse		 			= 40
+hit_type 					= fire_wound
+fire_distance       		= 200
+bullet_speed				= 270
+rpm                     	= 400
+rpm_empty_click      		= 120
+time_to_aim					= 1.0
+hud                      	= wpn_colt1911_hud
+
+misfire_probability        	= 0.005
+misfire_start_condition		= 0.79
+misfire_end_condition		= 0.11
+misfire_start_prob			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec      	= 0.0018
+condition_queue_shot_dec	= 0.0018
+
+ammo_elapsed		 		= 7
+ammo_mag_size		 		= 7
+fire_modes           		= 1
+magazine_sect				= magazine_1143x23_cnt_7, magazine_1143x23_cnt_8
+ammo_class		 			= ammo_11.43x23_fmj, ammo_11.43x23_fmj_bad, ammo_11.43x23_fmj_verybad, ammo_11.43x23_ap, ammo_11.43x23_ap_bad, ammo_11.43x23_ap_verybad, ammo_11.43x23_hydro, ammo_11.43x23_hydro_bad, ammo_11.43x23_hydro_verybad
+single_handed				= 1
+slot 			 			= 0
+animation_slot				= 1
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= -1000, 1.0, 1000
+reload_dof					= 0.0, 0.5, 5, 1.7
+reload_empty_dof			= 0.0, 0.5, 5, 3
+;--дисперсия----------------------------------------------------------------------------
+fire_dispersion_base		= 0.6 ; 0.15			;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor 	= 1.0f
+crosshair_inertion			= 3.8
+
+cam_return 					= 0
+cam_relax_speed         	= 7						;скорость возврата в исходное положение
+cam_relax_speed_ai      	= 360
+cam_dispersion          	= 1.22					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 1.28					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 50.0					;максимальный угол отдачи
+cam_max_angle_horz			= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 0.76					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 0.7
+PDM_disp_vel_factor 		= 1.05
+PDM_disp_accel_factor 		= 1.055
+PDM_disp_crouch 			= 1.0
+PDM_disp_crouch_no_acc 		= 1.0 
+fire_dispersion_condition_factor = 0.001			;увеличение дисперсии в процентах при максимальном износе
+;-------------------------------------------------------------------------------
+inv_grid_width				= 2
+inv_grid_height				= 1
+inv_grid_x					= 37
+inv_grid_y					= 77
+
+upgr_icon_x					= 1450
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+
+kill_msg_x					= 161
+kill_msg_y					= 153
+kill_msg_width				= 37
+kill_msg_height				= 24
+;-------------------------------------------------------------------------------
+position					= -0.021,-0.085,0
+orientation 				= 0,0,0
+fire_point					= 0,0.133,0.161
+fire_point2					= 0,0.133,0.161
+flame_particles				= weapons\new_effects\pistol_45acp
+smoke_particles         	= weapons\new_effects\smoke_silencer_pistol
+shell_point		 			= 0.0, 0.133, 0.047
+shell_dir		 			= 0.0, 0.0, 0.4
+shell_particles	 			= weapons\45acp
+shell_3d_sect				= shell_9
+;-------------------------------------------------------------------------------
+light_color		 			= 0.6,0.5,0.3
+light_range		 			= 3.0
+light_var_color		 		= 0.05
+light_var_range		 		= 0.5
+light_time 		 			= 0.2
+
+;addons
+scope_status				= 0
+silencer_status				= 0
+grenade_launcher_status		= 0
+
+zoom_enabled				= true
+zoom_rotate_time			= 0.25
+scope_zoom_factor       	= 1.03
+
+silencer_name  				= wpn_sil_45
+silencer_x 					= 80
+silencer_y 					= -16
+
+;silencer_flame_particles 	= weapons\generic_weapon01
+silencer_smoke_particles 	= weapons\new_effects\smoke_silencer_pistol
+silencer_light_color		= 0.6,0.5,0.3
+silencer_light_range		= 0.01
+silencer_light_var_color	= 0.05
+silencer_light_var_range	= 0.5
+silencer_light_time 		= 0.2
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster					= weapons\colt1911\colt_holster
+snd_draw					= weapons\colt1911\colt_draw
+snd_empty					= weapons\colt1911\colt_empty
+snd_reload					= weapons\colt1911\colt_reload
+snd_reload_empty			= weapons\colt1911\colt_reload_empty
+snd_reload_misfire			= weapons\hpsa\hpsa_reload_empty,1,0,2.0
+snd_reload_detached			= weapons\colt1911\colt_reload,1,0,1.0
+snd_reload_detached_empty	= weapons\colt1911\colt_reload_empty,1,0,1.0
+snd_close					= weapons\colt1911\colt_close
+snd_shoot					= weapons\colt1911\colt_shoot_null
+snd_silencer_shot			= weapons\colt1911\colt_shot_sil_null
+;-----------------------------------------------------------------------------
+[wpn_colt1911_hud]:hud_base
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0,0.010575,-0.119560
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone					= muzzle
+
+item_position				= 0.000746,-0.000321,0.003479
+item_orientation			= 1.239378,-0.134046,-2.052052
+
+hands_position				= -0.102355,-0.1298,-0.08442
+hands_position_16x9			= -0.102355,-0.1298,-0.08442
+hands_orientation			= -0.5,1.0,1.15
+hands_orientation_16x9		= -0.5,1.0,1.15
+
+aim_hud_offset_pos			= -0.027535,0.01587,0.01869
+aim_hud_offset_pos_16x9		= -0.027535,0.01587,0.01869
+aim_hud_offset_rot			= 0.012627,0.012945,-0.015
+aim_hud_offset_rot_16x9		= 0.012627,0.012945,-0.015
+
+anm_show					= colt1911_draw
+anm_show_empty				= colt1911_draw, colt1911_opened
+anm_hide					= colt1911_holster
+anm_hide_empty				= colt1911_holster, colt1911_opened
+anm_idle					= colt1911_idle
+anm_idle_empty				= colt1911_idle, colt1911_opened
+anm_shots					= colt1911_shoot
+anm_shots_empty				= colt1911_shoot, colt1911_shoot_last
+anm_shot_l					= colt1911_shoot, colt1911_shoot_last
+anm_idle_aim				= colt1911_idle_aim
+anm_idle_aim_empty			= colt1911_idle_aim, colt1911_opened
+anm_reload					= colt1911_reload
+anm_reload_empty			= colt1911_reload_empty
+anm_reload_misfire			= colt1911_reload_empty, , , 1.8
+anm_reload_detached			= colt1911_reload, , , 1.0
+anm_reload_detached_empty	= colt1911_reload_empty, , , 1.0
+anm_idle_moving				= colt1911_idle_moving
+anm_idle_moving_empty		= colt1911_idle_moving, colt1911_opened
+anm_idle_moving_crouch		= colt1911_idle_crouch
+anm_idle_moving_crouch_empty = colt1911_idle_crouch, colt1911_opened
+anm_idle_sprint				= cz75a_idle_sprint						;colt1911_idle_sprint
+anm_idle_sprint_empty		= cz75a_idle_sprint, colt1911_opened	;colt1911_idle_sprint
+anm_bore					= pm_idle_bore2
+anm_bore_empty				= pm_idle_bore2, colt1911_opened
+
+;-----------------------------------------------------------------------------
+[wpn_colt1911_duty]:wpn_colt1911
+inv_name					= st_wpn_colt1911_duty
+inv_name_short				= st_wpn_colt1911_duty
+description					= st_wpn_colt1911_duty_descr
+installed_upgrades      	= up_thirda_colt1911, up_firsta_colt1911
+cost						= 14580
+hit_power           		= 0.46, 0.46, 0.46, 0.46
+hit_impulse		 			= 40
+fire_distance       		= 250
+bullet_speed				= 285
+rpm                     	= 385
+hud                      	= wpn_colt1911_sk1_hud
+misfire_start_condition		= 0.83
+misfire_end_condition		= 0.11
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0015
+condition_queue_shot_dec	= 0.0015
+fire_dispersion_base		= 0.54
+inv_grid_x					= 39
+upgr_icon_x					= 1299
+upgr_icon_y					= 1199
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk1.ogf
+
+[wpn_colt1911_sk1_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_merc]:wpn_colt1911
+inv_name					= st_wpn_colt1911_merc
+inv_name_short				= st_wpn_colt1911_merc
+description					= st_wpn_colt1911_merc_descr
+installed_upgrades      	= up_fourta_colt1911, up_fiftha_colt1911
+cost						= 14860
+hit_power           		= 0.45, 0.45, 0.45, 0.45
+hit_impulse		 			= 42
+fire_distance       		= 220
+bullet_speed				= 275
+rpm                     	= 420
+hud                      	= wpn_colt1911_sk2_hud
+misfire_start_condition		= 0.79
+misfire_end_condition		= 0.09
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0013
+condition_queue_shot_dec	= 0.0013
+fire_dispersion_base		= 0.5
+inv_grid_x					= 41
+upgr_icon_x					= 1600
+upgr_icon_y					= 1200
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk2.ogf
+
+[wpn_colt1911_sk2_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_camo]:wpn_colt1911
+inv_name					= st_wpn_colt1911_camo
+inv_name_short				= st_wpn_colt1911_camo
+description					= st_wpn_colt1911_camo_descr
+installed_upgrades      	= up_firsta_colt1911, up_fiftha_colt1911
+cost						= 13880
+hit_power           		= 0.44, 0.44, 0.44, 0.44
+hit_impulse		 			= 40
+fire_distance       		= 230
+bullet_speed				= 280
+rpm                     	= 430
+hud                      	= wpn_colt1911_sk3_hud
+misfire_start_condition		= 0.84
+misfire_end_condition		= 0.09
+misfire_start_prob 			= 0.003
+misfire_end_prob			= 0.02
+condition_shot_dec      	= 0.0014
+condition_queue_shot_dec	= 0.0014
+fire_dispersion_base		= 0.52
+inv_grid_x					= 43
+upgr_icon_x					= 1600
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk3.ogf
+
+[wpn_colt1911_sk3_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_custom]:wpn_colt1911
+inv_name					= st_wpn_colt1911_custom
+inv_name_short				= st_wpn_colt1911_custom
+installed_upgrades      	= up_fiftha_colt1911
+cost						= 12550
+hit_power           		= 0.45, 0.45, 0.45, 0.45
+hit_impulse		 			= 44
+fire_distance       		= 230
+bullet_speed				= 277
+rpm                     	= 442
+hud                      	= wpn_colt1911_sk4_hud
+misfire_start_condition		= 0.84
+misfire_end_condition		= 0.12
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0015
+condition_queue_shot_dec	= 0.0015
+fire_dispersion_base		= 0.56
+inv_grid_x					= 45
+upgr_icon_x					= 1299
+upgr_icon_y					= 1099
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk4.ogf
+
+[wpn_colt1911_sk4_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk4_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_modern]:wpn_colt1911
+inv_name					= st_wpn_colt1911_modern
+inv_name_short				= st_wpn_colt1911_modern
+installed_upgrades      	= up_fiftha_colt1911
+cost						= 12380
+hit_power           		= 0.46, 0.46, 0.46, 0.46
+hit_impulse		 			= 40
+fire_distance       		= 225
+bullet_speed				= 275
+rpm                     	= 448
+hud                      	= wpn_colt1911_sk5_hud
+misfire_start_condition		= 0.81
+misfire_end_condition		= 0.09
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0016
+condition_queue_shot_dec	= 0.0016
+fire_dispersion_base		= 0.55
+inv_grid_x					= 47
+upgr_icon_x					= 1600
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk5.ogf
+
+[wpn_colt1911_sk5_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk5_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_alt]:wpn_colt1911
+inv_name					= st_wpn_colt1911_alt
+inv_name_short				= st_wpn_colt1911_alt
+cost						= 11280
+hit_power           		= 0.45, 0.45, 0.45, 0.45
+hit_impulse		 			= 40
+fire_distance       		= 215
+bullet_speed				= 273
+rpm                     	= 415
+hud                      	= wpn_colt1911_sk6_hud
+misfire_start_condition		= 0.82
+misfire_end_condition		= 0.11
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0016
+condition_queue_shot_dec	= 0.0016
+fire_dispersion_base		= 0.58
+inv_grid_x					= 49
+upgr_icon_x					= 1150
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk6.ogf
+
+[wpn_colt1911_sk6_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk6_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_new]:wpn_colt1911
+inv_name					= st_wpn_colt1911_new
+inv_name_short				= st_wpn_colt1911_new
+cost						= 10480
+hit_power           		= 0.43, 0.43, 0.43, 0.43
+hit_impulse		 			= 40
+fire_distance       		= 215
+bullet_speed				= 271
+rpm                     	= 408
+hud                      	= wpn_colt1911_sk7_hud
+misfire_start_condition		= 0.81
+misfire_end_condition		= 0.10
+misfire_start_prob 			= 0.003
+misfire_end_prob			= 0.02
+condition_shot_dec      	= 0.0017
+condition_queue_shot_dec	= 0.0017
+fire_dispersion_base		= 0.59
+inv_grid_x					= 51
+upgr_icon_x					= 1149
+upgr_icon_y					= 1199
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk7.ogf
+
+[wpn_colt1911_sk7_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk7_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_worn]:wpn_colt1911
+inv_name					= st_wpn_colt1911_worn
+inv_name_short				= st_wpn_colt1911_worn
+upgrades                	= up_gr_firstab_colt1911_worn, up_gr_seconab_colt1911_worn, up_gr_thirdab_colt1911_worn, up_gr_fourtab_colt1911_worn, up_gr_fifthab_colt1911_worn
+cost						= 6280
+hit_power           		= 0.41, 0.41, 0.41, 0.41
+hit_impulse		 			= 39
+fire_distance       		= 185
+bullet_speed				= 253
+rpm                     	= 368
+hud                      	= wpn_colt1911_sk8_hud
+misfire_start_condition		= 0.88
+misfire_end_condition		= 0.10
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0023
+condition_queue_shot_dec	= 0.0023
+fire_dispersion_base		= 0.79
+inv_grid_x					= 53
+upgr_icon_x					= 1150
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk8.ogf
+
+[wpn_colt1911_sk8_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk8_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt1911_rusty]:wpn_colt1911
+inv_name					= st_wpn_colt1911_rusty
+inv_name_short				= st_wpn_colt1911_rusty
+description					= st_wpn_colt1911_rusty_descr
+upgrades                	= up_gr_firstab_colt1911_rusty, up_gr_seconab_colt1911_rusty, up_gr_thirdab_colt1911_rusty, up_gr_fourtab_colt1911_rusty, up_gr_fifthab_colt1911_rusty
+cost						= 4580
+hit_power           		= 0.38, 0.38, 0.38, 0.38
+hit_impulse		 			= 38
+fire_distance       		= 165
+bullet_speed				= 235
+rpm                     	= 343
+hud                      	= wpn_colt1911_sk9_hud
+misfire_start_condition		= 0.91
+misfire_end_condition		= 0.11
+misfire_start_prob 			= 0.003
+misfire_end_prob 			= 0.02
+condition_shot_dec      	= 0.0026
+condition_queue_shot_dec	= 0.0026
+fire_dispersion_base		= 0.9
+inv_grid_x					= 55
+upgr_icon_x					= 1150
+upgr_icon_y					= 1100
+upgr_icon_width				= 150
+upgr_icon_height   			= 100
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk9.ogf
+
+[wpn_colt1911_sk9_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt1911_sk9_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_colt_kimber]:wpn_colt1911
+description					= st_wpn_colt_kimber_descr
+inv_name					= st_wpn_colt_kimber
+inv_name_short				= st_wpn_colt_kimber
+upgrades                	= up_gr_firstab_colt_kimber, up_gr_seconab_colt_kimber, up_gr_thirdab_colt_kimber, up_gr_fourtab_colt_kimber, up_gr_fifthab_colt_kimber
+cost						= 15860
+inv_weight					= 1.077
+hit_power           		= 0.46, 0.46, 0.46, 0.46
+rpm                     	= 440
+ammo_elapsed		 		= 8
+ammo_mag_size				= 8
+magazine_sect				= magazine_1143x23_cnt_8
+hud                      	= wpn_colt_kimber_hud
+misfire_start_condition		= 0.83
+misfire_end_condition		= 0.12
+condition_shot_dec      	= 0.0018
+condition_queue_shot_dec	= 0.0018
+fire_dispersion_base		= 0.49
+inv_grid_x					= 57
+upgr_icon_x					= 1450 ; 268
+upgr_icon_y					= 1200 ; 270
+upgr_icon_width				= 150 ; 192
+upgr_icon_height   			= 100 ; 123
+visual						= dynamics\weapons\wpn_colt1911\wpn_colt_kimber.ogf
+
+;A.R.E.A. Sounds Remake
+snd_reload				    = weapons\colt1911\colt_reload_kimber
+snd_reload_empty            = weapons\colt1911\colt_reload_kimber_empty
+
+[wpn_colt_kimber_hud]:wpn_colt1911_hud
+item_visual					= dynamics\weapons\wpn_colt1911\wpn_colt_kimber_hud.ogf
+shell_point					= 0.015,0.048,0.475
+shell_bone              	= wpn_body
+fire_point					= 0,0.043,0.187
+fire_bone               	= wpn_body
+
+aim_hud_offset_pos			= -0.02092,0.006315,0.08379
+aim_hud_offset_pos_16x9		= -0.02092,0.006315,0.08379
+aim_hud_offset_rot			= -0.012971,0.004822,-0.015
+aim_hud_offset_rot_16x9		= -0.012971,0.004822,-0.015
+
+anm_show					= pist_v_draw
+anm_show_empty				= pist_v_draw, fort_opened
+anm_hide             		= pist_v_holster
+anm_hide_empty        		= pist_v_holster, fort_opened
+anm_idle             		= pist_v_idle
+anm_idle_empty         		= pist_v_idle, fort_opened
+anm_shots					= pist_v_shoot, fort_shoot
+anm_shot_l					= pist_v_shoot, fort_open
+anm_idle_aim				= pist_v_idle_aim
+anm_idle_aim_empty			= pist_v_idle_aim, fort_opened
+anm_reload					= pist_v_reload
+anm_reload_empty			= pist_v_reload_empty
+anm_reload_detached			= pist_v_reload, , , 1.1
+anm_reload_detached_empty	= pist_v_reload_empty, , , 1.1
+anm_idle_moving 			= pist_v_move
+anm_idle_moving_empty 		= pist_v_move, fort_opened
+anm_idle_moving_crouch		= pist_v_move, , 0.5
+anm_idle_moving_crouch_empty = pist_v_move, fort_opened, 0.5
+anm_bore					= pist_v_idle
+anm_bore_empty				= pist_v_idle, fort_opened
+;-----------------------------------------------------------------------------

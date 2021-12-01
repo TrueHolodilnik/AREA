@@ -1,0 +1,2973 @@
+-- A.R.E.A. Dialogs functions
+-- Change Faction
+function in_loner(a, b)
+	db.actor:set_character_community("actor_stalker", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_stalker")
+end
+
+function in_bandit(a, b)
+	db.actor:set_character_community("actor_bandit", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_bandit")
+end
+
+function in_freedom(a, b)
+	db.actor:set_character_community("actor_freedom", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_freedom")
+end
+
+function in_dolg(a, b)
+	db.actor:set_character_community("actor_dolg", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_dolg")
+end
+
+function in_csky(a, b)
+	db.actor:set_character_community("actor_csky", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_csky")
+end
+
+function in_killer(a, b)
+	db.actor:set_character_community("actor_killer", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_killer")
+end
+
+function in_ecolog(a, b)
+	db.actor:set_character_community("actor_ecolog", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_ecolog")
+end
+
+function in_army(a, b)
+	db.actor:set_character_community("actor_army", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_army")
+end
+
+function in_monolith(a, b)
+	db.actor:set_character_community("actor_monolith", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_monolith")
+end
+------------------------------------------
+-- Проверка группировки. (Одиночки)
+function stop_stalker(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_stalker" )
+end
+
+function prc_in_stalker(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_stalker")
+end
+------------------------------------------
+-- Проверка группировки (Бандиты).
+function stop_bandit(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_bandit")
+end
+
+function prc_in_bandit(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_bandit")
+end
+------------------------------------------
+-- Проверка группировки (Свобода).
+function stop_freedom(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_freedom")
+end
+
+function prc_in_freedom(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_freedom")
+end
+------------------------------------------
+-- Проверка группировки (Долг).
+function stop_dolg(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_dolg")
+end
+
+function prc_in_dolg(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_dolg")
+end
+------------------------------------------
+-- Проверка группировки (ЧН).
+function stop_csky(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_csky")
+end
+
+function prc_in_csky(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_csky")
+end
+------------------------------------------
+-- Проверка группировки (Наёмники).
+function stop_killer(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_killer")
+end
+
+function prc_in_killer(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_killer")
+end
+------------------------------------------
+-- Проверка группировки (Учёные).
+function stop_ecolog(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_ecolog")
+end
+
+function prc_in_ecolog(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_ecolog")
+end
+------------------------------------------
+-- Проверка группировки (Военные).
+function stop_army(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_army")
+end
+
+function prc_in_army(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_army")
+end
+------------------------------------------
+-- Проверка группировки (Монолит).
+function stop_monolith(first_speaker, second_speaker) 
+	return (db.actor:character_community() == "actor_monolith")
+end
+
+function prc_in_monolith(first_speaker, second_speaker) 
+	return (db.actor:character_community() ~= "actor_monolith")
+end
+------------------------------------------
+-- Welcome to Freedom Bro!
+function welcome_to_freedom(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "cigarettes_joint") 
+end
+
+-- Добазарился.
+function prove_your_words_bandit()
+	xr_effects.dec_faction_goodwill_to_actor(db.actor, nil, {"bandit", 5000})
+end
+
+-- Проверка наличия денег.
+function have_10k()
+	return mlr_utils.act_h_m(10000)
+end
+
+function have_20k()
+	return mlr_utils.act_h_m(20000)
+end
+
+-- Изъятие денег.
+function take_10k(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 10000) 
+end
+
+function take_20k(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 20000) 
+end
+------------------------------------------------- NPC Drunk ----------------------------------------------------
+local actor_drinks, actor_eats
+local drink_sections = {"beer","wine","samogon","vodka","vodka2","bottle_metal","vodka_quality"}
+local eat_sections = {"bread","breadold","sandwich","kolbasa","sausage","olivki","salmon","raisins","cheese","galet","chips"}
+
+function fill_list(item, npc)
+	local fill = {}
+	if item:find("drink") then
+		tt = drink_sections
+	elseif item:find("eat") then
+		tt = eat_sections
+	end
+	for i=1, #tt do
+		if npc:object(tt[i]) then
+			fill[#fill+1] = tt[i]
+		end
+	end
+	if item == "drink" then
+		drinks = fill
+	elseif item == "eat" then
+		eats = fill
+	elseif item == "actor_drink" then
+		actor_drinks = fill
+	elseif item == "actor_eat" then
+		actor_eats = fill
+	end
+	return #fill
+end
+
+--Преконд на наличие чего либо из таблицы. (НПС)
+--Алкоголь
+function precond_drink(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	return (fill_list("drink", npc) > 0)
+end
+
+--Еда
+function precond_eat(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	return (fill_list("eat", npc) > 0)
+end
+
+--Преконд на наличие чего либо из таблицы. (ГГ)
+--Алкоголь
+function actor_precond_drink(first_speaker, second_speaker)
+	return (fill_list("actor_drink", db.actor) > 0)
+end
+
+--Еда
+function actor_precond_eat(first_speaker, second_speaker)
+	return (fill_list("actor_eat", db.actor) > 0)
+end
+
+--Передача 1ч от ГГ к НПС (При условии что есть что передать)
+--Алкоголь
+function actor_transfer_drink(first_speaker, second_speaker)
+	local item = actor_drinks[table.random(actor_drinks)]
+	transfer_items(db.actor, dialogs.who_is_npc(first_speaker, second_speaker), item)
+end
+
+--Еда
+function actor_transfer_food(first_speaker, second_speaker)
+	local item = actor_eats[table.random(actor_eats)]
+	transfer_items(db.actor, dialogs.who_is_npc(first_speaker, second_speaker), item)
+end
+
+--Передача 1ч от нпс к ГГ (При условии что есть что передать)
+--Алкоголь
+function npc_transfer_drink(first_speaker, second_speaker)
+	local item = drinks[table.random(drinks)]
+	transfer_items(dialogs.who_is_npc(first_speaker, second_speaker), db.actor, item)
+end
+
+--Еда
+function npc_transfer_food(first_speaker, second_speaker)
+	local item = eats[table.random(eats)]
+	transfer_items(dialogs.who_is_npc(first_speaker, second_speaker), db.actor, item)
+end
+
+--Передача ВСЕГО предмета от нпс к ГГ (При условии что есть что передать)
+--Алкоголь
+function take_drink_random(first_speaker, second_speaker)
+	--printf("take drink:%s", drinks[table.random(drinks)])
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, drinks[table.random(drinks)], 1) 
+end
+
+--Еда
+function take_food_random(first_speaker, second_speaker)
+	--printf("take food:%s", eats[table.random(eats)])
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, eats[table.random(eats)], 1) 
+end
+
+--Источник 1ч передач.
+function transfer_items(giver, taker, section)
+	--printf("transfer item:%s", section)
+	local item = giver:object(section)
+	local new_item
+	local next_use = section and system_ini():r_string_ex(section, "next_use_item","")
+	if next_use ~= "" then
+		--printf("transfer item0:%s uses:%s", item:section(), next_use)
+		local se_obj = item and alife_object(item:id())
+		if (se_obj) then
+			alife():release(se_obj,true)
+		end
+		alife():create(next_use, giver:position(), giver:level_vertex_id(), giver:game_vertex_id(), giver:id())
+		new_item = section and section:match("([%w_]*)_?%d?")
+		--printf("transfer new:%s uses:%s", new_item)
+		if new_item then
+			alife():create(new_item, taker:position(), taker:level_vertex_id(), taker:game_vertex_id(), taker:id())
+		end
+	elseif item then
+		local r_uses = item:get_remaining_uses()
+		--printf("transfer item1:%s uses:%s", item:section(), r_uses)
+		if r_uses and r_uses > 1 then
+			local se_new = alife():create(section, giver:position(), giver:level_vertex_id(), giver:game_vertex_id(), giver:id())
+			local function c_item(id, uses)
+				local new_obj = level.object_by_id(id)
+				if new_obj then
+					new_obj:set_remaining_uses(uses)
+					return true
+				end
+			end
+			if se_new then
+				CreateTimeEvent(0,"new_item_"..se_new.id,0,c_item, se_new.id, r_uses - 1)
+				item:set_remaining_uses(1)
+			end
+		end
+		--printf("transfer item2:%s uses%s", item:section(), item:get_remaining_uses())
+		giver:transfer_item(item, taker)
+		new_item = section
+	end	
+	
+	if new_item then
+		news_manager.relocate_item(giver, "out", new_item, 1)
+	end
+end 
+
+-- Использование алкоголя из диалога.
+function drink_eat(first_speaker, second_speaker)
+	if fill_list("actor_drink", db.actor) > 0 then
+		local section = actor_drinks[table.random(actor_drinks)]
+		if section then
+			--printf("actor eat drink:%s", section)
+			db.actor:eat(db.actor:object(section))
+		end
+	end
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	if fill_list("drink", npc) > 0 then
+		local section = drinks[table.random(drinks)]
+		if section then
+			--printf("eat drink:%s", section)
+			npc:eat(npc:object(section))
+		end
+	end
+end
+
+-- Использование закуски из диалога.
+function food_eat(first_speaker, second_speaker)
+	if fill_list("actor_eat", db.actor) > 0 then
+		local section = actor_eats[table.random(actor_eats)]
+		if section then
+			--printf("actor eat food:%s", section)
+			db.actor:eat(db.actor:object(section))
+		end
+	end
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	if fill_list("eat", npc) > 0 then
+		local section = eats[table.random(eats)]
+		if section then
+			--printf("eat food:%s", section)
+			npc:eat(npc:object(section))
+		end
+	end
+end
+
+-- Эффект выпивки из диалога
+function i_drunk()
+	level.add_cam_effector("camera_effects\\item_use.anm", 10, false)
+	level.add_pp_effector('surge_fade.ppe', 11, false)
+	level.add_cam_effector("camera_effects\\surge_01.anm", 10, false)
+	area_sounds.actor_sound("interface\\inv_properties",1.5)
+end
+
+-- Агрессия из диалога --
+function fight_me_bitch(actor, npc)                                            
+    npc:force_set_goodwill(-5000, actor)
+end
+
+---------------------------------------------- Fake DTK ----------------------------------------------------------
+------------------------------- Why do you always make things so difficult? --------------------------------------
+-- Мультипреконд
+function detector_repair_uni(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple_broken') or mlr_utils.act_h_s('detector_advanced_broken')
+end
+
+function detector_repair_uni_drova(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple_broken_2') or mlr_utils.act_h_s('detector_advanced_broken_2')
+end
+
+-- Преконд наличия денег "Отклик"
+function u_have_money_01()
+	return mlr_utils.act_h_m(3750)
+end
+
+-- Преконд наличия денег "Отклик"
+function u_have_money_02()
+	return mlr_utils.act_h_m(6950)
+end
+
+-- Предоплата "Отклик"
+function give_me_money_detc_smpl_1(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 3750) 
+end
+
+-- Оплата "Отклик"
+function give_me_money_detc_smpl_2(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 6950) 
+end
+
+-- Выдача починеного детектора "Отклик"
+function give_actor_dtkt_smpl(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "detector_simple") 
+end
+
+-- Преконд наличия денег "Медведь"
+function u_have_money_03()
+	return mlr_utils.act_h_m(8310)
+end
+
+-- Преконд наличия денег "Медведь"
+function u_have_money_04()
+	return mlr_utils.act_h_m(15440)
+end
+
+-- Предоплата "Медведь"
+function give_me_money_detc_advn_1(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 8310) 
+end
+
+-- Оплата "Медведь"
+function give_me_money_detc_advn_2(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 15440) 
+end
+
+-- Выдача починеного детектора "Медведь"
+function give_actor_dtkt_advn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "detector_advanced") 
+end
+
+--Сломанный "Отклик" (Преконд)
+function simple_slom_1_prec(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple_broken')
+end	
+
+--Сломанный "Отклик" (Изъятие)
+function simple_slom_1_take(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "detector_simple_broken") 
+end
+
+--Сломанный "Медведь" (Преконд)
+function advanced_slom_1_prec(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_advanced_broken')
+end	
+
+--Сломанный "Медведь" (Изъятие)
+function advanced_slom_1_take(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "detector_advanced_broken") 
+end
+
+--Разбитый "Отклик" (Преконд)
+function simple_slom_2_prec(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple_broken_2')
+end	
+
+--Разбитый "Медведь" (Преконд)
+function advanced_slom_2_prec(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_advanced_broken_2')
+end	
+
+--Детектор "Отклик"(Преконд)
+function dt_simple(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple')
+end	
+
+--Детектор "Медведь"(Преконд)
+function dt_advanced(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_advanced')
+end	
+
+--Детектор "Элитный"(Преконд)
+function dt_elite(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_elite')
+end	
+
+--Детектор "Сварог"(Преконд)
+function dt_scientific(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_scientific')
+end	
+
+--Детектор "Псевдо - Отклик"(Преконд)
+function dt_simple_broken(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_simple_broken')
+end	
+
+--Детектор "Псевдо - Медведь"(Преконд)
+function dt_advanced_broken(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('detector_advanced_broken')
+end	
+
+function take_artef_3(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "af_bead") 
+end
+
+function take_artef_2(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "af_pseudodummy_1") 
+end
+
+function take_artef_1(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "af_wool_1") 
+end
+
+function take_notebook(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "kovalev_pda_item") 
+end
+
+--Контейнер "2 секции" (Награда)
+function give_actor_container(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "artefact_container") 
+end
+
+---------------------------------------------- BROTHERS ----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------ Why u left me die? ----------------------------------------------------
+
+------ Создание Объекта ------
+function georgii_kltsk_01(first_speaker, second_speaker)
+	local se_obj = alife():create("bandit_kryk",vector():set(-180.42713928223,1.1656427383423,402.26550292969),51184,80)
+	local id = se_obj.id
+	utils.save_var(db.actor, "georgii_kltsk_id_01", id)
+	local se_obj = alife():create("bandit_shilo",vector():set(-180.42713928223,1.1656427383423,402.26550292969),51184,80)
+	local id = se_obj.id
+	utils.save_var(db.actor, "georgii_kltsk_id_02", id)
+end
+
+----- Удаление ------
+function delete_georgii_kltsk_m_01(first_speaker, second_speaker)
+	local id = utils.load_var(db.actor, "georgii_kltsk_id_01", nil)
+	local se_obj = alife_object(id)
+	alife():release(se_obj,true)
+	local id = utils.load_var(db.actor, "georgii_kltsk_id_02", nil)
+	local se_obj = alife_object(id)
+	alife():release(se_obj,true)
+end
+
+------ Выдача Квеста -----
+function georgii_kltsk_source()      
+	task_manager.get_task_manager():give_task("georgii_kill_tm_01")         
+end
+
+--ПДА Крюка (Изъятие)
+function take_actor_kryk_pda(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "item_kryk_pda") 
+end
+
+--ПДА Шило (Изъятие)
+function take_actor_shilo_pda(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "item_shilo_pda") 
+end
+
+--ПДА Крюка (Преконд)
+function find_kryk_pda(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('item_kryk_pda')
+end	
+
+--ПДА Шило (Преконд)
+function find_shilo_pda(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('item_shilo_pda')
+end	
+
+--ПДА Крюка (ОТР Преконд)
+function when_find_kryk_PDA()
+  if db.actor:object("item_kryk_pda") == nil then
+	return true
+  end
+	return false
+end 
+
+--ПДА Шило (ОТРЦ Преконд)
+function when_find_shilo_PDA()
+  if db.actor:object("item_shilo_pda") == nil then
+	return true
+  end
+	return false
+end 
+
+--Награда
+
+----- Рандомная награда (Деньги) -----
+function brothers_reward_RND_money(first_speaker, second_speaker)
+	dialogs.relocate_money_to_actor(first_speaker, second_speaker, math.random(9000,11500)) 
+end
+
+------------- Рандомная награда (Стафф) --------------------
+function kill_reward_RND_01(first_speaker, second_speaker) 
+local rnd = math.random(1,7) 
+	if rnd == 1 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bandage", 2) 
+	elseif rnd == 2 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "medkit", 1) 
+	elseif rnd == 3 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "stimpack", 1)
+	elseif rnd == 4 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "drug_cat_eye", 1)
+	elseif rnd == 5 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "caffeine", 1)
+	elseif rnd == 6 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "antirad", 1)
+	elseif rnd == 7 then 
+	end 
+end
+
+function kill_reward_RND_02(first_speaker, second_speaker) 
+local rnd = math.random(1,7) 
+	if rnd == 1 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bandage", 2) 
+	elseif rnd == 2 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "medkit", 1) 
+	elseif rnd == 3 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "stimpack", 1)
+	elseif rnd == 4 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "drug_cat_eye", 1)
+	elseif rnd == 5 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "caffeine", 1)
+	elseif rnd == 6 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "antirad", 1)
+	elseif rnd == 7 then 
+	end 
+end
+------------------------------------------------------------------------------------------------------------------
+-- Battery charge dialogue
+------------------------------------------------------------------------------------------------------------------
+
+--временный костыл по заряду батарей. старя удаляется - тогда ремонтник дает новую. BlooderDen
+--внимание если даем технику батарею заряженную то всеравно платим
+function local_battery_delete_old(battery)
+	local batt = db.actor:object(battery)
+	local batt_id = batt:id()
+	-- TODO переделать зарядку используя флаг состояния батареи set_item_battery_dead(bool)  
+	alife():release(alife_object(batt_id),true)
+end
+
+-- Check if actor have battery
+function have_battery_4000mah(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('battery_4000mah')
+end
+
+function have_battery_4200mah(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('battery_4200mah')
+end	
+
+function have_battery_4500mah(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('battery_4500mah')
+end	
+
+function have_battery_100v(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('battery_100v')
+end	
+
+-- Take battery from actor
+function take_battery_4000mah(first_speaker, second_speaker)
+	local_battery_delete_old("battery_4000mah")  -- временный костыл по заряду батарей.	
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "battery_4000mah")
+end
+
+function take_battery_4200mah(first_speaker, second_speaker)
+	local_battery_delete_old("battery_4200mah")  -- временный костыл по заряду батарей.	
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "battery_4200mah")
+end
+
+function take_battery_4500mah(first_speaker, second_speaker) 
+	local_battery_delete_old("battery_4500mah")  -- временный костыл по заряду батарей.
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "battery_4500mah")
+end
+
+function take_battery_100v(first_speaker, second_speaker) 
+	local_battery_delete_old("battery_100v")  -- временный костыл по заряду батарей.
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "battery_100v")
+end
+
+-- Give actor charged battery and take money
+function give_battery_4000mah(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "battery_4000mah")
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1000)
+end
+
+function give_battery_4200mah(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "battery_4200mah")
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1000)
+end
+
+function give_battery_4500mah(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "battery_4500mah")
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1000)
+end
+
+function give_battery_100v(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "battery_100v")
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 3000)
+end
+
+------------------------------------------------- Water Barter ---------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+---------------------------------------- It's as easy as giving water... -----------------------------------------
+
+-- Наличие денег
+function have_money_500()
+	return db.actor:money() >= 500
+end 
+
+function have_money_1000()
+	return db.actor:money() >= 1000
+end 
+
+function have_money_3000()
+	return db.actor:money() >= 3000
+end 
+
+-- Наличие тары
+function mineral_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('mineral_water_empty')
+end	
+
+function termos_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('termos_empty')
+end	
+
+function flask_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('flask_empty')
+end	
+
+function flask_2_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('flask_2_empty')
+end	
+
+function bottle_metal_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('bottle_metal_empty')
+end	
+
+function bottle_beer_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('beer_empty')
+end	
+
+function bottle_glass_empty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('bottle_empty')
+end	
+
+function bottle_glass_empty2(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('bottle_empty_2')
+end
+-- Изъятие тары и выдача тары с водой
+function release(itm)
+	if (itm) then
+		local sim = alife()
+		local se_itm = sim:object(itm:id())
+		sim:release(se_itm, true)
+	end
+end
+
+function take_actor_mineral_empty(first_speaker, second_speaker)
+	local itm = db.actor:object("mineral_water_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_water")
+	return release(itm)
+end
+
+function take_actor_termos_empty(first_speaker, second_speaker) 
+	local itm = db.actor:object("termos_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "termos_water")
+	return release(itm)
+end
+
+function take_actor_flask_empty(first_speaker, second_speaker)
+	local itm = db.actor:object("flask_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "flask")
+	return release(itm)
+end
+
+function take_actor_flask_2_empty(first_speaker, second_speaker)
+	local itm = db.actor:object("flask_2_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "flask_2_water")
+	return release(itm)
+end
+
+function take_actor_bottle_metal_empty(first_speaker, second_speaker)
+	local itm = db.actor:object("bottle_metal_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_metal_water")
+	return release(itm)
+end
+
+function take_actor_bottle_glass_empty(first_speaker, second_speaker) 
+	local itm = db.actor:object("bottle_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_glass_water")
+	return release(itm)
+end
+
+function take_actor_bottle_glass_empty_2(first_speaker, second_speaker)
+	local itm = db.actor:object("bottle_empty_2")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_glass_water2")
+	return release(itm)
+end	
+
+function take_actor_bottle_beer_empty(first_speaker, second_speaker)
+	local itm = db.actor:object("beer_empty")
+	dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_glass_water3")
+	return release(itm)	
+end	
+
+-- Изъятие денег
+function give_me_money_wtr(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 500)
+	sound_object("interface\\inv_fill_saucepan"):play(db.actor,0,sound_object.s2d)
+end
+
+------------------------------------------------- Fanat Drunk ----------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+-------------------------------------------- Let's get drunk, huh? -----------------------------------------------
+
+-- Использование из диалога
+function fanat_drunk()
+	if db.actor:object("wine") ~= nil then
+		db.actor:eat(db.actor:object("wine"))
+	elseif db.actor:object("samogon") ~= nil then
+		db.actor:eat(db.actor:object("samogon"))
+	elseif db.actor:object("beer") ~= nil then
+		db.actor:eat(db.actor:object("beer"))
+	elseif db.actor:object("vodka") ~= nil then
+		db.actor:eat(db.actor:object("vodka"))
+	elseif db.actor:object("vodka2") ~= nil then
+		db.actor:eat(db.actor:object("vodka2"))
+	elseif db.actor:object("bottle_metal") ~= nil then
+		db.actor:eat(db.actor:object("bottle_metal"))
+	elseif db.actor:object("vodka_quality") ~= nil then
+		db.actor:eat(db.actor:object("vodka_quality"))
+	end
+end
+
+------------------------------------------------- Georgii --------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+-------------------------------------------- Help me saint father! -----------------------------------------------
+
+-- Изъятие денег за ХП
+function price_heal(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1400) 
+end
+
+-- Изъятие денег за РД-ХП
+function price_heal_rad(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1100) 
+end
+
+-- Лечение ХП
+function heal_01()
+	if actor_effects then
+		actor_effects.use_item("rebirth")
+	end
+end
+
+-- Лечение РД-ХП
+function heal_rad_01()
+	if actor_effects then
+		actor_effects.use_item("rebirth")
+	end
+end
+
+function actor_needs_health_georgii(first_speaker, second_speaker)
+	if (db.actor.health < 1) and (db.actor:money() >= 1400) then
+		return true
+	end
+	return false
+end
+
+function actor_needs_rad_health_georgii(first_speaker, second_speaker)
+	if (db.actor.radiation > 0) and (db.actor:money() >= 1100) then
+		return true
+	end
+	return false
+end
+------------------------------------------------- KMB ------------------------------------------------------------
+-- Есть АРТ, НОЖ и ДТК
+function kmb_prcnd_01(first_speaker, second_speaker)
+	return ((db.actor:object("wpn_knife_fanat") ~= nil) and (db.actor:object("af_medusa") ~= nil) and (db.actor:object("detector_simple_fanat") ~= nil))
+end	
+-- Нет АРТ, НОЖ и ДТК
+function kmb_prcnd_02(first_speaker, second_speaker)
+	return ((db.actor:object("wpn_knife_fanat") == nil) and (db.actor:object("af_medusa") == nil) and (db.actor:object("detector_simple_fanat") == nil))
+end	
+-- Нет НОЖА
+function kmb_prcnd_03(first_speaker, second_speaker)
+	return (db.actor:object("wpn_knife_fanat") == nil)
+end	
+-- Нет АРТ
+function kmb_prcnd_04(first_speaker, second_speaker)
+	return (db.actor:object("af_medusa") == nil)
+end
+-- Нет ДТК
+function kmb_prcnd_05(first_speaker, second_speaker)
+	return (db.actor:object("detector_simple_fanat") == nil)
+end
+-------------------------------------------- FANAT DRUGS ---------------------------------------------------------
+--------------------------------------------- Поисковик ----------------------------------------------------------
+
+----- Механизаторский двор на болотах -----
+function fanat_drugs_create_41(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(437.33776855469,7.940712928772,266.49087524414),428790,125)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_40(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(384.60577392578,4.7597088813782,267.84033203125),394946,98)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_39(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(363.41534423828,2.8931879997253,257.29364013672),376544,99)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_38(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(403.59390258789,2.7726092338562,299.51153564453),410450,125)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_37(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(368.33038330078,1.2262156009674,212.63897705078),383242,97)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Одинокая башня на болотах -----
+function fanat_drugs_create_36(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-300.962890625,-0.26820376515388,36.528743743896),1034,153)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_35(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-250.50183105469,0.58915853500366,50.68189239502),19587,155)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_34(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-298.38061523438,0.72689884901047,19.398826599121),1644,153)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_33(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-259.84167480469,-0.27199816703796,-2.6640977859497),12397,155)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_32(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-305.64349365234,0.29510229825974,-34.289054870605),2118,156)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- ЖД туннель на кордоне -----
+function fanat_drugs_create_31(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(310.437469,15.387198,270.548157),719974,633)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_30(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(322.994476,12.099520,228.193588),725443,633)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_29(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(367.234985,21.979788,251.296509),744361,633)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_28(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(360.063843,21.812536,295.599457),742974,635)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_27(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(336.315613,14.790803,213.248520),734057,633)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Ферма на кордоне -----
+function fanat_drugs_create_26(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-6.863741,2.299805,251.156158),406138,439)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_25(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(20.799301,0.551898,256.837006),449615,585)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_24(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-19.381870,2.681230,281.518677),392863,629)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_23(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(19.498125,6.081954,263.031525),449623,585)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_22(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-23.408749,2.097438,301.846741),385685,629)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Сгоревшая деревня на Болотах -----
+function fanat_drugs_create_21(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(274.070953,11.299949,44.786018),136982,42)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_20(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(252.785080,7.348254,70.145409),300905,42)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_19(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(319.287842,4.834327,65.269859),346717,204)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_18(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(295.717804,-0.454875,14.399114),332140,189)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_17(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(239.969315,3.557148,52.037067),292645,63)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Церковь на Болотах -----
+function fanat_drugs_create_16(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(311.212372,0.507202,-180.624802),342797,242)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_15(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(252.694962,0.473108,-127.283661),302234,181)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_14(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(270.533234,13.869624,-162.570190),321038,242)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_13(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(276.588562,-0.600491,-119.649216),318457,181)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_12(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(267.057831,-0.647838,-132.223297),311262,181)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- АТП -----
+function fanat_drugs_create_11(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(104.474556,-2.467595,-4.802669),557833,438)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_10(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(129.025177,-6.329813,-12.339813),582247,441)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_09(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(105.513931,-7.452765,-5.286967),557024,438)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_08(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(119.375854,-7.634817,-43.530563),570535,441)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_07(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(107.620781,-6.298859,-17.806225),560269,441)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Элеватор и Остановка ------
+function fanat_drugs_create_06(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(10.187652,2.244645,42.310074),432780,474)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_05(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(9.434743,2.788620,89.688339),435798,453)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_04(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(15.446773,1.799581,33.014523),437730,467)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_03(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-22.671831,2.669754,58.700317),385448,470)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+function fanat_drugs_create_02(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(9.519555,2.710097,88.222046),431830,494)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+------------------------------------------------------------------------------------------------------
+
+------ Создание Предмета ------
+function fanat_drugs_create_01(first_speaker, second_speaker)
+	local se_obj = alife():create("item_drug_bag",vector():set(-201.453491,-11.589604,-160.492706),71116,450)
+	local id = se_obj.id
+	utils.save_var(db.actor, "fanat_drugs_create_quest_item_id", id)
+end
+
+----- Удаление ------
+function delete_quest_obj(first_speaker, second_speaker)
+	local id = utils.load_var(db.actor, "fanat_drugs_create_quest_item_id", nil)
+	local se_obj = alife_object(id)
+	alife():release(se_obj,true)
+end
+
+----- Положительный Прекондишен -----
+function find_drugs(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('item_drug_bag')
+end	
+
+----- Отрицательный Прекондишен -----
+function when_find_drugs()
+  if db.actor:object("item_drug_bag") == nil then
+	return true
+  end
+	return false
+end 
+
+------ Выдача Квеста -----
+function fanat_drugs_give_task()      
+	task_manager.get_task_manager():give_task("fanat_drugs_tm")         
+end
+
+------ Выполнение Квеста ------
+function fanat_drugs_complete_task(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "item_drug_bag") 
+end
+
+------ Репутация ------
+function rep_up()
+	dxr_statistics.increment_reputation(25)
+end
+
+function rep_down()
+	dxr_statistics.increment_reputation(-50)
+end
+
+------ Тестер Координат и Рация ------
+function actor_on_item_use(item)
+	if item:section() == 'item_case' then
+		give_object_to_actor("item_case", 1)
+		alife():create("bandit_kryk",vector():set(-180.42713928223,1.1656427383423,402.26550292969),51184,80)
+		alife():create("bandit_shilo",vector():set(-180.42713928223,1.1656427383423,402.26550292969),51184,80)
+
+	elseif item:section() == 'item_radio' then
+		give_object_to_actor("item_radio", 1)
+		xr_sound.set_sound_play(db.actor:id(), "pda_creep_station")
+	end
+end
+
+function on_game_start()
+RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+end
+--------------------------------------
+
+----- Рандомная награда (Деньги) -----
+function drug_reward_RND_money(first_speaker, second_speaker)
+	dialogs.relocate_money_to_actor(first_speaker, second_speaker, math.random(1500,2500)) 
+end
+
+------------- Рандомная награда (Стафф) --------------------
+function drug_reward_RND_01(first_speaker, second_speaker) 
+local rnd = math.random(1,7) 
+	if rnd == 1 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bandage", 2) 
+	elseif rnd == 2 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "medkit", 1) 
+	elseif rnd == 3 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "stimpack", 1)
+	elseif rnd == 4 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "drug_cat_eye", 1)
+	elseif rnd == 5 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "caffeine", 1)
+	elseif rnd == 6 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "antirad", 1)
+	elseif rnd == 7 then 
+	end 
+end
+
+function drug_reward_RND_02(first_speaker, second_speaker) 
+local rnd = math.random(1,7) 
+	if rnd == 1 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bandage", 2) 
+	elseif rnd == 2 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "medkit", 1) 
+	elseif rnd == 3 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "stimpack", 1)
+	elseif rnd == 4 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "drug_cat_eye", 1)
+	elseif rnd == 5 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "caffeine", 1)
+	elseif rnd == 6 then 
+		dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "antirad", 1)
+	elseif rnd == 7 then 
+	end 
+end
+
+-------------------------------------------- SIDOROVICH QUEST SWAMP ---------------------------------------------------
+function sidor_quest_swamp_v1_01(first_speaker, second_speaker)  
+	alife():create("zat_b33_safe_container",vector():set(291.49456787109,13.555541038513,-166.22616577148),323701,242)
+	alife():create("zat_b33_safe_container",vector():set(259.00521850586,0.52169638872147,-180.84053039551),305383,47)
+	alife():create("zat_b33_safe_container",vector():set(310.94818115234,0.67475754022598,-184.7947845459),339708,242)
+	alife():create("zat_b33_safe_container",vector():set(267.0534362793,-0.65993332862854,-131.85749816895),311263,181)
+	alife():create("zat_b33_safe_container",vector():set(276.53823852539,-0.61315059661865,-120.14434814453),317904,181)
+	alife():create("zat_b33_safe_container",vector():set(286.11911010742,0.48783844709396,-128.48008728027),325478,181)
+	alife():create("zat_b33_safe_container",vector():set(271.4992980957,13.171336174011,-159.58995056152),320525,242)
+end
+
+------------------------------------------------- APREL QUEST ---------------------------------------------------------
+function aprel_bandits_quest_v_01(first_speaker, second_speaker)
+	alife():create("aprel_bandits_01",vector():set(232.888565,1.605345,342.819855),667983,400)
+	alife():create("aprel_bandits_02",vector():set(237.685257,1.493506,338.446655),670749,400)
+	alife():create("aprel_bandits_03",vector():set(229.962860,1.303219,335.371674),665547,400)
+end
+
+------------------------------------------- FAL VIKARI GIVE QUEST BOOK SPAWN ------------------------------------------
+function deadcity_create_quest_book_v1_01(first_speaker, second_speaker)  
+	alife():create("book1",vector():set(-94.64485168457,6.0714683532715,-16.410989761353),75389,2343) 
+	alife():create("book2",vector():set(-91.735542297363,12.748931884766,-28.177856445313),75388,2414)
+	alife():create("bottle_metal_quest",vector():set(-91.471122741699,15.617889404297,-33.026943206787),76706,2414)
+	alife():create("journal",vector():set(-96.124954223633,19.054807662964,-32.748645782471),75121,2414)
+	alife():create("meinkampf",vector():set(-96.292144775391,19.043849945068,-50.034679412842),74843,2414)
+	alife():create("porn",vector():set(-102.54262542725,15.626223564148,-36.292850494385),72543,2414)
+	alife():create("porn2",vector():set(-104.02153015137,2.8868145942688,-55.382625579834),70598,2345)
+	alife():create("picture_woman",vector():set(-98.242721557617,9.2946128845215,-51.914161682129),70598,2345)
+	alife():create("conservnaya_banka",vector():set(-122.93147277832,2.8869726657867,-25.832838058472),63205,2357)
+	alife():create("quest_book_01",vector():set(-117.55796813965,19.054527282715,-18.148448944092),63207,2357)
+end
+
+function deadcity_create_quest_book_v2_01(first_speaker, second_speaker)  
+	alife():create("porn2",vector():set(-94.64485168457,6.0714683532715,-16.410989761353),75389,2343) 
+	alife():create("picture_woman",vector():set(-91.735542297363,12.748931884766,-28.177856445313),75388,2414)
+	alife():create("cigarettes_russian",vector():set(-91.471122741699,15.617889404297,-33.026943206787),76706,2414)
+	alife():create("journal",vector():set(-96.124954223633,19.054807662964,-32.748645782471),75121,2414)
+	alife():create("headlamp",vector():set(-96.292144775391,19.043849945068,-50.034679412842),74843,2414)
+	alife():create("porn",vector():set(-102.54262542725,15.626223564148,-36.292850494385),72543,2414)
+	alife():create("meinkampf",vector():set(-104.02153015137,2.8868145942688,-55.382625579834),70598,2345)
+	alife():create("journal",vector():set(-98.242721557617,9.2946128845215,-51.914161682129),70598,2345)
+	alife():create("quest_book_01",vector():set(-122.93147277832,2.8869726657867,-25.832838058472),63205,2357)
+	alife():create("book1",vector():set(-117.55796813965,19.054527282715,-18.148448944092),63207,2357)
+end
+
+function deadcity_create_quest_book_v3_01(first_speaker, second_speaker)  
+	alife():create("picture_woman",vector():set(-94.64485168457,6.0714683532715,-16.410989761353),75389,2343) 
+	alife():create("porn2",vector():set(-91.735542297363,12.748931884766,-28.177856445313),75388,2414)
+	alife():create("conservnaya_banka",vector():set(-91.471122741699,15.617889404297,-33.026943206787),76706,2414)
+	alife():create("journal",vector():set(-96.124954223633,19.054807662964,-32.748645782471),75121,2414)
+	alife():create("beadspread",vector():set(-96.292144775391,19.043849945068,-50.034679412842),74843,2414)
+	alife():create("porn",vector():set(-102.54262542725,15.626223564148,-36.292850494385),72543,2414)
+	alife():create("meinkampf",vector():set(-104.02153015137,2.8868145942688,-55.382625579834),70598,2345)
+	alife():create("quest_book_01",vector():set(-98.242721557617,9.2946128845215,-51.914161682129),70598,2345)
+	alife():create("book1",vector():set(-122.93147277832,2.8869726657867,-25.832838058472),63205,2357)
+	alife():create("journal",vector():set(-117.55796813965,19.054527282715,-18.148448944092),63207,2357)
+end
+
+--------------------------------------------------- FAL VIKARI GIVE QUEST BOOK --------------------------------------------
+
+function vikarii_book1_quest_give_quest()      
+         task_manager.get_task_manager():give_task("vikarii_book1_quest")         
+end
+function have_quest_book_01(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('quest_book_01')
+end	
+function reward_quest_book_01(first_speaker, second_speaker)
+	dialogs.relocate_money_to_actor(first_speaker, second_speaker, 2200) 
+end
+function take_actor_quest_book_01(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "quest_book_01") 
+end
+
+----------------------------------------------------- FAL VIKARI GIVE QUEST MUTAGEN ----------------------------------------
+
+function vikarii_medpreparat_give_quest()      
+         task_manager.get_task_manager():give_task("vikarii_quest_medpreparat")         
+end
+function have_mutant_part_tushkano_head(first_speaker, second_speaker)
+    return mlr_utils.act_h_s('mutant_part_tushkano_head')
+end    
+function reward_quest_medpreparat(first_speaker, second_speaker)
+    dialogs.relocate_money_to_actor(first_speaker, second_speaker, 2200) 
+end
+function take_actor_mutant_part_tushkano_head(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "mutant_part_tushkano_head") 
+end
+
+function start_timer_medpreparat()       
+	local iTimer = time_global() + 10000 
+	local function check_timer() 
+	return time_global() > iTimer 
+	end
+	level.add_call(check_timer, action_timer_medpreparat) 
+end
+function action_timer_medpreparat() 
+db.actor:give_info_portion("vikarii_quest_medpreparat_time")
+news_manager.send_tip(db.actor, "vikarii_medpreparat_message", 0, "default", 10000)
+end
+
+function give_actor_mutagen(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "stimpack_mutant") 
+end
+
+---------------------------------------------------- FAL USE ITEM SPAWN ---------------------------------------------------- 
+
+function fanat_drugs_spawn(first_speaker, second_speaker)  
+	alife():create("stimpack_mutant",vector():set(-199.14282226563,-12.149109840393,-135.00117492676),78643,376)   
+end
+
+---------------------------------------------- FAL NEW BARTER CRAFT MECHANIC ------------------------------------------------
+
+-- NEW BARTER CRAFT MECHANIC
+
+-- Начало прекондишнов на наличие предметов
+
+function proverka_9x18(first_speaker, second_speaker)
+    return ((db.actor:object("sp_spring") ~= nil) and (db.actor:object("sp_pistolgrip") ~= nil) and(db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_9x39(first_speaker, second_speaker)
+    return ((db.actor:object("sp_9x_barrel_worn") ~= nil) and (db.actor:object("sp_rifle_boltcarrier") ~= nil) and(db.actor:object("sp_stock") ~= nil) and (db.actor:object("sp_spring") ~= nil) and (db.actor:object("sp_pistolgrip") ~= nil) and (db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_545x39(first_speaker, second_speaker)
+    return ((db.actor:object("sp_545_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and (db.actor:object("sp_pistolgrip") ~= nil) and (db.actor:object("sp_rifle_boltcarrier") ~= nil) and (db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_556x45(first_speaker, second_speaker)
+    return ((db.actor:object("sp_556_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and (db.actor:object("sp_pistolgrip") ~= nil) and (db.actor:object("sp_rifle_boltcarrier") ~= nil) and (db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_762x39(first_speaker, second_speaker)
+    return ((db.actor:object("sp_762_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and(db.actor:object("sp_pistolgrip") ~= nil) and(db.actor:object("sp_rifle_boltcarrier") ~= nil) and(db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_762x51(first_speaker, second_speaker)
+    return ((db.actor:object("sp_762_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and (db.actor:object("sp_pistolgrip") ~= nil) and (db.actor:object("sp_rifle_boltcarrier") ~= nil) and (db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_762x54(first_speaker, second_speaker)
+    return ((db.actor:object("sp_762_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and(db.actor:object("sp_rifle_boltcarrier") ~= nil) and(db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_792x33(first_speaker, second_speaker)
+    return ((db.actor:object("sp_792_barrel_worn") ~= nil) and (db.actor:object("sp_stock") ~= nil) and(db.actor:object("sp_spring") ~= nil) and(db.actor:object("sp_rifle_boltcarrier") ~= nil) and(db.actor:object("sp_triggermechanism_worn") ~= nil))
+end
+function proverka_12x70x1(first_speaker, second_speaker)
+    return ((db.actor:object("sp_stock") ~= nil) and (db.actor:object("sp_triggermechanism_worn") ~= nil) and(db.actor:object("sp_smooth_barrel_worn") ~= nil))
+end
+function proverka_12x70x2(first_speaker, second_speaker)
+    return ((db.actor:object("sp_stock") ~= nil) and (db.actor:object("sp_smooth_dbarrel_worn") ~= nil) and(db.actor:object("sp_double_trigger_worn") ~= nil))
+end
+
+-- ACTION для изъятия запчастей.
+
+function take_detail_9x18(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_9x39(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_9x_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_545x39(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_545_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_556x45(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_556_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_762x39(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_762x51(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_762x54(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_792x33(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_792_barrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+end	
+function take_detail_12x70x1(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_barrel_worn")
+	
+end	
+function take_detail_12x70x2(first_speaker, second_speaker)
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_dbarrel_worn")
+	dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_double_trigger_worn")
+end	
+
+
+-- Начало прекондишнов на наличие предметов
+function have_detail_sp_stock(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_stock')
+end	
+function have_detail_sp_spring(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_spring')
+end	
+function have_detail_sp_pistolgrip(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_pistolgrip')
+end	
+function have_detail_sp_rifle_boltcarrier(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_rifle_boltcarrier')
+end	
+function have_detail_sp_rifle_boltcarrier_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_rifle_boltcarrier_rusty')
+end	
+function have_detail_sp_triggermechanism(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_triggermechanism')
+end	
+function have_detail_sp_triggermechanism_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_triggermechanism_worn')
+end	
+function have_detail_sp_triggermechanism_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_triggermechanism_rusty')
+end	
+function have_detail_sp_double_trigger(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_double_trigger')
+end	
+function have_detail_sp_double_trigger_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_double_trigger_worn')
+end	
+function have_detail_sp_double_trigger_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_double_trigger_rusty')
+end	
+function have_detail_sp_smooth_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_barrel')
+end	
+function have_detail_sp_smooth_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_barrel_worn')
+end	
+function have_detail_sp_smooth_barrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_barrel_rusty')
+end	
+function have_detail_sp_smooth_dbarrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_dbarrel')
+end	
+function have_detail_sp_smooth_dbarrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_dbarrel_worn')
+end	
+function have_detail_sp_smooth_dbarrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_smooth_dbarrel_rusty')
+end	
+function have_detail_sp_762_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_762_barrel')
+end	
+function have_detail_sp_762_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_762_barrel_worn')
+end	
+function have_detail_sp_762_barrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_762_barrel_rusty')
+end	
+function have_detail_sp_545_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_545_barrel')
+end	
+function have_detail_sp_545_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_545_barrel_worn')
+end	
+function have_detail_sp_545_barrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_545_barrel_rusty')
+end	
+function have_detail_sp_556_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_556_barrel')
+end	
+function have_detail_sp_556_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_556_barrel_worn')
+end	
+function have_detail_sp_556_barrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_556_barrel_rusty')
+end	
+function have_detail_sp_9x_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_9x_barrel')
+end	
+function have_detail_sp_9x_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_9x_barrel_worn')
+end	
+function have_detail_sp_792_barrel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_792_barrel')
+end	
+function have_detail_sp_792_barrel_worn(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_792_barrel_worn')
+end	
+function have_detail_sp_792_barrel_rusty(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('sp_792_barrel_rusty')
+end
+
+-- Начало изъятия предметов из актора запчасти
+function take_actor_sp_stock(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_stock") 
+end
+function take_actor_sp_spring(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_spring") 
+end
+function take_actor_sp_pistolgrip(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_pistolgrip") 
+end
+function take_actor_sp_rifle_boltcarrier(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier") 
+end
+function take_actor_sp_rifle_boltcarrier_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier_rusty") 
+end
+function take_actor_sp_triggermechanism(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism") 
+end
+function take_actor_sp_triggermechanism_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_worn") 
+end
+function take_actor_sp_triggermechanism_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_triggermechanism_rusty") 
+end
+function take_actor_sp_double_trigger(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_double_trigger") 
+end
+function take_actor_sp_double_trigger_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_double_trigger_worn") 
+end
+function take_actor_sp_double_trigger_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_double_trigger_rusty") 
+end
+function take_actor_sp_smooth_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_barrel") 
+end
+function take_actor_sp_smooth_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_barrel_worn") 
+end
+function take_actor_sp_smooth_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_barrel_rusty") 
+end
+function take_actor_sp_smooth_dbarrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_dbarrel") 
+end
+function take_actor_sp_smooth_dbarrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_dbarrel_worn") 
+end
+function take_actor_sp_smooth_dbarrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_smooth_dbarrel_rusty") 
+end
+function take_actor_sp_762_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel") 
+end
+function take_actor_sp_762_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel_worn") 
+end
+function take_actor_sp_762_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_762_barrel_rusty") 
+end
+function take_actor_sp_545_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_545_barrel") 
+end
+function take_actor_sp_545_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_545_barrel_worn") 
+end
+function take_actor_sp_545_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_545_barrel_rusty") 
+end
+function take_actor_sp_556_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_556_barrel") 
+end
+function take_actor_sp_556_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_556_barrel_worn") 
+end
+function take_actor_sp_556_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_556_barrel_rusty") 
+end
+function take_actor_sp_9x_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_9x_barrel") 
+end
+function take_actor_sp_9x_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_9x_barrel_worn") 
+end
+function take_actor_sp_792_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_792_barrel") 
+end
+function take_actor_(sp_792_barrel_wornfirst_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_792_barrel_worn") 
+end
+function take_actor_sp_792_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "sp_792_barrel_rusty") 
+end
+
+-- Начало выдачи предметов актору запчасти
+function give_actor_sp_stock(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_stock") 
+end
+function give_actor_sp_spring(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_spring") 
+end
+function give_actor_sp_pistolgrip(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_pistolgrip") 
+end
+function give_actor_sp_rifle_boltcarrier(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier") 
+end
+function give_actor_sp_rifle_boltcarrier_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_rifle_boltcarrier_rusty") 
+end
+function give_actor_sp_triggermechanism(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_triggermechanism") 
+end
+function give_actor_sp_triggermechanism_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_triggermechanism_worn") 
+end
+function give_actor_sp_triggermechanism_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_triggermechanism_rusty") 
+end
+function give_actor_sp_double_trigger(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_double_trigger") 
+end
+function give_actor_sp_double_trigger_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_double_trigger_worn") 
+end
+function give_actor_sp_double_trigger_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_double_trigger_rusty") 
+end
+function give_actor_sp_smooth_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_barrel") 
+end
+function give_actor_sp_smooth_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_barrel_worn") 
+end
+function give_actor_sp_smooth_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_barrel_rusty") 
+end
+function give_actor_sp_smooth_dbarrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_dbarrel") 
+end
+function give_actor_sp_smooth_dbarrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_dbarrel_worn") 
+end
+function give_actor_sp_smooth_dbarrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_smooth_dbarrel_rusty") 
+end
+function give_actor_sp_762_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_762_barrel") 
+end
+function give_actor_sp_762_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_762_barrel_worn") 
+end
+function give_actor_sp_762_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_762_barrel_rusty") 
+end
+function give_actor_sp_545_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_545_barrel") 
+end
+function give_actor_sp_545_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_545_barrel_worn") 
+end
+function give_actor_sp_545_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_545_barrel_rusty") 
+end
+function give_actor_sp_556_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_556_barrel") 
+end
+function give_actor_sp_556_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_556_barrel_worn") 
+end
+function give_actor_sp_556_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_556_barrel_rusty") 
+end
+function give_actor_sp_9x_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_9x_barrel") 
+end
+function give_actor_sp_9x_barrel_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_9x_barrel_worn") 
+end
+function give_actor_sp_792_barrel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_792_barrel") 
+end
+function give_actor_(sp_792_barrel_wornfirst_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_792_barrel_worn") 
+end
+function give_actor_sp_792_barrel_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "sp_792_barrel_rusty") 
+end
+
+-- Начало выдачи предметов актору винтовки
+
+-- Калибр 5.45x39
+
+function give_actor_wpn_abakan(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_abakan") 
+end
+function give_actor_wpn_abakan_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_abakan_worn") 
+end
+function give_actor_wpn_aek971(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aek971") 
+end
+function give_actor_wpn_aek971_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aek971_worn") 
+end
+function give_actor_wpn_ak105(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak105") 
+end
+function give_actor_wpn_ak12(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak12") 
+end
+function give_actor_wpn_ak74(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74") 
+end
+function give_actor_wpn_ak74_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74_worn") 
+end
+function give_actor_wpn_ak74m(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74m") 
+end
+function give_actor_wpn_ak74m_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74m_worn") 
+end
+function give_actor_wpn_ak74u(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74u") 
+end
+function give_actor_wpn_ak74u_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak74u_worn") 
+end
+function give_actor_wpn_rpk74(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_rpk74") 
+end
+function give_actor_wpn_rpk74_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_rpk74_worn") 
+end
+
+-- Калибр 5.56х45
+
+function give_actor_wpn_ak101(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak101") 
+end
+function give_actor_wpn_ak102(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak102") 
+end
+function give_actor_wpn_fn2000(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fn2000") 
+end
+function give_actor_wpn_fn2000_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fn2000_worn") 
+end
+function give_actor_wpn_aug(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aug") 
+end
+function give_actor_wpn_aug_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aug_worn") 
+end
+function give_actor_wpn_g36c(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_g36c") 
+end
+function give_actor_wpn_hk416(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_hk416") 
+end
+function give_actor_wpn_lr300(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_lr300") 
+end
+function give_actor_wpn_lr300_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_lr300_worn") 
+end
+function give_actor_wpn_m4(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m4") 
+end
+function give_actor_wpn_m4_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m4_worn") 
+end
+function give_actor_wpn_m4a1(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m4a1") 
+end
+function give_actor_wpn_m4a1_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m4a1_worn") 
+end
+function give_actor_wpn_m16(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m16") 
+end
+function give_actor_wpn_m16_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m16_worn") 
+end
+function give_actor_wpn_m16a2(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m16a2") 
+end
+function give_actor_wpn_m249(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m249") 
+end
+function give_actor_wpn_sig550(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig550") 
+end
+function give_actor_wpn_sig550_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig550_worn") 
+end
+function give_actor_wpn_sig552(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig552") 
+end
+function give_actor_wpn_sig552_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig552_worn") 
+end
+function give_actor_wpn_famas(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_famas") 
+end
+function give_actor_wpn_famas_g2(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_famas_g2") 
+end
+
+-- Калибр 7.62х25
+function give_actor_wpn_ppsh41(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ppsh41") 
+end
+function give_actor_wpn_ppsh41_woodworn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ppsh41_woodworn") 
+end
+function give_actor_wpn_ppsh41_redworn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ppsh41_redworn") 
+end
+
+-- Калибр 7.62х39
+function give_actor_wpn_ak(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak") 
+end
+function give_actor_wpn_ak103(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak103") 
+end
+function give_actor_wpn_ak104(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ak104") 
+end
+function give_actor_wpn_akm(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_akm") 
+end
+function give_actor_wpn_akm_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_akm_worn") 
+end
+function give_actor_wpn_akms(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_akms") 
+end
+function give_actor_wpn_akms_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_akms_worn") 
+end
+function give_actor_wpn_aks(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aks") 
+end
+function give_actor_wpn_aks74(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aks74") 
+end
+function give_actor_wpn_aks74_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aks74_worn") 
+end
+function give_actor_wpn_rpd(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_rpd") 
+end
+function give_actor_wpn_rpk(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_rpk") 
+end
+function give_actor_wpn_rpk_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_rpk_worn") 
+end
+function give_actor_wpn_sks(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sks") 
+end
+function give_actor_wpn_sks_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sks_worn") 
+end
+function give_actor_wpn_type63(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_type63") 
+end
+
+-- Калибр 7.62х51 НАТО
+function give_actor_wpn_g3(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_g3") 
+end
+function give_actor_wpn_g3_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_g3_worn") 
+end
+function give_actor_wpn_galil(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_galil") 
+end
+function give_actor_wpn_galil_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_galil_worn") 
+end
+function give_actor_wpn_l96a1(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_l96a1") 
+end
+function give_actor_wpn_l96a1_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_l96a1_worn") 
+end
+function give_actor_wpn_scar(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_scar") 
+end
+function give_actor_wpn_scar_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_scar_worn") 
+end
+
+-- Калибр 7.62х54
+function give_actor_wpn_mosin(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mosin") 
+end
+function give_actor_wpn_mosin_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mosin_rusty") 
+end
+function give_actor_wpn_pkm(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pkm") 
+end
+function give_actor_wpn_pkp(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pkp") 
+end
+function give_actor_wpn_sv98(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sv98") 
+end
+function give_actor_wpn_sv98_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sv98_worn") 
+end
+function give_actor_wpn_svd(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svd") 
+end
+function give_actor_wpn_svd_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svd_worn") 
+end
+function give_actor_wpn_svt40(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svt40") 
+end
+function give_actor_wpn_svt40_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svt40_worn") 
+end
+function give_actor_wpn_svu(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svu") 
+end
+function give_actor_wpn_svu_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_svu_worn") 
+end
+
+-- Калибр .338 Lapua
+function give_actor_wpn_m24(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m24") 
+end
+function give_actor_wpn_m98b(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_m98b") 
+end
+function give_actor_wpn_trg(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_trg") 
+end
+
+-- Калибр 12.7х55
+function give_actor_wpn_vssk(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vssk") 
+end
+
+-- Калибр 5.7x28
+function give_actor_wpn_p90(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_p90") 
+end
+
+-- Калибр 9х39
+function give_actor_wpn_9a91(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_9a91") 
+end
+function give_actor_wpn_groza(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_groza") 
+end
+function give_actor_wpn_val(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_val") 
+end
+function give_actor_wpn_val_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_val_worn") 
+end
+function give_actor_wpn_vihr(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vihr") 
+end
+function give_actor_wpn_vintorez(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vintorez") 
+end
+function give_actor_wpn_vintorez_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vintorez_worn") 
+end
+function give_actor_wpn_vsk94(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vsk94") 
+end
+function give_actor_wpn_vsk94_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vsk94_worn") 
+end
+
+-- Калибр 9х18
+function give_actor_wpn_bizon(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_bizon") 
+end
+function give_actor_wpn_kiparis(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_kiparis") 
+end
+function give_actor_wpn_kiparis_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_kiparis_worn") 
+end
+function give_actor_wpn_vz65(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vz65") 
+end
+function give_actor_wpn_vz65_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vz65_worn") 
+end
+
+-- Калибр 9х19
+function give_actor_wpn_mp5(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp5") 
+end
+function give_actor_wpn_mp5_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp5_worn") 
+end
+function give_actor_wpn_mp5sd(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp5sd") 
+end
+function give_actor_wpn_mp5sd_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp5sd_worn") 
+end
+function give_actor_wpn_mp40(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp40") 
+end
+function give_actor_wpn_mp40_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp40_worn") 
+end
+function give_actor_wpn_pp2000(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pp2000") 
+end
+function give_actor_wpn_vityaz(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vityaz") 
+end
+
+-- Калибр 45.ACP
+function give_actor_wpn_ump45(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ump45") 
+end
+function give_actor_wpn_ump45_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_ump45_worn") 
+end
+
+-- Калибр 7.92х33
+function give_actor_wpn_g43(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_g43") 
+end
+function give_actor_wpn_k98(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_k98") 
+end
+function give_actor_wpn_stg44(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_stg44") 
+end
+function give_actor_wpn_stg44_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_stg44_worn") 
+end
+
+-- Калибр 12x70
+function give_actor_wpn_mossberg590(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mossberg590") 
+end
+function give_actor_wpn_mossberg590_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mossberg590_worn") 
+end
+function give_actor_wpn_mp133(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp133") 
+end
+function give_actor_wpn_mp133_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp133_worn") 
+end
+function give_actor_wpn_mp153(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp153") 
+end
+function give_actor_wpn_mp153_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp153_worn") 
+end
+function give_actor_wpn_mp153_rusty(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp153_rusty") 
+end
+function give_actor_wpn_remington870(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_remington870") 
+end
+function give_actor_wpn_saiga12s(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_saiga12s") 
+end
+function give_actor_wpn_saiga12s_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_saiga12s_worn") 
+end
+function give_actor_wpn_spas12(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_spas12") 
+end
+function give_actor_wpn_spas12_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_spas12_worn") 
+end
+function give_actor_wpn_toz34(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_toz34") 
+end
+function give_actor_wpn_toz34_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_toz34_worn") 
+end
+function give_actor_wpn_toz34_obrez(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_toz34_obrez") 
+end
+function give_actor_wpn_toz34_obrez_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_toz34_obrez_worn") 
+end
+function give_actor_wpn_usas12(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_usas12") 
+end
+function give_actor_wpn_protecta(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_protecta") 
+end
+function give_actor_wpn_protecta_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_protecta_worn") 
+end
+function give_actor_wpn_vepr(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_vepr") 
+end
+function give_actor_wpn_bm16_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_bm16_worn") 
+end
+function give_actor_wpn_bm16_full(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_bm16_full") 
+end
+
+-- Начало выдачи предметов актору пистолеты
+-- Калибр 9х18
+function give_actor_wpn_aps(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aps") 
+end
+function give_actor_wpn_aps_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_aps_worn") 
+end
+function give_actor_wpn_fort(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fort") 
+end
+function give_actor_wpn_fort_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fort_worn") 
+end
+function give_actor_wpn_fort12(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fort12") 
+end
+function give_actor_wpn_oc33(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_oc33") 
+end
+function give_actor_wpn_oc33_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_oc33_worn") 
+end
+function give_actor_wpn_pb(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pb") 
+end
+function give_actor_wpn_pb_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pb_worn") 
+end
+function give_actor_wpn_pm(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pm") 
+end
+function give_actor_wpn_pm_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_pm_worn") 
+end
+
+-- Калибр 9x19
+function give_actor_wpn_beretta(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_beretta") 
+end
+function give_actor_wpn_beretta_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_beretta_worn") 
+end
+function give_actor_wpn_cz75(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_cz75") 
+end
+function give_actor_wpn_cz75_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_cz75_worn") 
+end
+function give_actor_wpn_glock(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_glock") 
+end
+function give_actor_wpn_glock_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_glock_worn") 
+end
+function give_actor_wpn_gsh18(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_gsh18") 
+end
+function give_actor_wpn_gsh18_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_gsh18_worn") 
+end
+function give_actor_wpn_hpsa(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_hpsa") 
+end
+function give_actor_wpn_hpsa_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_hpsa_worn") 
+end
+function give_actor_wpn_mp443(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp443") 
+end
+function give_actor_wpn_mp443_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp443_worn") 
+end
+function give_actor_wpn_walther(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_walther") 
+end
+function give_actor_wpn_walther_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_walther_worn") 
+end
+
+-- Калибр 0.45 ACP
+function give_actor_wpn_colt1911(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_colt1911") 
+end
+function give_actor_wpn_colt1911_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_colt1911_worn") 
+end
+function give_actor_wpn_fnp45(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fnp45") 
+end
+function give_actor_wpn_fnp45_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fnp45_worn") 
+end
+function give_actor_wpn_sig220(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig220") 
+end
+function give_actor_wpn_sig220_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_sig220_worn") 
+end
+function give_actor_wpn_usp(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_usp") 
+end
+function give_actor_wpn_usp_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_usp_worn") 
+end
+
+-- Калибр .357 
+function give_actor_wpn_desert_eagle(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_desert_eagle") 
+end
+function give_actor_wpn_desert_eagle_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_desert_eagle_worn") 
+end
+function give_actor_wpn_mp412(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_mp412") 
+end
+
+-- Калибр 5.7х28
+function give_actor_wpn_fn57(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_fn57") 
+end
+
+-- Калибр 7.62х25
+function give_actor_wpn_tt33(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_tt33") 
+end
+function give_actor_wpn_tt33_worn(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "wpn_tt33_worn") 
+end
+
+------------------------------------------------------FAL FLASH------------------------------------------------------
+
+function have_upgr_flash_disk_plates(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_plates')
+end	
+function have_upgr_flash_disk_alloy(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_alloy')
+end	
+function have_upgr_flash_disk_ceramics(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_ceramics')
+end	
+function have_upgr_flash_disk_doublearmor(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_doublearmor')
+end	
+function have_upgr_flash_disk_poisonfilters(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_poisonfilters')
+end	
+function have_upgr_flash_disk_segments(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_segments')
+end	
+function have_upgr_flash_disk_carcass(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_carcass')
+end	
+function have_upgr_flash_disk_titan(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_titan')
+end	
+function have_upgr_flash_disk_protectivesbk(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_protectivesbk')
+end	
+function have_upgr_flash_disk_obrabotka(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_obrabotka')
+end	
+
+-- UPGRADE FLASDISK ALTER 10-20
+function have_upgr_flash_disk_combined(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_combined')
+end	
+function have_upgr_flash_disk_regulirovka(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_regulirovka')
+end	
+function have_upgr_flash_disk_polimers(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_polimers')
+end	
+function have_upgr_flash_disk_trigger(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_trigger')
+end	
+function have_upgr_flash_disk_position(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_position')
+end	
+function have_upgr_flash_disk_gazcilindr(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_gazcilindr')
+end	
+function have_upgr_flash_disk_napileniya(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_napileniya')
+end	
+function have_upgr_flash_disk_avtomatrezhim(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_avtomatrezhim')
+end	
+function have_upgr_flash_disk_porshen(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_porshen')
+end	
+function have_upgr_flash_disk_protivoves(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_protivoves')
+end	
+
+-- UPGRADE FLASDISK ALTER 20-30
+function have_upgr_flash_disk_shtok(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_shtok')
+end	
+function have_upgr_flash_disk_skolzdetali(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_skolzdetali')
+end	
+function have_upgr_flash_disk_gazregulator(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_gazregulator')
+end	
+function have_upgr_flash_disk_speedmechanism(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_speedmechanism')
+end	
+function have_upgr_flash_disk_tormoz(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_tormoz')
+end	
+function have_upgr_flash_disk_mechanismstrigger(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_mechanismstrigger')
+end	
+function have_upgr_flash_disk_mechanismszatvor(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_mechanismszatvor')
+end	
+function have_upgr_flash_disk_stvol(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_stvol')
+end	
+function have_upgr_flash_disk_mechanismtormoz(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_mechanismtormoz')
+end	
+function have_upgr_flash_disk_mechanismstvol(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_mechanismstvol')
+end	
+
+-- UPGRADE FLASDISK ALTER 30-40
+function have_upgr_flash_disk_usilitel(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_usilitel')
+end	
+function have_upgr_flash_disk_servomotors(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_servomotors')
+end	
+function have_upgr_flash_disk_carbon(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_carbon')
+end	
+function have_upgr_flash_disk_exosystems(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_exosystems')
+end	
+function have_upgr_flash_disk_amortizators(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_amortizators')
+end	
+function have_upgr_flash_disk_artdetector(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_artdetector')
+end	
+function have_upgr_flash_disk_layers(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_layers')
+end	
+function have_upgr_flash_disk_rubberizol(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_rubberizol')
+end	
+function have_upgr_flash_disk_thermoizol(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_thermoizol')
+end	
+function have_upgr_flash_disk_orgsteklo(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_orgsteklo')
+end	
+
+-- UPGRADE FLASDISK ALTER 40-50
+function have_upgr_flash_disk_constant(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_constant')
+end	
+function have_upgr_flash_disk_propitka(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_propitka')
+end	
+function have_upgr_flash_disk_chestplates(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_chestplates')
+end	
+function have_upgr_flash_disk_newscopes(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_newscopes')
+end	
+function have_upgr_flash_disk_contrast(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_contrast')
+end	
+function have_upgr_flash_disk_pnv(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_pnv')
+end	
+function have_upgr_flash_disk_dynamicscope(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_dynamicscope')
+end	
+function have_upgr_flash_disk_lenses(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_lenses')
+end	
+function have_upgr_flash_disk_rukoyatka(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_rukoyatka')
+end	
+function have_upgr_flash_disk_compensator(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_compensator')
+end	
+
+-- UPGRADE FLASDISK ALTER 50-60
+function have_upgr_flash_disk_filters(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_filters')
+end	
+function have_upgr_flash_disk_antenns(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_antenns')
+end	
+function have_upgr_flash_disk_ecrans(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_ecrans')
+end	
+function have_upgr_flash_disk_cupols(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_cupols')
+end	
+function have_upgr_flash_disk_closedbreath(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_closedbreath')
+end	
+function have_upgr_flash_disk_psystimulators(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_psystimulators')
+end	
+function have_upgr_flash_disk_skaneri(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_skaneri')
+end	
+function have_upgr_flash_disk_ionwind(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_ionwind')
+end	
+function have_upgr_flash_disk_psyprotect(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_psyprotect')
+end	
+function have_upgr_flash_disk_pruzhini(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_pruzhini')
+end	
+
+-- UPGRADE FLASDISK ALTER 60-70
+function have_upgr_flash_disk_priemnik(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_priemnik')
+end	
+function have_upgr_flash_disk_injectorfury(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_injectorfury')
+end	
+function have_upgr_flash_disk_dustprotect(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_dustprotect')
+end	
+function have_upgr_flash_disk_injectorgemo(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_injectorgemo')
+end	
+function have_upgr_flash_disk_biostimulator(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_biostimulator')
+end	
+function have_upgr_flash_disk_feniksregen(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_feniksregen')
+end	
+function have_upgr_flash_disk_neuroemittor(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_neuroemittor')
+end	
+function have_upgr_flash_disk_complexdoctor(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_complexdoctor')
+end	
+function have_upgr_flash_disk_gasballons(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_gasballons')
+end	
+function have_upgr_flash_disk_kreplenie(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_kreplenie')
+end	
+
+-- UPGRADE FLASDISK ALTER 70-75
+function have_upgr_flash_disk_restoresystem(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_restoresystem')
+end	
+function have_upgr_flash_disk_skatsystem(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_skatsystem')
+end	
+function have_upgr_flash_disk_marafonecsystem(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_marafonecsystem')
+end	
+function have_upgr_flash_disk_systemvaryag(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_systemvaryag')
+end	
+function have_upgr_flash_disk_dynamo(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('upgr_flash_disk_dynamo')
+end	
+
+-- Изъятие предмета
+-- UPGRADE FLASDISK ALTER 0-10
+function take_actor_upgr_flash_disk_plates(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_plates") 
+end
+function take_actor_upgr_flash_disk_alloy(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_alloy") 
+end
+function take_actor_upgr_flash_disk_ceramics(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_ceramics") 
+end
+function take_actor_upgr_flash_disk_doublearmor(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_doublearmor") 
+end
+function take_actor_upgr_flash_disk_poisonfilters(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_poisonfilters") 
+end
+function take_actor_upgr_flash_disk_segments(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_segments") 
+end
+function take_actor_upgr_flash_disk_carcass(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_carcass") 
+end
+function take_actor_upgr_flash_disk_titan(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_titan") 
+end
+function take_actor_upgr_flash_disk_protectivesbk(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_protectivesbk") 
+end
+function take_actor_upgr_flash_disk_obrabotka(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_obrabotka") 
+end
+
+-- UPGRADE FLASDISK ALTER 10-20
+function take_actor_upgr_flash_disk_combined(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_combined") 
+end
+function take_actor_upgr_flash_disk_regulirovka(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_regulirovka") 
+end
+function take_actor_upgr_flash_disk_polimers(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_polimers") 
+end
+function take_actor_upgr_flash_disk_trigger(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_trigger") 
+end
+function take_actor_upgr_flash_disk_position(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_position") 
+end
+function take_actor_upgr_flash_disk_gazcilindr(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_gazcilindr") 
+end
+function take_actor_upgr_flash_disk_napileniya(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_napileniya") 
+end
+function take_actor_upgr_flash_disk_avtomatrezhim(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_avtomatrezhim") 
+end
+function take_actor_upgr_flash_disk_porshen(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_porshen") 
+end
+function take_actor_upgr_flash_disk_protivoves(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_protivoves") 
+end
+
+-- UPGRADE FLASDISK ALTER 20-30
+function take_actor_upgr_flash_disk_shtok(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_shtok") 
+end
+function take_actor_upgr_flash_disk_skolzdetali(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_skolzdetali") 
+end
+function take_actor_upgr_flash_disk_gazregulator(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_gazregulator") 
+end
+function take_actor_upgr_flash_disk_speedmechanism(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_speedmechanism") 
+end
+function take_actor_upgr_flash_disk_tormoz(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_tormoz") 
+end
+function take_actor_upgr_flash_disk_mechanismstrigger(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_mechanismstrigger") 
+end
+function take_actor_upgr_flash_disk_mechanismszatvor(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_mechanismszatvor") 
+end
+function take_actor_upgr_flash_disk_stvol(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_stvol") 
+end
+function take_actor_upgr_flash_disk_mechanismtormoz(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_mechanismtormoz") 
+end
+function take_actor_upgr_flash_disk_mechanismstvol(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_mechanismstvol") 
+end
+
+-- UPGRADE FLASDISK ALTER 30-40
+function take_actor_upgr_flash_disk_usilitel(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_usilitel") 
+end
+function take_actor_upgr_flash_disk_servomotors(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_servomotors") 
+end
+function take_actor_upgr_flash_disk_carbon(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_carbon") 
+end
+function take_actor_upgr_flash_disk_exosystems(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_exosystems") 
+end
+function take_actor_upgr_flash_disk_amortizators(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_amortizators") 
+end
+function take_actor_upgr_flash_disk_artdetector(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_artdetector") 
+end
+function take_actor_upgr_flash_disk_layers(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_layers") 
+end
+function take_actor_upgr_flash_disk_rubberizol(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_rubberizol") 
+end
+function take_actor_upgr_flash_disk_thermoizol(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_thermoizol") 
+end
+function take_actor_upgr_flash_disk_orgsteklo(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_orgsteklo") 
+end
+
+-- UPGRADE FLASDISK ALTER 40-50
+function take_actor_upgr_flash_disk_constant(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_constant") 
+end
+function take_actor_upgr_flash_disk_propitka(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_propitka") 
+end
+function take_actor_upgr_flash_disk_chestplates(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_chestplates") 
+end
+function take_actor_upgr_flash_disk_newscopes(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_newscopes") 
+end
+function take_actor_upgr_flash_disk_contrast(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_contrast") 
+end
+function take_actor_upgr_flash_disk_pnv(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_pnv") 
+end
+function take_actor_upgr_flash_disk_dynamicscope(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_dynamicscope") 
+end
+function take_actor_upgr_flash_disk_lenses(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_lenses") 
+end
+function take_actor_upgr_flash_disk_rukoyatka(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_rukoyatka") 
+end
+function take_actor_upgr_flash_disk_compensator(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_compensator") 
+end
+
+-- UPGRADE FLASDISK ALTER 50-60
+function take_actor_upgr_flash_disk_filters(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_filters") 
+end
+function take_actor_upgr_flash_disk_antenns(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_antenns") 
+end
+function take_actor_upgr_flash_disk_ecrans(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_ecrans") 
+end
+function take_actor_upgr_flash_disk_cupols(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_cupols") 
+end
+function take_actor_upgr_flash_disk_closedbreath(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_closedbreath") 
+end
+function take_actor_upgr_flash_disk_psystimulators(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_psystimulators") 
+end
+function take_actor_upgr_flash_disk_skaneri(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_skaneri") 
+end
+function take_actor_upgr_flash_disk_ionwind(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_ionwind") 
+end
+function take_actor_upgr_flash_disk_psyprotect(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_psyprotect") 
+end
+function take_actor_upgr_flash_disk_pruzhini(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_pruzhini") 
+end
+
+-- UPGRADE FLASDISK ALTER 60-70
+function take_actor_upgr_flash_disk_priemnik(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_priemnik") 
+end
+function take_actor_upgr_flash_disk_injectorfury(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_injectorfury") 
+end
+function take_actor_upgr_flash_disk_dustprotect(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_dustprotect") 
+end
+function take_actor_upgr_flash_disk_injectorgemo(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_injectorgemo") 
+end
+function take_actor_upgr_flash_disk_biostimulator(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_biostimulator") 
+end
+function take_actor_upgr_flash_disk_feniksregen(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_feniksregen") 
+end
+function take_actor_upgr_flash_disk_neuroemittor(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_neuroemittor") 
+end
+function take_actor_upgr_flash_disk_complexdoctor(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_complexdoctor") 
+end
+function take_actor_upgr_flash_disk_gasballons(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_gasballons") 
+end
+function take_actor_upgr_flash_disk_kreplenie(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_kreplenie") 
+end
+
+-- UPGRADE FLASDISK ALTER 70-75
+function take_actor_upgr_flash_disk_restoresystem(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_restoresystem") 
+end
+function take_actor_upgr_flash_disk_skatsystem(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_skatsystem") 
+end
+function take_actor_upgr_flash_disk_marafonecsystem(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_marafonecsystem") 
+end
+function take_actor_upgr_flash_disk_systemvaryag(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_systemvaryag") 
+end
+function take_actor_upgr_flash_disk_dynamo(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "upgr_flash_disk_dynamo") 
+end
+
+-- ИЗЪЯТИЕ ДЕНЕГ У АКТОРА ЗА И РАБОТУ
+function esc_stalker_take_9x18_200(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 400) 
+end
+function esc_stalker_take_9x19_350(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 700) 
+end
+function esc_stalker_9x39_1000(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 2000) 
+end
+function esc_stalker_045_450(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 900) 
+end
+function esc_stalker_545x39_700(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1400) 
+end
+function esc_stalker_556x45_850(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1700) 
+end
+function esc_stalker_take_762x25_500(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1000) 
+end
+function esc_stalker_take_762x39_750(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1500) 
+end
+function esc_stalker_take_762x51_700(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1400) 
+end
+function esc_stalker_take_762x54_1400(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 2800) 
+end
+function esc_stalker_take_792x33_900(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1800) 
+end
+function esc_stalker_take_12x70_220(first_speaker, second_speaker) 
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 440) 
+end
+
+-- ПРОВЕРКА ДЕНЕГ АКТОРА
+function esc_stalker_have_9x18_200()
+	return mlr_utils.act_h_m(200)
+end
+function esc_stalker_have_9x19_350()
+	return mlr_utils.act_h_m(350)
+end
+function esc_stalker_have_9x39_1000()
+	return mlr_utils.act_h_m(1000)
+end
+function esc_stalker_have_045_450()
+	return mlr_utils.act_h_m(450)
+end
+function esc_stalker_have_545x39_700()
+	return mlr_utils.act_h_m(700)
+end
+function esc_stalker_have_556x45_850()
+	return mlr_utils.act_h_m(850)
+end
+function esc_stalker_have_762x25_500()
+	return mlr_utils.act_h_m(500)
+end
+function esc_stalker_have_762x39_750()
+	return mlr_utils.act_h_m(750)
+end
+function esc_stalker_have_762x51_700()
+	return mlr_utils.act_h_m(700)
+end
+function esc_stalker_have_762x54_1400()
+	return mlr_utils.act_h_m(1400)
+end
+function esc_stalker_have_792x33_900()
+	return mlr_utils.act_h_m(900)
+end
+function esc_stalker_have_12x70_220()
+	return mlr_utils.act_h_m(220)
+end
+
+-- ВЫДАЧА ДЕНЕГ АКТОРУ
+function esc_stalker_flasdisk_2800(first_speaker, second_speaker)
+	dialogs.relocate_money_to_actor(first_speaker, second_speaker, math.random(2250,2800)) 
+end
+
+----------------------------------------------- SIDOR GIVE VODKA --------------------------------------------------------
+
+-- SIDOR GIVE VODKA
+-- Проверка на наличие денег
+function esc_stalker_trader_have_money_1200()
+	return mlr_utils.act_h_m(1200)
+end
+
+-- Проверка на наличие предмета
+function have_bottle_metal_quest(first_speaker, second_speaker)
+	return mlr_utils.act_h_s('bottle_metal_quest')
+end	
+
+-- Выдача предмета
+function give_actor_bottle_metal_quest_2(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_metal_quest", 2) 
+end
+function give_actor_bottle_metal_quest_3(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_to_actor(first_speaker, second_speaker, "bottle_metal_quest", 3) 
+end
+
+-- Изъятие денег
+function esc_stalker_trader_1200(first_speaker, second_speaker)
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1200) 
+end
+function esc_stalker_trader_1100(first_speaker, second_speaker)
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1100) 
+end
+function esc_stalker_trader_800(first_speaker, second_speaker)
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 800) 
+end
+
+-- Изъятие предмета
+function take_bottle_metal_quest(first_speaker, second_speaker) 
+    dialogs.relocate_item_section_from_actor(first_speaker, second_speaker, "bottle_metal_quest") 
+end
+
+--------------------------------------------Fanat vodka-------------------------------------------------------------------------------
+
+function test_actor_have_vodka(first_speaker, second_speaker)
+	local item_sections	= {
+		[1] = "beer",
+		[2] = "wine",
+		[3] = "samogon",
+		[4] = "vodka",
+		[5] = "vodka2",
+		[6] = "bottle_metal",
+		[7] = "vodka_quality"
+	}
+	local needed = 1
+	local count	= 0
+	local item_section
+	local function calc(temp, item)
+		if item:section() == item_section then
+			count = count + 1
+		end
+	end
+	for k,v in pairs(item_sections) do
+		item_section = v
+		get_story_object("actor"):iterate_inventory(calc, actor)
+	end
+	return count >= needed
+end
+
+function test_transfer(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	local actor = dialogs.who_is_actor(first_speaker, second_speaker)
+	local i = 1
+	local j = 0
+	local section
+	local item_sections	= {
+		[1] = "beer",
+		[2] = "wine",
+		[3] = "samogon",
+		[4] = "vodka",
+		[5] = "vodka2",
+		[6] = "bottle_metal",
+		[7] = "vodka_quality"
+	}
+	local function transfer_object_item(temp, item)
+		if (item:section() == section and i ~= 0) then
+			actor:transfer_item(item, npc)
+			i = i - 1
+		end
+	end
+	for k,v in pairs(item_sections) do
+		section = v
+		j = i
+		actor:iterate_inventory(transfer_object_item, nil)
+		if ((j - i) ~= 0) then
+			news_manager.relocate_item(actor, "out", section, j - i)
+		end
+	end
+end 
+
+function test_actor_dont_vodka(first_speaker, second_speaker)
+	local item_sections	= {
+		[1] = "beer",
+		[2] = "wine",
+		[3] = "samogon",
+		[4] = "vodka",
+		[5] = "vodka2",
+		[6] = "bottle_metal",
+		[7] = "vodka_quality"
+	}
+	local needed = 1
+	local count	= 0
+	local item_section
+	local function calc(temp, item)
+		if item:section() == item_section then
+			count = count + 1
+		end
+	end
+	for k,v in pairs(item_sections) do
+		item_section = v
+		get_story_object("actor"):iterate_inventory(calc, actor)
+	end
+	return count < needed
+end

@@ -1,0 +1,384 @@
+[wpn_fn2000]:default_weapon_params
+$spawn							= "weapons\fn-2000"
+$npc							= on					; option for Level Editor
+visual							= dynamics\weapons\wpn_fn2000\wpn_fn2000.ogf
+class							= WP_GROZA
+inv_name						= st_wpn_fn2000
+inv_name_short					= st_wpn_fn2000
+description						= st_wpn_fn2000_descr
+heating_rates					= nato3
+ef_main_weapon_type				= 2
+ef_weapon_type					= 8
+default_to_ruck					= false
+sprint_allowed					= true
+control_inertion_factor			= 1.0
+repair_type						= rifle_5.56
+;-------------------------------------------------------------------------------
+weapon_class					= assault_rifle
+inv_weight						= 3.8
+inv_volume						= 4.5
+ph_mass							= 4
+cost							= 45880
+upgrades						= up_gr_firstab_fn2000, up_gr_seconab_fn2000, up_gr_thirdab_fn2000, up_gr_fourtab_fn2000, up_gr_fourtcd_fn2000, up_gr_fourtef_fn2000
+installed_upgrades				=
+upgrade_scheme					= upgrade_scheme_fn2000
+;--TTX----------------------------------------------------------------------------
+hit_power						= 0.49, 0.49, 0.49, 0.49
+hit_impulse						= 25
+hit_type						= fire_wound
+fire_distance					= 1000
+bullet_speed					= 900
+rpm								= 850
+rpm_empty_click					= 200
+time_to_aim						= 1.0
+hud								= wpn_fn2000_hud
+
+misfire_probability				= 0.005
+misfire_start_condition			= 0.9
+misfire_end_condition			= 0.1
+misfire_start_prob				= 0.007
+misfire_end_prob				= 0.11
+condition_shot_dec				= 0.0008
+condition_queue_shot_dec		= 0.0008
+
+ammo_elapsed					= 30
+ammo_mag_size					= 30
+fire_modes						= -1, 1, 3
+magazine_sect					= magazine_556_cnt_30, magazine_556_cnt_30_2, magazine_556_cnt_30_g36, magazine_556_cnt_35_ace, magazine_556_cnt_60
+ammo_class						= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class					= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot							= 2
+animation_slot					= 2
+;--дисперсия-----------------------------------------------------------------------------
+fire_dispersion_base			= 0.234					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor			= 1.32f
+crosshair_inertion				= 6.3
+
+cam_return						= 0
+cam_relax_speed					= 8						;скорость возврата в исходное положение
+cam_relax_speed_ai				= 120.75
+cam_dispersion					= 0.78
+cam_dispersion_inc				= 0.7
+cam_dispersion_frac				= 1.0					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0					;максимальный угол отдачи
+cam_max_angle_horz				= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.99					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base					= 0.8
+PDM_disp_vel_factor				= 2.3
+PDM_disp_accel_factor			= 2.3
+PDM_disp_crouch					= 1.0
+PDM_disp_crouch_no_acc			= 1.0
+
+zoom_cam_relax_speed			= 8						; scope & ironsight
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 0.68
+zoom_cam_dispersion_inc			= 0.62
+zoom_cam_dispersion_frac		= 1.0
+zoom_cam_max_angle				= 40.0
+zoom_cam_max_angle_horz			= 40.0
+zoom_cam_step_angle_horz		= 1.84
+fire_dispersion_condition_factor = 0.001				;увеличение дисперсии в процентах при максимальном износе
+;---DOF-------------------------------------------------------------------------
+;zoom_dof						= 0.5, 1.0, 180
+reload_dof						= 0.0, 0.5, 5, 2
+reload_empty_dof				= 0.0, 0.5, 5, 3
+;-------------------------------------------------------------------------------
+inv_grid_width					= 4
+inv_grid_height					= 2
+inv_grid_x						= 40
+inv_grid_y						= 36
+
+upgr_icon_x						= 900
+upgr_icon_y						= 1000
+upgr_icon_width					= 250
+upgr_icon_height				= 100
+
+kill_msg_x						= 131
+kill_msg_y						= 123
+kill_msg_width					= 64
+kill_msg_height					= 30
+;-------------------------------------------------------------------------------
+position						= -0.026, -0.132, 0.0
+orientation						= 0, 0, 0
+fire_point						=  0.000000,0.184,0.35
+fire_point2						= 0.0, 0.123, 0.398
+flame_particles					= weapons\new_effects\fn2000
+smoke_particles					= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles			= weapons\generic_weapon01
+shell_point						= -0.02,0.186,0.2
+shell_dir						= 0.0, 1.0, 0.0
+shell_particles					= weapons\556x45
+
+light_disabled					= false
+light_color						= 0.6,0.5,0.3
+light_range						= 4
+light_var_color					= 0.05
+light_var_range					= 0.1
+light_time						= 0.2
+
+;addons
+scope_status					= 1
+silencer_status					= 2
+grenade_launcher_status			= 0
+
+zoom_enabled					= true
+zoom_rotate_time				= 0.25
+scope_inertion_factor			= 0.05
+scope_control_factor			= 0.1
+scope_lense_factor				= 2.0
+scope_zoom_factor				= 1.03
+scope_zoom_hud_fov				= 0.40
+scope_texture					= wpn_crosshair_fn2000
+
+silencer_name					= wpn_sil_nato
+silencer_x						= 169
+silencer_y						= 13
+
+grenade_launcher_name			= wpn_addon_grenade_launcher_m203
+grenade_launcher_x				= 95
+grenade_launcher_y				= 25
+
+silencer_light_color			= 0.6,0.5,0.3
+silencer_light_range			= 0.01
+silencer_light_var_color		= 0.05
+silencer_light_var_range		= 0.5
+silencer_light_time				= 0.2
+silencer_smoke_particles		= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster						= weapons\fn2000\fn2000_holster
+snd_draw						= weapons\fn2000\fn2000_draw
+snd_empty						= weapons\fn2000\fn2000_empty
+snd_reload						= weapons\fn2000\fn2000_reload
+snd_shoot						= weapons\fn2000\fn2000_shoot_null
+snd_silencer_shot				= weapons\fn2000\fn2000_shot_sil_null
+snd_switch						= $no_sound
+snd_bore						= $no_sound
+;-------------------------------------------------------------------------------
+[wpn_fn2000_hud]:hud_base
+item_visual						= dynamics\weapons\wpn_fn2000\wpn_fn2000_hud.ogf
+zoom_hide_crosshair				= true
+shell_point						= 0,0,0
+shell_dir						= 0,0,0
+shell_bone						= gilza
+fire_point						= 0,0,0
+fire_bone						= muzzle
+fire_point2						= 0,0,0
+fire_bone2						= muzzle_gl
+
+hands_position					= -0.130324,-0.184925,0.100227
+hands_position_16x9				= -0.130324,-0.184925,0.100227
+hands_orientation				= 0,0,0
+hands_orientation_16x9			= 0,0,0
+
+aim_hud_offset_pos				= -0.055075,-0.008125,-0.227623
+aim_hud_offset_pos_16x9			= -0.055075,-0.008125,-0.227623
+aim_hud_offset_rot				= 0.0038,-0.0006,0
+aim_hud_offset_rot_16x9			= 0.0038,-0.0006,0
+
+aim_hud_offset_pos_alt			= 0,-0.023835,0.0378
+aim_hud_offset_pos_alt_16x9		= 0,-0.023835,0.0378
+
+anm_show						= f2000_nimble_draw
+anm_hide						= f2000_nimble_holster
+anm_idle						= f2000_nimble_idle
+anm_idle_sprint					= f2000_nimble_sprint
+anm_idle_moving					= f2000_nimble_move
+anm_shots						= f2000_nimble_shoot, shoot
+anm_shots_empty					= f2000_nimble_idle
+anm_reload						= f2000_nimble_reload, reload
+anm_idle_aim					= f2000_nimble_aim
+anm_bore						= f2000_nimble_aim
+;-----------------------------------------------------------------------------
+[wpn_fn2000_camo]:wpn_fn2000
+visual							= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk1.ogf
+inv_name						= st_wpn_fn2000_camo
+inv_name_short					= st_wpn_fn2000_camo
+installed_upgrades				= up_secona_fn2000, up_thirda_fn2000
+cost							= 53650
+hit_power						= 0.53, 0.53, 0.53, 0.53
+bullet_speed					= 913
+rpm								= 860
+hud								= wpn_fn2000_sk1_hud
+misfire_start_condition			= 0.86
+misfire_end_condition			= 0.09
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.00075
+condition_queue_shot_dec		= 0.00075
+inv_grid_y						= 38
+fire_dispersion_base			= 0.209
+
+[wpn_fn2000_sk1_hud]:wpn_fn2000_hud
+item_visual						= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_fn2000_custom]:wpn_fn2000
+visual							= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk2.ogf
+inv_name						= st_wpn_fn2000_custom
+inv_name_short					= st_wpn_fn2000_custom
+installed_upgrades				= up_firsta_fn2000
+cost							= 49350
+hit_power						= 0.508, 0.508, 0.508, 0.508
+bullet_speed					= 905
+rpm								= 875
+hud								= wpn_fn2000_sk2_hud
+misfire_start_condition			= 0.83
+misfire_end_condition			= 0.07
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.0007
+condition_queue_shot_dec		= 0.0007
+inv_grid_y						= 40
+fire_dispersion_base			= 0.219
+
+[wpn_fn2000_sk2_hud]:wpn_fn2000_hud
+item_visual						= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_fn2000_worn]:wpn_fn2000
+visual							= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk3.ogf
+inv_name						= st_wpn_fn2000_worn
+inv_name_short					= st_wpn_fn2000_worn
+upgrades						= up_gr_firstab_fn2000_worn, up_gr_seconab_fn2000_worn, up_gr_thirdab_fn2000_worn, up_gr_fourtab_fn2000_worn, up_gr_fourtcd_fn2000_worn, up_gr_fourtef_fn2000_worn
+cost							= 30480
+hit_power						= 0.45, 0.45, 0.45, 0.45
+bullet_speed					= 840
+rpm								= 810
+hud								= wpn_fn2000_sk3_hud
+misfire_start_condition			= 0.92
+misfire_end_condition			= 0.12
+condition_shot_dec				= 0.0009
+condition_queue_shot_dec		= 0.0009
+inv_grid_y						= 42
+fire_dispersion_base			= 0.27
+
+[wpn_fn2000_sk3_hud]:wpn_fn2000_hud
+item_visual						= dynamics\weapons\wpn_fn2000\wpn_fn2000_sk3_hud.ogf
+;-----------------------------------------------------------------------------
+; FN with Grenade Lancher
+;-----------------------------------------------------------------------------
+[wpn_fn2000_nimble]:wpn_fn2000
+visual							= dynamics\weapons\wpn_fn2000\wpn_fn2000_nimble.ogf
+$spawn							= "weapons\wpn_fn2000_nimble"
+inv_name						= st_wpn_fn2000_nimble
+inv_name_short					= st_wpn_fn2000_nimble
+description						= st_wpn_fn2000_nimble_descr
+cost							= 48550
+inv_weight						= 3.8
+upgrades						= up_gr_firstab_fn2000_nimble, up_gr_seconab_fn2000_nimble, up_gr_thirdab_fn2000_nimble, up_gr_fourtab_fn2000_nimble, up_gr_fourtcd_fn2000_nimble, up_gr_fourtef_fn2000_nimble
+hit_power						= 0.48, 0.48, 0.48, 0.48
+bullet_speed					= 855
+rpm								= 895
+
+misfire_start_prob				= 0.003
+misfire_end_prob				= 0.02
+condition_shot_dec				= 0.00065
+condition_queue_shot_dec		= 0.00065
+inv_grid_width					= 5
+inv_grid_height					= 2
+inv_grid_x						= 44
+inv_grid_y						= 44
+upgr_icon_x						= 2350
+upgr_icon_y						= 600
+upgr_icon_width					= 250
+upgr_icon_height				= 100
+hud								= wpn_fn2000_nimble_hud
+
+fire_dispersion_base			= 0.29
+control_inertion_factor			= 1.6f
+
+position						= -0.026, -0.121, -0.01
+orientation						= 0, 0, 0
+fire_point						= 0,0.184,0.35
+fire_point2						= 0.0, 0.123, 0.398
+
+cam_return						= 0
+cam_relax_speed					= 8				;скорость возврата в исходное положение
+cam_relax_speed_ai				= 120.75
+cam_dispersion					= 0.7
+cam_dispersion_inc				= 0.63
+cam_dispersion_frac				= 0.88			;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle					= 50.0			;максимальный угол отдачи
+cam_max_angle_horz				= 50.0			;(degree) maximum shot horizontal degree
+cam_step_angle_horz				= 1.7			;(degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed			= 8				; scope & ironsight
+zoom_cam_relax_speed_ai			= 360
+zoom_cam_dispersion				= 0.6
+zoom_cam_dispersion_inc			= 0.55
+zoom_cam_dispersion_frac		= 0.9
+zoom_cam_max_angle				= 40.0
+zoom_cam_max_angle_horz			= 40.0
+zoom_cam_step_angle_horz		= 1.6
+
+grenade_launcher_status			= 1
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_reload						= weapons\fn2000\fn2000_gl_reload
+snd_shoot_grenade				= weapons\lr300\lr300_grenshoot
+snd_reload_grenade				= weapons\lr300\lr300_grenreload
+snd_switch						= weapons\lr300\lr300_switch 
+;-----------------------------------------------------------------------------
+[wpn_fn2000_nimble_hud]:wpn_fn2000_hud
+item_visual						= dynamics\weapons\wpn_fn2000\wpn_fn2000_nimble_hud2.ogf
+shell_point						= 0.037,0.063,0.118
+shell_dir						= 0.0, 1.0, 0.0
+shell_bone						= wpn_body
+fire_bone						= wpn_body
+fire_bone2						= wpn_body
+fire_point						= 0,0.061779,0.368544
+fire_point2						= 0.0,-0.008,0.408
+
+hands_position					= -0.090120,-0.128093,0.096497
+hands_position_16x9				= -0.090120,-0.128093,0.096497
+hands_orientation				= 0,0,0
+hands_orientation_16x9			= 0,0,0
+
+aim_hud_offset_pos				= -0.062380,-0.018320,-0.218462
+aim_hud_offset_pos_16x9			= -0.062380,-0.018320,-0.218462
+aim_hud_offset_rot				= 0.006127,0.002674,-0.01
+aim_hud_offset_rot_16x9			= 0.006127,0.002674,-0.01
+
+aim_hud_offset_pos_alt			= 0.000365,-0.02869,0.02675
+aim_hud_offset_pos_alt_16x9		= 0.000365,-0.02869,0.02675
+aim_hud_offset_rot_alt			= -0.005204,-0.003325,0
+aim_hud_offset_rot_alt_16x9		= -0.005204,-0.003325,0
+
+gl_hud_offset_pos				= -0.12845,-0.009515,0
+gl_hud_offset_pos_16x9			= -0.12845,-0.009515,0
+gl_hud_offset_rot				= -0.149,-0.003,0
+gl_hud_offset_rot_16x9			= -0.149,-0.003,0
+
+anm_show						= lancew_fn_f2000_draw
+anm_hide						= lancew_fn_f2000_holster
+anm_idle						= lancew_fn_f2000_idle
+anm_idle_sprint					= lancew_fn_f2000_sprint
+anm_idle_moving					= lancew_fn_f2000_moving
+anm_idle_moving_crouch			= lancew_fn_f2000_moving, , 0.5
+anm_shots						= lancew_fn_f2000_shoot, shoot
+anm_shots_empty					= lancew_fn_f2000_idle
+anm_reload						= lancew_fn_f2000_reload, reload
+anm_idle_aim					= lancew_fn_f2000_idle_aim, idle_aim
+anm_switch						= lancew_fn_f2000_switch_off
+anm_switch_g					= lancew_fn_f2000_switch_on
+anm_bore						= lancew_fn_f2000_no_reload
+anm_show_w_gl					= lancew_fn_f2000_draw
+anm_hide_w_gl					= lancew_fn_f2000_holster
+anm_idle_w_gl					= lancew_fn_f2000_idle
+anm_shots_w_gl					= lancew_fn_f2000_shoot, shoot
+anm_shots_w_gl_empty			= lancew_fn_f2000_idle
+anm_reload_w_gl					= lancew_fn_f2000_reload, reload
+anm_idle_w_gl_aim				= lancew_fn_f2000_idle_aim, idle_aim
+anm_idle_sprint_w_gl			= lancew_fn_f2000_sprint
+anm_idle_moving_w_gl			= lancew_fn_f2000_moving
+anm_idle_moving_crouch_w_gl		= lancew_fn_f2000_moving, , 0.5
+anm_bore_w_gl					= lancew_fn_f2000_no_reload
+anm_show_g						= lancew_fn_f2000_draw_g
+anm_hide_g						= lancew_fn_f2000_holster_g
+anm_idle_g						= lancew_fn_f2000_idle_g
+anm_reload_g					= lancew_fn_f2000_reload_g, reload_g
+anm_idle_g_aim					= lancew_fn_f2000_idle_aim_g
+anm_shots_g						= lancew_fn_f2000_shoot_g
+anm_idle_sprint_g				= lancew_fn_f2000_sprint_g
+anm_idle_moving_g				= lancew_fn_f2000_moving_g
+anm_idle_moving_crouch_g		= lancew_fn_f2000_moving_g, , 0.5
+anm_bore_g						= lancew_fn_f2000_no_reload_g
+;-----------------------------------------------------------------------------

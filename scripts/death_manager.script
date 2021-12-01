@@ -1,0 +1,468 @@
+local item_by_community = {}
+local item_count = {}
+local always_keep_item = {}
+local item_by_story_id
+local death_ini = ini_file("misc\\death_generic.ltx")
+local diff_multi = 1
+local npcIdDeathTable = {}
+local cond_items
+local outfit_drop_condition = {}
+function SetDiffModifications()
+	diff_multi = axr_main.config:r_value("mm_options","multi_loot",2) or 1
+end
+
+function init_drop_settings()
+	-- Create a list by community of the percent chance to spawn an item
+	SetDiffModifications()
+	local community_list = { "stalker", "dolg", "freedom", "bandit", "renegade", "army", "zombied", "ecolog", "killer", "monolith", "csky" }
+	for k,v in pairs(community_list) do
+		item_by_community[v] = {}
+		if death_ini:section_exist(v) then
+			local n = death_ini:line_count(v)
+			local id, value = "", ""
+			for i=0,n-1 do
+				result, id, value	= death_ini:r_line_ex(v,i,"","")
+				local temp = not (death_ini:line_exist("exclude_from_multi",id)) and diff_multi or 1
+				item_by_community[v][id] = value and tonumber(value) * temp or 0
+				--printf("item by community difficulty multi %s : %s",temp,item_by_community[v][id])
+			end
+		end
+	end
+
+	local n = death_ini:line_count("item_count")
+	local id, value = "", ""
+	for i=0,n-1 do
+		local result, id, value	= death_ini:r_line_ex("item_count",i,"","")
+		local p = alun_utils.str_explode(value,",")
+		if (p) then
+			p[1] = tonumber(p[1]) or 0
+			p[2] = tonumber(p[2]) or p[1]
+			item_count[id] = {math.floor(p[1]),math.floor(p[2])}
+			--printf("item_count[id] min%s:max%s",item_count[id][1],item_count[id][2])
+		end
+	end
+	
+ 	-- Create a list of item sections that npc must keep
+	local n = death_ini:line_count("keep_items")
+	for i=0,n-1 do
+		local result, id, value	= death_ini:r_line_ex("keep_items",i,"","")
+		if value == "true" then
+			always_keep_item[id] = true
+		end
+	end
+	
+	-- Create a list of item sections that npc must keep
+	local n = death_ini:line_count("spawn_by_story_id")
+	for i=0,n-1 do
+		if not (item_by_story_id) then 
+			item_by_story_id = {}
+		end
+		local result, id, value	= death_ini:r_line_ex("spawn_by_story_id",i,"","")
+		item_by_story_id[id] = value
+	end
+	
+	-- Create a list of item sections that have random condition on death
+	local n = death_ini:line_count("random_condition_items")
+	for i=0,n-1 do
+		if not (cond_items) then
+			cond_items = {}
+		end
+		local result, id, value = death_ini:r_line_ex("random_condition_items",i,"","")
+		cond_items[id] = value
+	end
+	
+	-- Create a list of outfit drop condition based on rank
+	local n = death_ini:line_count("outfit_drop_condition")
+	for i=0,n-1 do
+		local result, id, value	= death_ini:r_line_ex("outfit_drop_condition",i,"","")
+		local p = alun_utils.str_explode(value,",")
+		if (p) then
+			p[1] = tonumber(p[1]) or 0.1
+			p[2] = tonumber(p[2]) or p[1]
+			outfit_drop_condition[id] = {math.ceil(p[1] * 100) , math.ceil(p[2] * 100)}
+		end
+	end
+end
+
+-- this will actually occur every time corpse spawn unless already looted
+function decide_items_to_keep(npc, dont_change)
+	if npcIdDeathTable[npc:id()] then return end
+	npcIdDeathTable[npc:id()] = true
+	--npc:iterate_inventory(keep_item, npc, dont_change)
+end
+
+function iterate_items_to_keep(npc, dont_change)
+	npc:iterate_inventory(keep_item, npc, dont_change)
+end
+
+function create_release_item(npc,who)
+	--printf("release_item for id:%s initial", npc:id())
+	--if (utils.se_obj_load_var(npc:id(),npc:name(),"checked")) then return end
+	--utils.se_obj_save_var(npc:id(),npc:name(),"checked",true)
+	if npcIdDeathTable[npc:id()] == true then return end
+	npcIdDeathTable[npc:id()] = true
+	
+	-- Gather NPC info
+	local npc_id = npc:id()
+	local npc_comm = character_community(npc)
+	local npc_rank = ranks.get_obj_rank_name(npc)
+	
+	if lootmoney and who and (who:id() == 0) then
+		lootmoney.lootmoney(npc)
+	end
+	
+	local check_id = dialogs.who_is_npc(npc,who):id()
+	if db.actor:has_info(check_id .. "_dd_processed") or ((not db.actor:has_info(check_id .. "_on_debt_complete") and alun_utils.load_var(db.actor, check_id .. "_debt_amount", false))) then
+		db.actor:disable_info_portion(dialogs.who_is_npc(npc,who):id() .. "_dd_processed")
+		dialogs.give_debt(npc, who)
+	end
+	
+	-- spawn items by story id
+	local sid = item_by_story_id and get_object_story_id(npc:id())
+	if (sid and item_by_story_id[sid]) then
+		local p = xr_logic.pick_section_from_condlist(db.actor,npc,utils.parse_condlist(item_by_story_id[sid]))
+		--local p = alun_utils.str_explode(item_by_story_id[sid],",")
+		--printf("sid=%s p=%s",sid,p)
+		if (p and p ~= "" and p ~= "nil") then
+			create_items(npc, p, 1, 100)
+		end
+	end
+
+	local ini = npc:spawn_ini()
+	if ini and ini:section_exist("dont_spawn_loot") then
+		return
+	end
+	
+	local st = db.storage[npc:id()]
+	if (st and st.ini and st.section_logic and st.ini:line_exist(st.section_logic,"dont_spawn_loot")) then 
+		return
+	end
+	
+	-- Spawn outfit and helmet
+	local outfit_id = spawn_outfit(npc, npc_id, npc_comm, npc_rank)
+
+	local spawn_items = item_by_community[character_community(npc)]
+	if spawn_items == nil then
+		return
+	end
+	
+	--npc:iterate_inventory(try_spawn_ammo_for_weapon,npc)
+	--printf("release_item for id:%s", npc:id())
+	for sec,v in pairs(spawn_items) do
+		if (v > 0 and item_count[sec]) and not utils.is_ammo(sec) then
+			local number = math.random(item_count[sec][1], item_count[sec][2])
+			
+			-- Bookworm Food achievement.
+			-- Changes memory sticks to rare PDAs when no articles left.
+			if (sec == "itm_guide_usb_1" or sec == "itm_guide_usb_2" or sec == "journal" or sec == "survivalguide") then
+				-- Check locked articles count instead of for achieved_bookworm_food infoportion.
+				-- If articles are added after achievement is unlocked, they might become unobtainable.
+				if dxr_encyclopedia.get_articles_locked_count() == 0 then
+					sec = "itm_pda_rare"
+				end
+			end
+			--printf("create %s(%s) for id:%s random:%s", sec, number, npc:id(), v)
+			create_items(npc, sec, number, v)
+		end
+	end
+end
+
+function keep_item(npc, item, dont_change)
+	if not (item) then 
+		return 
+	end 
+	-- keep items listed in always_keep_item table
+	local section = item:section()
+	if (always_keep_item[section]) then 
+		return 
+	end 
+	
+	local se_item = alife_object(item:id())
+	if not (se_item) then 
+		return
+	end
+	-- release items with a "dont_keep_items" npc spawn section
+	local ini = npc:spawn_ini()
+	if ini and ini:section_exist("dont_keep_items") then
+		alife():release(se_item, true)
+		return
+	end
+	-- release items with a "dont_keep_items = true " line in script logic
+	local st = db.storage[npc:id()]
+	if (st and st.ini and st.section_logic and st.ini:line_exist(st.section_logic,"dont_keep_items")) then
+		alife():release(se_item, true)
+		return
+	end 
+	
+	--List of animation objects that we never want to drop as an item.
+	local animationObjects = {
+		["bolt"] = true,
+		["medkit_script"] = true,
+		["guitar_a"] = true,
+		["guitar_a2"] = true,
+		["harmonica_a"] = true,
+		["wpn_binoc"] = true,
+		["anim_binoc"] = true,
+		["anim_knife"] = true,
+		["device_torch"] = true,
+		--["device_pda"] = true,
+		["hand_radio"] = true,
+		["hand_radio_r"] = true,
+		["stick_bred"] = true,
+		["stick_kolbasa"] = true,
+		["stick_kolbasa_bred"] = true,
+		["stick_rat"] = true,
+		["sigaret_for_npc"] = true,
+		["pda_for_npc"] = true
+	}
+	
+	--If our section is one of the above animation objects, release it and return.
+	if animationObjects[section] then
+		alife():release( se_item, true )
+		return
+	end
+	-- keep all Artefacts
+	if IsArtefact(item) then
+		return
+	end
+	-- exit here if dont_change variable exists
+	--printf("dont change: %s", dont_change)
+	if (dont_change) then return end
+	-- set random charge count for items with charges
+	local max_uses = item:get_max_uses() or 1
+	--printf("Max_uses:%s section:%s", max_uses, item:section())
+	if max_uses > 1 then
+		local m = math.ceil(max_uses * math.random(diff_multi,1))
+		if (m > 0) then 
+			local r = math.random(0,m)
+			item:set_remaining_uses(r)
+			if (r == 0) then 
+				alife():release(se_item, true)
+			end
+			return
+		end
+	--elseif item:section():find("battery_") then
+	elseif cond_items[item:section()] then
+		item:set_condition(utils.clamp((math.random(10,100*diff_multi)/100),0.1, 1))
+	end
+	
+	local cls = item:clsid()
+	if IsWeapon(item,cls) and not (cls==clsid.wpn_grenade_rgd5_s or cls==clsid.wpn_grenade_f1_s) then
+		local rankAdd = {
+			["novice"] = -5,
+			["trainee"] = 0,
+			["experienced"] = 2,
+			["professional"] = 5,
+			["veteran"] = 7,
+			["expert"] = 10,
+			["master"] = 15,
+			["legend"] = 20
+		}
+		
+		local communityAdd = {
+			["zombied"] = -10,
+			["bandit"] = -5,
+			["army"] = 5,
+			["killer"] = 5
+		}
+		-- set adjusted weapon condition (36 - 65 + adjustments)
+		local multi = (axr_main.config:r_value("mm_options","multi_wpn_conditions",2) or 1)
+		local condition = (math.random(5,21)+5)
+		local knife = IsWeapon(item,cls) and cls==clsid.wpn_knife_s
+		condition = condition + ( rankAdd[ranks.get_obj_rank_name( npc )] or 0 ) + ( communityAdd[npc:character_community()] or 0 )
+		if knife then condition = condition + 10 end
+		condition = utils.clamp( condition * multi, 0, 100 )
+		item:set_condition(condition / 100)
+		-- spawn extra inventory ammo if weapon
+		try_spawn_ammo_for_weapon(npc, item)
+		-- Set random ammo in mag
+		item:set_ammo_elapsed( math.random(0,item:get_ammo_in_magazine()) )
+		
+		return
+	end
+	-- keep 2/3 * economy modification of all other items
+	local temp = not (death_ini:line_exist("exclude_from_multi",item:section())) and diff_multi or 1
+	if (item:cast_Ammo() == nil and xr_corpse_detection.lootable_table and xr_corpse_detection.lootable_table[section] and math.random(1,100) < 65 * temp) then
+		return
+	end
+	-- discard anything not kept above
+	alife():release(se_item, true)
+end
+
+function get_comb_coeff(rank,comm)
+	local rank_coeffs_table = {novice = 0.3, trainee = 0.4, experienced = 0.5, professional = 0.6, veteran = 0.7, expert = 0.8, master = 0.9, legend = 1}
+	local comm_coeffs_table = {zombied = 1, ecolog = 7, bandit = 10, freedom = 15, stalker = 17, clearsky = 20, dolg = 23, killer = 25, army = 27, monolith = 30}
+	local rank_coeff = rank_coeffs_table[rank] or 0
+	local comm_coeff = comm_coeffs_table[comm] or 0
+	return rank_coeff * comm_coeff / (rank_coeffs_table.legend * comm_coeffs_table.monolith)
+end
+
+function get_outfit_by_npc_visual(visual,clean)
+	local s_name = alun_utils.str_explode(visual,"\\")
+	local v_name = clean and s_name[1] or s_name[3]
+	return get_outfit_by_visual(v_name)
+end
+
+function get_outfit_by_visual(visual)
+	local str = death_ini:r_string_ex("visual_outfits",visual)
+	return str and alun_utils.str_explode(str,",")
+end
+
+function spawn_outfit(npc, npc_id, npc_comm, npc_rank, visual, rand_cond)
+	local coef = get_comb_coeff(npc_rank,npc_comm)^0.44
+	local visual = visual or npc:get_visual_name()
+	local tbl = get_outfit_by_npc_visual(visual)
+	local outfit_section = tbl and tbl[1]
+	local helmet_section = tbl and tbl[2]
+	local backpack_section = tbl and tbl[3]
+
+	-- Get suitable condition
+	local function get_condition_by_rank(rank,coef)
+		local min_con = outfit_drop_condition[rank] and outfit_drop_condition[rank][1] or 10
+		local max_con = outfit_drop_condition[rank] and outfit_drop_condition[rank][2] or 40
+		local con = utils.mean_random(min_con, max_con, coef, 7)/100
+		return con
+	end
+	
+	local function spawn_with_condition(section, condition, id)
+		-- create server object without spawning the item
+		local se_outfit = alife():create(section, npc:position(), npc:level_vertex_id(), npc:game_vertex_id(), id, false)
+		local data = stpk_utils.get_item_data(se_outfit)
+	
+		-- item packets contain condition value among other things
+		data.condition = condition
+	
+		-- convert table to packet and submit it to server
+		stpk_utils.set_item_data(data,se_outfit)
+	
+		-- actually spawn the modified item
+		alife():register(se_outfit)
+
+		return se_outfit and se_outfit.id
+	end
+	if (axr_main.config:r_value("mm_options","enable_outfit_drop",1,true) == true) then
+		-- Spawn outfit
+		local outfit_id
+		if outfit_section and system_ini():section_exist(outfit_section) and outfit_section ~= "outfit_base" then
+			local condition = rand_cond and (math.random(25,85)/100) or get_condition_by_rank(npc_rank, coef)
+			outfit_id = spawn_with_condition(outfit_section, condition, npc_id)
+		end
+		
+		-- Spawn helmet
+		local helmet_id
+		if helmet_section and system_ini():section_exist(helmet_section) and helmet_section ~= "helmet_base" then
+			local condition = rand_cond and (math.random(25,85)/100) or get_condition_by_rank(npc_rank, coef)
+			helmet_id = spawn_with_condition(helmet_section, condition, npc_id)
+		end
+		
+		local backpack_id
+		if backpack_section and system_ini():section_exist(backpack_section) and backpack_section ~= "backpack_base" then
+			local condition = rand_cond and (math.random(25,85)/100) or get_condition_by_rank(npc_rank, coef)
+			backpack_id = spawn_with_condition(backpack_section, condition, npc_id)
+		end
+		return
+	end
+
+	-- Confirm that an outfit is created
+	return outfit_id
+end
+
+function try_spawn_ammo_for_weapon(npc,itm)
+	if not (IsWeapon(itm)) then 
+		return 
+	end
+	
+	local ini = system_ini()
+	local ammo_class = ini:r_list(itm:section(),"ammo_class")
+	if not (ammo_class and #ammo_class > 0) then 
+		return
+	end
+	
+	-- randomly spawn only 1 ammo type per found weapon
+	local ammo_type = itm:get_ammo_type()+1
+	local sec = ammo_class[ammo_type]
+	if (sec and item_count[sec]) then 
+		local number = math.random(item_count[sec][1], item_count[sec][2])
+		if (number > 0 and system_ini():section_exist(sec)) then
+			number = math.floor(area_skills and 1+0.1+area_skills.skills_table.marauder_skill/200 or 1)*number
+			create_ammo(sec,npc:position(),npc:level_vertex_id(),npc:game_vertex_id(),npc:id(),number)
+		end
+	end
+
+	ammo_class = ini:r_list(itm:section(),"grenade_class")
+	if not (ammo_class and #ammo_class > 0) then 
+		return
+	end
+	
+	-- spawn grenade ammo if there is launcher attached
+	if (ini:r_float_ex(itm:section(),"grenade_launcher_status",0) > 0) then
+		local se_item = alife_object(itm:id())
+		if (se_item) then
+			local flags = se_item:get_addon_flags()
+			if (flags:is(cse_alife_item_weapon.eWeaponAddonGrenadeLauncher)) then
+				for i=1,#ammo_class do
+					sec = ammo_class[i]
+					if (sec and item_count[sec]) then 
+						local number = math.random(item_count[sec][1], item_count[sec][2])
+						if (number > 0 and ini:section_exist(sec)) then
+							create_ammo(sec,npc:position(),npc:level_vertex_id(),npc:game_vertex_id(),npc:id(),number)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function create_items(npc, section, number, rnd)
+	local system_ini = system_ini()
+	if not (system_ini:section_exist(section)) then 
+		--printf("death_manager: ERROR: trying to spawn section that doesn't exist! %s",section)
+		return 
+	end 
+	
+	--printf("death_dropped: create %s=%s",section,number)
+	rnd = math.floor(area_skills and 1+0.1+area_skills.skills_table.marauder_skill/200 or 1)*rnd*2
+	if (utils.is_ammo(section))then
+		if number > 0 then
+
+			create_ammo(section,npc:position(),npc:level_vertex_id(),npc:game_vertex_id(),npc:id(),number)
+		end
+	else
+		for i=1,number do
+			-- ????????? ??????????? ??????? ?????? ?????? ? ???????????
+			if (math.random(1,1000)/1000 <=  rnd) then
+				local se_obj = alife():create(section,npc:position(),npc:level_vertex_id(),npc:game_vertex_id(),npc:id())
+				if se_obj then --and (axr_main.config:r_value("mm_options","enable_random_death_charge",1,false) == true) then
+					local max_uses = system_ini:r_float_ex(se_obj:section_name(),"max_uses",1)
+					local bonus = 0
+					local skill = area_skills and area_skills.skills_table.marauder_skill
+					if skill and math.random(100) < skill then
+						bonus = 1
+					end
+					if max_uses > 1 then
+						local function death_delay(id, uses)
+							local new_obj = level.object_by_id(id)
+							if new_obj then
+								new_obj:set_remaining_uses(uses)
+								return true
+							end
+						end
+						local amt = math.random(1+bonus,max_uses)
+						--printf("death dropped server object (%s) charges:%s",se_obj.id, amt)
+						CreateTimeEvent(npc:id(),"death_delay"..se_obj.id,0,death_delay,se_obj.id, amt)
+					elseif cond_items[section] then
+						local function batt_death_delay(id, cond)
+							local new_obj = level.object_by_id(id)
+							if new_obj then
+                                new_obj:set_condition(utils.clamp(cond,0.1,1))
+                                return true
+                            end
+						end
+						CreateTimeEvent(npc:id(),"death_delay"..se_obj.id,0,batt_death_delay,se_obj.id, ((math.random(10,100)+bonus*10)/100))
+					end
+				end
+			end
+		end
+	end
+end

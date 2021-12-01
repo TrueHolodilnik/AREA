@@ -1,0 +1,22 @@
+load_time = 0
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+end 
+
+
+function on_game_load()
+	load_time = time_global()
+	rebind_savescum()
+end
+
+function rebind_savescum()
+	if (axr_main.config:r_value("mm_options","enable_only_campfire",1,false) == true) then
+		--get_console():execute("bind console kf11")
+		get_console():execute("bind quick_save kf11")
+		get_console():execute("bind quick_load kf11")
+	end
+	
+	get_console():execute("bind artefact kf11")
+	get_console():execute("bind artefact kf11")
+end

@@ -1,0 +1,132 @@
+[up_sect_firsta_backpack]
+additional_inventory_weight		= 2
+additional_inventory_weight2	= 2
+additional_inventory_volume		= 2
+power_loss						= -0.05
+cost							= 800
+
+[up_sect_firstc_backpack]
+additional_inventory_weight		= 3
+additional_inventory_weight2	= 3
+additional_inventory_volume		= 3
+power_loss						= -0.05
+cost							= 1500
+
+[up_sect_firstd_backpack]
+power_restore_speed				= 0.001
+power_loss						= -0.03
+cost							= 2000
+
+[up_sect_firste_backpack]
+additional_inventory_weight		= 5
+additional_inventory_weight2	= 5
+additional_inventory_volume		= 3
+power_restore_speed				= -0.0015
+cost							= 2500
+power_loss						= -0.05
+
+[up_sect_firstf_backpack]
+additional_inventory_weight		= 4
+additional_inventory_weight2	= 4
+additional_inventory_volume		= 3
+power_restore_speed				= 0.002
+cost							= 3000
+power_loss						= -0.1
+
+[up_firsta_backpack]
+scheme_index					= 0, 0
+known							= 1
+effects							= up_gr_firstcd_backpack
+section							= up_sect_firsta_backpack
+property						= prop_tonnage
+precondition_functor			= inventory_upgrades.precondition_functor_a
+precondition_parameter			= a & b
+effect_functor					= inventory_upgrades.effect_functor_a
+effect_parameter				= something_here
+prereq_functor					= inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor			= inventory_upgrades.prereq_tooltip_functor_a
+prereq_params					=
+name							= st_up_backpack_a1_name
+description						= st_up_backpack_a1_descr
+icon							= ui_inGame2_upgrade_backpack_1_1
+
+[up_firstc_backpack]
+scheme_index					= 1, 0
+known							= 1
+effects							= up_gr_firstef_backpack
+section							= up_sect_firstc_backpack
+property						= prop_tonnage
+precondition_functor			= inventory_upgrades.precondition_functor_a
+precondition_parameter			= a & b
+effect_functor					= inventory_upgrades.effect_functor_a
+effect_parameter				= something_here
+prereq_functor					= inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor			= inventory_upgrades.prereq_tooltip_functor_a
+prereq_params					=
+name							= st_up_backpack_a2_name
+description						= st_up_backpack_a2_descr
+icon							= ui_inGame2_upgrade_backpack_1_2
+
+[up_firstd_backpack]
+scheme_index					= 1, 1
+known							= 1
+effects							= up_gr_firstef_backpack
+section							= up_sect_firstd_backpack
+property						= prop_power
+precondition_functor			= inventory_upgrades.precondition_functor_a
+precondition_parameter			= a & b
+effect_functor					= inventory_upgrades.effect_functor_a
+effect_parameter				= something_here
+prereq_functor					= inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor			= inventory_upgrades.prereq_tooltip_functor_a
+prereq_params					=
+name							= st_up_backpack_a3_name
+description						= st_up_backpack_a3_descr
+icon							= ui_inGame2_upgrade_backpack_1_3
+
+[up_firste_backpack]
+scheme_index					= 2, 0
+known							= 1
+effects							= 
+section							= up_sect_firste_backpack
+property						= prop_power, prop_tonnage
+precondition_functor			= inventory_upgrades.precondition_functor_a
+precondition_parameter			= a & b
+effect_functor					= inventory_upgrades.effect_functor_a
+effect_parameter				= something_here
+prereq_functor					= inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor			= inventory_upgrades.prereq_tooltip_functor_a
+prereq_params					=
+name							= st_up_backpack_a4_name
+description						= st_up_backpack_a4_descr
+icon							= ui_inGame2_upgrade_backpack_1_4
+
+[up_firstf_backpack]
+scheme_index					= 2, 1
+known							= 1
+effects							= 
+section							= up_sect_firstf_backpack
+property						= prop_power, prop_tonnage
+
+precondition_functor			= inventory_upgrades.precondition_functor_a
+precondition_parameter			= a & b
+
+effect_functor					= inventory_upgrades.effect_functor_a
+effect_parameter				= something_here
+
+prereq_functor					= inventory_upgrades.prereq_functor_a
+prereq_tooltip_functor			= inventory_upgrades.prereq_tooltip_functor_a
+prereq_params					=
+name							= st_up_backpack_a5_name
+description						= st_up_backpack_a5_descr
+icon							= ui_inGame2_upgrade_backpack_1_5
+
+
+[up_gr_firstab_backpack]
+elements						= up_firsta_backpack
+
+[up_gr_firstcd_backpack]
+elements						= up_firstc_backpack, up_firstd_backpack
+
+[up_gr_firstef_backpack]
+elements						= up_firste_backpack, up_firstf_backpack

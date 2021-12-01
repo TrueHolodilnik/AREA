@@ -1,0 +1,325 @@
+;----------------------------------------------------------------------------------------
+; Ruger SR-556 from TAZ 2.0, remade by Surs for A.R.E.A. (30.06.2019)
+;----------------------------------------------------------------------------------------
+[wpn_ru556]:default_weapon_params
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556.ogf
+$spawn								= "weapons\ru556"
+$npc								= on
+class								= WP_AK74
+inv_name							= st_wpn_ru556
+inv_name_short						= st_wpn_ru556
+description							= st_wpn_ru556_descr
+weapon_class						= assault_rifle
+inv_weight							= 3.50
+inv_volume							= 4.2
+ph_mass								= 4
+cost								= 34000
+hud									= wpn_ru556_hud
+parent_section						= wpn_ru556
+scopes								= ac10632, ac11090, acog, aimpoint, coyote, eot, c-more, tars101
+heating_rates						= nato2
+ef_main_weapon_type					= 2
+ef_weapon_type						= 8
+default_to_ruck						= false
+sprint_allowed						= true
+repair_type							= rifle_5.56
+upgrades							= up_gr_firstab_lr300, up_gr_seconab_lr300, up_gr_thirdab_lr300, up_gr_fourtab_lr300, up_gr_fifthab_lr300
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_lr300
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.52
+hit_impulse							= 22
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 830
+rpm									= 900
+rpm_empty_click						= 200
+time_to_aim							= 2.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.006	
+misfire_end_prob					= 0.072	
+condition_shot_dec					= 0.000125
+condition_queue_shot_dec			= 0.0002
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= 1, -1
+magazine_sect						= mag_556_cnt_30_ru556, mag_556_cnt_30_2_ru556, mag_556_cnt_30_g36_ru556, mag_556_cnt_35_ace_ru556, mag_556_cnt_60_ru556
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;-------------------------------------------------------------------------------
+zoom_dof							= 0.5,1,180
+reload_dof							= 0,0.5,5, 2
+reload_empty_dof					= 0,0.5,5, 3
+;-------------------------------------------------------------------------------
+control_inertion_factor				= 1.15f
+crosshair_inertion					= 5.25
+cam_return							= 0
+cam_relax_speed						= 5
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.3
+cam_dispersion_inc					= 0.15
+cam_dispersion_frac					= 0.7
+cam_max_angle						= 50
+cam_max_angle_horz					= 10
+cam_step_angle_horz					= 3
+
+zoom_cam_relax_speed				= 5
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.25
+zoom_cam_dispersion_inc				= 0.12
+zoom_cam_dispersion_frac			= 1
+zoom_cam_max_angle					= 50
+zoom_cam_max_angle_horz				= 10
+zoom_cam_step_angle_horz			= 2
+
+PDM_disp_base						= 0.5
+PDM_disp_vel_factor					= 2
+PDM_disp_accel_factor				= 2
+PDM_disp_crouch						= 1
+PDM_disp_crouch_no_acc				= 1
+fire_dispersion_base				= 0.25
+fire_dispersion_condition_factor	= 2
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 70
+inv_grid_y							= 66
+
+upgr_icon_x							= 2600
+upgr_icon_y							= 200
+upgr_icon_width						= 250
+upgr_icon_height					= 100
+
+kill_msg_x							= 175
+kill_msg_y							= 0
+kill_msg_width						= 82
+kill_msg_height						= 28
+;-------------------------------------------------------------------------------
+position							= -0.013,-0.09,0.03
+orientation							= 0,0,0
+fire_point							= 0,0.165,0.395
+fire_point2							= 0,0.165,0.395
+flame_particles						= weapons\new_effects\a1_type_ar15
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\new_effects\glauncher
+shell_point							= 0.0,0.16,0.10
+shell_dir							= 0,0,0.4
+shell_particles						= weapons\556x45
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.1
+light_time							= 0.2
+
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.2
+scope_zoom_factor					= 1.03
+
+scope_name							= acog
+scope_x								= 84
+scope_y								= -6
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 135
+grenade_launcher_y					= 29
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 205
+silencer_y							= 12
+silencer_hit_power					= 0.33
+silencer_hit_impulse				= 20
+silencer_fire_distance				= 1000
+silencer_bullet_speed				= 830
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= amik\weapons\smoke_particles\silencer_smoke_particles_00
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\ru556\ru556_holster
+snd_draw							= weapons\ru556\ru556_draw
+snd_empty							= weapons\ru556\ru556_empty
+snd_reload							= weapons\ru556\ru556_reload, , , 0.4
+snd_reload_empty					= weapons\ru556\ru556_reload_empty
+snd_shoot							= weapons\ru556\ru556_shoot_null
+snd_silencer_shot					= weapons\m4\m4_shot_sil_null
+snd_bore							= $no_sound
+;--Магазины-------------------------------------------------------------------
+[mag_556_cnt_30_ru556]
+magazine_name						= magazine_556_cnt_30
+magazine_x							= 98
+magazine_y							= 46
+custom_icon 						= 0,6,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_2_ru556]
+magazine_name						= magazine_556_cnt_30_2
+magazine_x							= 109
+magazine_y							= 51
+custom_icon 						= 1,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_30_g36_ru556]
+magazine_name						= magazine_556_cnt_30_g36
+magazine_x							= 108
+magazine_y							= 50
+custom_icon 						= 2,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_35_ace_ru556]
+magazine_name						= magazine_556_cnt_35_ace
+magazine_x							= 111
+magazine_y							= 53
+custom_icon 						= 3,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[mag_556_cnt_60_ru556]
+magazine_name						= magazine_556_cnt_60
+magazine_x							= 110
+magazine_y							= 53
+custom_icon 						= 4,5,1,1 ;x,y,width,height
+;-----------------------------------------------------------------------------
+[wpn_ru556_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_hud
+zoom_hide_crosshair					= true
+shell_point							= 0.021,0.070,0.145
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.055546,0.577006
+fire_bone							= wpn_body
+fire_point2							= 0,-0.017,0.692
+fire_bone2							= wpn_body
+
+hands_position						= -0.089775,-0.105901,-0.155979
+hands_position_16x9					= -0.089775,-0.105901,-0.155979
+hands_orientation					= 2,2,0
+hands_orientation_16x9				= 2,2,0
+
+aim_hud_offset_pos					= -0.052514,0.009445,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,0.009445,-0.125562
+aim_hud_offset_rot					= 0.033000,0.034453,0.004
+aim_hud_offset_rot_16x9				= 0.033000,0.034453,0.004
+
+gl_hud_offset_pos					= -0.0077,0.0823,-0.0405
+gl_hud_offset_pos_16x9				= -0.0077,0.0823,-0.0405
+gl_hud_offset_rot					= 0.0123,-0.0038,-0.1320
+gl_hud_offset_rot_16x9				= 0.0123,-0.0038,-0.1320
+
+anm_show             				= kyky_scar_grip_draw
+anm_hide             				= kyky_scar_grip_holster
+anm_idle             				= kyky_scar_grip_idle, idle
+anm_idle_sprint         			= kyky_scar_grip_idle_sprint
+anm_idle_moving 					= kyky_scar_grip_idle_move
+anm_idle_moving_crouch				= kyky_scar_grip_idle_move, , 0.5
+anm_shots               			= kyky_scar_grip_shoot, shoot
+anm_shots_empty						= kyky_scar_grip_idle, idle
+anm_reload              			= kyky_scar_reload, reload_empty, 1.2
+anm_reload_empty					= kyky_scar_grip_reload, reload_empty, 1.2
+anm_idle_aim           				= kyky_scar_grip_idle_aim, idle
+anm_bore							= kyky_scar_grip_idle, idle
+;-------------------------------------------------------------------------------
+; 	Scopes
+;-------------------------------------------------------------------------------
+[wpn_ru556_ac10632]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_ac10632.og
+scope_name							= ac10632
+scope_x								= 88
+scope_y								= -10
+hud									= wpn_ru556_ac10632_hud
+
+[wpn_ru556_ac10632_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.052409,0.005035,-0.125562
+aim_hud_offset_rot_16x9				= 0.033,0.034453,0.004
+;-------------------------------------------------------------------------------
+[wpn_ru556_ac11090]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 101
+scope_y								= -9
+hud									= wpn_ru556_ac11090_hud
+
+[wpn_ru556_ac11090_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.052514,-0.002105,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,-0.002105,-0.125562
+;-------------------------------------------------------------------------------
+[wpn_ru556_acog]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_acog.ogf
+scope_name							= acog
+scope_x								= 90
+scope_y								= -9
+hud									= wpn_ru556_acog_hud
+
+[wpn_ru556_acog_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_acog_hud.ogf
+aim_hud_offset_pos					= -0.052514,0.000835,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,0.000835,-0.125562
+;-------------------------------------------------------------------------------
+[wpn_ru556_aimpoint]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_aimpoint.ogf
+scope_name							= aimpoint
+scope_x								= 90
+scope_y								= -7
+hud									= wpn_ru556_aimpoint_hud
+
+[wpn_ru556_aimpoint_hud]:wpn_ru556_acog_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_aimpoint_hud.ogf
+aim_hud_offset_pos					= -0.052514,0.000835,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,0.000835,-0.125562
+;-------------------------------------------------------------------------------
+[wpn_ru556_c-more]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_c-more.ogf
+scope_name							= c-more
+scope_x								= 90
+scope_y								= -9
+hud									= wpn_ru556_c-more_hud
+
+[wpn_ru556_c-more_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_c-more_hud.ogf
+aim_hud_offset_pos					= -0.052514,-0.00158,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,-0.00158,-0.125562
+;-----------------------------------------------------------------------------
+[wpn_ru556_coyote]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_coyote.ogf
+scope_name							= coyote
+scope_x								= 92
+scope_y								= -12
+hud									= wpn_ru556_coyote_hud
+
+[wpn_ru556_coyote_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_coyote_hud.ogf
+aim_hud_offset_pos					= -0.052514,0.001255,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,0.001255,-0.125562
+;-------------------------------------------------------------------------------
+[wpn_ru556_eot]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_eot.ogf
+scope_name							= eot
+scope_x								= 87
+scope_y								= -8
+hud									= wpn_ru556_eot_hud
+
+[wpn_ru556_eot_hud]:wpn_ru556_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_eot_hud.ogf
+aim_hud_offset_pos					= -0.052514,-0.00557,-0.125562
+aim_hud_offset_pos_16x9				= -0.052514,-0.00557,-0.125562
+;-------------------------------------------------------------------------------
+[wpn_ru556_tars101]:wpn_ru556
+visual								= dynamics\weapons\wpn_ru556\wpn_ru556_tars101.ogf
+scope_name							= tars101
+scope_x								= 78
+scope_y								= -14
+hud									= wpn_ru556_tars101_hud
+
+[wpn_ru556_tars101_hud]:wpn_ru556_acog_hud
+item_visual							= dynamics\weapons\wpn_ru556\wpn_ru556_tars101_hud.ogf
+;-----------------------------------------------------------------------------

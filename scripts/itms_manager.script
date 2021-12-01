@@ -1,0 +1,513 @@
+---------------------------------------
+-- itms_manager
+--
+-- by Alundaio
+---------------------------------
+local ini = ini_file("plugins\\itms_manager.ltx")
+local sys_ini = system_ini()
+
+	-- Sleep bag mod
+	local SleepBagEnable = ini:r_bool_ex("sleeping_bag","enable",true)
+	local SleepBagRadius = SleepBagEnable and ini:r_float_ex("sleeping_bag","unsafe_radius") or 5000
+	local SleepBagPlaceable = SleepBagEnable and ini:r_bool_ex("sleeping_bag","use_placeable",false)
+	local SleepBagGameStart = SleepBagEnable and ini:r_bool_ex("sleeping_bag","have_at_start",false)
+	local SleepBagSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_sections",true)
+	local SleepBagPlaceableSections = SleepBagEnable and alun_utils.collect_section(ini,"sleeping_bag_ph_sections",true)
+
+	-- Repair mod
+	local RepairModEnable = ini:r_bool_ex("repair_mod","enable",true)
+	local RepairTools = RepairModEnable and alun_utils.collect_section(ini,"repair_mod_tools",true)
+	local RepairUI = RepairModEnable and ini:r_bool_ex("repair_mod","use_ui",false)
+
+	-- Loot Mutant mod
+	local MutantLootEnable = ini:r_bool_ex("mutant_loot_mod","enable",true)
+	local MutantLootEnableUI = ini:r_bool_ex("mutant_loot_mod","enable_ui",false)
+	local MutantLootDecayTime = ini:r_float_ex("mutant_loot_mod","decay_time") or 7200
+
+-- Static Message
+ShowMessage = nil
+ShowMessageInit = nil
+ShowMessageTime = nil
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_item_drop",actor_on_item_drop)
+	RegisterScriptCallback("monster_on_actor_use_callback",monster_on_actor_use_callback)
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+	RegisterScriptCallback("actor_on_item_take",actor_on_item_take)
+	RegisterScriptCallback("actor_on_item_take_from_box",actor_on_item_take_from_box)
+	RegisterScriptCallback("physic_object_on_use_callback",physic_object_on_use_callback)
+
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",on_item_drag_dropped)
+	RegisterScriptCallback("CUIActorMenu_OnItemFocusReceive",on_item_focus)
+end
+
+function campfire_cook()
+	for id,binder in pairs(bind_campfire.campfires_all) do
+		if (binder and binder.campfire) then
+			if db.actor:position():distance_to_sqr(binder.object:position()) < 1.5^2 then
+				if (binder.campfire:is_on()) then 
+					return true
+				end
+				return false
+			end
+		end
+	end
+end
+
+function on_item_focus(itm)
+	local section = itm:section()
+	if (RepairTools[section]) then 
+		local repair_type = sys_ini:r_string_ex(section,"repair_type")
+		if not (repair_type) then 
+			return
+		end
+		
+		local repair_only = alun_utils.parse_list(sys_ini,section,"repair_only",true)
+		local repair_refuse = alun_utils.parse_list(sys_ini,section,"repair_refuse",true)
+	
+		local function itr(obj)
+			local main_section = sys_ini:r_string_ex(obj:section(),"repair_type") or sys_ini:r_string_ex(obj:section(),"class"):match("[%u]_([%w]+)")
+			main_section = main_section and main_section:lower()
+			--news_manager.send_tip(db.actor, tostring(main_section), nil, nil, nil, 10000)
+			if (main_section) then
+				if (table.size(repair_only ) > 0) and not (repair_only[main_section]) then return false end
+			end
+			if (main_section) then
+				if (table.size(repair_refuse ) > 0) and (repair_refuse[main_section]) then return false end
+			end
+			
+			local cls = obj:clsid()
+			--if (repair_type == "knife") then
+			--	return (cls == clsid.wpn_knife_s)
+			if (repair_type == "weapon") then 
+				return IsWeapon(nil,cls)
+			elseif (repair_type == "outfit") then 
+				return (IsOutfit(nil,cls) or IsHeadgear(nil,cls))
+			elseif (repair_type == "all") then 
+				return (IsWeapon(nil,cls) or IsOutfit(nil,cls) or IsHeadgear(nil,cls))
+			end
+			return false
+		end
+		
+		ActorMenu.get_actor_menu():highlight_for_each_in_slot(itr)
+	end 
+end 
+
+function on_item_drag_dropped(itm1,itm2,from_slot,to_slot)
+	--printf("itm1=%s itm2=%s from_slot=%s to_slot=%s",itm1 and itm1:name(),itm2 and itm2:name(),from_slot,to_slot)
+	if (from_slot ~= EDDListType.iActorBag) then 
+		return 
+	end 
+	
+	if not (to_slot == EDDListType.iActorSlot or to_slot == EDDListType.iActorBag) then 
+		return 
+	end
+	
+	-- Try attach vanilla addons
+	if (itm2:cast_Weapon()) then
+		itm2:weapon_addon_attach(itm1)
+	end
+		
+	local section = itm1:section()
+	if not (RepairTools[section]) then 
+		return 
+	end
+
+	local repair_type = sys_ini:r_string_ex(section,"repair_type")
+	if not (repair_type) then 
+		return 
+	end
+	
+	local repair_only = alun_utils.parse_list(sys_ini,section,"repair_only",true)
+	local repair_refuse = alun_utils.parse_list(sys_ini,section,"repair_refuse",true)
+	local main_section = sys_ini:r_string_ex(itm2:section(),"repair_type") or sys_ini:r_string_ex(itm2:section(),"class"):match("[%u]_([%w]+)")
+	main_section = main_section and main_section:lower()
+	if (main_section) then
+		if (table.size(repair_only ) > 0) and not (repair_only[main_section]) then return end
+	end
+	if (main_section) then
+		if (table.size(repair_refuse ) > 0) and (repair_refuse[main_section]) then return end
+	end
+
+	if (repair_type == "weapon") then 
+		if not (IsWeapon(itm2)) then 
+			return 
+		end
+	elseif (repair_type == "outfit") then 
+		if not (IsOutfit(itm2) or IsHeadgear(itm2)) then 
+			return 
+		end
+	elseif (repair_type == "all") then 
+		if not (IsWeapon(itm2) or IsOutfit(itm2) or IsHeadgear(itm2)) then
+			return
+		end
+	else 
+		return
+	end
+
+	local cur_condition = itm2:condition()
+	local c_min = sys_ini:r_float_ex(section,"repair_min_condition") or 0
+	local c_max = sys_ini:r_float_ex(section,"repair_max_condition") or 0.75
+	
+	if (cur_condition < c_min) then 
+		ui_dyn_msg_box.msg_box_ui("message_box_ok",true,game.translate_string("st_repair_mod_message_box_condition_to_low"))
+		return
+	elseif (cur_condition >= c_max) then 
+		ui_dyn_msg_box.msg_box_ui("message_box_ok",true,game.translate_string("st_repair_mod_message_box_condition_to_high"))
+		return	
+	end
+	
+	local c_add = sys_ini:r_float_ex(section,"repair_add_condition") or 0.15
+	if (dxr_achievements.has_achievement("mechanized_warfare")) then
+		c_add = c_add + 0.10
+	end
+	
+	local function on_yes(owner,p)
+		if actor_effects then actor_effects.use_item(section.."_dummy") end
+		if area_skills then area_skills.raise_skill("repair_skill", 0.05) end
+		c_add = c_add + (math.floor(area_skills.skills_table["repair_skill"])*0.1)
+		local new_condition = cur_condition + c_add
+		if (new_condition > c_max) then 
+			new_condition = c_max
+		end
+		
+		--printf("%s:set_condition(%s)",itm2:name(),new_condition)
+		itm2:set_condition(new_condition)
+		local function NextUse()
+			local next_items = alun_utils.parse_list(sys_ini,section,"next_use_item")
+			if (#next_items > 0) then
+				local se_obj = alife_object(itm1:id())
+				if (se_obj) then
+					alife():release(se_obj,true)
+				end
+				if next_items[#next_items] == "random" then
+					alife():create(next_items[math.random(#next_items-1)], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				else
+					for i=1, #next_items do
+						alife():create(next_items[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+					end
+				end
+				return
+			end
+		end
+		
+		if sys_ini:r_bool_ex(section,"remove_after_use",true) then
+			if sys_ini:r_bool_ex(section,"use_condition",false) then
+				--if sys_ini:r_bool_ex(section,"consume_charge_on_use",true) then 
+					local r = itm1:get_remaining_uses()
+					if (r-1 >= 0) then
+						r = r - 1
+						itm1:set_remaining_uses(r)
+					end
+					if (r <= 0) then 
+						local se_obj = alife_object(itm1:id())
+						if (se_obj) then 
+							alife():release(se_obj,true)
+							NextUse()
+						end
+					end
+				--end
+			else 
+				local se_obj = alife_object(itm1:id())
+				if (se_obj) then 
+					alife():release(se_obj,true)
+					NextUse()
+				end
+			end
+		end
+		ActorMenu.get_actor_menu():UpdateConditionProgressBars()
+		--ActorMenu.get_actor_menu():refresh_current_cell_item()
+	end
+	
+	local function on_no(owner,p)
+	
+	end
+	
+	local inv_name = game.translate_string(sys_ini:r_string_ex(itm2:section(),"inv_name") or "st_none")
+	local msg = strformat(game.translate_string("st_repair_mod_message_box_ask"),inv_name,c_add*100)
+
+	ui_dyn_msg_box.msg_box_ui("message_box_yes_no",true,msg,on_yes,on_no)
+end
+
+-- bind_stalker on_trade
+function actor_on_trade(obj,sell_bye,money)
+end
+
+function actor_on_item_take(obj)
+	if not obj then return end
+	local section = obj:section()
+	local function fuel_take(name, id, condition)
+		local se_obj = alife():create(name, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		alife():release(alife_object(id) ,true)
+
+		local cond = math.random(1,10)/10
+		if cond > condition then cond = condition end
+
+		CreateTimeEvent("set_cond", se_obj.id, 0.1, function ()
+			local fuel = level.object_by_id(se_obj.id)
+			if fuel then
+				fuel:set_remaining_uses(utils.round(fuel:get_max_uses()*cond), 4)
+			end
+			return true
+		end)
+	end
+	local tables = {explosive_mobiltank = true,explosive_tank = true}
+	if tables[section] then
+		fuel_take("jerrycan_fuel", obj:id(), obj:condition())
+	elseif section == "explosive_gaz_balon" then
+		fuel_take("balon_gas", obj:id(), obj:condition())
+	elseif section == "explosive_kerosene" then
+		fuel_take("kerosene", obj:id(), obj:condition())
+	end
+end
+
+-- bind_stalker on_item_drop
+function actor_on_item_drop(obj)
+	if not (obj) then
+		return
+	end
+
+	if ActorMenu.get_menu_mode() > 1 then return end
+	-- local function fuel_drop(id, condition, o_id)
+	-- 	local fuel = level.object_by_id(id)
+	-- 	if fuel then
+	-- 		-- fuel:set_condition(condition - 0.001)
+	-- 		alife():release(alife_object(o_id) ,true)
+	-- 		return true
+	-- 	end
+	-- end
+	
+	if (db.actor:has_info("actor_made_wish_for_riches")) then 
+		db.actor:transfer_item(obj,db.actor)
+	end
+end
+
+function monster_on_actor_use_callback(obj,who)
+	if not (MutantLootEnable) then
+		return
+	end
+
+	local st = db.storage[obj:id()]
+	if (st and st.death_time and game.get_game_time():diffSec(st.death_time) > MutantLootDecayTime) then
+		SetHudMsg(game.translate_string("st_body_decayed"),4)
+	else
+		local hud = get_hud()
+		if (hud) then
+			ui_mutant_loot.loot_ui(hud,obj)
+		end
+	end
+end
+
+-- bind_stalker on_item_use
+function actor_on_item_use(obj)
+	local sec = obj:section()
+	if (db.actor:has_info("actor_made_wish_for_riches")) then
+		return 
+	end
+	
+	-- Repair
+	if (RepairModEnable and RepairTools[sec] and RepairUI) then
+		local hud = get_hud()
+		if (hud) then
+			local ui = ui_itm_repair.repair_ui(hud,obj,sec)
+			if (ui) then
+				ui:ShowDialog(true)
+				ui:FillList()
+			end
+		end
+	else 
+	--Next Use Items
+		local uses = (sys_ini:r_bool_ex(sec,"use_condition",false) and obj:get_remaining_uses()) or 1
+		if (uses == 1) and (sys_ini:r_bool_ex(sec,"remove_after_use",true)) and sys_ini:line_exist(sec,"next_use_item") then
+			local next_items = alun_utils.parse_list(sys_ini,sec,"next_use_item")
+			if (#next_items > 0) then
+				if next_items[#next_items] == "random" then
+					alife():create(next_items[math.random(#next_items-1)], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+				else
+					for i=1, #next_items do
+						local se_item = alife():create(next_items[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+					end
+				end
+			end
+		end
+	end
+		
+	if obj and sys_ini:r_bool_ex(sec,"use_condition",true) == true then
+		if sys_ini:r_bool_ex(sec,"consume_charge_on_use",true) == false then
+			local r = obj:get_remaining_uses()
+			if (r+1 <= obj:get_max_uses()) then
+				r = r+1
+				obj:set_remaining_uses(r)
+			end
+		end
+	end
+	-- Sleeping bag
+	if (SleepBagEnable and SleepBagSections[sec]) then
+		if (SleepBagPlaceable) then
+			local ph_sec = sys_ini:r_string_ex(sec,"placeable_section")
+			local se_obj = alife():create(ph_sec or "ph_sleepbag",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
+			level.map_add_object_spot_ser(se_obj.id, "ui_pda2_actor_sleep_location", game.translate_string("st_itm_sleepbag_name"))
+		else
+			local se_obj = alife():create(sec,db.actor:position(),0,0,0)
+			local hud = get_hud()
+			if (hud) then
+				hud:HideActorMenu()
+			end
+			local ui = ui_sleep_dialog.sleep_bag(se_obj,sec)
+		end
+		return
+	end
+	
+	-- Kastriulya need by Surs
+	local function check_saucepan(item)
+		local item = db.actor:object("saucepan") or db.actor:object("army_bowler")
+		if item then return true end
+	end
+	-- Cooking mod Fieldcooker and Wood Stove
+	if (sec == "fieldcooker" or sec == "wood_stove") then
+		if (check_saucepan(item)) then
+			local hud = get_hud()
+			hud:HideActorMenu()
+			local ui = ui_itm_cooking and ui_itm_cooking.cooking_ui(hud,sec)
+			if (ui) then
+				ui:ShowDialog(true)
+			end
+		else
+			give_object_to_actor(sec)
+			local text = game.translate_string("st_cooking_set")
+			SetHudMsg(text,5)
+		end
+	end
+	-- Kastriulya need end
+	-- Deployable mgun
+	if (sec == "itm_deployable_mgun") then
+		local pos = vector():set(device().cam_pos)
+		pos:add( vector():set(device().cam_dir):mul(3) )
+		alife():create("deployable_mgun",pos,level.vertex_id(pos),db.actor:game_vertex_id())
+	end
+end
+
+-- bind_stalker take_item_from_iventory_box
+function actor_on_item_take_from_box(box,obj)
+	--if not (box and obj) then
+	--	return
+	--end
+	--
+	-- Backpack section
+	--local sec = box:section():match("(backpack_[%w_]*)")
+	--if (BackPackStashEnable and sec) then
+	--	if (box:is_inv_box_empty()) then
+	--		local hud = get_hud()
+	--		if (hud) then
+	--			hud:HideActorMenu()
+	--		end
+	--		level.map_remove_object_spot(box:id(), BackPackStashSpot)
+	--		alife():create("inv_" .. sec,db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	--		alife():release( alife_object(box:id()) ,true)
+	--	end
+	--end
+end
+
+function npc_on_item_take_from_box(npc,box,item)
+
+end
+
+-- bind_physic_object use_callback
+function physic_object_on_use_callback(obj,who)
+	if (SleepBagEnable and SleepBagPlaceableSections[obj:section()]) then
+		local hud = get_hud()
+		if (hud) then
+			hud:HideActorMenu()
+		end
+		ui_sleep_dialog.sleep_bag(obj:id(),SleepBagPlaceableSections[obj:section()])
+	end
+end
+
+function is_ammo_for_wpn(sec)
+	local sim = alife()
+	for i=2,3 do
+		local wpn = db.actor:item_in_slot(i)
+		if (wpn) then
+			local ammos = alun_utils.parse_list(sys_ini,wpn:section(),"ammo_class",true)
+			if (ammos[sec]) then 
+				return true 
+			end
+		end
+	end
+	return false
+end
+
+function can_degrade(obj, sec)
+	local section = obj and obj:section() or sec
+	return section and system_ini():r_bool_ex(section,"use_condition")
+end
+
+function loot_mutant(obj,t,npc)
+	if not (db.actor) then 
+		return 
+	end 
+	
+	local cls = obj and obj:clsid()
+	if not (cls) then
+		return
+	end
+
+	local clsid_to_section = {
+		[clsid.bloodsucker_s] 	= "bloodsucker",
+		[clsid.stronglav_s] 	= "stronglav",
+		[clsid.boar_s] 			= "boar",
+		[clsid.burer_s] 		= "burer",
+		[clsid.cat_s]			= "cat",
+		[clsid.chimera_s]		= "chimera",
+		[clsid.controller_s]	= "controller",
+		[clsid.crow]			= "crow",
+		[clsid.dog_s]			= "dog",
+		[clsid.flesh_s]			= "flesh",
+		[clsid.fracture_s]		= "fracture",
+		[clsid.gigant_s]		= "gigant",
+		[clsid.karlik_s]		= "karlik",
+		[clsid.poltergeist_s]	= "poltergeist",
+		[clsid.poltergeist_s]	= "polterbuild",
+		[clsid.psy_dog_s]		= "psy_dog",
+		[clsid.psy_dog_phantom_s] = "psy_dog",
+		[clsid.pseudodog_s]		= "pseudodog",
+		[clsid.rat_s]			= "rat",
+		[clsid.snork_s]			= "snork",
+		[clsid.vodianoy_s]		= "vodianoy",
+		[clsid.tushkano_s]		= "tushkano",
+		[clsid.zombie_s]		= "zombie"
+	}
+
+	local loot_table = alun_utils.collect_section(ini,clsid_to_section[cls])
+
+	-- Unlock relevant mutant article in guide.
+	if not(npc) then
+		dxr_encyclopedia.detect_mutant_interaction(clsid_to_section[cls])
+	end
+	
+	-- Mutant looting bonus
+	local loot,sec
+	for i=1,#loot_table do
+		loot = alun_utils.str_explode(loot_table[i],",")
+		if (loot and loot[1] and loot[2]) then
+			if not (loot[3]) then
+				loot[3] = 1
+			end
+
+			loot[2] = tonumber(loot[2])
+			for i=1,loot[2] do
+				if ((math.random(1,100)/100) <= (tonumber(loot[3]))) then
+					-- Developed by Dimeyne
+					if t then
+						local item_section = loot[1]
+						if not (t[item_section]) then
+							t[item_section] = 0
+						end
+						t[item_section] = t[item_section] + 1
+					end
+					--end of insertion
+				end
+			end
+		end
+	end
+end

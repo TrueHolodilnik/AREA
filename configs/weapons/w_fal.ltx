@@ -1,0 +1,247 @@
+;----------------------------------------------------------------------------------------
+; FN FAL by TrickSR, Ga2z, adjusted by Surs for A.R.E.A. (21.03.2019)
+;----------------------------------------------------------------------------------------
+[wpn_fal]:default_weapon_params
+visual								= dynamics\weapons\wpn_fal\wpn_fal.ogf
+$spawn								= "weapons\fal"
+$npc								= on
+class								= WP_AK74
+inv_name							= st_wpn_fal
+inv_name_short						= st_wpn_fal
+description							= st_wpn_fal_descr
+weapon_class						= assault_rifle
+cost								= 45000
+inv_weight							= 4.45
+inv_volume							= 5
+ph_mass								= 5
+hud									= wpn_fal_hud
+scopes 								= ac10632, acog, eot, c-more
+parent_section  					= wpn_fal
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+heating_rates						= nato3
+weapon_class						= assault_rifle
+repair_type							= rifle_7.62
+;-----------------------------------------------------------------------------
+upgrades							= up_gr_firstab_sig550, up_gr_seconab_sig550, up_gr_thirdab_sig550, up_gr_fourtab_sig550, up_gr_fifthab_sig550
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_sig550
+;-----------------------------------------------------------------------------
+hit_power							= 0.38
+hit_impulse							= 10
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 823
+rpm									= 675
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob	 				= 0.003
+misfire_end_prob	 				= 0.045
+condition_shot_dec					= 0.00013
+condition_queue_shot_dec			= 0.0002
+
+ammo_current						= 120
+ammo_limit							= 140
+ammo_elapsed						= 20
+ammo_mag_size						= 20
+fire_modes							= 1, 3, -1
+magazine_sect						= magazine_762x51_cnt_20
+ammo_class							= ammo_7.62x51_fmj, ammo_7.62x51_fmj_bad, ammo_7.62x51_fmj_verybad, ammo_7.62x51_ap, ammo_7.62x51_ap_bad, ammo_7.62x51_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;-----------------------------------------------------------------------------
+zoom_dof							= 0.5, 1, 180
+reload_dof							= 0,0.5, 5, 2
+;-----------------------------------------------------------------------------
+fire_dispersion_base				= 0.21
+fire_dispersion_condition_factor	= 2
+control_inertion_factor				= 1.4f
+crosshair_inertion					= 6.75
+
+cam_return							= 0
+cam_relax_speed						= 5
+cam_relax_speed_ai					= 360
+cam_dispersion						= 0.5
+cam_dispersion_inc					= 0.25
+cam_dispersion_frac					= 1.0
+cam_max_angle						= 50.0
+cam_max_angle_horz					= 50.0
+cam_step_angle_horz					= 1.5
+
+zoom_cam_relax_speed				= 5
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.4
+zoom_cam_dispersion_inc				= 0.2
+zoom_cam_dispersion_frac			= 0.7
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.3
+
+PDM_disp_base 						= 0.5
+PDM_disp_vel_factor 				= 2.0
+PDM_disp_accel_factor 				= 2.0
+PDM_disp_crouch	 					= 1.0
+PDM_disp_crouch_no_acc 				= 1.0
+;-----------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 60
+inv_grid_y							= 14
+
+upgr_icon_x							= 300
+upgr_icon_y							= 1950
+upgr_icon_width						= 300
+upgr_icon_height 					= 100
+
+kill_msg_x							= 80
+kill_msg_y							= 59
+kill_msg_width						= 87
+kill_msg_height						= 24
+;-----------------------------------------------------------------------------
+position							= -0.026,-0.097,0
+orientation							= 0,0,0
+fire_point							= 0,0.150,0.600
+fire_point2							= 0,0.097,0.722
+flame_particles						= weapons\new_effects\galil
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= -0.02,0.145,0.1
+shell_dir							= 0, 0, 0.4
+shell_particles						= weapons\762x51
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+scope_status						= 2
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.2
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 133
+grenade_launcher_y					= 34
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 205
+silencer_y							= 20
+
+silencer_hit_power					= 0.37
+silencer_hit_impulse				= 20
+silencer_fire_distance				= 1000
+silencer_bullet_speed				= 930
+	
+;silencer_flame_particles			= weapons\generic_weapon01
+silencer_smoke_particles			= weapons\generic_shoot_00
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw							= weapons\fal\fal_draw
+snd_holster							= weapons\fal\fal_holster
+snd_empty							= weapons\fal\fal_empty
+snd_reload							= weapons\fal\fal_reload
+snd_shoot							= weapons\fal\fal_shoot_null
+snd_silencer_shot					= weapons\fal\fal_shot_sil_null
+;-----------------------------------------------------------------------------
+[wpn_fal_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_fal\wpn_fal_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.028785,-0.00404,-0.096455
+shell_dir							= 0,1,0
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+fire_point2							= 0,0,0
+fire_bone2							= muzzle_gl
+
+inertion_origin_offset				=-0.015						; Фактор влияния инерции на положение ствола (чем меньше, тем масштабней инерция)
+inertion_origin_aim_offset			=-0.01						; (для прицеливания)
+inertion_tendto_speed				= 5.0						; Скорость нормализации положения ствола
+inertion_tendto_aim_speed			= 8.0						; (для прицеливания)
+
+hands_position						= -0.04045,0.053215,0.00905
+hands_position_16x9					= -0.04045,0.053215,0.00905
+hands_orientation					= 1.172987,2,0
+hands_orientation_16x9				= 1.172987,2,0
+
+aim_hud_offset_pos					= -0.02989,0.016835,0.012435
+aim_hud_offset_pos_16x9				= -0.02989,0.016835,0.012435
+aim_hud_offset_rot					= 0.045605,0.020486,0
+aim_hud_offset_rot_16x9				= 0.045605,0.020486,0
+
+anm_show							= fnfal_draw
+anm_hide							= fnfal_holster
+anm_idle							= fnfal_idle
+anm_idle_sprint						= fnfal_sprint
+anm_idle_moving						= fnfal_move
+anm_shots							= fnfal_shoot, shoot
+anm_shots_empty						= fnfal_idle
+anm_reload							= fnfal_reload, reload
+anm_idle_aim						= fnfal_aim
+anm_bore							= fnfal_bore
+;-----------------------------------------------------------------------------
+; Addons
+;-----------------------------------------------------------------------------
+[wpn_fal_ac10632]:wpn_fal
+visual								= dynamics\weapons\wpn_fal\wpn_fal_barska.ogf
+scope_name							= ac10632
+scope_x								= 81
+scope_y								= 6
+hud									= wpn_fal_ac10632_hud
+
+[wpn_fal_ac10632_hud]:wpn_fal_hud
+item_visual							= dynamics\weapons\wpn_fal\wpn_fal_barska_hud.ogf
+aim_hud_offset_pos					= -0.02968,-0.0028,0.012435
+aim_hud_offset_pos_16x9				= -0.02968,-0.0028,0.012435
+;-----------------------------------------------------------------------------
+[wpn_fal_acog]:wpn_fal
+hud									= wpn_fal_acog_hud
+scope_name							= acog
+scope_x								= 80
+scope_y								= 5
+scope_texture						= wpn_crosshair_acog
+
+[wpn_fal_acog_hud]:wpn_fal_ac10632_hud
+item_visual							= dynamics\weapons\wpn_fal\wpn_fal_hud.ogf
+aim_hud_offset_pos					= -0.029785,-0.00028,-0.03135
+aim_hud_offset_pos_16x9				= -0.029785,-0.00028,-0.03135
+;-----------------------------------------------------------------------------
+[wpn_fal_eot]:wpn_fal
+visual								= dynamics\weapons\wpn_fal\wpn_fal_eot.ogf
+scope_name							= eot
+scope_x								= 83
+scope_y								= 6
+hud									= wpn_fal_eot_hud
+
+[wpn_fal_eot_hud]:wpn_fal_hud
+item_visual							= dynamics\weapons\wpn_fal\wpn_fal_eot_hud.ogf
+aim_hud_offset_pos					= -0.02968,-0.01183,0.001725
+aim_hud_offset_pos_16x9				= -0.02968,-0.01183,0.001725
+;-----------------------------------------------------------------------------
+[wpn_fal_c-more]:wpn_fal
+visual								= dynamics\weapons\wpn_fal\wpn_fal_c-more.ogf
+scope_name							= c-more
+scope_x								= 86
+scope_y								= 7
+hud									= wpn_fal_c-more_hud
+
+[wpn_fal_c-more_hud]:wpn_fal_hud
+item_visual							= dynamics\weapons\wpn_fal\wpn_fal_c-more_hud.ogf
+aim_hud_offset_pos					= -0.02989,-0.004165,0.012435
+aim_hud_offset_pos_16x9				= -0.02989,-0.004165,0.012435
+;-----------------------------------------------------------------------------

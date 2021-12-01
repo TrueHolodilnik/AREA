@@ -1,0 +1,768 @@
+;----------------------------------------------------------------------------------------
+;H&K G36, models from AO3.1, remade by Surs for A.R.E.A. (10.02.2018)
+;----------------------------------------------------------------------------------------
+[wpn_g36]:default_weapon_params
+visual								= dynamics\weapons\wpn_g36\wpn_g36.ogf
+$spawn								= "weapons\g36"			; option for Level Editor
+$npc								= on					; option for Level Editor
+class								= WP_AK74
+inv_name							= st_wpn_g36
+inv_name_short						= st_wpn_g36
+description							= st_wpn_g36_descr
+ef_main_weapon_type					= 2
+ef_weapon_type						= 7
+inv_weight							= 3.77
+inv_volume							= 5
+ph_mass								= 4
+cost								= 44000
+heating_rates						= nato3
+default_to_ruck						= false
+sprint_allowed						= true
+control_inertion_factor				= 1.3f
+repair_type							= rifle_5.56
+weapon_class						= assault_rifle
+upgrades							= up_gr_firstab_g36, up_gr_seconab_g36, up_gr_thirdab_g36, up_gr_fourtab_g36, up_gr_fourtcd_g36, up_gr_fourtef_g36
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_g36
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.509, 0.509, 0.509, 0.509
+hit_impulse							= 27
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 915
+rpm									= 750
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+hud									= wpn_g36_hud
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.88
+misfire_end_condition				= 0.09
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0007
+condition_queue_shot_dec			= 0.0009
+
+ammo_elapsed						= 30
+ammo_mag_size						= 30
+fire_modes							= -1, 1, 3
+magazine_sect						= magazine_556_cnt_30_g36, magazine_556_cnt_30, magazine_556_cnt_30_2, magazine_556_cnt_60
+ammo_class							= ammo_5.56x45_ss190, ammo_5.56x45_ss190_bad, ammo_5.56x45_ss190_verybad, ammo_5.56x45_ap, ammo_5.56x45_ap_bad, ammo_5.56x45_ap_verybad
+grenade_class						= ammo_m209, ammo_m209_bad, ammo_m209_verybad
+slot								= 2
+animation_slot						= 2
+;--DOF--------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 2
+reload_empty_dof					= 0.0, 0.5, 5, 2
+;-------------------------------------------------------------------------------
+fire_dispersion_base				= 0.29					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 1.3f
+crosshair_inertion					= 4.6
+
+cam_return							= 0
+cam_relax_speed						= 10					;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 1.2
+cam_dispersion_inc					= 0.9
+cam_dispersion_frac					= 1.0					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0					;максимальный угол отдачи
+cam_max_angle_horz					= 50.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.95					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.18
+PDM_disp_vel_factor					= 2.5
+PDM_disp_accel_factor				= 2.5
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 10					; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.9
+zoom_cam_dispersion_inc				= 0.55
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.6
+fire_dispersion_condition_factor	= 0.001					;увеличение дисперсии в процентах при максимальном износе
+;-------------------------------------------------------------------------------
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 20
+inv_grid_y							= 60
+
+upgr_icon_x							= 300
+upgr_icon_y							= 800
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 0
+kill_msg_y							= 28
+kill_msg_width						= 84
+kill_msg_height						= 28
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.132, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.20, 0.70
+fire_point2							= 0.0, 0.20, 0.71
+flame_particles						= weapons\new_effects\g36_3sides
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+grenade_flame_particles				= weapons\generic_weapon01
+shell_point							= 0.0, 0.21, 0.13
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\556x45
+
+light_disabled						= false
+light_color							= 0.6,0.5,0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+;addons
+scope_status						= 1
+silencer_status						= 2
+grenade_launcher_status				= 2
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_inertion_factor				= 0.05
+scope_control_factor				= 0.1
+scope_lense_factor					= 2.0
+scope_zoom_factor					= 1.03
+scope_zoom_hud_fov					= 0.40
+scope_texture						= wpn_crosshair_g36
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_ag36
+grenade_launcher_x					= 126
+grenade_launcher_y					= 40
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 222
+silencer_y							= 17
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\g36\g36_holster
+snd_draw							= weapons\g36\g36_draw
+snd_empty							= weapons\g36\g36_empty
+snd_reload							= weapons\g36\g36_reload
+snd_reload_empty					= weapons\g36\g36_reload_empty
+snd_reload_misfire					= weapons\g36\g36_reload_misfire
+snd_reload_detached					= weapons\g36\g36_reload,1,0,1.1
+snd_reload_detached_empty			= weapons\g36\g36_reload_empty,1,0,1.1
+snd_shoot_grenade					= weapons\g36\g36_grenshoot
+snd_reload_grenade					= weapons\g36\g36_grenload
+snd_switch							= weapons\g36\g36_switch
+snd_shoot							= weapons\g36\g36_shoot_null
+snd_silencer_shot					= weapons\g36\g36_shot_sil_null
+snd_bore							= $no_sound
+;-----------------------------------------------------------------------------
+[wpn_g36_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_g36\wpn_g36_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.021,0.071,0.141
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.075,0.646
+fire_bone							= wpn_body
+fire_point2							= 0,0.0056,0.6827
+fire_bone2							= wpn_body
+
+hands_position						= -0.02184,0.04304,0.074662
+hands_position_16x9					= -0.02184,0.04304,0.074662
+hands_orientation					= 1.085651,2.938776,-1.15
+hands_orientation_16x9				= 1.085651,2.938776,-1.15
+
+aim_hud_offset_pos					= -0.051195,-0.010945,-0.167253
+aim_hud_offset_pos_16x9				= -0.051195,-0.010945,-0.167253
+aim_hud_offset_rot					= 0.028557,0.019506,-0.02
+aim_hud_offset_rot_16x9				= 0.028557,0.019506,-0.02
+
+aim_hud_offset_pos_alt				= -0.001495,-0.02202,0.03211
+aim_hud_offset_pos_alt_16x9			= -0.001495,-0.02202,0.03211
+aim_hud_offset_rot_alt				= 0.018419,0.007368,0
+aim_hud_offset_rot_alt_16x9			= 0.018419,0.007368,0
+
+gl_hud_offset_pos_					= -0.01774,-0.1408,0
+gl_hud_offset_pos_16x9				= -0.01774,-0.1408,0
+gl_hud_offset_rot					= -0.189221,0.039322,-0.013938
+gl_hud_offset_rot_16x9				= -0.189221,0.039322,-0.013938
+
+anm_show							= g36_draw
+anm_hide							= g36_holster
+anm_idle							= g36_idle
+anm_idle_sprint						= g36_idle_sprint
+anm_idle_moving						= g36_idle_move
+anm_idle_moving_crouch				= g36_idle_move, , 0.5
+anm_shots							= g36_shoot
+anm_shots_empty						= g36_idle
+anm_shots_when_aim					= g36_shoot_scope
+anm_reload							= g36_reload, reload
+anm_reload_empty					= g36_reload_empty, reload_empty
+anm_reload_misfire					= g36_misfire, misfire
+anm_reload_detached					= g36_reload, reload, , 1.1
+anm_reload_detached_empty			= g36_reload_empty, reload_empty, , 1.1
+anm_idle_aim						= g36_idle_aim
+anm_bore							= g36_idle_bore
+anm_switch							= g36_switch_off
+anm_switch_g						= g36_switch_on
+anm_hide_w_gl						= g36_holster_w_gl
+anm_show_w_gl						= g36_draw_w_gl
+anm_idle_w_gl						= g36_idle_w_gl, idle_w_gl
+anm_shots_w_gl						= g36_shoot_w_gl
+anm_shots_w_gl_empty				= g36_idle_w_gl, idle_w_gl
+anm_reload_w_gl						= g36_reload_w_gl, reload_w_gl
+anm_reload_empty_w_gl				= g36_reload_empty_w_gl, reload_empty_w_gl
+anm_reload_misfire_w_gl				= g36_misfire_w_gl, misfire_w_gl
+anm_reload_detached_w_gl			= g36_reload_w_gl, reload_w_gl, , 1.1
+anm_reload_detached_empty_w_gl		= g36_reload_empty_w_gl, reload_empty_w_gl, , 1.1
+anm_idle_w_gl_aim					= g36_idle_aim_w_gl, idle_w_gl
+anm_idle_sprint_w_gl				= g36_idle_sprint_w_gl, idle_w_gl
+anm_idle_moving_w_gl				= g36_idle_move_w_gl, idle_w_gl
+anm_idle_moving_crouch_w_gl			= g36_idle_move_w_gl, idle_w_gl, 0.5
+anm_bore_w_gl						= g36_idle_bore_w_gl, idle_w_gl
+anm_show_g							= g36_draw, hk_g36_draw_grenade
+anm_hide_g							= g36_holster, hk_g36_holster_grenade
+anm_idle_g							= g36_idle_w_gl, idle_grenade
+anm_reload_g						= g36_reload_grenade
+anm_idle_g_aim						= g36_idle_aim_w_gl, idle_grenade
+anm_shots_g							= g36_shoot_grenade
+anm_idle_sprint_g					= g36_idle_sprint_w_gl, idle_grenade 
+anm_idle_moving_g					= g36_idle_move_w_gl, idle_grenade
+anm_idle_moving_crouch_g			= g36_idle_move_w_gl, idle_grenade, 0.5
+anm_bore_g							= g36_idle_bore_w_gl, idle_grenade 
+;-----------------------------------------------------------------------------
+[wpn_g36_camo]:wpn_g36
+visual								= dynamics\weapons\wpn_g36\wpn_g36_sk1.ogf
+inv_name							= st_wpn_g36_camo
+inv_name_short						= st_wpn_g36_camo
+installed_upgrades					= up_thirda_g36
+cost								= 48850
+hit_power							= 0.53, 0.53, 0.53, 0.53
+bullet_speed						= 924
+rpm									= 765
+hud									= wpn_g36_sk1_hud
+misfire_start_condition				= 0.8
+misfire_end_condition				= 0.08
+misfire_start_prob					= 0.004
+misfire_end_prob					= 0.03
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0010
+fire_dispersion_base				= 0.26
+inv_grid_x							= 25
+
+[wpn_g36_sk1_hud]:wpn_g36_hud
+item_visual							= dynamics\weapons\wpn_g36\wpn_g36_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+[wpn_g36_worn]:wpn_g36
+visual								= dynamics\weapons\wpn_g36\wpn_g36_sk2.ogf
+inv_name							= st_wpn_g36_worn
+inv_name_short						= st_wpn_g36_worn
+upgrades							= up_gr_firstab_g36_worn, up_gr_seconab_g36_worn, up_gr_thirdab_g36_worn, up_gr_fourtab_g36_worn, up_gr_fourtcd_g36_worn, up_gr_fourtef_g36_worn
+cost								= 31950
+hit_power							= 0.46, 0.46, 0.46, 0.46
+bullet_speed						= 860
+rpm									= 720
+hud									= wpn_g36_sk2_hud
+misfire_start_condition				= 0.93
+misfire_end_condition				= 0.12
+condition_shot_dec					= 0.00084
+condition_queue_shot_dec			= 0.00104
+fire_dispersion_base				= 0.34
+inv_grid_x							= 30
+
+[wpn_g36_sk2_hud]:wpn_g36_hud
+item_visual							= dynamics\weapons\wpn_g36\wpn_g36_sk2_hud.ogf
+;-----------------------------------------------------------------------------
+; Уникальные
+;-----------------------------------------------------------------------------
+[wpn_g36_nimble]:wpn_g36
+visual								= dynamics\weapons\wpn_g36\wpn_g36_nimble.ogf
+description							= st_wpn_g36_nimble_descr
+inv_name							= st_wpn_g36_nimble
+inv_name_short						= st_wpn_g36_nimble
+cost								= 52880
+hit_power							= 0.52, 0.52, 0.52, 0.52
+hit_impulse							= 30
+fire_distance						= 1000
+bullet_speed						= 945 ;начальная скорость пули
+misfire_probability					= 0.004
+misfire_start_condition				= 0.80
+misfire_end_condition				= 0.09
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0006
+condition_queue_shot_dec			= 0.0008
+inv_grid_x							= 25
+hud									= wpn_g36_nimble_hud
+
+[wpn_g36_nimble_hud]:wpn_g36_hud
+item_visual							= dynamics\weapons\wpn_g36\wpn_g36_nimble_hud.ogf
+;-----------------------------------------------------------------------------
+;	Шурмовой карабин Heckler-Koch G36K
+;-----------------------------------------------------------------------------
+[wpn_g36k]:wpn_g36
+visual								= dynamics\weapons\wpn_g36k\wpn_g36k.ogf
+inv_name							= st_wpn_g36k
+inv_name_short						= st_wpn_g36k
+description							= st_wpn_g36k_descr
+weapon_class						= assault_rifle
+inv_weight							= 3.3
+inv_volume							= 4.8
+cost								= 33860
+hud									= wpn_g36k_hud
+upgrades							= up_gr_firstab_g36k, up_gr_seconab_g36k, up_gr_thirdab_g36k, up_gr_fourtab_g36k, up_gr_fourtcd_g36k, up_gr_fourtef_g36k
+;--TTX-------------------------------------------------------------------------
+hit_power							= 0.44, 0.44, 0.44, 0.44
+hit_impulse							= 27
+fire_distance						= 600
+bullet_speed						= 840
+rpm									= 750
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+
+upgr_icon_x							= 300
+upgr_icon_y							= 800
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.92
+misfire_end_condition				= 0.11
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0008
+condition_queue_shot_dec			= 0.0009
+
+;базовая дисперсия
+fire_dispersion_base				= 0.25
+control_inertion_factor				= 1.2f
+crosshair_inertion					= 4.8
+
+;отдача
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 1.2
+cam_dispersion_inc					= 0.9
+cam_dispersion_frac					= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.95				; (degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 1.18
+PDM_disp_vel_factor					= 2.5
+PDM_disp_accel_factor				= 2.5
+PDM_disp_crouch						= 1.0 
+PDM_disp_crouch_no_acc				= 1.0  
+
+zoom_cam_relax_speed				= 10				; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.9
+zoom_cam_dispersion_inc				= 0.55
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 0.9
+
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 20
+inv_grid_y							= 62
+
+fire_point							= 0.0, 0.20, 0.72
+fire_point2							= 0.0, 0.14, 0.6
+
+;addons
+scope_status						= 1
+silencer_status						= 2
+grenade_launcher_status				= 2
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.2
+scope_zoom_factor					= 1.5
+scope_texture						= wpn_crosshair_g36k
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_ag36
+grenade_launcher_x					= 140
+grenade_launcher_y					= 37
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 219
+silencer_y							= 13
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\g36\g36c_holster
+snd_draw							= weapons\g36\g36c_draw
+;-----------------------------------------------------------------------------
+[wpn_g36k_hud]:wpn_g36_hud
+item_visual							= dynamics\weapons\wpn_g36k\wpn_g36k_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0.021,0.03051,0.12575
+shell_dir							= 0,1,0
+shell_bone							= wpn_body
+fire_point							= 0,0.075,0.646
+fire_bone							= wpn_body
+fire_point2							= 0,0.0056,0.6827
+fire_bone2							= wpn_body
+
+hands_position						= -0.03091,0.053615,0.023835
+hands_position_16x9					= -0.03091,0.053615,0.023835
+hands_orientation					= 0.936196,2.938776,-1.15
+hands_orientation_16x9				= 0.936196,2.938776,-1.15
+
+aim_hud_offset_pos					= -0.04583,-0.010245,-0.123096
+aim_hud_offset_pos_16x9				= -0.04583,-0.010245,-0.123096
+aim_hud_offset_rot					= 0.026662,0.045187,-0.02
+aim_hud_offset_rot_16x9				= 0.026662,0.045187,-0.02
+
+aim_hud_offset_pos_alt				= 0.003465,-0.013335,-0.001365
+aim_hud_offset_pos_alt_16x9			= 0.003465,-0.013335,-0.001365
+aim_hud_offset_rot_alt				= 0.017456,-0.018685,0
+aim_hud_offset_rot_alt_16x9			= 0.017456,-0.018685,0
+
+gl_hud_offset_pos					= -0.0089,-0.032330,0
+gl_hud_offset_pos_16x9				= -0.0089,-0.032330,0
+gl_hud_offset_rot					= 0.005563,0.045798,-0.013938
+gl_hud_offset_rot_16x9				= 0.005563,0.045798,-0.013938
+;-----------------------------------------------------------------------------
+[wpn_g36k_worn]:wpn_g36k
+visual								= dynamics\weapons\wpn_g36k\wpn_g36k_sk1.ogf
+inv_name							= st_wpn_g36k_worn
+inv_name_short						= st_wpn_g36k_worn
+upgrades							= up_gr_firstab_g36k_worn, up_gr_seconab_g36k_worn, up_gr_thirdab_g36k_worn, up_gr_fourtab_g36k_worn, up_gr_fourtcd_g36k_worn, up_gr_fourtef_g36k_worn
+cost								= 24580
+hit_power							= 0.4, 0.4, 0.4, 0.4
+bullet_speed						= 805
+rpm									= 715
+hud									= wpn_g36k_sk1_hud
+misfire_start_condition				= 0.95
+misfire_end_condition				= 0.13
+condition_shot_dec					= 0.0009
+condition_queue_shot_dec			= 0.0011
+fire_dispersion_base				= 0.3
+inv_grid_x							= 25
+
+[wpn_g36k_sk1_hud]:wpn_g36k_hud
+item_visual							= dynamics\weapons\wpn_g36k\wpn_g36k_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+; G36C
+;-----------------------------------------------------------------------------
+[wpn_g36c]:wpn_g36
+visual								= dynamics\weapons\wpn_g36c\wpn_g36c.ogf
+description							= st_wpn_g36c_descr
+inv_name							= st_wpn_g36c
+inv_name_short						= st_wpn_g36c
+scopes								= ac10632, ac11090, acog, eot, c-more
+parent_section						= wpn_g36c
+inv_weight							= 2.96
+inv_volume							= 4.4
+ph_mass								= 3
+cost								= 45500
+hud									= wpn_g36c_hud
+upgrades							= up_gr_firstab_g36, up_gr_seconab_g36, up_gr_thirdab_g36, up_gr_fourtab_g36, up_gr_fourtcd_g36, up_gr_fourtef_g36
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_g36
+
+inv_grid_width						= 5
+inv_grid_height						= 2
+inv_grid_x							= 56
+inv_grid_y							= 6
+
+upgr_icon_x							= 300
+upgr_icon_y							= 900
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 157
+kill_msg_y							= 29
+kill_msg_width						= 78
+kill_msg_height						= 31
+
+hit_power							= 0.45, 0.45, 0.45, 0.45
+hit_impulse							= 15
+hit_type							= fire_wound
+fire_distance						= 1000
+bullet_speed						= 630
+rpm									= 750
+rpm_empty_click						= 200
+time_to_aim							= 3.0
+
+misfire_probability					= 0.005
+misfire_start_condition				= 0.6
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.004
+misfire_end_prob					= 0.05
+condition_shot_dec					= 0.00013
+condition_queue_shot_dec			= 0.0002
+
+reload_dof							= 0.0, 0.5, 5, 2
+
+fire_dispersion_base				= 0.3
+fire_dispersion_condition_factor	= 2
+control_inertion_factor				= 1.15f
+crosshair_inertion					= 5.50
+
+cam_return							= 0
+cam_relax_speed						= 10				;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 1.2
+cam_dispersion_inc					= 0.9
+cam_dispersion_frac					= 1.0				;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0				;максимальный угол отдачи
+cam_max_angle_horz					= 50.0				;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.95				; (degree) size of step camera moved in horizontal position while shooting
+
+zoom_cam_relax_speed				= 10
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.15
+zoom_cam_dispersion_inc				= 0.075
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 50.0
+zoom_cam_max_angle_horz				= 50.0
+zoom_cam_step_angle_horz			= 1.6
+
+PDM_disp_base						= 0.5
+PDM_disp_vel_factor					= 2.0
+PDM_disp_accel_factor				= 2.0
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+;-------------------------------------------------------------------------------
+holder_range_modifier				= 1.25
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.132, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.21, 0.8
+fire_point2							= 0.0, 0.14, 0.6
+
+shell_point							= 0.0, 0.21, 0.13
+shell_dir							= 0.0, 0.0, 0.4
+shell_particles						= weapons\556x45
+
+light_disabled						= false
+light_color							= 0.6, 0.5, 0.3
+light_range							= 5
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.2
+
+scope_status						= 0
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.2
+scope_zoom_factor					= 1.03
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203; wpn_addon_grenade_launcher_ag36
+grenade_launcher_x					= 130
+grenade_launcher_y					= 31
+
+scope_name							= wpn_addon_scope_susat
+scope_x								= 86
+scope_y								= -5
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 205
+silencer_y							= 18
+silencer_hit_power					= 0.23
+silencer_hit_impulse				= 20
+silencer_fire_distance				= 1000
+silencer_bullet_speed				= 735
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_holster							= weapons\g36\g36c_holster
+snd_draw							= weapons\g36\g36c_draw
+snd_reload							= weapons\g36\g36c_reload
+;-----------------------------------------------------------------------------
+[wpn_g36c_hud]
+item_visual							= dynamics\weapons\wpn_g36c\wpn_g36c_hud.ogf
+zoom_hide_crosshair					= true
+attach_place_idx					= 0
+shell_point							= 0.021,0.071,0.141
+shell_dir							= 0, 1, 0
+shell_bone							= wpn_body
+fire_point							= 0,0.0299,0.565
+fire_bone							= wpn_body
+fire_point2							= 0,-0.017,0.692
+fire_bone2							= wpn_body
+
+item_position						= 0.012866,-0.003395,0.01378
+item_orientation					= 32.07896,10.50498,357.8676
+
+hands_position						= -0.047695,0.012420,0.016922
+hands_position_16x9					= -0.047695,0.012420,0.016922
+hands_orientation					= 0.5,4.922498,-5.75
+hands_orientation_16x9				= 0.5,4.922498,-5.75
+
+aim_hud_offset_pos					= -0.040265,0.00071,-0.057135
+aim_hud_offset_pos_16x9				= -0.040265,0.00071,-0.057135
+aim_hud_offset_rot					= 0.0604,0.0428,0.0071
+aim_hud_offset_rot_16x9				= 0.0604,0.0428,0.0071
+
+anm_show							= g36c_draw
+anm_hide							= g36c_holster
+anm_idle							= g36c_idle
+anm_idle_sprint						= g36c_idle_sprint_2
+anm_idle_moving						= g36c_idle_move
+anm_shots_empty						= g36c_idle
+anm_shots							= g36c_shoot
+anm_reload							= g36c_reload
+anm_idle_aim						= g36c_idle_aim
+anm_bore							= g36c_idle_bore
+;-----------------------------------------------------------------------------
+; 	Scopes
+;-----------------------------------------------------------------------------
+[wpn_g36c_ac10632]:wpn_g36c
+visual								= dynamics\weapons\wpn_g36c\wpn_g36c_ac10632.ogf
+scope_name							= ac10632
+scope_x								= 119
+scope_y								= -12
+scope_zoom_factor					= 1,15
+hud									= wpn_g36c_ac10632_hud
+
+[wpn_g36c_ac10632_hud]:wpn_g36c_hud
+item_visual							= dynamics\weapons\wpn_g36c\wpn_g36c_ac10632_hud.ogf
+aim_hud_offset_pos					= -0.08665,0.03945,-0.13
+aim_hud_offset_rot					= 0.06,0.0428,0.0071
+aim_hud_offset_pos_16x9				= -0.08665,0.03945,-0.13
+aim_hud_offset_rot_16x9				= 0.06,0.0428,0.0071
+;-----------------------------------------------------------------------------
+[wpn_g36c_ac11090]:wpn_g36c
+visual								= dynamics\weapons\wpn_g36c\wpn_g36c_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 111
+scope_y								= -9
+hud									= wpn_g36c_ac11090_hud
+
+[wpn_g36c_ac11090_hud]:wpn_g36c_hud
+item_visual							= dynamics\weapons\wpn_g36c\wpn_g36c_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.0869,0.0354,-0.14
+aim_hud_offset_rot					= 0.064,0.0437,0.0071
+aim_hud_offset_pos_16x9				= -0.0869,0.0354,-0.14
+aim_hud_offset_rot_16x9				= 0.064,0.0437,0.0071
+;-----------------------------------------------------------------------------
+[wpn_g36c_acog]:wpn_g36c
+scope_name							= acog
+scope_x								= 111
+scope_y								= -9
+;-----------------------------------------------------------------------------
+[wpn_g36c_eot]:wpn_g36c
+visual								= dynamics\weapons\wpn_g36c\wpn_g36c_eot.ogf
+scope_name							= eot
+scope_x								= 121
+scope_y								= -9
+hud									= wpn_g36c_eot_hud
+
+[wpn_g36c_eot_hud]:wpn_g36c_hud
+item_visual							= dynamics\weapons\wpn_g36c\wpn_g36c_eot_hud.ogf
+aim_hud_offset_pos					= -0.0862,0.0338,-0.1
+aim_hud_offset_rot					= 0.06,0.043,0.0071
+aim_hud_offset_pos_16x9				= -0.0862,0.0338,-0.1
+aim_hud_offset_rot_16x9				= 0.06,0.043,0.0071
+;-----------------------------------------------------------------------------
+[wpn_g36c_c-more]:wpn_g36c
+visual								= dynamics\weapons\wpn_g36c\wpn_g36c_c-more.ogf
+scope_name							= c-more
+scope_x								= 121
+scope_y								= -9
+hud									= wpn_g36c_c-more_hud
+
+[wpn_g36c_c-more_hud]:wpn_g36c_hud
+item_visual							= dynamics\weapons\wpn_g36c\wpn_g36c_c-more_hud.ogf
+aim_hud_offset_pos					= -0.08725,0.0345,-0.1
+aim_hud_offset_rot					= 0.064,0.0437,0.0071
+aim_hud_offset_pos_16x9				= -0.08725,0.0345,-0.1
+aim_hud_offset_rot_16x9				= 0.064,0.0437,0.0071
+;-----------------------------------------------------------------------------
+; XM8 from OWR, added by Surs for A.R.E.A. (10.02.2018)
+;-----------------------------------------------------------------------------
+[wpn_xm8]:wpn_g36
+$spawn								= "weapons\wpn_g36_nimble"
+bullet_speed						= 815
+condition_queue_shot_dec			= 0.001
+condition_shot_dec					= 0.0009
+cost								= 55000
+inv_name							= st_wpn_xm8
+inv_name_short						= st_wpn_xm8
+description							= st_wpn_xm8_descr
+fire_dispersion_base				= 0.28
+fire_distance						= 800
+grenade_launcher_status				= 0
+hit_power							= 0.52, 0.52, 0.52, 0.52
+hud									= wpn_xm8_hud
+parent_section						= wpn_xm8
+inv_weight							= 3.4
+inv_volume							= 5
+misfire_end_condition				= 0.1
+misfire_end_prob					= 0.055
+misfire_probability					= 0.005
+misfire_start_condition				= 0.65
+misfire_start_prob					= 0.0045
+rpm									= 750
+
+inv_grid_height						= 2
+inv_grid_width						= 5
+inv_grid_x							= 70
+inv_grid_y							= 68
+
+upgr_icon_x							= 300
+upgr_icon_y							= 1500
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.2
+scope_zoom_factor					= 2.8
+scope_texture						= wpn_crosshair_xm8
+
+scope_status						= 1
+silencer_status						= 2
+grenade_launcher_status				= 0
+
+silencer_name						= wpn_sil_nato
+silencer_x							= 228
+silencer_y							= 16
+
+grenade_launcher_name				= wpn_addon_grenade_launcher_m203
+grenade_launcher_x					= 142
+grenade_launcher_y					= 31
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw							= weapons\g36\g36_draw2
+snd_holster							= weapons\rifle_holster
+snd_shoot							= weapons\xm8\xm8_shoot
+snd_silencer_shot					= weapons\xm8\xm8_shoot_sil
+snd_reload							= weapons\xm8\xm8_reload
+snd_reload_empty					= weapons\xm8\xm8_reload_empty
+visual								= dynamics\weapons\wpn_xm8\wpn_xm8
+;-----------------------------------------------------------------------------
+[wpn_xm8_hud]:wpn_g36_hud
+item_visual							= dynamics\weapons\wpn_xm8\wpn_xm8_hud
+fire_bone2							= wpn_body
+
+hands_position						= -0.034,-0.2,0.14
+hands_orientation					= 2,2,0
+hands_position_16x9					= -0.034,-0.2,0.14
+hands_orientation_16x9				= 2,2,0
+
+aim_hud_offset_pos					= -0.12185,0.0478,-0.185
+aim_hud_offset_rot					= 0.0415,0.0535,0
+aim_hud_offset_pos_16x9				= -0.12185,0.0478,-0.185
+aim_hud_offset_rot_16x9				= 0.0415,0.0535,0
+
+anm_bore							= xm8_idle_aim
+anm_hide							= xm8_holster
+anm_idle							= xm8_idle
+anm_idle_aim						= xm8_idle_aim
+anm_idle_moving						= xm8_idle_moving
+anm_idle_moving_crouch				= xm8_idle_crouch
+anm_idle_sprint						= xm8_idle_sprint
+anm_reload							= xm8_reload, reload
+anm_reload_empty					= xm8_reload_empty, reload_empty
+anm_shots							= xm8_shoot, shoot
+anm_shots_empty						= xm8_idle
+anm_show							= xm8_draw

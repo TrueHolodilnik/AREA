@@ -1,0 +1,329 @@
+[wpn_gauss]:default_weapon_params
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss.ogf
+$spawn								= "weapons\gauss"		; option for Level Editor
+$npc								= on					; option for Level Editor
+class								= WP_SVD
+inv_name							= st_wpn_gauss
+inv_name_short						= st_wpn_gauss
+description							= st_wpn_gauss_descr
+ef_main_weapon_type					= 3
+ef_weapon_type						= 11
+default_to_ruck						= false
+sprint_allowed						= true
+control_inertion_factor				= 2.92f
+inv_weight							= 7.75
+inv_volume							= 7
+ph_mass								= 8
+cost								= 150000
+weapon_class						= sniper_rifle
+parent_section						= wpn_gauss
+heating_rates						= gauss
+;--TTX---------------------------------------------------------------------------
+hit_power							= 5.2, 5.2, 5.2, 5.2
+hit_impulse							= 1
+hit_type							= fire_wound
+fire_distance						= 1450
+bullet_speed						= 15000
+rpm									= 30
+rpm_empty_click						= 120
+time_to_aim							= 1.0
+hud									= wpn_gauss_hud
+
+misfire_probability					= 0.02
+misfire_start_condition				= 0.7
+misfire_end_condition				= 0.1
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0036
+condition_queue_shot_dec			= 0.0036
+
+ammo_limit							= 60
+ammo_current						= 20
+ammo_elapsed						= 0
+ammo_mag_size						= 20
+fire_modes							= 1, -1
+magazine_sect						= mag_gauss_cnt_10, mag_gauss_cnt_20
+ammo_class							= ammo_gauss, ammo_gauss_bad, ammo_gauss_verybad, ammo_gauss_cardan, ammo_gauss_cardan_bad, ammo_gauss_cardan_verybad
+slot								= 2
+animation_slot						= 2
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= 0.5, 1.0, 180
+reload_dof							= 0.0, 0.5, 5, 1.7
+;--дисперсия----------------------------------------------------------------------------
+fire_dispersion_base				= 0.001 				;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor				= 2.92f
+crosshair_inertion					= 10.8
+
+cam_return							= 0
+cam_relax_speed						= 3						;скорость возврата в исходное положение
+cam_relax_speed_ai					= 360					;скорость возврата в исходное положение
+cam_dispersion						= 0.05					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 0.05					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 0.01					;максимальный угол отдачи
+cam_max_angle_horz					= 0.01					;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 0.01					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 2.25
+PDM_disp_vel_factor					= 3.05
+PDM_disp_accel_factor				= 3.05
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+zoom_cam_relax_speed				= 3						; scope & ironsight
+zoom_cam_relax_speed_ai				= 360
+zoom_cam_dispersion					= 0.01
+zoom_cam_dispersion_inc				= 0.01
+zoom_cam_dispersion_frac			= 1.0
+zoom_cam_max_angle					= 0.01
+zoom_cam_max_angle_horz				= 0.01
+zoom_cam_step_angle_horz			= 0.01
+fire_dispersion_condition_factor	= 0.001					;увеличение дисперсии в процентах при максимальном износе
+;-------------------------------------------------------------------------------
+holder_range_modifier				= 2.85					; во сколько раз увеличивается eye_range
+;-------------------------------------------------------------------------------
+inv_grid_width						= 6
+inv_grid_height						= 2
+inv_grid_x							= 48
+inv_grid_y							= 62
+
+upgr_icon_x							= 2050
+upgr_icon_y							= 700
+upgr_icon_width						= 300
+upgr_icon_height					= 100
+
+kill_msg_x							= 166
+kill_msg_y							= 59
+kill_msg_width						= 82
+kill_msg_height						= 23
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position						= -0.28, 0.20, 0.15
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.28, -0.20, 0.15
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+;-------------------------------------------------------------------------------
+position							= -0.026, -0.070, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.00,0.12,0.69
+fire_point2							= 0.00,0.12,0.69
+flame_particles						= weapons\generic_weapon_gauss
+smoke_particles						= weapons\generic_weapon07
+shell_3d							= false
+rpm_empty_click						= 120
+shell_point							= 0.0, 0.129, 0.192
+shell_dir							= 0.0, 0.0, 0.4
+
+light_disabled						= false
+light_color							= 1.3,1.5,2
+light_range							= 4.0
+light_var_color						= 0.05
+light_var_range						= 0.5
+light_time							= 0.5
+
+scope_status						= 2
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+;addons
+scopes								= ac11090, acog, c-more, coyote, eot, pks, pn23, specter, tars101
+scope_name							= wpn_addon_scope
+scope_texture						= wpn_crosshair_gauss
+scope_x								= 60
+scope_y								= -2
+scope_zoom_factor					= 1.03
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_dynamic_zoom					= off
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_draw							= weapons\gauss\gauss_draw
+snd_holster							= weapons\gauss\gauss_holster
+snd_shoot							= weapons\gauss\gauss_shot
+snd_empty							= weapons\gauss\gauss_empty
+snd_reload							= weapons\gauss\gauss_reload
+snd_bore							= $no_sound
+;--Магазины---------------------------------------------------------------------
+[mag_gauss_cnt_10]
+magazine_name						= magazine_gauss_cnt_10
+magazine_x							= 100
+magazine_y							= 50
+custom_icon 						= 8,0,1,1 ;x,y,width,height
+
+[mag_gauss_cnt_20]
+magazine_name						= magazine_gauss_cnt_20
+magazine_x							= 100
+magazine_y							= 50
+custom_icon 						= 8,0,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_gauss_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_hud.ogf
+zoom_hide_crosshair					= true
+shell_bone							= wpn_body
+shell_dir							= 0.0, 1.0, 0.0
+shell_point							= 0,0,0
+fire_bone							= wpn_body
+fire_point							= 0,0.058, 0.197
+item_orientation					= 1.239378,-0.134046,-2.052052
+item_position						= 0.000746,-0.000321,0.003479
+
+hands_position						= -0.106005,-0.121319,0.030120
+hands_position_16x9					= -0.106005,-0.121319,0.030120
+hands_orientation					= -1.150000,0.150000,2.649999
+hands_orientation_16x9				= -1.150000,0.150000,2.649999
+
+aim_hud_offset_pos					= -0.05529,0.00835,-0.162057
+aim_hud_offset_pos_16x9				= -0.05529,0.00835,-0.162057
+aim_hud_offset_rot					= -0.009473,0.001179,-0.005474
+aim_hud_offset_rot_16x9				= -0.009473,0.001179,-0.005474
+
+aim_hud_offset_pos_alt				= 0,0,0.139994
+aim_hud_offset_pos_alt_16x9			= 0,0,0.139994
+aim_hud_offset_rot_alt				= 0,-0.000255,-0.000255
+aim_hud_offset_rot_alt_16x9			= 0,-0.000255,-0.000255
+
+anm_bore							= gauss_idle_aim
+anm_hide							= gauss_holster, holster
+anm_idle							= gauss_idle
+anm_idle_aim						= gauss_idle_aim
+anm_idle_moving						= gauss_idle_moving, moving
+anm_idle_moving_crouch				= gauss_idle_crouch, crouch
+anm_idle_sprint						= gauss_idle_sprint, sprint
+anm_reload							= gauss_reload, reload
+anm_reload_empty					= gauss_reload, reload
+anm_shots							= gauss_shoot, shoot
+anm_shots_empty						= gauss_idle
+anm_show							= gauss_draw, draw
+;-----------------------------------------------------------------------------
+[wpn_gauss_ac11090]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_ac11090.ogf
+scope_name							= ac11090
+scope_x								= 75
+scope_y								= 4
+hud									= wpn_gauss_ac11090_hud
+
+[wpn_gauss_ac11090_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_ac11090_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.012335,-0.162057
+aim_hud_offset_pos_16x9				= -0.055290,-0.012335,-0.162057
+;-----------------------------------------------------------------------------
+[wpn_gauss_acog]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_acog.ogf
+scope_name							= acog
+scope_x								= 70
+scope_y								= 5
+hud									= wpn_gauss_acog_hud
+
+[wpn_gauss_acog_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_acog_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.005090,-0.167307
+aim_hud_offset_pos_16x9				= -0.055290,-0.005090,-0.167307
+;-----------------------------------------------------------------------------
+[wpn_gauss_c-more]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_c-more.ogf
+scope_name							= c-more
+scope_x								= 80
+scope_y								= 5
+hud									= wpn_gauss_c-more_hud
+
+[wpn_gauss_c-more_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_c-more_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.006875,-0.162057
+aim_hud_offset_pos_16x9				= -0.055290,-0.006875,-0.162057
+;-----------------------------------------------------------------------------
+[wpn_gauss_coyote]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_coyote.ogf
+scope_name							= coyote
+scope_x								= 80
+scope_y								= 5
+hud									= wpn_gauss_coyote_hud
+
+[wpn_gauss_coyote_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_coyote_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.003305,-0.162057
+aim_hud_offset_pos_16x9				= -0.055290,-0.003305,-0.162057
+;-----------------------------------------------------------------------------
+[wpn_gauss_eot]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_eot.ogf
+scope_name							= eot
+scope_x								= 80
+scope_y								= 8
+hud									= wpn_gauss_eot_hud
+
+[wpn_gauss_eot_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_eot_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.006350,-0.162057
+aim_hud_offset_pos_16x9				= -0.055290,-0.006350,-0.162057
+;-----------------------------------------------------------------------------
+[wpn_gauss_pks]:wpn_gauss
+scope_name							= pks
+scope_x								= 60
+scope_y								= 5
+hud									= wpn_gauss_pks_hud
+
+[wpn_gauss_pks_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_pks_hud.ogf
+aim_hud_offset_pos					= -0.055395,-0.004565,-0.20059
+aim_hud_offset_pos_16x9				= -0.055395,-0.004565,-0.20059
+;-----------------------------------------------------------------------------
+[wpn_gauss_pn23]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_pn23.ogf
+scope_name							= pn23
+scope_x								= 80
+scope_y								= 2
+hud									= wpn_gauss_pn23_hud
+
+[wpn_gauss_pn23_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_pn23_hud.ogf
+aim_hud_offset_pos					= -0.05487,-0.01685,-0.205315
+aim_hud_offset_pos_16x9				= -0.05487,-0.01685,-0.205315
+;-----------------------------------------------------------------------------
+[wpn_gauss_specter]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_specter.ogf
+scope_name							= specter
+scope_x								= 80
+scope_y								= 2
+hud									= wpn_gauss_specter_hud
+
+[wpn_gauss_specter_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_specter_hud.ogf
+aim_hud_offset_pos					= -0.055425,-0.006290,-0.211405
+aim_hud_offset_pos_16x9				= -0.055425,-0.006290,-0.211405
+aim_hud_offset_pos_alt				= -0.00021,-0.024675,0
+aim_hud_offset_pos_alt_16x9			= -0.00021,-0.024675,0
+;-----------------------------------------------------------------------------
+[wpn_gauss_tars101]:wpn_gauss
+visual								= dynamics\weapons\wpn_gauss\wpn_gauss_tars101.ogf
+scope_name							= tars101
+scope_x								= 70
+scope_y								= 0
+hud									= wpn_gauss_tars101_hud
+
+[wpn_gauss_tars101_hud]:wpn_gauss_hud
+item_visual							= dynamics\weapons\wpn_gauss\wpn_gauss_tars101_hud.ogf
+aim_hud_offset_pos					= -0.055290,-0.010235,-0.206679
+aim_hud_offset_pos_16x9				= -0.055290,-0.010235,-0.206679
+;-----------------------------------------------------------------------------
+; Уникальный Гаусс "Миротворитель"
+;-----------------------------------------------------------------------------
+[pri_a17_gauss_rifle]:wpn_gauss
+$spawn								= "weapons\uniq\pri_a17_gauss_rifle"
+story_id							= pri_a17_gauss_rifle
+parent_section						= pri_a17_gauss_rifle
+inv_name							= st_wpn_umirotvoritel
+inv_name_short						= st_wpn_umirotvoritel
+description							= st_wpn_umirotvoritel_descr
+parent_section						= pri_a17_gauss_rifle
+scope_status						= 0
+bullet_speed						= 152000
+condition_queue_shot_dec			= 0.00002
+condition_shot_dec					= 0.00001
+cost								= 180000
+fire_distance						= 2000
+hit_impulse							= 50
+hit_power							= 5.5, 5.5, 5.5, 5.5
+misfire_end_condition				= 0.3
+misfire_end_prob					= 1
+misfire_start_condition				= 0.6
+misfire_start_prob					= 1
+;-----------------------------------------------------------------------------

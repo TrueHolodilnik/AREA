@@ -1,0 +1,277 @@
+#include "profiles.ltx"
+
+[trader]
+buy_condition 			= trade_generic_buy
+sell_condition 			= trade_generic_sell
+buy_supplies 			= {=actor_goodwill_ge(stalker:3000)} supplies_tier_3, {=actor_goodwill_ge(stalker:2000)} supplies_tier_2, {=actor_goodwill_ge(stalker:1000)} supplies_tier_1, supplies_generic
+
+buy_item_condition_factor = 0.92
+
+discounts				= {=actor_goodwill_ge(stalker:3000)} discount_10, {=actor_goodwill_ge(stalker:2700)} discount_9, {=actor_goodwill_ge(stalker:2400)} discount_8, {=actor_goodwill_ge(stalker:2100)} discount_7, {=actor_goodwill_ge(stalker:1800)} discount_6, {=actor_goodwill_ge(stalker:1500)} discount_5, {=actor_goodwill_ge(stalker:1200)} discount_4, {=actor_goodwill_ge(stalker:900)} discount_3, {=actor_goodwill_ge(stalker:600)} discount_2, {=actor_goodwill_ge(stalker:300)} discount_1, discount_0
+
+[trade_generic_buy]:buy_mlty_trade_set
+
+[trade_generic_sell]:sell_stalker_set
+
+[supplies_generic]
+wpn_walther_worn					= 1, 0.05
+wpn_fort_worn						= 1, 0.05
+wpn_fort_rusty						= 1, 0.10
+wpn_tt33_worn						= 1, 0.05
+wpn_tt33_rusty						= 1, 0.10
+wpn_cz75_worn						= 1, 0.05
+wpn_hpsa_worn						= 1, 0.05
+wpn_hpsa_rusty						= 1, 0.10
+wpn_bm16_worn						= 1, 0.05
+wpn_bm16_rusty						= 1, 0.10
+wpn_bm16_full_worn					= 1, 0.05
+wpn_bm16_full_rusty					= 1, 0.10
+
+wpn_knife							= 1, 0.15
+wpn_knife2							= 1, 0.07
+wpn_knife3							= 1, 0.05
+wpn_knife4							= 1, 0.03
+wpn_knife5							= 1, 0.01
+
+wpn_axe								= 1, 0.01
+wpn_shovel 							= 1, 0.01
+wpn_axe								= 1, 0.01
+wpn_axe2							= 1, 0.01
+wpn_axe3							= 1, 0.01
+wpn_crowbar							= 1, 0.01
+wpn_hammer							= 1, 0.01
+wpn_shovel							= 1, 0.01
+
+grenade_rgdm						= 3, 0.35
+grenade_rgd5						= 3, 0.35
+
+packet_bolts						= 1, 0.05
+itm_sleepbag						= 1, 0.05
+itm_tent							= 1, 0.05
+itm_firewood						= 1, 0.05
+servokit							= 1, 0.05
+itm_cutting_tools					= 1, 0.05
+itm_cutting_tools_2					= 1, 0.05
+itm_cutting_tools_3					= 1, 0.05
+af_surge							= 1, 0.05
+af_frames							= 1, 0.05
+af_grid								= 1, 0.05
+af_freon							= 1, 0.05
+af_cooler							= 1, 0.05
+af_kevlar							= 1, 0.05
+af_plates							= 1, 0.05
+af_camelbak							= 1, 0.05
+matches								= 3, 0.75
+lighter								= 1, 0.05
+wood_stove							= 1, 0.05
+fieldcooker							= 1, 0.05
+charcoal							= 1, 0.05
+saucepan							= 1, 0.05
+detector_simple						= 1, 0.05
+detector_advanced					= 1, 0.05
+device_torch						= 1, 0.05
+device_torch_2						= 1, 0.05
+device_torch_3						= 1, 0.05
+device_flashlight					= 1, 0.05
+battery_1_5v_aa						= 1, 0.05
+battery_1_5v_d						= 1, 0.05
+battery_9v							= 1, 0.05
+kit_hunt							= 1, 0.05
+barrelkit_762						= 1, 0.05
+barrelkit_545						= 1, 0.05
+barrelkit_556						= 1, 0.05
+barrelkit_792						= 1, 0.05
+barrelkit_9x39						= 1, 0.05
+barrelkit_pistol					= 1, 0.05
+barrelkit_smg						= 1, 0.05
+barrelkit_shotgun					= 1, 0.05
+sharpening_stones					= 1, 0.05
+gun_oil								= 1, 0.05
+gun_oil_ru_d						= 1, 0.05
+gun_oil_ru							= 1, 0.05
+solvent								= 1, 0.05
+cleaning_kit_p						= 1, 0.05
+cleaning_kit_s						= 1, 0.05
+cleaning_kit_r5						= 1, 0.05
+cleaning_kit_r7						= 1, 0.05
+cleaning_kit_u						= 1, 0.05
+toolkit_p							= 1, 0.05
+toolkit_s							= 1, 0.05
+toolkit_r5							= 1, 0.05
+toolkit_r7							= 1, 0.05
+sewing_kit_b						= 1, 0.05
+sewing_kit_a						= 1, 0.05
+sewing_kit_h						= 1, 0.05
+glue_b								= 1, 0.05
+glue_a								= 1, 0.05
+glue_e								= 1, 0.05
+armor_repair_fa						= 1, 0.05
+armor_repair_pro					= 1, 0.05
+helmet_repair_kit					= 1, 0.05
+toolkit_u							= 1, 0.05
+backpack_sport                      = 1, 0.15
+backpack_pods                       = 1, 0.15
+backpack_cloth                      = 1, 0.15
+backpack_vesh                       = 1, 0.15
+backpack_small                      = 1, 0.12
+backpack_compact                    = 1, 0.12
+backpack_hunt                       = 1, 0.09
+backpack_medium                     = 1, 0.09
+backpack_camp                       = 1, 0.09
+
+wpn_binoc							= 1, 0.35
+
+ammo_9x18_fmj						= 5, 0.50
+ammo_9x19_fmj						= 4, 0.45
+ammo_11.43x23_fmj					= 3, 0.25
+ammo_12x70_buck						= 3, 0.35
+ammo_12x76_zhekan					= 3, 0.25
+ammo_12x76_dart						= 3, 0.25
+ammo_357_hp_mag						= 3, 0.25
+ammo_5.45x39_fmj					= 3, 0.25
+ammo_5.56x45_ss190					= 3, 0.25
+ammo_5.7x28_ss190					= 3, 0.25
+ammo_9x39_pab9						= 3, 0.25
+ammo_7.62x39_fmj					= 3, 0.25
+ammo_7.62x51_fmj					= 3, 0.25
+ammo_7.62x25_p						= 3, 0.25
+ammo_7.62x25_ps						= 3, 0.25
+ammo_7.62x25_p41					= 3, 0.25
+ammo_7.92x33_fmj					= 3, 0.25
+ammo_7.62x54_7h1					= 3, 0.25
+ammo_magnum_300						= 3, 0.25
+ammo_12.7x55_fmj					= 3, 0.25
+ammo_pkm_100						= 3, 0.25
+
+[supplies_tier_1]:supplies_generic
+wpn_mossberg590_worn				= 1, 0.05
+wpn_wincheaster1300_worn			= 1, 0.05
+wpn_wincheaster1300_rusty			= 1, 0.10
+wpn_mp133_worn						= 1, 0.05
+wpn_mp133_rusty						= 1, 0.10
+wpn_ppsh41_woodworn					= 1, 0.05
+wpn_vz65_worn						= 1, 0.05
+wpn_vz65_rusty						= 1, 0.10
+
+wpn_mine							= 3, 0.35
+wpn_mine_2							= 3, 0.35
+grenade_f1							= 3, 0.35
+grenade_rgn							= 3, 0.35
+grenade_gd-05						= 3, 0.35
+grenade_light						= 3, 0.35
+ied_rpg								= 3, 0.35
+ied									= 3, 0.35
+
+sd_hacking_soft						= 1, 0.10
+
+[supplies_tier_2]:supplies_tier_1
+wpn_svt40_worn						= 1, 0.05
+wpn_svt40_rusty						= 1, 0.05
+wpn_mosin_rusty						= 1, 0.05
+wpn_ak74_worn						= 1, 0.05
+wpn_ak74_rusty						= 1, 0.05
+wpn_ak74m_worn						= 1, 0.05
+wpn_akm_worn						= 1, 0.05
+wpn_akms_worn						= 1, 0.05
+wpn_aks74_worn						= 1, 0.05
+wpn_ak74u_worn						= 1, 0.05
+wpn_ak74u_rusty						= 1, 0.05
+wpn_aks74_rusty						= 1, 0.05
+
+wpn_binoc_1							= 1, 0.25
+
+wpn_addon_silencer					= 1, 0.05
+wpn_sil_9mm							= 1, 0.05
+wpn_sil_45							= 1, 0.05
+wpn_sil_pbs1						= 1, 0.05
+wpn_sil_pbs4						= 1, 0.05
+wpn_sil_tgp-a						= 1, 0.05
+wpn_sil_nato						= 1, 0.05
+wpn_sil_kzrzp						= 1, 0.05
+wpn_sil_atg							= 1, 0.05
+wpn_sil_aps							= 1, 0.05
+wpn_sil_9a91						= 1, 0.05
+wpn_sil_6p9							= 1, 0.05
+wpn_sil_vihr						= 1, 0.05
+wpn_sil_gemtech						= 1, 0.05
+wpn_sil_sr25						= 1, 0.05
+wpn_sil_57							= 1, 0.05
+wpn_sil_762x39						= 1, 0.05
+wpn_addon_scope						= 1, 0.05
+1p29								= 1, 0.05
+1p29								= 1, 0.05
+1pn34								= 1, 0.05
+1pn93								= 1, 0.05
+acog								= 1, 0.05
+ac10632								= 1, 0.05
+ac11090								= 1, 0.05
+aimpoint							= 1, 0.05
+c-more								= 1, 0.05
+coyote								= 1, 0.05
+delta								= 1, 0.05
+ekp									= 1, 0.05
+eot									= 1, 0.05
+kobra								= 1, 0.05
+okp									= 1, 0.05
+pgo7v								= 1, 0.05
+pka									= 1, 0.05
+pks									= 1, 0.05
+po4x34								= 1, 0.05
+pn23								= 1, 0.05
+pso									= 1, 0.05
+pso1m21								= 1, 0.05
+pu									= 1, 0.05
+rakurs								= 1, 0.05
+specter								= 1, 0.05
+tars101								= 1, 0.05
+zf4									= 1, 0.05
+wpn_addon_grenade_launcher			= 1, 0.05
+wpn_addon_grenade_launcher_m203		= 1, 0.05
+wpn_addon_grenade_launcher_ag36		= 1, 0.05
+
+[supplies_tier_3]:supplies_tier_2
+
+wpn_binoc_2							= 1, 0.15
+
+ammo_9x18_fmj						= 5, 0.65
+ammo_9x19_fmj						= 5, 0.55
+ammo_11.43x23_fmj					= 5, 0.55
+ammo_12x70_buck						= 5, 0.55
+ammo_12x76_zhekan					= 5, 0.55
+ammo_12x76_dart						= 5, 0.55
+ammo_357_hp_mag						= 5, 0.55
+ammo_5.45x39_fmj					= 5, 0.55
+ammo_5.56x45_ss190					= 5, 0.55
+ammo_5.7x28_ss190					= 5, 0.55
+ammo_9x39_pab9						= 5, 0.55
+ammo_7.62x39_fmj					= 5, 0.55
+ammo_7.62x51_fmj					= 5, 0.55
+ammo_7.62x25_p						= 5, 0.55
+ammo_7.62x25_ps						= 5, 0.55
+ammo_7.62x25_p41					= 5, 0.55
+ammo_7.92x33_fmj					= 5, 0.55
+ammo_7.62x54_7h1					= 5, 0.55
+ammo_magnum_300						= 5, 0.55
+ammo_12.7x55_fmj					= 5, 0.55
+ammo_pkm_100						= 5, 0.55
+
+ammo_9x18_pmm						= 3, 0.35
+ammo_9x18_ap						= 3, 0.35
+ammo_9x19_pbp						= 3, 0.35
+ammo_9x19_ap						= 3, 0.35
+ammo_11.43x23_hydro					= 3, 0.35
+ammo_11.43x23_ap					= 3, 0.35
+ammo_357_hp_mag_ap					= 3, 0.35
+ammo_5.45x39_ap						= 3, 0.35
+ammo_5.56x45_ap						= 3, 0.35
+ammo_5.7x28_ss195					= 3, 0.35
+ammo_9x39_ap						= 3, 0.35
+ammo_7.62x39_ap						= 3, 0.35
+ammo_7.62x51_ap						= 3, 0.35
+ammo_7.92x57_fmj					= 3, 0.35
+ammo_7.62x54_7h14					= 3, 0.35
+ammo_magnum_300_ap					= 3, 0.35
+ammo_12.7x55_ap						= 3, 0.35
+ammo_7.62x54_ap						= 3, 0.35
+ammo_vog-25							= 3, 0.35
+ammo_m209							= 3, 0.35

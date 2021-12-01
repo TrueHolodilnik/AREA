@@ -1,0 +1,224 @@
+----------------------------------------------------------
+--	area_inventory_radiation.script
+--  Original scripting done by the NARODNAYA SOLYANKA team
+--  Modified for use in Misery 2.0+ by Yastiandrie
+----------------------------------------------------------
+--	A.R.E.A. remake by Surs and Nuor
+----------------------------------------------------------
+
+----------------------------------------------------------
+--  End ambient radiation
+----------------------------------------------------------
+local rad_factor = 0.5 --Yasti: 1.0 = full radiation_restore_speed,  0.0 = no radiation
+local ini = system_ini()
+
+local function opt_menu_on_init(menu)
+	menu.gameplay_options["inventory_radiation"] = {default=false, debug_only=false, typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			if (ctrl:GetCheck()) then
+				activate_feature()
+			else
+				deactivate_feature()
+			end
+		end
+	}
+	menu.gameplay_options["ambient_radiation"]	= {default=false, debug_only=false, typ="check",
+		on_accept=function(handler,optMgr,ctrl)
+			if  ctrl:GetCheck() then
+				activate_ambient()
+			else
+				deactivate_ambient()
+			end
+		end
+	}
+end
+
+function activate_ambient()
+	if (axr_main.config:r_value("mm_options","enable_inventory_radiation",1,false) == true) then
+		RegisterScriptCallback("actor_on_update",update_inventory)
+	end
+end
+
+function deactivate_ambient()
+	if (axr_main.config:r_value("mm_options","enable_inventory_radiation",1,false) == false) then
+		UnregisterScriptCallback("actor_on_update",update_inventory)
+	end
+	printf("Deactivate Ambient radiation")
+end
+
+function activate_feature()
+	if (axr_main.config:r_value("mm_options","enable_ambient_radiation",1,false) == true) then
+		RegisterScriptCallback("actor_on_update",update_inventory)
+	end
+	printf("Activate inventory radiation")
+end
+
+function deactivate_feature()
+	if (axr_main.config:r_value("mm_options","enable_ambient_radiation",1,false) == false) then
+		UnregisterScriptCallback("actor_on_update",update_inventory)
+	end
+	printf("Deactivate inventory radiation")
+end
+
+function on_game_start()
+	activate_feature()
+	activate_ambient()
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+end
+
+--get a level of radiation protection
+function get_rad_resist(get_param)
+	local suit = db.actor:item_in_slot(7)
+	local helm = db.actor:item_in_slot(12)
+	local rad_resist = 0
+	local cond = 0
+	
+	local function itr(upgrade, outfit)
+		local upgrade_section = ini:r_string_ex(upgrade, "section")
+		if upgrade_section and ini:line_exist(upgrade_section, "radiation_protection") then
+			rad_resist = rad_resist + ini:r_float_ex(upgrade_section, "radiation_protection", 0.0)*15
+		end
+	end
+	if get_param == "helm" or not get_param then
+        if helm then
+            rad_resist = rad_resist + ini:r_float_ex(helm:section(), "radiation_protection",0.0)*15
+            helm:iterate_installed_upgrades(itr,helm)
+            cond = 0.2 * helm:condition()
+        end
+    end
+    if get_param == "outfit" or not get_param then
+        if suit then
+            rad_resist = rad_resist + ini:r_float_ex(suit:section(), "radiation_protection",0.0)*15
+            suit:iterate_installed_upgrades(itr,suit)
+            if ini:r_bool_ex(suit:section(),"helmet_allowed",true) == false then
+                cond = cond + suit:condition()
+            else
+                cond = cond + (0.8 * suit:condition())
+            end
+        end
+    end
+	rad_resist = rad_resist * cond
+	return rad_resist
+end
+
+--get the level constant radiation
+local function get_constant_radiation(actor_protection,position)
+    if axr_main.config:r_value("mm_options","enable_ambient_radiation",1,false) == false then return 0 end
+    local weather = level.get_weather()
+    local rad_resist = actor_protection and get_rad_resist() or 0
+    local amb_rad_modifiers = {
+		storm 	= 0.9,
+		thunder = 0.76,
+		rain 	= 0.67,
+		foggy 	= 0.55,
+		cloudy 	= 0.35,
+		partly 	= 0.25
+    }
+
+    local amb_rad_modify = 0.15
+    for k,v in pairs(amb_rad_modifiers) do
+		if weather:find(k) then
+			amb_rad_modify = v
+			break
+		end
+    end
+    
+    local actor_rad = (amb_rad_modify-rad_resist)*(1-rad_resist)
+    if actor_rad < 0 then actor_rad = 0 end
+    
+    return not level.get_roof(position) and actor_rad or 0
+end
+
+----------------------------------------------------
+--Function applies the radiation from registered artifacts to the actor
+----------------------------------------------------
+local box = bind_container.containers
+local tg_reset = time_global()
+function update_inventory(forced)
+	local tg = time_global()
+	if tg_reset > tg then return end
+	tg_reset = tg+5000--time 5 seconds
+	local iv_box_art = {}
+	local rad_resist = get_rad_resist()
+	local rad_item = 0
+	local function sped_radiate(source_box, item)	
+		local item_sec = item:section()
+		local item_id = item:id()
+		local box_item = box[item_id]
+		if item_sec:match("container_artefact") then return end
+		if IsArtefact(item) then
+			local box_id = source_box:id()
+			if iv_box_art[box_id] then
+				iv_box_art[box_id] = true
+			end
+			rad_item = rad_item + ((ini:r_float_ex(item_sec, "radiation_restore_speed", 0.0) or 0.0)*25)
+		elseif box_item then
+			local obj_box = level.object_by_id(box_item.id)
+			if obj_box then
+				iv_box_art[box_item.id] = {}
+				obj_box:iterate_inventory_box(sped_radiate, obj_box)
+			end
+		end
+	end
+
+	db.actor:iterate_inventory(sped_radiate, db.actor)
+	local cactor = db.actor:cast_Actor():conditions()
+	local source_radiation = get_constant_radiation(true,db.actor:position())*0.001
+	local rad_sensor = cactor:GetSensorRad()*10
+	rad_sensor = rad_sensor > 0 and rad_sensor-get_rad_resist() or 0
+	if rad_sensor < 0 then rad_sensor = 0 end
+
+	if source_radiation > rad_sensor then
+		rad_sensor = rad_sensor + source_radiation
+		cactor:ChangeRadiation(rad_sensor*0.01)
+		-- db.actor:give_game_news(" ", string.format("radiation (%s)",rad_sensor*game_time_delta), "ui_iconsTotal_grouping", 0, 200, 0)
+	end
+
+	rad_item = rad_item + rad_sensor
+	
+	--printf("rad %s", rad_item)
+	-- irradiate items
+	if rad_item > 0 then
+		local art_rad = {}
+		local function item_radiate(source_box, item)
+			--printf("item name:%s", item:section())
+			local item_id = item:id()
+			local item_sec = item:section()
+		
+			if ini:section_exist(item_sec.."_radiated") then
+				local uses = item:get_remaining_uses() or 1
+				local tmp
+				if iv_box_art[source_box:id()] then
+					tmp = utils.load_var(db.actor,"radiated_item_"..tostring(item_id),0) + ((rad_item * rad_factor)*0.3)
+					-- printf("delta_rad_item %s",delta_rad_item)
+				else
+					tmp = utils.load_var(db.actor,"radiated_item_"..tostring(item_id),0) + rad_item * rad_factor
+				end
+				
+			
+				--printf("irradiate spawn id:%s amount:%s", item:id(), tmp)
+				if tmp < 0.1 then
+					utils.save_var(db.actor,"radiated_item_"..tostring(item_id),tmp)
+				else
+					utils.save_var(db.actor,"radiated_item_"..tostring(item_id),nil)
+					local boxse = area_utils.remove_item_containers(item)
+					local se_item_new = alife():create(item_sec.."_radiated",boxse:position(),boxse:level_vertex_id(),boxse:game_vertex_id(),boxse:id())
+					AddUniqueCall(function()
+						local new_obj = level.object_by_id(se_item_new.id)
+						if new_obj then
+							new_obj:set_remaining_uses(uses)
+							return true
+						end
+					end)
+				end
+			elseif box[item_id] then
+				if item_sec:match("container_artefact") then return end
+				local obj_box = level.object_by_id(box[item_id].id)
+				if obj_box then
+					obj_box:iterate_inventory_box(item_radiate, obj_box)
+				end
+			end
+		end
+		db.actor:iterate_inventory(item_radiate, db.actor)
+	end
+end

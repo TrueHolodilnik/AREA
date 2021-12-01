@@ -1,0 +1,11 @@
+#include <common.h>
+
+uniform_Sampler2D(blended_wetness, smp_nofilter); 
+
+float4 main (float2 tc : TEXCOORD0) : SV_Target
+{
+	// .xyz - vspace normal | .w - road-less wetness map * wetness accum
+	float4 wetness = tex2D(blended_wetness, tc);
+
+	return float4(gbuf_pack_normal(wetness.xyz),0,0);
+}

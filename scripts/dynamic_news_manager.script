@@ -1,0 +1,2639 @@
+--[[ 
+> Dynamic News by ARS Team, xStream, Red75, Dexxx, Skunk, Xmk
+> Re-vamped by Alundaio for Call of Chernobyl
+> Re-vamped by First_Lieutenant_Skelja, senyaGTA, Letozz, Skeli, VanoSanturi, SashaRad, RadioactiveToilet
+> Re-vamped by Tronex
+> Re-vamped by Holodilnik
+--]]
+
+local show_about_death = true -- show death alerts from other stalkers
+local cycle_TickSpecial, cycle_TickRandom, cycle_TickCompanion, cycle_TickTask = 240,240,240,300
+local msg_duration = 3
+local SOS_offline_time
+local SOS_offline_period = 60*4
+local show_about_death_mutant = true -- show death alerts from other stalkers about mutant deaths
+local show_death_generic = false -- show generic death alerts (ie. Dead:)
+local show_about_something = true  -- show general news tips
+local show_about_kill_wounded = true
+local show_about_bounty = true
+
+local mutant_tier_by_clsid = {
+	[clsid.bloodsucker_s] 			= 2,
+	[clsid.boar_s] 					= 1,
+	[clsid.burer_s] 				= 4,
+	[clsid.cat_s] 					= 1,
+	[clsid.chimera_s] 				= 3,
+	[clsid.controller_s] 			= 4,
+	[clsid.dog_s] 					= 1,
+	[clsid.flesh_s] 				= 1,
+	[clsid.fracture_s] 				= 2,
+	[clsid.gigant_s] 				= 3,
+	[clsid.poltergeist_s] 			= 4,
+	[clsid.pseudodog_s] 			= 1,
+	[clsid.psy_dog_phantom_s] 		= 4,
+	[clsid.psy_dog_s] 				= 4,
+	[clsid.rat_s]					= 0,
+	[clsid.snork_s] 				= 2,
+	[clsid.tushkano_s] 				= 0,
+	[clsid.zombie_s] 				= 1
+}
+----------------------------------------------------------------------------------------------------
+local instance = nil -- don't touch
+function get_dynamic_news()
+	instance = instance or DynamicNewsManager()
+	return instance
+end
+
+function destroy_dynamic_news()
+	if (instance) then 
+		instance:destroy()
+	end
+	instance = nil
+end
+
+function on_game_start()
+	
+	destroy_dynamic_news()
+	
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return 
+	end
+		
+	local function on_game_load()
+		get_dynamic_news()
+	end 
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
+
+----------------------------------------------------------------------------------------------------
+class "DynamicNewsManager"
+function DynamicNewsManager:__init()
+
+	local comm = db.actor:character_community()
+	if (comm ~= "actor") then 
+		comm = comm:sub(7) -- remove 'actor_' prefix
+	end
+	
+	self.channel_status = {
+		["general"]			= true,
+		["stalker"]  		= true,
+		["monolith"] 		= (comm == "monolith"),
+		["csky"]   			= true,
+		["army"] 			= (comm == "army"),
+		["killer"]   		= true,
+		["ecolog"]   		= true,
+		["dolg"]    		= true,
+		["freedom"]  		= true,
+		["bandit"]   		= true,
+		["renegade"]   		= true,
+	}
+
+	self.queue = {
+		["general"]			= {},
+		["stalker"]  		= {},
+		["monolith"] 		= {},
+		["csky"]   			= {},
+		["army"] 			= {},
+		["killer"]   		= {},
+		["ecolog"]   		= {},
+		["dolg"]    		= {},
+		["freedom"]  		= {},
+		["bandit"]   		= {},
+		["renegade"]   		= {}
+	}
+	
+	-- serious factions, no spam news
+	self.mono = {
+		["army_npc"] = true,
+		["trader"] = true,
+		["monolith"] = true,
+	}
+	
+	
+	self.response = {
+		["type"] = false,
+		["who"] = false,
+		["message"] = false
+	}
+	
+	self.spammer = {	
+		["show_about_death"] = 0,
+		["show_about_kill_wounded"] = 0,
+		["show_about_death_mutant"] = 0,
+		["show_about_death_response"] = 0,
+		["show_about_loot"] = 0
+	}
+	
+	self.counter = 0
+	self.max_cnt = 3	-- don't allow more than 3 messages in channels
+	
+	self.loot = {}
+	self.companions_list = dynamic_news_helper.list_actor_squad_by_id()
+	self.news_toggle = xr_conditions.surge_complete()
+	self.surge_shift = not xr_conditions.surge_started()
+	self.surge_type = ""
+	
+	self.sentences_fnames = txr_utils.collect_translations("name_stalker_",true)
+	self.sentences_snames = txr_utils.collect_translations("lname_private_",true)
+	
+
+	CreateTimeEvent("DynamicNewsManager","TickNews",10,self.TickNews,self)
+	CreateTimeEvent("DynamicNewsManager","TickQuick",10,self.TickQuick,self)
+	CreateTimeEvent("DynamicNewsManager","TickSpecial",10,self.TickSpecial,self)
+	CreateTimeEvent("DynamicNewsManager","TickTask",10,self.TickTask,self)
+	CreateTimeEvent("DynamicNewsManager","TickRandom",10,self.TickRandom,self)
+	CreateTimeEvent("DynamicNewsManager","TickCompanion",10,self.TickCompanion,self)
+	
+	RegisterScriptCallback("monster_on_death_callback",self)
+	--RegisterScriptCallback("monster_on_net_spawn",self)	
+	RegisterScriptCallback("npc_on_death_callback",self)
+	--RegisterScriptCallback("npc_on_hear_callback",self)
+	RegisterScriptCallback("npc_on_get_all_from_corpse",self)
+end
+
+function DynamicNewsManager:destroy()
+	
+	RemoveTimeEvent("DynamicNewsManager","TickNews")
+	RemoveTimeEvent("DynamicNewsManager","TickQuick")
+	RemoveTimeEvent("DynamicNewsManager","TickSpecial")
+	RemoveTimeEvent("DynamicNewsManager","TickTask")
+	RemoveTimeEvent("DynamicNewsManager","TickRandom")
+	RemoveTimeEvent("DynamicNewsManager","TickCompanion")
+	
+	UnregisterScriptCallback("monster_on_death_callback",self)
+	--UnregisterScriptCallback("monster_on_net_spawn",self)	
+	UnregisterScriptCallback("npc_on_death_callback",self)
+	--UnregisterScriptCallback("npc_on_hear_callback",self)
+	UnregisterScriptCallback("npc_on_get_all_from_corpse",self)
+end
+
+function DynamicNewsManager:TickNews()
+
+    if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+    	return true
+    end
+	
+	if (not has_alife_info("dynamic_news_welcome_to_network")) then
+		self:WelcomeToNetwork()
+		db.actor:give_info_portion("dynamic_news_welcome_to_network") 
+		return true
+	end
+	
+    local pda = db.actor:item_in_slot(8)
+    if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+		return false
+   	end
+	
+	-- sending news
+	self.counter = self.counter - 1
+	if (self.counter < 0) then
+		self.counter = 0
+	end
+	local lname = level.name()
+	if not (level_weathers.valid_levels[lname]) then 
+		return true
+	end
+	
+	ResetTimeEvent("DynamicNewsManager","NewsTick",math.random(5,20))
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	for ch,messages in pairs(self.queue) do
+		local c = #messages
+		local message = messages[c]
+		if (message) then
+			dynamic_news_helper.send_tip(message.Mg,message.Se, message.Dl, msg_duration,message.Ic,message.Snd,message.It)	-- send the news
+			
+			-- Prepare proper reaction
+			if message.Ty then -- if a (type) exists, send reaction message
+				self.response["type"] = message.Ty
+				if message.Id then 
+					self.response["who"] = message.Id 
+				end
+				ResetTimeEvent("DynamicNewsManager","TickQuick",math.random(5,6))
+			end
+			
+			messages[c] = nil -- dump the message
+			return false
+		end
+	end
+	
+	return false
+end
+
+function DynamicNewsManager:TickQuick()
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return true
+	end
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	ResetTimeEvent("DynamicNewsManager","TickQuick",3600)
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	-- pick news
+	if (self.response["type"] == "artifact") and (self.response["who"]) then
+		if (math.random(100) < 50) then
+			self:ResponseOnFoundArtefact(self.response["who"])
+		end
+	elseif (self.response["type"] == "weapon") and (self.response["who"]) then
+		if (math.random(100) < 50) then
+			self:ResponseOnFoundWeapon(self.response["who"])
+		end
+	elseif (self.response["type"] == "trade") and (self.response["who"]) then
+		if (math.random(100) < 50) then
+			self:ResponseOnBoughtItems(self.response["who"])
+		end
+		
+	elseif (self.response["type"] == "loot") and (self.response["who"]) and (#self.loot > 0) then
+		self:GossipLoot(self.response["who"],self:GetLootBestItem(self.loot),self:GetLootValue(self.loot))
+		local c = #self.loot
+		if (c > 0) then
+			for i=1,c do
+				self.loot[i] = nil
+			end
+		end
+		
+	elseif (self.response["type"]) and (string.find(self.response["type"], "enemy_activity_")) and (self.response["who"]) then
+		if (math.random(100) < 70) then
+			self:ResponseOnGossipNearbyActivity(self.response["who"],self.response["type"])
+		end
+		
+	elseif (self.response["type"] == "found_stash") then
+		if (math.random(100) < 60) then
+			self:ResponseOnFoundStash()
+		end
+		
+	elseif (self.response["type"] == "death_by_stalker") then
+		local l = math.random(100)
+		if (l < 45) then -- %45 chance
+			if (self.response["who"]) then
+				self:ResponseOnDeathByStalker(self.response["who"])
+			end
+		elseif (l > 60) then -- %40 chance
+			self:ResponseOnDeathByStalker_Fake()
+		end
+		
+	elseif (self.response["type"] == "death_by_mutant") then
+		local l = math.random(100)
+		if (l < 45) then
+			if (self.response["who"]) then
+				self:ResponseOnDeathByMutant(self.response["who"])
+			end
+		elseif (l > 60) then
+			self:ResponseOnDeathByMutant_Fake()
+		end
+		
+	elseif (self.response["type"] == "death_by_surge") then
+		--if math.random(2) == 1 then -- %50 chance
+			--if (self.response["who"]) then
+				--self:ResponseOnDeathBySurges(self.response["who"])
+			--end
+		--else
+			self:ResponseOnDeathBySurges_Fake()
+		--end
+	end
+	
+	-- send news
+	local message = self.response["message"]
+	if (message) then
+		dynamic_news_helper.send_tip(message.Mg, message.Se, message.To, message.St, message.Ic, message.Snd, message.It)	-- (message,name,nil,nil,faction (default),sound,icon (use default icon))
+	end
+	
+	-- reset
+	self.response["type"] = false
+	self.response["who"] = false
+	self.response["message"] = false
+	
+	return false
+end
+
+function DynamicNewsManager:TickSpecial()
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return true
+	end
+	
+	ResetTimeEvent("DynamicNewsManager","TickSpecial",math.random(cycle_TickSpecial + 1, cycle_TickSpecial*2 + 1))
+
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	local pick = math.random(1,3)
+	
+	if (pick == 1) then
+		self:GossipWeather()
+	elseif (pick == 2) then
+		self:GossipTime()
+	elseif (pick == 3) then
+		self:GossipNearbyActivity()
+	end
+	
+	return false
+	
+end
+
+function DynamicNewsManager:TickTask()
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return true
+	end
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	ResetTimeEvent("DynamicNewsManager","TickTask",math.random(cycle_TickTask + 1, cycle_TickTask*2 + 1))
+	
+	--local chance = math.random(1,2)
+	
+	--if chance == 1 and show_about_bounty then
+		self:GossipBounty()
+	--else
+	--	self:GossipTask()
+	--end
+	
+	--Fix GossipTask freeze
+
+	return false
+end
+
+function DynamicNewsManager:TickRandom()
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return true
+	end
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	ResetTimeEvent("DynamicNewsManager","TickRandom",math.random(cycle_TickRandom + 1, cycle_TickRandom*2 + 1))
+
+	local pick = math.random(1,5)
+	
+	if (pick == 1) then
+		self:ReportNextEmission()
+	elseif (pick == 2) then
+		self:ReportByFaction()
+	elseif (pick == 3) then
+		--self:ReportZoneActivity()
+	elseif (pick == 4) then
+		self:FoundDead()
+	elseif (pick == 5) then
+		self:SpamRandom()
+	end
+	
+	return false
+end
+
+function DynamicNewsManager:TickCompanion()
+	if (axr_main.config:r_value("mm_options","enable_dynamic_news",1,true) == false) then
+		return true
+	end
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	if (surge_manager.is_started()) then
+		return false
+	end
+	
+	
+	ResetTimeEvent("DynamicNewsManager","TickCompanion",math.random(cycle_TickCompanion + 1, cycle_TickCompanion*2 + 1))
+	
+	-- check new and older companions
+	local is_new, sender, st, npc
+	is_new = true
+	sender = self:PickNewCompanion()
+	if not sender then
+		is_new = false
+		sender = self:PickCompanion()
+	end
+	
+	if (not sender) then										
+		return false
+	end
+	
+	-- pick news	
+	if is_new then -- new companions news
+		self:CompanionAboutActor(sender)
+	elseif (sender:position():distance_to(db.actor:position()) < 15) and (not sender:best_enemy()) then -- companions news
+		if (math.random(3) == 2) then	-- %30
+			self:CompanionAboutLevel(sender)
+		else
+			self:CompanionAboutLife(sender)
+		end
+	end
+	
+	return false
+end
+
+	
+----------------- callbacks
+function DynamicNewsManager:monster_on_net_spawn(npc,se_obj)
+
+end 
+
+function DynamicNewsManager:monster_on_death_callback(victim,who)
+	if not (who and IsStalker(who) and show_about_death_mutant) then
+		return 
+	end
+	
+	local say = false
+	if (self.spammer.show_about_death_mutant == 0) then
+		local l = math.random(1,2)
+		if l == 1 then
+			say = self:GossipDeathOfMutant(victim,who)
+		elseif l == 2 then 
+			say = self:SeenDeathOfMutant(victim,who)
+		end
+	end
+	
+	if (say) then
+		self.spammer.show_about_death_mutant = self.spammer.show_about_death_mutant + 1
+		if (self.spammer.show_about_death_mutant > 3) then
+			self.spammer.show_about_death_mutant = 0
+		end
+	end
+end
+
+function DynamicNewsManager:npc_on_death_callback(victim,who)
+	if not (db.actor and victim and show_about_death) then 
+		return 
+	end
+	
+	local comm = character_community(victim)
+	if not (self.channel_status[comm]) then 
+		return 
+	end
+	
+	if not (who and who.clsid) then 
+		if (show_death_generic and surge_manager.is_killing_all()) then
+			self:DeathBySurge(victim,who,comm)
+		end 
+		return
+	end
+
+	local say = false
+	if (self.spammer.show_about_death == 0) then
+		if (IsStalker(who)) then
+			say = self:SOSDeathByStalker(victim,who,comm)
+			if not (say) then
+				local i = show_death_generic and math.random(1,3) or math.random(2,3)
+				if i == 1 then
+					self:DeathByStalker(victim,who,comm)
+				elseif i == 2 then
+					self:GossipDeathByStalker(victim,who)
+				elseif i == 3 then
+					self:SeenDeathOfStalker(victim,who,comm)
+				end
+			end
+		elseif (IsMonster(who)) then
+			say = self:SOSDeathByMutant(victim,who,comm)
+			if not (say) then
+				local k = show_death_generic and math.random(1,2) or 2
+				if k == 1 then
+					self:DeathByMutant(victim,who,comm)
+				elseif k == 2 then 
+					self:SeenDeathByMutant(victim,who,comm)
+				end
+			end
+		end
+	end
+	
+	if (say) then
+		self.spammer.show_about_death = self.spammer.show_about_death + 1
+		if (self.spammer.show_about_death > 3) then
+			self.spammer.show_about_death = 0
+		end
+	end
+	
+	self.spammer.show_about_death_response = self.spammer.show_about_death_response + 1 --0,1,2
+	if (self.spammer.show_about_death_response > 2) then
+		self.spammer.show_about_death_response = 0
+	end
+end
+
+function DynamicNewsManager:npc_on_hear_callback(npc,who_id,s_type,sound_dist,sound_power,sound_position)
+
+end
+
+function DynamicNewsManager:npc_on_get_all_from_corpse(npc,corpse_npc,item,lootable_table) -- The looter, the looted and the loot.
+
+	if not (db.actor and npc and item) then 
+		return
+	end
+	
+	-- using reaction channel cause we want a single loot message per corpse.
+	table.insert(self.loot,item)
+	self.response["who"] = npc
+	self.response["type"] = "loot"
+	
+	ResetTimeEvent("DynamicNewsManager","TickQuick",4)
+	
+end
+
+
+------------------------ utility
+function DynamicNewsManager:PushToChannel(name,t,fifo)
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return false
+   	end
+	
+	if (self.counter > self.max_cnt) then
+		return false
+	end
+	
+	local q = self.queue[name]
+	if (q) then
+		if (t.Mg) then 
+			for s in string.gmatch(t.Mg,"(st_dyn_news_ch_[%w%d_]*)") do
+				t.Mg = string.gsub(t.Mg,s,game.translate_string(s))
+			end
+		end
+		if (fifo) then
+			q[#q+1] = t
+		else
+			table.insert(q,1,t)
+		end
+		self.counter = self.counter + 1
+	end
+end 
+
+function DynamicNewsManager:FindSpeakerNoVictim(who,same_as_who,not_in_combat)
+	local comm_sender
+	local comm_who = who and character_community(who) or nil
+	local who_id = who and who:id() or nil
+	local t = {}
+	for i=1, #db.OnlineStalkers do
+		if (who_id == nil) or (db.OnlineStalkers[i] ~= who_id) then
+			local st = db.storage[db.OnlineStalkers[i]]
+			local npc = st and st.object or level.object_by_id(db.OnlineStalkers[i])
+			if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i])) then
+				if (not_in_combat == nil) or (not_in_combat == true and not npc:best_enemy()) or (not_in_combat ~= true) then
+					comm_sender = npc:character_community()
+					if (same_as_who == nil) or (comm_who == nil) or (same_as_who == true and comm_sender == comm_who) or (same_as_who == false and comm_sender ~= comm_who) then
+						if (self.channel_status[comm_sender]) then
+							table.insert(t,npc)
+						end
+					end
+				end
+			end
+		end
+	end
+	if (#t == 0) then
+		return nil
+	end
+	return t[math.random(#t)]
+end
+
+function DynamicNewsManager:FindSpeaker(victim,who,same_as_victim,same_as_who,not_in_combat,can_see)
+	local comm = character_community(victim)
+	local comm_sender
+	local comm_who = character_community(who)
+	local who_id = who:id()
+	local t = {}
+	for i=1, #db.OnlineStalkers do
+		if (db.OnlineStalkers[i] ~= who_id) then
+			local st = db.storage[db.OnlineStalkers[i]]
+			local npc = st and st.object
+			if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i])) then
+				if (not_in_combat == nil) or (not_in_combat == true and not npc:best_enemy()) or (not_in_combat ~= true) then
+					comm_sender = npc:character_community()
+					if (same_as_victim == nil) or (same_as_victim == true and comm_sender == comm) or (same_as_victim == false and comm_sender ~= comm) then
+						if (same_as_who == nil) or (same_as_who == true and comm_sender == comm_who) or (same_as_who == false and comm_sender ~= comm_who) then
+							if (self.channel_status[comm_sender]) then
+								if (can_see == nil) or (can_see and npc:see(victim)) or (can_see == false) then
+									table.insert(t,npc)
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	if (#t == 0) then
+		return nil
+	end
+	return t[math.random(#t)]
+end
+
+function DynamicNewsManager:FindSpeakerWithEnemy(victim,who,same_as_victim,same_as_who,can_see)
+	local comm = character_community(victim)
+	local comm_sender
+	local comm_who = character_community(who)
+	local who_id = who:id()
+	local t = {}
+	for i=1, #db.OnlineStalkers do
+		if (db.OnlineStalkers[i] ~= who_id) then
+			local st = db.storage[db.OnlineStalkers[i]]
+			local npc = st and st.object
+			if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i]) and npc:best_enemy()) then
+				comm_sender = npc:character_community()
+				if (same_as_victim == nil) or (same_as_victim == true and comm_sender == comm) or (same_as_victim == false and comm_sender ~= comm) then
+					if (same_as_who == nil) or (same_as_who == true and comm_sender == comm_who) or (same_as_who == false and comm_sender ~= comm_who) then
+						if (self.channel_status[comm_sender]) then
+							if (can_see == nil) or (can_see and npc:see(victim)) or (can_see == false) then
+								table.insert(t,npc)
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	if (#t == 0) then
+		return nil
+	end
+	return t[math.random(#t)]
+end
+
+
+function DynamicNewsManager:FindSpeakerRandom(not_in_combat,speaker_community)
+	local comm_sender
+	local t = {}
+	for i=1, #db.OnlineStalkers do
+		local st = db.storage[db.OnlineStalkers[i]]
+		local npc = st and st.object or level.object_by_id(db.OnlineStalkers[i])
+		if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i])) then
+			if (not_in_combat == nil) or (not_in_combat == true and not npc:best_enemy()) or (not_in_combat ~= true) then
+				if (speaker_community == nil) or (speaker_community and npc:character_community() == speaker_community) then
+					comm_sender = npc:character_community()
+					if (self.channel_status[comm_sender]) or (speaker_community == "zombied") then -- must use channel_status["general"] for intended zombied case
+						t[#t+1] = npc
+					end
+				end
+			end
+		end
+	end
+	--printf(">>> Dyn News: FindSpeakerRandom pass - valid speakers: " .. #t)
+	if (#t == 0) then
+		return nil
+	end
+	return t[math.random(#t)]
+end
+
+function DynamicNewsManager:FindSpeakerAndTarget(not_in_combat,distance,speaker_community)
+	local sender,target,comm_sender
+	local dis = distance or 300
+	local t1,t2 = {},{}
+	-- Find a sender
+	for i=1, #db.OnlineStalkers do
+		local st = db.storage[db.OnlineStalkers[i]]
+		local npc = st and st.object or level.object_by_id(db.OnlineStalkers[i])
+		if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i])) then
+			if (not_in_combat == nil) or (not_in_combat == true and not npc:best_enemy()) or (not_in_combat ~= true) then
+				if (speaker_community == nil) or (speaker_community and npc:character_community() == speaker_community) then
+					comm_sender = npc:character_community()
+					if (self.channel_status[comm_sender]) then
+						t1[#t1+1] = npc
+					end
+				end
+			end
+		end
+	end
+	if (#t1 == 0) then
+		return nil
+	end
+	
+	sender = t1[math.random(#t1)]
+	
+	if (not sender) then
+		return nil
+	end
+	
+	-- Find an enemy to sender
+	local sender_pos = sender:position()
+	local sender_comm = sender:character_community()
+	
+	local sim = alife()
+	local se_obj,clsid
+	for i=1,65534 do 
+		se_obj = sim:object(i)
+		clsid = se_obj and se_obj:clsid()
+		if clsid then
+			-- Check if its enemy stalker or monester
+			if ( IsStalker(nil,clsid) and (se_obj:community() ~= "trader") and game_relations.is_factions_enemies(sender_comm, se_obj:community()) ) or (IsMonster(nil,clsid)) then 
+				-- Check if its close to sender
+				if (se_obj.position:distance_to(sender_pos) < dis) and (se_obj.group_id ~= 65535) then
+					-- Check if its alive
+					if (se_obj:alive()) then
+						local st = db.storage[se_obj.id]
+						local npc = st and st.object or level.object_by_id(se_obj.id)
+						if npc then
+							t2[#t2+1] = npc
+						end
+					end
+				end
+			end
+		end
+	end
+	if (#t2 == 0) then
+		return nil
+	end
+	
+	target = t2[math.random(#t2)]
+	
+	return sender,target
+end
+
+function DynamicNewsManager:FindSpeakerAnywhere(natural_only,faction)
+	
+	local t = {}
+	local size_t = 0
+	
+	local sim = alife()
+	local act_comm = db.actor:character_community()
+	for i=1,65534 do 
+		local se_obj = sim:object(i)
+		if (se_obj and se_obj.group_id ~= 65535) then 
+			if IsStalker(nil,se_obj:clsid()) and se_obj:alive() and (se_obj:community() ~= "trader") then
+				local comm = se_obj:community()
+				if faction then
+					if (faction == comm) then
+						size_t = size_t + 1
+						t[size_t] = i
+					end
+				else
+					if natural_only then
+						if (not game_relations.is_factions_enemies(act_comm, comm)) then
+							size_t = size_t + 1
+							t[size_t] = i
+						end
+					else
+						size_t = size_t + 1
+						t[size_t] = i
+					end
+				end
+			end
+		end
+	end
+
+	return (size_t > 0) and t[math.random(size_t)] or nil
+end
+
+function DynamicNewsManager:IsCommunitySame(npc_1,npc_2)
+	local comm_1 = npc_1:character_community()
+	if (npc_1:id() == 0 and comm_1 ~= "actor") then 
+		comm_1 = comm_1:sub(7)
+	end 
+	
+	local comm_2 = npc_2:character_community()
+	if (npc_2:id() == 0 and comm_2 ~= "actor") then 
+		comm_2 = comm_2:sub(7)
+	end 
+	
+	return (comm_1 == comm_2)
+end
+
+function DynamicNewsManager:PickCompanion()
+	local npcs = dynamic_news_helper.list_actor_squad_by_id()
+	if #npcs == 0 then
+		return nil
+	end
+	
+	local picked = npcs[math.random(#npcs)]
+	
+	return db.storage[picked] and db.storage[picked].object
+end
+
+function DynamicNewsManager:PickNewCompanion()
+	local new_npcs = {}
+	local tbl_1 = dynamic_news_helper.list_actor_squad_by_id()
+	local tbl_2 = self.companions_list
+	local count = 1
+	local is_same = false
+	
+	if (#tbl_1 == 0) then
+		return false
+	end
+	
+	for i=1,#tbl_1 do
+		if #tbl_2 > 0 then
+			for j=1,#tbl_2 do
+				if tbl_1[i] == tbl_2[j] then
+					is_same = true
+					break
+				end
+			end
+		end
+		if (not is_same) and tbl_1[i] then
+			new_npcs[count] = tbl_1[i]
+			count = count + 1
+		end
+		is_same = false
+	end
+	
+	if (#new_npcs == 0) then
+		return false
+	end
+	
+	-- If there's new companions, update the companions list
+	self.companions_list = dynamic_news_helper.list_actor_squad_by_id()
+	
+	local picked = new_npcs[math.random(#new_npcs)]
+	
+	--printf(">>> Dyn News: help PickNewCompanion | #new_npcs = " .. #new_npcs)
+	return db.storage[picked] and db.storage[picked].object
+end
+
+function DynamicNewsManager:GetLootValue(item_tbl)
+	local value = 0
+	for i=1,#item_tbl do
+		value = value + item_tbl[i]:cost()
+	end
+	return value
+end
+
+function DynamicNewsManager:GetLootBestItem(item_tbl)
+	local value = 0
+	local best_item
+	for i=1,#item_tbl do
+		if item_tbl[i]:cost() > value then
+			value = item_tbl[i]:cost()
+			best_item = item_tbl[i]
+		end
+	end
+	return best_item
+end
+
+function DynamicNewsManager:NewsToggle()
+	
+	-- necessary, otherwise the game will crash due to playing news sound before completely loading.
+	if device():is_paused() then	
+		return true
+	end
+		
+	-- disable news if player inside an invalid map.
+	local lname = level.name()
+	if not (level_weathers.valid_levels[lname]) then 
+		return true
+	end
+	
+	local news_state = true
+	
+	-- if a surge has started, or is underground ---> news go off, erase stored messages, set surge_type
+	if xr_conditions.surge_started() then
+		news_state = false
+		
+		if surge_manager and surge_manager.is_started() then 
+			self.surge_type = "emission"
+		elseif psi_storm_manager and psi_storm_manager.is_started() then 
+			self.surge_type = "storm"
+		end
+		
+		for ch,messages in pairs(self.queue) do
+			local c = #messages
+			while c > 0 do
+				local message = messages[c]
+				if (message) then
+					messages[c] = nil
+				end
+				c = c - 1
+			end
+		end
+	end
+	
+	-- if surge started (even on load) ---> set up surge_type, otherwise if surge finished (even on load) ---> send 'surge end' news
+	if self.surge_shift and xr_conditions.surge_started() then
+		self.surge_shift = false
+	elseif (not self.surge_shift) and xr_conditions.surge_complete() then
+		self.surge_shift = true
+		self:GossipEmissionEnd(self.surge_type)
+		--self:ReportDeathBySurge()
+	end
+	
+	-- run once at each surge
+	if news_state == (not self.news_toggle) then
+		self.news_toggle = news_state
+		local Msg
+		local num = math.random(5,10)
+		local Se = game.translate_string("st_dyn_news_sender_com_centre")
+		if news_state then 
+			Msg = game.translate_string("st_dyn_news_spc_commu_on")
+			dynamic_news_helper.send_tip(Msg,Se,num,msg_duration,"communication","welcome","gr")
+		else
+			Msg = game.translate_string("st_dyn_news_spc_commu_off")
+			dynamic_news_helper.send_tip(Msg,Se,num,msg_duration,"communication","communication_lost","gr")
+		end
+	end
+	
+	return (not news_state)
+end
+
+
+function DynamicNewsManager:WelcomeToNetwork()
+
+	local clr_1 = "%" .. "%c[255,160,160,190]"
+	local clr_2 = "%" .. "%c[255,220,220,220]"
+	
+	-- Count the number of stalkers across the zone, except monolith and zombies
+	local c = 1
+	local sim = alife()
+	for i=1,65534 do 
+		local se_obj = sim:object(i)
+		if (se_obj and IsStalker(nil,se_obj:clsid()) and se_obj:alive() and se_obj:community() ~= "zombied" and se_obj:community() ~= "monolith" and se_obj.group_id ~= 65535) then 
+			c = c + 1
+		end
+	end
+	
+	local se_actor = sim:actor()
+	
+	local Se = game.translate_string("st_dyn_news_sender_com_centre")
+	local msg = txr_utils.read_text_keylist( game.translate_string("st_dyn_news_welcome_stalker") , {["clr_1"]=clr_1 , ["clr_2"]=clr_2 , ["name"]=se_actor:character_name() , ["number"]=tostring(c)} )
+	
+	dynamic_news_helper.send_tip(msg,Se, 0, 20,"communication","welcome","gr")
+
+	-- Reset
+	ResetTimeEvent("DynamicNewsManager","TickSpecial",math.random(cycle_TickSpecial + 1, cycle_TickSpecial*2 + 1))
+	ResetTimeEvent("DynamicNewsManager","TickTask",math.random(cycle_TickTask + 1, cycle_TickTask*2 + 1))
+	ResetTimeEvent("DynamicNewsManager","TickRandom",math.random(cycle_TickRandom + 1, cycle_TickRandom*2 + 1))
+	ResetTimeEvent("DynamicNewsManager","TickCompanion",math.random(cycle_TickCompanion + 1, cycle_TickCompanion*2 + 1))
+end
+
+function DynamicNewsManager:DeathBySurge(victim,who,comm)
+	local msg = strformat("%c[255,160,160,160]%s, %s.\\n%c[default]st_dyn_news_ch_found %s. st_dyn_news_ch_blowout.",victim:character_name(),game.translate_string(comm),dynamic_news_helper.GetPointDescription(victim))
+	self:PushToChannel("general",{Mg=msg,Ic="deth",Snd="news",Se=game.translate_string("st_dyn_news_ch_died"),It="gr",Ty="death_by_surge",Id=victim})
+	return true
+end
+
+function DynamicNewsManager:DeathByStalker(victim,who,comm)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	local msg = strformat("%c[255,160,160,160]%s, %s.\\n%c[default]st_dyn_news_ch_found %s. %s.",victim:character_name(),game.translate_string(comm),dynamic_news_helper.GetPointDescription(victim),dynamic_news_helper.GetWeaponDescription(who,1))
+	self:PushToChannel("general",{Mg=msg,Ic="deth",Snd="news",Se=game.translate_string("st_dyn_news_ch_died"),It="gr",Ty="death_by_stalker",Id=victim})
+	return true
+end
+
+function DynamicNewsManager:DeathByMutant(victim,who,comm)
+	local a = victim:character_name()
+	local b = game.translate_string(comm)
+	local c = dynamic_news_helper.GetPointDescription(victim)
+	local d = string.gsub(dynamic_news_helper.GetMonsterDescription(who,1),"(%l)?",string.upper("%1"),1)
+	local msg = strformat("%c[255,160,160,160]%s, %s.\\n%c[default]st_dyn_news_ch_found %s. %s.",a,b,c,d)
+	self:PushToChannel("general",{Mg=msg,Ic="deth",Snd="news",Se=game.translate_string("st_dyn_news_ch_died"),It="gr",Ty="death_by_mutant",Id=victim})
+	return true
+end 
+
+function DynamicNewsManager:GossipDeathByStalker(victim,who)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	
+	if self:IsCommunitySame(victim,who) then
+		return false
+	end
+	
+	local sender = self:FindSpeaker(victim,who,false,nil,true)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	local TblTime = {}
+	local string_count = 1
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_hear_"..string_count)
+		if (tr_s == "st_dyn_news_builder_hear_"..string_count) then 
+			break 
+		else 
+			table.insert(TblTime,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	local TblSaw = {}
+	string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_ending_"..string_count)
+		if (tr_s == "st_dyn_news_builder_ending_"..string_count) then 
+			break 
+		else 
+			table.insert(TblSaw,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	local a = #TblTime > 0 and TblTime[math.random(#TblTime)] or ""
+	local b = dynamic_news_helper.GetWeaponDescription(who,2)
+	local c = dynamic_news_helper.GetPointDescription(victim)
+	local d = #TblSaw > 0 and TblSaw[math.random(#TblSaw)] or ""
+
+	local msg = strformat("%s %s %s. %s",a,b,c,d)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:SOSDeathByStalker(victim,who,comm)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	
+	if self:IsCommunitySame(victim,who) then
+		return false
+	end
+	
+	local sender = self:FindSpeakerWithEnemy(victim,who,true,false)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	local a = dynamic_news_helper.GetCommunityDescription(sender,math.random(11,14))
+	local b,c = self:BuildSentenceStalkerEnemy(victim,who,0,30)
+	local d = dynamic_news_helper.GetPointDescription(victim)
+
+	local msg = strformat("%s %s %s %s!",a,b,c,d)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="danger",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:SeenDeathOfStalker(victim,who,comm)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	
+	if self:IsCommunitySame(victim,who) then
+		return false
+	end
+	
+	local sender = self:FindSpeaker(victim,who,false,false,true)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+
+	local sentences = {}
+	local string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_sight_"..string_count)
+		if (tr_s == "st_dyn_news_builder_sight_"..string_count) then 
+			break 
+		else 
+			table.insert(sentences,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	local a = #sentences > 0 and sentences[math.random(#sentences)]
+	local b = dynamic_news_helper.GetCommunityDescription(who,math.random(1,2))
+	local c = dynamic_news_helper.GetWeaponDescription(who,math.random(4,8))
+	local d = dynamic_news_helper.GetCommunityDescription(victim,math.random(3,4))
+	local e = dynamic_news_helper.GetPointDescription(victim)
+	
+	local msg = strformat("%s %s %s %s %s.",a,b,c,d,e)
+	self:PushToChannel("general",{Mg=msg,Ic=sender:character_icon(),Snd="danger",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:SeenDeathOfMutant(victim,who)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	
+	local sender = self:FindSpeaker(victim,who,nil,false,true)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	local sentences = {}
+	local string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_sight_"..string_count)
+		if (tr_s == "st_dyn_news_builder_sight_"..string_count) then 
+			break 
+		else 
+			table.insert(sentences,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	local a = #sentences > 0 and sentences[math.random(#sentences)] or ""
+	local b = dynamic_news_helper.GetCommunityDescription(who,math.random(1,2))
+	local c = dynamic_news_helper.GetWeaponDescription(who,math.random(4,6))
+	local d = dynamic_news_helper.GetMonsterDescription(victim,1)
+	local e = dynamic_news_helper.GetPointDescription(victim)
+	
+	local msg = strformat("%s %s %s %s %s.",a,b,c,d,e)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="danger",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:SeenDeathByMutant(victim,who,comm)
+	local sender = self:FindSpeaker(victim,who,false,nil,true)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+
+	local start = {}
+	local string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_hear_"..string_count)
+		if (tr_s == "st_dyn_news_builder_hear_"..string_count) then 
+			break 
+		else 
+			table.insert(start,tr_s)
+		end
+		string_count = string_count + 1
+	end
+
+	local middle = {}
+	string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_middle_"..string_count)
+		if (tr_s == "st_dyn_news_builder_middle_"..string_count) then 
+			break 
+		else 
+			table.insert(middle,tr_s)
+		end
+		string_count = string_count + 1
+	end
+
+	local ending = {}
+	string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_ending_"..string_count)
+		if (tr_s == "st_dyn_news_builder_ending_"..string_count) then 
+			break 
+		else 
+			table.insert(ending,tr_s)
+		end
+		string_count = string_count + 1
+	end
+
+	local a = #start > 0 and start[math.random(#start)] or ""
+	local b = #middle > 0 and middle[math.random(#middle)] or ""
+	local c = dynamic_news_helper.GetPointDescription(victim)
+	local d = #ending > 0 and ending[math.random(#ending)] or ""
+	
+	local msg = strformat("%s %s %s.\\n%s",a,b,c,d)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="danger",Se=Se,It="npc"})
+	
+	return true
+end 
+
+function DynamicNewsManager:GossipDeathOfMutant(victim,who,comm)
+	local cls = dynamic_news_helper.GetWeaponClass(who)
+	if (cls == 1 or cls == 9) then 
+		return false
+	end
+	
+	local sender = self:FindSpeaker(victim,who,nil,false,true)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+
+	local TblTime = {}
+	local string_count = 1
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_hear_"..string_count)
+		if (tr_s == "st_dyn_news_builder_hear_"..string_count) then 
+			break 
+		else 
+			table.insert(TblTime,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	local TblSaw = {}
+	string_count = 1 
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_ending_"..string_count)
+		if (tr_s == "st_dyn_news_builder_ending_"..string_count) then 
+			break 
+		else 
+			table.insert(TblSaw,tr_s)
+		end
+		string_count = string_count + 1
+	end	
+	
+	local a = #TblTime > 0 and TblTime[math.random(#TblTime)] or ""
+	local b = dynamic_news_helper.GetWeaponDescription(who,2)
+	local c = dynamic_news_helper.GetPointDescription(victim)
+	local d = #TblSaw > 0 and TblSaw[math.random(#TblSaw)] or ""
+
+	local msg = strformat("%s %s %s. %s",a,b,c,d)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+	
+	return true
+end 
+
+function DynamicNewsManager:SOSDeathByMutant(victim,who)
+	local sender = self:FindSpeakerWithEnemy(victim,who,true,nil)
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	local a = dynamic_news_helper.GetCommunityDescription(sender,math.random(11,14))
+	local b = dynamic_news_helper.GetMonsterDescription(who,math.random(2,5))
+	local c = dynamic_news_helper.GetPointDescription(victim)
+
+	local msg = strformat("%s %s %s!",a,b,c)
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="danger",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:SOSBattleOffline(sq_v,sq_w)
+	
+	local pda = db.actor:item_in_slot(8)
+    	if not pda or  pda:condition() <= 0 or self:NewsToggle() then
+        	return
+   	end
+	
+	if (surge_manager.is_started()) then
+		return
+	end
+
+	if (not sq_v) or (not sq_w) then return end
+	
+	-- To prevent news spam
+	local curr_time = game.get_game_time()
+	if SOS_offline_time and (curr_time:diffSec(SOS_offline_time) < (SOS_offline_period * TimeFactor)) then
+		return
+	end
+	SOS_offline_time = curr_time
+	
+	if (not axr_main.config:r_value("mm_options","enable_dynamic_news",1,true)) then
+		return
+	end
+	
+	local members_v, members_w = {},{}
+	for k in sq_v:squad_members() do
+		members_v[#members_v + 1] = k.id
+	end
+	for k in sq_w:squad_members() do
+		members_w[#members_w + 1] = k.id
+	end
+	if (#members_w == 0) or (#members_v == 0) then
+		return
+	end
+	
+	local comm_v = sq_v:get_squad_community()
+	local comm_w = sq_w:get_squad_community()
+	local se_v = alife_object(members_v[math.random(#members_v)])
+	local se_w = alife_object(members_w[math.random(#members_w)])
+	local cls_v = se_v:clsid()
+	local cls_w = se_w:clsid()
+	
+	if IsMonster(nil,cls_v) or (not (self.channel_status[comm_v])) then 
+		return 
+	end
+	
+	local comm_desc = game.translate_string("st_dyn_news_comm_" .. comm_v .. "_" .. tostring(6))
+	local a = game.translate_string("st_dyn_news_comm_" .. comm_v .. "_" .. tostring(math.random(11,14)))
+	local c = dynamic_news_helper.GetPointDescription(se_v)
+	
+	local b
+	if IsMonster(nil,cls_w) then
+		b = dynamic_news_helper.GetMonsterDescription(nil,math.random(2,5),se_w:section_name(),cls_w)
+	else
+		local b1,b2 = self:BuildSentenceStalkerEnemy_Offline(comm_w)
+		b = strformat("%s %s",b1,b2)
+	end
+	
+	local Se = strformat("%s, %s",se_v:character_name(),comm_desc)
+	local msg = strformat("%s %s %s!",a,b,c)
+	
+	--dynamic_news_helper.send_tip(msg,Se, nil, msg_duration,comm_v,"beep_1","gr")
+	self:PushToChannel(comm_v, {Mg=msg,Ic=comm_v,Snd="beep_1",Se=Se,It="gr"})
+end
+
+
+
+function DynamicNewsManager:KillWounded(sender,victim,is_hostage)
+	if not (show_about_kill_wounded) then 
+		return false
+	end
+	
+	local squad = get_object_squad(sender)
+	if not (squad and squad:commander_id() == sender:id()) then
+		return false
+	end
+	
+	if (self.spammer.show_about_kill_wounded == 0) then
+		local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+		if not (is_hostage) then
+			local sentences = {}
+			local string_count = 1
+			while true do 
+				local tr_s = game.translate_string("st_dyn_news_gossip_kill_wounded_"..string_count)
+				if (tr_s == "st_dyn_news_gossip_kill_wounded_"..string_count) then 
+					break
+				else 
+					table.insert(sentences,tr_s)
+				end
+				string_count = string_count + 1
+			end
+			
+			if (#sentences == 0) then 	
+				return false
+			end
+			
+			local msg = sentences[math.random(#sentences)]
+			self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+			return true
+		else 
+			local sentences = {}
+			local string_count = 1
+			while true do 
+				local tr_s = game.translate_string("st_dyn_news_gossip_hostage_"..string_count)
+				if (tr_s == "st_dyn_news_gossip_hostage_"..string_count) then 
+					break
+				else 
+					table.insert(sentences,tr_s)
+				end
+				string_count = string_count + 1
+			end
+			
+			if (#sentences == 0) then 	
+				return false
+			end
+			
+			local msg = sentences[math.random(#sentences)]
+			self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})			
+		end
+		
+		return true
+	end
+	
+	self.spammer.show_about_kill_wounded = self.spammer.show_about_kill_wounded + 1 
+	if (self.spammer.show_about_kill_wounded  > 10) then
+		self.spammer.show_about_kill_wounded  = 0
+	end
+end 
+
+function DynamicNewsManager:RadioInHeli(sender,who)
+
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local a = dynamic_news_helper.GetPointDescription(who) 
+	local b = IsStalker(who) and dynamic_news_helper.GetCommunityDescription(who,math.random(1,2)) or dynamic_news_helper.GetMonsterDescription(who,6)
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_heli_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["where"]=a , ["what"]=b } )
+
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+	
+	return true
+
+end
+
+function DynamicNewsManager:FoundArtefact(sender,itm)
+
+	
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local inv_name = game.translate_string(system_ini():r_string_ex(itm:section(),"inv_name") or "")
+	
+	local cost = system_ini():r_float_ex(itm:section(),"cost") or 0
+	local cost_lvls = {8000, 14000, 20000, 26000, 32000, 40000}
+	local level = 0
+	
+	for i=1, #cost_lvls do
+		if cost >= cost_lvls[i] then
+			level = i
+		end
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_arte_" .. level .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))	
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["what"]=inv_name } )
+
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc",Ty="artifact", Id=sender})
+	
+	return true
+end
+
+function DynamicNewsManager:FoundWeapon(sender,itm)
+	
+	if self:IsSpecialNPC(sender) then
+		return false
+	end
+	
+	local sec = itm:section()
+	
+	local inv_name = game.translate_string(system_ini():r_string_ex(sec,"inv_name") or "")
+	
+	if string.find(sec,"rusty") or string.find(sec,"worn") then
+		return false
+	end
+	
+	local cost = system_ini():r_float_ex(itm:section(),"cost") or 0
+	local cost_lvls = {10000, 20000, 30000, 40000, 50000, 60000}
+	local level = 0
+	
+	for i=1, #cost_lvls do
+		if cost >= cost_lvls[i] then
+			level = i
+		end
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_weapon_" .. level .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))	
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["what"]=inv_name } )
+
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc",Ty="weapon", Id=sender})
+	
+	return true
+end
+
+function DynamicNewsManager:FoundStash() -- reaction of angry stash owners
+	if not (self.sentences_fnames and self.sentences_snames) then
+		return false
+	end
+	
+	if (math.random(100) < 40) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_found_stash_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s %s" , self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)])
+	
+	self:PushToChannel("general",{Mg=tbl[math.random(#tbl)],Ic="common",Snd="beep_2",Se=Se,It="gr",Ty="found_stash"})
+
+	return true
+end
+
+function DynamicNewsManager:BoughtItems(sender,who,list)
+
+	local sec = list[math.random(#list)]
+	local inv_name = game.translate_string(system_ini():r_string_ex(sec,"inv_name") or "")
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_buy_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["who"]=who:character_name() , ["what"]=inv_name } )
+
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc",Ty="trade", Id=sender})
+	
+	return true
+end
+
+function DynamicNewsManager:UpgradedItems(sender,who,wpn_sec,list) -- upgrading
+	--printf(">>> Dyn News: UpgradedItems - call")
+	local upgrade = list[math.random(#list)]
+	local upg_str = upgrade and system_ini():r_string_ex(upgrade,"name")
+	local upg_name = upg_str and game.translate_string(upg_str)
+	local inv_name = wpn_sec and game.translate_string(system_ini():r_string_ex(wpn_sec,"inv_name") or "")
+	if not (upg_name and inv_name) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_upgrade_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["who"]=who:character_name() , ["what"]=inv_name , ["upgrade"]=upg_name } )
+
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc",Ty="upgrade", Id=sender})
+	
+	return true
+end
+
+function DynamicNewsManager:GossipLoot(sender,best_item,all_value) -- talk about the loot
+
+	if not (sender and best_item and all_value) then
+		return false
+	end
+	
+	if (sender:character_community() == "monolith") then
+		return false
+	end
+	
+	-- limit the spam
+	self.spammer.show_about_loot = self.spammer.show_about_loot + 1
+	if (self.spammer.show_about_loot > 1) then
+		self.spammer.show_about_loot = 0
+	end
+	if (self.spammer.show_about_loot == 0) then
+		return false
+	end
+	
+	local tbl,msg
+	if (math.random(2) == 1) then
+		if all_value >= 1000 then
+			tbl = txr_utils.collect_translations("st_dyn_news_loot_good_",true)
+		else
+			tbl = txr_utils.collect_translations("st_dyn_news_loot_bad_",true)
+		end
+		if (not tbl) then 
+			return false 
+		end
+		msg = tbl[math.random(#tbl)]
+		
+	elseif best_item then
+		local item_name = game.translate_string(system_ini():r_string_ex(best_item:section(),"inv_name") or "")
+		local tbl = txr_utils.collect_translations("st_dyn_news_loot_item_",true)
+		if (not tbl) then
+			return false
+		end
+		msg	= txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["what"] = item_name } )
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=msg,Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+	
+	return true
+end
+
+--< Random News >--
+function DynamicNewsManager:ReportNextEmission() --  news about expected surge's date
+
+	local SM, SurgeType, last_surge_time, AccuracyTier, comm, Se, clr, msg, a, b, c, d, Tbl_msg
+	local IsEmission, IsPsiStorm = false, false
+	
+	if (math.random(2) == 1) then 
+		SurgeType = game.translate_string("st_dyn_news_surge_type_emission")
+		SM = surge_manager and surge_manager.SurgeManager
+		if (atmosfear_options.config:r_value("atmosfear_current_parameters","opt_enable_blowout",2,1)==1) and (SM ~= nil and SM._delta ~= nil and not SM.started) then	-- if blowouts are enabled
+			last_surge_time = SM and SM.last_surge_time or game.get_game_time()
+			IsEmission = true
+		end
+	else
+		SurgeType = game.translate_string("st_dyn_news_surge_type_psi")
+		SM = psi_storm_manager and psi_storm_manager.PsiStormManager
+		if (atmosfear_options.config:r_value("atmosfear_current_parameters","opt_enable_psi_storm",2,1)==1) and (SM ~= nil and SM._delta ~= nil and not SM.started) then
+			last_surge_time = SM and SM.last_psi_storm_time or game.get_game_time()
+			IsPsiStorm = true
+		end
+	end
+	
+	-- preparing the news
+	if IsEmission or IsPsiStorm then
+		local g_time = game.get_game_time()
+		local surge_start = SM and math.floor(SM._delta - g_time:diffSec(last_surge_time))	-- time "till" next blowout (in second) = ( time of next surge[SCOPED] - (current time - last surge time)[SCOPED] )
+		
+		-- %50 chance to pick News from people or natural faction
+		if math.random(2) == 1 then
+			if (not self.sentences_fnames) or (not self.sentences_fnames) then
+				return false
+			end
+			comm = "common"
+			Se = strformat("%s %s", self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)] )
+			Tbl_msg = txr_utils.collect_translations("st_dyn_news_surge_template_",true)
+			if (not Tbl_msg) then return false end
+			a = Tbl_msg[math.random(#Tbl_msg)]
+			b = dynamic_news_helper.GetTimeString(math.floor(surge_start/3600), math.random(4))
+			if (a and b and SurgeType) then
+				msg = txr_utils.read_text_keylist( a , {["what"]=SurgeType , ["when"]=b} )
+			end
+		else
+			comm = dynamic_news_helper.PickFaction(true)
+			if (not comm) then return false end
+			Se = strformat("%s, %s" , game.translate_string("st_faction_" .. comm) , game.translate_string("st_dyn_news_sender_private_ch"))
+			if ((comm == "ecolog") or (comm == "csky") or (comm == "dolg") or (comm == "army")) then 
+				AccuracyTier = 5
+			else 
+				AccuracyTier = math.random(5)
+			end
+			Tbl_msg = txr_utils.collect_translations("st_dyn_news_surge_builder_start_" .. comm .. "_",true)
+			if (not Tbl_msg) then return false end
+			a = Tbl_msg[math.random(#Tbl_msg)]
+			Tbl_msg = txr_utils.collect_translations("st_dyn_news_surge_builder_mid_",true)
+			if (not Tbl_msg) then return false end
+			b = Tbl_msg[math.random(#Tbl_msg)]
+			Tbl_msg = txr_utils.collect_translations("st_dyn_news_surge_builder_end_" .. comm .. "_",true)
+			if (not Tbl_msg) then return false end
+			d = Tbl_msg[math.random(#Tbl_msg)]
+			c = dynamic_news_helper.GetTimeString(math.floor(surge_start/3600), AccuracyTier)
+			if (a and b and c and d and SurgeType) then
+				local msg_mid = txr_utils.read_text_keylist( b , {["what"]=SurgeType , ["when"]=c} )
+				msg = txr_utils.read_text_keylist( "$start $mid. $end." , {["start"]=a , ["mid"]=msg_mid , ["end"]=d} )
+			end
+		end
+	end
+	
+	if not (msg and comm and Se) then
+		return false
+	end
+	
+	--dynamic_news_helper.send_tip(msg,Se, nil, msg_duration,comm,"beep_1","gr")
+	self:PushToChannel("general",{Mg=msg,Ic=comm,Snd="beep_1",Se=Se,It="gr"})
+	
+	return true
+end
+
+function DynamicNewsManager:ReportByFaction() -- faction's news
+
+	local comm = dynamic_news_helper.PickFaction()
+	
+	if comm == "monolith" then
+		comm = "stalker"
+	end
+	
+	local Se = game.translate_string("st_faction_" .. comm)
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_spam_faction_" .. comm .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local msg = tbl[math.random(#tbl)]
+	
+	self:PushToChannel(comm, {Mg=msg,Ic=comm,Snd="beep_1",Se=Se,It="gr"})
+	
+	return true
+end
+
+function DynamicNewsManager:ReportZoneActivity() -- report activity of squads in other maps
+	
+	local stalkers = {} -- id
+	local enemies = {} -- community
+	local naturals = {} -- community
+	local monsters = {} -- clsid
+	
+	local sim = alife()
+	local gg = game_graph()
+	local sfind = string.find
+	
+	local monster_tiers = {
+	[clsid.bloodsucker_s] 			= 2,
+	[clsid.boar_s] 					= 1,
+	[clsid.burer_s] 				= 4,
+	[clsid.cat_s] 					= 1,
+	[clsid.chimera_s] 				= 3,
+	[clsid.controller_s] 			= 4,
+	[clsid.dog_s] 					= 1,
+	[clsid.flesh_s] 				= 1,
+	[clsid.fracture_s] 				= 2,
+	[clsid.gigant_s] 				= 3,
+	[clsid.poltergeist_s] 			= 4,
+	[clsid.pseudodog_s] 			= 1,
+	[clsid.psy_dog_phantom_s] 		= 4,
+	[clsid.psy_dog_s] 				= 4,
+	[clsid.rat_s]					= 0,
+	[clsid.snork_s] 				= 2,
+	[clsid.tushkano_s] 				= 0,
+	[clsid.zombie_s] 				= 1
+	}
+
+	local lvl_name = dynamic_news_helper.PickMap(level.name())
+	for i=1,65534 do
+		local se_obj = sim:object(i)
+		if se_obj and (lvl_name == sim:level_name(gg:vertex(se_obj.m_game_vertex_id):level_id())) then
+			local cls = se_obj:clsid()
+			local sec = se_obj:section_name()
+			if IsStalker(nil,cls) and sfind(sec,"sim_default_") then
+				local comm = se_obj:community()
+				if (comm ~= "trader") and (comm ~= "zombied") then
+					stalkers[#stalkers + 1] = i
+				end
+			elseif IsMonster(nil,cls) and monster_tiers[cls] and (monster_tiers[cls] > 0) then
+				monsters[#monsters + 1] = cls
+			end
+		end
+	end
+	if (#stalkers == 0) then
+		return
+	end
+	
+	local sender_id = stalkers[math.random(#stalkers)]
+	local sender_se = alife_object(sender_id)
+	if (not sender_se) then
+		return false
+	end
+	
+	local sender_comm = sender_se:community()
+	local fac_profile = dynamic_news_helper.GetFaction(sender_comm)
+	if (not fac_profile) then
+		return false
+	end
+	
+	if not (self.channel_status[sender_comm]) then 
+		return 
+	end
+	
+	local sender_name = sender_se:character_name()
+	local sender_desc = game.translate_string("st_dyn_news_comm_" .. sender_comm .. "_" .. tostring(6))
+	local map = game.translate_string(lvl_name)
+	local location = dynamic_news_helper.GetPointDescription(sender_se)
+	local sender_type = fac_profile["type"]
+	if (ini_sys:r_string_ex("string_table","language") == "rus") then
+		map = game.translate_string("st_dyn_news_" .. lvl_name)
+	end
+	
+	for i=1,#stalkers do
+		local se_obj = sim:object(stalkers[i])
+		if se_obj then
+			local comm = se_obj:community()
+			if game_relations.is_factions_enemies(sender_comm, comm) then
+				enemies[#enemies + 1] = comm
+			elseif (sender_comm ~= comm) then
+				naturals[#naturals + 1] = comm
+			end
+		end
+	end
+	
+	local types = {"none"}
+	local target_desc = {}
+	target_desc["none"] = ""
+	
+	if (#enemies > 0) then
+		local enemy_comm = enemies[math.random(#enemies)]
+		target_desc["enemy"] = game.translate_string("st_dyn_news_comm_" .. enemy_comm .. "_8")
+		if (not self.unknown[enemy_comm]) then
+			types[#types + 1] = "enemy"
+		end
+	end
+	
+	if (#naturals > 0) then
+		local natural_comm = naturals[math.random(#naturals)]
+		target_desc["friend"] = game.translate_string("st_dyn_news_comm_" .. natural_comm .. "_8")
+		types[#types + 1] = "friend"
+	end
+	
+	if (#monsters > 0) then
+		local mutant_cls = monsters[math.random(#monsters)]
+		target_desc["mutant"] = dynamic_news_helper.GetMonsterDescription(nil,7,nil,mutant_cls)
+		if (ini_sys:r_string_ex("string_table","language") == "rus") then
+			target_desc["mutant"] = dynamic_news_helper.GetMonsterDescription(nil,6,nil,mutant_cls)
+		end
+		types[#types + 1] = "mutant"
+	end
+	
+	local target_type = types[math.random(#types)]
+	local target = target_desc[target_type]
+	
+	-- preparing the news
+	local tbl = txr_utils.collect_translations("st_dyn_news_zone_activity_" .. sender_type .. "_" .. target_type .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	local msg_pick = tbl[math.random(#tbl)]
+	
+	-- if news involving special character, see if they are alive
+	local special = {
+		["leader"] = "",
+		["trader"] = "",
+		["mechanic"] = "",
+		--["medic"] = "",
+		--["barman"] = "",
+		--["guide"] = "",
+	}
+	for k,v in pairs(special) do
+		if string.find(msg_pick,"$"..k) then
+			local npc_info = get_story_npc_info(fac_profile[k])
+			if npc_info then
+				special[k] = npc_info.name
+			else
+				printf("~ News couldn't be sent because it involves special character [%s], he's missing? \nMessage: %s", fac_profile[k], msg_pick)
+				return false
+			end
+		end
+	end
+	
+	local Se = game.translate_string("st_faction_" .. sender_comm)
+	local msg = txr_utils.read_text_keylist( msg_pick , { ["speaker"]=sender_name , ["target"]=target , ["map"]=map , ["location"]=location , ["leader"]=special["leader"] , ["trader"]=special["trader"] , ["mechanic"]=special["mechanic"] } )
+	
+	--dynamic_news_helper.send_tip(msg,Se, nil, msg_duration,sender_comm,"beep_1","gr")
+	self:PushToChannel(sender_comm, {Mg=msg,Ic=sender_comm,Snd="beep_1",Se=Se,It="gr"})
+	
+end
+
+function DynamicNewsManager:SpamRandom() -- random news from all over the zone
+
+	local clr_1 = "%" .. "%c[255,160,160,190]"
+	local clr_2 = "%" .. "%c[255,220,220,220]"
+	local tbl = txr_utils.collect_translations("st_dyn_news_spam_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = game.translate_string("st_dyn_news_sender_com_centre")
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , {["clr_1"]=clr_1 , ["clr_2"]=clr_2} )
+	
+	self:PushToChannel("general",{Mg=msg,Ic="common",Snd="beep_2",Se=Se,It="gr"})
+	
+	return true
+end
+
+function DynamicNewsManager:FoundDead() -- report dead body findings
+
+	if (not self.sentences_fnames) or (not self.sentences_fnames) then
+		return false
+	end
+	local clr_1 = "%" .. "%c[255,160,160,190]"
+	local clr_2 = "%" .. "%c[255,220,220,220]"
+	local a1 = self.sentences_fnames[math.random(#self.sentences_fnames)]
+	local b1 = self.sentences_snames[math.random(#self.sentences_snames)]
+	local a2 = self.sentences_fnames[math.random(#self.sentences_fnames)]
+	local b2 = self.sentences_snames[math.random(#self.sentences_snames)]
+	local c = dynamic_news_helper.PickMap(level.name())
+	c = game.translate_string(c)
+	local tbl = txr_utils.collect_translations("st_dyn_news_death_reason_",true)
+	if (not tbl) then
+		return false
+	end
+	local y1 = string.char(math.random(65,90))
+	local y2 = string.char(math.random(65,90))
+	local z1 = tostring(math.random(9))
+	local z2 = tostring(math.random(9))
+	local z3 = tostring(math.random(9))
+	
+	local Se = strformat("%s %s",a1,b1)
+	local msg = txr_utils.read_text_keylist( "$clr_1$death_report -$clr_2 $fname $sname, $map, $death_reason, $y1$y2-$z1$z2$z3" , {["clr_1"]=clr_1 , ["clr_2"]=clr_2 , ["death_report"]=game.translate_string("st_dyn_news_spc_death_report") , ["fname"]=a2 , ["sname"]=b2 , ["map"]=c , ["death_reason"]=tbl[math.random(#tbl)] , ["y1"]=y1 , ["y2"]=y2 , ["z1"]=z1 , ["z2"]=z2 , ["z3"]=z3})
+	
+	self:PushToChannel("general",{Mg=msg,Ic="common",Snd="no_sound",Se=Se,It="gr"})
+	
+	return true
+end
+function DynamicNewsManager:GossipTime() -- talk about time of day
+
+	
+	local sender = self:FindSpeakerRandom()
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local TimeStringPharse = dynamic_news_helper.GetTimePharseAsString()
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_time_" .. TimeStringPharse .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self:PushToChannel(sender:character_community(),{Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:GossipWeather() -- talk about the weather
+	
+	-- no weather news in night
+	local hrs = level.get_time_hours()
+	if (hrs >= 21) or (hrs < 5) then 
+		return false
+	end
+	
+	local sender = self:FindSpeakerRandom()
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	--type of weather: {"clear","partly","cloudy","foggy","rain","storm"}
+	local WeatherNews
+	local _WM = level_weathers.get_weather_manager()
+	local WeatherType = _WM:get_curr_weather()
+	
+	if not (WeatherType) then
+		return false
+	end
+	
+	-- weather accurate check
+	if (WeatherType == "rain") or (WeatherType == "storm") then
+		local RainFactor = level.rain_factor()
+		if (RainFactor >= 0.5) then
+			WeatherNews = "storm"
+		elseif (RainFactor > 0) and (RainFactor < 0.5) then
+			WeatherNews = "rain"
+		else -- if rainy weather but there's no actual rain
+			return false
+		end
+	elseif (WeatherType == "foggy") then
+		WeatherNews = "foggy"
+	elseif (level.rain_factor() <= 0) then
+		WeatherNews = WeatherType
+	else
+		return false
+	end
+		
+	local tbl = txr_utils.collect_translations("st_dyn_news_weather_" .. WeatherNews .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self:PushToChannel(sender:character_community(),{Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:GossipNearbyActivity() -- talk about movement of nearby enemy
+	--printf(">>> Dyn News: GossipNearbyActivity - call")
+	
+	local sender,target = self:FindSpeakerAndTarget(true,250)
+	if (not sender) or (not target) then
+		return false
+	end
+	
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+
+	local who
+	local activity = "enemy_activity_"
+	if IsStalker(target,target:clsid()) then
+		local target_comm = target:character_community()
+	
+		if target_comm == "zombied" then
+			activity = activity .. "zombied"
+		else
+			activity = activity .. "stalker"
+		end
+		if (system_ini():r_string_ex("string_table","language") == "rus") then
+			who = dynamic_news_helper.GetCommunityDescription(target,math.random(3,4))
+		else
+			who = dynamic_news_helper.GetCommunityDescription(target,math.random(1,4))
+		end
+		
+	elseif IsMonster(target,target:clsid()) then
+		local cls = target:clsid()
+		local tier = dynamic_news_helper.GetMutant(cls)
+		activity = activity .. "mutant_" .. tostring(tier)
+		who = dynamic_news_helper.GetMonsterDescription(target,1)
+	end
+	
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_" .. activity .. "_",true)
+	if (not tbl) or (not who) then
+		return false
+	end
+	
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , {["who"]=who} )
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="beep_2",Se=Se,It="npc",Ty=activity,Id=sender})
+	
+	return true
+end
+
+
+function DynamicNewsManager:GossipBounty()
+	if not (show_about_bounty) then 
+		return 
+	end
+
+	local bounty
+	for task_id,npc_id in pairs(axr_task_manager.bounties_by_id) do
+		bounty = db.storage[npc_id] and db.storage[npc_id].object
+		if (bounty and bounty:alive()) then 
+			break 
+		end
+	end
+	
+	if not (bounty and bounty:alive()) then
+		return false
+	end
+
+	local sender = self:FindSpeakerNoVictim(bounty,false,true)
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_bounty_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["who"]=bounty:character_name() , ["where"]=dynamic_news_helper.GetPointDescription(bounty) } )
+	
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:GossipTask()
+
+	local t = {}
+	local tasks = {}
+	local cnt = 0
+	
+	for i=1,65534 do 
+		se_obj = alife():object(i)
+		clsid = se_obj and se_obj:clsid()
+		if clsid then
+			-- Check if its enemy stalker or monester
+			if (IsStalker(nil,clsid) and not game_relations.is_factions_enemies(db.actor:character_community(), se_obj:community())) then 
+				-- Check if its close to sender
+				if (se_obj.group_id ~= 65535) then
+					-- Check if its alive
+					if (se_obj:alive()) then
+
+						local npc = st and st.object or level.object_by_id(se_obj.id)
+						local avail_task = false
+						
+						if npc then
+							if string.find(npc:section(),"sim_default") then
+								avail_task = axr_task_manager.get_first_available_task(npc, nil, true)
+							else
+								avail_task = axr_task_manager.get_first_available_task(npc, nil, false)
+							end
+							
+							if avail_task then
+								table.insert(t, npc)
+								local empty_t = {}
+								table.insert(tasks, empty_t)
+								table.insert(tasks[#tasks], avail_task)
+							end
+							
+							cnt = cnt + 1
+							if cnt > 2 then
+								break
+							end
+						end
+
+					end
+				end
+			end
+		end
+	end
+	
+	if #t < 1 then
+		return false
+	end
+	
+	local n = math.random(1,#t)
+	local sender = t[n]
+	local task = tasks[n]
+	
+	if #task < 1 then
+		return false
+	end
+	
+	task = task[math.random(1, #task)]
+	local tbl
+	
+	if not task then
+		return false
+	end
+	
+	local type = tostring(task_manager.task_ini:r_string_ex(task,"type")) or "none"
+	
+	printf("News: tick task, type: %s, task: %s", type, task)
+	
+	local tbl = {}
+	
+	if type == "bounty" then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_bounty_",true)
+	elseif type == "smart_hostage" then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_hostage_",true)
+	elseif type == "assault" then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_assault_",true)
+	elseif type == "debt" then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_debt_",true)
+	elseif type == "package" then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_package_",true)
+	else
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_",true)
+	end
+	
+	
+	if (not tbl) then
+		return false
+	end
+	
+	local is_spec = self:IsSpecialNPC(sender)
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg
+	if is_spec then
+		tbl = txr_utils.collect_translations("st_dyn_news_gossip_task_spec_",true)
+		msg = strformat(tbl[math.random(#tbl)])
+	else
+		msg = strformat(tbl[math.random(#tbl)],dynamic_news_helper.GetPointDescription(sender))
+	end
+	
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+
+	return true
+	
+end
+
+function DynamicNewsManager:GossipTaskRepeatTimeout(task_id)
+	local story_id = task_id:sub(1,-8)
+	local obj = get_story_object(story_id)
+	if not (obj) then 
+		return false 
+	end
+	
+	local sender = self:FindSpeakerNoVictim(nil,nil,true)
+	if (not sender) then 
+		return false 
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_gossip_hostage_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = strformat(tbl[math.random(#tbl)],obj:character_name())
+	
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="news",Se=Se,It="npc"})
+
+	return true
+end
+
+--< Companions News >--
+function DynamicNewsManager:CompanionAboutLife(sender) -- companion chitchat
+
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local alife = alife()
+	local se_actor = alife:actor()
+	local tbl
+	if (math.random(2) == 1) then
+		tbl = txr_utils.collect_translations("st_dyn_news_companion_life_all_",true)
+	else
+		tbl = txr_utils.collect_translations("st_dyn_news_companion_life_" .. sender:character_community() .. "_",true)
+	end
+	if (not tbl) then 
+		return false 
+	end
+	
+	local msg = tbl[math.random(#tbl)]
+	if string.match(msg,"$name") then
+		msg = txr_utils.read_text_keylist( msg , { ["name"]=se_actor:character_name() } )
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),game.translate_string("st_dyn_news_sender_companion"))
+	
+	self:PushToChannel(sender:character_community(),{Mg=msg,Ic=sender:character_icon(),Snd="beep_2",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:CompanionAboutLevel(sender) -- companion talk about the current map
+
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local lvl = level.name()
+	local tbl
+	--if (dynamic_news_helper.GetFaction(sender:character_community(),"territory") == level.name()) then
+	--	tbl = txr_utils.collect_translations("st_dyn_news_companion_level_home_",true)
+	--else
+		tbl = txr_utils.collect_translations("st_dyn_news_companion_level_" .. lvl .. "_",true)
+	--end
+	if (not tbl) then 
+		return false 
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),game.translate_string("st_dyn_news_sender_companion"))
+	
+	self:PushToChannel(sender:character_community(),{Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc"})
+	
+	return true
+end
+
+function DynamicNewsManager:CompanionAboutActor(sender)
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local alife = alife()
+	local se_actor = alife:actor()
+	local a,b
+	local rep_tbl = {"terrible","really_bad","very_bad","bad","neutral","good","very_good","really_good","excellent"}
+	local rank_tbl = {"novice","trainee","experienced","professional","veteran","expert","master","legend"}
+	local actor_rep = alun_utils.get_reputation_name(db.actor:character_reputation())
+	local actor_rank = ranks.get_obj_rank_name(db.actor)
+	for i=1,#rep_tbl do
+		if string.match(actor_rep,rep_tbl[i]) then
+			if (i <= 4) then a = 1
+			elseif (i > 4) and (i < 7) then a = 2
+			elseif (i >= 7) then a = 3
+			end
+			break
+		end
+	end
+	for i=1,#rank_tbl do
+		if string.match(actor_rank,rank_tbl[i]) then
+			if (i < 3) then b = 1
+			elseif (i >= 3) and (i < 5) then b = 2
+			elseif (i >= 5) and (i < 7) then b = 3
+			elseif (i == 7) then b = 4
+			end
+			break
+		end
+	end
+	
+	local tbl
+	if (math.random(2) == 1) then
+		tbl = txr_utils.collect_translations("st_dyn_news_companion_rep_" .. tostring(a) .. "_",true)
+	else
+		tbl = txr_utils.collect_translations("st_dyn_news_companion_rank_" .. tostring(b) .. "_",true)
+	end
+	if (not tbl) then 
+		return false 
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),game.translate_string("st_dyn_news_sender_companion"))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["name"]=se_actor:character_name() } )
+	
+	self:PushToChannel("general",{Mg=msg,Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc"})
+	
+	return true
+end
+
+--< Reaction News >--
+function DynamicNewsManager:GossipEmissionEnd(what)
+
+	if (not shw_reaction) or ((what ~= "emission") and (what ~= "storm")) then
+		return false
+	end
+	
+	local sender = self:FindSpeakerRandom()
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+		
+	local tbl = txr_utils.collect_translations("st_dyn_news_surge_after_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	local msg = txr_utils.read_text_keylist( tbl[math.random(#tbl)] , { ["what"]=what } )
+	
+	dynamic_news_helper.send_tip(msg,Se,math.random(10,15),msg_duration,sender:character_icon(),"beep_1","npc") -- no need for push to channel
+	self.surge_type	= "" -- reset
+	
+	return true
+end
+
+function DynamicNewsManager:ResponseOnFoundArtefact(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true) 
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local comm = who:character_community()
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_artefact_" .. comm .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+	
+	return true
+end
+
+function DynamicNewsManager:ResponseOnFoundWeapon(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true) 
+	if self:IsSpecialNPC(sender) or self:IsMonoCommunity(sender) then
+		return false
+	end
+	
+	local comm = who:character_community()
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_artefact_" .. comm .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+	
+	return true
+end
+
+function DynamicNewsManager:ResponseOnFoundStash()
+	--printf(">>> Dyn News: ResponseOnFoundStash - call")
+	if (not self.sentences_fnames) or (not self.sentences_fnames) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_found_stash_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s %s" , self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)])
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic="common",Snd="no_sound",Se=Se,It="gr",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnBoughtItems(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true)
+	if (not sender) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_trade_",true)
+	if (not tbl) then
+		return false
+	end
+
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+	
+	return true
+end
+
+function DynamicNewsManager:ResponseOnGossipNearbyActivity(who,activity)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true)
+	if (not sender) then
+		return false
+	end
+
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_" .. activity .. "_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+
+	return true
+end
+
+
+function DynamicNewsManager:ResponseOnDeathByStalker(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true)
+	if (not sender) then
+		return false
+	end
+
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_death_stalker_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnDeathByMutant(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true)
+	if (not sender) then
+		return false
+	end
+
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_death_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnDeathBySurges(who)
+
+	local sender = self:FindSpeakerNoVictim(who,true,true)
+	if (not sender) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_death_surge_",true)
+	if (not tbl) then
+		return false
+	end
+
+	local Se = strformat("%s, %s",sender:character_name(),dynamic_news_helper.GetCommunityDescription(sender,6))
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic=sender:character_icon(),Snd="beep_1",Se=Se,It="npc",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnDeathByStalker_Fake()
+
+	if (not self.sentences_fnames) or (not self.sentences_fnames) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_fake_death_stalker_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s %s" , self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)])
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic="common",Snd="no_sound",Se=Se,It="gr",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnDeathByMutant_Fake()
+
+	if (not self.sentences_fnames) or (not self.sentences_fnames) then
+		return false
+	end
+
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_fake_death_mutant_",true)
+	if (not tbl) then
+		return false
+	end
+	
+	local Se = strformat("%s %s" , self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)])
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic="common",Snd="no_sound",Se=Se,It="gr",To=false,St=msg_duration}
+
+	return true
+end
+
+function DynamicNewsManager:ResponseOnDeathBySurges_Fake()
+
+	if (not self.sentences_fnames) or (not self.sentences_fnames) then
+		return false
+	end
+	
+	local tbl = txr_utils.collect_translations("st_dyn_news_res_fake_death_surge_",true)
+	if (not tbl) then 
+		return false 
+	end
+	
+	local Se = strformat("%s %s" , self.sentences_fnames[math.random(#self.sentences_fnames)] , self.sentences_snames[math.random(#self.sentences_snames)])
+	
+	self.response["message"] = {Mg=tbl[math.random(#tbl)],Ic="common",Snd="no_sound",Se=Se,It="gr",To=30,St=msg_duration}
+
+	return true
+end
+
+
+----------------------------------- helpers
+function DynamicNewsManager:BuildSentenceStalkerEnemy(victim,who,mn,mx)
+	local comm_victim = victim:character_community()
+	local comm_who = who:character_community()
+	local comm, dist
+	local c = 0
+	for i=1, #db.OnlineStalkers do
+		if (db.OnlineStalkers[i] ~= who_id) then
+			local st = db.storage[db.OnlineStalkers[i]]
+			local npc = st and st.object or level.object_by_id(db.OnlineStalkers[i])
+			if (npc and IsStalker(npc,npc:clsid()) and npc:alive() and not get_object_story_id(db.OnlineStalkers[i])) then
+				comm = npc:character_community()	-- remove local
+				if (comm == comm_who) then
+					dist = victim:position():distance_to(npc:position())
+					if (dist < mx) or (dist > mn) then 
+						c = c + 1
+					end
+				end
+			end 
+		end
+		if (c >= 2) then 
+			break 
+		end
+	end
+
+	local sentences = {}
+	local string_count = 1
+	while true do 
+		local tr_s = game.translate_string("st_dyn_news_builder_attacked_"..string_count)
+		if (tr_s == "st_dyn_news_builder_attacked_"..string_count) then 
+			break
+		else 
+			table.insert(sentences,tr_s)
+		end
+		string_count = string_count + 1
+	end
+	
+	if (#sentences == 0) then 	
+		return false
+	end
+
+	if (c >= 2) then 
+		return sentences[math.random(#sentences)], dynamic_news_helper.GetCommunityDescription(who,math.random(9,10))
+	end
+
+	return sentences[math.random(#sentences)], dynamic_news_helper.GetCommunityDescription(who,math.random(7,8))
+end
+
+function DynamicNewsManager:BuildSentenceStalkerEnemy_Offline(comm_w)
+	local index = math.random(7,8)
+	if (math.random(100) < 50) then 
+		index = math.random(9,10)
+	end
+
+	local sentences = txr_utils.collect_translations("st_dyn_news_builder_attacked_",true)
+	if (not sentences) then return false end
+
+	local comm_w_desc = game.translate_string("st_dyn_news_comm_" .. comm_w .. "_" .. index)
+
+	return sentences[math.random(#sentences)], comm_w_desc
+end
+
+function DynamicNewsManager:IsSpecialNPC(npc)
+	if (not npc) then return true end
+	
+	if string.find(npc:section(),"sim_default") then
+		return false
+	end
+	
+	return true
+end
+
+function DynamicNewsManager:IsMonoCommunity(npc)
+	if (not npc) then return true end
+	
+	local comm = character_community(npc)
+	if (npc:id() == 0 and comm ~= "actor") then 
+		comm = comm:sub(7)
+	end 
+	
+	if self.mono[comm] then
+		return true
+	end
+	
+	return false
+end
+
+function get_story_npc_info(section)
+	if not (section and section ~= "") then
+		return
+	end
+	
+	local se_npc = get_story_se_object(section)
+	if se_npc then
+		local name = se_npc:character_name()
+		local icon = se_npc:character_icon()
+		return { name = name , icon = icon }
+	end
+	return
+end

@@ -1,0 +1,45 @@
+[logic@ah_bol_kovalev]
+active = beh@mar_smart_terrain_base_new_job
+suitable = {=check_npc_name(ah_bol_kovalev)} true
+prior = 110
+level_spot = quest_npc
+relationship = neutral   
+
+[beh@general]
+behavior_state = beh_move
+target = waypoint
+walk_dist = 100
+jog_dist = 220
+wait_anim = probe_stand
+walk_anim = walk
+jog_anim = rush
+run_anim = rush    
+delay_anim = probe_stand
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false 
+relationship = neutral
+meet = hi_meet
+   
+[hi_meet]
+trade_enable = false
+meet_state = 30|hello@hail|20|wait@wait
+meet_state_wpn = 30|backoff@threat_weap
+victim = 30|actor
+victim_wpn = 30|actor
+use = true
+use_wpn = false
+syndata = hello@hail|backoff@threat_weap
+
+[beh@mar_smart_terrain_base_new_job]:beh@general
+pt1 = 25000, probe_stand | pos:255.59671020508,0.17640542984009,-172.27386474609 look:255.89495849609,0.39540940523148,-177.1639251709
+pt2 = 25000, probe_stand | pos:290.48681640625,0.14349725842476,-167.13537597656 look:295.34365844727,7.1235733032227,-154.86015319824
+pt3 = 25000, probe_stand | pos:275.85464477539,0.22373765707016,-140.6481628418 look:275.4645690918,0.34230142831802,-135.17031860352
+pt4 = 25000, probe_stand | pos:302.98297119141,5.1918821334839,-122.20506286621 look:299.35089111328,0.55929094552994,-127.64233398438
+pt5 = 25000, probe_stand | pos:259.63171386719,0.28958439826965,-140.70115661621 look:259.70248413086,0.33052551746368,-134.72682189941
+pt6 = 25000, probe_stand | pos:273.85693359375,0.17476636171341,-144.55587768555 look:279.32620239258,-0.30538260936737,-150.71697998047
+pt7 = 25000, probe_stand | pos:266.7282409668,0.21596932411194,-178.78338623047 look:263.38009643555,0.44162350893021,-178.48860168457
+pt8 = 100000, sit_ass | pos:298.51043701172,0.72260922193527,-154.5924987793 look:293.0143737793,0.14273649454117,-157.84216308594
+path_end = loop
+ 

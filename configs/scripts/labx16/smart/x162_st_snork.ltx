@@ -1,0 +1,21 @@
+[smart_terrain]
+squad_id = 3
+max_population = 3
+respawn_params = respawn@x162_st_snork
+respawn_idle = 45000
+respawn_radius = 300
+
+[respawn@x162_st_snork]
+spawn_snorks
+spawn_rat
+
+[spawn_rat]
+spawn_squads = simulation_rat
+spawn_num = 1
+
+[spawn_snorks]
+spawn_squads = simulation_snork
+spawn_num = {+yan_kill_brain_done} 3, 0
+
+[exclusive]
+x16_zombie_crying = mlr\x16_zombie_crying.ltx

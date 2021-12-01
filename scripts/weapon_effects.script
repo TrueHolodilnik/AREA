@@ -1,0 +1,463 @@
+local wpn_fx,ini,effects,shotc,fov_def,wpn_r,wpn_id
+feature_is_active = nil
+
+function activate()
+	if (feature_is_active) then
+		return 
+	end
+	feature_is_active = true
+
+	wpn_fx = {
+		-- recoil coef when aiming
+		k_aim = 0.5,
+	--
+	--	9x18mm
+	--
+		["9x18"] = {
+			s = {1, 2},
+			r = 1,
+			e = { {1.7}, {0.6}, {0.8, 1}, {4, 0}, {2.1, 0}, {0} },
+			p = {},
+		},
+	--
+	--	9x19mm
+	--
+		["9x19"] = "9x18",
+		wpn_beretta = {
+			s = {2},
+			r = 0,
+			e = { {1.9}, {0.8}, {1, 1}, {3.6}, {3.2, 0}, {0.4} },
+			p = {blur = 0},
+		},
+		wpn_hpsa = {
+			s = {1},
+			r = 0,
+			e = { {1.8}, {0.7}, {0.8, 1}, {3.7, 0}, {2.1, 0}, {0} },
+			p = {},
+		},
+		wpn_mp5 = {
+			s = {1, 1, 2, 2, 3},
+			r = 1,
+			e = { {0.7}, {0.3}, {1.5, 1}, {2.7, 0}, {2.6, 0}, {0.4} },
+			p = {blur = 0},
+		},
+		wpn_pp2000 = {
+			s = {1, 1, 2, 2, 3},
+			r = 1,
+			e = { {0.9}, {0.4}, {1.9, 1}, {3.5, 0}, {3.4, 0}, {0.5} },
+			p = {blur = 0},
+		},
+		wpn_mp5sd = {
+			s = {1, 1, 2, 2, 3},
+			r = 1,
+			e = { {0.5}, {0.2}, {1, 1}, {1.8, 0}, {1.7, 0}, {0.3} },
+			p = {blur = 0},
+		},
+	--
+	--	4.6x30
+	--
+		["4.6x30"] = {
+			s = {3,4,3},
+			r = 2,
+			e = { {0.4, 1}, {1.0, 1}, {0.7, 1}, {1.0}, {4.0, 0}, {0.6} },
+			p = {blur = 0},
+		},
+	--
+	--	5.7x28
+	--
+		["5.7x28"] = {
+			s = {3,4,3},
+			r = 2,
+			e = { {0.4, 1}, {1.0, 1}, {0.8, 1}, {1.1}, {4.0, 0}, {0.6} },
+			p = {blur = 0},
+		},
+	--
+	--	7.62x25
+	--
+		["7.62x25"] = {
+			s = {1,2},
+			r = 1,
+			e = { {1.8}, {0.7}, {1, 1}, {3.5}, {3.1, 0}, {0.3} },
+			p = {blur = 0},
+		},
+	--
+	--	.45 ACP
+	--
+		["11.43x23"] = "wpn_beretta",
+	--
+	--	.357 Magnum
+	--
+		["357"] = {
+			s = {4},
+			r = 0,
+			e = { {1.9}, {0.8}, {1, 1}, {3.6}, {5.15, 0}, {0.4} },
+			p = {blur = 0, duality_h = 0.02},
+		},
+	--
+	--	.40 S&W
+	--
+		["10x25"] = "wpn_beretta",
+		["10x22"] = "9x18",
+	--
+	--	.50 AE
+	--
+		["50ae"] = {
+			s = {4},
+			r = 0,
+			e = { {1.9}, {0.8}, {1, 1}, {3.6}, {5.15, 0}, {0.4} },
+			p = {blur = 0, black = 0.12, duality_h = 0.05},
+		},
+	--
+	--	5.45x39mm
+	--
+		["5.45x39"] = {
+			s = {3, 4, 3},
+			r = 2,
+			e = { {0.5, 1}, {1.2, 1}, {0.9, 1}, {1.2}, {4.3, 0}, {0.7} },
+			p = {blur = 0},
+		},
+		wpn_abakan = {
+			s = {1, 3},
+			r = 2,
+			e = { {0.6}, {0.9, 1}, {0.9, 1}, {1}, {3.5, 0}, {0.2} },
+			p = {blur = 0},
+		},
+		wpn_ak74 = "5.45x39",
+		wpn_bizon = "5.45x39",
+
+		wpn_ak74u = {
+			s = {4, 3, 4},
+			r = 2,
+			e = { {2.5}, {1.7, 1}, {0}, {3.8}, {3.3, 0}, {0.6} },
+			p = {blur = 0},
+		},
+		wpn_ak74u_snag = "wpn_ak74u",
+	--
+	--	7.62x39
+	--
+		["7.62x39"] = "5.45x39",
+	--
+	-- 5.56x45
+	--
+		["5.56x45"] = {
+			s = {2, 3, 3, 3},
+			r = 2,
+			e = { {0.5}, {0.4, 0}, {0.6, 1}, {3.2, 0}, {2.5, 0}, {1.3} },
+			p = {blur = 0},
+		},
+		wpn_sig550 = {
+			s = {1, 2, 3, 3},
+			r = 2,
+			e = { {0.8}, {0.2}, {0.9, 1}, {1}, {2.5}, {2.4} },
+			p = {blur = 0},
+		},
+		wpn_sig550_luckygun = "wpn_sig550",
+		wpn_fn2000 = "wpn_sig550",
+		wpn_g36 = {
+			s = {2, 2, 3, 3, 3},
+			r = 1,
+			e = { {0.9}, {0.3}, {0.5, 1}, {1.2}, {2.9}, {1.9} },
+			p = {blur = 0},
+		},
+		wpn_galil = "5.45x39",
+		wpn_m249 = "wpn_sig550",
+	--
+	--	6.8x43
+	--
+		["6.8x43"] = {
+			s = {2, 3, 3, 3},
+			r = 2,
+			e = { {0.6}, {0.5, 0}, {0.7, 1}, {3.3, 0}, {2.6, 0}, {1.4} },
+			p = {blur = 0},
+		},
+	--
+	--	9x39
+	--
+		["9x39"] = "5.45x39",
+		wpn_val = {
+			s = {1, 1, 2, 2, 3},
+			r = 0,
+			e = { {0}, {1.2, 1}, {1.2, 1}, {1.2, 0}, {1.8, 0}, {0.8} },
+			p = {blur = 0},
+		},
+		wpn_vintorez = {
+			s = {1, 1, 2, 2, 3},
+			r = 0,
+			e = { {0}, {1.2, 1}, {1.2, 1}, {1.2, 0}, {1.8, 0}, {1.4} },
+			p = {blur = 0},
+		},
+	--
+	-- gauss
+	--	
+		gauss = {
+			s = {3, 4},
+			r = 1,
+			e = { {0}, {1, 0}, {1, 0}, {1.2}, {1.5, 1}, {0.2} },
+			p = {blur = 0},
+		},
+	--
+	--	7.62x51mm
+	--
+		["7.62x51"] = {
+			s = {4, 3},
+			r = 0,
+			e = { {2,0}, {2,0}, {3,1}, {5,0}, {7,0}, {5,1} },
+			p = {blur = 0},
+		},
+		wpn_m60 = {
+			s = {2, 2, 2, 3, 2, 3, 2, 3, 3, 4, 4, 3, 4, 4, 5},
+			r = 0,
+			e = { {1.9}, {0.9}, {2, 1}, {2.1}, {1.1}, {6.3} },
+			p = {blur = 0, grey = 0.05, duality_h = 0.05},
+		},
+	--
+	--	7.62x54
+	--
+		["7.62x54"] = {
+			s = {5},
+			r = 0,
+			e = { {2,0}, {2,0}, {3,1}, {5,0}, {7,0}, {5,1} },
+			p = {black = 0.3, blur = 0},
+		},
+		
+		["pkm"] = "wpn_m60",
+		wpn_svu = {
+			s = {4},
+			r = 0,
+			e = { {1.5,0}, {1.5,0}, {2.5,1}, {4.5,0}, {5.1,0}, {3.2,1} },
+			p = {black = 0.2, blur = 0},
+		},
+	--
+	--	7.92x33
+	--
+		["7х92х33"] = "7.62x39",
+	--
+	--	12.7x55
+	--
+		["12.7x55"] = {
+			s = {5},
+			r = 0,
+			e = { {4,0}, {4,0}, {6,1}, {9.5,0}, {10,0}, {7,1} },
+			p = {blur = 0.06, black = 0.1, duality_h = 0.07},
+		},
+		["50"] = "12.7x55",
+		["8.58x70"] = "12.7x55",
+		["338"] = "12.7x55",
+		["m134"] = "12.7x55",
+	--
+	-- shotguns
+	--
+		["12x70"] = {
+			s = {4},
+			r = 1,
+			e = { {1.4}, {1.4}, {1.1}, {2.1}, {4.1}, {4.4} },
+			p = {grey = 0.1, duality_v = 0.12},
+		},
+		["12x76"] = {
+			s = {4},
+			r = 1,
+			e = { {1.5}, {1.5}, {1.2}, {2.2}, {4.2}, {4.5} },
+			p = {grey = 0.1, duality_v = 0.12},
+		},
+		wpn_bm16 = {
+			s = {4, 5},
+			r = 1,
+			e = { {2.7}, {2.7}, {1.4}, {3.8}, {5.2}, {4.4} },
+			p = {black = 0.1, blur = 0},
+		},
+		wpn_toz34 = {
+			s = {4, 5},
+			r = 1,
+			e = { {1.7}, {1.7}, {1.4}, {2.8}, {5.2}, {3.4} },
+			p = {black = 0.1, blur = 0, grey = 0.1},
+		},
+		wpn_protecta = {
+			s = {4},
+			r = 1,
+			e = { {1.7}, {1.7}, {1.4}, {2.3}, {4.5}, {4.4} },
+			p = {grey = 0.15, duality_v = 0.15},
+		},
+		wpn_saiga = {
+			s = {3, 4},
+			r = 1,
+			e = { {1}, {1}, {0.8}, {1.5}, {3.1}, {3.4} },
+			p = {grey = 0.1, duality_v = 0.12},
+		},
+		wpn_spas12 = {
+			s = {3, 4},
+			r = 1,
+			e = { {1.4}, {1.4}, {1.1}, {2.1}, {4.1}, {4.4} },
+			p = {grey = 0.1, duality_v = 0.12},
+		},
+		wpn_vepr12 = {
+			s = {3, 4},
+			r = 1,
+			e = { {1.1}, {1.1}, {1}, {1.6}, {3.3}, {3.7} },
+			p = {grey = 0.1, duality_v = 0.12},
+		},
+	--
+	-- other
+	--
+		["vog-25"] = {
+			s = {2, 3},
+			r = 1,
+			e = { {0}, {1.5, 1}, {2.1, 1}, {0.3}, {3.1, 1}, {0} },
+			p = {duality_v = 0.1},
+		},
+		["m209"] = "vog-25",
+		wpn_rpg7 = {
+			s = {4},
+			r = 1,
+			e = { {0}, {2, 1}, {3, 1}, {0}, {4, 1}, {0} },
+			p = {duality_h = 0.3},
+		},
+		["wpn_rg-6"] = "vog-25",
+	}
+	
+	ini = system_ini()
+	shotc = 1
+	fov_def = device().fov
+	effects = {}
+	RegisterScriptCallback("actor_on_weapon_fired", actor_on_weapon_fired)
+end
+
+function deactivate()
+	if not (feature_is_active) then
+		return 
+	end
+	feature_is_active = false
+	
+	UnregisterScriptCallback("actor_on_weapon_fired", actor_on_weapon_fired)
+	ini = nil
+	shotc = nil
+	fov_def = nil
+	wpn_fx = nil
+	wpn_r = nil
+	wpn_id = nil
+end
+
+local function opt_menu_on_init(menu)
+	-- weapon recoil effects
+	menu.gameplay_options["shot_effects"]	= {default=false, 	debug_only=false, 	typ="check",
+		on_accept = function(handler,optMgr,ctrl)
+			if (level.present()) then
+				if (ctrl:GetCheck()) then
+					activate()
+				else
+					deactivate()
+				end
+			end
+		end
+	}
+end
+
+function on_game_start()
+	RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	local function actor_on_first_update()
+		activate()
+	end
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+end
+
+function actor_on_weapon_fired(actor,wpn,ammo_elapsed)
+	if axr_main.config:r_value("mm_options","enable_shot_effects",1,true) == false and axr_main.config:r_value("mm_options","enable_jitter_hud",1,true) == false then return end
+
+	local sect = wpn:section()
+	if not wpn_fx[sect] then
+		sect = get_ammo_type_ex(wpn):match("_(.-)_")
+--		printf("ammo_section = %s",sect)
+	end
+	
+	if wpn_fx[sect] then
+		if type(wpn_fx[sect]) == "string" then
+			sect = wpn_fx[sect]
+		end
+	else
+		return
+	end
+
+	local effects = wpn_fx[sect]
+	
+	--printf("shoot effect fired for %s",wpn:id())
+	local function AmmoRecoilChk(wpn)
+		local id = wpn:id()
+		local val = val or 1
+		if wpn_r == nil or wpn_id~=id then
+			wpn_id = id
+			shotc = 1
+			wpn_r = ini:r_float_ex(wpn:section(), "cam_dispersion") or 1
+			local disp = wpn_r or 1
+			local function itr(section,obj)
+				local sect = ini:r_string_ex(section, "section")
+				disp = sect and ini:r_float_ex(sect,"cam_dispersion",0) + disp or disp
+			end
+			wpn:iterate_installed_upgrades(itr,wpn)
+
+			wpn_r = disp / wpn_r
+			val = math.sqrt((ini:r_float_ex(get_ammo_type_ex(wpn),"k_disp") or 1) ^3) * wpn_r
+		end
+		return val
+	end
+
+	local anims = {}
+	local sect = wpn:section()
+	--// choose recoil speed
+	local speed = effects.s
+	local sc = #speed
+	if sc > 1 then
+		if effects.r == 1 then	-- random recoil speed choice from table
+			speed = speed[math.random(sc)]
+		elseif effects.r == 2 then -- first shot first speed after that random from remaining entries
+			if shotc == 1 then
+				speed = speed[1]
+			else
+				speed = speed[math.random(2,sc)]
+			end
+		else	-- r == 0  speeds walk through table per shot then uses last 2 speeds randomly or last if only 2 exist
+			sc = shotc <= sc and shotc or (sc > 2 and math.random(sc-1,sc)) or sc
+			speed = speed[sc]
+		end
+	else
+		speed = speed[1]
+	end
+	--// recoil variation and direction
+	if axr_main.config:r_value("mm_options","enable_shot_effects",1,true) then
+		local fov_r = AmmoRecoilChk(wpn) * ( (fov_def-device().fov) > 0.01 and effects.k_aim or 1 ) --db.actor:cast_Actor():IsZoomAimingMode()
+		for i=1, #effects.e do
+			local cnt, r = math.modf(effects.e[i][1]*fov_r)
+			if r ~= 0 and cnt > 4 then --fmb
+				cnt = cnt-cnt*math.random(0,r*100)/100 --fmb
+				cnt,r = math.modf(cnt)
+			end
+			
+			if r ~= 0 and math.random() < r then
+				cnt = cnt+1
+			end
+
+			if cnt > 0 then
+				for j=1, cnt do
+					local n = string.format([[shoot\s%s_e%s_%s.anm]],speed,i,(effects.e[i][2] or math.random(0,1)))
+					level.add_cam_effector(n)
+				end
+			end
+		end
+		--// ppe filter
+		local ppe_id = 1
+		for filter,v in pairs(effects.p) do
+			ppe_id = ppe_id*shotc
+			local eid = math.ceil(ppe_id+ppe_id)
+			level.add_pp_effector(string.format([[shoot\%s_s%s.ppe]],filter,speed),eid)
+			if v > 0 then
+				level.set_pp_effector_factor(eid,v)
+			end
+		end
+	end
+	
+	shotc = shotc+1
+	area_dinamic_hud.set_jitter(speed)
+end
+
+function get_ammo_type_ex(wpn)
+	local at_tbl = utils.parse_names(ini:r_string_ex(wpn:section(),"ammo_class"))
+	return at_tbl[wpn:get_ammo_type()+1]
+end

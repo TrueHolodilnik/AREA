@@ -1,0 +1,182 @@
+[walker@base]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+use_camp = false
+turn_on_campfire = false
+def_state_moving = assault
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = true
+invulnerable = true
+path_walk = enemy_2
+path_look = actor_point
+meet = no_meet
+
+; антагонист
+[logic@x11_broker_1]
+active = walker@x11_broker_1
+suitable = {=check_npc_name(x11_monolith_broker_1)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@x11_broker_1]:walker@base
+path_walk = enemy_2
+meet = meet@broker
+on_info = {+x11_broker_1} %=disable_ui =create_squad(x11_altruist_squad:x11_smart_terrain_4_1) =create_squad(x11_altruist_support_squad:x11_smart_terrain_4_1) =give_news(x11_stalker_altruist_name:st_x11_altruist_message_1:x11_stalker_altruist_1:1000:15000)% walker@x11_broker_1_1
+on_info2 = {!actor_in_zone(x11_sr_cutscene)} %=teleport_actor(x11_smart_terrain_4_1_actor_point:x11_smart_terrain_4_1_enemy_2)%
+
+[walker@x11_broker_1_1]:walker@base
+path_walk = enemy_2
+path_look = friend_1
+on_timer = 1000 | %=enable_ui =give_news(ano_ecolog_broker_name:st_x11_broker_message_1:x11_monolith_broker_1:0:15000) =give_news(x11_stalker_altruist_name:st_x11_altruist_message_2:x11_stalker_altruist_1:2000:15000)% walker@x11_broker_1_2
+
+; BUG #1: иногда бежит в центр комнаты и только затем в коридоры слева
+; BUG #2: может забагаться и встать посредине ни на что не реагируя
+; возможно опять виноваты двери
+[walker@x11_broker_1_2]:walker@base
+path_walk = broker_gone_walk
+path_look = broker_gone_look
+def_state_moving = panic
+on_signal = arrived | {-x11_broker_gone} %+x11_broker_gone =object_offline(x11_monolith_broker_1)%
+; костыльный фикс бага #1,2
+; on_timer = 5000 | %+x11_broker_gone =destroy_object%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; левый
+[logic@x11_broker_2]
+active = walker@x11_broker_2
+suitable = {=check_npc_name(x11_monolith_broker_2)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@x11_broker_2]:walker@base
+path_walk = enemy_1
+on_info = {+x11_broker_1} walker@x11_broker_2_1
+
+[walker@x11_broker_2_1]:walker@base
+on_timer = 2000 | walker@x11_broker_2_2
+path_look = friend_2
+def_state_standing = threat_na
+invulnerable = false
+on_timer = 1000 | {+x11_broker_1} %=play_sound_at_pos(weapons\saiga\saiga_shoot:x11_smart_terrain_4_1_friend_2) =hit_npc(x11_stalker_altruist_3:bip01_spine:6000:6000)% walker@x11_broker_2_2
+
+[walker@x11_broker_2_2]:walker@base
+path_walk = spawn_point
+combat_ignore_cond = true
+combat_ignore_keep_when_attacked = false
+def_state_moving = assault
+invulnerable = false
+on_signal = arrived | %=destroy_object%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; правый
+[logic@x11_broker_3]
+active = walker@x11_broker_3
+suitable = {=check_npc_name(x11_monolith_broker_3)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@x11_broker_3]:walker@base
+path_walk = enemy_3
+on_info = {+x11_broker_1} walker@x11_broker_3_1
+
+[walker@x11_broker_3_1]:walker@base
+invulnerable = false
+combat_ignore_cond = {=check_enemy_name(actor)} true, false
+combat_ignore_keep_when_attacked = false
+on_info = %=play_sound_at_pos(weapons\saiga\saiga_shoot:x11_smart_terrain_4_1_friend_1) =hit_npc(x11_stalker_altruist_2:bip01_spine:6000:6000)% walker@x11_broker_3_2
+
+[walker@x11_broker_3_2]:walker@x11_broker_2_2
+
+[meet@broker]
+close_anim 			= {-x11_broker_1} guard
+close_victim 			= {-x11_broker_1} actor
+close_distance  		= 5
+far_distance			= 10
+close_snd_distance 	= 5
+use 					= {=dist_to_actor_le(10) -x11_broker_1} self, false
+allow_break 			= false
+trade_enable 			= false
+meet_dialog 			= x11_broker_1
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; протагонист
+[logic@x11_altruist_1]
+active = walker@x11_altruist_1
+suitable = {=check_npc_name(x11_stalker_altruist_1)} true
+prior = 200
+post_combat_time = 0,0
+
+; после того как Брокер убежал сразу говорим с Альтруистом 
+[walker@x11_altruist_1]:walker@base
+path_walk = friend_1
+path_look = enemy_3
+combat_ignore_cond = {=pure_enemy_dist_le(7)} false, true
+; on_info = {+x11_broker_gone} walker@x11_altruist_1_1
+on_info = {+x11_broker_gone} %=run_pp_effector(black) =teleport_npc(x11_smart_terrain_4_1_friend_1) =teleport_actor(x11_smart_terrain_4_1_enemy_3)% walker@x11_altruist_1_1
+
+[walker@x11_altruist_1_1]:walker@base
+path_walk = friend_1
+path_look = enemy_3
+meet = meet@altruist
+combat_ignore_cond = {=pure_enemy_dist_le(7)} false, true
+
+[meet@altruist]
+close_anim 			= guard
+close_victim 			= actor
+close_distance  		= 5
+far_distance			= 10
+close_snd_distance 	= 3
+; костыльный фикс бага #3
+; use 					= {=dist_to_actor_le(7) +x11_broker_gone -x11_altruist_1} true, false
+use 					= {=dist_to_actor_le(15) +x11_broker_gone -x11_altruist_1} self, false
+allow_break 			= false
+trade_enable 			= false
+meet_dialog 			= {-x11_altruist_1} x11_altruist_1, nil
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; напарник протагониста (рядом)
+[logic@x11_altruist_2]
+active = walker@x11_altruist_2
+suitable = {=check_npc_name(x11_stalker_altruist_2)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@x11_altruist_2]:walker@base
+path_walk = friend_1
+path_look = enemy_3
+on_info = {+x11_broker_1} remark@altruist_2_1
+
+[remark@altruist_2_1]:walker@base
+combat_ignore_cond = false
+anim = threat_fire
+target = story | x11_monolith_broker_3
+on_info = {!is_alive(x11_monolith_broker_3)} walker@altruist_2_2
+
+[walker@altruist_2_2]:walker@base
+path_walk = spawn_point
+combat_ignore_cond = false
+combat_ignore_keep_when_attacked = false
+on_signal = arrived | %=destroy_object%
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; напарник протагониста (в засаде)
+[logic@x11_altruist_3]
+active = walker@x11_altruist_3
+suitable = {=check_npc_name(x11_stalker_altruist_3)} true
+prior = 200
+post_combat_time = 0,0
+
+[walker@x11_altruist_3]:walker@base
+path_walk = friend_2
+path_look = enemy_3
+on_info = %=teleport_npc(x11_smart_terrain_4_1_friend_2)% walker@x11_altruist_3_1
+
+[walker@x11_altruist_3_1]:walker@base
+path_walk = friend_2
+path_look = enemy_3
+on_info = {+x11_broker_1 !is_alive(x11_monolith_broker_1)} walker@x11_altruist_3_2
+combat_ignore_cond = {+x11_broker_1} false, true
+combat_ignore_keep_when_attacked = {+x11_broker_1} false, true
+
+[walker@x11_altruist_3_2]:walker@altruist_2_2

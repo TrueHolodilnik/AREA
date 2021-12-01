@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<	 		DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					A.R.E.A - DIALOG
+<					------ FaL -----
+<===========================================================-->
+<string_table>
+
+	<!--=====jurov_start=====-->
+	<string id="sidorovych_start_dialog_10">
+		<text>...we should order more armor-piercing.</text>
+	</string>
+	<string id="sidorovych_start_dialog_102">
+		<text>I'm not from around here in the zone, I came here not a long time ago.</text>
+	</string>
+	<string id="sidorovych_start_dialog_10201">
+		<text>Okay, Stalker, listen up, I'm talking for the first and last time. I am a local trader, and in the zone is not the first day sticking out. A lot of whom I do business with, I carry out different orders and believe my word. If I have a desire to earn some money, I always have a job to do. In the camp you can feel at home until you become insolent. And for the last time ... to the military without the need to rush. If they are offended, the helicopter and special forces will be raised from the Cordon perimeter... it will be bad for everyone. Those on top of such a shmon will visit, then in a month there will be no clients, and I have a long contact with the local commander for a long time established.</text>
+	</string>
+	<string id="sidorovych_start_dialog_103">
+		<text>I'm already an experienced stalker, I rarely visit the cordon.</text>
+	</string>
+	<string id="sidorovych_start_dialog_10301">
+		<text>Hmm... I've got so many stalkers in a day, you won't even remember them all... Yeah, you're a serious man, I can tell. Anyway, I don't remember you, so I won't make discounts on my loot, Okay, it doesn't matter... why did you come here?</text>
+	</string>
+	<string id="sidorovych_start_dialog_11">
+		<text>Hell, my back hurts, I don't have the strength. What do you want, stalker?</text>
+	</string>
+	<string id="sidorovych_start_dialog_1111">
+		<text>Well, hey stalker. New faces ... or have I seen you somewhere?</text>
+	</string>
+	<string id="sidorovych_start_dialog_1113">
+		<text>Don't stand there like a fly! Come on, what you brought and go!</text>
+	</string>
+	<string id="sidorovych_start_dialog_1114">
+		<text>Hello stalker. What's new?</text>
+	</string>
+	<string id="sidorovych_start_dialog_1115">
+		<text>Hey, stalker. Glad to see you alive.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1116">
+		<text>Oh, a healthy stalker. That's what I need. In general, I have a new business I'm sticking to. The recently new alcoholic beverages delivered, I'm looking for new customers, are you interested? I'm Selling 3 bottles for a test for a thousand... twelve hundred and on hand.</text>
+	</string>
+	<string id="sidorovych_start_dialog_12">
+		<text>If you're joking again, go back to the village stalker! I have enough without you.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1202">
+		<text>Wait, stalker. Vodka in the zone will be useful for everyone, especially for such a jerk like you... 1100...</text>
+	</string>
+	<string id="sidorovych_start_dialog_1203">
+		<text>Okay, you convinced me.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1204">
+		<text>Too expensive, and I haven't seen your vodka in my eyes. Let's do three hundred for a bottle.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1205">
+		<text>No and period. I'm not interested.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1206">
+		<text>This shit... okay, I'll sell it to other morons. Something came up ?</text>
+	</string>
+	<string id="sidorovych_start_dialog_13">
+		<text> I don't change, I don't return, I don't give any guarantees...</text>
+	</string>
+	<string id="sidorovych_start_dialog_1301">
+		<text>In this case, we will agree on eight hundred hryvnias for two bottles. This is my last offer.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1302">
+		<text>Okay, I'll take it.</text>
+	</string>
+	<string id="sidorovych_start_dialog_13021">
+		<text>Here you go, here you go. The product is great, you won't regret it. Thank you again... He-he.</text>
+	</string>
+	<string id="sidorovych_start_dialog_1303">
+		<text>I'll drop it.</text>
+	</string>
+	<string id="sidorovych_start_dialog_14">
+		<text>Stalker again? I don't change cartridges for vodka, for boots too...</text>
+	</string>
+	<string id="sidorovych_start_dialog_15">
+		<text>What you brought this time, let's see.</text>
+	</string>
+	<string id="sidorovych_start_dialog_2">
+		<text>Hello, stalker! What do you want?</text>
+	</string>
+	<string id="sidorovych_start_dialog_201">
+		<text>Okay, I'll take it. Hold your money.</text>
+	</string>
+	<string id="sidorovych_start_dialog_2011">
+		<text>Here you go, here you go. The product is great, you won't regret it. Thank you again... He-he.</text>
+	</string>
+	<string id="sidorovych_start_dialog_202">
+		<text>No, I'm not interested.</text>
+	</string>
+	<string id="sidorovych_start_dialog_6">
+		<text>A happy client is always good.</text>
+	</string>
+	<string id="sidorovych_start_dialog_7">
+		<text>... So...Hmm. Guns. Yes, I do. Armour. Check the box. Canned food... Where are the canned goods?</text>
+	</string>
+	<string id="sidorovych_start_dialog_8">
+		<text>... That means two grand. It's two pieces. So. This is not necessary...</text>
+	</string>
+	<string id="sidorovych_start_dialog_9">
+		<text>... Shit. What the hell...</text>
+	</string>
+	<string id="sidorovych_trader_vodka_trade_0">
+		<text>What kind of firearm did you sell me?</text>
+	</string>
+	<string id="sidorovych_trader_vodka_trade_1">
+		<text>Don't you understand? Well, I found a fool, now you look for another... Heh-heh. I told you, the product is new. What you do with it is not my business. Now go, you'll think something.</text>
+	</string>
+
+	<!--=====jurov_start=====-->
+	<string id="jurov_start_10">
+		<text>Who was there to help you get back to the village? His fucking leg!</text>
+	</string>
+	<string id="jurov_start_11">
+		<text>Hmm.</text>
+	</string>
+	<string id="jurov_start_12">
+		<text>I would rather give out new uniforms, it's impossible already ..</text>
+	</string>
+	<string id="jurov_start_13">
+		<text>I hope you're not smuggling?</text>
+	</string>
+	<string id="jurov_start_14">
+		<text>We don't want to get the damn thing thrown out again...</text>
+	</string>
+	<string id="jurov_start_15">
+		<text>They've got mutant creatures in their pockets.</text>
+	</string>
+	<string id="jurov_start_2">
+		<text>Honorable to introduce myself, Jurov. Commander of the southern cordon checkpoint.</text>
+	</string>
+	<string id="jurov_start_21">
+		<text>Health wish, captain.</text>
+	</string>
+	<string id="jurov_start_22">
+		<text>At ease! Good to see the new faces on the post. Do you have something to do with me?</text>
+	</string>
+	<string id="jurov_start_3">
+		<text>Health wish!</text>
+	</string>
+	<string id="jurov_start_4">
+		<text>Yes? How can I help you?</text>
+	</string>
+	<string id="jurov_start_5">
+		<text>Well, what do you want?</text>
+	</string>
+	<string id="jurov_start_6">
+		<text>Health wish! Looking for something?</text>
+	</string>
+	<string id="jurov_start_7">
+		<text>Be careful with the mutants.</text>
+	</string>
+	<string id="jurov_start_8">
+		<text>Ask, I'll help.</text>
+	</string>
+	<string id="jurov_start_9">
+		<text>What can I do for you?</text>
+	</string>
+	<!--=====serega_start=====-->
+	<string id="serega_start_10">
+		<text>We'd like to get new boots.</text>
+	</string>
+	<string id="serega_start_11">
+		<text>And why do stalkers climb into the zone, live or not...</text>
+	</string>
+	<string id="serega_start_12">
+		<text>The helmet's cracked, we need to polish it...</text>
+	</string>
+	<string id="serega_start_13">
+		<text>How did it work?</text>
+	</string>
+	<string id="serega_start_14">
+		<text>How long has it been thrown out?</text>
+	</string>
+	<string id="serega_start_15">
+		<text>Who's been digging through my mines?</text>
+	</string>
+	<string id="serega_start_16">
+		<text>Vodka would be good now...</text>
+	</string>
+	<string id="serega_start_17">
+		<text>Hello, stalker! Fix or cure it? I can do it all.</text>
+	</string>
+	<string id="serega_start_18">
+		<text>We should have gone for a programmer... Ugh...</text>
+	</string>
+	<string id="serega_start_2">
+		<text>Hello, man! I see you're not a local person, a new one. Let's get acquainted, I'm a mechanic, Sergei. On a rank to not salute, let's at once agree on simple to each other. I will describe to you the situation with opportunities. In general, our checkpoint is far from being in excellent condition and is kept on a kind word, but by my efforts. Consider that I am making a castle out of mud, only the castle is still out of mud, you understand. There are no sensible tools, I almost monster things on my knee with my hands. I look like a free guy, if you find something, bring it right away, you are not rich in money, I will give you what I can. If there is time, I can ask for all sorts of "favors" but more on that later. By the way, if you haven't seen the commander yet, I advise you to drop by. You can buy any kind of equipment from him and get a couple of official tasks. Wow... I flooded you with words, what do you want?</text>
+	</string>
+	<string id="serega_start_3">
+		<text>Hey, man, what do you want?</text>
+	</string>
+	<string id="serega_start_4">
+		<text>Any tools didn't come across your journey?</text>
+	</string>
+	<string id="serega_start_5">
+		<text>Listen, have you seen any parts? No?</text>
+	</string>
+	<string id="serega_start_6">
+		<text>Oh, great! Is the barrel jamming again?</text>
+	</string>
+	<string id="serega_start_7">
+		<text>Have you seen me recently? I'm sorry, my memory is bad...</text>
+	</string>
+	<string id="serega_start_8">
+		<text>...Where's my 17... key just been.</text>
+	</string>
+
+	<!--=====sidor_swamp_quest=====-->
+	<string id="sidor_swamp_quest_1_0">
+		<text>Any job?</text>
+	</string>
+	<string id="sidor_swamp_quest_1_1">
+		<text>Well, there's one, you have to rush into the swamps and pick up a case from the church.</text>
+	</string>
+
+	<!--=====ST_Hog=====-->
+	<string id="hog_info_0">
+		<text>Can we talk?</text>
+	</string>
+	<string id="hog_info_1">
+		<text>No, man. I'm not in the mood to talk right now, go get somebody else.</text>
+	</string>
+	<string id="hog_limansk_0">
+		<text>Hog, Vicarii shared with me about Limansk and your problem, can you tell me more?</text>
+	</string>
+	<string id="hog_limansk_1">
+		<text> Ugh, eat him by the leg. What? I told him that right away? ...I'm not going to hide it. Listen carefully, I'm not going to repeat - In "Limansk" a lot of our people are missing, no bodies, no blood, no traces. They just disappeared as if they weren't there at all. Dushman sent a search party under Gene's command, and with him, my brother Pasha... In general, he also went missing... Missing... I didn't understand how it happened, like he was here, but now he's not. I remember a couple of days ago, it was raining outside, time later... I went out for a smoke, and at the same time to have a word with Sergei, my friend, on patrol then. Only the smoke let in, I see something running, in general, it scared us, while we almost got shot. I ran, all dumbfounded, in the mud, and alone, couldn't say a word. Then, an hour later, he took off and reported everything to the commander and told me after a while. In general...my brother is missing, and only sometimes we can hear fragments of phrases on the radio, and where he is, we can not find.</text>
+	</string>
+	<string id="hog_limansk_2">
+		<text>Where's Jin now?</text>
+	</string>
+	<string id="hog_limansk_21">
+		<text>Man, you don't seem to be one-eyed. At the top, he props up the boxes as usual.</text>
+	</string>
+	<string id="hog_limansk_3">
+		<text>What's with the radio signal?</text>
+	</string>
+	<string id="hog_limansk_31">
+		<text>Nothing good... Count it and no, fragments of radio messages from time to time come. Only they make me bleed in my veins, here's the record, listen - "...P...grave...We are stuck in L...Ansk...We...will not get out...our coordinates...five, four, two....". I have a few more of them, I recognize our voices... and the voice of my brother, too.</text>
+	</string>
+	<string id="hog_limansk_32">
+		<text>Maybe I can help you somehow?</text>
+	</string>
+	<string id="hog_limansk_33">
+		<text>Hmm... I'm not forcing you, but if you're in Limansk, try looking for details in the houses. Our receiver was damaged during transportation, the guys had to run from a pack of boars. Now it catches no further than a couple of kilometers. We need a new antenna and a couple of new resistors to make it work again. And then maybe we can get in touch with them. Stalker... Be careful, I don't want anyone else to go missing... </text>
+	</string>
+	<string id="hog_limansk_34">
+		<text>Sorry about that, sorry about that, sorry.</text>
+	</string>
+	<string id="hog_limansk_35">
+		<text>And thank you for that, I'll keep trying, maybe I can get caught up in something.</text>
+	</string>
+	<string id="hog_limansk_4">
+		<text>And you tried to find your brother yourself?</text>
+	</string>
+	<string id="hog_limansk_41">
+		<text> I wanted to go, I really wanted to go. But a contract is a contract, the eggheads are not inclined no matter how much I try to persuade them, and I do not blame them. they can't risk people anymore, too many losses without any leads, just interference and the missing souls of the mercenaries.</text>
+	</string>
+	<string id="hog_limansk_42">
+		<text>I'll try to talk to him, maybe I can do something about it.</text>
+	</string>
+	<string id="hog_limansk_43">
+		<text> Don't be discouraged, I think he'll appear.</text>
+	</string>
+	<string id="hog_limansk_44">
+		<text>Okay, thank you.</text>
+	</string>
+	<string id="hog_limansk_45">
+		<text> Okay, what else did you want to ask?</text>
+	</string>
+	<string id="hog_limansk_5">
+		<text>Thanks for sharing, that's all.</text>
+	</string>
+	<string id="hog_limansk_6">
+		<text>Whatever you say. </text>
+	</string>
+	<string id="hog_start_dialog_10">
+		<text>Yeah, what is it?</text>
+	</string>
+	<string id="hog_start_dialog_11">
+		<text>Did you see yourself in the mirror? Pale as a ghost! Go fast to Vikarius, he will examine you. It wasn't enough for you to be stuck behind the machine.</text>
+	</string>
+	<string id="hog_start_dialog_12">
+		<text>Oh, I haven't seen you in a while. What did you come with?</text>
+	</string>
+	<string id="hog_start_dialog_13">
+		<text>Man, you look like a fake pseudo dog, you should go to a doctor.</text>
+	</string>
+	<string id="hog_start_dialog_14">
+		<text>The blind dogs are hungry again. I heard them howl out last night...</text>
+	</string>
+	<string id="hog_start_dialog_15">
+		<text>Be careful in the zone, stalker. Especially here.</text>
+	</string>
+	<string id="hog_start_dialog_16">
+		<text>We shouldn't have come here...</text>
+	</string>
+	<string id="hog_start_dialog_17">
+		<text>Eh... Pasha... Where have you gone, brother...</text>
+	</string>
+	<string id="hog_start_dialog_18">
+		<text>Stalkers these days are like cormorants in a nuclear reactor. Nobody really understands them.</text>
+	</string>
+	<string id="hog_start_dialog_19">
+		<text>If you give someone a helping hand, they'll bite you off... on the shoulder.</text>
+	</string>
+	<string id="hog_start_dialog_2">
+		<text>...How many times do I have to tell you? No, not yet. Shit... Sorry, man, I'm sorry. I was pulled over five times a day to ask. I am Hog, a mechanic. Not commander Hog, not merchant Hog, not Doctor Hog - just Hog. Well, what can I do to help?</text>
+	</string>
+	<string id="hog_start_dialog_20">
+		<text> Damn... where are those nuts?</text>
+	</string>
+	<string id="hog_start_dialog_21">
+		<text>It seems like I can't fix it anymore...</text>
+	</string>
+	<string id="hog_start_dialog_22">
+		<text>Ex....I'd like a liquor now.</text>
+	</string>
+	<string id="hog_start_dialog_23">
+		<text>Fucking radio! Damn... Silence again.</text>
+	</string>
+	<string id="hog_start_dialog_24">
+		<text>Blin, and where did I put my bolts...</text>
+	</string>
+	<string id="hog_start_dialog_25">
+		<text>She told me... Don't go to the zone... Oh fool, oh fool...</text>
+	</string>
+	<string id="hog_start_dialog_3">
+		<text>Hurry up, the barrels don't fix themselves.</text>
+	</string>
+	<string id="hog_start_dialog_4">
+		<text>What's the problem?</text>
+	</string>
+	<string id="hog_start_dialog_5">
+		<text>We need to polish...</text>
+	</string>
+	<string id="hog_start_dialog_6">
+		<text>This helmet's cracked.</text>
+	</string>
+	<string id="hog_start_dialog_7">
+		<text>Hmm... It will take a lot of tape...</text>
+	</string>
+	<string id="hog_start_dialog_8">
+		<text>Damn it... This job requires me to give my full commitment.</text>
+	</string>
+	<string id="hog_start_dialog_9">
+		<text>I'm listening.</text>
+	</string>
+
+	<!--=====ST_Vikarii=====-->
+	<string id="ds_kiler_mlr_medpreparat_end_0">
+		<text>Vicarius, I've got the right samples.</text>
+	</string>
+	<string id="ds_kiler_mlr_medpreparat_end_1">
+		<text>Great, now I need time, come back later.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_0">
+		<text>Vicarius, can you look at me?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1">
+		<text>I'm afraid the stitches won't close this wound.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_10">
+		<text>Hmm.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_10001">
+		<text>Doc, how's my condition?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11">
+		<text>Doc, how bad is it?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_111">
+		<text>Hmm... Surface tissue damage, multiple traces of wounds, open wound. I can perform the operation to stabilize it, this service will cost 1850. You are irradiated, you have all the signs of an initial stage of radiation sickness. In addition, using 'dimethyl sulfide' and 'graphene' to help your radionuclide excretion system, it will cost you another 1480. So what have you decided?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1111">
+		<text>Get to work immediately.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11111">
+		<text>All is ready, now I'll call an assistant and we'll fix you up...using local anesthetics, it will take some time for their action, try to be patient...let's do an infusion of a physical solution...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11112">
+		<text>I helped your body to eliminate radiation, but you still need treatment. Do it sooner, my friend.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11113">
+		<text>I can't treat you for free. Try not to die.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1112">
+		<text>Get my radiation exposure.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1113">
+		<text>I don't have the means.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_112">
+		<text>Felt in trouble, huh? Sufficiently severe tissue damage, internal organs are not hurt, you're lucky. This unfortunate adventure will cost you 1850 for your work and medication. I can also help your body to recover from radiation exposure will cost extra 1480 UAH.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11201">
+		<text>I can't help for free. My resources are limited.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1121">
+		<text>Spare me the pain, Doctor.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1122">
+		<text>Doc, I've been exhausted by radiation, sorcerer, hurry up.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1123">
+		<text>It's too expensive.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_113">
+		<text>I can treat you, I can also help the body cope with the effects of radiation. For your health work and medication you pay 1850. For helping with radiation 1480. Unfortunately, I cannot treat you for free. What have you decided?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_11301">
+		<text>Without money, I can't help you. These are the rules, try not to die.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1131">
+		<text>Vicarius, start the treatment.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1132">
+		<text>Doc, spare me the radiation.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_1133">
+		<text>The price is too high.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_12">
+		<text>Very interesting.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_12001">
+		<text>What do you say, Doc?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_13">
+		<text>I hope you're just allergic.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_13001">
+		<text>After the anomaly, how bad is it?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_14">
+		<text>Hmm. Your wound smells like chicken...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_14001">
+		<text>Doc, how bad is it?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_15">
+		<text>This is gonna hurt right now. Hold on to something.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_15001">
+		<text>...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_16">
+		<text>Not in my work schedule, please. Physically you are healthy. Go outside, you can sleep there and do all the other things that such "special" people as you do.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_17">
+		<text>You are completely healthy, if you think otherwise, then I have some bad news for you, maybe you are a walker, or you are suffering from aggregation. Relax and calm down, you are really okay.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_18">
+		<text>You look good and are completely healthy. You are not at all attracted to my regular patients. If you feel unwell, I advise you to take preventative measures and to eat well and sleep well.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_19">
+		<text>You're a strong and healthy man, if you don't feel well, go and talk with some stalkers on a fire.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_2">
+		<text>It'll be more painful than ever in your life.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_2001">
+		<text>I'm used to the pain, what's wrong with me?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_3">
+		<text>Well, next time, use bandages, okay?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_3001">
+		<text>Okay. Doc, let's hurry.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_4">
+		<text>Son, you're not gonna make it.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_4001">
+		<text>I'm gonna get through this, and I've never been in so much trouble as I am, Doc?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_5">
+		<text>How long have you been sitting on Epinephrine?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_5001">
+		<text>Hmm... I don't remember, you'll help me?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_6">
+		<text>Do not touch the scab on the wounds.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_6001">
+		<text>Doc, how's my condition?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_7">
+		<text>Hmm... Penetration on the chest.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_7001">
+		<text>Soon, can you patch it up a little bit? </text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_8">
+		<text>I'm afraid I'm out of oral thermometers.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_8001">
+		<text>Hell, the thermometer's freezing!</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_9">
+		<text> I'm afraid we'll have to do the operation.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_heal_new_9001">
+		<text>So serious?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_0">
+		<text>Doc, do you need some help?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_1">
+		<text>I'd appreciate it if you could find me one book. "Guide to Internal Pathology." I used to live here with a colleague of mine who used to like to collect various rare books. But after his death, his wife sold all his books for nothing. Unfortunately, I don't know the fate of the books, but I do know that this book stayed in his apartment. I don't remember the apartment number, but I know the house exactly. Interested?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_11">
+		<text>Where should I start my search?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_111">
+		<text>Multi-storey, half-decayed house across the street is a corner to our base.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_112">
+		<text>Multi floor old building, a half-decayed house across the street is a corner to our base.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_113">
+		<text>Multi floor old building, half-decayed house across the street is a corner to our base.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_12">
+		<text>Not now, not much to do. Let's talk about it later.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_2">
+		<text>You haven't done the past yet.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_3">
+		<text>Will you be okay with being a test subject? I have one hypothesis about new medications, but I can't do without your help. All details after the agreement.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_31">
+		<text>Sounds interesting, what's on your mind, Doc?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_311">
+		<text>I need to get a fresh specimen of the head of a tushkano for my work in creating a new medication. I won't go into details, we'll talk when you find the head.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_3111">
+		<text>Okay, it's gonna take me a while, I'll let you know when I find the sample.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_32">
+		<text>I'm sorry, but I'm scared of the test subject's word.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_quest_book_4">
+		<text>Come back later.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_11">
+		<text>I've already been in trouble and I know how to help myself.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1111">
+		<text>Welcome. Hmm... I haven't seen you before. I think we should meet if you want to live a little longer. I am a Vicarius, a doctor. I am trying to collect pieces of less successful stalkers than you. I can tell you how not to die at the first injury in the zone. From time to time, I also have kits of medicines and instruments that will be useful for you in field treatment. If I am interested, I sometimes need outside help. Well, what can I do for you?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1112">
+		<text>Glad you're still alive.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1113">
+		<text>Nice to see someone who can move around on their own.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1114">
+		<text>I had a dream about a monolith...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1115">
+		<text>This is pretty quiet...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1116">
+		<text>Welcome back, stalker.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1117">
+		<text>Nice to see you, stalker.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1118">
+		<text>What's the matter, do you need help?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1119">
+		<text>What can I do for you?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1120">
+		<text>Let me see your wounds.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1121">
+		<text>Bad look, are you hurt?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1122">
+		<text> Blood stains on your clothes, they belong to you?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1123">
+		<text>Bad thing to do, can I see you?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1124">
+		<text>You look a little tired.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1125">
+		<text>...another squad in trouble...</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_12">
+		<text>Doc, tell me more about the wounds and treatment.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_121">
+		<text>I hope you don't need this, but listen carefully. In the Zone, frequent injuries occur for a variety of reasons, whether it's a mutant attack, bullet wounds or negative anomalies. Tissue damage is often accompanied by bleeding. In this case, I advise you to apply a bandage tightly to prevent bleeding and protect the tissues from the environment. Change the bandage as soon as it is dirty. I warn you, do not use anything in the area other than sterilized bandages. I've already had enough smart people using fabrics, rags and much more to get around to. The result was the infection of the wound with the further development of sepsis and gangrene and the subsequent fatal outcome. If you lose a lot of blood, you will faint. And, die.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1211">
+		<text>Are there other ways to prevent bleeding, or what if it's stronger?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_122">
+		<text>Hmm... There are three main themes, "stopping bleeding", "healing wounds", "extraction of radiation", "psi impact" What are you interested in?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1221">
+		<text>You can use special bandages or use blood stains. Vinca is a common drug in the community. For a short period of time increases blood clotting in the body that further helps to eliminate heavy bleeding, but the wound still have to bandage.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_123">
+		<text>Doc, let's talk about stopping the bleeding.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_124">
+		<text>Demonstrate healing of wounds.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1241">
+		<text>As well as stopping bleeding after mechanical damage to the body's tissues, you'll need stabilization for further recovery. A personal first aid kit and stimulants will do just fine. The first-aid kits range from the simplest to the most advanced, radiation-absorbing and time-efficient regeneration of tissues. Each of them will have instructions, I advise you to read so that in the heat of battle you don't inject yourself for example... Sleeping pills. What touches the stimulants, they use the resources of the body depleting it in return for increasing the rate of healing of tissues. Don't forget to eat, otherwise you'll faint.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_125">
+		<text>Don't mind hearing about radiation extraction.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1251">
+		<text> Beware of places where anomalies, old equipment and other radioactive stains accumulate. I advise you to always have a geiger counter at hand. Before entering these areas, use radio-protective drugs or get a good suit with a closed breathing system that will provide mechanical protection from external radiation factors. Prevention is the best protection. Also check all the objects you use, radiation can settle on food, water and medical products including. If you are irradiated by antiradiation drugs, remember that they use the body's resources, which leads to starvation and exhaustion.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1252">
+		<text>What if I don't have any protection or means of radiation removal at hand at the right time, what should I do?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1253">
+		<text>You can use the old proven method of drinking alcoholic beverages... Hmm... I have also heard that local cigarette suppliers have agreed with some manufacturers and have introduced radiation-absorbing substances into their tobacco products. Also, some medical products and treatment kits may contain antiradiation compounds.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_126">
+		<text>Say something about psi exposure.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1261">
+		<text>In the Zone, there is a specific impact on the human psyche and the brain in general, called psy-fields. This impact is extremely negative. Being exposed to intense psi fields can cause serious brain damage, which leads to madness at best, or to personality destruction and zombification at worst. The consequences are hallucinations, loss of movement coordination, severe headaches and various mental disorders. Long-term exposure to psy-fields either completely destroys the human brain or irreversibly changes the brain.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1262">
+		<text>And how do you handle it?</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_1263">
+		<text>Run away... There are some drug developments such as Psyblock that slow down psi effects on the body, as well as some costume protection technologies, but they will not provide you with complete protection against psy effects.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_127">
+		<text>Thank you, Doc, I've learned enough.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_13">
+		<text>Treatment later, now I'm interested in other things.</text>
+	</string>
+	<string id="ds_killer_medic_mlr_start_dialog_131">
+		<text>Okay, what are we talking about? </text>
+	</string>
+	<string id="ds_killer_mlr_book1_complete_0">
+		<text>I took a long time to look all over the house, but I found your book.</text>
+	</string>
+	<string id="ds_killer_mlr_book1_complete_1">
+		<text>... It was his favorite book... I am glad that your search was a success. Excellent copy, antiques. Nice paste, well-preserved pages...thank you for your help. Here is your reward, perhaps later I will find clues where to look for the rest of the books.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_0">
+		<text>Doc, tell me more about the wounds and treatment.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_1">
+		<text>Hmm... There are three main themes, "stopping bleeding", "healing wounds", "extraction of radiation", "psi impact" What are you interested in?</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_11">
+		<text>Doc, let's talk about stopping the bleeding.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_111">
+		<text>I hope you don't need this, but listen carefully. In the area, frequent injuries occur for a variety of reasons, whether it's a mutant attack, bullet wounds or negative anomalies. Tissue damage is often accompanied by the discovery of bleeding. In this case, I advise you to apply a bandage tightly to prevent bleeding and protect the tissues from the environment. Change the bandage as soon as it is dirty. I warn you, do not use anything in the area other than sterilized bandages. I've already had enough smart people using fabrics, rags and much more to get around to. The result was the infection of the wound with the further development of sepsis and gangrene and the subsequent fatal outcome. If you lose a lot of blood, you will faint. Lost defenseless, die.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_112">
+		<text>Are there other ways to prevent bleeding, or what if it's stronger?</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_113">
+		<text>You can use special bandages or use blood stains. Vinca is a common drug in the community. For a short period of time increases blood clotting in the body that further helps to eliminate heavy bleeding, but the wound still have to bandage.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_12">
+		<text>Deemonstrate healing of wounds.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_121">
+		<text>As well as stopping bleeding after mechanical damage to the body's tissues, you'll need stabilization for further recovery. A personal first aid kit and stimulants will do just fine. The first-aid kits range from the simplest to the most advanced, radiation-absorbing and time-efficient regeneration of tissues. Each of them will have instructions, I advise you to read so that in the heat of battle you don't inject yourself for example... Sleeping pills. What touches the stimulants, they use the resources of the body depleting it in return for increasing the rate of healing of tissues. Don't forget to eat, otherwise you'll faint.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_13">
+		<text>Don't mind hearing about radiation extraction.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_131">
+		<text> Beware of places where anomalies, old equipment and other radioactive stains accumulate. I advise you to always have a geiger counter at hand. Before entering these areas, use radio-protective drugs or get a good suit with a closed breathing system that will provide mechanical protection from external radiation factors. Prevention is the best protection. Also check all the objects you use, radiation can settle on food, water and medical products including. If you are irradiated by antiradiation drugs, remember that they use the body's resources, which leads to starvation and exhaustion.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_132">
+		<text>What if I don't have any protection or means of radiation removal at hand at the right time, what should I do?</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_133">
+		<text>You can use the old proven method of drinking alcoholic beverages... Hmm... I have also heard that local cigarette suppliers have agreed with some manufacturers and have introduced radiation-absorbing substances into their tobacco products. Also, some medical products and treatment kits may contain antiradiation compounds.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_14">
+		<text>Say something about psi exposure.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_141">
+		<text>In the Zone, there is a specific impact on the human psyche and the brain in general, called psy-fields. This impact is extremely negative. Being exposed to intense psi fields can cause serious brain damage, which leads to madness at best, or to personality destruction and zombification at worst. The consequences are hallucinations, loss of movement coordination, severe headaches and various mental disorders. Long-term exposure to psy-fields either completely destroys the human brain or irreversibly changes the brain.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_142">
+		<text>And how do you handle it?</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_143">
+		<text>Run away... There are some drug developments such as Psyblock that slow down psi effects on the body, as well as some costume protection technologies, but they will not provide you with complete protection against psy effects.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_15">
+		<text>Doc, let's continue next time.</text>
+	</string>
+	<string id="ds_killer_mlr_heal_info_16">
+		<text>Thanks, with your help, I won't disappear so easily now. This concludes the conversation.</text>
+	</string>
+	<string id="ds_killer_mlr_info_0">
+		<text>Vicarius, can we talk about different things?</text>
+	</string>
+	<string id="ds_killer_mlr_info_1">
+		<text>Okay, I don't mind talking within reason. What will we talk about?</text>
+	</string>
+	<string id="ds_killer_mlr_info_2">
+		<text>Tell me about yourself, who are you, where are you from?</text>
+	</string>
+	<string id="ds_killer_mlr_info_21">
+		<text>You ask for nothing, not in my compilation to disclose such information by virtue of the contract. I am an executive person.</text>
+	</string>
+	<string id="ds_killer_mlr_info_22">
+		<text>You won't even tell me a little bit about the general outlines?</text>
+	</string>
+	<string id="ds_killer_mlr_info_23">
+		<text>Right, let's change the subject.</text>
+	</string>
+	<string id="ds_killer_mlr_info_3">
+		<text>Tell me more about the city itself.</text>
+	</string>
+	<string id="ds_killer_mlr_info_31">
+		<text>Hmm... let me think... In general, the dead city is not just named. Previously, it was habitated by foreign power engineers who did not have a place of residence in the local area, and so built this town for them. What happened to it after the accident, I think you understand. Now, apart from our human stronghold in the area, there are only dead and empty houses and mutants. Beware, you can often come across zombies and other dangerous mutants in the area. By the way, there are two large anomalous clusters nearby. The first is west of us in private one-storey houses, be careful if you decide to search them. The second zone of anomalies is located to the east of us rather wide glade over the tunnel.</text>
+	</string>
+	<string id="ds_killer_mlr_info_4">
+		<text>What can you tell us about the surroundings?</text>
+	</string>
+	<string id="ds_killer_mlr_info_41">
+		<text>In the north there's a way to Limansk, right through the gate and further down the road, and in the east the tunnel network leads to the old army warehouses. Where do I start?</text>
+	</string>
+	<string id="ds_killer_mlr_info_42">
+		<text>I want to talk about Limansk.</text>
+	</string>
+	<string id="ds_killer_mlr_info_42001">
+		<text>Did you try to find your people?</text>
+	</string>
+	<string id="ds_killer_mlr_info_42002">
+		<text> Of course we tried. The search operation was carried out by Leopard, but even with his experience of a tracker, the search was not successful, and in the end we lost three more people. I heard that Hog has been trying to establish a connection for a long time, but unfortunately nothing happened and Dushman stopped looking. If you're wondering, you can ask them more, it's no secret information, I think they'll share it with you.</text>
+	</string>
+	<string id="ds_killer_mlr_info_4201">
+		<text>Don't get it wrong, I'm a reasonable man, but not all aspects of the zone can be understood with the mind, at least because of the unclear nature of these phenomenoms. Have you ever read the works of Professor Kuznetsov "XXI century. Chronicle of temporary anomalies"? His assumption is that such holes are in the entire surface of the earth. Outside the zone, due to lack of evidence, this issue is not so popular, but people, ships, and even entire cities disappear. Later appearing in other parts of the world. He also believes that there is something in the zone that creates these spatial holes much more often than elsewhere. Such proximity to us scares me a little bit. Some of our units have already disappeared, we hear from time to time fragments of phrases on the radio, and there is nothing good in these phrases. This is a terrible fate.</text>
+	</string>
+	<string id="ds_killer_mlr_info_4202">
+		<text> Unfortunately, it is. Limansk...a lot of people died in it. Many of our units are missing in it and we don't know exactly why. Most likely, the city is a concentration of spatial anomalies. They are hard to detect and even harder to get out.</text>
+	</string>
+	<string id="ds_killer_mlr_info_421">
+		<text> It's an old and gloomy city. Once upon a time on the outskirts of its narrow streets was bubbling with life. And now it is only a shadow of the past inhabited by mutants and many abnormal origins. I had the opportunity to participate in some of the attacks in this area and believe me on my word, without the need to go there is better not to sink in. I heard from scouts that in addition to the mutated organisms in the northern parts of the city there were also monolith detachments. In a place like this, you don't have to strain yourself to die, just relax and I won't be able to help you anymore. They even said that someone saw strange shadows...</text>
+	</string>
+	<string id="ds_killer_mlr_info_422">
+		<text>Shadows? What are you talking about, Doc?</text>
+	</string>
+	<string id="ds_killer_mlr_info_423">
+		<text>Come on, you're thickening the paint. Ordinary city, no worse than this.</text>
+	</string>
+	<string id="ds_killer_mlr_info_424">
+		<text>Doc, this is all very interesting, but let's change the subject and talk about Warehouses.</text>
+	</string>
+	<string id="ds_killer_mlr_info_425">
+		<text>Vicarius, it's been a pleasure talking to you, and we'll continue next time.</text>
+	</string>
+	<string id="ds_killer_mlr_info_4251">
+		<text>However you say I don't mind.</text>
+	</string>
+	<string id="ds_killer_mlr_info_43">
+		<text>Let's talk about army warehouses.</text>
+	</string>
+	<string id="ds_killer_mlr_info_431">
+		<text>Dangerous terrain, many radiation spots, in some places there are clusters of anomalies, especially in the nearest village. Stalkers say it is better to not stay overnight in it. Previously, the area was called the "Quiet Hills", but later people began to call it army warehouses in connection with the military base located there. At the moment it is controlled by a freedom cell. If your road will lie through the warehouses, be careful, there is a high probability of fighting with the mutants that come from behind the barrier.</text>
+	</string>
+	<string id="ds_killer_mlr_info_5">
+		<text>Okay, I got everything I needed.</text>
+	</string>
+	<string id="vikarii_medpreparat_time_end_title_0">
+		<text>Help Vicarius: Wait.</text>
+	</string>
+	<string id="vikarii_medpreparat_time_end_title_1">
+		<text>Help the Vicar: go back and talk to the doctor.</text>
+	</string>
+	<string id="ds_killer_mlr_medpreparat_time_0">
+		<text>Doc, is the drug ready?</text>
+	</string>
+	<string id="ds_killer_mlr_medpreparat_time_1">
+		<text>Yeah, here you go. And here's your reward.</text>
+	</string>
+	<string id="ds_killer_mlr_medpreparat_time_3">
+		<text>No, not ready yet.</text>
+	</string>
+	<string id="ds_killer_mlr_medpreparat_time_4">
+		<text>I need some more time.</text>
+	</string>
+	<string id="vikarii_book1_quest_text_0">
+		<text>Vicarius asked me to find the book in a old convenience store building near the mercenary base.</text>
+	</string>
+	<string id="vikarii_book1_quest_text_1">
+		<text>I found the book the Vicar was looking for, so I have to go back for a reward.</text>
+	</string>
+	<string id="vikarii_book1_quest_title_0">
+		<text>Help Vicar: Find a guide to internal pathology.</text>
+	</string>
+	<string id="vikarii_book1_quest_title_1">
+		<text>Help Vicar: Give the book to Vicar.</text>
+	</string>
+	<string id="vikarii_medpreparat_message">
+		<text>Stalker, Vicar. The serum is ready.</text>
+	</string>
+	<string id="vikarii_medpreparat_quest_text_0">
+		<text>Vikarius wants me to find him a head of a Tushkano to synthesize the healing serum.</text>
+	</string>
+	<string id="vikarii_medpreparat_quest_text_1">
+		<text> I found the head of the Tushkano for Vicar, so I just had to go back and get the reward.</text>
+	</string>
+	<string id="vikarii_medpreparat_quest_title_0">
+		<text>Help the Vicar: Find the head of the Tushkano.</text>
+	</string>
+	<string id="vikarii_medpreparat_quest_title_1">
+		<text>Help Vicar: Pass the head to Vicar.</text>
+	</string>
+	<string id="vikarii_medpreparat_time_end_text_0">
+		<text>Vicar is synthesizing the serum, I should go for a walk and come back a little later.</text>
+	</string>
+	<string id="vikarii_medpreparat_time_end_text_1">
+		<text>Vicarius has informed me that the drug is ready, I need to talk with him.</text>
+	</string>
+</string_table>

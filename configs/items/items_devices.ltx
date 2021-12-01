@@ -1,0 +1,1164 @@
+[device_flare]:base_section
+class						= D_FLARE
+visual						= dynamics\devices\dev_flare\dev_flare
+inv_name					= device_flare
+inv_name_short				= device_flare_short
+description					= enc_weapons1_wpn_flare
+inv_weight                               = 0.2
+inv_volume					= 0.2
+inv_grid_width                           = 2
+inv_grid_x                               = 12
+inv_grid_y                               = 7
+slot                                     = 11
+cost                                     = 50
+default_to_ruck                          = true
+sprint_allowed                           = true
+control_inertion_factor                  = 1.0
+work_time_sec                            = 10000
+hud                                      = device_flare_hud
+animation_slot                           = 7
+working_particles                        = weapons\dev_flare_flame
+
+[device_flare_hud]:hud_base
+item_visual					= dynamics\devices\dev_flare\dev_flare
+attach_place_idx			= 1
+fire_point					= 0.279000,-0.143000,-0.009000
+fire_bone					= flare_point
+
+item_position				= -0.031455,0.017528,0.136259
+item_orientation			= 62.783558,75.663406,-79.665085
+
+hands_position				= 0.361999,-0.164000,0.106000
+hands_orientation			= 21.000044,-1.700000,0.000000
+hands_position_16x9			= 0,0,0
+hands_orientation_16x9		= 0,0,0
+
+anm_show					= flare_draw
+anm_hide                                 = flare_holster
+anm_idle                                 = flare_idle
+anm_drop                                 = flare_holster
+
+[detector_simple]:base_section
+$spawn                                   = "devices\detector_simple"
+$prefetch                                = 32
+class                                    = DET_SIMP
+visual                                   = dynamics\devices\dev_detector_1\dev_detector_1.ogf
+hud                                      = detector_simple_hud
+inv_name                                 = st_detector1
+inv_name_short                           = st_detector1
+description                              = st_detector1_descr
+slot                                     = 8
+animation_slot				= 7
+ef_detector_type			= 1
+inv_weight					= 0.44
+inv_volume					= 0.55
+inv_grid_x					= 2
+inv_grid_y					= 5
+cost									 = 4460
+default_to_ruck							 = true
+pickup_color				= 255, 255, 30, 255	; Yellow
+attach_angle_offset			= -2.003,-0.859,-2.180
+attach_position_offset		= 0.090,0.001,0.010
+attach_bone_name			= bip01_l_hand
+auto_attach					= false
+use_condition				= true
+battery_type				= battery_9v
+battery_decay_rate			= 0.0003 ;decrement condition
+use1_action_functor			= area_battery_discharge.battery_action_functor
+use1_functor				= area_battery_discharge.battery_functor
+snd_draw					= weapons\detector\detector_draw
+snd_holster					= weapons\detector\detector_holster
+af_radius                                = 15
+af_vis_radius				= 2
+				
+af_class_1      = af_cristall
+af_sound_1_     = detectors\art_beep1
+af_freq_1       = 0.05, 2
+
+af_class_2      = af_fireball
+af_sound_2_     = detectors\art_beep1
+af_freq_2       = 0.05, 2
+
+af_class_3      = af_medusa
+af_sound_3_     = detectors\art_beep1
+af_freq_3       = 0.05, 2
+
+af_class_4      = af_cristall_flower
+af_sound_4_     = detectors\art_beep1
+af_freq_4       = 0.05, 2
+			    
+af_class_5      = af_blood
+af_sound_5_     = detectors\art_beep1
+af_freq_5       = 0.05, 2
+
+af_class_6      = af_mincer_meat
+af_sound_6_     = detectors\art_beep1
+af_freq_6       = 0.05, 2
+			    
+af_class_7      = af_electra_sparkler
+af_sound_7_     = detectors\art_beep1
+af_freq_7       = 0.05, 2
+
+af_class_8      = af_electra_flash
+af_sound_8_     = detectors\art_beep1
+af_freq_8       = 0.05, 2
+			    
+af_class_9      = af_quest_b14_twisted
+af_sound_9_     = detectors\art_beep1
+af_freq_9       = 0.05, 2
+			    
+af_class_10     = jup_b1_half_artifact
+af_sound_10_    = detectors\art_beep1
+af_freq_10      = 0.05, 2
+			    
+af_class_11     = af_compass
+af_sound_11_    = detectors\art_beep1
+af_freq_11      = 0.05, 2
+			    
+af_class_12     = af_drops
+af_sound_12_    = detectors\art_beep1
+af_freq_12      = 0.05, 2
+			    
+af_class_13     = af_ameba_slime
+af_sound_13_    = detectors\art_beep1
+af_freq_13      = 0.05, 2
+			    
+af_class_14     = af_rusty_thorn
+af_sound_14_    = detectors\art_beep1
+af_freq_14      = 0.05, 2
+
+af_class_15		= af_scarlet_flower
+af_sound_15_	= detectors\art_beep1
+af_freq_15		= 0.05, 2
+
+af_class_16		= af_plant_1
+af_sound_16_		= detectors\art_beep1
+af_freq_16		= 0.05, 2
+
+af_class_17		= af_plant_2
+af_sound_17_		= detectors\art_beep1
+af_freq_17		= 0.05, 2
+
+af_class_18		= af_dummy_blank_1
+af_sound_18_	= detectors\art_beep1
+af_freq_18		= 0.05, 2
+
+af_class_19		= af_dummy_blank_2
+af_sound_19_	= detectors\art_beep1
+af_freq_19		= 0.05, 2
+
+af_class_20		= af_dummy_blank_3
+af_sound_20_	= detectors\art_beep1
+af_freq_20		= 0.05, 2
+
+af_class_21		= af_dummy_blank_4
+af_sound_21_	= detectors\art_beep1
+af_freq_21		= 0.05, 2
+
+af_class_22		= af_dummy_blank_5
+af_sound_22_	= detectors\art_beep1
+af_freq_22		= 0.05, 2
+
+af_class_23		= af_bead
+af_sound_23_	= detectors\art_beep1
+af_freq_23		= 0.05, 2
+
+af_class_24		= af_fusion
+af_sound_24_	= detectors\art_beep1
+af_freq_24		= 0.05, 2
+
+af_class_25		= af_wool_1
+af_sound_25_	= detectors\art_beep1
+af_freq_25		= 0.05, 2
+
+af_class_26		= af_wool_2
+af_sound_26_	= detectors\art_beep1
+af_freq_26		= 0.05, 2
+
+af_class_27		= af_wool_3
+af_sound_27_	= detectors\art_beep1
+af_freq_27		= 0.05, 2
+
+af_class_28		= af_ring
+af_sound_28_	= detectors\art_beep1
+af_freq_28		= 0.05, 2
+
+af_class_29		= af_black_spray
+af_sound_29_	= detectors\art_beep1
+af_freq_29		= 0.05, 2
+
+af_class_30		= af_eye
+af_sound_30_		= detectors\art_beep1
+af_freq_30		= 0.05, 2
+
+af_class_31		= af_fire
+af_sound_31_		= detectors\art_beep1
+af_freq_31		= 0.05, 2
+
+af_class_32		= af_gravi
+af_sound_32_		= detectors\art_beep1
+af_freq_32		= 0.05, 2
+
+af_class_33		= af_gold_fish
+af_sound_33_		= detectors\art_beep1
+af_freq_33		= 0.05, 2
+
+af_class_34		= af_baloon
+af_sound_34_		= detectors\art_beep1
+af_freq_34		= 0.05, 2
+
+af_class_35		= af_glass
+af_sound_35_		= detectors\art_beep1
+af_freq_35		= 0.05, 2
+
+af_class_36		= af_dummy_dummy
+af_sound_36_		= detectors\art_beep1
+af_freq_36		= 0.05, 2
+
+af_class_37		= af_ice
+af_sound_37_		= detectors\art_beep1
+af_freq_37		= 0.05, 2
+
+af_class_38		= af_dummy_glassbeads
+af_sound_38_		= detectors\art_beep1
+af_freq_38		= 0.05, 2
+
+af_class_39		= af_night_star
+af_sound_39_		= detectors\art_beep1
+af_freq_39		= 0.05, 2
+
+af_class_40		= af_vyvert
+af_sound_40_		= detectors\art_beep1
+af_freq_40		= 0.05, 2
+
+af_class_41		= af_soul
+af_sound_41_		= detectors\art_beep1
+af_freq_41		= 0.05, 2
+
+af_class_42		= af_fuzz_kolobok
+af_sound_42_		= detectors\art_beep1
+af_freq_42		= 0.05, 2
+
+af_class_43		= af_electra_moonlight
+af_sound_43_		= detectors\art_beep1
+af_freq_43		= 0.05, 2
+
+af_class_44		= af_dummy_battery
+af_sound_44_		= detectors\art_beep1
+af_freq_44		= 0.05, 2
+
+af_class_45		= af_oasis_heart
+af_sound_45_		= detectors\art_beep1
+af_freq_45		= 0.05, 2
+
+af_class_46		= af_pseudodummy_1
+af_sound_46_	= detectors\art_beep1
+af_freq_46		= 0.05, 2
+
+af_class_47		= af_pseudodummy_2
+af_sound_47_	= detectors\art_beep1
+af_freq_47		= 0.05, 2
+
+af_class_48		= af_pseudodummy_3
+af_sound_48_	= detectors\art_beep1
+af_freq_48		= 0.05, 2
+
+af_class_49		= af_pseudodummy_4
+af_sound_49_	= detectors\art_beep1
+af_freq_49		= 0.05, 2
+
+af_class_50		= af_pseudodummy_5
+af_sound_50_	= detectors\art_beep1
+af_freq_50		= 0.05, 2
+
+af_class_51		= af_ameba_slug
+af_sound_51_	= detectors\art_beep1
+af_freq_51		= 0.05, 2
+
+af_class_52		= af_ameba_mica
+af_sound_52_	= detectors\art_beep1
+af_freq_52		= 0.05, 2
+
+af_class_53		= af_dummy_spring
+af_sound_53_	= detectors\art_beep1
+af_freq_53		= 0.05, 2
+
+af_class_54		= af_dummy_pellicle
+af_sound_54_	= detectors\art_beep1
+af_freq_54		= 0.05, 2
+
+af_class_55		= af_rusty_kristall
+af_sound_55_	= detectors\art_beep1
+af_freq_55		= 0.05, 2
+
+af_class_56		= af_rusty_sea
+af_sound_56_	= detectors\art_beep1
+af_freq_56		= 0.05, 2
+
+af_class_57		= af_plant_3
+af_sound_57_	= detectors\art_beep1
+af_freq_57		= 0.05, 2
+
+af_class_58		= af_plant_4
+af_sound_58_	= detectors\art_beep1
+af_freq_58		= 0.05, 2
+
+af_class_59		= af_plant_5
+af_sound_59_	= detectors\art_beep1
+af_freq_59		= 0.05, 2
+
+af_class_60		= af_dummy_blank_6
+af_sound_60_	= detectors\art_beep1
+af_freq_60		= 0.05, 2
+
+af_class_61		= af_dummy_blank_7
+af_sound_61_	= detectors\art_beep1
+af_freq_61		= 0.05, 2
+
+af_class_62		= af_dummy_blank_8
+af_sound_62_	= detectors\art_beep1
+af_freq_62		= 0.05, 2
+
+[detector_base_hud]:hud_base
+attach_place_idx		= 1
+
+hands_position				= 0.033,-0.1895,0.039
+hands_orientation			= 2,2,0
+hands_position_16x9			= 0.033,-0.1895,0.039
+hands_orientation_16x9		= 2,2,0
+
+[detector_simple_hud]:detector_base_hud
+item_visual					= dynamics\devices\dev_detector_1\dev_detector_1_hud
+fire_point					= 0,0,-0.05
+fire_bone					= light_bone_2
+fire_point2					= 0,0,0
+fire_bone2					= light_bone_1
+flash_light_range			= 0.1
+onoff_light_range			= 0.1
+item_position				= -0.072424,0.030392,-0.012213
+item_orientation			= 324.640503,-189.627350,-183.009415
+
+anm_show					= d1_draw, draw
+anm_show_16x9				= d1_draw, draw
+anm_show_fast				= d1_draw, draw
+anm_show_fast_16x9			= d1_draw, draw
+anm_hide					= d1_holster, holster
+anm_hide_16x9				= d1_holster, holster
+anm_hide_fast				= d1_holster, holster
+anm_hide_fast_16x9			= d1_holster, holster
+anm_idle					= d1_idle, idle
+anm_idle_16x9				= d1_idle, idle
+anm_idle_moving				= d1_move, move
+anm_idle_moving_16x9		= d1_move, move
+anm_idle_moving_crouch		= d1_crouch, move, 0.5
+anm_idle_moving_crouch_16x9	= d1_crouch, move, 0.5
+anm_idle_sprint				= d1_sprint, sprint
+anm_idle_sprint_16x9		= d1_sprint, sprint
+
+;-----------   Fanat quest detector by Holodilnik   ------------
+[detector_simple_fanat]:detector_simple
+quest_item 					= false
+hud                     	= detector_simple_fanat_hud
+inv_name			    	= st_detector1_fanat
+inv_name_short		    	= st_detector1_fanat
+description 		    	= st_detector1_fanat_descr
+battery_decay_rate			= 0.0006 ;decrement condition
+[detector_simple_fanat_hud]:detector_simple_hud
+item_visual					= dynamics\devices\dev_detector_1\dev_detector_1_old_hud
+[detector_advanced]:detector_simple
+$spawn						= "devices\detector_advanced"
+class						= DET_ADVA
+visual						= dynamics\devices\dev_detector_2\dev_detector_2.ogf
+
+inv_name					= st_detector2
+inv_name_short				= st_detector2
+description					= st_detector2_descr
+inv_weight					= 0.36
+inv_volume					= 0.6
+inv_grid_x					= 3
+inv_grid_y					= 5
+cost						= 15000
+hud							= detector_advanced_hud
+af_radius					= 25
+af_vis_radius				= 3
+battery_decay_rate			= 0.0009 ;decrement condition
+
+[detector_advanced_hud]:detector_base_hud
+item_position				= -0.078949,0.039172,-0.019197
+item_orientation			= 320.606964,-194.089020,-186.572464
+item_visual					= dynamics\devices\dev_detector_2\dev_detector_2_hud
+anm_show					= d2_draw, draw
+anm_show_fast				= d2_draw, draw
+anm_hide					= d2_holster, holster
+anm_hide_fast				= d2_holster, holster
+anm_idle					= d2_idle, idle
+anm_idle_moving				= d2_move, move
+anm_idle_moving_crouch		= d2_crouch, move
+anm_idle_sprint				= d2_sprint, sprint
+anm_show_16x9				= d2_draw, draw
+anm_show_fast_16x9			= d2_draw, draw
+anm_hide_16x9				= d2_holster, holster
+anm_hide_fast_16x9			= d2_holster, holster
+anm_idle_16x9				= d2_idle, idle
+anm_idle_moving_16x9		= d2_move, move
+anm_idle_moving_crouch_16x9	= d2_crouch, move
+anm_idle_sprint_16x9		= d2_sprint, sprint
+
+[detector_elite]:detector_advanced
+$spawn						= "devices\detector_elite"
+class						= DET_ELIT
+visual						= dynamics\devices\dev_detector_3\dev_detector_3.ogf
+inv_name					= st_detector3
+inv_name_short				= st_detector3
+description					= st_detector3_descr
+hud							= detector_elite_hud
+inv_weight					= 0.29
+inv_volume					= 0.7
+inv_grid_x					= 4
+inv_grid_y					= 5
+cost						= 35880
+; elite x="0.00096" y="0.0035"
+ui_p						= -0.02904,0.0065,0.0392
+ui_r						= 0,90,0
+af_radius					= 40
+af_vis_radius				= 4
+battery_decay_rate			= 0.0012 ;decrement condition
+
+[detector_elite_hud]:detector_base_hud
+item_visual					= dynamics\devices\dev_detector_3\dev_detector_3_hud
+item_position				= -0.071685,0.036188,-0.009934
+item_orientation			= 314.589233,-186.420761,-189.323669
+
+anm_show					= d3_draw, draw
+anm_show_fast				= d3_draw, draw
+anm_hide					= d3_holster, holster
+anm_hide_fast				= d3_holster, holster
+anm_idle					= d3_idle, idle
+anm_idle_moving				= d3_move, move
+anm_idle_moving_crouch		= d3_crouch, move
+anm_idle_sprint				= d3_sprint, sprint
+
+anm_show_16x9				= d3_draw, draw
+anm_show_fast_16x9			= d3_draw, draw
+anm_hide_16x9				= d3_holster, holster
+anm_hide_fast_16x9			= d3_holster, holster
+anm_idle_16x9				= d3_idle, idle
+anm_idle_moving_16x9		= d3_move, move
+anm_idle_moving_crouch_16x9	= d3_crouch, move
+anm_idle_sprint_16x9		= d3_sprint, sprint
+
+[detector_scientific]:detector_elite
+$spawn						= "devices\detector_scientific"
+class						= DET_SCIE
+visual						= dynamics\devices\dev_detector_4\dev_detector_4.ogf
+inv_name					= st_detector4
+inv_name_short				= st_detector4
+description					= st_detector4_descr
+hud							= detector_scientific_hud
+inv_weight					= 0.28
+inv_volume					= 0.72
+inv_grid_x					= 5
+inv_grid_y					= 5
+cost						= 84680
+; elite x="0.00096" y="0.0035"
+ui_p						= -0.02904,0.0065,0.0392
+ui_r						= 0,90,0
+af_radius					= 45
+af_vis_radius				= 5
+battery_decay_rate			= 0.0015 ;decrement condition
+
+zone_class_1				= zone_mine_acidic_weak
+zone_class_2				= zone_mine_acidic_average
+zone_class_3				= zone_mine_acidic_strong
+
+zone_class_4				= zone_mine_electric_weak
+zone_class_5				= zone_mine_electric_average
+zone_class_6				= zone_mine_electric_strong
+
+zone_class_7				= zone_mine_gravitational_weak
+zone_class_8				= zone_mine_gravitational_average
+zone_class_9				= zone_mine_gravitational_strong
+
+zone_class_10				= zone_mine_thermal_weak
+zone_class_11				= zone_mine_thermal_average
+zone_class_12				= zone_mine_thermal_strong
+
+zone_class_13				= zone_mine_steam_weak
+zone_class_14				= zone_mine_steam_average
+zone_class_15				= zone_mine_steam_strong
+
+zone_class_16				= zone_mine_acidic_big
+
+zone_class_17				= zone_mine_chemical_weak
+zone_class_18				= zone_mine_chemical_average
+zone_class_19				= zone_mine_chemical_strong
+
+zone_class_20				= zone_buzz_weak
+zone_class_21				= zone_buzz_average
+zone_class_22				= zone_buzz_strong
+
+zone_class_23				= zone_mine_static_weak
+zone_class_24				= zone_mine_static_average
+zone_class_25				= zone_mine_static_strong
+
+zone_class_26				= zone_witches_galantine_weak
+zone_class_27				= zone_witches_galantine_average
+zone_class_28				= zone_witches_galantine_strong
+
+zone_class_29				= zone_mine_gravitational_big
+
+zone_class_30				= zone_gravi_zone
+
+zone_class_31				= zone_zharka_static_weak
+zone_class_32				= zone_zharka_static_average
+zone_class_33				= zone_zharka_static_strong
+
+zone_class_34				= zone_mosquito_bald
+zone_class_35				= zone_mosquito_bald_weak
+zone_class_36				= zone_mosquito_bald_weak_noart
+zone_class_37				= zone_mosquito_bald_average
+zone_class_38				= zone_mosquito_bald_strong
+zone_class_39				= zone_mosquito_bald_strong_noart
+
+zone_freq_1					= 0.05, 2
+zone_freq_2					= 0.05, 2
+zone_freq_3					= 0.05, 2
+zone_freq_4					= 0.05, 2
+zone_freq_5					= 0.05, 2
+zone_freq_6					= 0.05, 2
+zone_freq_7					= 0.05, 2
+zone_freq_8					= 0.05, 2
+zone_freq_9					= 0.05, 2
+zone_freq_10				= 0.05, 2
+zone_freq_11				= 0.05, 2
+zone_freq_12				= 0.05, 2
+zone_freq_13				= 0.05, 2
+zone_freq_14				= 0.05, 2
+zone_freq_15				= 0.05, 2
+zone_freq_16				= 0.05, 2
+zone_freq_17				= 0.05, 2
+zone_freq_18				= 0.05, 2
+zone_freq_19				= 0.05, 2
+zone_freq_20				= 0.05, 2
+zone_freq_21				= 0.05, 2
+zone_freq_22				= 0.05, 2
+zone_freq_23				= 0.05, 2
+zone_freq_24				= 0.05, 2
+zone_freq_25				= 0.05, 2
+zone_freq_26				= 0.05, 2
+zone_freq_27				= 0.05, 2
+zone_freq_28				= 0.05, 2
+zone_freq_29				= 0.05, 2
+zone_freq_30				= 0.05, 2
+zone_freq_31				= 0.05, 2
+zone_freq_32				= 0.05, 2
+zone_freq_33				= 0.05, 2
+zone_freq_34				= 0.05, 2
+zone_freq_35				= 0.05, 2
+zone_freq_36				= 0.05, 2
+zone_freq_37				= 0.05, 2
+zone_freq_38				= 0.05, 2
+zone_freq_39				= 0.05, 2
+
+[detector_scientific_hud]:detector_base_hud
+item_visual					= dynamics\devices\dev_detector_4\dev_detector_4_hud
+item_position				= -0.071685,0.036188,-0.009934
+item_orientation			= 314.589233,-186.420761,-189.323669
+
+anm_show					= d3_draw, draw
+anm_show_16x9				= d3_draw, draw
+anm_show_fast				= d3_draw, draw
+anm_show_fast_16x9			= d3_draw, draw
+anm_hide					= d3_holster, holster
+anm_hide_16x9				= d3_holster, holster
+anm_hide_fast				= d3_holster, holster
+anm_hide_fast_16x9			= d3_holster, holster
+anm_idle					= d3_idle, idle
+anm_idle_16x9				= d3_idle, idle
+anm_idle_moving				= d3_move, move
+anm_idle_moving_16x9		= d3_move, move
+anm_idle_sprint				= d3_sprint, sprint
+anm_idle_sprint_16x9		= d3_sprint, sprint
+
+; Broken Detectors
+[detector_simple_broken]:detector_simple
+af_radius					= 0
+af_vis_radius				= 0
+[detector_advanced_broken]:detector_advanced
+af_radius					= 0
+af_vis_radius				= 0
+[detector_simple_broken_2]:detector_simple
+af_radius					= 0
+af_vis_radius				= 0
+[detector_advanced_broken_2]:detector_advanced
+af_radius					= 0
+af_vis_radius				= 0
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;; Flashlights ;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[device_torch]:base_section
+$spawn						= "devices\torch"
+$prefetch					= 32
+class						= TORCH_S
+visual						= dynamics\devices\dev_torch_light\dev_torch_light.ogf
+inv_name					= st_device_torch_name
+inv_name_short				= st_device_torch_name
+description					= st_device_torch_descr
+cost						= 2500
+inv_weight					= 0.186
+inv_volume					= 0.2
+inv_grid_x					= 7
+inv_grid_y					= 9
+inv_category				= 6
+can_trade					= true
+highlight_equipped			= false
+position					= 0.35,0.25,0.0
+pickup_color				= 255, 255, 30, 255	; Yellow
+light_section				= torch_definition_volumetric	; The light section to use in it's model/objects/light_night.ltx
+light_trace_bone			= lights_bone
+torch_offset				= -0.2, 0.1, -0.3
+omni_offset					= -0.2, 0.1, -0.1
+torch_inertion_speed_min	= 0.5
+torch_inertion_speed_max	= 7.5
+attach_angle_offset			= 3.062, 0.008, -1.532
+attach_position_offset		= 0.144, -0.007, 0.100
+attach_bone_name			= bip01_head
+auto_attach					= false
+switch_sound				= device\flashlight\switch_sound
+snd_turn_on					= device\flashlight\flashlight_mode
+snd_turn_off				= device\flashlight\flashlight_mode
+slot						= 9
+default_to_ruck				= true
+sprint_allowed				= true
+use_condition				= true
+control_inertion_factor		= 1
+battery_type				= battery_9v
+battery_decay_rate			= 0.0001
+use1_action_functor			= area_battery_discharge.battery_action_functor
+use1_functor				= area_battery_discharge.battery_functor
+
+[device_torch_2]:device_torch
+light_section				= torch_definition_volumetric_2	; The light section to use in it's model/objects/light_night.ltx
+inv_name					= st_device_torch_2_name
+inv_name_short				= st_device_torch_2_name
+description					= st_device_torch_2_descr
+cost						= 3500
+inv_weight					= 0.210
+inv_volume					= 0.2
+inv_grid_x					= 8
+battery_decay_rate			= 0.0002
+
+[device_torch_3]:device_torch
+light_section				= torch_definition_volumetric_3	; The light section to use in it's model/objects/light_night.ltx
+inv_name					= st_device_torch_3_name
+inv_name_short				= st_device_torch_3_name
+description					= st_device_torch_3_descr
+cost						= 4500
+inv_weight					= 0.225
+inv_volume					= 0.2
+inv_grid_x					= 9
+battery_decay_rate			= 0.0003
+
+[device_flashlight]:base_section
+class						= D_FLALIT
+visual						= dynamics\devices\dev_flashlight\dev_flashlight.ogf
+;light_trace_bone			= light_bone_1
+slot						= 8
+animation_slot				= 7
+ef_detector_type			= 1
+torch_offset				= 0,0,0
+omni_offset					= 0,0,0
+torch_inertion_speed_min 	= 0.5
+torch_inertion_speed_max	= 7.5
+inv_name					= st_device_flashlight
+inv_name_short				= st_device_flashlight
+description					= st_device_flashlight_descr
+inv_grid_x					= 15
+inv_grid_y					= 7
+cost						= 1500
+inv_weight					= 0.484
+inv_volume					= 0.4
+pickup_color				= 255, 255, 30, 255	; Yellow
+attach_angle_offset			= -1.703,-0.510,-1.202	
+attach_position_offset		= 0.135,-0.019,-0.005
+attach_bone_name			= bip01_l_hand
+auto_attach					= false
+use_condition				= true
+default_to_ruck				= true
+battery_type				= battery_1_5v_d
+battery_decay_rate			= 0.0001 ;decrement condition
+use1_action_functor			= area_battery_discharge.battery_action_functor
+use1_functor				= area_battery_discharge.battery_functor
+snd_turn_on					= device\flashlight\flashlight_draw
+snd_holster					= device\flashlight\flashlight_holster
+light_section				= flashlight_definition
+hud							= device_flashlight_hud
+
+[device_flashlight_hud]:detector_base_hud
+item_position				= -0.065,0.033,0.01
+item_orientation			= 198,-198,-230
+attach_place_idx		 	= 1
+item_visual             	= dynamics\devices\dev_flashlight\dev_flashlight_hud
+fire_point					= 0,0,0.5
+fire_direction				= 0.17,-0.72,1
+fire_bone      	      		= light_bone_2
+fire_point2					= 0,0,1.5
+fire_bone2					= light_bone_1
+anm_show					= flash_draw, draw
+anm_show_16x9				= flash_draw, draw
+anm_show_fast				= flash_draw, draw
+anm_show_fast_16x9			= flash_draw, draw
+anm_hide					= flash_holster, holster
+anm_hide_16x9				= flash_holster, holster
+anm_hide_fast				= flash_holster, holster
+anm_hide_fast_16x9			= flash_holster, holster
+anm_idle					= flash_idle, idle_f
+anm_idle_16x9				= flash_idle, idle_f
+anm_idle_moving				= flash_idle_moving, moving
+anm_idle_moving_16x9		= flash_idle_moving, moving
+anm_idle_sprint				= flash_idle_sprint, sprint
+anm_idle_sprint_16x9		= flash_idle_sprint, sprint
+
+[flashlight_definition]
+type						= 2							; type  0-Direct 1-Point 2-Spot 3-OMNIPART 4-Reflected
+range						= 35.0						; range                 <in meters>
+range_2						= 50.0						; range                 <in meters>
+range_r2					= 35.0						; range                 <in meters>
+range_r2_2					= 50.0						; range                 <in meters> 
+color						= 1.5,1.4,1.0,0.4			; four color components <r,g,b,a> 0.f<X<3.f
+color_r2					= 1.5,1.3,1.0,0.2			; four color components <r,g,b,a> 0.f<X<3.f
+color_animator				= empty						; color animator name   (empty - not using animator) //headlamp // light_torch_01 //galogen_br
+omni_type					= 1							; type  0-Direct 1-Point 2-Spot 3-OMNIPART 4-Reflected
+omni_range					= 0.75						; range                 <in meters>
+omni_range_2				= 1.5						; range                 <in meters>
+omni_range_r2				= 0.75						; range                 <in meters>
+omni_range_r2_2				= 1.5						; range                 <in meters> 
+omni_color					= 0.4,0.35,0.35,0.1			; four color components <r,g,b,a> 0.f<X<3.f
+omni_color_r2				= 0.5,0.45,0.45,0.1			; four color components <r,g,b,a> 0.f<X<3.f
+spot_texture				= lights\lights_bspot01		; spot texture name     (using only in Second Render)
+spot_angle					= 35.0						; spot angle            <in gradus>
+spot_angle_2				= 50.0						; spot angle            <in gradus>
+glow_texture				= internal\internal_light_torch_r2 ;glow\glow_torch_r2		; glow texture name     (required)
+glow_radius					= 0.5						; glow radius           <in meters>
+glow_radius_2				= 0.5						; glow radius           <in meters>
+guide_bone					= wpn_body					; guid bone name        (required)
+volumetric					= false						; Enable/Disable volumetric light
+volumetric_distance			= 0.33						; volumetric light: distance
+volumetric_intensity		= 0.33						; volumetric light: intensity
+volumetric_quality			= 0.5						; volumetric light: quality
+
+[device_flashlight2]:device_flashlight
+visual						= dynamics\devices\dev_flashlight\surefire_black.ogf
+inv_name					= st_device_flashlight2
+inv_name_short				= st_device_flashlight2
+description					= st_device_flashlight2_descr
+hud							= device_flashlight2_hud
+attach_angle_offset			= -2.303,-0.310,-1.202
+attach_position_offset		= 0.115,-0.009,0.025
+cost						= 2000
+inv_weight					= 0.18
+inv_volume					= 0.3
+inv_grid_y					= 8
+battery_type				= battery_1_5v_aa
+battery_decay_rate			= 0.0002
+snd_turn_on					= device\flashlight\flashlight_draw2
+snd_holster					= device\flashlight\flashlight_holster2
+
+[device_flashlight2_hud]:detector_base_hud
+item_visual					= dynamics\devices\dev_flashlight\surefire_black_hud
+attach_place_idx		 	= 1
+item_position				= -0.060,0.015,-0.01
+item_orientation			= 185,-190,-190
+fire_point					= 0,0,0.5
+fire_direction				= 0.25,-0.35,1
+fire_bone					= light_bone_2
+fire_point2					= 0,0,0.05
+fire_bone2					= light_bone_1
+anm_show					= kyky_surefire_draw, draw
+anm_show_16x9				= kyky_surefire_draw, draw
+anm_show_fast				= kyky_surefire_draw, draw
+anm_show_fast_16x9			= kyky_surefire_draw, draw
+anm_hide					= kyky_surefire_holster, holster
+anm_hide_16x9				= kyky_surefire_holster, holster
+anm_hide_fast				= kyky_surefire_holster, holster
+anm_hide_fast_16x9			= kyky_surefire_holster, holster
+anm_idle					= kyky_surefire_idle, idle
+anm_idle_16x9				= kyky_surefire_idle, idle
+anm_idle_moving				= kyky_surefire_idle_move, idle_move
+anm_idle_moving_16x9		= kyky_surefire_idle_move, idle_move
+anm_idle_sprint				= kyky_surefire_idle_sprint, idle_sprint
+anm_idle_sprint_16x9		= kyky_surefire_idle_sprint, idle_sprint
+
+[itm_tent_bag]:booster
+$spawn    					= "devices\roubles"
+$prefetch   				= 16
+visual          			= dynamics\equipments\sumka2.ogf
+description  				= st_itm_tent_bag_descr
+inv_name   					= st_itm_tent_bag
+inv_name_short  			= st_itm_tent_bag
+inv_grid_width     	 		= 3
+inv_grid_height     		= 2
+inv_grid_x          		= 7
+inv_grid_y          		= 45
+inv_category				= 7
+cost    					= 510
+inv_weight					= 0.54
+inv_volume					= 4
+remove_after_use			= false
+
+[kit_hunt]:base_section
+$spawn						= "devices\roubles"
+$prefetch					= 16
+class						= II_DOC
+visual						= dynamics\equipments\trade\kit_hunt.ogf
+description					= st_kit_hunt_descr
+inv_name					= st_kit_hunt
+inv_name_short				= st_kit_hunt
+inv_grid_width				= 2
+inv_grid_height				= 2
+inv_grid_x					= 7
+inv_grid_y					= 52
+inv_category				= 7
+cost						= 4090
+box_size					= 1
+inv_weight					= 3.685
+inv_volume					= 1.5
+
+;-----------------------------------------------------------------
+;	A.R.E.A. Items
+;-----------------------------------------------------------------
+[dosimeter]:base_section
+$spawn						= "devices\dosimeter"
+$prefetch					= 32
+class						= DET_DOSI
+visual						= dynamics\devices\dev_dosimeter\dosimeter.ogf
+hud							= dosimeter_hud
+animation_slot				= 7
+inv_name					= st_dosimeter
+inv_name_short				= st_dosimeter
+description					= st_dosimeter_descr
+slot						= 8
+ef_detector_type			= 1
+inv_weight					= 0.25
+inv_volume					= 0.55
+inv_grid_x					= 1
+inv_grid_y					= 5
+cost						= 5000
+default_to_ruck				= false
+pickup_color				= 255, 255, 30, 255	; Yellow
+attach_angle_offset			= -1.453,-1.010,-1.762
+attach_position_offset		= 0.112,-0.019,0.019
+attach_bone_name			= bip01_l_hand
+auto_attach					= false
+use_condition				= true
+snd_draw					= device\dosimeter\dosimeter_draw
+snd_holster					= device\dosimeter\dosimeter_holster
+ui_p						= -0.02904,-0.0083,0.0360
+ui_r						= 0,63,0
+actor_radiation_multiplier	= 0.004
+update_period				= 1000
+battery_type				= battery_9v
+battery_decay_rate			= 0.0005
+use1_action_functor			= area_battery_discharge.battery_action_functor
+use1_functor				= area_battery_discharge.battery_functor
+use2_action_functor			= actor_effects.quiet_mode_action_functor
+use2_functor				= actor_effects.quiet_mode_functor
+
+[dosimeter_hud]:detector_simple_hud
+item_visual					= dynamics\devices\dev_dosimeter\dosimeter_hud
+attach_place_idx			= 1
+hands_position				= -0.021000,-0.160000,0.002500
+hands_orientation			= -0.500000,1.000000,1.149999
+hands_position_16x9			= 0.033000,-0.189500,0.039000
+hands_orientation_16x9		= 2.349998,2.749999,2.849998
+item_position				= -0.075000,0.036188,-0.015934
+item_orientation			= 325.589233,-190.420761,-185.323669
+anm_show					= d1_draw, draw_dos
+anm_show_16x9				= d1_draw, draw_dos
+anm_show_fast				= d1_draw, draw_dos, 1.2
+anm_show_fast_16x9			= d1_draw, draw_dos, 1.2
+anm_hide					= d1_holster, holster_dos
+anm_hide_16x9				= d1_holster, holster_dos
+anm_hide_fast				= d1_holster, holster_dos, 1.2
+anm_hide_fast_16x9			= d1_holster, holster_dos, 1.2
+
+;-----------------------------------------------------------------
+;	BATTERIES
+;-----------------------------------------------------------------
+[battery_1_5v_aa]:booster
+$spawn 						= "devices\battery"
+visual						= dynamics\equipments\trade\battery.ogf
+inv_name					= st_battery_1_5v_aa
+inv_name_short				= st_battery_1_5v_aa
+description					= st_battery_1_5v_aa_descr
+class						= II_DOC
+inv_weight					= 0.139
+inv_volume					= 0.05
+inv_grid_x					= 0
+inv_grid_y					= 65
+inv_category				= 6
+cost						= 1020
+capacity					= 1
+use_condition				= true
+use_sound					= interface\inv_batt
+
+[battery_1_5v_d]:battery_1_5v_aa
+inv_name					= st_battery_1_5v_d
+inv_name_short				= st_battery_1_5v_d
+description					= st_battery_1_5v_d_descr
+inv_weight					= 0.139
+inv_volume					= 0.1
+inv_grid_x					= 2
+inv_grid_y					= 65
+cost						= 1150
+use_condition				= true
+use_sound					= interface\inv_batt
+
+[battery_9v]:battery_1_5v_aa
+inv_name					= st_battery_9v
+inv_name_short				= st_battery_9v
+description					= st_battery_9v_descr
+inv_weight					= 0.141
+inv_volume					= 0.08
+inv_grid_x					= 1
+inv_grid_y					= 65
+cost						= 1690
+capacity					= 2
+use_sound					= interface\inv_batt		
+
+[battery_100v]:battery_1_5v_aa
+visual						= dynamics\devices\dev_datchik_2\dev_datchik_2.ogf
+inv_name					= st_battery_100v
+inv_name_short				= st_battery_100v
+description					= st_battery_100v_descr
+inv_weight					= 2.441
+inv_volume					= 1.2
+inv_grid_x					= 3
+inv_grid_y					= 65
+cost						= 5600
+capacity					= 5
+use_sound					= interface\inv_batt
+
+[battery_4000mah]:battery_1_5v_aa
+inv_name					= st_battery_4000mah
+inv_name_short				= st_battery_4000mah
+description					= st_battery_4000mah_descr
+inv_weight					= 0.120
+inv_volume					= 0.1
+inv_grid_x					= 3
+inv_grid_y					= 60
+cost						= 1890
+use_sound					= interface\inv_batt
+
+[battery_4200mah]:battery_4000mah
+inv_name					= st_battery_4200mah
+inv_name_short				= st_battery_4200mah
+description					= st_battery_4200mah_descr
+inv_weight					= 0.130
+inv_volume					= 0.11
+inv_grid_x					= 4
+inv_grid_y					= 60
+cost						= 1950
+use_sound					= interface\inv_batt
+
+[battery_4500mah]:battery_4000mah
+inv_name					= st_battery_4500mah
+inv_name_short				= st_battery_4500mah
+description					= st_battery_4500mah_descr
+inv_weight					= 0.140
+inv_volume					= 0.12
+inv_grid_x					= 5
+inv_grid_y					= 60
+cost						= 2090
+
+[scope_battery]
+battery_decay_rate			= 0.006
+battery_type				= battery_1_5v_aa
+
+[outfit_battery]
+battery_decay_rate			= 0.005
+battery_type				= battery_9v
+;-----------------------------------------------------------------
+;	PORTABLE GENERATOR
+;-----------------------------------------------------------------
+[hand_generator]:booster
+$spawn 						= "devices\hand_generator"
+visual						= dynamics\weapons\wpn_dynamo_hand\wpn_dynamo_hand.ogf
+inv_name					= st_dynamo_hand_name
+inv_name_short				= st_dynamo_hand_name
+description					= st_dynamo_hand_descr
+class						= II_DOC
+inv_weight					= 4
+inv_volume					= 5
+inv_grid_width				= 2
+inv_grid_height				= 2
+inv_grid_x					= 16
+inv_grid_y					= 9
+inv_category				= 6
+cost						= 40000
+condition_shot_dec          = 0.007
+repair_ratio                = 1
+power_output                = 0.4
+use_condition				= true
+show_on_use					= false
+use_sound					= interface\inv_batt
+upgrades					= up_gr_firstab_dynamo_hand, up_gr_firstcd_dynamo_hand, up_gr_firstef_dynamo_hand
+installed_upgrades			=
+upgrade_scheme				= upgrade_scheme_dynamo_hand
+
+;[device_glowstick]:device_flashlight
+;class									= D_FLALIT
+;visual									= dynamics\devices\dev_glowstick\dev_glowstick_glow
+;slot									= 8
+;animation_slot							= 7
+;description								= st_device_glowstick_descr
+;inv_name								= st_device_glowstick
+;inv_name_short							= st_device_glowstick
+;inv_grid_x								= 8
+;inv_grid_y								= 47
+;inv_grid_height							= 1
+;inv_grid_width							= 1
+;icons_texture							= item\item_glowstick_icon
+;cost									= 1800
+;inv_weight								= 0.084
+;hud										= device_glowstick_hud
+;snd_draw								= device\glowstick_draw
+;snd_holster								= device\glowstick_holster
+;light_section							= glowstick_definition
+;battery_decay_rate			= 0.0005
+;
+;[device_glowstick_hud_base]:detector_base_hud
+;attach_place_idx						= 1
+;
+;item_position							= -0.09,0.03,-0.05
+;item_orientation						= 150,0,0
+;hands_position							= 0.1,-0.19,-0.04
+;hands_position_16x9						= 0.1,-0.19,-0.04
+;hands_orientation						= 2,2,0
+;hands_orientation_16x9					= 2,2,0
+;
+;aim_hud_offset_pos						= -0.275, 0.07, -0.05
+;aim_hud_offset_pos_16x9					= -0.275, 0.07, -0.05
+;aim_hud_offset_rot						= 0.0005, 0.09, -0.015
+;aim_hud_offset_rot_16x9					= 0.0005, 0.09, -0.015
+;
+;freelook_z_offset_mul					= 0.1
+;
+;anm_throw_hide							= glowstick_throw_hide
+;
+;[device_glowstick_hud]:device_glowstick_hud_base
+;item_visual								= dynamics\devices\dev_glowstick\dev_glowstick_hud
+;
+;fire_point								= 0,0,0.05
+;fire_point2								= 0,0,0
+;fire_bone								= lid
+;fire_bone2								= lid
+;
+;anm_show								= glowstick_draw_fake, draw
+;anm_show_fast							= glowstick_draw_fake, draw
+;anm_show_real							= glowstick_draw, draw
+;anm_hide								= glowstick_holster, holster
+;anm_hide_fast							= glowstick_holster, holster
+;anm_idle								= glowstick_idle, idle_f
+;anm_idle_moving							= glowstick_move, moving
+;anm_idle_sprint							= glowstick_sprint, sprint
+;anm_zoom_show							= glowstick_draw_fake, draw
+;anm_zoom_show_fast						= glowstick_draw_fake, draw
+;anm_zoom_show_real						= glowstick_zoom_draw, draw
+;anm_zoom_hide							= glowstick_zoom_holster, holster
+;anm_zoom_hide_fast						= glowstick_zoom_holster, holster, 2
+;anm_idle_zoom							= glowstick_zoom, idle_f
+;anm_zoom								= glowstick_zoom_in, idle_f
+;anm_throw_start							= glowstick_throw_start, idle_f
+;anm_throw								= glowstick_throw_idle, idle_f
+;anm_throw_end							= glowstick_throw_end, idle_f
+;anm_throw_stick							= glowstick_throw, idle_f
+;
+;[glowstick_definition]
+;type									= 1 ; type  0-Direct 1-Point 2-Spot 3-OMNIPART 4-Reflected
+;range									= 12 ; range                 <in meters>
+;range_r2								= 12 ; range                 <in meters>
+;color									= 0.0,0.8,0.6,0.8 ; four color components <r,g,b,a> 0.f<X<3.f
+;color_r2								= 0.0,0.8,0.6,0.8 ; four color components <r,g,b,a> 0.f<X<3.f
+;color_animator							= empty ; color animator name   (empty - not using animator) //light_torch_01
+;volumetric								= false
+;volumetric_quality						= 0.5
+;volumetric_intensity					= 0.10
+;volumetric_distance						= 0.25
+;
+;omni_type								= 1 ; type  0-Direct 1-Point 2-Spot 3-OMNIPART 4-Reflected
+;omni_range								= 2 ; range                 <in meters>
+;omni_range_r2							= 0.5 ; range                 <in meters>
+;omni_color								= 0.35,0.3,0.35,0.1 ; four color components <r,g,b,a> 0.f<X<3.f
+;omni_color_r2							= 0.45,0.4,0.45,0.1 ; four color components <r,g,b,a> 0.f<X<3.f
+;
+;spot_texture							= internal\internal_tactical_torch ; spot texture name     (using only in Second Render)
+;spot_angle								= 65 ; spot angle            <in gradus>
+;
+;glow_texture							= glow\glow_tactical_torch ; glow texture name     (required)
+;glow_radius								= 0.2 ; glow radius           <in meters>
+;guide_bone								= lid ; guid bone name        (required)
+;
+;[lights_glowstick]
+;class									= SO_HLAMP
+;;script_binding                          = zz_glowstick_mcm.init
+;
+;[device_glowstick_orange]:device_glowstick
+;visual									= dynamics\devices\dev_glowstick\dev_glowstick_glow_orange
+;light_section							= glowstick_definition_orange
+;hud										= device_glowstick_hud_orange
+;inv_name								= st_device_glowstick_orange
+;inv_name_short							= st_device_glowstick_orange
+;description								= st_device_glowstick_orange_descr													 
+;inv_grid_y								= 48
+;cost									= 1800
+;battery_decay_rate			= 0.0005
+;
+;[device_glowstick_hud_orange]:device_glowstick_hud
+;item_visual								= dynamics\devices\dev_glowstick\dev_glowstick_hud_orange
+;
+;[glowstick_definition_orange]:glowstick_definition
+;color									= 0.8,0.4,0.0,0.8
+;color_r2								= 0.8,0.4,0.0,0.8
+;range									= 10 ; range                 <in meters>
+;range_r2								= 10 ; range                 <in meters>
+;
+;[device_glowstick_red]:device_glowstick
+;visual									= dynamics\devices\dev_glowstick\dev_glowstick_glow_red
+;light_section							= glowstick_definition_red
+;hud										= device_glowstick_hud_red
+;inv_name								= st_device_glowstick_red
+;inv_name_short							= st_device_glowstick_red
+;description								= st_device_glowstick_red_descr												  
+;inv_grid_y								= 49
+;cost									= 1800
+;battery_decay_rate			= 0.0005
+;
+;[device_glowstick_hud_red]:device_glowstick_hud
+;item_visual								= dynamics\devices\dev_glowstick\dev_glowstick_hud_red
+;
+;[glowstick_definition_red]:glowstick_definition
+;color									= 0.4,0.1,0.0,0.8
+;color_r2								= 0.4,0.1,0.0,0.8
+;range									= 24 ; range                 <in meters>
+;range_r2								= 24 ; range                 <in meters>
+;
+;[device_glowstick_blue]:device_glowstick
+;visual									= dynamics\devices\dev_glowstick\dev_glowstick_glow_blue
+;light_section							= glowstick_definition_blue
+;hud										= device_glowstick_hud_blue
+;inv_name								= st_device_glowstick_blue
+;inv_name_short							= st_device_glowstick_blue
+;description								= st_device_glowstick_blue_descr												   
+;inv_grid_y								= 50
+;cost									= 1800
+;battery_decay_rate			= 0.0005
+;
+;[device_glowstick_hud_blue]:device_glowstick_hud
+;item_visual								= dynamics\devices\dev_glowstick\dev_glowstick_hud_blue
+;
+;[glowstick_definition_blue]:glowstick_definition
+;color									= 0.0,0.6,1.0,0.8
+;color_r2								= 0.0,0.6,1.0,0.8
+;range									= 8 ; range                 <in meters>
+;range_r2								= 8 ; range                 <in meters>

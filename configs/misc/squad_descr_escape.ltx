@@ -1,0 +1,110 @@
+
+[esc_2_12_stalker_wolf_squad]:online_offline_group
+faction = stalker
+npc = esc_2_12_stalker_wolf
+target_smart = esc_smart_terrain_2_12
+story_id = esc_2_12_stalker_wolf_squad
+spawn_point = esc_smart_terrain_2_12_wolf_spawn_point
+
+[esc_2_12_stalker_fanat_squad]:online_offline_group
+faction = stalker
+npc = esc_2_12_stalker_fanat
+target_smart = {+fanat_kmb_3_give2} esc_smart_terrain_2_12, {+fanat_kmb_3_give} nil, {+fanat_kmb_1_give4} esc_smart_terrain_2_12, {+fanat_kmb_1_give3} nil, {+fanat_kmb_1_give2} esc_smart_terrain_1_11, {+fanat_kmb_1_give} nil, esc_smart_terrain_2_12
+story_id = esc_2_12_stalker_fanat_squad
+spawn_point = esc_smart_terrain_2_12_teleport_walk
+on_death = %+esc_2_12_stalker_fanat_death%
+invulnerability = {!is_squad_enemy_to_actor(esc_2_12_stalker_fanat_squad)} true, false
+
+[esc_2_12_stalker_trader_squad]:online_offline_group
+faction = stalker
+npc = esc_2_12_stalker_trader
+target_smart = esc_smart_terrain_2_12
+story_id = esc_2_12_stalker_trader_squad
+spawn_point = esc_smart_terrain_2_12_nimble_spawn_point
+
+[esc_smart_terrain_5_7_loner_mechanic_stalker_squad]:online_offline_group
+faction = stalker
+npc = esc_smart_terrain_5_7_loner_mechanic_stalker
+target_smart = esc_smart_terrain_2_12
+story_id = esc_smart_terrain_5_7_loner_mechanic_stalker_squad
+;spawn_point = esc_tehnic_stalkerbase_walk
+
+[sim_esc_2_12_rookies]:online_offline_group
+faction = stalker
+npc_random = sim_default_stalker_0, sim_default_stalker_0, sim_default_stalker_0
+npc_in_squad = 1, 3
+
+[army_south_mechan_mlr_squad]:online_offline_group
+faction = army
+npc = army_south_mechan_mlr
+npc_in_squad = 1, 1
+target_smart = esc_smart_terrain_3_16
+
+[esc_3_16_military_trader_squad]:online_offline_group
+faction = army
+npc = esc_3_16_military_trader
+npc_in_squad = 1, 1
+target_smart = esc_smart_terrain_3_16
+
+[dog_hunt]:online_offline_group
+faction = stalker
+sympathy = 1
+npc = dog_hunt
+target_smart = esc_smart_terrain_2_12
+spawn_point = doghunt_walk_01
+story_id = dog_hunt_id
+always_arrived = true
+
+;A.R.E.A. FaL
+[esc_2_12_georgii_squad]:online_offline_group
+faction = stalker
+npc = esc_2_12_stalker_georgii
+target_smart = esc_smart_terrain_2_12
+story_id = esc_2_12_georgii_squad
+spawn_point = esc_smart_terrain_2_12_teleport_walk
+on_death = %+georgii_dead%
+
+[esc_2_12_grisha_squad]:online_offline_group
+faction = stalker
+npc = esc_2_12_stalker_grisha
+target_smart = esc_smart_terrain_2_12
+story_id = esc_2_12_grisha_squad
+spawn_point = esc_smart_terrain_2_12_teleport_walk
+on_death = %+grisha_dead%
+
+;Персонал блокпоста.
+[esc_smart_terrain_3_16_military_squad]:online_offline_group
+faction = army
+npc_random = sim_default_military_2, sim_default_military_3, sim_default_military_4
+npc_in_squad = 1, 1
+target_smart = esc_smart_terrain_3_16
+
+[esc_smart_terrain_3_16_guard_squad_1]:online_offline_group
+faction = army
+npc_random = sim_default_military_3, sim_default_military_4, sim_default_military_3_sniper
+npc_in_squad = 3, 5
+target_smart = esc_smart_terrain_3_16
+
+[esc_smart_terrain_3_16_guard_squad_2]:online_offline_group
+faction = army
+npc_random = sim_default_military_3, sim_default_military_4, sim_default_military_3_sniper
+npc_in_squad = 3, 5
+target_smart = esc_smart_terrain_3_16
+
+[esc_smart_terrain_3_16_guard_squad_3]:online_offline_group
+faction = army
+npc_random = sim_default_military_3, sim_default_military_4, sim_default_military_3_sniper
+npc_in_squad = 3, 5
+target_smart = esc_smart_terrain_3_16
+
+[esc_factory_smart_terrain_10_bandit_trader_squad]:online_offline_group
+faction = bandit
+npc = esc_factory_smart_terrain_10_bandit_trader
+npc_in_squad = 1, 1
+target_smart = esc_factory_smart_terrain_10
+
+[esc_factory_smart_terrain_10_bandit_mechanic_squad]:online_offline_group
+faction = bandit
+npc = esc_factory_smart_terrain_10_bandit_mechanic
+npc_in_squad = 1, 1
+target_smart = esc_factory_smart_terrain_10

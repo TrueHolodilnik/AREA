@@ -1,0 +1,664 @@
+local sysini
+local _tmr, _tmr2 = 0, 0
+local add_charge, last_power, NV_check
+feature_is_active = nil
+local suit_decay = 100
+local old_condition = {}
+local HUD
+local battery_status_obj = {}
+
+function repair_battery(obj)
+	if not sysini:line_exist(obj:section(),"battery_type") then return end
+	local id = obj:id()
+	local batt = get_battery(id)
+	if (get_battery(id) < 1) then
+		set_battery(id,1)
+	end
+	obj:set_item_battery_dead(false)
+end
+
+function set_battery(id,cond, suit)
+	local name = "battery_"..id
+	if suit then
+		name = suit.."_battery_"..id
+	end
+	utils.save_var(db.actor, name, cond)
+	return cond
+end
+ 
+function get_battery(id, suit)
+	if id == nil then return end
+	local name = "battery_"..id
+	if suit then
+		name = suit.."_battery_"..id
+	end
+	if not utils.load_var(db.actor, name, false) then
+		 utils.save_var(db.actor, name, math.random(1,75)/100)
+	end
+	return utils.load_var(db.actor, name, 1)
+end
+
+function weapon_NV(wpn)
+--	enable dxr sights
+	-- local sight = dxr_sights.components(wpn)
+	-- if sight then
+		-- return sight and sysini:line_exist(sight,"battery_type") and wpn:id(), sight
+	-- end
+-- enable dxr sights
+	local scope = wpn and wpn:weapon_is_scope() and wpn:weapon_get_scope()
+	local scopes = scope and alun_utils.parse_list(sysini, wpn:section(), "scopes_sect")
+	local scope_sect = scopes and #scopes > 0 and scopes[scope+1]
+	local base_scope = scope_sect and sysini:r_string_ex(scope_sect,"scope_name")
+	--printf("weapon:%s scope:%s scope_sect:%s exist:%s", wpn:section(), scope, base_scope, base_scope and sysini:line_exist(base_scope,"scope_nightvision"))
+	local id
+	if base_scope and sysini:line_exist(base_scope,"battery_type") then
+		id = wpn:id()
+	end
+	return id, base_scope
+end
+
+function outfit_NV(Oft)
+	local suit = Oft or db.actor:item_in_slot(7)
+	local helm = Oft or db.actor:item_in_slot(12)
+	local NV
+	local function itr(upgrade, outfit)
+		if not upgrade then
+			printf("A.R.E.A.: bat upgrade is nil")
+			return
+		end
+		local upgrade_section = sysini:r_string_ex(upgrade, "section")
+		if upgrade_section and sysini:line_exist(upgrade_section, "nightvision_sect") then
+			NV = outfit
+		end
+	end
+	if helm and sysini:r_string_ex(helm:section(), "nightvision_sect",false) then
+		if sysini:line_exist(helm:section(), "nightvision_sect") then
+			NV = helm
+		else
+			helm:iterate_installed_upgrades(itr,helm)
+		end
+	end
+	if not(NV) and suit and (not Oft) and sysini:r_string_ex(suit:section(), "nightvision_sect",false) then
+		if sysini:line_exist(suit:section(), "nightvision_sect") then
+			NV = suit
+		else
+			suit:iterate_installed_upgrades(itr,suit)
+		end
+	end
+	return NV and NV:id(), NV and NV:section()
+end
+
+function hide_pda()
+	local pda_menu = ActorMenu.get_pda_menu()
+	if (pda_menu:IsShown()) then
+		local pda = db.actor:item_in_slot(8)
+		if not pda or pda:condition() <= 0 then
+			pda_menu:HideDialog()
+			local text = pda and "st_discharged" or "st_not_in_slot"
+			SetHudMsg(game.translate_string(text),3)
+		end
+	end
+end
+
+function batt_hud()
+	local inv_hud = ActorMenu.get_actor_menu()
+	if (inv_hud and inv_hud:IsShown()) then
+		if HUD == nil then
+			HUD = battery_ui(inv_hud)
+			get_hud():AddDialogToRender(HUD)
+		end
+	else
+		if HUD ~= nil then
+			get_hud():RemoveDialogToRender(HUD)
+			HUD = nil
+		end
+	end	
+end
+
+local function main_loop()
+	batt_hud()
+	hide_pda()
+--
+	local tg = time_global()
+	if (_tmr and tg < _tmr) then
+		return false
+	end
+	_tmr = tg + 1000
+--
+	if not (db.actor) then
+		return false
+	end
+
+	local detector = db.actor:active_detector() or db.actor:active_flashlight()
+	local item = db.actor:item_in_slot(9)
+	if (item and detector) then
+		local charge = item:condition()
+		if (charge > 0) then
+			item:set_condition(charge - (sysini:r_float_ex(item:section(),"battery_decay_rate") or 0.0001))
+			--news_manager.send_tip(db.actor, "Detector Battery:" .. item:condition(), nil, nil, nil, 20000)
+		--else
+			--db.actor:transfer_item(item, db.actor)
+			--detector:switch_state(2)
+		else
+			if item:get_item_battery_dead() == false then
+				item:set_item_battery_dead(true)
+			end
+		end
+	end
+	
+	local torch = db.actor:item_in_slot(10)
+	if (torch and torch:torch_enabled()) then 
+		local charge = torch:condition()
+		if (charge > 0) then
+			torch:set_condition(charge - (sysini:r_float_ex(torch:section(),"battery_decay_rate") or 0.0001))
+			--news_manager.send_tip(db.actor, "Torch Battery:" .. torch:condition(), nil, nil, nil, 20000)
+		else
+			if torch:get_item_battery_dead() == false then
+				torch:set_item_battery_dead(true)
+			end
+			torch:enable_torch(false)
+		end
+	end
+
+	local pda_menu = ActorMenu.get_pda_menu()
+	if (pda_menu:IsShown()) then
+		local pda = db.actor:item_in_slot(8)
+		local charge = pda and pda:condition() or 0
+		if (charge > 0) then
+			charge = charge - sysini:r_float_ex("device_pda","battery_decay_rate",0)
+			pda:set_condition(charge)
+			--news_manager.send_tip(db.actor, "PDA condition:" .. charge, nil, nil, nil, 20000)
+		else
+			pda_menu:HideDialog()
+		end
+	end
+
+	local wpn = db.actor:active_item()
+	local id, base_sect, rate, NV_item
+	if wpn and IsWeapon(wpn) and wpn:cast_Weapon():IsZoomed() then
+		id, base_sect = weapon_NV(wpn)
+		rate = id and base_sect and sysini:r_float_ex(base_sect,"battery_decay_rate",false)
+	else --if db.actor:night_vision_enabled() == true then
+		id, base_sect = outfit_NV()
+		rate = id and base_sect and sysini:r_float_ex(base_sect,"battery_decay_rate",false)
+		NV_item = id and level.object_by_id(id)
+		wpn = NV_item
+	end
+	--printf("section:%s NV decay rate:%s (%s) batterydead:%s", base_sect, rate, id, wpn and wpn:get_item_battery_dead())
+	if id and rate then
+		local charge = get_battery(id)
+		--printf("NV outside condition:%s", charge)
+		if (charge and charge > 0) then
+			if NV_check and NV_check == id and db.actor:night_vision_enabled() == false then
+				--db.actor:enable_night_vision(true)
+				NV_check = nil
+			end
+			wpn:set_binoc_detect_off(false)
+			if db.actor:night_vision_enabled() == true then
+				charge = set_battery(id,charge - rate)
+			end
+			--news_manager.send_tip(db.actor, "NV condition:" .. charge, nil, nil, nil, 20000)
+			--printf("NV condition:%s", charge)
+		else
+			if wpn:get_item_battery_dead() == false then
+				wpn:set_item_battery_dead(true)
+			end
+			if db.actor:night_vision_enabled() == true then
+				db.actor:enable_night_vision(false)
+			end
+			if not NV_item then
+				wpn:set_binoc_detect_off(true)
+			end
+		end
+	end
+
+	local suit = db.actor:item_in_slot(7)
+	--if db.actor.power < last_power - 0.001 then
+	if (db.actor.power < last_power - 0.001) or (tg > _tmr2) then
+		if suit and sysini:line_exist(suit:section(),"battery_suit_decay_rate") then
+			local charge = get_battery(suit:id(), "suit")
+			--exo
+			if charge > 0 then
+				local coeff = db.actor:get_total_weight() /(suit_decay - (artefact_degradation.art_weight_add or 0))
+				charge = charge - (sysini:r_float_ex(suit:section(),"battery_suit_decay_rate",0.0) * coeff)
+				charge = set_battery(suit:id(), charge, "suit")
+				--news_manager.send_tip(db.actor, "suit battery:" .. charge .. " weight coeff:" .. coeff, nil, nil, nil, 20000)
+				RemoveTimeEvent("exo_stamin_actor_power",0)
+			else
+				suit:set_suit_battery_dead(true)
+				local ztime = time_global()
+				CreateTimeEvent("exo_stamin_actor_power",0, 0, function()
+					local time_delta = (time_global()-ztime)/5
+					ztime = time_global()
+					if db.actor:get_move_magnitude() > 0 then
+						local conditions = db.actor:cast_Actor():conditions()
+						if db.actor.power > 0 then
+							conditions:SetPower(conditions:GetPower() - (time_delta*0.001))
+						end
+					end
+				end)
+				
+				SetHudMsg(game.translate_string("st_exo_disscharged"),3)
+			end
+		elseif ReturnTimeEventTime("exo_stamin_actor_power",0) then
+			RemoveTimeEvent("exo_stamin_actor_power",0)
+		end
+		_tmr2 = tg + 5000
+	end
+	last_power = db.actor.power
+	return false
+end
+
+function addon_detach(wpn_id,addon)
+	--printf("detach wpn:%s addon:%s", wpn_id, addon:section())
+	if addon:clsid() == clsid.wpn_scope_s then
+		local cond = utils.load_var(db.actor, "battery_"..wpn_id, 1)
+		--printf("cond:%s", cond)
+		utils.save_var(db.actor, "battery_"..wpn_id, nil)
+		addon:set_condition(cond)
+	end
+end
+
+function addon_attach(wpn_id,section,cond)
+	--printf("attach wpn:%s addon:%s cond:%s", wpn_id, section, cond)
+	if section:find("_scope_") and (section:find("_night") or section:find("_dusk") or section:find("_detector")) then
+		utils.save_var(db.actor, "battery_"..wpn_id, cond)
+	end
+end
+---------------------------
+----- Context Actions -----
+---------------------------
+
+-- Called when a context option is required.
+function battery_functor(item)
+	local charge = get_battery(item:id()) or item:condition()
+	if charge == -1 then return end
+	--printf("condition:%s",charge)
+	return game.translate_string("st_remove_battery")
+end
+
+function suit_battery_functor(item)
+	if get_battery(item:id(), "suit") == -1 then return end
+	return game.translate_string("st_remove_suit_battery")
+end
+--
+function NV_battery_functor(item)
+	local id = outfit_NV(item)
+	if type(id) ~= "number" then return end
+	if get_battery(id) == -1 then return end
+	return game.translate_string("st_remove_nv_battery")
+end
+
+function scope_battery_functor(item)
+	local id = weapon_NV(item)
+	if type(id) ~= "number" then return end
+	if get_battery(id) == -1 then return end
+	return game.translate_string("st_remove_scope_battery")
+end
+--
+function batt_delay(id, charge)
+	local batt = level.object_by_id(id)
+	if batt then
+		batt:set_condition(charge)
+		return true
+	end
+	return false
+end
+-- Called when the context option is clicked.
+function battery_action_functor(item)
+	local charge = item:condition()
+	local batt = sysini:r_string_ex(item:section(),"battery_type",false)
+	if not batt then return end
+	batt = alife():create(batt, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+	CreateTimeEvent("batt_delay",item:id(),0,batt_delay,batt.id, charge)
+	item:set_condition(-1)
+	if item:section():find("device_torch") then
+		item:enable_torch(false)
+	end
+	set_battery(item:id(),-1)
+	item:set_item_battery_dead(true)
+	battery_status_obj["battery_id("..item:id()..")"] = false
+	--printf("condition:%s",item:condition())
+	sound_object("interface\\inv_batt_out"):play(db.actor,0,sound_object.s2d)
+	actor_effects.use_item("battery_1v")
+end
+
+function suit_battery_action_functor(item)
+	local id, sect = item:id(), item:section()
+	local charge = get_battery(id,"suit")
+	local batt = sect and sysini:r_string_ex(sect,"battery_suit_type",false)
+	if not batt then return end
+	batt = alife():create(batt, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+	CreateTimeEvent("batt_delay",batt.id,0,batt_delay,batt.id, charge)
+	set_battery(id,-1,"suit")
+	battery_status_obj["battery_id("..id..")"] = false
+	item:set_suit_battery_dead(true)
+	if charge > 0 then 
+		sound_object("interface\\inv_battexo_out"):play(db.actor,0,sound_object.s2d)
+	end
+	actor_effects.use_item("battery_100v_out")
+end
+--
+function NV_battery_action_functor(item)
+	local id, base_sect = outfit_NV(item)
+	local charge = get_battery(id)
+	local batt = sysini:r_string_ex(base_sect,"battery_type",false)
+	if not batt then return end
+	batt = alife():create(batt, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+	CreateTimeEvent("batt_delay",item:id(),0,batt_delay,batt.id,charge)
+	set_battery(id,-1)
+	item:set_item_battery_dead(true)
+	battery_status_obj["battery_id("..id..")"] = false
+	sound_object("interface\\inv_batt_out"):play(db.actor,0,sound_object.s2d)
+end
+
+function scope_battery_action_functor(item)
+	local id, base_sect = weapon_NV(item)
+	local charge = get_battery(id)
+	local batt = sysini:r_string_ex(base_sect,"battery_type",false)
+	if not batt then return end
+	batt =  alife():create(batt, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+	CreateTimeEvent("batt_delay",batt.id,0,batt_delay,batt.id, charge)
+	set_battery(id,-1)
+	battery_status_obj["battery_id("..id..")"] = false
+	sound_object("interface\\inv_batt_out"):play(db.actor,0,sound_object.s2d)
+end
+--
+function clean()
+	local sim = alife()
+	for id, se_obj in sim:objects() do
+		if not (se_obj) then
+			if utils.load_var(db.actor, "battery_"..id,0) == 0 then
+				utils.save_var(db.actor, "battery_"..id, nil)
+			end
+			if utils.load_var(db.actor, "suit_battery_"..id,0) == 0 then
+				utils.save_var(db.actor, "suit_battery_"..id, nil)
+			end
+		else
+			local obj = level.object_by_id(id)
+			if obj then
+				local batt = get_battery(id)
+				if IsOutfit(obj) then
+					local sect = obj:section()
+					if sect and sysini:line_exist(sect,"battery_suit_type") then
+						batt = get_battery(id, sect)
+					end
+				end
+				if batt <= 0 then --and obj:get_item_battery_dead() == true then
+					obj:set_item_battery_dead(true)
+				end
+			end
+		end
+	end
+end
+
+function activate_feature()
+	if (feature_is_active) then
+		return 
+	end
+	feature_is_active = true
+	sysini = system_ini()
+	last_power = db.actor.power
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",drag_item)
+	RegisterScriptCallback("actor_on_weapon_addon_detach",addon_detach)
+	RegisterScriptCallback("actor_on_weapon_addon_attach",addon_attach)
+	clean()
+	--RegisterScriptCallback("actor_on_net_destroy",clean)
+	AddUniqueCall(main_loop)
+end 
+
+function deactivate_feature()
+	if not (feature_is_active) then
+		return 
+	end
+	feature_is_active = false
+	_tmr = nil
+	sysini = nil
+	add_charge = nil
+	last_power = nil
+	
+	UnregisterScriptCallback("CUIActorMenu_OnItemDropped",drag_item)
+	UnregisterScriptCallback("actor_on_weapon_addon_detach",addon_detach)
+	UnregisterScriptCallback("actor_on_weapon_addon_attach",addon_attach)
+	--UnregisterScriptCallback("actor_on_net_destroy",clean)
+	RemoveUniqueCall(main_loop)
+end
+
+function activate_check()
+	RegisterScriptCallback("actor_on_item_take", on_check)
+	RegisterScriptCallback("actor_on_item_drop", on_check)
+	on_check()
+end
+
+function deactivate_check()
+	UnregisterScriptCallback("actor_on_item_take", on_check)
+	UnregisterScriptCallback("actor_on_item_drop", on_check)
+	local inventory = db.actor:cast_InventoryOwner():inventory()
+	if inventory then
+		inventory:SetRadIconCheck(true)
+	end
+end
+
+function on_check(item)
+	local dos = db.actor:object("dosimeter")
+	local check = dos and dos:get_item_battery_dead() == false or false
+	local inventory = db.actor:cast_InventoryOwner():inventory()
+	if inventory then
+		inventory:SetRadIconCheck(check)
+	end	
+end
+
+-- local function opt_menu_on_init(menu)
+	-- menu.gameplay_options["battery_charge"] = {default=false, 	debug_only=false, 	typ="check",
+		-- on_accept=function(handler,optMgr,ctrl)
+			-- if (level.present()) then
+				-- if (ctrl:GetCheck()) then
+					-- activate_feature()
+				-- else
+					-- deactivate_feature()
+				-- end
+			-- end
+		-- end
+	-- }
+	-- menu.gameplay_options["rad_icon_check"] = {default=false, 	debug_only=false, 	typ="check",
+		-- on_accept=function(handler,optMgr,ctrl)
+			-- if (level.present()) then
+				-- if (ctrl:GetCheck()) then
+					-- activate_check()
+				-- else
+					-- deactivate_check()
+				-- end
+			-- end
+		-- end
+	-- }
+-- end
+
+function on_game_start()
+	--RegisterScriptCallback("opt_menu_on_init",opt_menu_on_init)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+	local function init()
+		activate_feature()
+		activate_check()
+		-- if (axr_main.config:r_value("mm_options","enable_battery_charge",1,false)) then
+			-- activate_feature()
+		-- end
+			
+		-- if (axr_main.config:r_value("mm_options","enable_rad_icon_check",1,false)) then
+			-- activate_check()
+		-- end
+	end
+	RegisterScriptCallback("actor_on_first_update",init)
+end
+
+function UsesThisBattery(battery, itm_sect, suit)
+	local batt_type = itm_sect and sysini:r_string_ex(itm_sect,"battery_type")
+	if (suit) then
+		batt_type = sysini:r_string_ex(itm_sect,"battery_suit_type")
+	end
+	--printf("battery_type:%s",batt_type)
+	return battery:section() == batt_type
+end
+
+function save_state(m_data)
+	m_data.battery_status_id = battery_status_obj
+end
+
+function load_state(m_data)
+	if m_data.battery_status_id then
+		battery_status_obj =  m_data.battery_status_id
+	end
+end
+
+function drag_item(battery,target,from_slot,to_slot)
+	if target == nil then return end
+	local NV_id, NV_sect
+	if IsWeapon(target) then
+		NV_id, NV_sect = weapon_NV(target)
+	elseif IsOutfit(target) or IsHeadgear(target) then
+		NV_id, NV_sect = outfit_NV(target)
+	end	
+	local suit = IsOutfit(target)
+	if from_slot == EDDListType.iActorBag and 
+	  (to_slot == EDDListType.iActorBag or to_slot == EDDListType.iActorSlot) then
+		local tmp_cond = battery:condition()
+		if NV_id and UsesThisBattery(battery, NV_sect) then
+			battery:set_condition(get_battery(NV_id))
+			set_battery(NV_id, tmp_cond)
+			NV_check = NV_id
+			if target:get_item_battery_dead() and get_battery(target:id()) > 0 then
+				target:set_item_battery_dead(false)
+				target:set_binoc_detect_off(false)
+			end
+			sound_object("interface\\inv_batt_out"):play(db.actor,0,sound_object.s2d)
+			actor_effects.use_item("battery_100v_in")
+		elseif UsesThisBattery(battery,target:section(), suit) then
+			local suit_batt = get_battery(target:id(),"suit")
+			if suit == true then
+				battery:set_condition(suit_batt)
+				set_battery(target:id(), tmp_cond, "suit")
+				if target:get_suit_battery_dead() and get_battery(target:id(),"suit") > 0 then
+					target:set_suit_battery_dead(false)
+					actor_effects.use_item("battery_100v_in")
+					sound_object("interface\\inv_battexo_in"):play(db.actor,0,sound_object.s2d)
+				end
+			else
+				battery:set_condition(target:condition())
+				target:set_condition(tmp_cond)
+				if target:get_item_battery_dead() == true and (target:condition() > 0 or get_battery(target:id()) > 0) then
+					target:set_item_battery_dead(false)
+				end
+				if get_battery(target:id()) == -1 then 
+					set_battery(target:id(), nil)
+				end
+			end
+		end
+		
+		if battery:section() ~= target:section() then 
+			if sysini:r_string_ex(target:section(),"battery_suit_type") == battery:section() or sysini:r_string_ex(target:section(),"battery_type") == battery:section() then
+				if not battery_status_obj["battery_id("..target:id()..")"] then
+					battery_status_obj["battery_id("..target:id()..")"] = true
+					if battery:condition() == 0 and target:get_item_battery_dead() == false then
+						alife():release(alife_object(battery:id()), true)
+					end
+					actor_effects.use_item("battery_100v_out")
+					sound_object("interface\\inv_batt_in"):play(db.actor,0,sound_object.s2d)
+				else
+					if get_battery(target:id(), "suit") == 0 then 
+						sound_object("interface\\inv_battexo_out"):play(db.actor,0,sound_object.s2d)
+					end
+					actor_effects.use_item("battery_100v_out")
+					sound_object("interface\\inv_batt_in"):play(db.actor,0,sound_object.s2d)
+				end
+			end
+		end
+	end
+end
+
+-------------------- Progress bar for Inventory--------------------------
+class "battery_ui" (CUIScriptWnd)
+
+function battery_ui:__init(inv_hud) super()
+	self._tmr = 0
+	self.inv_hud = ActorMenu.get_actor_menu() --inv_hud
+	self:SetWndRect(Frect():set(0, 0, device().width, device().height))
+	xml = CScriptXmlInit()
+	xml:ParseFile("ui_battery.xml")
+	self.suit_battery	= xml:InitTextWnd("suit_battery",self.inv_hud)
+	self.suit_battery_back	= xml:InitStatic("suit_battery_back",self.inv_hud)
+	self.NV_battery		= xml:InitTextWnd("NV_battery",self.inv_hud)
+	self.NV_battery_back	= xml:InitStatic("NV_battery_back",self.inv_hud)
+	self.suit_pbar 		= xml:InitProgressBar("suit_battery_back:suit_battery_progress",self.suit_battery_back)
+	self.NV_pbar 		= xml:InitProgressBar("NV_battery_back:NV_battery_progress",self.NV_battery_back)
+	self.suit_battery:SetText("")
+	self.NV_battery:SetText("")
+	
+	self.suit_pbar:Show(false)
+	self.NV_pbar:Show(false)
+	self.suit_battery:Show(false)
+	self.suit_battery_back:Show(false)
+	self.NV_battery:Show(false)
+	self.NV_battery_back:Show(false)
+end
+
+function battery_ui:__finalize()
+	self.suit_pbar:Show(false)
+	self.NV_pbar:Show(false)
+	self.suit_battery:Show(false)
+	self.suit_battery_back:Show(false)
+	self.NV_battery:Show(false)
+	self.NV_battery_back:Show(false)
+end
+
+function battery_ui:Update()
+	CUIScriptWnd.Update(self)
+	local suit = db.actor:item_in_slot(7)
+	if HUD and suit and sysini:line_exist(suit:section(),"battery_suit_decay_rate") then
+		local suit_battery = get_battery(suit:id(), "suit")
+		
+		if suit_battery > 0 then
+			self.suit_pbar:Show(true)
+			self.suit_battery:Show(true)
+			self.suit_battery_back:Show(true)
+			self.suit_pbar:SetProgressPos(suit_battery)
+			self.suit_battery:SetText(string.format("%3.0f%%", suit_battery*100))
+		else
+			self.suit_pbar:Show(false)
+			self.suit_battery:Show(false)
+			self.suit_battery_back:Show(false)
+		end
+	else
+		self.suit_pbar:Show(false)
+		self.suit_battery:Show(false)
+		self.suit_battery_back:Show(false)
+	end
+
+	local wpn = db.actor:active_item()
+	local id, base_sect, rate
+	if wpn and IsWeapon(wpn) and wpn:cast_Weapon():IsZoomed() then
+		id, base_sect = weapon_NV(wpn)
+		rate = id and base_sect and sysini:r_float_ex(base_sect,"battery_decay_rate",0) > 0
+	else --if db.actor:night_vision_enabled() == true then
+		id, base_sect = outfit_NV()
+		rate = id and base_sect and sysini:r_float_ex(base_sect,"battery_decay_rate",0) > 0
+	end
+	--printf("section:%s NV decay rate:%s (%s) batterydead:%s", base_sect, rate, id, wpn and wpn:get_item_battery_dead())
+	if HUD and id and rate then
+		local charge = get_battery(id)
+		if (charge and charge > 0) then
+			self.NV_pbar:Show(true)
+			self.NV_battery:Show(true)
+			self.NV_battery_back:Show(true)
+			self.NV_pbar:SetProgressPos(charge)
+			self.NV_battery:SetText(string.format("%3.0f%%", charge*100))
+		else
+			self.NV_pbar:Show(false)
+			self.NV_battery:Show(false)
+			self.NV_battery_back:Show(false)
+		end
+	else
+		self.NV_pbar:Show(false)
+		self.NV_battery:Show(false)
+		self.NV_battery_back:Show(false)
+	end
+end

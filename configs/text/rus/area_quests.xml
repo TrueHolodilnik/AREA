@@ -1,0 +1,1099 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+<!-------------------Fanat stalker fuel tasks------------------->
+
+	<string id="esc_2_12_stalker_fanat_task_4_name">
+		<text>Найти топливо для Фаната</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_4_text">
+		<text>Фанат попросил найти ему канистру 95-го бензина.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_4_about">
+		<text>Работа нужна, да? Работа всегда есть. Сможешь найти мне полную канистру 95-го бензина? Для печей, да, генераторов всяких... В зоне есть места, где можно его найти, он ведь тут никому и не нужен.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_4_fetch_about">
+		<text>Ещё могу посоветовать в Тёмной Лощине стоит поискать, на заправке. Только там военные ошиваются, будь осторожен, да и не факт, что топливо там есть, информация никем не проверенная. Как найдёшь - тащи, мне не срочно, я многим тоже самое поручил.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_4_fetch_finish">
+		<text>Уже достал? Давай её сюда. Тяжёлая зараза... Держи:</text>
+	</string>
+	
+	<string id="esc_2_12_stalker_fanat_task_5_name">
+		<text>Найти топливо для Фаната</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_5_text">
+		<text>Фанат попросил найти ему канистру керосина.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_5_about">
+		<text>Нам периодически нужно пополнять запасы горючего. Сможешь найти мне полную канистру керосина? Для нужд лагеря. В зоне есть места, где можно его найти, он ведь тут никому и не нужен.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_5_fetch_about">
+		<text>Я не знаю где конкретно можно найти, но думаю стоит пошарить в гаражах каких-нибудь что ли. Если когда-нибудь встретишь - тащи сюда, да и можешь не торопиться, я много кому поручил тоже самое. Удачи в поисках.</text>
+	</string>
+	<string id="esc_2_12_stalker_fanat_task_5_fetch_finish">
+		<text>Так, сегодня значит у нас будет барбекю... Держи награду:</text>
+	</string>
+
+<!-------------------Tasks for new honcho's------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Polimer -->
+
+	<string id="drx_sl_dasc_tech_mlr_meet_task_1_name">
+		<text>Встретиться с Полимером</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_meet_task_1_text">
+		<text>Следующий пункт назначения - механик Полимер.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Polimer (Loner Mechanic) Default Storyline Task -->
+
+	<string id="drx_sl_dasc_tech_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_default_task_about">
+		<text>Мужик, ты же понимаешь, что время - деньги? Выполнили твою работу. Но не расстраивайся, я знаю у кого она есть.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_default_task_finish">
+		<text>Удачи, сталкер.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Polimer (Loner Mechanic) Find Replacement Weapon Storyline Task- -->
+
+	<string id="drx_sl_dasc_tech_mlr_task_1_name">
+		<text>Найти %s для Полимера</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_1_text">
+		<text>Полимер накосячил, когда ремонтировал ствол. Надо найти ему %s на замену. Время выполнения - 6 суток.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_1_about">
+		<text>Сталкер, мне позарез нужна твоя помощь. Местный авторитет дал мне задание починить его ствол, но я случайно его повредил, и в таких условиях восстановить не смогу. Найдёшь замену?</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_1_fetch_about">
+		<text>Так, если конкретно, то мне нужен %s. Ещё учти, что мне за этим стволом придут через дней шесть, не тяни. У меня не много денег, но отблагодарить смогу.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_1_fetch_finish">
+		<text>Эх, здорово! Спасибо, ты спас мою задницу. Вот тебе за хлопоты:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Polimer (Loner Mechanic) Clear Out Mutants Storyline Task -->
+
+	<string id="drx_sl_dasc_tech_mlr_task_2_name">
+		<text>Истребить стаю мутантов</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_2_text">
+		<text>Полимер попросил убрать досаждающую ему свору мутантов. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_2_about">
+		<text>Сталкер, ты ведь ничем особо не занят? Моему бизнесу мешают чёртовы мутанты, перекрывая пути сюда. Я не очень хорош в стрельбе, мог бы ты убрать их для меня? Убрать их надо поскорее, я тебе даю сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_2_finish">
+		<text>Спасибо. Вот твоя награда, как я и обещал:</text>
+	</string>
+	
+	<string id="drx_sl_dasc_tech_mlr_task_3_name">
+		<text>Почтальон</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_3_text">
+		<text>Полимер попросил доставить посылку другому сталкеру. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_3_about">
+		<text>Нужно почтальоном поработать, как раз такая работа тебе по силам будет. Так... Бери вот это всё, отнесёшь сталкеру одному, метку я тебе скину на КПК. В срок до одного дня нужно доставить, если опоздаешь или с посылкой что-то случится - пеняй на себя.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_3_finish">
+		<text>Неплохо, быстро ты справился. Держи:</text>
+	</string>
+	
+	<string id="drx_sl_dasc_tech_mlr_task_4_name">
+		<text>Заёмщик</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_4_text">
+		<text>Полимеру нужны деньги, которые этот сталкер ему задолжал. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_4_about">
+		<text>Есть одно дело деликатное... Не то, чтобы мы тут бандитизмом занимались, но придётся с кое-кого выбить денег. Если более конкретно, то мне один сталкер задолжает, и возвращать долг явно не собирается. Нужно поговорить с ним, и это не значит что обязательно нужно его грохнуть.</text>
+	</string>
+	<string id="drx_sl_dasc_tech_mlr_task_4_finish">
+		<text>Так-так... Вроде вся сумма, молоток. Твоя доля:</text>
+	</string>
+	
+<!-------------------Drovosek------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Drovosek -->
+
+	<string id="drx_sl_dasc_trade_mlr_meet_task_1_name">
+		<text>Повидаться с Дровосеком</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_meet_task_1_text">
+		<text>Надо заглянуть к Дровосеку в Тёмную Лощину.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Drovosek (Loner Trader) Default Storyline Task -->
+
+	<string id="drx_sl_dasc_trade_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_default_task_about">
+		<text>Знаешь, мы тебя уже заждались и поручили другому сталкеру твоё задание. Но ты можешь поискать работу у других.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_default_task_finish">
+		<text>Удачной дороги.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Drovosek (Loner Trader) Covert Agent Storyline Task -->
+
+	<string id="drx_sl_dasc_trade_mlr_task_1_name">
+		<text>Закладка</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_1_text">
+		<text>Забрать посылку, оставленную каким-то сталкером для Дровосека.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_1_about">
+		<text>Для меня раздобыли кое-какие важные документы, посыльный оставил их, надеюсь, в договорном месте и тебе нужно их забрать. Смотри, чтобы за тобой не было хвоста, если заметишь его - уничтожь. Дело довольно серьёзное. Во времени я тебя не ограничиваю, но если эти бумажки окажутся не у меня - будешь иметь проблемы.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_1_finish">
+		<text>Молодец, за хорошую работу - хорошая награда:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Drovosek (Loner Trader) Hunt for Food Storyline Task -->
+
+	<string id="drx_sl_dasc_trade_mlr_task_2_name">
+		<text>Охота</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_2_text">
+		<text>Добыть %s. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_2_about">
+		<text>Недавно заходил один сталкер и половину запасов мяса мутантов скупил. На вопросы зачем ему столько не отвечает, ну и хрен с ним. Но ведь торговать-то нечем. Не желаешь сходить на охоту? Только поторопись, чтобы через суток двое всё было тут.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_2_finish">
+		<text>Вот и ладушки, возьми оплату:</text>
+	</string>
+	
+	<string id="drx_sl_dasc_trade_mlr_task_3_name">
+		<text>Посыльный</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_3_text">
+		<text>Дровосек попросил доставить посылку другому сталкеру. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_3_about">
+		<text>Буду краток: я даю тебе груз, ты его относишь получателю. Если с грузом что-то произойдёт, либо ты не успеешь вовремя - отвечаешь головой. День у тебя будет, вполне хватит чтобы успеть. Оплату у меня заберёшь.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_3_finish">
+		<text>Неплохо, быстро ты справился. Держи:</text>
+	</string>
+	
+	<string id="drx_sl_dasc_trade_mlr_task_4_name">
+		<text>Коллектор</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_4_text">
+		<text>Дровосеку нужны деньги, которые этот сталкер ему задолжал. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_4_about">
+		<text>Надеюсь ты грязной работы не боишься. Нужно разобраться с одним моим должником, необязательно его убивать конечно же. Жду тебя с деньгами ровно через сутки. Давай.</text>
+	</string>
+	<string id="drx_sl_dasc_trade_mlr_task_4_finish">
+		<text>Так-так... Вроде вся сумма, молоток. Твоя доля:</text>
+	</string>
+
+<!-------------------Barman------------------->
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Barman -->
+
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_meet_task_1_name">
+		<text>Заглянуть к Бармену</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_meet_task_1_text">
+		<text>Нужно зайти в Бар к его владельцу.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Barman (Loner Trader) Default Storyline Task -->
+
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_default_task_name">
+		<text>Получите следующее задание</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_default_task_text">
+		<text>Прийти к бармену для дальнейших указаний.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_default_task_about">
+		<text>Ну ты шустряк, конечно. Слушай, твою работу уже делает другой сталкер, но у меня есть идея. Я знаю того, кому наверняка нужна твоя помощь.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_default_task_finish">
+		<text>Не хворай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Barman (Loner Trader) Eliminate Lair -->
+
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_1_name">
+		<text>Уничтожить скопление мутантов</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_1_text">
+		<text>В этом месте было обнаружено скопление мутантов, представляющих опасность для местных сталкеров. Необходимо зачистить местность и вернуться за наградой.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_1_about">
+		<text>Ты охотой не увлекаешься? Тут на днях, около одной важной для нас точки, мутанты устроили логово, и было бы неплохо, если бы кто-то их пострелял хоть когда-нибудь. Возьмёшься?</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_1_finish">
+		<text>Молодец. Теперь тут станет немного спокойнее, спасибо, сталкер. Держи деньги:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Barman (Loner Trader) Eliminate Bandit Camp -->
+
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_2_name">
+		<text>Уничтожить лагерь бандитов</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_2_text">
+		<text>Необходимо зачистить данную местность от бандитов. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_2_about">
+		<text>У нас большие проблемы с бандитами в этом районе. Эти сволочи житья нам не дают: грабят, шантажируют, захватывают наших людей. Они перекрыли большинство безопасных маршрутов, от них просто необходимо избавиться! Я дам тебе двое суток на всё. Поможешь?</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_2_finish">
+		<text>Чёрт возьми, спасибо! Уж теперь-то они к нам долго не сунутся! Держи свою награду:</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Barman (Loner Trader) Supplies Task -->
+
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_3_name">
+		<text>Охота на дичь</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_3_text">
+		<text>%s - добыть и принести это Бармену. Время выполнения - 3 суток.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_3_about">
+		<text>Если ты неплохо стреляешь и не боишься мутантов, у меня есть для тебя работа. Интересует?</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch_about">
+		<text>Перебои с поставкой, посетителей много... А припасы-то нужны. Кое-кто время от времени приносит мне одну-две туши мутантов, но в последнее время что-то никто не хочет охотиться. Так что, если ты не занят, и тебя интересует эта работа, будь добр, не откажи. %s - сейчас это было бы очень кстати. Главное запомни: адреналин, выделяющийся из-за чрезмерного волнения животного делает мясо жестким. Да и чем меньше крови во время убийства, тем вкуснее мясо. Так что, стреляй осторожнее, ладно? Сроку даю тебе - трое суток.</text>
+	</string>
+	<string id="drx_sl_bar_visitors_barman_stalker_trader_task_3_fetch_finish">
+		<text>Отлично, ты таки неплохой охотник. Вот твоё вознаграждение:</text>
+	</string>
+	
+<!-------------------Baraholka Trader------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Trader -->
+
+	<string id="drx_sl_baraholka_trader_meet_task_1_name">
+		<text>Зайти к барахольщику</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_meet_task_1_text">
+		<text>У торговца с Барахолки есть ко мне разговор.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Baraholka Trader (Loner Trader) Default Storyline Task -->
+
+	<string id="drx_sl_baraholka_trader_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_default_task_about">
+		<text>Ну мне больше помощь уже не нужна, сходи вот к нему.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_default_task_finish">
+		<text>Прощай, сталкер.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Baraholka Trader (Loner Trader) Find Weapon Storyline Task- -->
+
+	<string id="drx_sl_baraholka_trader_task_1_name">
+		<text>Найти %s для барахольщика</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_1_text">
+		<text>Барахольщик попросил найти этот ствол для него.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_1_about">
+		<text>Здесь на Барахолке мы обеспечиваем ползоны запчастями, материалами и прочим. Мне нужен ствол, и я уверен, что ты догадываешься для чего. Найдёшь?</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_1_fetch_about">
+		<text>Так, мне нужен %s. Если найдёшь когда-нибудь - тащи. У меня немного денег, но отблагодарить смогу.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_1_fetch_finish">
+		<text>Неплохо, держи свою награду:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Baraholka Trader (Loner Trader) Procure Supplies Storyline Task -->
+
+	<string id="drx_sl_baraholka_trader_task_2_name">
+		<text>%s - припасы для Барахольщиков</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_2_text">
+		<text>%s - это то, что нужно им. Время выполнения - 3 суток.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_2_about">
+		<text>Казалось бы, что на барахолке всё есть, однако консерву в куче мусора не найдёшь. Нам нужны припасы. Сможешь обеспечить?</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_2_fetch_about">
+		<text>%s - достань это. Не тяни, пока мы с голоду сдесь не подохли, я даю тебе трое суток.</text>
+	</string>
+	<string id="drx_sl_baraholka_trader_task_2_finish">
+		<text>Благодарю, держи награду:</text>
+	</string>
+	
+<!-------------------Tihiy------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Tihiy -->
+
+	<string id="drx_sl_pri_special_trader_mlr_meet_task_1_name">
+		<text>Зайти к Тихому</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_meet_task_1_text">
+		<text>У этого скрытного человека есть для меня дело.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tihiy (Loner Trader) Default Storyline Task -->
+
+	<string id="drx_sl_pri_special_trader_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_default_task_about">
+		<text>Я не могу ждать, пока нужные люди придут просить у меня контракты. Ты опоздал. Но, как коллеге, могу предложить поинтересоваться работой вот у этого человека.</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_default_task_finish">
+		<text>Прощай, сталкер.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tihiy (Loner Trader) Default Storyline Task -->
+	
+	<string id="drx_sl_pri_special_trader_mlr_task_1_name">
+		<text>Убийство</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_task_1_text">
+		<text>Нужно устранить эту цель. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_task_1_about">
+		<text>Казалось бы, кто здесь мне может мешать? Ведь моя персона окутана мраком, всё хорошо, да? Тем не менее есть некоторые досаждающие мне личности, которых я бы хотел видеть мёртвыми в скором времени. У тебя будет дня два, пока он не ушёл куда-нибудь.</text>
+	</string>
+	<string id="drx_sl_pri_special_trader_mlr_task_1_finish">
+		<text>Хорошо. Вот обещанная награда:</text>
+	</string>
+	
+<!-------------------Chemodan------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Chemodan -->
+
+	<string id="drx_sl_merc_pri_a18_mech_mlr_meet_task_1_name">
+		<text>Зайти к Чемодану</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_meet_task_1_text">
+		<text>Скорее всего у него есть какое-то дело для меня.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Chemodan (Merc Mechanic) Default Storyline Task -->
+
+	<string id="drx_sl_merc_pri_a18_mech_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_default_task_about">
+		<text>Ну ты даёшь, мы думали ты мёртв давно, так долго не было. Слушай, у нас работы уже нет, но ты можешь спросить у других.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_default_task_finish">
+		<text>Увидимся.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Chemodan (Merc Mechanic) Assasination Storyline Task -->
+	
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_1_name">
+		<text>Убийство</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_1_text">
+		<text>Нужно устранить эту цель. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_1_about">
+		<text>У нас всегда есть много контрактов на очередную голову. Недавно к нам обратился довольно интересный человек и цель не менее интересная, так что я бы хотел, чтобы этот контракт выполнил именно ты. Времени по контракту осталось немного, если точнее, то двое суток, но я уверен, что ты справишься.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_1_finish">
+		<text>Прекрасно. Вот награда:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Chemodan (Merc Mechanic) X8 Documents Storyline Task -->
+
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_2_name">
+		<text>Важные документы</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_2_text">
+		<text>Мне поручили достать документы из лаборатории Х8.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_2_about">
+		<text>К нам недавно привалила большая и опасная работа. Браться никто не хочет, но я уверен, что ты справишься. Нужно достать кое-какие документы из лаборатории Х8. Координаты я тебе отмечу. Если их найдёшь когда-нибудь - тащи.</text>
+	</string>
+	<string id="drx_sl_merc_pri_a18_mech_mlr_task_2_finish">
+		<text>Превосходно. Вот награда:</text>
+	</string>
+	
+<!-------------------Tesak------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Tesak -->
+
+	<string id="drx_sl_merc_pri_grifon_mlr_meet_task_1_name">
+		<text>Навестить Тесака</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_meet_task_1_text">
+		<text>Тесак хочет, чтобы я зашёл к нему.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tesak (Merc Trader) Default Storyline Task -->
+
+	<string id="drx_sl_merc_pri_grifon_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_default_task_about">
+		<text>Да братан, тебя только за смертью посылать. Твой контракт уже выполнен, спроси у кого-нибудь другого.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_default_task_finish">
+		<text>Бывай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tesak (Merc Trader) Covert Agent Task -->
+
+	<string id="drx_sl_merc_pri_grifon_mlr_task_1_name">
+		<text>Важная посылка</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_1_text">
+		<text>Мне поручили доставить посылку. Время выполнения - 12 часов.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_1_about">
+		<text>Мне срочно нужен курьер. Надо забрать посылку из тайника и доставить её мне. На всё тебе даю часов 12, не больше.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_1_finish">
+		<text>Молодец. Вот награда:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Tesak (Merc Trader) Eliminate Camp -->
+
+	<string id="drx_sl_merc_pri_grifon_mlr_task_2_name">
+		<text>Уничтожить лагерь</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_2_text">
+		<text>Нужно зачистить этот лагерь. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_2_about">
+		<text>Есть задание. Тут пару сталкеров возомнила себя невесть чем, нужно их быстро и профессионально убрать. Даю тебе сутки на выполнение.</text>
+	</string>
+	<string id="drx_sl_merc_pri_grifon_mlr_task_2_finish">
+		<text>Молодец. Вот награда:</text>
+	</string>
+	
+<!-------------------Max------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Max -->
+
+	<string id="drx_sl_border_freedom_keeper_max_meet_task_1_name">
+		<text>Прибыть к Максу</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_meet_task_1_text">
+		<text>На барьере всегда хватает работы, и мне нужно помочь Максу.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Max (Freedom Honcho) Default Storyline Task -->
+
+	<string id="drx_sl_border_freedom_keeper_max_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_default_task_about">
+		<text>Чел, тебе бы ускориться, не то замёрзнешь когда-нибудь. Короче уже нет для тебя задания, но на счёт работы ты можешь поговорить с ним.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_default_task_finish">
+		<text>Лёгкой дороги тебе.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Max (Freedom Honcho) Patrol Task -->
+	
+	<string id="drx_sl_border_freedom_keeper_max_task_1_name">
+		<text>Патрулирование местности</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_1_text">
+		<text>Патрулировать местность вокруг базы Свободы.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_1_about">
+		<text>Мэн, знаешь, из-за барьера постоянно кто-нибудь прёт на нас, но и сзади бывают подкрадываются. Нужно по патрулировать здесь вокруг.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_1_finish">
+		<text>Ай, хорошо. Вот, возьми:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Max (Freedom Honcho) Defend Base Task -->
+	
+	<string id="drx_sl_border_freedom_keeper_max_task_2_name">
+		<text>Защитить базу</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_2_text">
+		<text>Защитить базу от вражеского штурма. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_2_about">
+		<text>Так мэн, наша разведка доложила, что нас собираются в который раз штурмовать. Нужно защитить базу. Координаты я тебе дал, перехвати их до того, как они будут реальной угрозой для нас. У тебя есть не больше суток.</text>
+	</string>
+	<string id="drx_sl_border_freedom_keeper_max_task_2_finish">
+		<text>Отличная работа, молоток. Твои честно заработанные:</text>
+	</string>
+	
+<!-------------------Privratnik------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Privratnik -->
+
+	<string id="drx_sl_killer_bridge_trader_mlr_meet_task_1_name">
+		<text>Зайти к Привратнику</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_meet_task_1_text">
+		<text>Привратник сказал, что у него есть работа для меня.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Privratnik (Merc Trader) Default Storyline Task -->
+
+	<string id="drx_sl_killer_bridge_trader_mlr_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_default_task_about">
+		<text>Так это тебе нужна была работа? Ну, знаешь, кто первый - того и тапки. Ищи теперь у других.</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_default_task_finish">
+		<text>Бывай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Privratnik (Merc Trader) Assault on Monolith Task -->
+	
+	<string id="drx_sl_killer_bridge_trader_mlr_task_1_name">
+		<text>Ликвидация лагеря</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_1_text">
+		<text>Привратник приказал ликвидировать лагерь Монолита. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_1_about">
+		<text>Так... У нас довольно тяжёлая обстановка с Монолитом, эти животные очень досаждают нам. Нужно стереть с лица Зоны один из их лагерей. Я даю тебе сутки на выполнение.</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_1_finish">
+		<text>Профессиональная работа, держи:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Privratnik (Merc Trader) Sniper Task -->
+	
+	<string id="drx_sl_killer_bridge_trader_mlr_task_2_name">
+		<text>Меткий выстрел</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_2_text">
+		<text>Нужно тихо и быстро устранить цель. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_2_about">
+		<text>К нам поступил очередной заказ на голову одного сталкера. Работу сделать нужно профессионально. До того, как срок заказа истечёт осталось двое суток - это максимум, что у тебя есть. Понятно?</text>
+	</string>
+	<string id="drx_sl_killer_bridge_trader_mlr_task_2_finish">
+		<text>Хорошая работа - хорошая оплата:</text>
+	</string>
+	
+<!-------------------Zhurov------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Zhurov -->
+
+	<string id="drx_sl_esc_3_16_military_trader_meet_task_1_name">
+		<text>Прибыть к Журову</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_meet_task_1_text">
+		<text>Нужно прибыть к Журову за следующими указаниями.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Zhurov (Army Trader) Default Storyline Task -->
+
+	<string id="drx_sl_esc_3_16_military_trader_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_default_task_text">
+		<text>Нужно получить следующее задание.</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_default_task_about">
+		<text>Боец, мы тебя хотели в список пропавших без вести заносить, так долго ты сюда добирался. В общем кончилась работа, могу посоветовать поискать её у него.</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_default_task_finish">
+		<text>Бывай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Zhurov (Army Trader) Assault on Monolith Task -->
+	
+	<string id="drx_sl_esc_3_16_military_trader_task_1_name">
+		<text>Захват территории</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_task_1_text">
+		<text>Нужно зачистить и удержать данную территорию. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_task_1_about">
+		<text>Так... У нас довольно тяжёлая обстановка с Монолитом, эти фанатики очень досаждают нам. Нужно стереть с лица Зоны один из их лагерей. Я даю тебе не более двух суток.</text>
+	</string>
+	<string id="drx_sl_esc_3_16_military_trader_task_1_finish">
+		<text>Хорошая работа, держи:</text>
+	</string>
+	
+<!-------------------Bandit Trader------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Trader -->
+
+	<string id="drx_sl_trucks_cemetery_bandit_trader_meet_task_1_name">
+		<text>Заглянуть к торговцу</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_meet_task_1_text">
+		<text>Местный торгаш со Свалки Техники хочет меня видеть.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Bandit Trader) Default Storyline Task -->
+
+	<string id="drx_sl_trucks_cemetery_bandit_trader_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_default_task_about">
+		<text>Слухай, ты братков решил разыграть так, замолвить слово за работёнку и явиться хрен знает когда? Короче, иди ищи у других теперь раз такой умный.</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_default_task_finish">
+		<text>Ну давай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Bandit Trader) Assault on Monolith Task -->
+	
+	<string id="drx_sl_trucks_cemetery_bandit_trader_task_1_name">
+		<text>Зачистка</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_task_1_text">
+		<text>Надо убрать мутантов для пацанов.</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_task_1_about">
+		<text>Ну так мля, есть тут дело одно. Хреновы мутанты до печёнок уже достали, надо их прищемить кароче, вот.</text>
+	</string>
+	<string id="drx_sl_trucks_cemetery_bandit_trader_task_1_finish">
+		<text>Малаца, вот и лавэ:</text>
+	</string>
+	
+<!-------------------Monolith Trader------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Trader -->
+
+	<string id="drx_sl_trader_monolith_jup_depo_meet_task_1_name">
+		<text>Наведать торговца</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_meet_task_1_text">
+		<text>Один из снабженцев наших бойцов хочет меня видеть.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Monolith Trader) Default Storyline Task -->
+
+	<string id="drx_sl_trader_monolith_jup_depo_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_default_task_about">
+		<text>На этом всё, брат. Ступай дальше и да озарит твой путь свет Монолита.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_default_task_finish">
+		<text>Прощай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Monolith Trader) Search Lab X-19 (Radar) Storyline Task- -->
+	
+	<string id="drx_sl_trader_monolith_jup_depo_task_1_name">
+		<text>Обыскать лабораторию Х-19</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_task_1_text">
+		<text>Нужно исполнить волю Всевышнего и найти документы в Х-19.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_task_1_about">
+		<text>У нас не самая лучшая ситуация на периферии с неверными. Уже в который раз нам снова приходиться включать Выжигатель, и Монолит решил, что нужно эвакуировать документы из ближайшей к неверным лаборатории. Отправляйся.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_jup_depo_task_1_finish">
+		<text>Хвала Монолиту, документы здесь и ты цел. Возьми:</text>
+	</string>
+	
+<!-------------------Monolith Trader------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Trader -->
+
+	<string id="drx_sl_trader_monolith_kbo_meet_task_1_name">
+		<text>Надевать торговца</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_meet_task_1_text">
+		<text>Один из снабженцев наших бойцов хочет меня видеть.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Monolith Trader) Default Storyline Task -->
+
+	<string id="drx_sl_trader_monolith_kbo_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_default_task_about">
+		<text>На этом всё, брат. Ступай дальше и да озарит твой путь свет Монолита.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_default_task_finish">
+		<text>Прощай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Monolith Trader) Raid Enemy Camp Storyline Task Storyline Task- -->
+	
+	<string id="drx_sl_trader_monolith_kbo_task_1_name">
+		<text>Рейд лагеря</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_task_1_text">
+		<text>Необходимо уничтожить лагерь неверных. Время выполнения - сутки.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_task_1_about">
+		<text>Воля Монолита - чтобы этот лагерь неверных был уничтожен. Пусть благословит тебя Монолит, сражайся храбро, все до единого в этом лагере должны быть мертвы. И не заставляй Всевышнего ждать, не тяни больше суток.</text>
+	</string>
+	<string id="drx_sl_trader_monolith_kbo_task_1_finish">
+		<text>Слава Монолиту, ты цел. Прими эти дары:</text>
+	</string>
+	
+<!-------------------Mertviy------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Mertviy -->
+
+	<string id="drx_sl_zat_stancia_trader_merc_meet_task_1_name">
+		<text>Встретиться с Мёртвым</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_meet_task_1_text">
+		<text>У Мёртвого есть для меня какое-то дело.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Mertviy (Merc Trader) Default Storyline Task -->
+
+	<string id="drx_sl_zat_stancia_trader_merc_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_default_task_about">
+		<text>Ты должно быть шутишь? Твой контракт давно выполнил другой наёмник. Ищи дело у кого хочешь теперь, мне до задницы.</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_default_task_finish">
+		<text>Бывай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Mertviy (Merc Trader) Find Artefact Storyline Task- -->
+	
+	<string id="drx_sl_zat_stancia_trader_merc_task_1_name">
+		<text>Достать %s</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_task_1_text">
+		<text>Мёртвый просил меня найти этот артефакт. Время выполнения - 6 суток.</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_task_1_about">
+		<text>Есть тут один заказ на артефакт, браться за него никто не хочет, так что возьмёшься ты. Нужно найти %s. Учти, что срок контракта истекает через шесть суток - это всё, что у тебя есть. Отправляйся.</text>
+	</string>
+	<string id="drx_sl_zat_stancia_trader_merc_task_1_fetch_finish">
+		<text>Неплохо, держи свою долю:</text>
+	</string>
+	
+<!-------------------Bandit Trader------------------->
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Meet Trader -->
+
+	<string id="drx_sl_jup_cont_trader_bandit_meet_task_1_name">
+		<text>Встретиться с торгашом</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_meet_task_1_text">
+		<text>Один из наших торгашей прислал маляву мне, есть дело говорит.</text>
+	</string>
+
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Bandit Trader) Default Storyline Task -->
+
+	<string id="drx_sl_jup_cont_trader_bandit_default_task_name">
+		<text>Получить следующее задание</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_default_task_text">
+		<text>Получите следующее задание.</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_default_task_about">
+		<text>Ну ты охренеть шутник. Пахан думал ты сгинул давно, короче можешь поискать работёнку у моего кореша.</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_default_task_finish">
+		<text>Бывай.</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Random Name (Bandit Trader) Find Weapon Storyline Task -->
+	
+	<string id="drx_sl_jup_cont_trader_bandit_task_1_name">
+		<text>%s для торгаша</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_task_1_text">
+		<text>%s - торгаш бандитов с Юпитера просил найти ему. Время выполнения - 6 суток.</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_task_1_about">
+		<text>Ну так мля, у нас же здесь бизнес, всё чётко. Султану недавно ствол интересный заказали, и нам надо его найти. Берёшься за такую работу? Тут и кумекать нечего, плёвое дело.</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_task_1_fetch_about">
+		<text>%s - конкретно эта валына нам сейчас нужна. Ищи где хочешь и достань её любым способом. Тока поторопиться надо, Пахан дал срок - шесть дней.</text>
+	</string>
+	<string id="drx_sl_jup_cont_trader_bandit_task_1_fetch_finish">
+		<text>Ну молоток, вот твоя доля лавэхи:</text>
+	</string>
+	
+	<!-- ----------------------------------------------------------------------------------------- -->
+	<!-- Zhenya "Hatchet" (Mercenary Trader) Find Weapon Storyline Task -->
+	
+	<string id="cit_killers_merc_barman_stalker_task_1_name">
+		<text>Ликвидировать цель</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_1_text">
+		<text>Необходимо ликвидировать очередную цель. Время выполнения - 2 суток.</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_1_about">
+		<text>Да, работа у нас всегда есть. Я даю тебе координаты, ты уничтожаешь цель в срок. По рукам?</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_1_finish">
+		<text>Молодец, держи свои деньги:</text>
+	</string>
+	
+	<string id="cit_killers_merc_barman_stalker_task_2_name">
+		<text>%s - принести их Жеке "Торору"</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_2_text">
+		<text>%s - Жека "Торор" попросил собрать их для него.</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_2_about">
+		<text>Хочешь поохотиться на людей? Я говорю тебе, сколько нашивок сорвать, ты приносишь мне их и получаешь деньги. Ну как тебе такое?</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_2_fetch_about">
+		<text>Ну тут и так понятно всё, да? %s - насобирай их для меня, а я тебе хорошо заплачу.</text>
+	</string>
+	<string id="cit_killers_merc_barman_stalker_task_2_fetch_finish">
+		<text>Молодец, братан. Держи деньги:</text>
+	</string>
+
+	<!-- Caravan dialog -->
+	<string id="st_caravan_active">
+		<text>%s здесь. Слушай, у меня тут должна прибыть доставка %s Ты не хочешь сопроводить их?</text>
+	</string>
+	<string id="st_caravan_active_yes">
+		<text>Хорошо.</text>
+	</string>
+	<string id="st_caravan_active_msg">
+		<text>Сталкер, "посылка" только что отправилась с %s, если поможешь ей дойти, я бы хорошо заплатил.</text>
+	</string>
+	<string id="st_caravan_active_msg_intercept">
+		<text>Это %s. Ты покидаешь %s сейчас? Я скоро буду ждать тебя.</text>
+	</string>
+	<string id="st_caravan_reward">
+		<text>Спасибо за помощь в доставке, держи - вот твоя награда.</text>
+	</string>
+	<string id="st_caravan_reward_done">
+		<text>Спасибо.</text>
+	</string>
+	
+	<string id="esc_trader_meeting_pda">
+		<text>Ты это... Если будешь проходить мимо моей лачуги - заходи, пообщаемся.</text>
+	</string>
+	<string id="esc_trader_meeting_pda_1">
+		<text>Заскочи, поболтаем. Очередное дельце наклёвывается...</text>
+	</string>
+	<string id="esc_fo_tr_meet">
+		<text>Ты вышел прямо под блокпост военных. От них сталкеру только пуля светит, так что поосторожнее там.</text>
+	</string>
+	<string id="cs_leader_meeting_pda">
+		<text>Приветствую. Я лидер Чистого Неба, группировки, с членами которой ты контактировал на Большой Земле и в которую ты хотел попасть. Слушай, ребята тебя, похоже, не совсем туда вывели. Двигай на болота к нам на базу.</text>
+	</string>
+	<string id="cs_leader_meeting_pda_marsh">
+		<text>Рад тебя видеть. Я здесь за главного в группировки, с членами которого ты контактировал за периметром и в который ты хотел попасть. Тебя вывели как раз к нам. Дуй на базу прямо на запад, поговорим. Меня найдёшь в большом деревянном тереме на сваях, на первом этаже.</text>
+	</string>
+	<string id="esc_trader_meet_marsh">
+		<text>Мужик, ты забрёл прямо в топи. Если не хочешь там сгинуть, то шуруй к нам в деревню на Кордон. А можешь и к болотникам на базу, перекантоваться, она прямо на западе. Дело твоё.</text>
+	</string>
+	<string id="cs_pumping_station_meet">
+		<text>Боец, очнись, хватит спать. Ты там, похоже, один остался, всё проспал. Давай бегом на базу, дело есть.</text>
+	</string>
+	<string id="cs_hidden_base_meet">
+		<text>Давай, протирай глаза, хорош в казарме спать. Зайди ко мне, работа появилась. Ты, вроде как, именно её и искал.</text>
+	</string>
+	<string id="dasc_sawwil_meet">
+		<text>Подходи, пообщаемся!</text>
+	</string>
+	<string id="dasc_fo_sawwil_meet">
+		<text>Ну здарова, сталкер! Тебя прямо в лощину вывели, я смотрю. Подваливай к нам в лагерь, если хочешь.</text>
+	</string>
+	<string id="fo_cordon_start_band">
+		<text>Опа, новые люди! Далековато пацаны тебя высадили. Слушай, тебе-то к нам как раком до Москвы плестись, так что можешь перекантоваться на АТП или на Поляне. Зайди ко мне как-нибудь, наша база в Тёмной Долине на заводе.</text>
+	</string>
+	<string id="fo_darkscape_start_band">
+		<text>Ну типа здарова. Привезла братва тебя как надо, недалеко. Двигай сначала на север, потом на запад и снова на север до упора, там найдёшь нашу базу на заводе. Загляни ко мне потом.</text>
+	</string>
+	<string id="fo_marsh_start_band_meet">
+		<text>Дубина, ты куда приплёлся? Тебе же пацаны сказали, что восточнее надо идти. Короче, добирайся как-то до базы нашей в Тёмной Долине. В топях должны быть пацаны на мехдворе или на хуторе. На Кордоне на заводе тоже лагерь есть.</text>
+	</string>
+	<string id="northern_factory_meet">
+		<text>Слышь, ты работу искал? Подваливай ко мне, перетрём.</text>
+	</string>
+	<string id="esc_factory_bandit_meet">
+		<text>Алё, ёпта. Не скопытился ещё? Короче, работёнка появилась. Загляни, если есть охота.</text>
+	</string>
+	<string id="pole_bandit_base_meet">
+		<text>Браток, работа появилась. Если хочешь, то заходи, перетрём.</text>
+	</string>
+	<string id="makeshift_barracks_meet">
+		<text>Боец, подъём! Работа появилась, которую ты искал. Подойди ко мне, обсудим детали.</text>
+	</string>
+	<string id="garbage_blockpost_meet">
+		<text>Как оно там охраняется? Скоро новая смена будет. Отправляйся ко мне, появилась работа, тебе же она нужна была.</text>
+	</string>
+	<string id="military_base_meet">
+		<text>Мэн, ты там живой? Ты работу искал, и она у меня недавно появилась. Загляни, поговорим на этот счёт.</text>
+	</string>
+	<string id="barrier_meet">
+		<text>Хай, мэн. Скоро смена на барьере, а ты можешь зайти ко мне, появилась работёнка, которую ты искал.</text>
+	</string>
+	<string id="research_institute_meet">
+		<text>Давай, подъём! Много спать - вредно. Ты у меня про работу спрашивал. Подойди, поговорим по этому поводу.</text>
+	</string>
+	<string id="southern_checkpoint_meet">
+		<text>Здравия. Ты вроде как искал работу. Можешь в свободное время заглянуть, поговорим.</text>
+	</string>
+	<string id="sakharovs_bunker_start_meet">
+		<text>Коллега, у меня есть к вам разговор по поводу работы, которую вы искали.</text>
+	</string>
+	<string id="southern_checkpoint_eco_start_meet">
+		<text>Приветствую. Я понимаю, что вы далеко и добраться ко мне сложно, но работа, которую вы искали, появилась у меня.</text>
+	</string>
+	<string id="research_institute_eco_start_meet">
+		<text>Доброго утра. Когда будет время, то загляните ко мне, у меня появилась работа, которую вы искали.</text>
+	</string>
+	<string id="northern_factory_merc_meet">
+		<text>Давай подваливай на базу в Мёртвом, появились свободные заказы.</text>
+	</string>
+	<string id="sports_center_meet">
+		<text>Нужна работа? Подходи, заказы свободные появились.</text>
+	</string>
+	<string id="pri_monolith_monolith_trader_stalker_meet">
+		<text>Очнулся? Пора исполнять волю Монолита, приходи за указаниями.</text>
+	</string>
+
+	<!-- Timer messages -->
+	<string id="st_drug_timer_repeat_01">
+		<text>%c[default], у меня появились новые координаты, подходи.</text>
+	</string>
+	<string id="st_drug_timer_pd_01">
+		<text>Ну что нашёл? %c[255,255,160,0]</text>
+	</string>
+	<string id="st_drug_timer_pd_02">
+		<text>%c[default], если не можешь найти возвращайся, его уже наверное нашли.</text>
+	</string>
+	<string id="st_drug_timer_ps_01">
+		<text>Здарова %c[255,255,160,0]</text>
+	</string>
+	<string id="st_drug_timer_ps_02">
+		<text>%c[default], это Фанат. Не передумал? Если всё в силе, подходи. У меня появились новые координаты.</text>
+	</string>
+	<string id="st_kill_timer_repeat_01">
+		<text>%c[default], Это Георгий, у меня есть для тебя работа, подходи покумекаем.</text>
+	</string>
+	<string id="st_kill_timer_pd_01">
+		<text>%c[default], это Георгий, дело сделано?</text>
+	</string>
+	<string id="st_kill_timer_ps_01">
+		<text>%c[default], это Георгий, У меня есть к тебе дело, подходи.</text>
+	</string>
+	<string id="st_dtkt_smpl_done_timer">
+		<text>%c[default], У меня новости по поводу твоего детектора, подходи.</text>
+	</string>
+	<string id="st_repeat_drink_timer">
+		<text>%c[255,255,160,0]Может с кем нибудь выпить?</text>
+	</string>
+	
+	<string id="st_task_title">
+		<text>Напоминание:</text>
+	</string>
+	<string id="st_task_time">
+		<text>Время выполнения задания «</text>
+	</string>
+	<string id="st_half_expired">
+		<text>» истекло наполовину.</text>
+	</string>
+	<string id="st_expire_soon">
+		<text>» скоро истекает.</text>
+	</string>
+	<string id="st_expired">
+		<text>» истекло.</text>
+	</string>
+	<string id="get_in_the_zone_task_name">
+		<text>Попасть в Зону</text>
+	</string>
+	<string id="get_in_the_zone_task_descr">
+		<text>Что-то манит меня туда... Я вижу странные сны, не раз слышал этот утробный зов и одному лишь дьяволу известно, что за этим стоит. Я должен попасть туда, чего бы мне это ни стоило.</text>
+	</string>
+</string_table>

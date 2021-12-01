@@ -1,0 +1,8 @@
+[logic]
+active = sr_idle@in
+
+[sr_idle@in]
+on_actor_inside = %=dt2_exit_warning% sr_idle@out
+
+[sr_idle@out]
+on_actor_outside = sr_idle@in

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+
+<!-- ORDERS -->
+	<string id="st_dm_orders_pickup_start">
+		<text>Your order has arrived. Take away your %s.</text>
+	</string>
+	<string id="st_dm_orders_query">
+		<text>What interesting things can you offer?</text>
+	</string>
+	<string id="st_dm_orders_query_pickup">
+		<text>I'm here to pick up my order.</text>
+	</string>
+	<string id="st_dm_orders_reply_1">
+		<text>You came to the address. I guess you know that I don't offer serious orders to newcomers and people with bad reputations. I have contacts with people who can get special outfits to order. So what exactly are you interested in?</text>
+	</string>
+	<string id="st_dm_orders_reply_2">
+		<text>I have unique things. Rare models, prototypes, unique small weapons - and similar equipment. Plus elite outfit, latest modifications of protective and combat suits. I check each piece personally, so quality is guaranteed.</text>
+	</string>
+	<string id="st_dm_orders_none">
+		<text>I'm not interested at the moment.</text>
+	</string>
+	<string id="st_dm_orders_goodbye">
+		<text>Goodbye.</text>
+	</string>
+	<string id="st_dm_orders_place_price_accept">
+		<text>I want to order %s.</text>
+	</string>
+	<string id="st_dm_orders_place_no_money">
+		<text>I have no money.</text>
+	</string>
+	<string id="st_dm_orders_place_no_money_reply">
+		<text>Well, please come back when you've got the cash.</text>
+	</string>
+	<string id="st_dm_orders_place_change">
+		<text>You know, I've changed my mind.</text>
+	</string>
+	<string id="st_dm_orders_cancel">
+		<text>You know, I've decided to cancel my order.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply">
+		<text>It's okay, but do you realize that your deposit has been lost? I'll also tell everyone that you're a lousy client, it'll probably hurt your reputation.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_yes">
+		<text>Yes, cancel the order.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_yes_done">
+		<text>Okay, as you know.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_no">
+		<text>I'll keep the order.</text>
+	</string>
+	<string id="st_dm_orders_cancel_reply_no_done">
+		<text>Fine.</text>
+	</string>
+	<string id="st_dm_orders_place_change_reply">
+		<text>Fine. If you finally decide to make an order, I'm always here.</text>
+	</string>
+	<string id="st_dm_orders_place_pay">
+		<text>Okay, here you go.</text>
+	</string>
+	<string id="st_dm_orders_place_pay_reply">
+		<text>I'll get in touch with you as soon as the %s order is ready.</text>
+	</string>
+	<string id="st_dm_orders_order_processing">
+		<text>You've already made an order. The %s will be ready soon.</text>
+	</string>
+	<string id="st_dm_orders_place_finish">
+		<text>Great. I'll be back later.</text>
+	</string>
+
+	<string id="st_dm_orders_time_query">
+		<text>How long does it take to wait for my order to arrive?</text>
+	</string>
+	<string id="st_dm_orders_time_query_reply">
+		<text>That depends on how complicated it is. Usually it takes a day and a half to three days.</text>
+	</string>
+	<string id="st_dm_orders_time_query_goodbye">
+		<text>Okay.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_existing">
+		<text>So, you finally came to get your %s.</text>
+	</string>
+	<string id="st_dm_orders_pickup_existing_yes">
+		<text>Yes, here is your money.</text>
+	</string>
+	<string id="st_dm_orders_pickup_existing_no">
+		<text>No, Cancel the order.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_ponder">
+		<text>Excuse me, I need to think about this.</text>
+	</string>
+	<string id="st_dm_orders_pickup_ponder_reply">
+		<text>Take your time, come back when you're ready.</text>
+	</string>
+	
+	<string id="st_dm_orders_pickup_price_accept">
+		<text>Okay, here you go.</text>
+	</string>
+	<string id="st_dm_orders_pickup_finish">
+		<text>There you go. It's nice doing business with you. Don't forget to stop another time, I can offer you more.</text>
+	</string>
+	<string id="st_dm_orders_no_money">
+		<text>Well, I don't have that much on me.</text>
+	</string>
+	<string id="st_dm_orders_pickup_hold">
+		<text>Okay, I'll hold the order for you. I hope you find the money soon.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_warning">
+		<text>You'll lose your deposit are you sure?</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_penalty">
+		<text>Still, I will not be collecting this order.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_penalty_reply">
+		<text>All right, come back.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_wait">
+		<text>I'll think about it.</text>
+	</string>
+	<string id="st_dm_orders_pickup_refuse_wait_rely">
+		<text>Of course, it's up to you. I'll take the order.</text>
+	</string>
+	<string id="st_dm_orders_pickup">
+		<text>The %s order is ready. That'll be %s UAH.</text>
+	</string>
+	<string id="st_dm_orders_pickup_ready">
+		<text>Your order is ready. Come pick it up.</text>
+	</string>
+	<string id="st_dm_orders_item_selected">
+		<text>Of course. It'll be %s UAH, of which I will require an advance payment of %s UAH.</text>
+	</string>
+
+	<string id="st_dm_item_offer">
+		<text>Here's what I have to offer in the way of %ss.</text>
+	</string>
+	<!-- Categories -->
+	<string id="category_1_title">
+		<text>Pistols</text>
+	</string>
+	<string id="category_2_title">
+		<text>Close-range weapon</text>
+	</string>
+	<string id="category_3_title">
+		<text>Assault weapon</text>
+	</string>
+	<string id="category_4_title">
+		<text>Sniper weapon</text>
+	</string>
+	<string id="category_5_title">
+		<text>Armored outfit</text>
+	</string>
+	<string id="category_6_title">
+		<text>Scientific outfit</text>
+	</string>
+	<string id="category_7_title">
+		<text>Exoskeleton</text>
+	</string>
+	<string id="category_8_title">
+		<text>Special equipment</text>
+	</string>
+	<string id="category_9_title">
+		<text>Repair equipment</text>
+	</string>
+	<string id="category_10_title">
+		<text>Other</text>
+	</string>
+	<string id="category_11_title">
+		<text>Shotguns</text>
+	</string>
+	<string id="category_12_title">
+		<text>Submachine guns</text>
+	</string>
+	<string id="category_13_title">
+		<text>Machine guns</text>
+	</string>
+	<string id="category_14_title">
+		<text>Grenade launchers</text>
+	</string>
+	<string id="category_15_title">
+		<text>Helmets</text>
+	</string>
+	<string id="category_16_title">
+		<text>Kalashnikov rifles</text>
+	</string>
+	<string id="category_17_title">
+		<text>Lightweight equipment</text>
+	</string>
+	<string id="category_18_title">
+		<text>Other equipment</text>
+	</string>
+	<string id="category_19_title">
+		<text>Assault weapons (2)</text>
+	</string>
+	<string id="category_20_title">
+		<text>Flash drives</text>
+	</string>
+	<string id="category_21_title">
+		<text>Devices</text>
+	</string>
+</string_table>

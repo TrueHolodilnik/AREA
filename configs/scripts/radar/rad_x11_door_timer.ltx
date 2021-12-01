@@ -1,0 +1,22 @@
+[logic]
+active = sr_idle@wait
+
+[sr_idle@wait]
+on_info = {+rad_x11_door_decode_started} sr_timer@decode
+on_info2 = {+rad_x11_door_open} nil
+
+[sr_timer@decode]
+type = dec
+start_value = 60000
+string = st_x27_timer
+
+on_info = {-rad_x11_door_open} %=play_sound_looped(radar_drone)%
+on_timer = 3000 | {-rad_x11_door_wave_1} %=create_squad(rad_x11_monolith_squad_1:rad2_prip_teleport) +rad_x11_door_wave_1%
+on_timer2 = 15000 | {-rad_x11_door_wave_2} %=create_squad(rad_x11_monolith_squad_1:rad2_prip_teleport) +rad_x11_door_wave_2%
+on_timer3 = 30000 | {-rad_x11_door_wave_3} %=create_squad(rad_x11_monolith_squad_2:rad2_prip_teleport) +rad_x11_door_wave_3%
+on_timer4 = 45000 | {-rad_x11_door_wave_4} %=create_squad(rad_x11_monolith_squad_3:rad2_prip_teleport) +rad_x11_door_wave_4%
+on_timer5 = 60000 | {-rad_x11_door_wave_5} %=create_squad(rad_x11_monolith_squad_4:rad2_prip_teleport) =stop_sound_looped =play_sound(trader_door_open_start) +rad_x11_door_open +rad_x11_door_wave_5% sr_idle@x11_altruist_2
+
+; после лабы
+[sr_idle@x11_altruist_2]
+on_info = {+x11_altruist_2} %=create_squad(zat_b100_flashback_squad:zat_b100) =teleport_squad(x11_altruist_squad:zat_stalker_base_smart_garmata_1_walk)=change_level(zat_b100_heli_2_walk:zat_b100_poltergeist_01_walk)% nil

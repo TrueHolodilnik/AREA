@@ -1,0 +1,162 @@
+[wpn_usas12]:default_weapon_params
+$spawn						= "weapons\spas12"		; option for Level Editor
+$npc			 			= on					; option for Level Editor
+visual                     	= dynamics\weapons\wpn_usas12\wpn_usas12.ogf
+class                   	= WP_ASHTG
+inv_name					= st_wpn_usas12
+inv_name_short				= st_wpn_usas12
+description             	= st_wpn_usas12_descr
+ef_main_weapon_type			= 1
+ef_weapon_type				= 9
+repair_type 				= shotgun
+cost						= 125000
+weapon_class				= shotgun
+inv_weight					= 6.2
+inv_volume					= 6.2
+ph_mass			 			= 6
+upgrades					= up_gr_firstab_protecta, up_gr_seconab_protecta, up_gr_thirdab_protecta, up_gr_fourtab_protecta
+installed_upgrades			=
+upgrade_scheme				= upgrade_scheme_protecta
+;-------------------------------------------------------------------------------
+hit_power					= 0.90, 0.90, 0.90, 0.90
+hit_impulse					= 25
+hit_type					= fire_wound
+fire_distance				= 400
+bullet_speed				= 405
+rpm							= 360
+hud							= wpn_usas12_hud
+
+misfire_probability			= 0.005
+misfire_start_condition		= 0.89
+misfire_end_condition		= 0.09
+misfire_start_prob			= 0.007
+misfire_end_prob			= 0.11
+condition_shot_dec      	= 0.0020
+condition_queue_shot_dec	= 0.0020
+
+fire_modes					= 1, -1
+tri_state_reload			= off
+ammo_elapsed				= 20
+ammo_mag_size				= 20
+magazine_sect				= mag_12x76_cnt_20_usas
+ammo_class					= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot						= 2
+animation_slot				= 9
+;--Дисперсия--------------------------------------------------------------------
+fire_dispersion_base		= 0.58					;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.22f
+crosshair_inertion			= 6.8
+
+cam_return					= 0
+cam_relax_speed				= 20					;скорость возврата в исходное положение
+cam_relax_speed_ai			= 360
+cam_dispersion				= 4.88					;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 5.62					;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 1.1					;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle				= 30.0					;максимальный угол отдачи
+cam_max_angle_horz			= 30.0					;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 2.77					;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 1.7
+PDM_disp_vel_factor 		= 1.75
+PDM_disp_accel_factor 		= 1.755
+PDM_disp_crouch				= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+
+zoom_cam_relax_speed		= 10					; scope & ironsight
+zoom_cam_relax_speed_ai		= 120.75
+zoom_cam_dispersion			= 5.03
+zoom_cam_dispersion_inc		= 4.68
+zoom_cam_dispersion_frac	= 0.7
+zoom_cam_max_angle			= 50.0
+zoom_cam_max_angle_horz		= 50.0
+zoom_cam_step_angle_horz	= 2.31
+fire_dispersion_condition_factor = 0.001
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof					= 0.0, 0.5, 5, 1.7
+;-------------------------------------------------------------------------------
+position					= -0.026, -0.175, 0.0
+orientation					= 0, 0, 0
+fire_point					= 0, 0.218, 0.656
+fire_point2					= 0, 0.161, 0.583
+shell_point					= 0, 0.138, 0.07
+shell_3d_sect				= shell_12
+shell_particles				= weapons\12ga
+flame_particles				= weapons\new_effects\shtg_pump
+smoke_particles     		= weapons\new_effects\smoke_muzzle_00
+rpm_empty_click				= 200
+;-------------------------------------------------------------------------------
+inv_grid_width				= 5
+inv_grid_height				= 2
+inv_grid_x					= 35
+inv_grid_y					= 60
+
+upgr_icon_x					= 1750
+upgr_icon_y					= 1650
+upgr_icon_width				= 300
+upgr_icon_height			= 100
+
+kill_msg_x					= 91
+kill_msg_y					= 104
+kill_msg_width				= 80
+kill_msg_height				= 20
+
+light_color		 			= 0.6,0.5,0.3
+light_range		 			= 6.0
+light_var_color		 		= 0.05
+light_var_range		 		= 0.5
+light_time 		 			= 0.2
+
+;addons
+scope_status				= 0
+silencer_status				= 0
+grenade_launcher_status		= 0
+
+zoom_enabled				= true
+scope_zoom_factor       	= 1.03
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster				    = weapons\usas12\usas12_holster
+snd_draw				    = weapons\usas12\usas12_draw
+snd_reload				    = weapons\usas12\usas12_reload
+snd_empty				    = weapons\usas12\usas12_empty
+snd_shoot				    = weapons\usas12\usas12_shoot_null
+;--Магазины---------------------------------------------------------------------
+[mag_12x76_cnt_20_usas]
+magazine_name				= magazine_12x76_cnt_20
+magazine_x					= 95
+magazine_y					= 50
+custom_icon 				= 2,3,1,1 ;x,y,width,height
+;-------------------------------------------------------------------------------
+[wpn_usas12_hud]:hud_base
+item_visual                	= dynamics\weapons\wpn_usas12\wpn_usas12_hud.ogf
+zoom_hide_crosshair        	= true
+fire_point					= -0.011,0.041578,0.680409
+fire_bone      				= wpn_body
+fire_point2					= 0,-0.028,0.678
+fire_bone2					= wpn_body
+shell_point					= 0.024465,0.057295,-0.04355
+shell_dir             		= 0,1,0
+shell_bone            	  	= wpn_body
+
+hands_position				= -0.08487,-0.13198,0.020366
+hands_position_16x9			= -0.08487,-0.13198,0.020366
+hands_orientation			= 2.038356,2.455889,0.15
+hands_orientation_16x9		= 2.038356,2.455889,0.15
+
+aim_hud_offset_pos			= -0.06951,-0.00482,0
+aim_hud_offset_pos_16x9		= -0.06951,-0.00482,0
+aim_hud_offset_rot			= 0.019985,0.034206,-0.014514
+aim_hud_offset_rot_16x9		= 0.019985,0.034206,-0.014514
+
+anm_show                	= lancew_usas12_draw
+anm_hide                	= lancew_usas12_holster
+anm_idle                	= lancew_usas12_idle
+anm_idle_sprint         	= lancew_usas12_sprint
+anm_idle_moving         	= lancew_usas12_moving
+anm_shots               	= lancew_usas12_shoot, shoot
+anm_shots_empty				= lancew_usas12_idle
+anm_reload              	= lancew_usas12_reload, reload
+anm_idle_aim            	= lancew_usas12_idle_aim
+anm_bore                	= lancew_usas12_no_reload
+;-----------------------------------------------------------------------------

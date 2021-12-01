@@ -1,0 +1,55 @@
+	; Jeka_Topor
+
+[logic@cit_killers_merc_barman_stalker]
+	active = beh@jeka_job_01
+	suitable = {=target_squad_name(cit_killers_merc_barman_stalker_squad)} true
+	prior = 140
+	level_spot = trader
+	relationship = neutral   
+
+	trade = misc\trade\trade_dushman_mlty.ltx
+	level_spot = trader
+	can_select_weapon = true
+
+[beh@general_01]
+	behavior_state = beh_move
+	target = waypoint
+	walk_dist = 100
+	jog_dist = 220
+	wait_anim = guard_chasovoy
+	walk_anim = patrol
+	jog_anim = rush
+	run_anim = rush    
+	delay_anim = guard
+	gather_items_enabled = true
+	help_wounded_enabled = true
+	corpse_detection_enabled = true
+	invulnerable = {!actor_enemy} true, false 
+	relationship = neutral
+
+	turn_on_campfire = true
+	on_info = {=is_night} beh@jeka_job_02
+	on_info2 = {=surge_started} beh@jeka_job_03
+
+[beh@jeka_job_01]:beh@general_01 ; Trade
+
+	pt1 = 250000, guard_chasovoy | pos:-41.486236572266,1.7362327575684,36.720401763916 look:-41.467769622803,1.725329875946,34.123359680176 ;Trade
+
+	path_end = loop
+	
+[beh@jeka_job_02]:beh@general_01 ; Sleep
+
+	pt1 = 250000, sleep | pos:-26.829442977905,7.4686574935913,36.110004425049 look:-26.684574127197,7.4693069458008,39.268310546875 ;Trade
+
+	path_end = loop
+	
+	meet = no_meet
+	on_info = {!is_night} beh@jeka_job_01
+	
+[beh@jeka_job_03]:beh@general_01 ; Surge_Hide
+
+	pt1 = 250000, sit_ass | pos:-26.829442977905,7.4686574935913,36.110004425049 look:-26.684574127197,7.4693069458008,39.268310546875 ;Trade
+
+	path_end = loop
+	
+	on_info = {!surge_started} beh@jeka_job_01

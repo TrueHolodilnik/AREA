@@ -1,0 +1,488 @@
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Default Storyline Task (no task, just send to next honcho)-
+
+[drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_name
+descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_text
+job_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(army)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_default_task)%
+
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Sniper Storyline Task-
+
+[drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = true
+prior = 135
+repeat_timeout = 0
+precondition = {=check_available_targets(army)} true, false
+
+title = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_name
+descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_text
+job_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1:army)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Assault Enemy Camp Storyline Task-
+
+[drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2]
+
+icon = ui_inGame2_PD_Lider
+storyline = true
+prior = 165
+repeat_timeout = 0
+precondition = { =drx_sl_validate_assault_remote_task(1:nil:false:army)} true, false
+
+title = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_name
+descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_text
+job_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, monolith
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id:army)%
+on_complete = %=reward_random_money(13500:14000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Defend Military Base Storyline Task-
+
+[drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = true
+prior = 165
+repeat_timeout = 0
+precondition = { =drx_sl_validate_assault_local_task(1:nil:false:army)} true, false
+
+title = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_name
+descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_text
+job_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, monolith
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_assault_local(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_id:army)%
+on_complete = %=reward_random_money(12000:13500:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Kirilov (Military Mechanic) Default Storyline Task (no task, just send to next honcho)-
+
+[drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task]
+
+icon = ui_inGame2_Mesta_evakuatsii
+storyline = true
+prior = 193
+
+title = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_name
+descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_text
+job_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task_finish
+
+condlist_0 = {-drx_sl_dummy_info} complete
+condlist_1 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task)} fail
+condlist_2 = {=drx_sl_is_enemy(army)} fail
+
+on_complete = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task)%
+on_fail = %=drx_sl_meet_random_honcho() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_default_task)%
+
+;------------------------------------------------
+; Kirilov (Military Mechanic) Battle Plans Storyline Task-
+
+[drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1]
+
+icon = ui_inGame2_Poslednie_razrabotki
+storyline = true
+prior = 129
+repeat_timeout = 0
+precondition = { -drx_sl_quest_item_task_1_started} true, false
+
+title = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_name
+descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_text
+job_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1_finish
+
+stage_complete = 1
+target_functor = drx_sl_quest_item_task_1_target
+status_functor = drx_sl_quest_item_task_1_status
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_create_quest_stash_1() +drx_sl_quest_item_task_1_started%
+on_complete = %=reward_random_money(7600:8000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =remove_item(drx_sl_quest_item_1) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1) =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_decrease_sl_tasks_count() =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_quest_stash_1_id) -drx_sl_quest_item_task_1_started =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Kirilov (Military Mechanic) Patrol Local Area Storyline Task-
+
+[drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2]
+
+icon = ui_inGame2_Issledovanie_anomaliy
+storyline = true
+prior = 175
+repeat_timeout = 0
+precondition = { =drx_sl_validate_assault_local_task(1:nil:false:army)} true, false
+
+title = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_name
+descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_text
+job_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, monolith
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_assault_local(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_id:army)%
+on_complete = %=reward_random_money(9000:11000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2) =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_target_id) =drx_sl_decrease_sl_tasks_count =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_reversed = %=drx_sl_meet_random_honcho() =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_id) =pstor_reset(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2_target_id) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+
+; ------------------------------------------------
+; Kuznetsov (Military Honcho) Payoff Change Factions Task-
+[drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1]
+
+icon = ui_inGame2_Sdelka
+storyline = true
+prior = 197
+repeat_timeout = 0
+precondition = true
+
+title = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_name
+descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_text
+job_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_about
+task_complete_descr = drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_finish
+
+stage_complete = 1
+target_functor = drx_sl_money_task_target
+status_functor = drx_sl_money_task_status
+condlist_0 = {!task_giver_alive(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1)} fail
+condlist_1 = {=drx_sl_is_enemy(army)} fail
+
+on_init = %=pstor_set(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_fetch:8000) +drx_sl_on_cf_task%
+on_complete = %=drx_sl_money_task_payment(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_fetch) =drx_sl_change_factions(army) =inc_task_stage(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1) =pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1) -drx_sl_on_cf_task%
+on_fail = %=pstor_reset(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1_fetch) =drx_sl_unregister_task_giver(drx_sl_agr_smart_terrain_1_6_near_2_military_colonel_kovalski_cf_task_1) -drx_sl_on_cf_task%
+
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Stop Unauthorized Incursions Task -
+
+[agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1]
+
+icon = ui_inGame2_PD_Lider
+storyline = false
+prior = 75
+repeat_timeout = 259200
+precondition = { =drx_sl_validate_assault_local_task(1:nil:false:army)} true, false
+type = assault
+
+title = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_name
+descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_text
+job_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_about
+task_complete_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, monolith
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_assault_local(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_id:army)%
+on_complete = %=reward_random_money(11000:12000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+on_reversed = %=pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_1)%
+
+quest_timeout = 86400
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Capture Territory Task-
+
+[agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2]
+
+icon = ui_inGame2_Karti_mestnosti
+storyline = false
+prior = 65
+repeat_timeout = 259200
+precondition = { =drx_sl_validate_assault_remote_task(1:nil:false:army)} true, false
+type = assault
+
+title = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_name
+descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_text
+job_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_about
+task_complete_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_finish
+
+stage_complete = 1
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged
+status_functor_params = stalker, freedom, killer, bandit, csky, monolith
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_assault_remote(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id:army)%
+on_complete = %=reward_random_money(9700:11000:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+on_reversed = %=pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_id) =pstor_reset(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2_target_id) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_2)%
+
+quest_timeout = 172800
+;------------------------------------------------
+; Kuznetsov (Military Honcho) Capture Enemy Combatant Task-
+
+[agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3]
+
+icon = ui_inGame2_Odin_vistrel
+storyline = false
+prior = 45
+repeat_timeout = 259200
+precondition = {=check_available_targets(army)} true, false
+type = bounty
+
+title = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_name
+descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_text
+job_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_about
+task_complete_descr = agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3_finish
+
+stage_complete = 1
+target_functor = general_bounty_task
+status_functor = bounty_task
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+on_init = %=drx_sl_setup_bounty_hunt(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3:army)%
+on_complete = %=reward_random_money(10000:10500:hrivni) =reward_stash(true) =complete_task_inc_goodwill(50:army) =inc_task_stage(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3) =drx_sl_reset_stored_task(agr_smart_terrain_1_6_near_2_military_colonel_kovalski_task_3)%
+
+quest_timeout = 86400
+;--------------------------------------------------------------------------------------------------
+; DEFEND TERRITORY FOR MILITARY TASK-
+
+[agr_smart_terrain_1_6_army_trader_stalker_task_1]
+icon = ui_inGame2_Odin_vistrel
+prior = 2
+storyline = false
+title = agr_smart_terrain_1_6_army_trader_stalker_task_1_name
+descr = agr_smart_terrain_1_6_army_trader_stalker_task_1_text
+job_descr = agr_smart_terrain_1_6_army_trader_stalker_task_1_about
+task_complete_descr = agr_smart_terrain_1_6_army_trader_stalker_task_1_finish
+repeat_timeout = 86400
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged_enemy
+status_functor_params = army
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_trader_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+stage_complete = 1
+on_init = %=find_smart_under_faction_control_enemy(agr_smart_terrain_1_6_army_trader_stalker_task_1_id:army)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_enemy(1:nil:false:army)} true, false
+on_complete = %=complete_task_inc_goodwill(50:army) =reward_random_money(9500:1100:hrivni) =reward_stash(true) =inc_task_stage(agr_smart_terrain_1_6_army_trader_stalker_task_1) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_target_id)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_target_id)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_target_id)%
+on_reversed = %=pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_1_target_id)%
+
+;--------------------------------------------------------------------------------------------------
+; CAPTURE TERRITORY FOR MILITARY TASK-
+
+[agr_smart_terrain_1_6_army_trader_stalker_task_2]
+icon = ui_inGame2_Odin_vistrel
+prior = 2
+storyline = false
+title = agr_smart_terrain_1_6_army_trader_stalker_task_2_name
+descr = agr_smart_terrain_1_6_army_trader_stalker_task_2_text
+job_descr = agr_smart_terrain_1_6_army_trader_stalker_task_2_about
+task_complete_descr = agr_smart_terrain_1_6_army_trader_stalker_task_2_finish
+repeat_timeout = 86400
+target_functor = general_under_faction_control
+status_functor = check_smart_under_faction_control_staged_enemy
+status_functor_params = army
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_trader_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+stage_complete = 1
+on_init = %=find_smart_under_faction_control_enemy(agr_smart_terrain_1_6_army_trader_stalker_task_2_id:army)%
+precondition = {=all_avail_smart_stayed_squad_count_ge_by_faction_enemy(1:nil:false:army)} true, false
+on_complete = %=complete_task_inc_goodwill(25:army) =reward_random_money(9000:11000:hrivni) =reward_stash(true) =inc_task_stage(agr_smart_terrain_1_6_army_trader_stalker_task_2) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_target_id)%
+on_fail = %=fail_task_dec_goodwill(100:army) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_target_id)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_target_id)%
+on_reversed = %=pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_id) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_2_target_id)%
+
+;--------------------------------------------------------------------------------------------------
+; ASSASSINATION FOR MILITARY TASK-
+
+[agr_smart_terrain_1_6_army_trader_stalker_task_3]
+icon = ui_inGame2_Odin_vistrel
+prior = 35
+storyline = false
+title = agr_smart_terrain_1_6_army_trader_stalker_task_3_name
+descr = agr_smart_terrain_1_6_army_trader_stalker_task_3_text
+job_descr = agr_smart_terrain_1_6_army_trader_stalker_task_3_about
+task_complete_descr = agr_smart_terrain_1_6_army_trader_stalker_task_3_finish
+precondition = {=check_available_targets(army)} true, false
+repeat_timeout = 172800
+status_functor = bounty_task
+target_functor = general_bounty_task
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_trader_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+stage_complete = 1
+on_job_descr = %=on_init_bounty_hunt(agr_smart_terrain_1_6_army_trader_stalker_task_3:stalker:bandit:freedom:csky)%
+on_complete = %=reward_random_money(10000:12000:hrivni) =reward_stash(true) =inc_task_stage(agr_smart_terrain_1_6_army_trader_stalker_task_3) =complete_task_inc_goodwill(50:army) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3_target_id)%
+on_fail = %=pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3_target_id)%
+on_cancel = %=pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3_target_id)%
+on_reversed = %=pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3) =pstor_reset(agr_smart_terrain_1_6_army_trader_stalker_task_3_target_id)%
+
+;---------------------------------------------------------------------------------------
+; ELMINATE ALL MUTANTS IN GUNSHIP FOR MILITARY TASK-
+;---------------------------------------------------------------------------------------
+[agr_smart_terrain_1_6_army_trader_stalker_task_4]
+icon = ui_inGame2_Evakuatsiya
+prior = 35
+storyline = false
+title = agr_smart_terrain_1_6_army_trader_stalker_task_4_name
+descr = agr_smart_terrain_1_6_army_trader_stalker_task_4_text
+job_descr = agr_smart_terrain_1_6_army_trader_stalker_task_4_about
+task_complete_descr = agr_smart_terrain_1_6_army_trader_stalker_task_4_finish
+precondition = {=heli_exist_on_level =any_on_level(monster) =heli_inside_level_boundary} true, false
+repeat_timeout = 172800
+;status_functor = check_level_under_faction_control
+status_functor_params = monster
+target_functor = level_all_of_faction
+stage_complete = 1
+on_init = %=on_init_heli_hunt(agr_smart_terrain_1_6_army_trader_stalker_task_4)%
+on_complete = %=exit_heli =inc_task_stage(agr_smart_terrain_1_6_army_trader_stalker_task_4) =complete_task_inc_goodwill(100:army)%
+condlist_0 = {!heli_exist_on_level} fail
+condlist_1 = %=enter_heli%
+
+;---------------------------------------------------------------------------------------
+; Kirilov (Military Mechanic) Find Level 1 Toolkit Task-
+;---------------------------------------------------------------------------------------
+[agr_smart_terrain_1_6_army_mechanic_stalker_task_1]
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 15
+precondition = {-agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_1} true, false
+title = agr_smart_terrain_1_6_army_mechanic_stalker_task_1_name
+title_functor = general_fetch_task
+descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_1_text
+descr_functor = general_fetch_task
+job_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_1_about
+fetch_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch_about
+task_complete_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_mechanic_stalker_task_1)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=setup_generic_fetch_task(agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch:1:itm_repairkit_tier_1)%
+on_complete = %=reward_random_money(1500:3000:hrivni) =complete_task_inc_goodwill(50:army) =remove_fetch_item(agr_smart_terrain_1_6_army_mechanic_stalker_task_1_fetch) =inc_task_stage(agr_smart_terrain_1_6_army_mechanic_stalker_task_1) +agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_1 =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+on_reversed = %=drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_1)%
+
+;---------------------------------------------------------------------------------------
+; Kirilov (Military Mechanic) Find Level 2 Toolkit Task-
+;---------------------------------------------------------------------------------------
+[agr_smart_terrain_1_6_army_mechanic_stalker_task_2]
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 16
+precondition = {+agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_1 -agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_2} true, false
+title = agr_smart_terrain_1_6_army_mechanic_stalker_task_2_name
+title_functor = general_fetch_task
+descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_2_text
+descr_functor = general_fetch_task
+job_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_2_about
+fetch_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch_about
+task_complete_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_mechanic_stalker_task_2)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=setup_generic_fetch_task(agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch:1:itm_repairkit_tier_2)%
+on_complete = %=reward_random_money(2500:4500:hrivni) =complete_task_inc_goodwill(50:army) =remove_fetch_item(agr_smart_terrain_1_6_army_mechanic_stalker_task_2_fetch) =inc_task_stage(agr_smart_terrain_1_6_army_mechanic_stalker_task_2) +agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_2 =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+on_reversed = %=drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_2)%
+
+;---------------------------------------------------------------------------------------
+; Kirilov (Military Mechanic) Find Level 3 Toolkit Task-
+;---------------------------------------------------------------------------------------
+[agr_smart_terrain_1_6_army_mechanic_stalker_task_3]
+
+icon = ui_inGame2_Instrumenti
+storyline = false
+prior = 17
+precondition = {+agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_2 -agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_3} true, false
+
+title = agr_smart_terrain_1_6_army_mechanic_stalker_task_3_name
+title_functor = general_fetch_task
+descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_3_text
+descr_functor = general_fetch_task
+job_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_3_about
+fetch_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch_about
+task_complete_descr = agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch_finish
+
+stage_complete = 1
+target_functor = general_fetch_task
+status_functor = actor_has_fetch_item
+condlist_0 = {!task_giver_alive(agr_smart_terrain_1_6_army_mechanic_stalker_task_3)} reversed
+condlist_1 = {=drx_sl_is_enemy(army)} cancel
+
+fetch_func = %=setup_generic_fetch_task(agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch:1:itm_repairkit_tier_3)%
+on_complete = %=reward_random_money(6500:7500:hrivni) =complete_task_inc_goodwill(50:army) =remove_fetch_item(agr_smart_terrain_1_6_army_mechanic_stalker_task_3_fetch) =inc_task_stage(agr_smart_terrain_1_6_army_mechanic_stalker_task_3) +agr_smart_terrain_1_6_army_mechanic_stalker_upgrade_tier_3 =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_3)%
+on_fail = %=fail_task_dec_goodwill(100:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_3)%
+on_cancel = %=fail_task_dec_goodwill(25:army) =drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_3)%
+on_reversed = %=drx_sl_unregister_task_giver(agr_smart_terrain_1_6_army_mechanic_stalker_task_3)%
+;---------------------------------------------------------------------------------------

@@ -1,0 +1,256 @@
+[wpn_tt33]:default_weapon_params, strap_pistol
+visual								= dynamics\weapons\wpn_tt33\wpn_tt33.ogf
+$spawn								= "weapons\Desert Eagle"	; option for Level Editor
+$npc								= on						; option for Level Editor
+class								= WP_PM
+inv_name							= st_wpn_tt33
+inv_name_short						= st_wpn_tt33
+description							= wpn_tt33_descr
+heating_rates						= pistol1
+ef_weapon_type						= 5
+repair_type 						= pistol
+cost								= 15000
+inv_weight							= 0.854
+inv_volume							= 1.2
+ph_mass			 					= 1
+default_to_ruck						= false
+sprint_allowed						= true
+upgrades							= up_gr_firstab_tt33, up_gr_seconab_tt33, up_gr_thirdab_tt33, up_gr_fourtab_tt33, up_gr_fifthab_tt33, up_gr_fifthcd_tt33
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_pm
+;--TTX----------------------------------------------------------------------------
+hit_power							= 0.33, 0.33, 0.33, 0.33
+hit_impulse							= 42
+hit_type							= fire_wound
+fire_distance						= 400
+bullet_speed						= 440
+rpm									= 185
+rpm_empty_click						= 120
+time_to_aim							= 1.0
+hud									= wpn_tt33_hud
+
+misfire_probability					= 0.05
+misfire_start_condition				= 0.7
+misfire_end_condition				= 0.12
+misfire_start_prob					= 0.007
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0018
+condition_queue_shot_dec			= 0.0018
+
+ammo_elapsed						= 8
+ammo_mag_size						= 8
+fire_modes							= 1
+magazine_sect						= magazine_762x25_cnt_8
+ammo_class							= ammo_7.62x25_p, ammo_7.62x25_p_bad, ammo_7.62x25_p_verybad, ammo_7.62x25_ps, ammo_7.62x25_ps_bad, ammo_7.62x25_ps_verybad, ammo_7.62x25_p41, ammo_7.62x25_p41_bad, ammo_7.62x25_p41_verybad
+single_handed						= 1
+slot 			 					= 0
+animation_slot						= 1
+;---DOF-------------------------------------------------------------------------
+zoom_dof							= -1000, 1.0, 1000
+reload_dof							= 0.0, 0.5, 5, 1.7
+reload_empty_dof					= 0.0, 0.5, 5, 2.2
+;--дисперсия----------------------------------------------------------------------------
+fire_dispersion_base				= 0.6
+control_inertion_factor				= 1.1f
+crosshair_inertion					= 3.3
+
+cam_return							= 0
+cam_relax_speed						= 6							;скорость возврата в исходное положение
+cam_relax_speed_ai					= 120.75
+cam_dispersion						= 1.91						;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc					= 1.98						;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac					= 0.92						;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle						= 50.0						;максимальный угол отдачи
+cam_max_angle_horz					= 50.0						;(degree) maximum shot horizontal degree
+cam_step_angle_horz					= 1.2						;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base						= 0.85
+PDM_disp_vel_factor					= 1.05
+PDM_disp_accel_factor				= 1.055
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+fire_dispersion_condition_factor	= 0.001						;увеличение дисперсии в процентах при максимальном износе
+;-------------------------------------------------------------------------------
+inv_grid_width						= 2
+inv_grid_height						= 1
+inv_grid_x							= 59
+inv_grid_y							= 77
+
+upgr_icon_x							= 1450
+upgr_icon_y							= 600
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+kill_msg_x							= 194
+kill_msg_y							= 123
+kill_msg_width						= 46
+kill_msg_height						= 27
+
+position							= -0.021, -0.092, 0.0
+orientation							= 0, 0, 0
+fire_point							= 0.0, 0.133, 0.161
+fire_point2							= 0.0, 0.133, 0.161
+shell_point							= 0.0, 0.133, 0.047
+shell_dir							= 0.0, 0.0, 0.4
+shell_3d_sect						= shell_9
+shell_particles						= weapons\45acp
+flame_particles						= weapons\new_effects\pistol_9x18
+smoke_particles						= weapons\new_effects\smoke_silencer_pistol
+;-------------------------------------------------------------------------------
+light_color		 					= 0.6,0.5,0.3
+light_range		 					= 3.0
+light_var_color		 				= 0.05
+light_var_range		 				= 0.5
+light_time 		 					= 0.2
+
+;addons
+scope_status						= 0
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= true
+zoom_rotate_time					= 0.25
+scope_zoom_factor					= 1.03
+
+silencer_light_color				= 0.6,0.5,0.3
+silencer_light_range				= 0.01
+silencer_light_var_color			= 0.05
+silencer_light_var_range			= 0.5
+silencer_light_time					= 0.2
+silencer_smoke_particles			= weapons\new_effects\smoke_silencer_pistol
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster							= weapons\tt33\tt33_holster
+snd_draw							= weapons\tt33\tt33_draw
+snd_empty							= weapons\tt33\tt33_empty
+snd_reload							= weapons\tt33\tt33_reload
+snd_reload_empty					= weapons\tt33\tt33_reload_empty
+snd_reload_misfire					= weapons\hpsa\hpsa_reload_empty,1,0,2.0
+snd_reload_detached					= weapons\tt33\tt33_reload,1,0,0.7
+snd_reload_detached_empty			= weapons\tt33\tt33_reload_empty,1,0,0.7
+snd_close							= weapons\tt33\tt33_close
+snd_shoot							= weapons\tt33\tt33_shoot_null
+snd_silencer_shot					= weapons\tt33\tt33_shot_sil_null
+;-------------------------------------------------------------------------------
+[wpn_tt33_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_tt33\wpn_tt33_hud.ogf
+zoom_hide_crosshair					= true
+shell_point							= 0,0.00202,-0.18483
+shell_bone							= gilza
+fire_point							= 0,0,0
+fire_bone							= muzzle
+
+item_position						= 0.000746,-0.000321,0.003479
+item_orientation					= 1.239378,-0.134046,-2.052052
+
+hands_position						= -0.102355,-0.1298,-0.08442
+hands_position_16x9					= -0.102355,-0.1298,-0.08442
+hands_orientation					= -0.5,1.0,1.15
+hands_orientation_16x9				= -0.5,1.0,1.15
+
+aim_hud_offset_pos					= -0.029215,0.008765,-0.009135
+aim_hud_offset_pos_16x9				= -0.029215,0.008765,-0.009135
+aim_hud_offset_rot					= -0.00659,0.013286,-0.015
+aim_hud_offset_rot_16x9				= -0.00659,0.013286,-0.015
+
+anm_show							= fort_draw
+anm_show_empty						= fort_draw, fort_opened
+anm_hide							= lancew_cz75_holster
+anm_hide_empty						= lancew_cz75_holster, fort_opened
+anm_idle							= fort_idle
+anm_idle_empty						= fort_idle, fort_opened
+anm_shots							= fort_shoot
+anm_shots_empty						= fort_shoot, fort_shoot_last
+anm_shot_l							= fort_shoot, fort_shoot_last
+anm_idle_aim						= fort_idle_aim
+anm_idle_aim_empty					= fort_idle_aim, fort_opened
+anm_reload							= fort_reload
+anm_reload_empty					= fort_reload_empty
+anm_reload_misfire					= hpsa_reload_empty, , , 1.8
+anm_reload_detached					= fort_reload, , , 0.7
+anm_reload_detached_empty			= fort_reload_empty, , , 0.7
+anm_idle_moving						= fort_idle_moving
+anm_idle_moving_empty				= fort_idle_moving, fort_opened
+anm_idle_moving_crouch				= fort_idle_crouch
+anm_idle_moving_crouch_empty		= fort_idle_crouch, fort_opened
+anm_idle_sprint						= cz75a_idle_sprint
+anm_idle_sprint_empty				= cz75a_idle_sprint, fort_opened
+anm_bore							= pm_idle_bore2
+anm_bore_empty						= pm_idle_bore2, opened
+;-----------------------------------------------------------------------------
+[wpn_tt33_modern]:wpn_tt33
+visual								= dynamics\weapons\wpn_tt33\wpn_tt33_sk1.ogf
+inv_name							= st_wpn_tt33_modern
+inv_name_short						= st_wpn_tt33_modern
+cost								= 16000
+hit_power							= 0.36, 0.36, 0.36, 0.36
+bullet_speed						= 455
+rpm									= 215
+hud									= wpn_tt33_sk1_hud
+misfire_start_condition				= 0.68
+misfire_end_condition				= 0.09
+misfire_start_prob					= 0.004
+misfire_end_prob					= 0.03
+condition_shot_dec					= 0.0016
+condition_queue_shot_dec			= 0.0016
+fire_dispersion_base				= 0.53
+inv_grid_x							= 61
+upgr_icon_x							= 1450
+upgr_icon_y							= 600
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+[wpn_tt33_sk1_hud]:wpn_tt33_hud
+item_visual							= dynamics\weapons\wpn_tt33\wpn_tt33_sk1_hud
+;-----------------------------------------------------------------------------
+[wpn_tt33_worn]:wpn_tt33
+visual								= dynamics\weapons\wpn_tt33\wpn_tt33_sk2.ogf
+inv_name							= st_wpn_tt33_worn
+inv_name_short						= st_wpn_tt33_worn
+cost								= 12000
+upgrades							= up_gr_firstab_tt33_worn, up_gr_seconab_tt33_worn, up_gr_thirdab_tt33_worn, up_gr_fourtab_tt33_worn, up_gr_fifthab_tt33_worn, up_gr_fifthcd_tt33_worn
+hit_power							= 0.285, 0.285, 0.285, 0.285
+bullet_speed						= 430
+rpm									= 180
+hud									= wpn_tt33_sk2_hud
+misfire_start_condition				= 0.81
+misfire_end_condition				= 0.14
+misfire_start_prob					= 0.008
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0019
+condition_queue_shot_dec			= 0.0019
+fire_dispersion_base				= 0.65
+inv_grid_x							= 63
+upgr_icon_x							= 1300
+upgr_icon_y							= 600
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+[wpn_tt33_sk2_hud]:wpn_tt33_hud
+item_visual							= dynamics\weapons\wpn_tt33\wpn_tt33_sk2_hud
+;-----------------------------------------------------------------------------
+[wpn_tt33_rusty]:wpn_tt33
+visual								= dynamics\weapons\wpn_tt33\wpn_tt33_sk3.ogf
+inv_name							= st_wpn_tt33_rusty
+inv_name_short						= st_wpn_tt33_rusty
+upgrades							= up_gr_firstab_tt33_rusty, up_gr_seconab_tt33_rusty, up_gr_thirdab_tt33_rusty, up_gr_fourtab_tt33_rusty, up_gr_fifthab_tt33_rusty, up_gr_fifthcd_tt33_rusty
+cost								= 9000
+hit_power							= 0.243, 0.243, 0.243, 0.243
+bullet_speed						= 415
+rpm									= 160
+hud									= wpn_tt33_sk3_hud
+misfire_start_condition				= 0.88
+misfire_end_condition				= 0.16
+misfire_start_prob					= 0.009
+misfire_end_prob					= 0.11
+condition_shot_dec					= 0.0020
+condition_queue_shot_dec			= 0.0020
+fire_dispersion_base				= 0.73
+inv_grid_x							= 65
+upgr_icon_x							= 1150
+upgr_icon_y							= 700
+upgr_icon_width						= 150
+upgr_icon_height					= 100
+
+[wpn_tt33_sk3_hud]:wpn_tt33_hud
+item_visual							= dynamics\weapons\wpn_tt33\wpn_tt33_sk3_hud
+;-----------------------------------------------------------------------------

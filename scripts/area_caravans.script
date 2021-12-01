@@ -1,0 +1,224 @@
+--------------------------------------------------------------
+--------------------- A.R.E.A. caravans ----------------------
+--------------------------------------------------------------
+
+local ini = system_ini()
+local TF
+local Timers = {}
+local GT
+local dm_route
+local trade_routes
+trader_update = {}
+local loaded
+
+function save_state(m_data)
+	if Timers == nil then return end
+--	for route,_ in pairs(Timers) do
+--		if Timers[route].timer then
+--			Timers[route].timer = ReturnTimeEventTime("caravan","caravan"..route)
+--		end
+--	end
+	m_data.caravans = Timers
+	m_data.caravans_GT = GT
+end
+
+function load_state(m_data)
+	Timers = m_data.caravans or {}
+	GT = m_data.caravans_GT
+--	if table.size(Timers) > 0 then
+--		for route, t in pairs (Timers) do
+--			if t.timer then CreateTimeEvent("caravan","caravan"..route,t.timer,caravan,route) end
+--		end
+--	end
+	m_data.caravans = nil
+	m_data.caravans_GT = nil
+	loaded = true
+end
+
+function on_game_start()
+	trade_routes = alun_utils.collect_section(ini,"trade_routes",true)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+	RegisterScriptCallback("squad_on_npc_death",squad_on_npc_death)
+	RegisterScriptCallback("squad_on_update",squad_on_update)
+	RegisterScriptCallback("actor_on_item_use",check_delivery)
+end
+
+function actor_on_update()
+	if loaded == nil then return end
+	if (GT == nil) or (game.get_game_time():diffSec(GT) > 3600) then
+		TF = level.get_time_factor()
+		GT = game.get_game_time()
+		local ttbl = trade_routes
+		for i=1,#trade_routes do
+			local route = table.remove(ttbl,math.random(1,#ttbl))
+			Timers[route] = Timers[route] or {}
+			if Timers[route].timer == nil then
+			--if ReturnTimeEventTime("caravan","caravan"..route) == nil then
+				if has_alife_info(route.."_dead") then db.actor:disable_info_portion(route.."_dead") end
+				local smin,smax = alun_utils.parse_list(ini,route,"min_spawn_time") or 84600, alun_utils.parse_list(ini,route,"max_spawn_time") or 169200
+				--Timers[route].timer = (math.random(smin,smax))/TF
+				Timers[route].timer = utils.CTimeAddSec(game.get_game_time(),math.random(smin,smax))
+				--CreateTimeEvent("caravan","caravan"..route,5, caravan, route)
+				--CreateTimeEvent("caravan","caravan"..route,Timers[route].timer, caravan, route)
+				break
+			end
+		end
+		for route, t in pairs(Timers) do
+			if (GT:diffSec(t.timer) > 0) then
+				caravan(route)
+			end
+		end
+	end
+end
+
+function check_delivery(box,sec)
+	if sec == "delivery_storage" then
+		local function use_container(con_id, id)
+			local con_box = level.object_by_id(con_id)
+			if con_box then
+				--printf("box %s filled",con_id)
+				coc_treasure_manager.try_spawn_treasure(con_box, id)
+				return true
+			end
+			--printf("waiting for box %s",con_id)
+			return
+		end
+		local id = box:id()
+		CreateTimeEvent("delivery","container",0.1,use_container,bind_container.containers[id].id, id)
+	end
+end
+
+local squad_kill = {}
+function squad_on_npc_death(squad,se_npc,se_killer)
+	local function fill_give_box ()
+		local se_box = alife():create("delivery_storage",se_npc.position,0,0,se_npc.id)
+		--printf("Delivery box %s filled",se_box.id)
+		coc_treasure_manager.create_random_stash(true,nil,nil,nil,se_box.id)
+		return true
+	end
+
+	if not Timers[squad:section_name()] then return end 
+	if se_killer.id == 0 then squad_kill[squad.id] = true end
+	local route_name = squad:section_name()
+	--news_manager.send_tip(db.actor, strformat("%s in Squad %s has died",se_npc:character_name(),route_name), nil, nil, 10000, nil)
+	if (squad:npc_count() == 0) then
+		if squad_kill[squad.id] then
+			--SetHudMsg(strformat("actor Caravan %s ID [%s] is dead.",route_name,squad.id),10)
+			--printf("actor Caravan %s ID [%s] is dead. %s has the delivery",route_name,Timers[route_name].id,se_npc.id)
+			squad_kill[squad.id] = nil
+			CreateTimeEvent("caravan","treasure"..se_npc.id,0.5,fill_give_box)
+		else
+			--SetHudMsg(strformat("Caravan %s ID [%s] is dead.",route_name,squad.id),10)
+			--printf("Caravan %s ID [%s] is dead.",route_name,Timers[route_name].id)
+		end
+		trader_update[Timers[route_name].trade_id] = "fail"
+		Timers[route_name] = nil
+		if(level.map_has_object_spot(squad.id, "explo_location")~=0) then
+			level.map_remove_object_spot(squad.id, "explo_location")
+		end
+	end
+end
+
+local p_text = {}
+local function dynamic_map_spot(squad)
+	local assigned = squad.assigned_target_id and alife_object(squad.assigned_target_id)
+	local current = squad.current_target_id and alife_object(squad.current_target_id)
+	local smart = squad.smart_id and alife_object(squad.smart_id)
+	local text = strformat("name:%s\\nnpc count:%s\\nscripted:%s\\nassigned:%s\\ncurrent:%s\\nsmart:%s",squad:name(),squad:npc_count(),squad.scripted_target,assigned and assigned:name(),current and current:name(),smart and smart:name())
+	if p_text[squad.id] == nil or text ~= p_text[squad.id] then
+		level.map_remove_object_spot(squad.id, "explo_location")
+		level.map_add_object_spot(squad.id,"explo_location",text)
+	end
+	p_text[squad.id] = text
+end
+
+function squad_on_update(squad)
+	if not (squad and squad:section_name():find("_caravan")) then
+		return
+	end
+
+	if(level.map_has_object_spot(squad.id, "explo_location")~=0) then
+		dynamic_map_spot(squad)
+	end
+	--printf("Enter Squad current_target_id [%s] assigned_target_id [%s] current_action [%s] scripted_target [%s].",squad.current_target_id,squad.assigned_target_id,squad.current_action,squad.scripted_target)
+	if squad.current_target_id == nil or squad.current_target_id ~= squad.smart_id then return end
+	local route_name = squad:section_name()
+	local trader = db.storage[Timers[route_name].trade_id] and db.storage[Timers[route_name].trade_id].object or level.object_by_id(Timers[route_name].trade_id)
+	if trader then
+		trader_update[Timers[route_name].trade_id] = "succeed"
+		if trader:relation(db.actor) ~= game_object.enemy and (trader:position():distance_to_sqr(db.actor:position()) <= 200^2)then
+			db.actor:give_info_portion(route_name.."_reward")
+		end
+	end
+	SetHudMsg(strformat("Squad %s has arrived at destination.",route_name),10)
+	if(level.map_has_object_spot(squad.id, "explo_location")~=0) then
+		level.map_remove_object_spot(squad.id, "explo_location")
+	end
+	squad:remove_squad()
+	Timers[route_name] = nil
+	return true
+end
+
+local except = {m_trader = "trader",  yan_stalker_sakharov = "saharov", bar_visitors_barman_stalker_trader = "barman", esc_2_12_stalker_wolf = "wolf"}
+function caravan(route_name)
+	local sim = alife()
+	local starts = alun_utils.parse_list(ini,route_name,"spawn_point")
+	local start_smart_pos = math.random(1,#starts)
+	--db.actor:give_info_portion("caravan_"..start_smart_pos)
+	local smart_name = starts[start_smart_pos]:match("%b{}([%w_]*)")
+	local smart = smart_name and SIMBOARD.smarts_by_names[smart_name]
+	if (smart) then 
+		local squad = SIMBOARD:create_squad(smart,route_name)
+		if (squad) then
+			squad.force_online = true
+			Timers[route_name].id = squad.id
+			local s_loc = game.translate_string(alife():level_name(game_graph():vertex(squad.m_game_vertex_id):level_id()))
+			local trader = route_name:match("([%w_]*)_caravan")
+			squad.scripted_target = ini:r_string_ex(route_name,"target") or trader
+			dynamic_map_spot(squad)
+			--printf("A.R.E.A. Caravans: Squad %s created at %s destination is %s for %s.",squad:name(),smart_name,squad.scripted_target, trader)
+			news_manager.send_tip(db.actor, strformat("Squad %s created at %s destination is %s for %s.",squad:section_name(),smart_name,squad.scripted_target, trader), nil, squad, 20000, nil)
+			for id, se_obj in alife():objects() do
+				if se_obj:section_name() == trader then
+					Timers[route_name].trade_id = id
+					trader_update[Timers[route_name].trade_id] = "active"
+					local icon = except[trader] or se_obj
+					local obj = db.storage[id] and db.storage[id].object or level.object_by_id(id) 
+					if obj and obj:relation(db.actor) == game_object.friend then
+						news_manager.send_tip(db.actor, strformat(game.translate_string("st_caravan_active_msg"),se_obj:character_name(),s_loc), nil, icon, 10000, nil)
+					else  --if db.actor:object("radio") then
+						news_manager.send_tip(db.actor, strformat(game.translate_string("st_caravan_active_msg_intercept"),se_obj:character_name(), s_loc), nil, icon, 10000, nil)
+					end
+					break
+				end
+			end
+		end
+	end
+	--db.actor:disable_info_portion("caravan_"..start_smart_pos)
+	return true
+end
+
+function dm_caravan_active(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	dm_route = npc and npc:section().."_caravan"
+	if Timers[dm_route] and Timers[dm_route].id then return true end
+end
+
+function text_dm_caravan_active()
+	local squad = alife_object(Timers[dm_route].id)
+	local s_loc = game.translate_string(alife():level_name(game_graph():vertex(squad.m_game_vertex_id):level_id()))
+	strformat(game.translate_string("st_caravan_active"), s_loc)
+end
+
+function dm_caravan_reward()
+	dialogs.relocate_money_to_actor(a,b,math.random(3000,5000))
+	db.actor:disable_info_portion(dm_route.."_reward")
+end
+
+function dm_caravan_done(a,b)
+	local npc = dialogs.who_is_npc(a,b)
+	dm_route = npc and npc:section().."_caravan"
+	if has_alife_info(dm_route.."_reward") then return true end
+end

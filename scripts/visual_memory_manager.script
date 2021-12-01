@@ -1,0 +1,45 @@
+-- Visual Memory Manager exports
+-- by Alundaio 
+
+-- called from engine
+-- This occurs during the visible check. If value >= visiblity_threshold then object is considered visible
+-- warning npc and who can be nil sometimes
+function get_visible_value(npc,who,time_delta,time_quant,luminocity,velocity_factor,velocity,distance,object_distance,always_visible_distance)
+	distance = distance <= 0 and 0.00001 or distance
+	
+	if (level_weathers.bLevelUnderground) then
+		luminocity = luminocity + 0.15
+	end
+	
+	local is_actor = who and who:id() == 0
+	if (is_actor) then 
+		local torch = db.actor:item_in_slot(10)
+		local fl = db.actor:item_in_slot(9)
+		if (torch and torch:torch_enabled()) or db.actor:active_flashlight() then
+			luminocity = luminocity + 0.15
+		end
+	end
+	
+	local visibility = time_delta / time_quant * luminocity * (1 + velocity_factor*velocity) * (distance - object_distance) / distance
+	
+	-- Camoflage
+
+    if (is_actor) then 
+        --printf("Before visibility:%s", visibility)
+        if npc then
+            SendScriptCallback("npc_on_see_actor_callback",npc,object_distance,velocity)
+        end
+        local outfit = who:item_in_slot(7)
+        if (outfit) then
+            local binder = outfit:binded_object()
+            --printf("outfit visibility:%s", outfit:section())
+            if (binder and binder.visibility_factor) then
+                --printf("visibility factor:%s", binder.visibility_factor)
+                visibility = visibility * binder.visibility_factor
+            end
+        end
+        --printf("After visibility:%s", visibility)
+    end
+
+	return visibility
+end

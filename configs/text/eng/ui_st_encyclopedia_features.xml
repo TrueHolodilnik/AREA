@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<string_table>
+	
+	<string id="encyclopedia_features">
+		<text>Game Settings</text>
+	</string>
+	
+	<string id="encyclopedia_features_aoe_pickup_mode">
+		<text>Simplified selection of objects</text>
+	</string>
+	<string id="encyclopedia_features_aoe_pickup_mode_text">
+		<text>The option "Simplified selection of objects" allows you to select from the ground several items from the site.\n
+			\nIf the option is enabled, the player can pick up several items at once with a single keystroke, just as it was in S.T.A.L.K.E.R. "Call of Pripyat". If the option is disabled, then the item can be selected only if it is next to it and look at it.\n
+			\nThis option is disabled by default. Can be enabled in the game settings menu.
+		</text>
+	</string>
+	<string id="encyclopedia_features_artefact_degradation">
+		<text>Degradation of artifacts</text>
+	</string>
+	<string id="encyclopedia_features_artefact_degradation_text">
+		<text>The option "Degradation of artifacts" gives artifacts the ability to gradually lose their properties.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If this function is enabled, the stronger their properties will be weakened. Owning the best artifacts is now not the end of hunting for them, thereby stimulating further searches, rather than simply becoming a quick source of income.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_inventory_artefact">
+		<text>Artifacts are active from everywhere</text>
+	</string>
+	<string id="encyclopedia_features_inventory_artefact_text">
+		<text>The "Artifacts are active from everywhere" option allows artifacts to influence the character from everywhere: from inventory, backpack or pockets.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If this feature is enabled, the artifacts will continuously affect the character depending on how you press them:\n
+			\n%c[0,196,100,100]•%c[0,140,140,140] The atrefacts in the backpack or purse transmit the properties by 50%.\n
+			\n%c[0,255,255,118]•%c[0,140,140,140] The atrefacts in the costume (inventory) transfer properties to 75%.\n
+			\n%c[0,107,207,119]•%c[0,140,140,140] The atrefacts in the pockets of the suit transmit the properties to 100%.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_azazel_mode">
+		<text>Life After Life</text>
+	</string>
+	<string id="encyclopedia_features_azazel_mode_text">
+		<text>
+			The "Life After Life" mode allows you to continue the game as another character in case of death.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] In this mode, death is not the end, after the death of your character, you are transferred to the body of an occasional stalker, which really exists in the game.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If you have partners, then after the death you will become one of them.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This mode can only be enabled when starting a new game.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_delayed_repairs">
+		<text>Long repair</text>
+	</string>
+	<string id="encyclopedia_features_delayed_repairs_text">
+		<text>
+			Long repair mechanic forces to leave your equipment during repairs.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If this function is enabled, the broken weapons, suits and helmets that you bring to the mechanic will be kept by him until all the repairs are completed.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] During a conversation with a mechanic, you can find out if your gear is ready or how much longer it takes to complete the repair.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This adds a credibility to the repair system, suitable for players looking for a more realistic game, since the work is now not done instantly and stimulates the use of repair and sewing kits.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_dynamic_news">
+		<text>Dynamic News</text>
+	</string>
+	<string id="encyclopedia_features_dynamic_news_text">
+		<text>
+			Dynamic news allows stalkers to report incidents in the Zone.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] With the help of the stalker communication network, stalkers will comment on the events they witnessed or heard about, and also report on their current activities.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] These events and actions can range from something peaceful, like complaints about the price of goods sold by merchants, to requesting assistance from the Allies in the event of an attack.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] There are other messages: stalkers can report suspicious activity, give you a tip to your target if you are hunting for someone's head or mention who has the work available.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_extended_hud">
+		<text>Advanced HUD</text>
+	</string>
+	<string id="encyclopedia_features_extended_hud_text">
+		<text>
+			Advanced HUD allows to display additional information on the screen.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If this function is enabled, the short information about the partners and the miniature version of the artifact belt are displayed.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This function can be enabled in the interface options and disabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_hardcore_ai_aim">
+		<text>Accurate NPS</text>
+	</string>
+	<string id="encyclopedia_features_hardcore_ai_aim_text">
+		<text>
+			This function increases the aiming speed and accuracy of the game characters.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If this function is enabled, it becomes more difficult to avoid hits using only maneuvering and running, the use of shelters becomes much more important for survival.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_helicopter_patrols">
+		<text>Helicopter Spawn</text>
+	</string>
+	<string id="encyclopedia_features_helicopter_patrols_text">
+		<text>
+			Helicopter patrol will allow groups to use air support during combat.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Groups that have helicopters will be able to request air support in a collision with hostile stalkers (including the player) and mutants.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Despite the frightening appearance, helicopters can be easily knocked down after damage to the tail rotor.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_ironman_mode">
+		<text>One life</text>
+	</string>
+	<string id="encyclopedia_features_ironman_mode_text">
+		<text>
+			The "One Life" mode leads to the true death of your character, in the event of his death in the game.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The "One Life" mode adds complexity to the game process, since all saved games for this character will be deleted after his death.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] If the "Life After Life" mode is turned on, in case of death you can continue the game in a new body; but those save that you did when playing for the deceased character will be deleted.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] It should be noted that the save only for the current pass will be deleted, since all the saveings are marked with unique identifiers.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This mode can only be enabled when starting a new game.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_online_exclusion">
+		<text>Safe zones</text>
+	</string>
+	<string id="encyclopedia_features_online_exclusion_text">
+		<text>
+			Creates an area around the main character, preventing spawn of mutants and other stalkers in dangerous proximity to the player.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] While exploring locations near their outskirts and transition points, you can be attacked by enemies who have arrived from other game levels. With the inclusion of the ban spawn, their appearance is delayed until you move away to a safe distance.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] It should be noted that this system works only around the player; Any enemies that already exist in a particular place at this level will not disappear when you move to them on the location.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The radius of spawn prohibition can be adjusted using the game settings menu and defaults to 50m.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_population_factors">
+		<text>Occupancy factors</text>
+	</string>
+	<string id="encyclopedia_features_population_factors_text">
+		<text>
+			These are the coefficients of the number of stalkers and mutants that exist in the Zone.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The coefficients of the number of stalkers and mutants can be adjusted independently of each other, which allows the player to decide how dangerous or quiet the Zone should be-without having to change the game files.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] It should be noted that the effect manifests itself immediately only at the beginning of a new game, during the game the changes take effect only after the death of existing stalkers and / or mutants and the revival of them in larger or smaller quantities.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] These factors can be adjusted in the game settings menu and by default they are equal to 0.5.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_portrait_by_outfit">
+		<text>Outfit Portrait</text>
+	</string>
+	<string id="encyclopedia_features_portrait_by_outfit_text">
+		<text>
+			The option "Outfit Portrait" changes the original portrait based on the current outfit of your character.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] When this option is selected, every time you dress or remove a jumpsuit (with the exception of a helmet), the portrait of your character will be updated to reflect this change, simulating the portraits of the NPC.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_radio_music">
+		<text>Radio music</text>
+	</string>
+	<string id="encyclopedia_features_radio_music_text">
+		<text>
+			This option enables the playback of music tracks for radio in certain places in the game world.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] In some areas of the Zone there are radio sets, each of which plays a set of music tracks for the entertainment of stalkers.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature can be turned off in the game settings menu and enabled by default.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Where in the Zone are the radio receivers:\n
+			\n• Agroprom - Research Institute "Agroprom"\n• Cordon - Sidorovich bunker \n• Marshes - the base of the "Clear Sky"\n• Dark Valley - Northern factory \n• Rostock - bar "100 X-rays"\n• Red Forest - Forester's home
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_rank">
+		<text>Rank</text>
+	</string>
+	<string id="encyclopedia_features_rank_text">
+		<text>
+			Rank is a rating system based on what the stalker did in the Zone.\n
+			\n%c[guide_green]Information%c[default]\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The actions you perform during your passing of the game are recorded and each adds a different number of points.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] As you accumulate more and more points, your rank will gradually change and you will go through all the steps, to achieve each of which you will need 1000 points more than for the previous one.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Most of these actions are recorded on the CCP's statistics page, which also tracks the current top 100 leading stalkers.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] There are eight degrees of rank available:\n
+			\n• «Newbie» (0)\n• «Trainee» (1000) (+1000)\n• «Experienced» (3000) (+2000)\n• «Professional» (6000) (+3000)\n• «Veteran» (10000) (+4000)\n• «Expert» (15000) (+5000)\n• «Master» (21000) (+6000)\n• «Legend» (28000) (+7000)
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_reputation">
+		<text>Reputation</text>
+	</string>
+	<string id="encyclopedia_features_reputation_text">
+		<text>
+			%c[guide_blue]Reputation%c[default] gives an idea of how a stalker interacts with other stalkers.\n
+			\n%c[guide_green]Information%c[default]\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Reputation is similar to rank, but differs in that it is not linear - there is the possibility of both increasing and decreasing - and is related to your relationships with other stalkers, and not with activity in the game.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The simplest ways to increase reputation are to perform tasks, provide first aid to the wounded and kill the enemies of your group. The simple ways to lose it will be failures or refusals of tasks and the killing of neutral or friendly stalkers.\n
+			\nIt should be noted that reputation is an individual characteristic. It should not be confused with the relationship between groups.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Nine categories of reputation are available:\n
+			\n• «Worst of all» (-2000) (-500)\n• «Awful» (-1500) (-500)\n• «Very bad» (-1000) (-500)\n• «Bad» (-500) (-500)\n• «Neutral» (0)\n• «Good» (500) (+500)\n• «Very good» (1000) (+500)\n• «Excellent» (1500) (+500)\n• «Sumptuously» (2000) (+500)
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_sleep_deprivation">
+		<text>Lack of sleep</text>
+	</string>
+	<string id="encyclopedia_features_sleep_deprivation_text">
+		<text>
+			This option adds for the player the need for compulsory rest after a certain time.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] A lot of beds and sleeping bags are scattered throughout the Zone; as a rule, they are used only to allow the player to skip time through sleep, however, if this option is turned on, they will become an integral part of the gameplay.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Over time, your character will begin to feel tired, the screen will shake and blur. These effects will intensify until you find a suitable place and do not rest. Otherwise, due to the consequences of sleep deprivation, you will begin to lose health.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The time of onset of fatigue can be accelerated by the use of first-aid kits and vodka and is removed by the reception of energy drinks. However, using too much of the latter will make you unable to rest until their effects are exhausted.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_story_mode">
+		<text>Story Mod</text>
+	</string>
+	<string id="encyclopedia_features_story_mode_text">
+		<text>
+			\nAdds a nonlinear storyline based on events of S.T.A.L.K.E.R. "The shadow of Chernobyl".\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] In this mode, the storyline "The Secret of the Zone" and the tasks for disabling the Brain Killer and the Psi installation on Yantar are activated.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] In order to pass this story, you will need to find in the Exclusion Zone a key character who, after a short dialogue, will put before you several tasks that you can perform in any order.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This mode can only be enabled when starting a new game.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Only available for the following groups:\n
+			\n• «Clear Sky»\n• «Duty»\n• «Scientists»\n• «Freedom»\n• «Loners»\n• «Mercenaries»
+		</text>
+	</string>
+	
+	<string id="encyclopedia_features_survival_mode">
+		<text>Survival</text>
+	</string>
+	<string id="encyclopedia_features_survival_mode_text">
+		<text>
+			The survival mode turns the Zone into hunting grounds, where you are the victim.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] When this mode is turned on, there will be a huge number of zombie stalkers and mutants in the Zone that will slowly but steadily move towards your side with the intent to kill you.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Especially for this mode, new types of zombies have been added to the game - they have finally degraded, lost their human form and have already forgotten how to use any human tools - including firearms.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] In the Zone there were only a few traders and detachments of stalkers, that is, you must survive only with what you can find yourself.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This mode can only be enabled when starting a new game.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_slot_hud">
+		<text>Pockets HUD</text>
+	</string>
+	<string id="encyclopedia_features_slot_hud_text">
+		<text>
+			\nIf this option is enabled, items that are placed in your suit pockets will be displayed on the screen and you can always quickly find out what you are wearing.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_transitions_closed">
+		<text>Transitions</text>
+	</string>
+	<string id="encyclopedia_features_transitions_closed_text">
+		<text>
+			\nEnabling all transitions between locations\n
+			\n[0,153,255,255]•%c[0,140,140,140] This option allows you to enable the ability to switch between all locations without finding a path, they will also be displayed on the map.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature isn't optional.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_show_enemy_health">
+		<text>Enemies Health Bar</text>
+	</string>
+	<string id="encyclopedia_features_show_enemy_health_text">
+		<text>
+			\nThis option allows you to enable the display of the health scale of your current enemy, that is, with whom the shootout is taking place.
+			\n%c[0,153,255,255]•%c[0,140,140,140] If you enable the option, the health bar will be in the upper right corner.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_ambient_radiation">
+		<text>Ambient radiation</text>
+	</string>
+	<string id="encyclopedia_features_ambient_radiation_text">
+		<text>
+			\nWhen this option is enabled, there will be a constant radioactive level throughout the Zone.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] Safe radioactive level will only be in shelters, in some closed buildings or underground levels.
+			\n%c[0,153,255,255]•%c[0,140,140,140] The radiation level will directly depend on weather conditions, for example, in clear weather it will be less, in fog or rain more, and in a storm will be highest.
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_use_battery">
+		<text>Using of Batteries</text>
+	</string>
+	<string id="encyclopedia_features_use_battery_text">
+		<text>
+			\nThis option regulates the consumption of energy from your battery by your electrical appliances. 
+			\n%c[0,153,255,255]•%c[0,140,140,140] In your inventory is the Universal Charger. It is connected to all devices that need power for work, such as: PDA, flashlights, detectors, containers for artifacts (except SIMKa), NVN and exoskeletons.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] The Universal Charger can be restored with the help of batteries that are sold from merchants or can be found in the expanses of the zone, and so with the help of a Dynamo machine.
+			\n%c[0,153,255,255]•%c[0,140,140,140] When the battery is low, the above mentioned electric consumers will not work.
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>
+
+	<string id="encyclopedia_features_mask_hud">
+		<text>Helmet HUD</text>
+	</string>
+	<string id="encyclopedia_features_mask_hud_text">
+		<text>
+			\nThis option enables or disables the display of the current Helmet HUD.\n	
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_weapon_heat_ui">
+		<text>Overheating of weapons</text>
+	</string>
+	<string id="encyclopedia_features_weapon_heat_ui_text">
+		<text>
+			\nThis option enables or disables the display of the degree of overheating of the weapon.
+			\n%c[0,153,255,255]•%c[0,140,140,140] The overheating scale of the weapon appears at the bottom right of the screen, just above the type of ammunition, and in the inventory above, the weapons state scale. The scale is also displayed for the knife slot if small arms are placed in it. Overheating of the weapon temporarily increases the wear of the arms of the flesh until the cartridge is blasted in the trunk, it should be taken into account.
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_only_campfire">
+		<text>Fireplace Saves</text>
+	</string>
+	<string id="encyclopedia_features_only_campfire_text">
+		<text>
+			\nThis option enables or disables saving at campfires.\n
+			\n%c[0,153,255,255]•%c[0,140,140,140] You can save your progress at the fireplace as follows:
+			\n%c[0,153,255,255]•%c[0,140,140,140] First you need to find a fire. If it burns - it is enough to approach it and use matches, they are not consumed at the same time.	
+			\n%c[0,153,255,255]•%c[0,140,140,140] If the fire is extinguished, then it is necessary to do the same, but the matches will be consumed, and the fire will light for a while.
+			\n%c[0,153,255,255]•%c[0,140,140,140] This feature is optional in the game settings menu and is enabled by default.
+		</text>
+	</string>		
+	
+	<string id="encyclopedia_features_quicksave">
+		<text>Quicksave</text>
+	</string>
+	<string id="encyclopedia_features_quicksave_text">
+		<text>
+			\nThis option enables or disables quicksaves via the F5 key.\n
+		</text>
+	</string>	
+	
+	<string id="encyclopedia_features_companions">
+		<text>Companions</text>
+	</string>
+	<string id="encyclopedia_features_companions_text">
+		<text>
+			%c[guide_blue]Companions%c[default] Stalkers, whom you have chosen as satellites and members of your squad.\n
+			\n%c[guide_green]Information%c[default]\n
+			\nIt is dangerous to travel through the Zone alone, so most stalkers are grouped into small groups of three or four people.\n
+			\nThis feature of the game will allow you to assemble your team. Talking with the leaders of other units, you can convince them to explore the Zone with you.\n
+			\nThe only requirements - the leader of the detachment should be in friendly relations with you, his rank exceeds yours by not more than one level, the number of people in your squad does not exceed the maximum value.\n
+			\nIn special cases, some important characters can become your companions, which will help in the performance of certain tasks.\n
+			\nInformation on partners can be viewed on the appropriate tab in the CCP, where you can give them orders (to the whole group or individually), and also to influence their behavior.\n
+			\nThe same can be done with the "hot" keys, which are configured in the "Management" section in the options menu of the game.
+			\nYou can distribute your stuff to your partner's backpack, it can be done when your partner is next to you through the personal device menu or through a dialog. All the transferred items will be stored by the partner if the weight and volume allow it.
+		</text>
+	</string>
+</string_table>

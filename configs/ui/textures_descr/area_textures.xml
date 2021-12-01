@@ -1,0 +1,368 @@
+<w>
+
+	<file name="ui\ui_graphic_ingame">
+	    <texture id="ui_inGame2_graphic_options" x="0" y="0" width="820" height="768" />
+   </file>
+
+   <file name="ui\ui_area_textures">
+		<texture id="char_icon_frame" x="0" y="0" width="133" height="97"/>
+   </file>
+   
+   <file name="ui\ui_actor_widescreen_sidepanels_2">
+		<texture id="ui_hud_msg" x="0" y="600" width="360" height="136"/>
+   </file>
+   
+   <file name="ui\ui_portrets_anim\ui_actor_portret_fast_anim">
+		<texture id="no_data_anim" x="0" y="0" width="123" height="87"/>
+   </file>
+   
+    <file name="ui\ui_bgrnd">
+		<texture id="ui_death_background" x="0" y="0" width="4" height="4"/>
+   </file>
+   
+	<!-- Cooking UI -->
+	<file name="ui\ui_cooking_interface">
+        <texture id="ui_cooking_window" x="0" y="0" width="563" height="509" />
+    	<texture id="ui_cooking_campfire" x="698" y="290" width="128" height="128" />
+    </file>
+    <file name="ui\ui_loot_interface">
+		<texture id="ui_loot_window" x="0" y="0" width="350" height="512" />
+    </file>
+	
+	<!-- NV layer-->
+	<file name="ui\ui_nv_screen_mask">
+		<texture id="nv_layer" x="0" y="0" width="512" height="512" stretch="1"/>
+	</file>
+	
+	<!-- Actor Condition UI -->
+	<file name="ui\ui_actor_menu_health">
+		<texture id="ui_actor_menu_health" x="0" y="0" width="341" height="768" />
+	</file>
+	
+	<file name="ui\ui_actor_condition">
+		<texture id="ui_inGame2_radiation_inv_1" 	x="1" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_2" 	x="47" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_3" 	x="93" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_4" 	x="139" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_5" 	x="185" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_6" 	x="231" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_7" 	x="277" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_8" 	x="323" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_9" 	x="369" y="2" width="45" height="45" />
+		<texture id="ui_inGame2_radiation_inv_10" 	x="415" y="2" width="45" height="45" />
+		
+		<texture id="ui_inGame2_bleeding_inv_1" 	x="1" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_2" 	x="47" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_3" 	x="93" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_4" 	x="139" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_5" 	x="185" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_6" 	x="231" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_7" 	x="277" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_8" 	x="323" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_9" 	x="369" y="47" width="45" height="45" />
+		<texture id="ui_inGame2_bleeding_inv_10" 	x="415" y="47" width="45" height="45" />
+		
+		<texture id="ui_inGame2_psyhealth_inv_1" 	x="1" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_2" 	x="47" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_3" 	x="93" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_4" 	x="139" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_5" 	x="185" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_6" 	x="231" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_7" 	x="277" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_8" 	x="323" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_9" 	x="369" y="93" width="45" height="45" />
+		<texture id="ui_inGame2_psyhealth_inv_10" 	x="415" y="93" width="45" height="45" />
+		
+		<texture id="ui_inGame2_pain_inv_1" 	x="1" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_2" 	x="47" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_3" 	x="93" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_4" 	x="139" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_5" 	x="185" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_6" 	x="231" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_7" 	x="277" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_8" 	x="323" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_9" 	x="369" y="139" width="45" height="45" />
+		<texture id="ui_inGame2_pain_inv_10" 	x="415" y="139" width="45" height="45" />
+		
+		<texture id="ui_inGame2_toxicity_inv_1" 	x="1" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_2" 	x="47" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_3" 	x="93" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_4" 	x="139" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_5" 	x="185" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_6" 	x="231" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_7" 	x="277" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_8" 	x="323" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_9" 	x="369" y="185" width="45" height="45" />
+		<texture id="ui_inGame2_toxicity_inv_10" 	x="415" y="185" width="45" height="45" />
+		
+		<texture id="ui_inGame2_temp_inv_1" 	x="1" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_2" 	x="47" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_3" 	x="93" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_4" 	x="139" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_5" 	x="185" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_6" 	x="231" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_7" 	x="277" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_8" 	x="323" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_9" 	x="369" y="231" width="45" height="45" />
+		<texture id="ui_inGame2_temp_inv_10" 	x="415" y="231" width="45" height="45" />
+		
+		<texture id="ui_inGame2_blood_inv_1" 	x="1" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_2" 	x="47" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_3" 	x="93" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_4" 	x="139" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_5" 	x="185" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_6" 	x="231" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_7" 	x="277" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_8" 	x="323" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_9" 	x="369" y="277" width="45" height="45" />
+		<texture id="ui_inGame2_blood_inv_10" 	x="415" y="277" width="45" height="45" />
+
+		<texture id="ui_inGame2_fracture_inv_1" x="1" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_2" x="47" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_3" x="93" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_4" x="139" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_5" x="185" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_6" x="231" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_7" x="277" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_8" x="323" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_9" x="369" y="323" width="45" height="45" />
+		<texture id="ui_inGame2_fracture_inv_10" x="415" y="323" width="45" height="45" />
+		
+		<texture id="ui_inGame2_stamina_inv_1" 	x="1" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_2" 	x="47" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_3" 	x="93" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_4" 	x="139" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_5" 	x="185" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_6" 	x="231" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_7" 	x="277" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_8" 	x="323" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_9" 	x="369" y="369" width="45" height="45" />
+		<texture id="ui_inGame2_stamina_inv_10" x="415" y="369" width="45" height="45" />
+		
+		<texture id="ui_inGame2_thirst_inv_1" 	x="1" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_2" 	x="47" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_3" 	x="93" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_4" 	x="139" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_5" 	x="185" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_6" 	x="231" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_7" 	x="277" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_8" 	x="323" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_9" 	x="369" y="415" width="45" height="45" />
+		<texture id="ui_inGame2_thirst_inv_10"	x="415" y="415" width="45" height="45" />
+		
+		<texture id="ui_inGame2_satiety_inv_1" 	x="1" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_2" 	x="47" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_3" 	x="93" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_4" 	x="139" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_5" 	x="185" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_6" 	x="231" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_7" 	x="277" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_8" 	x="323" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_9" 	x="369" y="461" width="45" height="45" />
+		<texture id="ui_inGame2_satiety_inv_10"	x="415" y="461" width="45" height="45" />
+	</file>
+	
+	<file name="ui\ui_actor_bodyparts">
+		
+		<texture id="ui_inGame2_head_inv_1" 	x="0" y="1253" width="64" height="84" />
+	    <texture id="ui_inGame2_head_inv_2" 	x="64" y="1253" width="64" height="84" />
+	    <texture id="ui_inGame2_head_inv_3" 	x="128" y="1253" width="64" height="84" />
+	    <texture id="ui_inGame2_head_inv_4" 	x="192" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_5" 	x="256" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_6" 	x="320" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_7" 	x="384" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_8" 	x="448" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_9" 	x="512" y="1253" width="64" height="84" />
+		<texture id="ui_inGame2_head_inv_10" 	x="576" y="1253" width="64" height="84" />
+	
+		<texture id="ui_inGame2_body_inv_1" 	x="0" y="0" width="140" height="238" />
+	    <texture id="ui_inGame2_body_inv_2" 	x="140" y="0" width="140" height="238" />
+	    <texture id="ui_inGame2_body_inv_3" 	x="280" y="0" width="140" height="238" />
+	    <texture id="ui_inGame2_body_inv_4" 	x="420" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_5" 	x="560" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_6" 	x="700" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_7" 	x="840" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_8" 	x="980" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_9" 	x="1120" y="0" width="140" height="238" />
+		<texture id="ui_inGame2_body_inv_10" 	x="1260" y="0" width="140" height="238" />
+		
+		<texture id="ui_inGame2_rh_inv_1" 	x="0" y="244" width="71" height="226" />
+	    <texture id="ui_inGame2_rh_inv_2" 	x="71" y="244" width="71" height="226" />
+	    <texture id="ui_inGame2_rh_inv_3" 	x="142" y="244" width="71" height="226" />
+	    <texture id="ui_inGame2_rh_inv_4" 	x="213" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_5" 	x="284" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_6" 	x="355" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_7" 	x="426" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_8" 	x="497" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_9" 	x="568" y="244" width="71" height="226" />
+		<texture id="ui_inGame2_rh_inv_10" 	x="639" y="244" width="71" height="226" />
+		
+		<texture id="ui_inGame2_lh_inv_1" 	x="0" y="466" width="69" height="228" />
+	    <texture id="ui_inGame2_lh_inv_2" 	x="69" y="466" width="69" height="228" />
+	    <texture id="ui_inGame2_lh_inv_3" 	x="138" y="466" width="69" height="228" />
+	    <texture id="ui_inGame2_lh_inv_4" 	x="207" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_5" 	x="276" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_6" 	x="345" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_7" 	x="414" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_8" 	x="483" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_9" 	x="552" y="466" width="69" height="228" />
+		<texture id="ui_inGame2_lh_inv_10" 	x="621" y="466" width="69" height="228" />
+		
+		<texture id="ui_inGame2_rl_inv_1" 	x="0" y="706" width="98" height="275" />
+	    <texture id="ui_inGame2_rl_inv_2" 	x="98" y="706" width="98" height="275" />
+	    <texture id="ui_inGame2_rl_inv_3" 	x="196" y="706" width="98" height="275" />
+	    <texture id="ui_inGame2_rl_inv_4" 	x="294" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_5" 	x="392" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_6" 	x="490" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_7" 	x="588" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_8" 	x="686" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_9" 	x="784" y="706" width="98" height="275" />
+		<texture id="ui_inGame2_rl_inv_10" 	x="882" y="706" width="98" height="275" />
+		
+		<texture id="ui_inGame2_ll_inv_1" 	x="0" y="982" width="79" height="269" />
+	    <texture id="ui_inGame2_ll_inv_2" 	x="79" y="982" width="79" height="269" />
+	    <texture id="ui_inGame2_ll_inv_3" 	x="158" y="982" width="79" height="269" />
+	    <texture id="ui_inGame2_ll_inv_4" 	x="237" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_5" 	x="316" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_6" 	x="395" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_7" 	x="474" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_8" 	x="553" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_9" 	x="632" y="982" width="79" height="269" />
+		<texture id="ui_inGame2_ll_inv_10" 	x="711" y="982" width="79" height="269" />
+  </file>
+  <file name="ui\ui_actor_body_parts">
+		<!-- Bleeding Overlay -->
+		<texture id="ui_bleeding_head_inv_1" 	x="100" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_2" 	x="100" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_3" 	x="400" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_4" 	x="400" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_5" 	x="700" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_6" 	x="700" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_7" 	x="1000" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_8" 	x="1000" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_9" 	x="1300" y="1200" width="100" height="100" />
+		<texture id="ui_bleeding_head_inv_10" 	x="1300" y="1200" width="100" height="100" />
+	
+		<texture id="ui_bleeding_body_inv_1" 	x="98" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_2" 	x="98" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_3" 	x="398" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_4" 	x="398" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_5" 	x="698" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_6" 	x="698" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_7" 	x="998" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_8" 	x="998" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_9" 	x="1298" y="1300" width="104" height="200" />
+		<texture id="ui_bleeding_body_inv_10" 	x="1298" y="1300" width="104" height="200" />
+		
+		<texture id="ui_bleeding_ra_inv_1" 	x="0" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_2" 	x="0" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_3" 	x="300" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_4" 	x="300" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_5" 	x="600" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_6" 	x="600" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_7" 	x="900" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_8" 	x="900" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_9" 	x="1200" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_ra_inv_10" x="1200" y="1300" width="95" height="250" />
+		
+		<texture id="ui_bleeding_la_inv_1" 	x="205" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_2" 	x="205" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_3" 	x="505" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_4" 	x="505" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_5" 	x="805" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_6" 	x="805" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_7" 	x="1105" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_8" 	x="1105" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_9" 	x="1405" y="1300" width="95" height="250" />
+		<texture id="ui_bleeding_la_inv_10" x="1405" y="1300" width="95" height="250" />
+		
+		<texture id="ui_bleeding_rl_inv_1" 	x="60" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_2" 	x="60" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_3" 	x="360" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_4" 	x="360" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_5" 	x="660" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_6" 	x="660" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_7" 	x="960" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_8" 	x="960" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_9" 	x="1260" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_rl_inv_10" x="1260" y="1500" width="90" height="300" />
+		
+		<texture id="ui_bleeding_ll_inv_1" 	x="150" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_2" 	x="150" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_3" 	x="450" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_4" 	x="450" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_5" 	x="750" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_6" 	x="750" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_7" 	x="1050" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_8" 	x="1050" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_9" 	x="1350" y="1500" width="90" height="300" />
+		<texture id="ui_bleeding_ll_inv_10" x="1350" y="1500" width="90" height="300" />
+		
+		<!-- Fracture Overlay -->
+		<texture id="ui_fracture_head_inv_1" x="1800" y="0" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_2" x="1800" y="0" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_3" x="1800" y="0" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_4" x="1800" y="600" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_5" x="1800" y="600" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_6" x="1800" y="600" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_7" x="1800" y="600" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_8" x="1800" y="1200" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_9" x="1800" y="1200" width="100" height="100" />
+		<texture id="ui_fracture_head_inv_10" x="1800" y="1200" width="100" height="100" />
+	
+		<texture id="ui_fracture_body_inv_1" x="1798" y="100" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_2" x="1798" y="100" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_3" x="1798" y="100" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_4" x="1798" y="700" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_5" x="1798" y="700" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_6" x="1798" y="700" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_7" x="1798" y="700" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_8" x="1798" y="1300" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_9" x="1798" y="1300" width="104" height="200" />
+		<texture id="ui_fracture_body_inv_10" x="1798" y="1300" width="104" height="200" />
+		
+		<texture id="ui_fracture_ra_inv_1" 	x="1700" y="100" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_2" 	x="1700" y="100" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_3" 	x="1700" y="100" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_4" 	x="1700" y="700" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_5" 	x="1700" y="700" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_6" 	x="1700" y="700" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_7" 	x="1700" y="700" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_8" 	x="1700" y="1300" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_9" 	x="1700" y="1300" width="95" height="250" />
+		<texture id="ui_fracture_ra_inv_10" x="1700" y="1300" width="95" height="250" />
+		
+		<texture id="ui_fracture_la_inv_1" 	x="1905" y="100" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_2" 	x="1905" y="100" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_3" 	x="1905" y="100" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_4" 	x="1905" y="700" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_5" 	x="1905" y="700" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_6" 	x="1905" y="700" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_7" 	x="1905" y="700" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_8" 	x="1905" y="1300" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_9" 	x="1905" y="1300" width="95" height="250" />
+		<texture id="ui_fracture_la_inv_10" x="1905" y="1300" width="95" height="250" />
+		
+		<texture id="ui_fracture_rl_inv_1" 	x="1760" y="300" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_2" 	x="1760" y="300" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_3" 	x="1760" y="300" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_4" 	x="1760" y="900" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_5" 	x="1760" y="900" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_6" 	x="1760" y="900" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_7" 	x="1760" y="900" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_8" 	x="1760" y="1500" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_9" 	x="1760" y="1500" width="90" height="300" />
+		<texture id="ui_fracture_rl_inv_10" x="1760" y="1500" width="90" height="300" />
+		
+		<texture id="ui_fracture_ll_inv_1" 	x="1850" y="300" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_2" 	x="1850" y="300" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_3" 	x="1850" y="300" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_4" 	x="1850" y="900" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_5" 	x="1850" y="900" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_6" 	x="1850" y="900" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_7" 	x="1850" y="900" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_8" 	x="1850" y="1500" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_9" 	x="1850" y="1500" width="90" height="300" />
+		<texture id="ui_fracture_ll_inv_10" x="1850" y="1500" width="90" height="300" />
+	</file>
+</w>

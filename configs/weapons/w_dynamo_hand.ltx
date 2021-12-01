@@ -1,0 +1,167 @@
+[wpn_dynamo_hand]:default_weapon_params
+$spawn								= "weapons\dynamo"
+$npc								= off
+visual								= dynamics\weapons\wpn_dynamo_hand\wpn_dynamo_hand.ogf
+class								= WP_SVD
+inv_name							= st_dynamo_hand_name
+inv_name_short						= st_dynamo_hand_name
+description							= st_dynamo_hand_descr
+script_binding						= bind_dynamo_hand.init
+ef_main_weapon_type					= 2
+ef_weapon_type						= 6
+cost								= 50000
+weapon_class						= assault_rifle
+ammo_limit							= 250
+ammo_elapsed						= 250
+ammo_mag_size						= 1
+ammo_class							= ammo_fake
+slot								= 2
+animation_slot						= 2
+inv_weight							= 4
+inv_volume							= 6
+inv_category						= 6
+ph_mass								= 4
+upgrades							= up_gr_firstab_dynamo_hand, up_gr_firstcd_dynamo_hand, up_gr_firstef_dynamo_hand
+installed_upgrades					=
+upgrade_scheme						= upgrade_scheme_dynamo_hand
+show_ammo							= false
+
+inv_grid_width						= 2
+inv_grid_height						= 2
+inv_grid_x							= 0
+inv_grid_y							= 25
+
+upgr_icon_x							= 3950
+upgr_icon_y							= 500
+upgr_icon_width						= 150
+upgr_icon_height					= 150
+
+fire_dispersion_base				= 0.009
+control_inertion_factor				= 1.1
+
+cam_relax_speed						= 5.477
+cam_dispersion						= 0.062
+cam_dispersion_inc					= 0.012
+cam_dispertion_frac					= 0.050
+cam_max_angle						= 0.193
+cam_max_angle_horz					= 0.193
+cam_step_angle_horz					= 0.062
+
+fire_dispersion_condition_factor	= 0
+misfire_start_condition				= 0.3
+misfire_end_condition				= 0.3
+misfire_start_prob					= 0.3
+misfire_end_prob					= 0.3
+condition_shot_dec					= 0.005
+
+PDM_disp_base						= 0.58
+PDM_disp_vel_factor					= 1.0
+PDM_disp_accel_factor				= 1.0
+PDM_disp_crouch						= 1.0
+PDM_disp_crouch_no_acc				= 1.0
+
+hit_power							= 0
+hit_type							= fire_wound
+bullet_speed						= 1000
+hit_power_critical					= 0.0
+fire_distance						= 0
+hit_impulse							= 0
+rpm									= 53
+time_to_aim							= 1.0
+hud									= wpn_dynamo_hand_hud
+
+silencer_hit_power					= 0
+silencer_hit_impulse				= 6
+silencer_fire_distance				= 250
+silencer_bullet_speed				= 600
+
+;--STRAP PARAMETERS-----------------------------------------------------------------
+strap_position						= -0.12, -0.10, 0.45
+strap_orientation					= 0.0, 0.0, 94.0
+strap_position_slot2				= -0.12, -0.20, 0.45
+strap_orientation_slot2				= 0.0, 0.0, 84.0
+strap_bone0							= bip01_spine2
+strap_bone1							= bip01_spine1
+
+available_particles					= false
+flame_particles						= weapons\generic_shoot_00
+smoke_particles						= weapons\generic_shoot_00
+position							= 0.02, 0.0, 0.05
+orientation							= 0,0,0
+fire_point							= 0.0, 0.27109, 0.87317
+shell_point							= 0.00, 0.262, 0.189
+shell_3d							= false
+light_color							= 0.0,0.0,0.0
+light_range							= 0.0
+light_var_color						= 0.0
+light_var_range						= 0.0
+light_time							= 0.0
+
+scope_status						= 0
+silencer_status						= 0
+grenade_launcher_status				= 0
+
+zoom_enabled						= false
+scope_zoom_factor					= 1.03
+;--A.R.E.A. Sound Remake------------------------------------------------------
+snd_draw							= weapons\generic_draw
+snd_holster							= weapons\generic_holster
+snd_empty							= weapons\gen_empty
+snd_shoot							= device\dynamo_hand\dynamo_hand_shoot
+snd_reload							= device\dynamo_hand\dynamo_hand_reload
+snd_switch							= $no_sound
+;-----------------------------------------------------------------------------
+[wpn_dynamo_hand_hud]:hud_base
+item_visual							= dynamics\weapons\wpn_dynamo_hand\wpn_dynamo_hand_hud.ogf
+shell_point							= 0, 0, 0
+shell_dir							= 0.0, 1.0, 0.0
+shell_bone							= wpn_body
+fire_point							= 0,0,0
+fire_bone							= wpn_body
+orientation							= 0, 0, 0
+position							= 0, 0, 0
+
+hands_position						= -0.008000,-0.244998,0.371497
+hands_position_16x9					= -0.008500,-0.250998,0.319998
+hands_orientation					= 5.450003,2.649999,-1.200001
+hands_orientation_16x9				= 5.850004,5.450003,-0.950000
+
+item_position						= 0.000746,-0.000321,0.003479
+item_orientation					= 1.239378,-0.134046,-2.052052
+
+anm_idle							= dynamo_hand_idle
+anm_idle_aim						= dynamo_hand_idle
+anm_reload							= dynamo_hand_reload
+anm_show							= dynamo_hand_draw
+anm_hide							= dynamo_hand_hide
+anm_shots							= dynamo_hand_shoot
+anm_idle_sprint						= dynamo_hand_sprint_idle
+anm_idle_moving						= dynamo_hand_moving_idle
+anm_bore							= dynamo_hand_reload
+
+[ammo_dyno]:base_section
+$spawn								= ; option for Level Editor
+class								= AMMO
+visual								= dynamics\weapons\wpn_ammo\ammo_12x76_zhekan.ogf
+$prefetch							= 64
+cost								= 0
+box_size							= 1
+inv_name							= -
+inv_name_short						= -
+description							= -
+inv_weight							= 0.0
+inv_grid_width						= 0
+inv_grid_height						= 0
+inv_grid_x							= 33
+inv_grid_y							= 6
+k_ap								= 0
+k_dist								= 0
+k_disp								= 0
+k_hit								= 0
+k_impulse							= 0
+k_pierce							= 0.5
+impair								= 1
+buck_shot							= 0
+tracer								= off
+wm_size								= 0.0000001
+explosive							= off

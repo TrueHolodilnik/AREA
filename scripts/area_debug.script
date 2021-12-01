@@ -1,0 +1,192 @@
+
+function on_game_start()
+--	RegisterScriptCallback("npc_on_net_spawn",npc_on_net_spawn)
+	RegisterScriptCallback("on_key_press",on_key_press)
+end
+
+
+local n = 137
+--
+
+--axr_keybind.bind("DIK_NUMPAD5",function() alife():create("inv_backpack_cloth",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id()) end,"spawn_box")
+
+--
+--function npc_on_net_spawn(npc,se_obj)
+--	local visual = npc:get_visual_name()
+--	printf("NPC visual:")
+--	printf(visual)
+--end
+
+local de = false
+
+function on_key_press(key)
+
+	--if (dik_to_bind(key) == key_bindings.kUSE) then 
+
+		
+	--end
+	--
+	--if (dik_to_bind(key) == 12) then 
+	--	coc_treasure_manager.create_random_stash(nil,nil)
+	--	--alife():create("studen_object_1",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
+	--end
+
+	--if (dik_to_bind(key) == 12) then 
+	--	local pskills = ui_pda_skills_tab.get_ui()
+	--	pskills:AddCond("st_atlet", "st_atlet_descr")
+	--end
+
+	if key == 79 then 
+	
+		--task_manager.get_task_manager():give_task("get_in_the_zone_task", 0)
+	
+		local ln = level.name()
+		local gd = db.actor:game_vertex_id()
+		local ld = db.actor:level_vertex_id()
+		local pos = db.actor:position()
+		local posX = pos.x
+		local posY = pos.y
+		local posZ = pos.z
+		local dir = db.actor:direction()
+		local dirX = dir.x
+		local dirY = dir.y
+		local dirZ = dir.z
+		n = n + 1;
+		local file = io.open("act_data.txt","a+")
+		file:write("\n "..n.."=rnd_mush,nil,"..posX..","..posY..","..posZ..","..gd..","..ld)
+		file:close()
+		printf("A.R.E.A.: Object data written in act_data.txt.")
+		
+	end
+	
+	-------------------------
+
+	--if (dik_to_bind(key) == 12) then 
+	--
+	--	local name = "area_dynamic_stash_"
+	--	local number = utils.load_var(db.actor,"area_dyn_stash_number",0)
+	--	local spawn_id = utils.load_var(db.actor,"area_dyn_stash_id",30013)
+	--	local section = utils.load_var(db.actor,"area_dyn_section",19459)
+	--	
+	--	spawn_id = spawn_id + 1
+	--	number = number + 1
+	--	section = section + 1
+	--	local n_str = tostring(number)
+	--	
+	--	local ln = level.name()
+	--	local gd = db.actor:game_vertex_id()
+	--	local ld = db.actor:level_vertex_id()
+	--	local pos = db.actor:position()
+	--	local posX = pos.x
+	--	local posY = pos.y
+	--	local posZ = pos.z
+	--	local dir = db.actor:direction()
+	--	local dirX = dir.x
+	--	local dirY = dir.y
+	--	local dirZ = dir.z
+	--	
+	--	local position_obj = posX .. ", " .. posY .. ", " .. posZ
+	--	local direction_obj = dirX .. ", " .. dirY .. ", " .. dirZ
+	--	
+	--	local file = io.open("act_data.txt","a+")
+	--	file:write("\n[" .. section .. "]")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nname = " .. name .. n_str)
+	--	file:write("\nsection_name = space_restrictor_area_d")
+	--	file:write("\nposition = " .. position_obj)
+	--	file:write("\ndirection = " .. direction_obj)
+	--	file:write("\nid = 65535")
+	--	file:write("\nversion = 128")
+	--	file:write("\nscript_version = 12")
+	--	file:write("\nspawn_id = " .. spawn_id)
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\ngame_vertex_id = " .. gd)
+	--	file:write("\nlevel_vertex_id = " .. ld)
+	--	file:write("\nobject_flags = 0xffffef3e")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nshapes = 1")
+	--	file:write("\nshape_0:type = sphere")
+	--	file:write("\nshape_0:offset = 0,0,0")
+	--	file:write("\nshape_0:radius = 1")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nrestrictor_type = 3")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:close()
+	--	
+	--	utils.save_var(db.actor,"area_dyn_stash_number",number)
+	--	utils.save_var(db.actor,"area_dyn_stash_id",spawn_id)
+	--	utils.save_var(db.actor,"area_dyn_section",section)
+	--	
+	--	printf("Dynamic stash data written.")
+	--end
+    --
+	--if (dik_to_bind(key) == 13) then 
+	--
+	--	local name = "area_point_stash_"
+	--	local number = utils.load_var(db.actor,"area_p_stash_number",0)
+	--	local spawn_id = utils.load_var(db.actor,"area_dyn_stash_id",30013)
+	--	local section = utils.load_var(db.actor,"area_dyn_section",19459)
+	--	
+	--	spawn_id = spawn_id + 1
+	--	section = section + 1
+	--	number = number + 1
+	--	local n_str = tostring(number)
+	--	
+	--	local ln = level.name()
+	--	local gd = db.actor:game_vertex_id()
+	--	local ld = db.actor:level_vertex_id()
+	--	local pos = db.actor:position()
+	--	local posX = pos.x
+	--	local posY = pos.y
+	--	local posZ = pos.z
+	--	local dir = db.actor:direction()
+	--	local dirX = dir.x
+	--	local dirY = dir.y
+	--	local dirZ = dir.z
+	--	
+	--	local position_obj = posX .. ", " .. posY .. ", " .. posZ
+	--	local direction_obj = dirX .. ", " .. dirY .. ", " .. dirZ
+	--	
+	--	local file = io.open("act_data.txt","a+")
+	--	file:write("\n[" .. section .. "]")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nname = " .. name .. n_str)
+	--	file:write("\nsection_name = space_restrictor_area")
+	--	file:write("\nposition = " .. position_obj)
+	--	file:write("\ndirection = " .. direction_obj)
+	--	file:write("\nid = 65535")
+	--	file:write("\nversion = 128")
+	--	file:write("\nscript_version = 12")
+	--	file:write("\nspawn_id = " .. spawn_id)
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\ngame_vertex_id = " .. gd)
+	--	file:write("\nlevel_vertex_id = " .. ld)
+	--	file:write("\nobject_flags = 0xffffef3e")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nshapes = 1")
+	--	file:write("\nshape_0:type = sphere")
+	--	file:write("\nshape_0:offset = 0,0,0")
+	--	file:write("\nshape_0:radius = 1")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:write("\nrestrictor_type = 3")
+	--	file:write("\n")
+	--	file:write("\n")
+	--	file:close()
+	--	
+	--	utils.save_var(db.actor,"area_p_stash_number",number)
+	--	utils.save_var(db.actor,"area_dyn_stash_id",spawn_id)
+	--	utils.save_var(db.actor,"area_dyn_section",section)
+	--	
+	--	printf("Point stash data written.")
+	--end
+
+end

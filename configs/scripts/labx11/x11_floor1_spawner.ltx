@@ -1,0 +1,7 @@
+; этаж 1 - все двери закрыты, спавн монолита на 1_1 и 1_2
+
+[logic]
+active = sr_idle@wait
+
+[sr_idle@wait]
+on_info = %=create_squad(monolith_sim_squad_advanced:x11_smart_terrain_1_1) =create_squad(monolith_sim_squad_advanced:x11_smart_terrain_1_2)% nil

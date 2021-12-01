@@ -1,0 +1,92 @@
+--Ammo dampness
+local tmr
+local ini = system_ini()
+ 
+function on_game_start()
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+	RegisterScriptCallback("actor_on_item_drop",drop_damp_ammo)
+end
+ 
+function actor_on_update()
+	if surge_manager.actor_in_cover() == true then return end
+	local diff = tmr and game.get_game_time():diffSec(tmr) or 3600
+	if (diff < 3600) then
+		return
+	end
+	tmr = game.get_game_time()
+ 
+	local dampness_chance = math.ceil(level.rain_factor()*100)
+	local backpack = db.actor:item_in_slot(13)
+	backpack = backpack and backpack:section()
+	
+	if backpack then
+		if (backpack == "backpack_heavy") then
+			dampness_chance = math.ceil(dampness_chance/10)
+		elseif ((backpack == "backpack_specops") or (backpack == "backpack_military")) then
+			dampness_chance = math.ceil(dampness_chance/6)
+		elseif ((backpack == "backpack_tourist") or (backpack == "backpack_medium")) then
+			dampness_chance = math.ceil(dampness_chance/3)
+		end
+	end
+ 
+	local function damp_ammo(dummy, item)
+		local sec = item:section()
+		if sec and IsAmmo(item) and ini:section_exist(sec.."_bad") and string.find(sec,"12x70") then
+			--printf("inventory item:%s",sec)
+			local org_cnt = item:ammo_get_count()
+			local new_cnt = math.floor(org_cnt * (100-dampness_chance) / 100)
+			if new_cnt > 0 then
+				item:ammo_set_count(new_cnt)
+			else
+				alife():release(alife_object(item:id()),true)
+			end
+			create_ammo(sec.."_bad",db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),0,org_cnt - new_cnt)
+		end
+	end
+	--printf("dampness:%s",dampness_chance)
+	if (dampness_chance >= 74) then -- 5% chance of failure with no backpack and 100% rain
+		db.actor:iterate_inventory(damp_ammo)
+	end
+end
+
+function dry_ammo(id,camp_id,gt)
+	--printf("inside event:%s, etime:%s", id, game.get_game_time():diffSec(gt))
+	if game.get_game_time():diffSec(gt) > 300 then -- 5 minutes
+		local se_item = alife_object(id)
+		if not se_item or se_item.parent_id == 0 or not (bind_campfire.campfires_all[camp_id].campfire:is_on()) then
+			return true
+		else
+			local item = level.object_by_id(id)
+			local cnt = item and item:ammo_get_count()
+			if cnt then
+				local sec = item:section():gsub("_bad","")
+				--printf("ammo_dampness->section:%s", sec)
+				create_ammo(sec,item:position(),item:level_vertex_id(),item:game_vertex_id(),65535,cnt)
+				alife():release(se_item,true)
+				return true
+			end
+		end
+	end
+	return false
+end
+ 
+function drop_damp_ammo(item)
+	if table.size(bind_campfire.campfires_all) == 0 then return end
+	local sec = item:section()
+	if not IsAmmo(item) or not (sec:find("_bad")) then return end
+	--printf("ammo_drop_bad:%s", sec)
+	local pos = item:position()
+	for id,binder in pairs(bind_campfire.campfires_all) do
+		--printf("camp_check:%s distance:%s",id,pos:distance_to_sqr(binder.object:position()))
+		if (pos:distance_to_sqr(binder.object:position()) <= 18) then
+			--printf("near_camp:%s",id)
+			if (binder.campfire:is_on()) then
+				--printf("near_camp on")
+				local item_id = item:id()
+				local gt = game.get_game_time()
+				CreateTimeEvent("dry_ammo",item_id,1,dry_ammo,item_id,id,gt)
+				break
+			end
+		end
+	end
+end

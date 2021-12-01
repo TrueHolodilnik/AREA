@@ -1,0 +1,289 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Smoking Items
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_marlboro]:booster, can_divide
+$spawn									= "devices\cigarettes_marlboro"
+visual									= dynamics\drink\drink_cigar0.ogf
+description								= st_cigarettes_marlboro_descr
+inv_name								= st_cigarettes_marlboro
+inv_name_short							= st_cigarettes_marlboro
+inv_weight								= 0.024
+inv_volume								= 0.2
+cost									= 180
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 17
+inv_grid_y								= 64
+boost_time								= 45
+boost_slowed_pulse						= 0.13
+boost_telepat_protection				= 0.0045
+eat_alcohol								= -0.052
+eat_thirst								= -0.050
+eat_sleepiness							= -0.5
+max_uses								= 8
+use_condition							= true
+show_on_use								= false
+volume_scale							= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigarettes_marlboro
+
+[cigarettes_marlboro_radiated]:cigarettes_marlboro
+inv_name								= st_cigarettes_marlboro_radiated
+inv_name_short							= st_cigarettes_marlboro_radiated
+eat_radiation							= 0.200
+
+[smoking_marlboro]:cigarettes_marlboro
+cost									= 0
+max_uses                                = 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_lucky]:booster, can_divide
+$spawn									= "devices\cigarettes_lucky"
+visual									= dynamics\devices\dev_cigarettes_lucky\dev_cigarettes_lucky.ogf
+description								= st_cigarettes_lucky_descr
+inv_name								= st_cigarettes_lucky
+inv_name_short							= st_cigarettes_lucky
+inv_weight								= 0.024
+inv_volume								= 0.2
+cost									= 160
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 18
+inv_grid_y								= 64
+boost_time								= 44
+boost_slowed_pulse						= 0.125
+boost_telepat_protection				= 0.0032
+eat_thirst								= -0.040
+eat_sleepiness							= -0.5
+eat_health								= -0.002
+max_uses								= 8
+use_condition							= true
+show_on_use								= false
+volume_scale							= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigarettes_lucky
+
+[cigarettes_lucky_radiated]:cigarettes_lucky
+inv_name								= st_cigarettes_lucky_radiated
+inv_name_short							= st_cigarettes_lucky_radiated
+eat_radiation							= 0.200
+
+[smoking_lucky]:cigarettes_lucky
+cost									= 0
+max_uses                                = 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_russian]:booster, can_divide
+$spawn									= "devices\cigarettes_russian"
+visual									= dynamics\devices\dev_cigarettes_russian\dev_cigarettes_russian.ogf
+description								= st_cigarettes_russian_descr
+inv_name								= st_cigarettes_russian
+inv_name_short							= st_cigarettes_russian
+inv_weight								= 0.024
+inv_volume								= 0.2
+cost									= 150
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 17
+inv_grid_y								= 65
+boost_time								= 42
+boost_slowed_pulse						= 0.14
+boost_telepat_protection				= 0.0030
+eat_alcohol								= -0.045
+eat_thirst								= -0.045
+eat_sleepiness							= -0.5
+max_uses								= 8
+use_condition							= true
+show_on_use								= false
+volume_scale							= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigarettes_russian
+
+[cigarettes_russian_radiated]:cigarettes_russian
+inv_name								= st_cigarettes_russian_radiated
+inv_name_short							= st_cigarettes_russian_radiated
+eat_radiation							= 0.200
+
+[smoking_russian]:cigarettes_russian
+cost									= 0
+max_uses                                = 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_slava]:booster, can_divide
+$spawn									= "devices\cigarettes_slava"
+visual									= dynamics\drink\drink_cigar2.ogf
+description								= st_cigarettes_slava_descr
+inv_name								= st_cigarettes_slava
+inv_name_short							= st_cigarettes_slava
+inv_weight								= 0.040
+inv_volume								= 0.5
+cost									= 160
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 18
+inv_grid_y								= 65
+boost_time								= 38
+boost_slowed_pulse						= 0.12
+boost_telepat_protection				= 0.0046
+eat_alcohol								= -0.066
+eat_thirst								= -0.040
+eat_sleepiness							= -0.5
+max_uses								= 8
+use_condition							= true
+show_on_use								= false
+volume_scale							= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigarettes_slava
+
+[cigarettes_slava_radiated]:cigarettes_slava
+inv_name								= st_cigarettes_slava_radiated
+inv_name_short							= st_cigarettes_slava_radiated
+eat_radiation							= 0.200
+
+[smoking_slava]:cigarettes_slava
+cost									= 0
+max_uses                                = 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_cigar]:booster, can_divide
+$spawn									= "devices\pda"
+visual									= dynamics\devices\dev_cigar\dev_cigar.ogf
+description								= st_cuban_cigar_descr
+inv_name								= st_cuban_cigar
+inv_name_short							= st_cuban_cigar
+inv_weight								= 0.075
+inv_volume								= 0.3
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 4
+inv_grid_y								= 66
+cost									= 360
+boost_time								= 40
+boost_slowed_pulse						= 0.15
+boost_telepat_protection				= 0.0045
+eat_alcohol								= -0.166
+eat_thirst								= -0.060
+eat_sleepiness							= -0.5
+max_uses								= 2
+use_condition							= true
+show_on_use								= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigar1
+
+[cigarettes_cigar_radiated]:cigarettes_cigar
+inv_name								= st_cuban_cigar_radiated
+inv_name_short							= st_cuban_cigar_radiated
+eat_radiation							= 0.200
+
+[smoking_cigar]:cigarettes_cigar
+cost									= 0
+max_uses                                = 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[cigarettes_joint]:booster
+$spawn									= "devices\pda"
+visual									= dynamics\drink\drink_joint.ogf
+description								= st_joint_descr
+inv_name								= st_joint
+inv_name_short							= st_joint
+inv_weight								= 0.001
+inv_volume								= 0.05
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 16
+inv_grid_y								= 64
+cost									= 1300
+boost_time								= 142
+boost_pain								= 0.0001
+boost_slowed_pulse						= 0.2
+boost_telepat_protection				= 0.0160
+eat_alcohol								= -0.033
+eat_thirst								= -0.120
+eat_sleepiness							= 3
+show_on_use								= false
+consume_type							= smoke
+;use_sound								= interface\inv_smoke
+anim_section							= anm_cigar2
+
+[cigarettes_joint_radiated]:cigarettes_joint
+inv_name								= st_joint_radiated
+inv_name_short							= st_joint_radiated
+eat_radiation							= 0.200
+
+[smoking_joint]:cigarettes_joint
+cost									= 0
+max_uses                                = 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[tobacco]:booster
+$spawn									= "devices\pda"
+visual									= dynamics\equipments\trade\tobacco.ogf
+description								= st_tobacco_descr
+inv_name								= st_tobacco
+inv_name_short							= st_tobacco
+inv_weight								= 0.100
+inv_volume								= 0.6
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 19
+inv_grid_y								= 64
+cost									= 360
+boost_time								= 58
+boost_slowed_pulse						= 0.1
+boost_telepat_protection				= 0.0054
+eat_alcohol								= -0.0765
+eat_satiety								= 0.050
+eat_thirst								= -0.100
+eat_sleepiness							= -1
+show_on_use								= false
+use_condition							= true
+max_uses								= 3
+use_sound								= interface\inv_smoke_tobacco
+
+[tobacco_radiated]:tobacco
+inv_name								= st_tobacco_radiated
+inv_name_short							= st_tobacco_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[marijuana]:booster, can_divide
+$spawn									= "devices\pda"
+visual									= dynamics\equipments\trade\sack.ogf
+description								= st_marijuana_descr
+inv_name								= st_marijuana
+inv_name_short							= st_marijuana
+inv_weight								= 0.032
+inv_volume								= 0.1
+inv_grid_width							= 1
+inv_grid_height							= 1
+inv_grid_x								= 16
+inv_grid_y								= 65
+cost									= 2000
+boost_time								= 100
+boost_pain								= 0.0003
+boost_slowed_pulse						= 0.25
+boost_telepat_protection				= 0.0093
+boost_power_restore						= -0.0002
+boost_max_weight						= -2.0854
+eat_alcohol								= -0.092
+eat_satiety								= -0.294
+eat_thirst								= -0.300
+eat_sleepiness							= -2
+show_on_use								= false
+use_condition							= true
+max_uses								= 3
+use_sound								= interface\inv_smoke_bongo
+
+[marijuana_radiated]:marijuana
+inv_name								= st_marijuana_radiated
+inv_name_short							= st_marijuana_radiated
+eat_radiation							= 0.200
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

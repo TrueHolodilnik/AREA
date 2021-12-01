@@ -1,0 +1,1056 @@
+
+-- =======================================================================================
+-- Created by Tronex
+-- Last edit: 2019/5/23 
+-- A bunch of useful utility functions to be called and used by other scripts
+-- =======================================================================================
+
+local sfind = string.find
+local ini_sys = system_ini()
+
+local clr_table = { -- Colors from color_defs.xml
+	-- Strong
+	["white"] = {255,255,255,255},
+	["green"]  = {255,0,255,0},
+	["yellow"] = {255,255,255,0},
+	["red"]    = {255,255,0,0},
+	["orange"] = {255,250,150,0},
+	
+	-- Colors used in common UI
+	["d_orange"] = {255,238,153,26},
+	["d_red"]    = {255,204,0,51},
+	["d_cyan"]   = {255,153,255,255},
+	["d_purple"] = {255,93,0,116},
+	["d_green"]  = {255,51,255,102},
+	["d_blue"]    = {255,100,100,255},
+	
+	["ui_gray_1"] = {255,170,170,170},
+	["ui_gray_2"]   = {255,140,140,140},
+		
+	-- Colors used in encyclopedia
+	["pda_green"] = {255,56,209,115},
+	["pda_blue"] = {255,56,166,209},
+	["pda_yellow"] = {255,209,209,56},
+	["pda_white"] = {255,250,250,250},
+}
+
+function get_clr (str , code)
+
+-- Rule: obtain specific color code as a string or table
+-- Input: color name (string) , result as string or table (boolean)
+-- Output: if code is true, return table | if code is false, return string 
+-- Example: get_clr("d_cyan") --> "%c[0,153,255,255]"
+
+	local color, color_s
+	if str then
+		color = clr_table[str]
+	else
+		color = {255, 170, 170, 170}
+	end
+	color_s = strformat("%c[%s,%s,%s,%s]",color[1],color[2],color[3],color[4])
+	
+	if code then
+		return GetARGB(color[1],color[2],color[3],color[4])
+	end
+	return color_s
+end
+
+function get_con_clr(con)
+	if con then
+		if con <= 25 then return get_clr("d_red")
+		elseif con <= 50 then return get_clr("d_orange")
+		elseif con <= 75 then return get_clr("yellow")
+		end
+	end
+	return get_clr("d_green")
+end
+
+function get_con_txt(con,wpn,sec)
+	if difficulty_manager.get_eco_factor("percentage_parts") then
+		return (tostring(con) .. "%")
+	end
+
+	local typ = wpn and "w" or "o"
+	if sec then
+		if sfind(sec,"fabrics") or sfind(sec,"retardant") or sfind(sec,"ballistic") or sfind(sec,"support") then
+			typ = "o"
+		else
+			typ = "w"
+		end
+	end
+	
+	if con then
+		if con <= 25 then return game.translate_string("st_cap_con_25_" .. typ)
+		elseif con <= 50 then return game.translate_string("st_cap_con_50_" .. typ)
+		elseif con <= 75 then return game.translate_string("st_cap_con_75_" .. typ)
+		end
+	end
+	return game.translate_string("st_cap_con_100_" .. typ)
+end
+
+local snd_obj
+function play_sound (path, vol)
+	snd_obj = nil
+	if (not path) or (type(path) ~= "string") then return end
+	
+	snd_obj = sound_object(path)
+	if snd_obj then
+		snd_obj:play(db.actor, 0, sound_object.s2d)
+		--snd_obj:play_no_feedback(db.actor, sound_object.s2d, 0, VEC_ZERO, vol or 1)
+		snd_obj.volume = vol or 1
+	end
+end
+
+function set_msg (str, ignore)
+	if (not ignore) then
+		local hud = ActorMenu.get_actor_menu()
+		if (hud and hud:IsShown()) then 
+			hud:HideDialog()
+		end
+	end
+
+	local text = game.translate_string(str)
+	SetHudMsg(text,3)
+end
+
+function time_spent_in_zone(ind)
+
+-- Rule: calculate and return how much time the player has spent in the zone based on a time scale
+-- Input: indicator (number from 1 to 5)
+-- Output: the time spent (number) so far, time scale depends on input
+
+	if (not ind) and (not db.actor) then
+		return false
+	end
+	
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	local minutes = math.floor(seconds/60)
+	local hours = math.floor(minutes/60)
+	local days = math.floor(hours/24)
+	local weeks = math.floor(days/7)
+	
+	if (ind == 1) then
+		return seconds
+	elseif (ind == 2) then
+		return minutes
+	elseif (ind == 3) then
+		return hours
+	elseif (ind == 4) then
+		return days
+	elseif (ind == 5) then
+		return weeks
+	end
+	return false
+end
+
+function is_time_spent_in_zone(s,m,h,d,w,mo)
+
+-- Rule: return true of the time spent in the zone exceeds the input (sec,min,hrs,days,weeks,months)
+-- Input: time scales (sec,min,hrs,days,weeks,months)
+	
+	s = s or 0
+	m = m or 0
+	h = h or 0
+	d = d or 0
+	w = w or 0
+	mo = mo or 0
+	
+	local s_time = level.get_start_time()
+	local seconds = tonumber(game.get_game_time():diffSec(s_time))
+	local minutes = math.floor(seconds/60)
+	local hours = math.floor(minutes/60)
+	local days = math.floor(hours/24)
+	local weeks = math.floor(days/7)
+	local months = math.floor(weeks/4)
+	
+	--printf("/ is_time_spent_in_zone(" .. s .. ":" .. m .. ":" .. h .. "," .. d .. "," .. w .. "," .. mo .. ") | Current time: (" .. seconds .. ":" .. minutes .. ":" .. hours .. "," .. days .. "," .. weeks .. "," .. months .. ")")
+	
+	if (months > mo) then
+		return true
+	elseif (months == mo) and (weeks > w) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days > d) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours > h) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours == h) and (minutes > m) then
+		return true
+	elseif (months == mo) and (weeks == w) and (days == d) and (hours == h) and (minutes == m) and (seconds > s) then
+		return true
+	end
+	
+	return false
+end
+
+function hide_menu()
+	local hud = get_hud()
+	if (hud) then
+		hud:HideActorMenu()
+	end
+end
+
+local w_itm = {}
+function is_npc_overweight(npc_id)
+	local total_w = 0
+	local npc = db.storage[npc_id] and db.storage[npc_id].object
+	
+	if npc then
+		local max_w = 60
+		local total_w = 0
+		
+		local function count_weight(npc, obj)
+			local sec = obj:section()
+			w_itm[sec] = w_itm[sec] or ini_sys:r_float_ex(sec,"inv_weight")
+			total_w = total_w + w_itm[sec]
+		end
+		npc:iterate_inventory(count_weight,npc)
+		
+		return total_w > max_w, total_w, max_w
+	else 
+		return false
+	end
+end
+
+function get_temp_weight_table()
+	return w_itm
+end
+
+
+--============================================< INI + XML >============================================--
+local ico_size, rw, rh, _le = 0.7,1,1,50
+local ico_width
+local upg_gr = {
+	["first"] = 1,
+	["secon"] = 2,
+	["third"] = 3,
+	["fourt"] = 4,
+	["fifth"] = 5,
+}
+local upg_ind = {
+	["a"] = 1,
+	["b"] = 2,
+	["c"] = 3,
+	["d"] = 4,
+	["e"] = 5,
+	["f"] = 6,
+}
+local upg_prop_tool = {
+	["prop_weight"]	            =	"upgr_w_^d_weight",	--Weight
+	["prop_silencer"]	        =	"upgr_w_^d_muffle",	--Muffler
+	["prop_underbarrel_slot"]	=	"upgr_w_^d_grenade_mount",	--Mount the grenade launcher
+	["prop_reliability"]	    =	"upgr_w_^d_reliability",	--Reliability
+	["prop_bullet_speed"]	    =	"upgr_w_^d_speed",	--Flatness
+	["prop_recoil"]	            =	"upgr_w_^d_recoil",	--Recoil
+	["prop_ammo_size"]	        =	"upgr_w_^d_magazine",	--Cartridges
+	["prop_grenade_launcher"]	=	"upgr_w_^d_grenade_mount",	--Subbarrel
+	["prop_scope_4x"]	        =	"upgr_w_^d_scope",	--Sight4
+	["prop_scope_1.6x"]	        =	"upgr_w_^d_scope",	--Sight1.6
+	["prop_rpm"]	            =	"upgr_w_^d_rpm",	--Rateoffire
+	["prop_calibre"]	        =	"upgr_w_^d_calibre",	--caliber(9x18,5x45)
+	["prop_dispersion"]	        =	"upgr_w_^d_dispersion",	--Accuracy
+	["prop_inertion"]	        =	"upgr_w_^d_inertion",	--Convenience
+	["prop_autolockscope"]	    =	"upgr_w_^d_scope",	--Auto Capture Targets in Optics
+	["prop_scope_1.5x"]	        =	"upgr_w_^d_scope",	--Reflex Sight 1.5x
+	["prop_scope_5x"]	        =	"upgr_w_^d_scope",	--Sight 5x
+	["prop_scope_6x"]	        =	"upgr_w_^d_scope",	--Sight 6x
+	["prop_scope_10x"]	        =	"upgr_w_^d_scope",	--Sight 10x
+	["prop_scope_12x"]	        =	"upgr_w_^d_scope",	--Scope 12x
+	["prop_scope_15x"]	        =	"upgr_w_^d_scope",	--Scope 15x
+	["prop_scope_attach"]	    =	"upgr_w_^d_scope_mount",	--Mount for optics
+	["prop_scope"]	            =	"upgr_w_^d_scope",	--Adjustable range finder sight
+	["prop_contrast"]	        =	"upgr_w_^d_scope",	--Increase the contrast of sight
+	["prop_autofire"]	        =	"upgr_w_^d_firemode",	--Fully automatic firemode
+	["prop_3xfire"]	            =	"upgr_w_^d_firemode",	--Three shots automatic shooting mode
+	["prop_nightvision"]	    =	"upgr_w_^d_scope",	--Installing NVD
+	["prop_no_buck"]	        =	"upgr_w_^d_firemode",	--Do not shoot a fraction.
+	
+	["prop_armor"]	            =	"upgr_o_^d_armor",	--armor
+	["prop_damage"]	            =	"upgr_o_^d_damage",	--Damage
+	["prop_durability"]	        =	"upgr_o_^d_durability",	--wear resistance (strength)
+	["prop_restore_bleeding"]	=	"upgr_o_^d_bleed",	--reduce bleeding
+	["prop_restore_health"]	    =	"upgr_o_^d_health",	--Health Restoration
+	["prop_power"]	            =	"upgr_o_^d_power",	--East. stamina
+	["prop_tonnage"]	        =	"upgr_o_^d_carry",	--Carry weight
+	["prop_chem"]	            =	"upgr_o_^d_chem",	--chemical protection
+	["prop_radio"]	            =	"upgr_o_^d_rad",	--radio protection
+	["prop_thermo"]	            =	"upgr_o_^d_burn",	--thermo protection
+	["prop_electro"]	        =	"upgr_o_^d_shock",	--Electro protection
+	["prop_psy"]	            =	"upgr_o_^d_psi",	--psi protection
+	["prop_artefact"]	        =	"upgr_o_^d_arty",	--slot for artifacts
+	["prop_weightoutfit"]	    =	"upgr_o_^d_weight",	--body armor weight
+	--["prop_autolock"]	        =	"",	--Avtozapvatgoal
+	["prop_sprint"]	            =	"upgr_o_^d_run",	--Run in the exoskeleton
+	--["prop_scanner"]	        =	"",	--infra red scanner
+	
+	["prop_binoc_zoom"]	        =	"upgr_w_^d_scope",	-- Sight
+	["prop_binoc_nightvision"]	=	"upgr_w_^d_scope",	--Installing NVD
+	["prop_binoc_autolock"]	    =	"upgr_w_^d_scope",	-- Sight
+}
+
+function pairsByKeys(t, f)
+    local a = {}
+    for n in pairs(t) do table.insert(a, n) end
+    table.sort(a, f)
+    local i = 0      -- iterator variable
+    local iter = function ()   -- iterator function
+        i = i + 1
+        if a[i] == nil then return nil
+        else return a[i], t[a[i]]
+        end
+    end
+    return iter
+end
+
+function extract_var(cfg, sec, parm, mode)
+	if not (sec and parm) then return {} end
+	local a = cfg:r_string_ex(sec, parm)
+	local b = a and alun_utils.str_explode(a,",")
+	if (not b) then return {} end
+	
+	if (mode == 1) then
+		return b
+	elseif (mode == 2) then
+		local c = {}
+		for i=1,#b do
+			c[i] = tonumber(b[i])
+		end
+		return c
+	end
+	return {}
+end
+
+function extract_upgr(t1, current_grp)
+	
+	local elements = extract_var(ini_sys, current_grp, "elements", 1)
+	
+	-- Gather groups and indexes
+	for i=1,#elements do -- search in upgrade group elements
+		for k,v in pairs(upg_gr) do
+			if sfind(elements[i],k) then -- if we found a legit element
+				if (not t1[v]) then t1[v] = {} end -- create an suitable index
+				local indx = elements[i]:sub(9,9) -- get the index
+				local upg_idx = indx and upg_ind[indx]
+				if upg_idx and (not t1[v][upg_idx]) then
+					local sec = ini_sys:r_string_ex(elements[i],"section")
+					t1[v][upg_idx] = {}
+					t1[v][upg_idx].section = elements[i]
+					t1[v][upg_idx].sec = sec
+					t1[v][upg_idx].name = ini_sys:r_string_ex(elements[i],"name")
+					t1[v][upg_idx].desc = ini_sys:r_string_ex(elements[i],"description")
+					t1[v][upg_idx].icon = ini_sys:r_string_ex(elements[i],"icon")
+					t1[v][upg_idx].effect = ini_sys:r_string_ex(elements[i],"effects")
+					
+			
+					--local value = ini_sys:r_string_ex(sec,"value")
+					--if value then
+						--t1[v][upg_idx].value = value
+					--end
+					
+					local prop = ini_sys:r_string_ex(elements[i],"property")
+					if prop then
+						local pr = alun_utils.str_explode(prop,",")
+						local tool = upg_prop_tool[pr[1]]
+						local num = ((upg_idx <= 2) and 1) or ((upg_idx <= 4) and 2) or 3
+						
+						t1[v][upg_idx].prop = pr
+						t1[v][upg_idx].tool = tool and tool:gsub("%^d", tostring(num)) or nil
+						if (not t1[v][upg_idx].tool) then
+							printdbg("! extract_upgr | can't generate tool for upgrade [%s], property: %s", t1[v][upg_idx].sec, pr[1])
+						end
+					end
+					
+					--local part = ini_sys:r_string_ex(sec,"required_materials")
+					--if part then
+						--t1[v][upg_idx].part = part
+					--end
+				end
+			end
+		end
+	end
+	
+	-- Repeat
+	for i=1,#elements do
+		local next_grp = ini_sys:r_string_ex(elements[i],"effects")
+		if next_grp and (next_grp ~= "") then
+			extract_upgr(t1,next_grp)
+		end
+	end
+end
+
+function extract_upgr_tools(t1, current_grp)
+
+	local elements = extract_var(ini_sys, current_grp, "elements", 1)
+	
+	-- Gather groups and indexes
+	for i=1,#elements do -- search in upgrade group elements
+		for k,v in pairs(upg_gr) do
+			if sfind(elements[i],k) then -- if we found a legit element
+				local indx = elements[i]:sub(9,9) -- get the index
+				local upg_idx = indx and upg_ind[indx]
+				if upg_idx then
+					local prop = ini_sys:r_string_ex(elements[i],"property")
+					if prop then
+						local pr = alun_utils.str_explode(prop,",")
+						local tool = upg_prop_tool[pr[1]]
+						local num = ((upg_idx <= 2) and 1) or ((upg_idx <= 4) and 2) or 3
+						local sec_tool = tool and tool:gsub("%^d", tostring(num)) or nil
+						if sec_tool then
+							t1[sec_tool] = true
+						else
+							local sec = ini_sys:r_string_ex(elements[i],"section")
+							printdbg("! extract_upgr | can't generate tool for upgrade [%s], property: %s", sec, pr[1])
+						end
+					end
+				end
+			end
+		end
+	end
+	
+	-- Repeat
+	for i=1,#elements do
+		local next_grp = ini_sys:r_string_ex(elements[i],"effects")
+		if next_grp and (next_grp ~= "") then
+			extract_upgr_tools(t1,next_grp)
+		end
+	end
+end
+
+function get_upg_prop_tool(prop)
+	return upg_prop_tool[prop]
+end
+
+function adjust_ui(ui)
+	local rw = 1024/(device().width)
+	local rh = 768/(device().height)
+	local pos = ui:GetWndPos()
+	local w = ui:GetWidth()
+	local h = ui:GetHeight()
+	--printf("* adjust_ui | width ratio: " .. rw .. " - height ratio: " .. rh .. " - pos: " .. pos.x .. " " .. pos.y .. " - w: " .. w .. " - h: " .. h)
+	
+	ui:SetWndSize(vector2():set( w*rw , h*rh ))
+	ui:SetWndPos(vector2():set( pos.x*rw , pos.y*rh ))
+end
+
+function adjust_main_ui(ui, only_pos)
+	local rw = 1024/(device().width)
+	local rh = 768/(device().height)
+	local pos = ui:GetWndPos()
+	local w = ui:GetWidth()
+	local h = ui:GetHeight()
+	--printf("* adjust_main_ui | width ratio: " .. rw .. " - height ratio: " .. rh .. " - pos: " .. pos.x .. " " .. pos.y .. " - w: " .. w .. " - h: " .. h)
+	
+	local _x = ((device().width - w)/2)
+	local _y = ((device().height - h)/2)
+	
+	ui:SetWndPos(vector2():set(_x*rw , _y*rh))
+	if only_pos then return end
+	ui:SetWndSize(vector2():set( w*rw , h*rh ))
+end
+
+function get_ui_settings(_ico_size,_le)
+	local IsWide = (device().width / device().height > (1024/768+0.01)) and true or false
+	local IsBig = 1024/(device().width) < 0.99 and true or false
+	
+	local _le = _le or 50
+	local rw = IsBig and 1024/(device().width) or 1
+	local rh = IsBig and 768/(device().height) or 1
+	local _ico_size = _ico_size or 1
+	local _ico_width = IsWide and rw or 1
+	
+	return _ico_size, _ico_width, rw, rh, _le
+end
+
+function set_up_icon(sec, hidden, XML_temp, XML_box, XML_box_small)
+	ico_width = ico_width or (utils.is_widescreen() and 0.8 or 1)
+	
+	if not (XML_temp and XML_box) then
+		callstack()
+	end
+	
+	-- Icon
+	local ico = get_item_axis(sec)
+	XML_box:InitTexture(hidden and "ui\\ui_icon_equipment_hide" or "ui\\ui_icon_equipment")
+	XML_box:SetTextureRect(Frect():set(ico.x1, ico.y1, ico.x2, ico.y2))
+	XML_box:SetStretchTexture(true)
+	
+	local pos = XML_temp:GetWndPos()
+	local _w = XML_temp:GetWidth()
+	local _h = XML_temp:GetHeight()
+	
+	local ratio = ico.w/ico.h
+	local h, w
+	ico.w = ico.w * ico_size * ico_width
+	ico.h = ico.h * ico_size
+	
+	for i=1,2 do
+		local w_t, h_t = 0, 0
+		local resize = false
+		if (ico.w > _w) then -- if icon width is bigger than frame width
+			w_t = ico.w - _w
+			resize = true	
+		end 
+		if (ico.h > _h) then -- if icon height is bigger than frame height
+			h_t = ico.h - _h 
+			resize = true	
+		end 
+		
+		if resize then -- resize is required
+			if (w_t >= h_t) then -- if icon width is the big number (or square), use it as a base for resizing
+				w = _w
+				h = w / ratio
+			elseif (w_t < h_t) then -- if icon width is the big number, use it as a base for resizing
+				h = _h
+				w = h * ratio
+			end
+		else -- no resize
+			w = ico.w
+			h = ico.h
+		end
+	end
+	
+	local offset_x = (_w - w)/2
+	local offset_y = (_h - h)/2
+	XML_box:SetWndSize(vector2():set(w , h))
+	XML_box:SetWndPos(vector2():set(pos.x + offset_x , pos.y + offset_y))
+	
+	local ico_layer = ini_sys:r_string_ex(sec,"1icon_layer")
+	if XML_box_small and ico_layer then
+		local ico_layer_x = ini_sys:r_float_ex(sec,"1icon_layer_x")
+		local ico_layer_y = ini_sys:r_float_ex(sec,"1icon_layer_y")
+		local ico_layer_scale = ini_sys:r_float_ex(sec,"1icon_layer_scale")
+		if (ico_layer_x == 0) and (ico_layer_y == 0) and (ico_layer_scale == 1) then
+			set_up_icon(ico_layer, hidden, XML_temp, XML_box_small)
+		end
+	end
+end
+
+local upgr_chk = {
+	["weapon"] = {
+		{ x = 1724 , y = 802 , w = 167 , h = 159 }
+	},
+	["outfit"] = {
+		{ x = 716 , y = 824 , w = 198 , h = 129 },
+		{ x = 814 , y = 579 , w = 159 , h = 137 },
+		{ x = 90 , y = 818 , w = 185 , h = 140 }
+	},
+}
+function set_up_upgr_icon(obj, sec, XML_box, XML_temp)
+	ico_width = ico_width or (utils.is_widescreen() and 0.8 or 1)
+	
+	local upgr_x = ini_sys:r_float_ex(sec,"upgr_icon_x")
+	local upgr_y = ini_sys:r_float_ex(sec,"upgr_icon_y")
+	local upgr_w = ini_sys:r_float_ex(sec,"upgr_icon_width")
+	local upgr_h = ini_sys:r_float_ex(sec,"upgr_icon_height")
+	if not (upgr_x and upgr_y and upgr_w and upgr_h) then
+		set_up_icon(sec, nil, XML_temp, XML_box)
+		return
+	end
+	
+	-- Get upgrade dds
+	local upgr_path = ini_sys:r_string_ex(sec,"upgr_icon_path")
+	upgr_path = upgr_path or IsWeapon(obj) and "ui\\ui_actor_weapons" or "ui\\ui_actor_armor"
+	
+	-- Decide if it should use normal icon instead
+	local use_ico = false
+	local t = {}
+	if IsWeapon(obj) then
+		for i=1,#upgr_chk["weapon"] do
+			t = upgr_chk["weapon"][i]
+			if (t.x == upgr_x) and (t.y == upgr_y) and (t.w == upgr_w) and (t.h == upgr_h) then
+				use_ico = true
+				break
+			end
+		end
+	elseif IsOutfit(obj) then
+		for i=1,#upgr_chk["outfit"] do
+			t = upgr_chk["outfit"][i]
+			if (t.x == upgr_x) and (t.y == upgr_y) and (t.w == upgr_w) and (t.h == upgr_h) then
+				use_ico = true
+				break
+			end
+		end
+	end
+	if use_ico then
+		set_up_icon(sec, nil, XML_temp, XML_box)
+		return
+	end
+	
+	
+	local ico = {}
+	ico.x1 = upgr_x
+	ico.y1 = upgr_y
+	ico.x2 = upgr_x + upgr_w
+	ico.y2 = upgr_y + upgr_h
+	ico.w = upgr_w
+	ico.h = upgr_h
+	
+	
+	XML_box:InitTexture(upgr_path)
+	XML_box:SetTextureRect(Frect():set(ico.x1, ico.y1, ico.x2, ico.y2))
+	XML_box:SetStretchTexture(true)
+	
+	local pos = XML_temp:GetWndPos()
+	local _w = XML_temp:GetWidth()
+	local _h = XML_temp:GetHeight()
+	
+	local ratio = ico.w/ico.h
+	local h, w
+	ico.w = ico.w * ico_size * ico_width
+	ico.h = ico.h * ico_size
+	
+	for i=1,2 do
+		local w_t, h_t = 0, 0
+		local resize = false
+		if (ico.w > _w) then -- if icon width is bigger than frame width
+			w_t = ico.w - _w
+			resize = true	
+		end 
+		if (ico.h > _h) then -- if icon height is bigger than frame height
+			h_t = ico.h - _h 
+			resize = true	
+		end 
+		
+		if resize then -- resize is required
+			if (w_t >= h_t) then -- if icon width is the big number (or square), use it as a base for resizing
+				w = _w
+				h = w / ratio
+			elseif (w_t < h_t) then -- if icon width is the big number, use it as a base for resizing
+				h = _h
+				w = h * ratio
+			end
+		else -- no resize
+			w = ico.w
+			h = ico.h
+		end
+	end
+	
+	local offset_x = (_w - w)/2
+	local offset_y = (_h - h)/2
+	XML_box:SetWndSize(vector2():set(w , h))
+	XML_box:SetWndPos(vector2():set(pos.x + offset_x , pos.y + offset_y))
+end
+
+local last_row = 0
+function set_grid_element(p, grid, ...)
+	local ele = {...}
+	local pos = { x = 1 , y = 1 }
+	local ignore,stop
+	local functor = function(t,a,b) return a < b end		-- smallest -> biggest
+	for y,v1 in spairs(grid, functor) do 					-- scan all grid rows
+		for x,v2 in spairs(v1, functor) do 					-- scan all grid coloumns
+			--printf("~Inv UI (%s)| scanning grid x:[%s] y:[%s]", p.id, x, y)
+			if (v2 == true) then							-- if unoccupied grid is found
+				for _y = y, (y + (p.h-1)) do				-- scan item rows in this grid
+					for _x = x, (x + (p.w-1)) do 			-- scan item coloumns in this grid
+						--printf("~Inv UI (%s)| scanning item grid x:[%s] y:[%s]", p.id, _x, _y)
+						if not (grid[_y] and grid[_y][_x]) then
+							--printf("!Inv UI (%s)| item grid x:[%s] y:[%s] is occupied! break", p.id, _x, _y)
+							ignore = true
+						end
+						if ignore then break end
+					end
+					if ignore then break end
+				end
+				
+				-- if grid is not occupied, put item here and occupy
+				if (not ignore) then
+					--printf("-Inv UI (%s)| found good pos - x:[%s] y:[%s], break", p.id, x, y)
+					pos = { x = x , y = y }
+					for _y = y, (y + (p.h-1)) do		
+						for _x = x, (x + (p.w-1)) do 
+							--printf("-Inv UI (%s)| occupying item grid x:[%s] y:[%s]! break", p.id, _x, _y)
+							grid[_y][_x] = false
+						end
+					end
+					stop = true
+				end
+				ignore = false
+			end
+			if stop then break end
+		end
+		if stop then break end
+	end
+	
+	
+	-- clean totally occupied rows
+	for y,v1 in spairs(grid, functor) do 
+		local remov = true
+		for x,v2 in spairs(v1, functor) do 
+			if v2 then
+				remov = false
+			end
+		end
+		if remov then
+			grid[y] = nil
+			--printf("-Inv UI (%s)| cleaned occupied row: %s", p.id, y)
+		end
+		last_row = y
+	end
+	
+	-- add more rows if needed
+	if (last_row - pos.y < 4) then
+		for y=1,3 do
+			for x=1,p.g_row do
+				grid[last_row + y] = grid[last_row + y] or {}
+				grid[last_row + y][x] = true
+			end
+			--printf("-Inv UI (%s)| added new row: %s", p.id, last_row + y)
+		end
+	end
+	
+	-- set item in its new pos and size
+	for i=1,#ele do
+		ele[i]:SetWndSize(vector2():set( p.g_w * p.w , p.g_h * p.h ))
+		--printf("-Inv UI (%s)| set item size w:[%s] h:[%s]", p.id,  p.g_w * p.w , p.g_h * p.h)
+		ele[i]:SetWndPos(vector2():set( p.g_w * (pos.x - 1) , p.g_h * (pos.y - 1)))
+		--printf("-Inv UI (%s)| set item in pos x:[%s] y:[%s]", p.id, p.g_w * (pos.x - 1) , p.g_h * (pos.y - 1))
+	end
+	
+	return last_row
+end
+
+function adjust_pos_to_element(Base, offset_x, offset_y, ...)
+	local p = {...}
+	local pos = Base:GetWndPos()
+	for i=1,#p do
+		local pos_i = p[i]:GetWndPos()
+		p[i]:SetWndPos(vector2():set(pos_i.x + pos.x + offset_x , pos_i.y + pos.y + offset_y))
+	end
+end
+
+function adjust_size_to_element(Base, _w, _h, ...)
+	local p = {...}
+	local w = Base:GetWidth()
+	local h = Base:GetHeight()
+	for i=1,#p do
+		p[i]:SetWndSize(vector2():set( w + _w , h + _h ))
+	end
+end
+
+
+local tbl_translated = {}
+local tbl_untranslated = {}
+function collect_translations(st, is_translated) 
+	-- read strings with specific pattern (ends with increased number) -> return them translated in a table
+	
+	-- no need to scan for identical results
+	if is_translated and tbl_translated[st] then
+		return tbl_translated[st]
+	elseif tbl_untranslated[st] then
+		return tbl_untranslated[st]
+	end
+	
+	local string_count = 1
+	local tr_t = {}
+	while true do 
+		local tr_s = game.translate_string(st .. string_count)
+		if (tr_s == st .. string_count) then 
+			break 
+		else 
+			if is_translated then
+				tr_t[#tr_t + 1] = tr_s
+			else
+				tr_t[#tr_t + 1] = st .. tostring(string_count)
+			end
+		end
+		string_count = string_count + 1
+	end
+	
+	if (#tr_t == 0) then
+		if (not sfind(st,"st_msg")) then
+			printf("! WARNING: collect_translations | strings of (%s) don't exist!", st)
+		end
+		return false
+	end
+	
+	if is_translated then
+		tbl_translated[st] = tr_t
+	else
+		tbl_untranslated[st] = tr_t
+	end
+	
+	return tr_t
+end
+
+function read_text_keylist(str_in,tbl)
+	-- read translated strings -> replace included special keys/patterns with the ones from (tbl) -> return the modified strings. 
+	local m_s = ""
+	local str = str_in
+	for k,v in pairs(tbl) do
+		m_s = string.gsub(str,"%$"..k,v)
+		str = m_s
+	end
+	
+	return str
+end
+
+function collect_ini_sections (path) 
+
+-- Rule: function for parsing all sections in a file (modified part of alex1197 script)
+-- Input: path to ini file (path start inside "configs")
+-- Output: table of all sections from the ini file
+
+	local f = io.open(tostring("gamedata\\configs\\") .. path , "r")
+	local tab = {}
+	local line = ""
+	local newLine
+	local i
+	local currentTag = nil
+	while line ~= nil do	
+		line = line:gsub("\\;", "#_!36!_#") -- to keep \;
+		line = line:gsub("\\=", "#_!71!_#") -- to keep \=
+		if line ~= "" then
+
+			newLine = line
+			line = ""
+			for i=1, string.len(newLine) do				
+				if string.sub(newLine, i, i) ~= ";" then
+					line = line..newLine:sub(i, i)						
+				else				
+					break
+				end
+			end
+			line = line:gsub("^%s*(.-)%s*$", "%1")
+			-- Find tag			
+			if line:sub(1, 1) == "[" then
+				currentTag = line:gsub('%[(.*)%]%:.*','%1')
+				tab[#tab+1] = currentTag
+			end	
+
+		end
+		line = f:read("*line")		
+	end
+	f:close()
+	return tab
+end
+
+
+--============================================< Items >============================================--
+function get_static_cond(con)
+	if difficulty_manager.get_eco_factor("percentage_parts") then
+		return con
+	end
+
+	return (con <= 25 and 25) or (con <= 50 and 50) or (con <= 75 and 75) or 100
+end 
+
+function delay_item(effect, news, delay, obj, parts)
+	delay = txr_actor_effects.is_animations_on() and delay or 0
+	
+	local function extract_content()
+		local sec = obj and obj:section()
+		local name = sec and ui_item.get_sec_name(sec)
+		
+		-- Send news
+		if news and name then
+			local parts_text = ""
+			for i=1,#parts do
+				parts_text = parts_text .. "\\n- " .. ui_item.get_sec_name(parts[i])
+			end
+			itms_disassembly.SendMsg("success", "weapon_ammo", "st_dis_text_11", name, game.translate_string("st_dis_text_9"), parts_text)
+		end
+		
+		if obj then
+			release_obj(obj)
+		end
+	
+		-- Give parts
+		for i=1,#parts do
+			if ini_sys:section_exist(parts[i]) then
+				create_inv_obj(parts[i])
+			end
+		end
+		
+		return true
+	end
+	
+	txr_actor_effects.play_item_fx(effect)
+	CreateTimeEvent(0, "delay_item", delay, extract_content, obj)
+end
+
+function get_item_axis (sec)
+
+-- Rule: get item axis out of info from its section
+-- Input: section of the target item (string)
+-- Output: table of item's axis (x1, y1, x2, y2, width, height)
+
+	local a = {}
+		
+	local inv_grid_x = ini_sys:r_float_ex (sec,"inv_grid_x") or 0
+	local inv_grid_y = ini_sys:r_float_ex (sec,"inv_grid_y") or 0
+	local inv_grid_width = ini_sys:r_float_ex (sec,"inv_grid_width") or 0
+	local inv_grid_height = ini_sys:r_float_ex (sec,"inv_grid_height") or 0
+	
+	local x1 = inv_grid_x*50
+	local y1 = inv_grid_y*50
+
+	local w = inv_grid_width*50
+	local h = inv_grid_height*50
+
+	local x2 = x1 + w
+	local y2 = y1 + h
+	
+	a.x1 = x1
+	a.y1 = y1
+	a.x2 = x2
+	a.y2 = y2
+	a.w = w
+	a.h = h
+	
+	return a
+end
+
+function create_inv_obj (sec,delay)
+	delay = delay or 0.05
+	local name = sec .. "_" .. tostring(math.random(1000))
+	
+	local function timer_create()
+		alife():create(sec, db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), 0)
+		RemoveTimeEvent("create_obj",name)
+		--printf("/ create_inv_obj | alife object: [%s] has been created!", sec)
+		--return true
+	end
+	
+	if sec and ini_sys:section_exist(sec) then
+		CreateTimeEvent("create_obj",name,delay,timer_create)
+	else
+		printf("! item section [%s] not found!",tostring(sec))
+	end
+end
+
+function release_obj (obj,delay)
+	if (not obj) then return end
+	
+	delay = delay or 0.05
+	db.actor:drop_item(obj)
+	
+	local sec = obj:section()
+	local id = obj:id()
+	local name = sec .. "_" .. tostring(math.random(1000))
+	
+	local function timer_release(id)
+		local se_obj = alife_object(id)
+		if se_obj then
+			alife():release(se_obj,true)
+			--safe_release_manager.release(se_obj)
+			--printf("/ release_obj | alife object: [%s] (id: %s) has been released!", sec, id)
+		end
+		RemoveTimeEvent("release_obj",name)
+		--return true
+	end
+	
+	CreateTimeEvent("release_obj",name,delay,timer_release,id)
+end
+
+function has_item_by_id (id,sec)
+	local obj = level.object_by_id(id)
+	if obj then
+		local p = obj:parent()
+		if (p and p:id() == 0) then
+			if (not sec) or (sec and sec == obj:section()) then
+				return true
+			end
+		end
+	end
+	return false
+end
+
+function collect_inv_obj (sec , num , ... )
+
+-- Rule: search and collect available objects of a specific item from player's inventory
+-- Input: section of the target item , number of objects to obtain , id of items that should be excluded from the search
+-- Output: a table of the obtained objects of our item
+
+	local item_all = {}
+	local item_parts = {}
+	local p = {...}
+	local allow = true
+	
+	if (not num) then 
+		printf("! collect_inv_obj | no num defined!")
+		return false
+	end
+	
+	local function search(temp, item)
+		if p and (#p > 0) then
+			for i=1,#p do
+				if (item:id() == p[i]) then
+					allow = false
+				end
+			end
+		end
+		if (item:section() == sec) and allow then
+			item_all[#item_all+1] = item
+			--printf("/ collect_inv_obj | found viable item: section: %s | id: %s", item:section(), item:id())
+		end
+		allow = true
+	end
+	db.actor:iterate_inventory(search,nil)
+	
+	if (#item_all == 0) then
+		--printf("/ collect_inv_obj | no viable item found")
+		return false
+	end
+	
+	if (num > 0) and (#item_all >= num) then
+		for i=1,num do
+			item_parts[#item_parts+1] = item_all[num]
+		end
+		return item_parts
+	else
+		return item_all
+	end
+end
+
+local scopes = alun_utils.collect_section(ini_sys, "addons_table")
+function has_scope(sec)
+	for _, k in ipairs(scopes) do
+		if string.match(sec, k) then
+			printdbg("~ Weapon %s has attached scope: %s", sec, k)
+			return k
+		end
+	end
+	printdbg("- Weapon %s has not attached scope from DRX", sec)
+end
+
+function get_defined_uses(sec_d)
+	local _, __, sec_u, uses = sfind(sec_d,"(.*)__(%d)")
+	if sec_u and uses and ini_sys:section_exist(sec_u) then
+		return sec_u, tonumber(uses)
+	end
+	return sec_d
+end
+
+function get_weapon_ammo_list(obj, by_key) -- counting calibre changer upgrades
+	local section = obj and obj:section()
+	if not (obj and IsWeapon(obj)) then
+		--printf("! ERROR get_weapon_ammo_list | object [%s] is not a weapon", section)
+		return {}
+	end
+	
+	local se_obj = alife_object(obj:id())
+	if (not se_obj) then
+		printf("! ERROR get_weapon_ammo_list | can't get server object for (%s)", obj:id())
+		return {}
+	end
+	
+	local ammo_list = {}
+	local data = stpk_utils.get_weapon_data(se_obj)
+	if data and data.upgrades then
+		for k,v in pairs(data.upgrades) do
+			local prop = alun_utils.read_from_ini(ini_sys, tostring(v), "property", "string", nil)
+			if prop and (prop == "prop_calibre") then
+				local upgrade_sect = alun_utils.read_from_ini(ini_sys, tostring(v), "section", "string", nil)
+				ammo_list = alun_utils.parse_list(ini_sys,upgrade_sect,"ammo_class",by_key)
+				break
+			end
+		end
+	end
+	
+	if (size_table(ammo_list) == 0) then
+		ammo_list = alun_utils.parse_list(ini_sys,section,"ammo_class",by_key)
+	end
+	
+	return ammo_list
+end

@@ -1,0 +1,128 @@
+;-------------------------------------------------------------------------
+; New Bolt by Surs
+;-------------------------------------------------------------------------
+[bolt]:default_weapon_params
+visual							= dynamics\devices\dev_bolt\dev_bolt.ogf
+inv_name						= st_bolt
+inv_name_short					= st_bolt
+description						= st_bolt_descr
+inv_weight						= 0.075
+inv_volume						= 0.05
+cost							= 15
+ef_weapon_type					= 1
+destroy_time					= 200000
+class							= II_BOLT
+cform							= skeleton
+inv_grid_width					= 1
+inv_grid_height					= 1
+inv_grid_x						= 19
+inv_grid_y						= 9
+slot							= 5
+animation_slot					= 6
+single_handed					= 1
+hud								= bolt_hud
+can_take						= true
+can_stack						= true
+pickup_color					= 250, 235, 12, 255	; Yellow
+attach_position_offset			= -0.03, 0.0, 0.03
+attach_angle_offset				= 0, 0, 0
+attach_bone_name				=
+
+force_min						= 10
+force_const						= 20
+force_max						= 20
+force_grow_speed				= 10
+throw_point						= 0.4, 0.3, 0.1
+throw_dir						= 0, 0, 1
+third_person_throw_point_offset	=  -0.198,1.8,-0.833
+
+;A.R.E.A. Sound Remake
+snd_draw						= weapons\bolt_draw 
+snd_holster						= weapons\bolt_holster
+
+[bolt_hud]:hud_base
+item_visual						= dynamics\devices\dev_bolt\dev_bolt_hud.ogf
+attach_place_idx				= 0
+fire_point						= 0,0,0
+fire_bone						= wpn_body
+throw_point						= 0.0,0.4,0.3
+throw_dir						= 0,0,1
+
+hands_position					= 0.033,-0.155,0.1
+hands_orientation				= 0,0,0
+hands_position_16x9				= 0.033,-0.155,0.1
+hands_orientation_16x9			= 0,0,0
+
+aim_hud_offset_pos				= 0,0,0
+aim_hud_offset_rot				= 0,0,0
+
+gl_hud_offset_pos				= 0,0,0
+gl_hud_offset_rot				= 0,0,0
+
+lean_hud_offset_pos				= 0,0,0
+lean_hud_offset_rot				= 0,0,0
+
+item_position					= 0,0,0
+item_orientation				= 0,0,0
+
+anm_hide						= dev_bolt_holster
+anm_show						= dev_bolt_draw
+anm_idle						= dev_bolt_idle
+anm_bore						= dev_bolt_idle_bore
+anm_idle_moving	 				= dev_bolt_idle_moving
+anm_idle_moving_crouch			= dev_bolt_idle_moving, , 0.5
+anm_idle_sprint	 				= dev_bolt_idle_sprint
+anm_throw_begin					= dev_bolt_shoot_start
+anm_throw_idle					= dev_bolt_shoot_idle
+anm_throw						= dev_bolt_shoot_end
+;-------------------------------------------------------------------------
+; 	Shells
+;-------------------------------------------------------------------------
+[shell_9]:bolt
+visual							= dynamics\devices\dev_bolt\shell_9mm.ogf
+inv_name						= st_ammo_shell_pistol
+inv_name_short					= st_ammo_shell_pistol
+description						= st_ammo_shell_descr
+inv_weight						= 0.020
+inv_volume						= 0.05
+cost							= 1
+is_shell						= true
+inv_grid_x						= 9
+inv_grid_y						= 0
+shell_remove_time			 	= 100000
+hud								= shell_9mm_hud
+;A.R.E.A. Sound Remake
+snd_draw						= device\shell\shell_draw
+snd_holster						= device\shell\shell_holster
+
+[shell_9mm_hud]:bolt_hud
+item_visual						= dynamics\devices\dev_bolt\shell_9mm_hud
+
+[shell_545]:shell_9				; Engine default shell
+visual							= dynamics\devices\dev_bolt\shell_545x39mm.ogf
+inv_name						= st_ammo_shell_smg
+inv_name_short					= st_ammo_shell_smg
+inv_grid_x						= 10
+hud								= shell_545_hud
+[shell_545_hud]:bolt_hud
+item_visual						= dynamics\devices\dev_bolt\shell_545x39mm_hud
+
+[shell_762]:shell_9
+visual							= dynamics\devices\dev_bolt\shell_762x54mm.ogf
+inv_name						= st_ammo_shell_rifle
+inv_name_short					= st_ammo_shell_rifle
+inv_grid_x						= 11
+hud								= shell_762_hud
+[shell_762_hud]:bolt_hud
+item_visual						= dynamics\devices\dev_bolt\ammo_bad_shell_hud
+
+[ammo_bad_shell]:shell_762
+
+[shell_12]:shell_9
+visual							= dynamics\devices\dev_bolt\shell_12x70mm.ogf
+inv_name						= st_ammo_shell_shotgun
+inv_name_short					= st_ammo_shell_shotgun
+inv_grid_x						= 12
+hud								= shell_12_hud
+[shell_12_hud]:bolt_hud
+item_visual						= dynamics\devices\dev_bolt\shell_12x70mm_hud

@@ -1,0 +1,214 @@
+[wpn_mossberg590]:default_weapon_params
+$spawn                   	= "weapons\winchester1300"	; option for Level Editor
+$npc			 			= on						; option for Level Editor
+visual                   	= dynamics\weapons\wpn_mossberg590\wpn_mossberg590.ogf
+class                    	= WP_ASHTG
+description					= st_wpn_mossberg590_descr
+inv_name					= st_wpn_mossberg590
+inv_name_short				= st_wpn_mossberg590
+ef_main_weapon_type			= 1
+ef_weapon_type				= 9
+repair_type					= shotgun
+cost					 	= 60000
+weapon_class			 	= shotgun
+inv_weight					= 3.3
+inv_volume					= 5
+ph_mass			 			= 3
+upgrades                	= up_gr_firstab_mossberg590, up_gr_seconab_mossberg590, up_gr_thirdab_mossberg590, up_gr_fourtab_mossberg590
+installed_upgrades      	= 
+upgrade_scheme          	= upgrade_scheme_wincheaster1300
+hud                      	= wpn_mossberg590_hud
+;--TTX----------------------------------------------------------------------------
+hit_power        			= 0.82, 0.82, 0.82, 0.82
+hit_impulse      			= 35
+hit_type 					= fire_wound
+fire_distance            	= 200
+bullet_speed			 	= 380
+rpm                      	= 60
+rpm_empty_click				= 200
+
+misfire_probability        	= 0.005
+misfire_start_condition		= 0.85
+misfire_end_condition		= 0.15
+misfire_start_prob 			= 0.007
+misfire_end_prob 			= 0.11
+condition_shot_dec      	= 0.0030
+condition_queue_shot_dec	= 0.0030
+
+tri_state_reload			= on
+ammo_elapsed		 		= 8
+ammo_mag_size		 		= 8
+fire_modes					= 1
+ammo_class		 			= ammo_12x70_buck, ammo_12x70_buck_bad, ammo_12x70_buck_verybad, ammo_12x76_zhekan, ammo_12x76_zhekan_bad, ammo_12x76_zhekan_verybad, ammo_12x76_dart, ammo_12x76_dart_bad, ammo_12x76_dart_verybad
+slot 				 		= 2
+animation_slot		 		= 9
+;--дисперсия--------------------------------------------------------------------
+fire_dispersion_base		= 0.58  ;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+control_inertion_factor		= 1.24f
+crosshair_inertion			= 6.3
+
+;отдача
+cam_return 					= 0
+cam_relax_speed        	 	= 10	;скорость возврата в исходное положение
+cam_relax_speed_ai      	= 360
+cam_dispersion          	= 4.22	;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc			= 4.66	;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac			= 0.9
+cam_max_angle				= 50.0	;максимальный угол отдачи
+cam_max_angle_horz			= 50.0	;(degree) maximum shot horizontal degree
+cam_step_angle_horz			= 2.03	;(degree) size of step camera moved in horizontal position while shooting
+
+PDM_disp_base 				= 1.55
+PDM_disp_vel_factor 		= 1.65
+PDM_disp_accel_factor 		= 1.655
+PDM_disp_crouch 			= 1.0
+PDM_disp_crouch_no_acc		= 1.0
+
+zoom_cam_relax_speed		= 10     ; scope & ironsight
+zoom_cam_relax_speed_ai		= 120.75
+zoom_cam_dispersion			= 3.63
+zoom_cam_dispersion_inc		= 4.11
+zoom_cam_dispersion_frac	= 0.7
+zoom_cam_max_angle			= 50.0
+zoom_cam_max_angle_horz		= 50.0
+zoom_cam_step_angle_horz	= 1.74
+
+fire_dispersion_condition_factor = 0.001
+;---DOF-------------------------------------------------------------------------
+zoom_dof					= 0.5, 1.0, 180
+reload_dof           		= 0.0, 0.5, 5, 1.7
+;--STRAP PARAMETERS-------------------------------------------------------------
+strap_position				= -0.30, 0.20, 0.0
+strap_orientation			= -3.0, 0.0, 94.0
+strap_position_slot2		= -0.30, -0.20, 0.0
+strap_orientation_slot2		= -3.0, 0.0, 84.0
+strap_bone0					= bip01_spine2
+strap_bone1					= bip01_spine1
+;-------------------------------------------------------------------------------
+position                 	= -0.024, -0.097, 0.0
+orientation              	= 0, -4, 0
+shell_3d_sect				= shell_12
+shell_drop_silent			= true
+shell_drop_time				= 700
+shell_point					= 0.0, 0.180, 0.647
+fire_point              	= 0.0, 0.158, 0.647
+fire_point2					= 0.0, 0.158, 0.647
+
+inv_grid_width				= 4
+inv_grid_height				= 1
+inv_grid_x					= 37
+inv_grid_y					= 76
+
+upgr_icon_x					= 1750
+upgr_icon_y					= 100
+upgr_icon_width				= 300
+upgr_icon_height   			= 100
+
+kill_msg_x					= 171
+kill_msg_y					= 104
+kill_msg_width				= 75
+kill_msg_height				= 20
+
+flame_particles				= weapons\new_effects\shtg_pump
+smoke_particles		 		= weapons\new_effects\smoke_muzzle_shotgun
+light_color		 			= 0.6,0.5,0.3
+light_range		 			= 6.0
+light_var_color		 		= 0.05
+light_var_range		 		= 0.5
+light_time 		 			= 0.2
+
+;addons
+scope_status				= 0
+silencer_status				= 0
+grenade_launcher_status		= 0
+
+zoom_enabled				= true
+scope_zoom_factor      		= 1.03
+;--A.R.E.A. Sound Remake--------------------------------------------------------
+snd_holster				    = weapons\mossberg590\mossberg590_holster
+snd_draw				    = weapons\mossberg590\mossberg590_draw
+snd_empty				    = weapons\mossberg590\mossberg590_empty
+snd_add_cartridge		    = weapons\mossberg590\mossberg590_reload
+snd_reload				    = weapons\mossberg590\mossberg590_reload_end
+snd_close_weapon            = weapons\mossberg590\mossberg590_reload_end
+snd_open_weapon             = weapons\mossberg590\mossberg590_reload_open
+snd_shoot				    = mossberg590_snd_shoot
+
+[mossberg590_snd_shoot]
+snd_1_layer                 = weapons\mossberg590\mossberg590_shoot_null
+snd_2_layer                 = weapons\mossberg590\mossberg590_close_pump
+;-------------------------------------------------------------------------------
+[wpn_mossberg590_hud]:hud_base
+item_visual 				= dynamics\weapons\wpn_mossberg590\wpn_mossberg590_hud.ogf
+zoom_hide_crosshair			= true
+shell_point					= 0,0,0
+shell_dir       			= 0,1,0
+shell_bone					= gilza
+fire_point					= 0,0,0
+fire_bone      				= muzzle
+fire_point2					= 0,0,0
+fire_bone2					= muzzle
+
+hands_position				= -0.094990,-0.111282,-0.076525
+hands_position_16x9			= -0.094990,-0.111282,-0.076525
+hands_orientation			= 1.335205,2.0,0.0
+hands_orientation_16x9		= 1.335205,2.0,0.0
+
+aim_hud_offset_pos			= -0.052600,0.027160,-0.025000
+aim_hud_offset_pos_16x9		= -0.052600,0.027160,-0.025000
+aim_hud_offset_rot			= 0.038329,0.022535,0.000000
+aim_hud_offset_rot_16x9		= 0.038329,0.022535,0.000000
+
+anm_show					= mossberg_draw
+anm_hide					= mossberg_holster
+anm_idle					= mossberg_idle
+anm_idle_aim				= mossberg_idle_aim
+anm_idle_moving				= mossberg_idle_moving
+anm_idle_moving_crouch		= mossberg_idle_crouch
+anm_idle_sprint				= mossberg_idle_sprint
+anm_bore					= mossberg_idle_aim
+anm_shots					= mossberg_shoot, shoot
+anm_shots_empty				= mossberg_idle
+anm_open					= mossberg_reload_start, reload_start
+anm_add_cartridge			= mossberg_reload, reload
+anm_close					= mossberg_reload_end, reload_end
+anm_reload 					= mossberg_reload
+;-----------------------------------------------------------------------------
+[wpn_mossberg590_worn]:wpn_mossberg590
+visual                  	= dynamics\weapons\wpn_mossberg590\wpn_mossberg590_sk1.ogf
+inv_name					= st_wpn_mossberg590_worn
+inv_name_short				= st_wpn_mossberg590_worn
+upgrades                	= up_gr_firstab_mossberg590_worn, up_gr_seconab_mossberg590_worn, up_gr_thirdab_mossberg590_worn, up_gr_fourtab_mossberg590_worn
+cost              	 		= 50000
+hit_power        			= 0.77, 0.77, 0.77, 0.77
+bullet_speed				= 348
+hud                     	= wpn_mossberg590_sk1_hud
+
+misfire_start_condition		= 0.91
+misfire_end_condition		= 0.2
+condition_shot_dec      	= 0.0035
+condition_queue_shot_dec	= 0.0035
+fire_dispersion_base       	= 0.63
+
+[wpn_mossberg590_sk1_hud]:wpn_mossberg590_hud
+item_visual                	= dynamics\weapons\wpn_mossberg590\wpn_mossberg590_sk1_hud.ogf
+;-----------------------------------------------------------------------------
+; --Mossberg590 camo added by Surs for A.R.E.A.
+;-----------------------------------------------------------------------------
+[wpn_mossberg590_camo]:wpn_mossberg590
+visual                  	= dynamics\weapons\wpn_mossberg590\wpn_mossberg590_sk2.ogf
+inv_name					= st_wpn_mossberg590_camo
+inv_name_short				= st_wpn_mossberg590_camo
+description					= st_wpn_mossberg590_camo_descr
+cost              	 		= 64000
+hit_power        			= 0.84, 0.84, 0.84, 0.84
+bullet_speed				= 330
+hud                     	= wpn_mossberg590_camo_hud
+misfire_start_condition		= 0.90
+misfire_end_condition		= 0.2
+condition_shot_dec      	= 0.0025
+condition_queue_shot_dec	= 0.0025
+fire_dispersion_base       	= 0.55
+
+[wpn_mossberg590_camo_hud]:wpn_mossberg590_hud
+item_visual                	= dynamics\weapons\wpn_mossberg590\wpn_mossberg590_sk2_hud.ogf

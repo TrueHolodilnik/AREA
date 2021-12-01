@@ -1,0 +1,46 @@
+tbl_del = {}
+time = 0
+
+function check_obj()
+
+ if time < time_global() then
+   for i = 1, 65535 do
+    local obj = level.object_by_id(i)
+     if obj then
+-----
+local dist = db.actor:position():distance_to(obj:position())
+-----
+      if tbl_del[obj:id()]== nil and dist < 15 then 
+
+	local ln=level.name()
+ 	local gd=obj:game_vertex_id()
+	local ld=obj:level_vertex_id()
+	local pos=obj:position()
+	local posX=pos.x
+	local posY=pos.y
+	local posZ=pos.z
+
+	local position_obj = posX..","..posY..","..posZ
+
+	local settingFileName = "gamedata\\log.ltx"
+	local file = io.open( settingFileName, "a" )
+
+		file:write("Секция = "..obj:section())
+		file:write("\nИмя = "..obj:name())
+		file:write("\nПозиция = "..position_obj)
+		file:write("\nGame Vertex Id = "..gd)
+		file:write("\nLevel Vertex Id = "..ld)
+		file:write("\nЛокация = "..ln)
+		file:write("\n")
+		file:write("\n")
+		file:write("\n")
+		file:close()
+
+	table.insert(tbl_del,obj:id(), "true")
+
+      end
+     end
+   end
+  time = time_global() + 10000
+ end
+end

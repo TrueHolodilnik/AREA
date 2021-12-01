@@ -1,0 +1,2018 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<!--===========================================================
+<		   DIALOG MANAGER FOR ESCAPE (CORDON) MAP
+<					A.R.E.A - DIALOG
+<					------ FaL -----
+<===========================================================-->
+<string_table>
+	<!--=====Topor_start=====-->
+    <string id="Jeka_topor_start_and_Hi_10">
+        <text>Ни о чём не жалею... Эх.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_2">
+        <text>Доброго... Сталкер.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_3">
+        <text>Хай. Что продаёшь?</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_4">
+        <text>Всякое. Выбирай.</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_5">
+        <text>Надо бы ещё заказать...</text>
+    </string>
+    <string id="Jeka_topor_start_and_Hi_6">
+        <text>Скоро Душман... Скоро.</text>
+    </string>
+	
+	<!--=====Change_Faction=====-->
+	<string id="change_faction_to_army_0">
+		<text>Я хочу присоединится к рядам [Военных].</text>
+	</string>
+	<string id="change_faction_to_army_1">
+		<text>Ты сдурел что ли? У тебя хотя бы документы есть? Ты себе вообще это как представляешь? ...Хотя, ладно, я знаю как это преподнести начальству. Но это будет стоить тебе 10 тысяч гривен, а что ты хотел? Это армия сынок! Ну так что? Деньги есть? </text>
+	</string>
+	<string id="change_faction_to_army_2">
+		<text>Да, держи.</text>
+	</string>
+	<string id="change_faction_to_army_3">
+		<text>Нет.</text>
+	</string>
+	<string id="change_faction_to_army_4">
+		<text>Ну тогда не видать тебе службы в нашей доблестной армии как своих ушей. Свободен.</text>
+	</string>
+	<string id="change_faction_to_army_5">
+		<text>Хорошо... Хорошо... Так, документы... а хотя, ладно, можешь считать что ты уже в армии. За мной не заржавеет, я договрюсь с вышестоящими. Свободен. Не вижу радости на лице рядовой. Теперь ты в армии!</text>
+	</string>
+	<string id="change_faction_to_army_6">
+		<text>Деньги принёс?</text>
+	</string>
+	<string id="change_faction_to_army_7">
+		<text>Ты в аномалию что ли попал? Или допился до амнезии? Ты уже в армии дурень, иди отсюда пока я тебя не отлупил. </text>
+	</string>
+	<string id="change_faction_to_bandit_0">
+		<text>Я хочу перейти в группировку [Бандиты]</text>
+	</string>
+	<string id="change_faction_to_bandit_1">
+		<text>Если на общак забашляешь, покумекаю. </text>
+	</string>
+	<string id="change_faction_to_bandit_10">
+		<text>Деньги при тебе? </text>
+	</string>
+	<string id="change_faction_to_bandit_11">
+		<text>Да, держи.</text>
+	</string>
+	<string id="change_faction_to_bandit_12">
+		<text>Нет ещё.</text>
+	</string>
+	<string id="change_faction_to_bandit_13">
+		<text>Ну так какого хера ты меня тут моросишь? Вали зарабатывай фраер!</text>
+	</string>
+	<string id="change_faction_to_bandit_14">
+		<text>Вот и отлично. Я побазарю за тебя, лошкам тут всегда рады. Вали. </text>
+	</string>
+	<string id="change_faction_to_bandit_15">
+		<text>Ты чё... Провоцируешь меня тварь?</text>
+	</string>
+	<string id="change_faction_to_bandit_16">
+		<text>Слышь, за базар отвечать надо.</text>
+	</string>
+	<string id="change_faction_to_bandit_17">
+		<text>Ну да фраер, ты прав.</text>
+	</string>
+	<string id="change_faction_to_bandit_18">
+		<text>Хрм... А ты не не из шуганых? А? Такие мне нужны. Короче десятку давай, и будешь ровным пацаном.</text>
+	</string>
+	<string id="change_faction_to_bandit_19">
+		<text>...</text>
+	</string>
+	<string id="change_faction_to_bandit_2">
+		<text>Слышь, ты на стрём то не налегай, ага. А то мы из тебя дурь быстро вышибем. Если ты ещё не понял Маня, ты уже в группировке. Иди... Подмойся мля. </text>
+	</string>
+	<string id="change_faction_to_bandit_20">
+		<text>Держи.</text>
+	</string>
+	<string id="change_faction_to_bandit_21">
+		<text>У меня сейчас нет столько.</text>
+	</string>
+	<string id="change_faction_to_bandit_22">
+		<text>Ну так чего ты тут вату катаешь? Приходи когда будут.</text>
+	</string>
+	<string id="change_faction_to_bandit_23">
+		<text>Ну вот и порешали. Я побазарю с людьми. А ты пока гуляй.</text>
+	</string>
+	<string id="change_faction_to_bandit_24">
+		<text>Ну чё? Бабло принёс?</text>
+	</string>
+	<string id="change_faction_to_bandit_25">
+		<text>Ну чё? Бабло принёс?</text>
+	</string>
+	<string id="change_faction_to_bandit_26">
+		<text>Не, я передумал.</text>
+	</string>
+	<string id="change_faction_to_bandit_27">
+		<text>Ну и вали тогда.</text>
+	</string>
+	<string id="change_faction_to_bandit_3">
+		<text>Хорошо, сколько надо?</text>
+	</string>
+	<string id="change_faction_to_bandit_4">
+		<text>Ну тысяч 20... </text>
+	</string>
+	<string id="change_faction_to_bandit_5">
+		<text>Да ты охренел что ли? Какого...</text>
+	</string>
+	<string id="change_faction_to_bandit_6">
+		<text>Ну ладно. </text>
+	</string>
+	<string id="change_faction_to_bandit_7">
+		<text>Пасть закрой шавка! Ты вообще не вдупляешь с кем базар ведёшь? Ещё сука хоть слово с гонором... Я тебя на ремни порежу.</text>
+	</string>
+	<string id="change_faction_to_bandit_8">
+		<text>Попробуй.</text>
+	</string>
+	<string id="change_faction_to_bandit_9">
+		<text>Да ладно, успокойся! 20 так 20.</text>
+	</string>
+	<string id="change_faction_to_csky_0">
+		<text>Я хочу перейти в группировку [ЧН]</text>
+	</string>
+	<string id="change_faction_to_csky_1">
+		<text>Да, люди нам нужны, особенно сейчас когда нас осталось так мало. Этот поход к АЭС сильно проредил наши ряды. Но я не могу просто принять тебя к нам, необходим взнос в размере 10 тысяч. Ты готов?</text>
+	</string>
+	<string id="change_faction_to_csky_2">
+		<text>Да, держи.</text>
+	</string>
+	<string id="change_faction_to_csky_3">
+		<text>У меня нет столько.</text>
+	</string>
+	<string id="change_faction_to_csky_4">
+		<text>Я передумал.</text>
+	</string>
+	<string id="change_faction_to_csky_5">
+		<text>Так ты уже в нашей группировке. Ты себя нормально чувствуешь? загляни к нашему доктору. Пусть он тебя осмотрит.</text>
+	</string>
+	<string id="change_faction_to_csky_6">
+		<text>Решено. Я сообщу остальным. Добро пожаловать в Чистое небо.</text>
+	</string>
+	<string id="change_faction_to_csky_7">
+		<text>Увы, я не могу тебя принять без взноса.</text>
+	</string>
+	<string id="change_faction_to_csky_8">
+		<text>Ну как будешь готов, возвращайся.</text>
+	</string>
+	<string id="change_faction_to_dolg_0">
+		<text>Я хочу перейти в группировку [Долг]</text>
+	</string>
+	<string id="change_faction_to_dolg_1">
+		<text>Взнос новобранца составляет 10 тысяч. У тебя есть столько?</text>
+	</string>
+	<string id="change_faction_to_dolg_2">
+		<text>Да, держи.</text>
+	</string>
+	<string id="change_faction_to_dolg_3">
+		<text>Нет, столько нет, может есть иные варианты вступления? Без вложений.</text>
+	</string>
+	<string id="change_faction_to_dolg_4">
+		<text>Я передумал.</text>
+	</string>
+	<string id="change_faction_to_dolg_5">
+		<text>Нет. Возвращайся когда наберёшь.</text>
+	</string>
+	<string id="change_faction_to_dolg_6">
+		<text>...</text>
+	</string>
+	<string id="change_faction_to_dolg_7">
+		<text>Хорошо, теперь ты принадлежишь Долгу. Помни нашу цель.</text>
+	</string>
+	<string id="change_faction_to_dolg_8">
+		<text>Головой ударился да? Ты уже в Долге.</text>
+	</string>
+	<string id="change_faction_to_ecolog_0">
+		<text>Я хочу перейти в группировку [Учёные]</text>
+	</string>
+	<string id="change_faction_to_ecolog_1">
+		<text>Да, мы можем принять вас в полевую группу младших сотрудников. Но из-за бюрократических проволочек необходим взнос в размере 10 тысяч гривен. Вы располагаете данной суммой?</text>
+	</string>
+	<string id="change_faction_to_ecolog_2">
+		<text>Да, держите.</text>
+	</string>
+	<string id="change_faction_to_ecolog_3">
+		<text>Нет.</text>
+	</string>
+	<string id="change_faction_to_ecolog_4">
+		<text>Увы, тогда я ничем не могу вам помочь в этом деле.</text>
+	</string>
+	<string id="change_faction_to_ecolog_5">
+		<text>Хорошо, я отправлю запрос, это займёт некоторое время, но вы уже можете считаться сотрудником. Всего хорошего.</text>
+	</string>
+	<string id="change_faction_to_ecolog_6">
+		<text>Так - так... Молодой человек, вы уже числитесь у нас как сотрудник. Для повторного запроса нет причин.</text>
+	</string>
+	<string id="change_faction_to_freedom_0">
+		<text>Я хочу перейти в группировку [Свобода]</text>
+	</string>
+	<string id="change_faction_to_freedom_1">
+		<text>Конечно мэн! Мы всегда рады новым лицам! Правила вступления к нам думаю ты знаешь?</text>
+	</string>
+	<string id="change_faction_to_freedom_10">
+		<text>Да я тебя не тороплю, приходи когда будут. Мир брат!</text>
+	</string>
+	<string id="change_faction_to_freedom_11">
+		<text>Держи краба мэн! Добро пожаловать в Свободу! Это тебе подгон от меня лично! Иди к костру, раскумарься брат, послушай музыку. Но помни, за свободу надо сражаться. </text>
+	</string>
+	<string id="change_faction_to_freedom_12">
+		<text>Да ты разбогател? Десятка с тобой?</text>
+	</string>
+	<string id="change_faction_to_freedom_13">
+		<text>Брат! Джа унёс тебя слишком далеко от реального мира? Ты уже с нами, всё хорошо! Отдохни, приведи мысли в порядок.</text>
+	</string>
+	<string id="change_faction_to_freedom_2">
+		<text>Что за правила?</text>
+	</string>
+	<string id="change_faction_to_freedom_3">
+		<text>Да всё просто мэн, надо внести некоторую сумму. Не большую. Пойми, это необходимо. Знаешь, я бы всех принимал без всяких там сумм, но увы, это так не работает.</text>
+	</string>
+	<string id="change_faction_to_freedom_4">
+		<text>О какой сумме идёт речь?</text>
+	</string>
+	<string id="change_faction_to_freedom_5">
+		<text>Нет, я передумал. </text>
+	</string>
+	<string id="change_faction_to_freedom_6">
+		<text>Не вопрос! Возвращайся когда передумаешь снова.</text>
+	</string>
+	<string id="change_faction_to_freedom_7">
+		<text>10 тысяч, это всё что надо, не гривной больше. </text>
+	</string>
+	<string id="change_faction_to_freedom_8">
+		<text>Держи.</text>
+	</string>
+	<string id="change_faction_to_freedom_9">
+		<text>У меня сейчас нет столько.</text>
+	</string>
+	<string id="change_faction_to_killer_0">
+		<text>Я хочу перейти в группировку [Наёмники]</text>
+	</string>
+	<string id="change_faction_to_killer_1">
+		<text>Думаешь ты подходишь? Зачем тебе это?</text>
+	</string>
+	<string id="change_faction_to_killer_10">
+		<text>Я передумал.</text>
+	</string>
+	<string id="change_faction_to_killer_11">
+		<text>Хорошо, я сообщу людям о тебе. Помни мой урок. И не забывай кому ты подчиняешься. Свободен.</text>
+	</string>
+	<string id="change_faction_to_killer_12">
+		<text>Вернёшься когда будет нужная сумма. Свободен.</text>
+	</string>
+	<string id="change_faction_to_killer_13">
+		<text>Тогда мне не о чём с тобой говорить.</text>
+	</string>
+	<string id="change_faction_to_killer_14">
+		<text>Хорошо, я сообщу людям о тебе. А пока можешь идти.</text>
+	</string>
+	<string id="change_faction_to_killer_15">
+		<text>Возвращайся когда будет. Нам нужны такие агенты.</text>
+	</string>
+	<string id="change_faction_to_killer_16">
+		<text>Деньги при тебе?</text>
+	</string>
+	<string id="change_faction_to_killer_17">
+		<text>Готов вступить к нам в ряды?</text>
+	</string>
+	<string id="change_faction_to_killer_18">
+		<text>Тебя контузило? Ты уже один из нас.</text>
+	</string>
+	<string id="change_faction_to_killer_19">
+		<text>Да. Держи.</text>
+	</string>
+	<string id="change_faction_to_killer_2">
+		<text>Почему нет? Я...</text>
+	</string>
+	<string id="change_faction_to_killer_20">
+		<text>Нет ещё.</text>
+	</string>
+	<string id="change_faction_to_killer_21">
+		<text>Чего ты тогда тут ошиваешься? Задача у тебя есть.</text>
+	</string>
+	<string id="change_faction_to_killer_22">
+		<text>Да, держи.</text>
+	</string>
+	<string id="change_faction_to_killer_3">
+		<text>Не твоё дело.</text>
+	</string>
+	<string id="change_faction_to_killer_4">
+		<text>Заткнись. Головка от патефона. Сомневаюсь что ты нам подходишь. Потому что главное в нашей работе это секретность. А язык у тебя смотрю развязанный, прикуси его. Быть наёмником, значит хранить тайну. Которая будет известна только тебе и заказчику. Впрочем, за некоторую сумму я закрою глаза на это, ведь урок я полагаю ты усвоил? 10 тысяч, это плата за твой язык. Заплати, и ты будешь одним из нас. Всё понял? </text>
+	</string>
+	<string id="change_faction_to_killer_5">
+		<text>Правильно. Думаю ты нам подходишь. В нашем деле секретность играет не меньшую роль, чем точность выполнения заказа. Не важно кто перед тобой. Мотив должен быть только при тебе и заказчиком. А каждый агент, обезличен. Впрочем, я не могу тебя принять без вложений. 10 тысяч хватит. Рассматривай это как инвестицию. С нами ты заработаешь значительно больше.</text>
+	</string>
+	<string id="change_faction_to_killer_6">
+		<text>Да, я понял. Держи.</text>
+	</string>
+	<string id="change_faction_to_killer_7">
+		<text>Согласен. Держи.</text>
+	</string>
+	<string id="change_faction_to_killer_8">
+		<text>Да, я понял. Но у меня нет столько.</text>
+	</string>
+	<string id="change_faction_to_killer_9">
+		<text>Согласен, но у меня пока нет столько.</text>
+	</string>
+	<string id="change_faction_to_loner_0">
+		<text>Я хочу стать [Одиноким] сталкером.</text>
+	</string>
+	<string id="change_faction_to_loner_1">
+		<text>Ты же понимаешь что это не бесплатно?</text>
+	</string>
+	<string id="change_faction_to_loner_10">
+		<text>Приходи как передумаешь.</text>
+	</string>
+	<string id="change_faction_to_loner_2">
+		<text>Ты пьяный что ли? Ты и так вольный сталкер.</text>
+	</string>
+	<string id="change_faction_to_loner_3">
+		<text>Понимаю. Сколько ты хочешь за свои хлопоты?</text>
+	</string>
+	<string id="change_faction_to_loner_4">
+		<text>10000, этого будет достаточно.</text>
+	</string>
+	<string id="change_faction_to_loner_5">
+		<text>Держи.</text>
+	</string>
+	<string id="change_faction_to_loner_6">
+		<text>У меня нет столько...</text>
+	</string>
+	<string id="change_faction_to_loner_7">
+		<text>Тогда приходи когда наберёшь.</text>
+	</string>
+	<string id="change_faction_to_loner_8">
+		<text>Ну вот! Деловой человек. Я свяжусь с нужными людьми, можешь идти. Одиночка.</text>
+	</string>
+	<string id="change_faction_to_loner_9">
+		<text>Нет, я передумал.</text>
+	</string>
+	<string id="change_faction_to_monolith_0">
+		<text>Я хочу перейти в группировку [Монолит]</text>
+	</string>
+	<string id="change_faction_to_monolith_1">
+		<text>Да, я знаю. Да... Но мне надо забрать у тебя 10 тысяч... Так хочет Он. Это Его воля. Ведь деньги уже при тебе верно?</text>
+	</string>
+	<string id="change_faction_to_monolith_2">
+		<text>Да. Держи.</text>
+	</string>
+	<string id="change_faction_to_monolith_3">
+		<text>Нет.</text>
+	</string>
+	<string id="change_faction_to_monolith_4">
+		<text>Значит ещё не пришло время, не торопи события. Приходи когда настанет нужный момент.</text>
+	</string>
+	<string id="change_faction_to_monolith_5">
+		<text>Да, это тот самый момент. Я приветствую тебя в наших рядах, неофит. Ступай, ступай и неси Его волю! </text>
+	</string>
+	<string id="change_faction_to_monolith_6">
+		<text>Момент настал? Деньги у тебя?</text>
+	</string>
+	<string id="change_faction_to_monolith_7">
+		<text>Монолит проверяет меня... Я знаю кто ты. Ты один из нас. Ступай, я прошёл проверку.</text>
+	</string>
+	
+	<!--=====Russian roulet=====-->
+	<string id="bandit_barman_dar_mlr_find_number_0">
+		<text>Погнали, я готов.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_1">
+		<text>Держи, смертничек.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_2">
+		<text>[Нажать на спусковой]</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_3">
+		<text>Ух... Сука! Ладно, в этот раз тебе повезло.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_4">
+		<text>...</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_5">
+		<text>Снова? Ну держи смертник.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_6">
+		<text>Не, ну нахер. Я передумал.</text>
+	</string>
+	<string id="bandit_barman_dar_mlr_find_number_7">
+		<text>Сыкло... Возвращайся когда отрастишь себе яиц.</text>
+	</string>
+	
+	<!--=====Tech_trade=====-->
+	<string id="tech_trade_0">
+		<text>Есть что нибудь на продажу?</text>
+	</string>
+	<!--=====Sim_drnk=====-->
+	<string id="drink_with_me_0">
+		<text>Достало всё, выпьем?</text>
+	</string>
+	<string id="drink_with_me_1">
+		<text>Да, меня тоже всё достало, давай.</text>
+	</string>
+	<string id="drink_with_me_10">
+		<text>Когда пьёшь, нужно знать меру. Иначе можно выпить меньше чем нужно. Выпьем за меру! За меру во всём!</text>
+	</string>
+	<string id="drink_with_me_11">
+		<text>Выпьем!</text>
+	</string>
+	<string id="drink_with_me_12">
+		<text>Кха - кха. Не в то... Кха! Горло, фух... Ну давай ещё по одной, а то не разломало.</text>
+	</string>
+	<string id="drink_with_me_13">
+		<text>Ух, зараза. Повторим?</text>
+	</string>
+	<string id="drink_with_me_14">
+		<text>Ох, потеплело то как сразу! Ещё по одной?</text>
+	</string>
+	<string id="drink_with_me_15">
+		<text>Эх! Хорошо то как! Отблагодарить тебя надо. Правило есть в зоне, кто напоил, или накормил, отблагодарить полагается. Или зона не простит. Накажет. Итак, смотри, тут есть немного моих пожиток, они теперь твои. Удачи сталкер.</text>
+	</string>
+	<string id="drink_with_me_16">
+		<text>Ух мля, херануло так херануло! Аж ноги подкосились... Тьфу, что-то мне не хорошо... Вдох-выдох... Фу, вроде попустило. Не, не умею я пить, как бы не пытался, сразу херово становится, а потом болтать начинаю... Меня так однажды даже обворовали ты прикинь? Хряпнули, погутарили ну и рассказал я "горе-собутыльнику" что хабар бывает разный прячу в очень интересном месте... Оно реально интересное! Хер там кто найдёт, я когда-то шел... Открой карту... Воооот здесь и увидел что воооот сюда рюкзачок можно сныкать, так он и лежит, порой таскаю туда всякое разное, если мимо иду. Хрен знает когда может пригодиться... Слушай, а у тебя ещё есть? Хотя нет, хватит на сегодня, голова уже не соображает.</text>
+	</string>
+	<string id="drink_with_me_17">
+		<text>Всё, хватит.</text>
+	</string>
+	<string id="drink_with_me_18">
+		<text>Я так не думаю. Гони всё что есть. Впрочем, я всё равно тебя убью, сам возьму.</text>
+	</string>
+	<string id="drink_with_me_19">
+		<text>Мужик, ты чего? Перепил?</text>
+	</string>
+	<string id="drink_with_me_2">
+		<text>Нет, мне в рейд скоро.</text>
+	</string>
+	<string id="drink_with_me_20">
+		<text>Ну, хватит, так хватит, бывай.</text>
+	</string>
+	<string id="drink_with_me_21">
+		<text>А то! Ну, продолжим?</text>
+	</string>
+	<string id="drink_with_me_22">
+		<text>Эх, жаль. Я думал нормально посидим.</text>
+	</string>
+	<string id="drink_with_me_23">
+		<text>Молись, сука.</text>
+	</string>
+	<string id="drink_with_me_24">
+		<text>...</text>
+	</string>
+	<string id="drink_with_me_25">
+		<text>Закусим.</text>
+	</string>
+	<string id="drink_with_me_26">
+		<text>Ты чего, совсем что ли охерел? Да я тебя...</text>
+	</string>
+	<string id="drink_with_me_27">
+		<text>Прости, я... Я не могу, это не я.</text>
+	</string>
+	<string id="drink_with_me_28">
+		<text>Ух хорошо пошла родненькая, спасибо тебе! Эх, как вспомню... Аж слезы наворачиваются... А? Да был друг у меня, земля ему пухом. Так он так водку наливал, всегда хороша шла, прямо как сейчас... Слушай, сныкал я его пожитки в укромном месте, дай я тебе на карте отмечу, что найдёшь - твоё. Ладно, воспоминания накатили, мне посидеть одному надо. Бывай сталкер.</text>
+	</string>
+	<string id="drink_with_me_29">
+		<text>Ух, курва, как мне этого не хватало.</text>
+	</string>
+	<string id="drink_with_me_3">
+		<text>Я не пью с кем попало.</text>
+	</string>
+	<string id="drink_with_me_30">
+		<text>Эх... Давай, ещё по одной... Паскудно то всё как.</text>
+	</string>
+	<string id="drink_with_me_31">
+		<text>...Знаешь, а пусть будешь ты. Вот тебе координаты. Там то что у меня осталось... За мной уже всё равно уже идут. Вот тебе ещё по мелочи, все же деньги любят, а? Эх, пора умирать.</text>
+	</string>
+	<string id="drink_with_me_32">
+		<text>Ох обрадовал, так обрадовал! Слушай, а я тут недавно у костра сидел, так залётные сталкеры шушукались о припрятанном хабаре, дай покажу на карте. Ты это, не переживай они пропали спустя сутки, за артефактами пошли и не вернулись. Да и какой настоящий сталкер будет трепаться при всех о своей нычке? Сам я туда не полезу, ты там это... Аккуратнее если полезешь, может засада... Всё хватит с меня на сегодня алкоголя, береги себя.</text>
+	</string>
+	<string id="drink_with_me_33">
+		<text>Спасибо конечно, но ты о чём?</text>
+	</string>
+	<string id="drink_with_me_34">
+		<text>Не важно, запомни одно. Никогда не связывайся с Барсуком. Он кажется бессмертен. А теперь иди отсюда, мне надо побыть одному, прощай сталкер. Помни мои слова и береги себя.</text>
+	</string>
+	<string id="drink_with_me_35">
+		<text>Бывай.</text>
+	</string>
+	<string id="drink_with_me_36">
+		<text>Ух, сука, глаза заслезились... Что это за пойло такое? Давай ещё?</text>
+	</string>
+	<string id="drink_with_me_37">
+		<text>Эх, как выпью, сразу жить охота! Ха-ха! Давай ещё по одной?</text>
+	</string>
+	<string id="drink_with_me_38">
+		<text>Что-то мне не хорошо... Но это не повод прекращать! Сейчас полегчает, давай ещё?</text>
+	</string>
+	<string id="drink_with_me_39">
+		<text>А знаешь почему человек это самое совершенное существо в животном мире? Потому что он сам распределяет места в данной классификации... Смекаешь? Так выпьем за разумность человека!</text>
+	</string>
+	<string id="drink_with_me_4">
+		<text>Держи.</text>
+	</string>
+	<string id="drink_with_me_40">
+		<text>Отлично! Ну, не чокаясь!</text>
+	</string>
+	<string id="drink_with_me_41">
+		<text>Одному пить нельзя, давайте будем пить коллективно. За великую силу коллектива!</text>
+	</string>
+	<string id="drink_with_me_42">
+		<text>Выпьем за то чтобы у нас всегда было лёгкое сердце и тяжёлые карманы!</text>
+	</string>
+	<string id="drink_with_me_43">
+		<text>Пусть в вашей жизни будут люди, за которых хочется выпить, а не те, из-за которых хочется напиться! За Марка!</text>
+	</string>
+	<string id="drink_with_me_44">
+		<text>Выпьем за тех, кто, отсутствуя, незримо присутствует здесь!</text>
+	</string>
+	<string id="drink_with_me_45">
+		<text>Бог дал день на выпивку, но никто не знает, что это за день. Так будем же пить ежедневно, чтобы не пропустить!</text>
+	</string>
+	<string id="drink_with_me_46">
+		<text>Водка – наш враг. Но врагов мы не боимся, мы их искореняем.</text>
+	</string>
+	<string id="drink_with_me_47">
+		<text>Ух... Хорошо зашла, хе - хе, я тут на практике узнал... Люди, они как деревья - падают на землю после трех - четырех ударов топором. Наливай, мы не закончили.</text>
+	</string>
+	<string id="drink_with_me_48">
+		<text>Эм... Что это было? Знаешь, недавно утром на кордоне три внимательных сталкера, нашли одного невнимательного. На ветках... И немного по территории. Давай ещё выпьем за внимательность?</text>
+	</string>
+	<string id="drink_with_me_49">
+		<text>Может в свободу податься? Вот смотри, смех, как известно, продлевает жизнь, а наркотики её наоборот сокращают... В общем, то на то и выходит, но веселее что ли... Продолжаем?</text>
+	</string>
+	<string id="drink_with_me_5">
+		<text>Я передумал.</text>
+	</string>
+	<string id="drink_with_me_50">
+		<text>Что?</text>
+	</string>
+	<string id="drink_with_me_51">
+		<text>Ты чего-то не понял? Я сказал наливай, или я тебе сейчас бошку снесу непонятливую.</text>
+	</string>
+	<string id="drink_with_me_52">
+		<text>Ты бы успокоился, герой хренов.</text>
+	</string>
+	<string id="drink_with_me_53">
+		<text>Ну всё сука, ты напросился.</text>
+	</string>
+	<string id="drink_with_me_54">
+		<text>Да ну тебя, только вчера наклюкался так, что до сих пор вороны всюду мерещатся...</text>
+	</string>
+	<string id="drink_with_me_55">
+		<text>Хряпнуть? Ну коли предлагаешь - наливай!</text>
+	</string>
+	<string id="drink_with_me_56">
+		<text>Кто в водке ищет силы – тот ходит по краю могилы. Слыхал такое? Но если угощаешь, то я не откажусь!</text>
+	</string>
+	<string id="drink_with_me_57">
+		<text>Алкашка то с собой?... Тьфу, чего это я? Мне же в рейд с мужиками идти. Извиняй, но как нибудь в следующий раз.</text>
+	</string>
+	<string id="drink_with_me_58">
+		<text>Пить? А чего бы не выпить? Вот рассказывали мне недавно что есть в Зоне водка особенная какая-то, диггеры выкопали её на Свалке, а там... А, точно, наливай!</text>
+	</string>
+	<string id="drink_with_me_59">
+		<text>Да я тебя даже не знаю, откуда мне знать что ты там намешал?</text>
+	</string>
+	<string id="drink_with_me_6">
+		<text>Сталкерская доля, она такая, безутешная жажда, вечное преследование. Давайте выпьем за успех нашего безнадёжного дела!</text>
+	</string>
+	<string id="drink_with_me_60">
+		<text>Оппа-па, вот это неожиданно приятный поворот событий! Хряпнем помаленьку, а может и больше.</text>
+	</string>
+	<string id="drink_with_me_61">
+		<text>Знаешь... Я друга бросил умирать... Вот так просто, а иначе и не мог, оба сгинули бы. Давай хоть помяну.</text>
+	</string>
+	<string id="drink_with_me_62">
+		<text>Ух... Хе-хе... Выпил рюмку... Выпил две, зашумело в голове! Зашумело... О чём это я? А! Давай ещё по одной?</text>
+	</string>
+	<string id="drink_with_me_63">
+		<text>Ух... Знаешь как не допустить похмелья? Не трезветь! Давай ещё опрокинем!</text>
+	</string>
+	<string id="drink_with_me_64">
+		<text>Эх... Всё пьём, пьём... А знаешь, алкоголь не помогает найти ответы, он помогает забыть вопросы. А вопросов у меня много... А в зоне их только прибавилось... Повторим?</text>
+	</string>
+	<string id="drink_with_me_65">
+		<text>Кхе... Вот почему по-твоему в баре все такие расслабленные? А всё потому что алкоголь убивает нервные клетки. Остаются только спокойные. Так что давай ещё осушим?</text>
+	</string>
+	<string id="drink_with_me_66">
+		<text>Ух зараза! Как говорил мой дед: "Настроение под ноль? Здравствуй, крепкий алкоголь" Ещё есть?</text>
+	</string>
+	<string id="drink_with_me_67">
+		<text>Эх... Проснулся сегодня от холода и улыбнулся, подумав: «Это она как обычно перетянула одеяло». А потом понял, что костёр потух... Ничего, скоро домой. Скоро... Чего смотришь? Продолжаем.</text>
+	</string>
+	<string id="drink_with_me_68">
+		<text>Кха - кха! Я вот утром сказал себе: "Напьюсь!" И вот... Я напился! Люблю ставить цели и достигать их. Но это не значит, что пора остановится! Продолжаем?</text>
+	</string>
+	<string id="drink_with_me_69">
+		<text>Ух... Знаешь, я не так давно записался в клуб анонимных алкоголиков… Вторую неделю пью и даже не знаю с кем... Ты ведь тоже в клубе? Ладно, я помню первое правило... Ой. Короче, продолжаем!</text>
+	</string>
+	<string id="drink_with_me_7">
+		<text>Сытый голодного не разумеет... Пьяный трезвого не разумеет... Отсюда вывод: выпей, закуси — и будешь понят! Выпьем за понимание!</text>
+	</string>
+	<string id="drink_with_me_70">
+		<text>С возрастом начинают изменять память, зрение, изменяет даже близкий человек, и только алкоголь остаётся неизменными. За алкоголь!</text>
+	</string>
+	<string id="drink_with_me_71">
+		<text>Выпьем за ВДВ! То есть это -  за Веру, за Доблесть и Везение!</text>
+	</string>
+	<string id="drink_with_me_72">
+		<text>Говорят, полоса неудач иногда оказывается взлётной. Так выпьем же за наши без радостные перспективы на взлетной полосе!</text>
+	</string>
+	<string id="drink_with_me_73">
+		<text>Водка мерзость, водка - яд! Но сто грамм не повредят! Особенно нам.</text>
+	</string>
+	<string id="drink_with_me_74">
+		<text>Давайте выпьем за успех нашего безнадёжного дела! За удачу, что может повернуть всё в нашу пользу!</text>
+	</string>
+	<string id="drink_with_me_75">
+		<text>Буду короток. Выпьем за... Захотелось!</text>
+	</string>
+	<string id="drink_with_me_76">
+		<text>Вялые и хмурые, мы сидим понурые. Чтобы жизнь в нас возродить, нам нужно рюмку накатить!</text>
+	</string>
+	<string id="drink_with_me_77">
+		<text>Чтобы день прошёл не зря, нужно выпить стопоря!</text>
+	</string>
+	<string id="drink_with_me_78">
+		<text>Пусть у нас будет столько печали, сколько капель осталось в стакане!</text>
+	</string>
+	<string id="drink_with_me_79">
+		<text>Поднимем стаканчики, за набитые карманчики!</text>
+	</string>
+	<string id="drink_with_me_8">
+		<text>Выпьем за тех, кто на борту. Кто за бортом, сам напьётся!</text>
+	</string>
+	<string id="drink_with_me_80">
+		<text>Всё прекрасно, удивительно, если выпить предварительно.</text>
+	</string>
+	<string id="drink_with_me_9">
+		<text>Давай выпьем за... залпом!</text>
+	</string>
+
+	<!--=====Fake_DTK=====-->
+	<string id="detector_repair_bandit_meh_teh_advn_done_0">
+		<text>Что там с детектором?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_1">
+		<text>Готово, гони остаток и забирай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_10">
+		<text>Хех, и что мне теперь ждать пока ты наскребёшь? Сутки. Я буду ждать сутки, а потом пну твой детектор за сумму ремонта.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_11">
+		<text>Ну вот и отлично! Тут кое кто уже хочет забрать твой детектор. Я жду сутки, а он даёт больше чем ты. Ты понял?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_12">
+		<text>Ну и хер с тобой. Мне с большой земли сегодня такая весть пришла! Так что вот твой детектор, вот тебе бухло! Иди отсюда!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_13">
+		<text>Сука... Как вы достали мля, с вами вообще никакой движухи не замутишь, вы мля толпа пустословов, обещаете а толку? Короче слушай сюда, я тебе сутки даю. Пну твой детектор, и дело с концом.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_14">
+		<text>А что отмечаем то?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_15">
+		<text>Да не твоё это дело! Не выясняй, краснопёрый! Ха-ха! Пей за моё здоровье! Эх, хороша жизнь!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_16">
+		<text>Я тебе уже всё сказал. Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_17">
+		<text>Ну, иди проверь.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_18">
+		<text>Мля... Сколько зарекался с этим дерьмом не возиться. Готов, работает. Всю кровь мне сука выпил. остаток у тебя на руках?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_19">
+		<text>Мля... Короче, дрова ему. Я заманался, он мёртвый в конец. Держи свой кусок метала, его уже не починить.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_20">
+		<text>С детектором всё в порядке, ты деньги принёс?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_21">
+		<text>Обращайся... Блин.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_22">
+		<text>Херово... Ты уверен что его уже не починить?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_23">
+		<text>А предоплата?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_25">
+		<text>Да это всё, тут уже чем чинить, дешевле новый заказать. Его в электру что ли бросали? Вместо болта?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_26">
+		<text>Бывай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_27">
+		<text>Ты сдурел? Я столько времени на него потратил, а ты мне за предоплату базарить будешь? Слышь, ты бухой или как? Я с тебя ещё по божески взял!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_28">
+		<text>Ладно, ладно. Бывай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_29">
+		<text>Так ты же его и поломал!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_30">
+		<text>Ты чё фраер? Совсем берега попутал? Ты сука меня пустословом назвал? Я тебе сказал что попробую починить, а не то что это по любому так и будет! Вали нахер отсюда тварь пока при своих! А то унесут сука!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_6">
+		<text>Вот остаток. Надеюсь он рабочий...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_8">
+		<text>О как... Я у тебя когда спрашивал по стоимости ремонта, ты чем думал? Короче, у тебя сутки, если я не увижу своих денег, ты не увидишь свой детектор. Свободен.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_advn_done_9">
+		<text>Условия ты знаешь.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_0">
+		<text>Что там с детектором?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_1">
+		<text>Готово, гони остаток и забирай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_10">
+		<text>Хех, и что мне теперь ждать пока ты наскребёшь? Сутки. Я буду ждать сутки, а потом пну твой детектор за сумму ремонта.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_11">
+		<text>Ну вот и отлично! Тут кое кто уже хочет забрать твой детектор. Я жду сутки, а он даёт больше чем ты. Смекаешь?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_12">
+		<text>Ну и хер с тобой. Мне с большой земли сегодня такая весть пришла! Так что вот твой детектор, вот тебе бухло! Иди отсюда!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_13">
+		<text>Сука... Как вы достали мля, с вами вообще никакой движухи не замутишь, вы мля толпа пустословов, обещаете, а толку? Короче слушай сюда, я тебе сутки даю. Пну твой детектор, и дело с концом.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_14">
+		<text>А что отмечаем то?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_15">
+		<text>Да не твоё это дело! Не выясняй, краснопёрый! Ха-ха! Пей за моё здоровье! Эх, хороша жизнь! Хороша...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_16">
+		<text>Я тебе уже всё сказал. Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_17">
+		<text>Ну, иди проверь.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_18">
+		<text>Мля... Сколько зарекался с этим дерьмом не возиться. Готов, работает. Всю кровь мне сука выпил. остаток у тебя на руках?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_19">
+		<text>Мля... Короче, дрова ему. Я заманался, он мёртвый в конец. Держи свой кусок метала, его уже не починить.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_20">
+		<text>С детектором всё в порядке, ты деньги принёс?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_21">
+		<text>Обращайся... Блин.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_22">
+		<text>Херово... Ты уверен что его уже не починить?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_23">
+		<text>А предоплата?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_25">
+		<text>Да это всё, тут уже чем чинить, дешевле новый заказать. Его в электру что ли бросали? Вместо болта?</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_26">
+		<text>Бывай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_27">
+		<text>Ты сдурел? Я столько времени на него потратил, а ты мне за предоплату базарить будешь? Слышь, ты бухой или как? Я с тебя ещё по божески взял!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_28">
+		<text>Ладно, ладно. Бывай.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_29">
+		<text>Так ты же его и доломал!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_30">
+		<text>Ты чё фраер? Совсем берега попутал? Ты сука меня хуеплётом назвал? Я тебе сказал что попробую починить, а не то что это по любому так и будет! Вали нахер отсюда тварь пока при своих! А то унесут сука!</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_6">
+		<text>Вот остаток. Надеюсь он рабочий...</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_8">
+		<text>О как... Я у тебя когда спрашивал по стоимости ремонта, ты чем думал? Короче, у тебя сутки, если я не увижу своих денег, ты не увидишь свой детектор. Свободен.</text>
+	</string>
+	<string id="detector_repair_bandit_meh_teh_smpl_done_9">
+		<text>Условия ты знаешь.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_0">
+		<text>У меня к тебе необычное дело.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_1">
+		<text>Ну что же, давай обсудим.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_10">
+		<text>Да не, ты чё охренел? Откуда такие бабки?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_11">
+		<text>Ну не хочешь, так мне только лучше.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_12">
+		<text>Хе-хе... Сталкивался с такими, галимая это работа. Но думаю можно починить. Иногда получается... Короче, гони 8310 UAH и я берусь, это предоплата, а полный ремонт обойдётся тебе в 23750 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_13">
+		<text>Ладно, забирай, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_14">
+		<text>Нет, я передумал.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_15">
+		<text>Слышь, касатик, ты обделанный что ли?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_16">
+		<text>Иди спать, ты пьяный походу.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_17">
+		<text>Не, ну ё моё! Я только заинтересовался блин! ...Вали отсюда, придурок.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_18">
+		<text>Да, я так и думал, у таких как ты обычных то дел не бывает.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_19">
+		<text>Вот придурок...</text>
+	</string>
+	<string id="detector_repair_bandit_teh_2">
+		<text>Базарь что у тебя там?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_20">
+		<text>Смотри что есть, только выглядит совсем паршиво. Возьмёшься?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_21">
+		<text>Уууу, нет, тут даже пытаться нет смысла. Выброси его, ну или на худой конец учёным отдай.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_22">
+		<text>Да ты смеёшься? Это же металлолом. Ты за кого меня вообще держишь?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_23">
+		<text>Ты может ещё и в деда мороза веришь? Я не волшебник, из этого хлама, уже ничего не соберёшь.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_3">
+		<text>Охренеть ты таинственный, давай ближе к сути.</text>
+	</string>
+	<string id="detector_repair_bandit_teh_4">
+		<text>Смотри что есть, да только не фурычит походу. Глянь, может возьмёшься?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_5">
+		<text>Что ты приволок?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_6">
+		<text>"Отклик"</text>
+	</string>
+	<string id="detector_repair_bandit_teh_7">
+		<text>"Медведь"</text>
+	</string>
+	<string id="detector_repair_bandit_teh_8">
+		<text>Хе-хе... Сталкивался с такими, галимая это работа. Но думаю можно починить. Иногда получается... Короче, гони 3750 UAH и я берусь, это предоплата, а полный ремонт обойдётся тебе в 10700 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_bandit_teh_9">
+		<text>Ладно, забирай, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_0">
+		<text>У меня к тебе необычное дело.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_1">
+		<text>Я слушаю.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_10">
+		<text>Нет, это слишком дорого.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_11">
+		<text>Возвращайся когда будет достаточно денег.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_12">
+		<text>Да, я вижу неисправность, не сложная. Я могу починить его, но это будет не бесплатно. 8310 UAH Для начала. По окончанию ремонта отдашь остаток. ...И да, общая стоимость ремонта 23750 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_13">
+		<text>Хорошо. Оставляю его тебе, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_14">
+		<text>Нет, я передумал.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_15">
+		<text>Это твоё решение.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_16">
+		<text>Возвращайся когда будешь готов.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_20">
+		<text>Это возможно починить?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_21">
+		<text>Нет. Слишком серьёзные повреждения. Починка обойдётся тебе дороже чем заказать рабочий.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_23">
+		<text>Нет, это уже не восстановить.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_4">
+		<text>Прибор не исправен, верно?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_5">
+		<text>Покажи.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_6">
+		<text>"Отклик"</text>
+	</string>
+	<string id="detector_repair_monolith_teh_7">
+		<text>"Медведь"</text>
+	</string>
+	<string id="detector_repair_monolith_teh_8">
+		<text>Да, я вижу неисправность, не сложная. Я могу починить его, но это будет не бесплатно. 3750 UAH Для начала. По окончанию ремонта отдашь остаток. ...И да, общая стоимость ремонта 10700 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_9">
+		<text>Хорошо. Оставляю его тебе, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_0">
+		<text>Детектор готов?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_1">
+		<text>Да, ты принёс остаток?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_16">
+		<text>Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_17">
+		<text>Если что надо будет починить, приходи, я помогу.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_20">
+		<text>Детектор готов, а деньги готовы?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_21">
+		<text>Обращайся.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_6">
+		<text>Да, вот деньги.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_advn_done_8">
+		<text>Хорошо, приходи когда будет достаточно...</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_0">
+		<text>Детектор готов?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_1">
+		<text>Да, ты принёс остаток?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_16">
+		<text>Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_17">
+		<text>Если что надо будет починить, приходи, посмотрим.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_20">
+		<text>Детектор готов, а деньги готовы?</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_21">
+		<text>Обращайся.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_6">
+		<text>Да, вот деньги.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_monolith_teh_smpl_done_8">
+		<text>Хорошо, приходи когда будет достаточно...</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_0">
+		<text>Что там с детектором?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_1">
+		<text>Твой детектор готов. Остаток принёс?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_16">
+		<text>Я тебе уже всё сказал. Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_17">
+		<text>Если что надо будет починить, приходи, я помогу.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_20">
+		<text>С детектором всё в порядке, ты деньги принёс?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_21">
+		<text>Обращайся.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_6">
+		<text>Да, вот деньги.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_advn_done_8">
+		<text>Хм. Ну ладно. Как наберёшь денег, приходи. Но не затягивай. А то проценты потекут за содержание твоего детектора. Это я шучу. Я его в складской учёт внесу. И это я, не шучу. У тебя сутки.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_0">
+		<text>Что там с детектором?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_1">
+		<text>Твой детектор готов. Остаток принёс?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_16">
+		<text>Я тебе уже всё сказал. Ищи деньги.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_17">
+		<text>Если что надо будет починить, приходи, посмотрим.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_20">
+		<text>С детектором всё в порядке, ты деньги принёс?</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_21">
+		<text>Обращайся.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_6">
+		<text>Да, вот деньги.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_7">
+		<text>У меня сейчас нету денег.</text>
+	</string>
+	<string id="detector_repair_scientist_meh_teh_smpl_done_8">
+		<text>Хм. Ну ладно. Как наберёшь денег, приходи. Но не затягивай. А то проценты потекут за содержание твоего детектора. Это я шучу. Я его в складской учёт внесу. И это я, не шучу. У тебя сутки.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_0">
+		<text>У меня к тебе необычное дело.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_1">
+		<text>И что же это?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_10">
+		<text>Нет, это слишком дорого.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_11">
+		<text>Как скажешь...</text>
+	</string>
+	<string id="detector_repair_scientist_teh_12">
+		<text>Угу... Так, да, вижу, причину поломки. Я могу починить его, но это будет не бесплатно. 8310 UAH Для начала. По окончанию ремонта отдашь остаток. ...И да, общая стоимость ремонта 23750 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_13">
+		<text>Ладно, забирай, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_14">
+		<text>Нет, я передумал.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_15">
+		<text>Перестань меня отвлекать.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_16">
+		<text>Когда в твоей голове сформируется мысль, тогда и приходи.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_17">
+		<text>Что же вы такие не определённые...</text>
+	</string>
+	<string id="detector_repair_scientist_teh_20">
+		<text>Да не работает ни черта! Это возможно починить?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_21">
+		<text>Увы. Тут очень серьёзные повреждения, Починка обойдётся вам дороже чем заказать у нас рабочий.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_22">
+		<text>Нет, тут я вынужден признать что это, хлам.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_23">
+		<text>Нет, это уже не восстановить.</text>
+	</string>
+	<string id="detector_repair_scientist_teh_4">
+		<text>Да не работает ни черта!</text>
+	</string>
+	<string id="detector_repair_scientist_teh_5">
+		<text>Покажи, что там у тебя?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_6">
+		<text>"Отклик"</text>
+	</string>
+	<string id="detector_repair_scientist_teh_7">
+		<text>"Медведь"</text>
+	</string>
+	<string id="detector_repair_scientist_teh_8">
+		<text>Угу... Так, да, вижу, причину поломки. Я могу починить его, но это будет не бесплатно. 3750 UAH Для начала. По окончанию ремонта отдашь остаток. ...И да, общая стоимость ремонта 10700 UAH. Согласен?</text>
+	</string>
+	<string id="detector_repair_scientist_teh_9">
+		<text>Ладно, забирай, сообщи когда будет готов. Я на связи.</text>
+	</string>
+	<string id="detector_repair_uni_0">
+		<text>У меня к тебе необычное дело.</text>
+	</string>
+	<string id="detector_repair_uni_1">
+		<text>Выкладывай.</text>
+	</string>
+	<string id="detector_repair_uni_2">
+		<text>Заинтриговал, рассказывай.</text>
+	</string>
+	<string id="detector_repair_uni_3">
+		<text>Я не волшебник, но давай послушаем что за дело.</text>
+	</string>
+	<string id="detector_repair_uni_4">
+		<text>С чего ты взял что оно мне интересно?</text>
+	</string>
+	<string id="detector_repair_uni_5">
+		<text>Что ты сломал на этот раз?</text>
+	</string>
+	<string id="detector_repair_uni_6">
+		<text>Посмотри детектор, мне кажется он сломанный.</text>
+	</string>
+	<string id="detector_repair_uni_7">
+		<text>Детектор? Нет, я таким не занимаюсь. Не благодарная работа, сходи к учёным, у них техник этим барахлом занимается.</text>
+	</string>
+	<string id="detector_repair_uni_8">
+		<text>Нет, я детекторы не чиню.</text>
+	</string>
+	<string id="detector_repair_uni_9">
+		<text>Детектор? Нет, я за такое браться не буду. К учёным тебе. У них там таким занимаются.</text>
+	</string>
+	<string id="detector_repair_uni_10">
+		<text>Ну уже нет, второй раз мне терпения не хватит.</text>
+	</string>
+	<string id="detector_repair_uni_11">
+		<text>Нет сталкер, такое я даже пробовать чинить не стану. Очень тонкая работа. К учёным сходи, у них есть и место и оборудование нужное.</text>
+	</string>
+	<string id="detector_repair_uni_12">
+		<text>В другой раз, я передумал.</text>
+	</string>
+	
+	<!--=====Sidor_let_me_out=====-->
+	<string id="sidor_let_me_out_0">
+		<text>Сидорович, дверь открой.</text>
+	</string>
+	<string id="sidor_let_me_out_1">
+		<text>Вали отсюда.</text>
+	</string>
+
+	<!--=====Gerdge_KillTask=====-->
+	
+	<string id="georgii_kltsk_cancel_0">
+		<text>Нет, я передумал их убивать.</text>
+	</string>
+	<string id="georgii_kltsk_cancel_1">
+		<text>...Свободен.</text>
+	</string>
+	<string id="georgii_kltsk_end_0">
+		<text>Дело сделано, держи КПК.</text>
+	</string>
+	<string id="georgii_kltsk_end_1">
+		<text>Отлично, давай сюда. </text>
+	</string>
+	<string id="georgii_kltsk_end_2">
+		<text>Зачем они тебе?</text>
+	</string>
+	<string id="georgii_kltsk_end_3">
+		<text>Это не твоё дело сталкер... Вот твоя награда, если будет ещё работа, я тебе напишу.</text>
+	</string>
+	<string id="georgii_kltsk_reversed_1">
+		<text>Как скажешь.</text>
+	</string>
+	<string id="georgii_kltsk_start_0">
+		<text>Здравствуй, что у тебя за дело ко мне?</text>
+	</string>
+	<string id="georgii_kltsk_start_1">
+		<text>Этот мир полон зла сталкер... Мне нужна твоя помощь. До меня дошла информация что на болотах объявились два брата, Шило и Крюк. Достань мне их КПК.</text>
+	</string>
+	<string id="georgii_kltsk_start_10">
+		<text>Жаль, значит я ошибся в тебе.</text>
+	</string>
+	<string id="georgii_kltsk_start_3">
+		<text>На болотах значит... Болота большие, поточнее может наводка есть?</text>
+	</string>
+	<string id="georgii_kltsk_start_4">
+		<text>Да, конечно. Они пришли с Агропрома, значит ищи их на окраинах близ перехода. Далеко бы они не ушли, им не с руки встречать Чистое Небо.</text>
+	</string>
+	<string id="georgii_kltsk_start_6">
+		<text>Что я получу за эти КПК?</text>
+	</string>
+	<string id="georgii_kltsk_start_7">
+		<text>Около 10 тысяч гривен и медикаменты.</text>
+	</string>
+	<string id="georgii_kltsk_start_8">
+		<text>Хорошо, я берусь.</text>
+	</string>
+	<string id="georgii_kltsk_start_9">
+		<text>Нет, мне это не интересно.</text>
+	</string>
+	
+	<!--=====Mihail_start_hi=====-->
+	<string id="mihail_start_hi_10">
+		<text>Что то мне не нравится, как ты сегодня тарахтишь, милая, надо бы тебя осмотреть...</text>
+	</string>
+	<string id="mihail_start_hi_11">
+		<text>Где эта дурилка картонная ходит? Уже второй час пошёл, али голодом заморить решил?</text>
+	</string>
+	<string id="mihail_start_hi_12">
+		<text>Твоей водокачке? Слушай, старик, у меня нет на тебя времени, отвали.</text>
+	</string>
+	<string id="mihail_start_hi_13">
+		<text>А что, водокачка работает? А то я не прочь, дорогая нынче вода.</text>
+	</string>
+	<string id="mihail_start_hi_14">
+		<text>А как же не работает? Слышишь — насос тарахтит? Я тут смотрю, чтобы всё чин по чину. Вода чистая, как детская слеза. </text>
+	</string>
+	<string id="mihail_start_hi_15">
+		<text>Что ж, учту.</text>
+	</string>
+	<string id="mihail_start_hi_16">
+		<text>Хе, учти.</text>
+	</string>
+	<string id="mihail_start_hi_17">
+		<text>Нет, я по другому поводу.</text>
+	</string>
+	<string id="mihail_start_hi_18">
+		<text>Учти я за тобой слежу сынок. И в патронах у меня не соль.</text>
+	</string>
+	<string id="mihail_start_hi_19">
+		<text>Ладно, ладно.</text>
+	</string>
+	<string id="mihail_start_hi_2">
+		<text>Здравствуй сталкер, с чем пожаловал? </text>
+	</string>
+	<string id="mihail_start_hi_20">
+		<text>Ах ты ж сука! Нет у него времени! Ишь что удумал! Я тебя сейчас...</text>
+	</string>
+	<string id="mihail_start_hi_21">
+		<text>Сиди смирно, старик...</text>
+	</string>
+	<string id="mihail_start_hi_3">
+		<text>Здравствуй. Да я тут по своим делам, а ты кто? </text>
+	</string>
+	<string id="mihail_start_hi_4">
+		<text>Какие у тебя могут быть дела на моей водокачке? Ишь, молодёжь, дела у него! Приходите сюда, как к себе домой, ты хоть знаешь сколько я ружьишком-то своим таких как ты деловых спровадил? А?</text>
+	</string>
+	<string id="mihail_start_hi_5">
+		<text>Спокойно мужик, я же не со зла!</text>
+	</string>
+	<string id="mihail_start_hi_6">
+		<text>Ну раз так... Смотри у меня. Я тут давно, меня местные знают. Поспрашивай, как я с деловыми поступаю. Так что тебе надобно? За водой пришёл?</text>
+	</string>
+	<string id="mihail_start_hi_7">
+		<text>Эх... Опять колени болят... Выброс скоро.</text>
+	</string>
+	<string id="mihail_start_hi_8">
+		<text>Ничего Мария Кузьминична, авось скоро свидимся...</text>
+	</string>
+	<string id="mihail_start_hi_9">
+		<text>Тише вы... Воют... Изголодались, твари.</text>
+	</string>
+	
+	<!--=====Mihail_water_barter=====-->
+	<string id="mih_wtr_brt_0">
+		<text>Здравствуй Михалыч! Есть чем тару наполнить?</text>
+	</string>
+	<string id="mih_wtr_brt_1">
+		<text>А то! Готовь полтысячи. Тебе что наполнить?</text>
+	</string>
+	<string id="mih_wtr_brt_11">
+		<text>Ты чего мне голову морочишь? Пошёл вон!</text>
+	</string>
+
+	<!--=====Barman_water_barter=====-->
+	<string id="bar_wtr_brt_0">
+		<text>Бармен! Есть чем тару наполнить?</text>
+	</string>
+	<string id="bar_wtr_brt_1">
+		<text>Есть, готовь 500 гривен. Что тебе наполнить?</text>
+	</string>
+	<string id="bar_wtr_brt_11">
+		<text>Как только таких земля носит...? Иди отсюда, пока цел.</text>
+	</string>
+	
+	<!-- Olivius Dark Valley water dialog -->
+	<string id="bandit_wtr_brt_0">
+		<text>Здарова кореш. Налей воды.</text>
+	</string>
+	<string id="bandit_wtr_brt_1">
+		<text>Гони 500 UAH, куда те там налить? Хе-хе...</text>
+	</string>
+	<string id="bandit_wtr_brt_11">
+		<text>Мля, сышиш, вали нахер, хохмач хренов.</text>
+	</string>
+	
+	<!-- sah_wtr_brt -->
+	<string id="sah_wtr_brt_0">
+		<text>Здравствуйте профессор, мне нужна вода.</text>
+	</string>
+	<string id="sah_wtr_brt_1">
+		<text>С вас 500 UAH. Есть во что налить?</text>
+	</string>
+	<string id="sah_wtr_brt_11">
+		<text>Не мешайте мне работать.</text>
+	</string>
+	
+	<!-- nucl_wtr_brt -->
+	<string id="nucl_wtr_brt_0">
+		<text>Здравствуйте, налейте воды.</text>
+	</string>
+	<string id="nucl_wtr_brt_1">
+		<text>С вас 500 UAH. Куда вам налить?</text>
+	</string>
+	<string id="nucl_wtr_brt_11">
+		<text>Не мешайте мне работать.</text>
+	</string>
+	
+	<string id="water_brt_2">
+		<text>Пластиковая бутылка.</text>
+	</string>
+	<string id="water_brt_3">
+		<text>Термос.</text>
+	</string>
+	<string id="water_brt_4">
+		<text>Оливковая фляга.</text>
+	</string>
+	<string id="water_brt_5">
+		<text>Тёмная фляга.</text>
+	</string>
+	<string id="water_brt_6">
+		<text>Металлическая фляга.</text>
+	</string>
+	<string id="water_brt_7">
+		<text>Стеклянная бутылка.</text>
+	</string>
+	<string id="water_brt_8">
+		<text>Бутылка из стекла.</text>
+	</string>
+	<string id="water_brt_9">
+		<text>Пивная бутылка.</text>
+	</string>
+	<string id="water_brt_10">
+		<text>Я передумал.</text>
+	</string>
+	
+	<!--=====Battery recharge=====-->
+	<string id="battery_rechange_0">
+		<text>Мне нужно зарядить аккумулятор.</text>
+	</string>
+	<string id="battery_rechange_1">
+		<text>Не вопрос, что там у тебя за аккумулятор?</text>
+	</string>
+	<string id="battery_rechange_2">
+		<text>Аккумулятор 4000mAH</text>
+	</string>
+	<string id="battery_rechange_2_1">
+		<text>Это будет стоить 1000 и тебе придётся немного подождать, согласен?</text>
+	</string>
+	<string id="battery_rechange_5_1">
+		<text>Это будет стоить 3000 и тебе придётся немного подождать, согласен?</text>
+	</string>
+	<string id="battery_rechange_agree">
+		<text>Вот она, надеюсь не придётся ждать вечность.</text>
+	</string>
+	<string id="battery_rechange_3">
+		<text>Аккумулятор 4200mAH</text>
+	</string>
+	<string id="battery_rechange_4">
+		<text>Аккумулятор 4500mAH</text>
+	</string>
+	<string id="battery_rechange_5">
+		<text>Аккумулятор 100В АМ1</text>
+	</string>
+	<string id="battery_rechange_6">
+		<text>Пока что нет, может попозже.</text>
+	</string>
+	<string id="battery_rechange_7">
+		<text>Как хочешь, у меня тут и так работы достаточно.</text>
+	</string>
+	
+	<!--=====Inf_craft_remaster=====-->
+	<string id="Klin_Guide_0">
+		<text>Клин, поговорим?</text>
+	</string>
+	<string id="Klin_Guide_1">
+		<text>Кхм... Разговоры ваши... Ладно всё равно работы пока нет. Чего тебе?</text>
+	</string>
+	<string id="Klin_Guide_10">
+		<text>Расскажи о разборке оружия.</text>
+	</string>
+	<string id="Klin_Guide_11">
+		<text>Ну разборка оружия - самое простое, наверное. Сталкеры используют все что попадается под руку, различные наборы из инструментов, бывает даже столовыми приборами пользуются, но помни что разбирать всё нужно аккуратно. Далее запчасти используют в починке или продают, ну или у меня собирают неплохие образцы.</text>
+	</string>
+	<string id="Klin_Guide_12">
+		<text>Расскажи о самодельных патронах.</text>
+	</string>
+	<string id="Klin_Guide_13">
+		<text>Да, тоже интересная тема. Совсем недавно у торговцев появились всякие комплекты для изготовления патронов, но любой самодельный боеприпас будет хуже заводского. Обычно тут используют инструменты для изготовления патрон и материалы для них. Всё это можно купить у торговцев. Дальше подробнее рассказать не могу, ибо у каждого комплекта своя инструкция. Ну прочитаешь, там разобраться не сложно.</text>
+	</string>
+	<string id="Klin_Guide_14">
+		<text>А ещё что тут можно сделать из подручных предметов?</text>
+	</string>
+	<string id="Klin_Guide_15">
+		<text>Хех... А ты голову свою включи. Смекалка тебе на что? Тут в Зоне вообще много чего своими руками делают. Из тряпок и водки - бинты. Сами шьют себе спальные мешки и рюкзаки, материалы и инструменты для которых у почти любого торгаша есть. Самокрутки и косяки тоже любят делать из подручных средств, но это чаще в Свободе. Да тут даже ствол собрать можно, и без моей помощи, главное головой работать.</text>
+	</string>
+	<string id="Klin_Guide_16">
+		<text>Клин, что нужно для сборки оружия?</text>
+	</string>
+	<string id="Klin_Guide_17">
+		<text>Так, смотря какое ты хочешь собрать, сразу говорю, собираю далеко не все, но разных калибров. Оглянись у меня тут не завод, так что качество будет устаревшее. И запчасти я использую в основном устаревшие. От новых проку нет, всё равно соберу не новое, так что прибереги для другого.</text>
+	</string>
+	<string id="Klin_Guide_18">
+		<text>Понятно, какие именно части мне нужны?</text>
+	</string>
+	<string id="Klin_Guide_19">
+		<text>\n%c[0,188,124,42]• 9x18мм,9x19мм,0.45 ACP,7.62x25мм%c[default] - рукоять, пружину и курок.\n%c[0,188,124,42]• 9x39мм,5.45x39мм,5.56x45мм,7.62х39мм,7.62х51 НАТО%c[default] - ствол 9x39/5.45x39/7.62мм, рукоять, пружина, курок, приклад, затвор.\n%c[0,188,124,42]• 7.62x54мм%c[default] - ствол 7.62мм,рукоять, пружина, курок, приклад, затвор.\n%c[0,188,124,42]• 7.92х33мм%c[default] - ствол 7.92мм, пружина, курок, приклад, затвор.\n%c[0,188,124,42]• 12х70мм%c[default] одноствольные - ствол дробовика, приклад и курок.\n%c[0,188,124,42]• 12х70мм%c[default] двухствольные - двойной ствол дробовика, двойной курок, приклад.</text>
+	</string>
+	<string id="Klin_Guide_2">
+		<text>Расскажи о замене ствола.</text>
+	</string>
+	<string id="Klin_Guide_20">
+		<text>И это всё?</text>
+	</string>
+	<string id="Klin_Guide_21">
+		<text>Конечно нет. Помимо этого хлама, мне нужны деньги за работу. А так же инструменты. \n\n\n%c[0,188,124,42]9х18мм%c[default] - 200UAH, \n%c[0,188,124,42]9х19мм%c[default] - 350UAH, \n%c[0,188,124,42]9.39мм%c[default] - 1000UAH, \n%c[0,188,124,42]0.45 ACP%c[default] - 450UAH, \n%c[0,188,124,42]5.45х39мм%c[default] - 700UAH, \n%c[0,188,124,42]5.56х45мм%c[default] - 850UAH, \n%c[0,188,124,42]7.62х25мм%c[default] - 500UAH, \n%c[0,188,124,42]7.62х39мм%c[default] - 750UAH, \n%c[0,188,124,42]7.62х51мм%c[default] - 700UAH, \n%c[0,188,124,42]7.62х54мм%c[default] - 1400UAH, \n%c[0,188,124,42]7.92х33мм%c[default] - 900UAH, \n%c[0,188,124,42]12х70мм%c[default] - 220UAH.</text>
+	</string>
+	<string id="Klin_Guide_22">
+		<text>Понял, бывай.</text>
+	</string>
+	<string id="Klin_Guide_23">
+		<text>Я всё это знаю Клин, не первый день тут.</text>
+	</string>
+	<string id="Klin_Guide_24">
+		<text>Тогда мне не о чём с тобой разговаривать.</text>
+	</string>
+	<string id="Klin_Guide_3">
+		<text>Ствол оружия - вещь деликатная. Чтобы его заменить, нужно иметь две вещи: сам ствол и комплект для его замены. Ствол, как правило, либо покупают, либо сами добывают из оружия специальными наборами инструментов соответствующих по применению. Есть три типа. Так же как и в случае разборки одежды на получение составляющих частей влияет сам предмет, его состояние и личные умения. Хочу так же добавить, что при разборки ржавого, устаревшего и нового оружия, конечные детали будут соответствовать по качеству... Ржавые или убитые стволы не подойдут, поэтому их нужно будет чистить и приводить в порядок. Чистят тут разными средствами: бензином, керосином, водкой, водой, растворителями, чистящими комплектами и многим другим. Комплекты для замены существуют разные, то есть для каждого калибра свой комплект. В основном эти полевые наборы можно найти у торговцев. Ещё, кстати, не у каждого оружия и калибра можно заменить ствол, это тоже учитывай.</text>
+	</string>
+	<string id="Klin_Guide_4">
+		<text>Расскажи о разборке костюмов.</text>
+	</string>
+	<string id="Klin_Guide_5">
+		<text>Ну костюм разобрать не сложно, главное здесь - аккуратность. Разбирают в основном наборами, они у торговцев продаются. Более продвинутое обмундирование разбирается только при помощи соответствующих инструментов в наличии. Есть три типа инструментов для подобной работы. Количество получаемых составляющих так же зависит от личного умения и состояния разбираемого предмета... Из костюмов вырезают все важные детали, остальное выкидывают, потому что здесь, в Зоне, пользы от таких мелочей нет. Потом полученными запчастями ремонтируют своё снаряжение или продают. Определённые вещи из ткани, такие как Балаклава или же простая одежда вроде куртки, а так же некоторые их составляющие возможно разобрать с помощью ножа. Количество получаемых компонентов зависит от прочности разбираемого предмета и личных умений. Ещё, как правило, разбирают только те костюмы, из которых есть, что достать. Например на куртки или плащи нет смысла даже тратить своё время и деньги, а на разборке экзоскелетов некоторые здесь живут.</text>
+	</string>
+	<string id="Klin_Guide_6">
+		<text>Расскажи о ремонте костюмов.</text>
+	</string>
+	<string id="Klin_Guide_7">
+		<text>В полевых условиях ремонтировать костюмы можно и кустарным способом, конечно, сложно, но возможно. В починке используют ну почти всё: от тряпки, до тяжёлых бронепластин. Но сами расходные материалы к костюму не приклеются, поэтому ещё нужно что-нибудь, чем всё это дело можно организовать. Тут подойдут наборы для шитья и ремонта, может быть ещё что-нибудь. Ну и расходники тоже важны. Лучше использовать качественные, чем всякий мусор, ибо может всё это обойтись дороже даже, чем у техника. Клей, наборы для шитья и ремонта можно купить у торговцев. Расходники можно самому достать, например из разборки костюмов, или также купить у торговцев. Стоит обратить внимание, что для каждой экипировки свои ремонтные комплекты с соответствующими ограничениями. Если состояния экипировки ниже возможностей комплекта, ремонт не возможен. Так же каждый ремкомплект улучшает состояние предмета, однако используя дополнительные комплектующие указанные в комплекте, возможно добиться более лучшего ремонта.</text>
+	</string>
+	<string id="Klin_Guide_8">
+		<text>Расскажи о ремонте оружия.</text>
+	</string>
+	<string id="Klin_Guide_9">
+		<text>Оружие в зоне достаточно сложно и дорого содержать в хорошем состоянии. Ремонт у профессионала обойдётся дорого, по этому приходится с помощью подручных средств регулярно ухаживать за своим оружием. Для ремонта стволов, точно также, как и для ремонта костюмов, нужны расходники и ремонтные комплекты. Для ремонта все запчасти можно купить у торговцев или достать самому, например, многие вручную разбирают стволы и сами же ремонтируют.</text>
+	</string>
+
+	<!--=====Gerdge_KillTask_title=====-->
+	<string id="georgii_DPA_title_01">
+		<text>Не сомневайся, убивай.</text>
+	</string>
+	<string id="georgii_kltsk_DPA_descr_02">
+		<text>Дело сделано, пора возвращаться к Георгию</text>
+	</string>
+	<string id="georgii_kltsk_DPA_descr_01">
+		<text>Итак, болота, окраины... 2 ПДА.</text>
+	</string>
+	
+	<!--=====Fanat_drugs_title=====-->
+	<string id="fanat_drugs_DPA_title_01">
+		<text>Кто ищет, тот найдёт.</text>
+	</string>
+	<string id="fanat_drugs_DPA_descr_02">
+		<text>Так, тайник я нашёл, пора бы уже получить обещанную награду.</text>
+	</string>
+	<string id="fanat_drugs_DPA_descr_01">
+		<text>Мда, наводка что надо. Ищи ветра в поле...</text>
+	</string>
+	
+	<!--=====Fanat_drugs=====-->
+	<string id="fanat_drugs_cancel_0">
+		<text>Нет, не нашёл, поточнее бы координаты.</text>
+	</string>
+	<string id="fanat_drugs_cancel_1">
+		<text>Если бы они точнее были, я бы и сам сходил. Ладно, бывает... Не каждый же день праздник, а? Иди вон у костра присядь, отдохни. Если у меня новые координаты будут я тебе сообщу.</text>
+	</string>
+	<string id="fanat_drugs_cancel_2">
+		<text>Бывай.</text>
+	</string>
+	<string id="fanat_drugs_cancel_3">
+		<text>Чёрт... Ладно. Не беда. Будут новые координаты сообщу, а пока, занимайся своими делами, мне надо кое с кем связаться.</text>
+	</string>
+	<string id="fanat_drugs_cancel_4">
+		<text>Скверно... Скверно. Ну ладно, всякое бывает. Если будут новые координаты, я тебе маякну.</text>
+	</string>
+	<string id="fanat_drugs_complete_0">
+		<text>Нашёл. Держи.</text>
+	</string>
+	<string id="fanat_drugs_complete_1">
+		<text>Отлично! Одной головной болью меньше. Давай сюда рюкзак.</text>
+	</string>
+	<string id="fanat_drugs_complete_10">
+		<text>Чёрт возьми, ну и тяжесть, Фанат что там внутри?</text>
+	</string>
+	<string id="fanat_drugs_complete_11">
+		<text>Не спрашивай. Не отвечу... Я смотрю ты малый не промах, может даже доверю тебе кое что важное, но не сейчас. Вот тебе от меня лично. Я напишу когда будет работа. А мне пора разгребать это дерьмо...</text>
+	</string>
+	<string id="fanat_drugs_complete_12">
+		<text>Ладно Фанат, при случае пиши.</text>
+	</string>
+	<string id="fanat_drugs_complete_2">
+		<text>Фанат, может всё таки объяснишь, что там внутри?</text>
+	</string>
+	<string id="fanat_drugs_complete_3">
+		<text>Не сейчас сталкер, не сейчас. Вот тебе от меня лично. А если будут ещё координаты я тебе сообщу.</text>
+	</string>
+	<string id="fanat_drugs_complete_4">
+		<text>Бывай, Фанат.</text>
+	</string>
+	<string id="fanat_drugs_complete_5">
+		<text>Ну хоть ты меня сегодня радуешь! Показывай, что нашёл.</text>
+	</string>
+	<string id="fanat_drugs_complete_6">
+		<text>Вот это ты молодец. Люблю когда всё получается как надо.</text>
+	</string>
+	<string id="fanat_drugs_complete_7">
+		<text>Не хочешь мне объяснить что внутри?</text>
+	</string>
+	<string id="fanat_drugs_complete_8">
+		<text>Отлично... Отлично! Слушай, не надо тебе это знать, крепче спать будешь. Кстати, вот тебе небольшой презент от Фаната. Хе-хе. Если что я тебе напишу, не пропадай сталкер.</text>
+	</string>
+	<string id="fanat_drugs_complete_9">
+		<text>Удачи, Фанат.</text>
+	</string>
+	<string id="fanat_drugs_start_0">
+		<text>Здарова Фанат, у тебя есть координаты?</text>
+	</string>
+	<string id="fanat_drugs_start_1">
+		<text>Да, есть. Возьмёшься?</text>
+	</string>
+	<string id="fanat_drugs_start_10">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Фермы, либо АТП, на край загляни на Элеватор, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_11">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Фермы, либо Элеватор, на край загляни на АТП, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_12">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности АТП, либо ЖД тоннель за мостом, на край загляни на Ферму, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_13">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях АТП и Фермы, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Церкви. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_14">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля за мостом и АТП, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_15">
+		<text>Ты ещё прежний не нашёл, не теряй время зря.</text>
+	</string>
+	<string id="fanat_drugs_start_16">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Механизаторского двора, на край загляни в окрестности Одинокой Башни, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_17">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Одинокой Башни либо Церкви, на край загляни в Сгоревшую деревню, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_18">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и АТП, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Церкви. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_19">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях АТП и Фермы, если там нет, поищи на Болотах в окрестностях Церкви или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_2">
+		<text>Да. Где искать?</text>
+	</string>
+	<string id="fanat_drugs_start_20">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и Фермы, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Церкви. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_21">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Фермы и Элеватора, если там нет, поищи на Болотах в окрестностях Сгоревшей деревни или Одинокой Башни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_22">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и АТП, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Сгоревшей деревни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_23">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Одинокой Башни, на край загляни в окрестности Механизаторского двора, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_24">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Сгоревшей деревни либо Одинокой Башни, на край загляни в окрестности Механизаторского двора, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_25">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Одинокой Башни, на край загляни в окрестности Сгоревшей деревни, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_26">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности АТП, либо Ферма, на край загляни на Элеватор, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_27">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности АТП, либо Элеватор, на край загляни на Ферму, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_28">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Фермы, либо ЖД тоннеля за мостом, на край загляни на АТП, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_29">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Фермы и АТП, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_3">
+		<text>Нет, я передумал.</text>
+	</string>
+	<string id="fanat_drugs_start_30">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и Фермы, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Церкви. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_31">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Элеватора и ЖД тоннеля за мостом, если там нет, поищи на Болотах в окрестностях Церкви или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_32">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и АТП, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Сгоревшей деревни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_33">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Фермы, либо ЖД тоннель за мостом, на край загляни на Элеватор, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_34">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Элеватора, либо Фермы, на край загляни на ЖД тоннель за мостом, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_35">
+		<text>Из того что известно, груз тут на Кордоне, это либо окрестности Железнодорожного тоннеля за мостом, либо Фермы, на край загляни на АТП, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_36">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Одинокой Башни, на край загляни в окрестности Механизаторского двора, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_37">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Одинокой Башни либо Механизаторского двора, на край загляни в Сгоревшую деревню, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_38">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Механизаторского двора, на край загляни в окрестности Одинокой Башни, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_39">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Железнодорожного тоннеля и Элеватора, если там нет, поищи на Болотах в окрестностях Одинокой Башни или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_4">
+		<text>Да вы пьяны! Идите спать!</text>
+	</string>
+	<string id="fanat_drugs_start_40">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях АТП и Фермы, если там нет, поищи на Болотах в окрестностях Церкви или Одинокой Башни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_41">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Элеватора и Железнодорожного тоннеля, если там нет, поищи на Болотах в окрестностях Механизаторского двора или Одинокой Башни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_42">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Элеватора и Железнодорожного тоннеля, если там нет, поищи на Болотах в окрестностях Церкви или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_43">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Церкви либо Механизаторского двора, на край загляни в Сгоревшую деревню, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_44">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Сгоревшей деревни либо Одинокой Башни, на край загляни на Механизаторский двор, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_45">
+		<text>Из того что известно, груз на Болотах, это либо окрестности Механизаторского двора либо Одинокой Башни, на край загляни в Церковь, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_5">
+		<text>Из того что известно, груз тут на Кордоне, либо окрестности АТП либо Элеватора, на край загляни на Ферму, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_6">
+		<text>Из того что известно, груз тут наКордоне, либо окрестности Железнодорожного тоннеля за мостом, либо Фермы, на край загляни на Элеватор, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_7">
+		<text>Из того что известно, груз тут на Кордоне, либо окрестности Фермы за мостом, либо Элеватора, на край загляни на АТП, может быть где то там, но это маловероятно. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_8">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Элеватора и Железнодорожного тоннеля, если там нет, поищи на Болотах в окрестностях Церкви или Механизаторского двора. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_drugs_start_9">
+		<text>В этот раз сложнее, груз находится или тут на Кордоне или на Болотах. На Кордоне он может быть в окрестностях Фермы и Элеватора, если там нет, поищи на Болотах в окрестностях Одинокой Башни их там всего две, нужна та что на окраинах ну или Сгоревшей деревни. Понимаю, задача не простая, но я думаю ты справишься. У тебя сутки, дальше уже не будет иметь смысла искать. Удачи в поисках.</text>
+	</string>
+	<string id="fanat_pred_start_0">
+		<text>Что за работу ты предлагаешь?</text>
+	</string>
+	<string id="fanat_pred_start_1">
+		<text>Угу, заинтересовался значит. Постараюсь вкратце. Я даю тебе примерное место поиска. Ты не задавая лишних вопросов ищешь. Нашёл, ты первый парень на деревне, хвала, почёт и пол царства в придачу! Это ирония, можешь убрать свою ухмылку. Гонорар тебе обеспечен. И дальнейшее сотрудничество. Не нашёл, ну, бывает и такое. Не переживай я всем даю второй шанс. Вопросы?</text>
+	</string>
+	<string id="fanat_pred_start_10">
+		<text>А если не найду?</text>
+	</string>
+	<string id="fanat_pred_start_11">
+		<text>Ничего ты не получишь. Но ты уж постарайся найти. Ещё вопросы?</text>
+	</string>
+	<string id="fanat_pred_start_12">
+		<text>Нет, не интересует.</text>
+	</string>
+	<string id="fanat_pred_start_13">
+		<text>Ну, как знаешь, не ты так кто-то другой.</text>
+	</string>
+	<string id="fanat_pred_start_14">
+		<text>Я справлюсь. Давай начнём.</text>
+	</string>
+	<string id="fanat_pred_start_2">
+		<text>Нету, давай начнём.</text>
+	</string>
+	<string id="fanat_pred_start_3">
+		<text>Что я получу за выполнение?</text>
+	</string>
+	<string id="fanat_pred_start_4">
+		<text>Около 10 тысяч гривен. Ну и я что нибудь ещё докину, по обстоятельствам.</text>
+	</string>
+	<string id="fanat_pred_start_5">
+		<text>Это хорошо... Но не так быстро. Я уже послал молодца на поиски, других координат у меня пока нет, двоим вам не с руки искать, а сталкивать вас лбами я не намерен. Будете потом тут выяснять кто прав а кто нет. Как будут я тебе сообщу. Будь на связи.</text>
+	</string>
+	<string id="fanat_pred_start_6">
+		<text>Ладно, бывай.</text>
+	</string>
+	<string id="fanat_pred_start_7">
+		<text>Что я буду искать?</text>
+	</string>
+	<string id="fanat_pred_start_8">
+		<text>Ну в основном это рюкзак. Тяжёлый. Заглядывать внутрь не надо. Просто принеси его ко мне. Не знаю что будет если ты полезешь внутрь, но точно ничего хорошего, ты готов пойти на такой риск?</text>
+	</string>
+
+	<!--=====Fanat_start_and_Vodka_1=====-->
+	<string id="Fanat_Start_and_Hi_10">
+		<text>Опа, здорова! По лицу вижу, бывалый. Дело какое, или так, на огонёк заглянул?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_11">
+		<text>Сыпала ночь снег... Рваной подушкой луны... Звёздами дискотек... На города валуны.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_12">
+		<text>Ух... Хорошо пошла, зараза...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_13">
+		<text>Где там этот дуралей? Дело то плёвое.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_14">
+		<text>Эх... Ну а кто если не я? А?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_15">
+		<text>Да что б вас, суки, всё вам мало... А? Здорова! С чем пожаловал?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_16">
+		<text>Так, они могут быть тут, тут и, пожалуй, тут... А, нет тут уже нет. Это как пить дать...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_17">
+		<text>Эх... Сейчас бы в город. Задницу в тачку, и по ночному... Эх...</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_18">
+		<text>Как вы там...? Всё ли хорошо... Кто ж знает.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_2">
+		<text>Опа! Новые лица! Здорова! Что, только за периметр проскочил, а? Ну, располагайся! Мы тут всем рады! Но только помни, кто к нам с мечом... Да расслабься! Я лишь предупредил.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_20">
+		<text>Хех... Здорова. Да, я тут недавно.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_21">
+		<text>А, ну так если хочешь проведу тебе небольшую экскурсию, КМБ так сказать. Меня Фанатом кличут, я тут за молодняком присматриваю. Помогаю советом, работу подкидываю, сам то уже не первый год тут. У тебя водка есть? Может опрокинем пару стаканов а?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_22">
+		<text>Спасибо за тёплый приём, но в другой раз.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_23">
+		<text>Ну, в другой раз так в другой, но ты в тогда водочку с собой прихвати, ладно?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_24">
+		<text>На огонёк. Ты то кто?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_25">
+		<text>Я? Фанатом звать, за молодняком приглядываю. Работу им подкидываю, но и для бывалого дело найдётся.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_26">
+		<text>Хорошо, учту. Бывай.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_27">
+		<text>Постой, может хлопнем по рюмашке за знакомство?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_28">
+		<text>Не до этого мне сейчас.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_29">
+		<text>Ну, не вопрос. Ну это ты зря, в зоне ей пренебрегать не стоит.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_30">
+		<text>Ладно, бывай.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_31">
+		<text>Загляну.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_32">
+		<text>Хлопнем.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_33">
+		<text>Ух, хороша. Ну, заглядывай, при случае, хороший ты мужик как я вижу.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_34">
+		<text>Обязательно, ты тоже хорош!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_35">
+		<text>Хм, а почему бы и нет? Давай! У меня есть как раз!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_36">
+		<text>Отлично! Я вижу ты знаешь толк в хороших знакомствах!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_37">
+		<text>Хлопнем!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_38">
+		<text>Эх... Зараза, прямо жарко стало. Ты чего её держишь? Пей давай, а то остынет!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_39">
+		<text>За удачу!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_40">
+		<text>За здоровье!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_41">
+		<text>За мир во всём мире!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_42">
+		<text>За Сидоровича!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_43">
+		<text>ЗА СЕБЯ И ЗА САШКУ!</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_5">
+		<text>О, смотрю жив ещё?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_6">
+		<text>Да, давай хлопнем.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_7">
+		<text>Что ты там чуешь? Нет у меня ничего.</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_8">
+		<text>Да куда там, вот, давай по одной?</text>
+	</string>
+	<string id="Fanat_Start_and_Hi_9">
+		<text>Да нету у меня ничего.</text>
+	</string>
+
+	<!--=====Klin_Hi_1=====-->
+	<string id="Klin_Hi_1_10">
+		<text>Да ёб вашу душу мать... Откуда они это дерьмо роют?</text>
+	</string>
+	<string id="Klin_Hi_1_11">
+		<text>Мля, как он умудрился убить все сервоприводы?</text>
+	</string>
+	<string id="Klin_Hi_1_12">
+		<text>Где мои напильники? Надфили? Да что за подвал мля? Хер что найдёшь!</text>
+	</string>
+	<string id="Klin_Hi_1_13">
+		<text>Какой мудак дал так заржаветь своему стволу.</text>
+	</string>
+	<string id="Klin_Hi_1_14">
+		<text>Эх, мне бы ключ нормальный... Ладно и так справлюсь.</text>
+	</string>
+	<string id="Klin_Hi_1_15">
+		<text>А... Это ты.</text>
+	</string>
+	<string id="Klin_Hi_1_16">
+		<text>Ух! Ёпт... Так и без пальцев остаться можно. </text>
+	</string>
+	<string id="Klin_Hi_1_2">
+		<text>Ты ещё кто?</text>
+	</string>
+	<string id="Klin_Hi_1_3">
+		<text>Сталкер я, а ты тут местный механик верно?</text>
+	</string>
+	<string id="Klin_Hi_1_4">
+		<text>Ещё один... Да, тебе починиться или ещё что?</text>
+	</string>
+	<string id="Klin_Hi_1_9">
+		<text>Опять ты... Ну? Чего тебе?</text>
+	</string>
+
+	<!--=====Grisha_start=====-->
+    <string id="Grisha_start_and_Hi_10">
+        <text>Хм, странно всё...</text>
+    </string>
+    <string id="Grisha_start_and_Hi_11">
+        <text>Эх, когда нибудь и я доберусь до Припяти...</text>
+    </string>
+    <string id="Grisha_start_and_Hi_12">
+        <text>Эх, как там Мамка? Сестрёнка?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_13">
+        <text>Вот бы и мне собаку, Док ведь как то приручил псевдопса, а мне бы хоть спепыша.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_14">
+        <text>Опять вояки стреляют, только бы к нам не пошли.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_15">
+        <text>Вот бы Клин научил меня собирать оружие, вместе ведь мы бы быстрее справлялись.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_16">
+        <text>Устал я... А куда идти? Куда не иди, смерть.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_17">
+        <text>Блин, куртку порвал... Ну хоть цел остался.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_18">
+        <text>...У суки, вы ещё вспомните меня. Ещё попляшете.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_19">
+        <text>Эх Псих. Жаль ты ушёл.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_2">
+        <text>А?... Что?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_20">
+        <text>Мало ли что?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_21">
+        <text>Ничего...</text>
+    </string>
+    <string id="Grisha_start_and_Hi_3">
+        <text>Здарова, что ты тут делаешь?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_4">
+        <text>Да я... Дела. И... И вообще, не касается тебя это мужик. Иди... Своей дорогой, пока цел.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_5">
+        <text>Понятно, как тебя звать то?</text>
+    </string>
+    <string id="Grisha_start_and_Hi_6">
+        <text>Гриша.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_7">
+        <text>Ясно, бывай.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_8">
+        <text>Ну, приятно познакомиться, Гриша.</text>
+    </string>
+    <string id="Grisha_start_and_Hi_9">
+        <text>Ага... Ты к Фанату лучше обратись, мало ли...</text>
+    </string>
+	
+	<!--=====Georg_start=====-->
+	<string id="Georg_start_and_Hi_15">
+        <text>Препараты кончаются...</text>
+    </string>
+    <string id="Georg_start_and_Hi_16">
+        <text>Надо ещё найти, как же они без медикаментов?</text>
+    </string>
+    <string id="Georg_start_and_Hi_17">
+        <text>Опять все руки в крови...</text>
+	</string>
+	<string id="Georg_start_and_Hi_18">
+        <text>Как тихо на душе, я... Кхе... Похоже дозировку... Превысил.</text>
+	</string>
+	<string id="Georg_start_and_Hi_2">
+		<text>Здравствуй сталкер. Тебе нужна помощь?</text>
+	</string>
+	<string id="Georg_start_and_Hi_21">
+        <text>Да что б... Мне уже и помолится нельзя спокойно?</text>
+    </string>
+	<string id="Georg_start_and_Hi_22">
+        <text>Прости мне. Тело слабо. Прости меня.</text>
+	</string>
+	<string id="Georg_start_and_Hi_23">
+        <text>Чего тебе? Я только руки помыл...</text>
+	</string>
+	<string id="Georg_start_and_Hi_27">
+		<text>Почему "Отец Георгий"?</text>
+	</string>
+	<string id="Georg_start_and_Hi_28">
+        <text>Некогда я служил церкви.</text>
+	</string>
+	<string id="Georg_start_and_Hi_29">
+		<text>Хорошо... Я учту.</text>
+	</string>
+	<string id="Georg_start_and_Hi_3">
+        <text>А как ты можешь помочь?</text>
+	</string>
+	<string id="Georg_start_and_Hi_4">
+		<text>Я могу оказать тебе медицинскую помощь.</text>
+	</string>
+	<string id="Georg_start_and_Hi_5">
+		<text>Ты медик?</text>
+	</string>
+    <string id="Georg_start_and_Hi_6">
+        <text>У меня есть некоторое медицинское образование.</text>
+    </string>
+	
+	<!--=====Georg_heal=====-->
+	<string id="georgii_heal_0">
+		<text>Мне нужна помощь.</text>
+	</string>
+	<string id="georgii_heal_1">
+		<text>Я знаю.</text>
+	</string>
+	<string id="georgii_heal_10">
+		<text>Твоё тело не нуждается в лечении. Но душа...</text>
+	</string>
+	<string id="georgii_heal_11">
+		<text>Я не могу себе этого позволить.</text>
+	</string>
+	<string id="georgii_heal_12">
+		<text>Закрой глаза... Верь мне.</text>
+	</string>
+	<string id="georgii_heal_13">
+		<text>Закрой глаза... Верь мне.</text>
+	</string>
+	<string id="georgii_heal_14">
+		<text>Жаль. Уповай на Бога.</text>
+	</string>
+	<string id="georgii_heal_3">
+		<text>Ну раз знаешь, чего ты ждёшь? </text>
+	</string>
+	<string id="georgii_heal_7">
+		<text>У тебя есть выбор сын. Я могу залечить твои раны, а могу избавить тебя от радиации. Но сделаю я это не за бесплатно. Лечение ран обойдётся тебе в 1400 гривен. А вывод радиации 1100. Что ты выбираешь?</text>
+	</string>
+	<string id="georgii_heal_8">
+		<text>Исцели меня.</text>
+	</string>
+	<string id="georgii_heal_9">
+		<text>Избавь меня от радиации.</text>
+	</string>
+</string_table>

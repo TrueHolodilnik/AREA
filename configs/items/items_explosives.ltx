@@ -1,0 +1,407 @@
+;================================================================================
+;======================== DEPLOYABLE CIVILIAN EXPLOSIVES ========================
+;================================================================================
+[explosive_tank]:base_section,instant_action_fuse,default_weapon_params
+$spawn 					= "weapons\explosive\mobiltank"
+$prefetch 				= 16
+class					= S_EXPLO
+visual					= dynamics\balon\kanistra.ogf
+inv_name				= st_jerrycan_fuel
+inv_name_short			= st_jerrycan_fuel
+description				= st_jerrycan_fuel_descr
+radius					= 68
+inv_grid_width    		= 2
+inv_grid_height   		= 2
+inv_grid_x        		= 16
+inv_grid_y         		= 49
+cost					= 1600
+inv_weight				= 8.4
+inv_volume				= 8.2
+blast					= 3.8
+blast_r					= 5.6
+blast_impulse			= 126
+blast_impulse_factor 	= 1
+frags					= 39
+frags_r					= 28
+frag_hit				= 0.09
+frag_hit_impulse		= 48
+hit_type_blast			= explosion
+hit_type_frag			= fire_wound
+up_throw_factor			= 0.46
+wm_size                 = 0.2
+explode_particles		= explosions\explosion_mobiltank
+light_color		        = 1.9,1.3,0.5
+light_range		        = 30.0
+light_time 		        = 1
+fragment_speed			= 96		;скорость осколков (м/с)
+explode_duration		= 3			;подолжительность взрыва (с)
+time_to_explode			= 1.f
+wallmark_section		= explosion_marks
+snd_explode 			= weapons\explo\fuelcan_boom
+immunities_sect			= explosive_jerrycan_immunities_sect
+repair_part_bonus	 	= 0.02
+
+[explosive_mobiltank]:explosive_tank
+
+[explosive_jerrycan_immunities_sect] ;коэффициенты длЯ попаданий различными типами хитов
+burn_immunity			= 0.0
+strike_immunity			= 1.2
+shock_immunity			= 1.2
+wound_immunity			= 0.42
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.84
+fire_wound_immunity		= 0.7
+;================================================================================
+[explosive_gaz_balon]:explosive_tank
+$spawn					= "weapons\explosive\gaz_balon"
+visual					= dynamics\balon\gaz_balon.ogf
+description				= st_balon_gas8_descr
+inv_name				= st_balon_gas8
+inv_name_short			= st_balon_gas8
+inv_grid_width     		= 2
+inv_grid_height    		= 2
+inv_grid_x         		= 0
+inv_grid_y         		= 47
+cost					= 1680
+inv_weight				= 3.2
+inv_volume				= 8
+blast					= 4.6
+blast_r					= 6.4
+blast_impulse			= 130
+frags					= 28
+frags_r					= 36
+frag_hit				= 0.11
+frag_hit_impulse		= 66
+fragment_speed			= 206	;скорость осколков (м/с)
+explode_duration		= 2		;подолжительность взрыва (с)
+time_to_explode			= 0.f
+immunities_sect			= explosive_balon_gas_immunities_sect
+repair_part_bonus	 	= 0.03
+
+[explosive_balon_gas_immunities_sect]
+burn_immunity			= 0.0
+strike_immunity			= 1.0
+shock_immunity			= 1.0
+wound_immunity			= 0.14
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.77
+fire_wound_immunity		= 0.68
+;================================================================================
+[explosive_kerosene]:explosive_tank
+visual					= dynamics\cooking\kerosene.ogf
+description				= st_kerosene_descr
+inv_name				= st_kerosene
+inv_name_short		    = st_kerosene
+inv_grid_width    	    = 1
+inv_grid_height   		= 2
+inv_grid_x        		= 18
+inv_grid_y        		= 49
+cost					= 1025
+inv_weight				= 4.2
+inv_volume				= 5
+blast					= 3.8
+blast_r					= 5.6
+blast_impulse			= 96
+frags					= 29
+frags_r					= 18
+frag_hit			    = 0.09
+frag_hit_impulse	    = 38
+fragment_speed			= 96	;скорость осколков (м/с)
+explode_duration		= 3		;подолжительность взрыва (с)
+time_to_explode			= 0.f
+immunities_sect			= kerosene_immunities_sect
+repair_part_bonus	 	= 0.03
+
+[kerosene_immunities_sect]
+;коэффициенты для попаданий различными типами хитов
+burn_immunity			= 0.1
+strike_immunity			= 1.5
+shock_immunity			= 1.5
+wound_immunity			= 0.7
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.84
+fire_wound_immunity		= 0.86
+;================================================================================
+[explo_metalcan_powder]:explosive_tank
+visual					= dynamics\workshop_room\banka_kraski_1.ogf
+description				= st_metalcan_powder_descr
+inv_name				= st_metalcan_powder
+inv_name_short			= st_metalcan_powder
+inv_grid_width     		= 1
+inv_grid_height    		= 1
+inv_grid_x        		= 18
+inv_grid_y         		= 47
+cost					= 1200
+inv_weight				= 2.081
+inv_volume				= 2.5
+blast					= 1.6
+blast_r					= 1.8
+blast_impulse			= 65
+blast_impulse_factor 	= 1
+frags					= 77
+frags_r					= 14
+frag_hit				= 0.08
+frag_hit_impulse		= 56
+hit_type_blast			= explosion
+hit_type_frag			= fire_wound
+up_throw_factor			= 0.24
+wm_size                 = 0.1
+fragment_speed			= 163	;скорость осколков (м/с)
+explode_duration		= 0		;подолжительность взрыва (с)
+time_to_explode			= 0.f
+immunities_sect			= explosive_metalcan_powder_immunities_sect
+repair_part_bonus	 	= 0.01
+
+[explosive_metalcan_powder_immunities_sect]
+;коэффициенты для попаданий различными типами хитов
+burn_immunity			= 0.0
+strike_immunity			= 1.0
+shock_immunity			= 1.0
+wound_immunity			= 0.22
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.94
+fire_wound_immunity		= 0.78
+;================================================================================
+;=================================== IEDs =======================================
+;================================================================================
+[ied_rpg]:booster
+$spawn 					= "devices\roubles"
+$prefetch 				= 16
+visual          		= dynamics\weapons\wpn_ied\wpn_ied_rpg.ogf
+description				= st_ied_rpg_descr
+inv_name				= st_ied_rpg
+inv_name_short			= st_ied_rpg
+inv_grid_width			= 1
+inv_grid_height			= 2
+inv_grid_x				= 19
+inv_grid_y				= 47
+inv_category			= 2
+cost					= 2990
+inv_weight				= 1.89
+inv_volume				= 2.2
+attach_angle_offset		= -1.5708,0.1919,3.1416
+attach_position_offset	= 0.075, 0.066, 0.023
+attach_bone_name		= bip01_l_hand
+auto_attach				= false
+;================================================================================
+[rpg_blow]:explosive_barrel
+$spawn 					= "devices\roubles"
+$prefetch 				= 16
+class					= II_EXPLO
+script_binding			= m_mines.add_actor_mine
+visual					= dynamics\weapons\wpn_ied\wpn_ied_rpg.ogf
+inv_name				= 
+inv_name_short			=
+inv_weight				= 1.89
+inv_volume				= 2.2
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 19
+inv_grid_y				= 47
+can_take				= false
+cost					= 2990
+blast					= 4.3
+blast_r					= 7.2
+blast_impulse			= 205
+blast_impulse_factor	 = 1
+frags					= 153
+frags_r					= 36
+frag_hit				= 0.03
+frag_hit_impulse		= 28
+hit_type_blast			= explosion
+hit_type_frag			= fire_wound
+up_throw_factor			= 0.76
+wm_size					= 0.1
+explode_particles		= explosions\explosion_04
+light_color				= 1.9,1.3,0.5
+light_range				= 30.0
+light_time				= 1
+fragment_speed			= 230		;скорость осколков (м/с)
+explode_duration		= 0			;подолжительность взрыва (с)
+time_to_explode			= 0.f
+snd_explode 			= weapons\rpg7\rpg7_explode
+immunities_sect			= ied_rpg_immunities_sect
+wallmark_section		= explosion_marks
+
+[ied_rpg_immunities_sect]
+burn_immunity			= 0.0
+strike_immunity			= 1.0
+shock_immunity			= 1.0
+wound_immunity			= 0.14
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.77
+fire_wound_immunity		= 0.68
+;================================================================================
+[ied]:ied_rpg
+visual					= dynamics\weapons\wpn_ied\wpn_ied.ogf
+description				= st_ied_descr
+inv_name				= st_ied
+inv_name_short			= st_ied
+inv_grid_width			= 1
+inv_grid_height			= 2
+inv_grid_x				= 19
+inv_grid_y				= 49
+cost					= 3690
+inv_weight				= 2.165
+inv_volume				= 2.0
+;================================================================================
+[ied_blow]:explosive_barrel
+$spawn 					= "devices\roubles"
+$prefetch 				= 16
+class					= II_EXPLO            
+script_binding			= m_mines.add_actor_mine
+visual					= dynamics\weapons\wpn_ied\wpn_ied.ogf
+inv_name				= st_ied
+inv_name_short			= st_ied
+inv_grid_width			= 1
+inv_grid_height			= 2
+inv_grid_x				= 19
+inv_grid_y				= 49
+cost					= 3690
+can_take				= false
+blast					= 5.7
+blast_r					= 12.9
+blast_impulse			= 274
+blast_impulse_factor 	= 1
+frags					= 5
+frags_r					= 74
+frag_hit				= 0.06
+frag_hit_impulse		= 43
+hit_type_blast			= explosion
+hit_type_frag			= fire_wound
+up_throw_factor			= 1.0
+wm_size					= 0.1
+explode_particles		= explosions\explosion_mobiltank
+light_color				= 1.9,1.3,0.5
+light_range				= 30.0
+light_time				= 1
+fragment_speed			= 220	;скорость осколков (м/с)
+explode_duration		= 0		;подолжительность взрыва (с)
+time_to_explode			= 0.f
+wallmark_section		= explosion_marks
+snd_explode 			= weapons\explo\fuelcan_boom
+immunities_sect			= ied_immunities_sect
+animation_slot  		= 4
+
+[ied_immunities_sect]
+burn_immunity			= 0.0
+strike_immunity			= 1.0
+shock_immunity			= 1.0
+wound_immunity			= 0.14
+radiation_immunity		= 1.0
+telepatic_immunity		= 1.0
+chemical_burn_immunity	= 1.0
+explosion_immunity		= 0.77
+fire_wound_immunity		= 0.68
+
+;================================================================================
+;================================= MINES ========================================
+;================================================================================
+[wpn_mine]:ied_rpg
+$spawn 					= "devices\wpn_mine"
+visual					= dynamics\weapons\wpn_pfm1\wpn_pfm1.ogf     
+inv_name				= st_mine_name
+inv_name_short			= st_mine_name
+description				= st_mine_descr
+inv_weight				= 0.751
+inv_volume				= 1.2
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 18
+inv_grid_y				= 48
+belt_adj_pos_x			= -6
+cost					= 1800
+
+[wpn_mine_2]:wpn_mine
+visual					= equipments\mina.ogf
+inv_name				= st_wpn_mine_name
+inv_name_short			= st_wpn_mine_name
+description				= st_wpn_mine_descr
+inv_weight				= 0.751
+inv_volume				= 1.2
+cost					= 2500
+inv_grid_width			= 2
+inv_grid_x				= 0
+inv_grid_y				= 2
+ignore_size				= true
+belt_adj_width			= 1.6
+belt_adj_height			= 1.8
+belt_adj_pos_x			= -10
+belt_adj_pos_y			= 2
+;================================================================================
+[mine_blow]:explosive_barrel ;Њина котораЯ на земле
+$spawn 					= "sm\scripts\mina_blow"
+$prefetch				= 16
+class					= II_EXPLO            
+script_binding			= m_mines.add_actor_mine
+visual					= dynamics\weapons\wpn_pfm1\wpn_pfm1.ogf
+inv_name				= 
+inv_name_short			=
+inv_weight				= 0.751
+inv_volume				= 1.25
+inv_grid_width			= 1
+inv_grid_height			= 1
+inv_grid_x				= 18
+inv_grid_y				= 48
+can_take				= false
+cost					= 1800
+blast					= 6.2
+blast_r					= 2.5
+blast_impulse			= 126
+blast_impulse_factor	= 1
+frags					= 10
+frags_r					= 2
+frag_hit				= 0.04
+frag_hit_impulse		= 8
+hit_type_blast			= explosion
+hit_type_frag			= fire_wound
+up_throw_factor			= 0.3
+wm_size					= 0.04
+explode_particles		= explosions_new\explosion_ground_1
+light_color				= 1.9,1.4,0.5
+light_range				= 25.0
+light_time				= 0.85
+fragment_speed			= 170		;скорость осколков (м/с)
+explode_duration		= 0			;подолжительность взрыва (с)
+time_to_explode			= 0.f
+snd_explode				= weapons\mine_boom
+immunities_sect			= personnel_mine_immunities_sect
+wallmark_section		= explosion_marks
+animation_slot  		= 4
+
+[mine_blow2]:mine_blow
+visual					= equipments\mina.ogf
+blast					= 8.5
+blast_r					= 3.0
+blast_impulse			= 135
+blast_impulse_factor	= 1
+frags					= 20
+frags_r					= 2.5
+frag_hit				= 0.06
+frag_hit_impulse		= 9
+cost					= 2500
+inv_grid_width			= 2
+inv_grid_x				= 0
+inv_grid_y				= 2
+
+[personnel_mine_immunities_sect]
+burn_immunity			= 0.0
+strike_immunity			= 0
+shock_immunity			= 0
+wound_immunity			= 0.35
+radiation_immunity		= 0
+telepatic_immunity		= 0
+chemical_burn_immunity	= 0
+explosion_immunity		= 0.85
+fire_wound_immunity		= 0.95
+;================================================================================

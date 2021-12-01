@@ -1,0 +1,1826 @@
+------------------------------------------------------------------------------
+----------------------------- A.R.E.A. Functions -------------------------------
+--------------------------------------------------------------------------------
+
+local upd_time = 0
+local death_time = 0
+local ui
+
+last_used_npc = nil
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_hud_animation_end",hud_animation_end)
+	RegisterScriptCallback("actor_on_item_use",use_items)
+	RegisterScriptCallback("actor_on_item_take", actor_on_item_take)
+	RegisterScriptCallback("actor_on_weapon_fired",weapon_fired)
+	RegisterScriptCallback("actor_on_weapon_reload",on_weapon_reload)
+	RegisterScriptCallback("actor_on_hit_callback",on_hit)
+	RegisterScriptCallback("npc_on_death_callback",monster_on_death)
+	RegisterScriptCallback("npc_on_net_spawn",monster_on_net_spawn)
+	RegisterScriptCallback("monster_on_death_callback",monster_on_death)
+	RegisterScriptCallback("monster_on_net_spawn",monster_on_net_spawn)
+	RegisterScriptCallback("actor_on_update",check_cinematic_camera)	
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("npc_on_hear_callback",npc_on_hear_callback)
+	RegisterScriptCallback("npc_danger_on_corpse_found",npc_danger_on_corpse_found)
+	RegisterScriptCallback("npc_on_use",npc_on_use)
+	RegisterScriptCallback("CUIActorMenu_OnItemMoved",move)
+	RegisterScriptCallback("CUIActorMenu_OnItemDropped",OnItemDropped)
+	RegisterScriptCallback("actor_on_before_death",actor_on_before_death)
+	RegisterScriptCallback("npc_on_before_hit",npc_on_before_hit)
+	RegisterScriptCallback("actor_on_item_take_from_box",actor_on_item_take_from_box_dt2)
+	RegisterScriptCallback("on_key_press",on_key_press)
+	if ((db.actor) and (not db.actor:has_info("items_on_start_damaged"))) then
+		area_utils.damage_actor_items()
+		give_info("items_on_start_damaged")
+	end
+	local function check_misc()
+		if level.name() ~= "y06_dityatki2" and has_alife_info("get_in_the_zone_task") then
+			xr_effects.get_in_the_zone_task_complete()
+			disable_info("get_in_the_zone_task")
+		end
+	end
+	RegisterScriptCallback("actor_on_first_update",check_misc)
+end
+
+function on_key_press(key)
+	quick_strike_knife(key)
+end
+
+function on_item_take(obj)
+	item_take_sound(obj)
+	art_damaging(obj)
+end
+
+function OnItemDropped(itm_from,itm_to,slot_from,slot_to)
+	local section_from = itm_from and itm_from:section()
+	local section_to = itm_to and itm_to:section()
+	item_to_backpack(itm_from,itm_to,section_from,section_to)
+	smoking_start(itm_from,itm_to,section_from,section_to)
+	-- if not (slot_from == EDDListType.iActorBag and slot_to == EDDListType.iActorBag) then
+    --     return
+	-- end
+end
+
+function on_weapon_reload(wpn,ammo,unload_section,unload_cnt)
+	sound_reloading(wpn,ammo,unload_section,unload_cnt)
+end
+
+
+-- body search open
+function sound_reloading(wpn,ammo,unload_section,unload_cnt)
+	-- body search open
+	if (wpn) then 
+		if (ActorMenu.get_menu_mode() == 4 and wpn:parent():id() ~= 0) then
+			local item_sound = xr_sound.set_sound_play(0, area_sounds.get_take_sound(unload_section))
+		else
+			hide_delay = nil
+		end
+	end
+end
+
+function take_water(item)
+	if db.actor:has_info("actor_in_water_zone") then
+		return game.translate_string("st_search_water_zone")
+	elseif db.actor:has_info("actor_in_water_zone_rad") then
+		return game.translate_string("st_search_water_zone_rad")
+	else
+		return
+	end
+end
+
+function take_water_action(a,b)
+	if db.actor:has_info("actor_filling_water") then
+		disable_info("actor_filling_water")
+		return
+	end
+	if not (db.actor:has_info("actor_in_water_zone") or db.actor:has_info("actor_in_water_zone_rad")) then return end
+	local hud = get_hud()
+	local wat_sec = {
+		["mineral_water_empty"] = "bottle_water",
+		["bottle_empty"] = "bottle_glass_water",
+		["bottle_empty_2"] = "bottle_glass_water2",
+		["termos_empty"] = "termos_water",
+		["flask_empty"] = "flask",
+		["flask_2_empty"] = "flask_2_water",
+		["bottle_metal_empty"] = "bottle_metal_water",
+		["beer_empty"] = "bottle_glass_water3"
+	}
+	local loot = {}
+	for k, v in pairs(wat_sec) do
+		local itm = db.actor:object(k)
+		if itm then
+			if loot[v] then
+				loot[v] = loot[v] + 1
+			else
+				loot[v] = 1
+			end
+		end
+	end
+	if (hud) then
+		ui_mutant_loot.loot_ui(hud,nil,loot)
+	end
+	disable_info("actor_in_water_zone")
+	disable_info("actor_in_water_zone_rad")
+end
+
+function make_npc_enemy(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	local st = db.storage[npc:id()]
+	st.enemy_id = 0
+	if level.name() == "y06_dityatki2" then
+		give_info("dt2_actor_started_fight_monolith")
+		npc:set_character_community("monolith")
+	end
+end
+
+function searh_loot_zone()
+	actor_effects.use_item("toolkit_u_dummy")
+	xr_effects.set_looted_zone()
+	
+	local items = math.random(0,3)
+	local spawned = 0
+	
+	if items == 0 then
+		SetHudMsg(game.translate_string("st_looted_nothing"),16)
+		return
+	else
+		SetHudMsg(game.translate_string("st_looted_something"),16)
+	end
+	
+	local level_name = level.name()
+	local spawn_ini = ini_file("plugins\\loot_zones.ltx")
+	local n = spawn_ini:line_count(level_name) or 0
+	
+	if n == 0 then
+		SetHudMsg(game.translate_string("st_looted_nothing"),16)
+		printf("A.R.E.A.: loot zone table is nil for level %s", level_name)
+		return
+	end
+	
+	local item_prob = {}
+	
+	for i=1, n-1 do
+		local tmp1, tmp2, st = spawn_ini:r_line(level_name,i,"","")
+		st = alun_utils.str_explode(st,",")
+		item_prob[i] = {st[1], st[2]}
+	end
+	
+	utils.shuffle(item_prob)
+	
+	
+	while spawned < items do
+		for i=1, #item_prob do
+			if math.random(1,100)/100 < tonumber(item_prob[i][2]*1.0) then
+				spawned = spawned + 1
+				alife():create(item_prob[i][1], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+			end
+			if spawned >= items then
+				break
+			end
+		end
+	end
+	
+end
+
+function search_water_zone_rad()
+	local hud = get_hud()
+	local wat_sec = {
+		["mineral_water_empty_radiated"] = "bottle_water",
+		["bottle_empty_radiated"] = "bottle_glass_water",
+		["bottle_empty_2_radiated"] = "bottle_glass_water2",
+		["termos_empty_radiated"] = "termos_water",
+		["flask_empty_radiated"] = "flask",
+		["flask_2_empty_radiated"] = "flask_2_water",
+		["bottle_metal_empty_radiated"] = "bottle_metal_water",
+		["beer_empty_radiated"] = "bottle_glass_water3"
+	}
+	local loot = {}
+	for k, v in pairs(wat_sec) do
+		local itm = db.actor:object(k)
+		if itm then
+			loot[v] = 1
+		end
+	end
+	if (hud) then
+		ui_mutant_loot.loot_ui(hud,nil,loot)
+	end
+end
+
+-- Запрет на подбор предметов или доставание оружия с повреждёнными руками
+local power_fracture = 0.9
+local item_left = false
+function hud_animation_end(item,anim_hud_section,motion,state,slot)
+	if item then
+		local actor = db.actor:cast_Actor():conditions()
+		local fracture_right = actor:GetFracture(4)
+		local fracture_left = actor:GetFracture(3)
+		local travm = fracture_right > power_fracture and fracture_left > power_fracture
+		if travm then
+			db.actor:drop_item(item)
+			SetHudMsg(game.translate_string("st_arms_damaged"),3)
+			actor:SetPain(actor:GetPain() + 0.3)--Add Pain
+			level.add_pp_effector("pain_2.ppe", 200015, false)
+			level.set_pp_effector_factor(200015, 1)
+			item_left = false
+		else
+			local active_slot = db.actor:active_slot()
+			local trawm_2 = fracture_left > power_fracture or fracture_right > power_fracture
+			
+			local function MsgText()
+				if fracture_right > power_fracture then
+					SetHudMsg(game.translate_string("st_right_arm_damaged_cant_hold"),5)
+				elseif fracture_left > power_fracture then
+					SetHudMsg(game.translate_string("st_left_arm_damaged_cant_hold"),5)
+				end
+				actor:SetPain(actor:GetPain() + 0.2)--Add Pain
+				level.add_pp_effector("pain_2.ppe", 200015, false)
+				level.set_pp_effector_factor(200015, 0.8)
+				item_left = false
+			end
+
+			if system_ini():r_string_ex(item:section(),"attach_bone_name","") == "bip01_r_hand" and active_slot ~= 0 and anim_hud_section:find("wpn") then
+				--if you take out an item in your right hand(or a two-handed item)
+				if trawm_2 and item_left then
+					MsgText()
+					db.actor:drop_item(item)
+				elseif trawm_2 and system_ini():r_string_ex(item:section(),"single_handed","0") == "0" then
+					--if the right hand is broken, ban two-handed items
+					MsgText()
+					db.actor:drop_item(item)
+				end
+			elseif system_ini():r_string_ex(item:section(),"attach_bone_name","") == "bip01_l_hand" then
+				--if you took out an object with your left hand
+				if motion:find("show") then
+					item_left = true
+				else
+					item_left = false
+				end	
+				if trawm_2 and motion:find("show") and active_slot ~= 0 then
+					MsgText()
+					db.actor:drop_item(item)
+				end
+			end
+		end
+	end
+end
+--------------------------------------------------
+--- Melee quick attack (by MAGILA)
+local knife_id
+local anim_shot_knife = {}
+function quick_strike_knife(key)
+	if db.actor and db.actor:alive() and (dik_to_bind(key) == key_bindings.kCUSTOM14) then
+		local wpn_active = db.actor:active_item()
+		if not wpn_active or wpn_active and wpn_active:section():find("wpn_knife") then return end
+		if not knife_id then
+			for i=1,15 do
+				local item_slot = db.actor:item_in_slot(i)
+				if item_slot then
+					local section = item_slot:section()
+					if IsWeapon(item_slot) and section:find("knife") and (not TableAnimHands().AnmCheck(item_slot)) and item_slot:condition() > 0 then
+						knife_id = item_slot:id()
+						break
+					end
+				end
+			end
+		end
+
+		if knife_id then
+			local knife_obj = level.object_by_id(knife_id)
+			if knife_obj then
+				local section = knife_obj:section()
+				if not db.actor:has_info("anim_hands_status") then
+					local HudAnimSpeed = level.Actor():getHudAnimSpeed()
+					level.Actor():setHudAnimSpeed(5)
+					CallbackAnimHands("animation_control",function(table,item,section,motion,state,slot)
+						CreateTimeEvent("hit_knife",0,0.05, function()
+							if state == (6 or 5) then
+								item:switch_state(2)
+							elseif state == 2 then
+								local new_condition = anim_shot_knife.condition - item:condition()
+								knife_obj:set_condition(knife_obj:condition() - new_condition)
+								knife_id = nil
+								StopAnimHands()
+							end
+							return true
+						end)
+					end)
+
+					CallbackAnimHands("start_anim",function(table)
+						level.Actor():setHudAnimSpeed(HudAnimSpeed)
+						local id_anim = table.obj and table.obj.id
+						if id_anim then
+							anim_shot_knife.obj = level.object_by_id(id_anim)
+						end
+						if anim_shot_knife.obj and db.actor:active_slot() == table.slot then
+							anim_shot_knife.obj:set_condition(knife_obj:condition())
+							anim_shot_knife.condition = knife_obj:condition()
+							anim_shot_knife.obj:switch_state(6)
+						end
+					end)
+
+					CallbackAnimHands("stop_anim",function(table)
+						anim_shot_knife = {}
+					end)
+
+					StartAnimHands(false,false,false,{
+						use = false,
+						section = "anm_hit_"..section:gsub("wpn_","")
+					}).return_the_weapon()
+
+				elseif anim_shot_knife.obj then
+					anim_shot_knife.obj:switch_state(6)
+					RemoveTimeEvent("hit_knife",0)
+				end
+			end
+		else
+			SetHudMsg(game.translate_string("st_no_knife"),3)
+		end
+	end
+end
+
+local flag_dead = false
+function actor_on_before_death()
+	if not flag_dead then
+		local dir=device().cam_dir
+		db.actor:set_actor_direction(0,1,0)
+		
+		xr_effects.disable_ui()
+		
+		flag_dead = true
+		local hud = get_hud()
+		if (hud) then
+			hud:HideActorMenu()
+		end	
+		
+		ui = ui_first_person_death and ui_first_person_death.death_ui()
+		if (ui) then
+			ui:ShowDialog(true)
+			ui:set_death_text()
+			
+			printf("first person death script finished, opening ui. should fire only once.")		
+		end
+		
+		--death_time = time_global()
+		
+	end	
+end
+
+function on_tutor_gameover_stop()
+
+	get_console():execute("r2_dof_kernel 2")
+	get_console():execute("r2_dof_far 800")
+	get_console():execute("r2_dof_sky 0")
+	
+	get_console():execute("time_factor 1")
+	
+	xr_effects.enable_ui()
+	
+	local c = get_console()
+	printf("main_menu on console command is executed")
+	c:execute("main_menu on")
+
+end
+
+function npc_on_use(obj, who)
+	last_used_npc = obj
+end
+
+function npc_on_hear_callback(npc, who_id, sound_type, sound_position, sound_power, is_heard, corpse)
+
+	local tg = time_global()
+	if (tg > upd_time) then
+		
+			
+		if upd_time > 2147480000 then
+			upd_time = 0
+		end
+
+		upd_time = tg + 20000
+
+		if xr_wounded.is_wounded(npc) then
+			return
+		end
+		
+		if npc and npc:relation(db.actor) == game_object.enemy then
+			if corpse then
+				if not xr_danger.has_danger(npc) then
+					return
+				end
+				xr_sound.set_sound_play(npc:id(), "danger_body_found")
+				--printf("npc sound scheme: danger_body_found")
+			elseif (is_heard) then
+				xr_sound.set_sound_play(npc:id(), "npc_heard")
+				--printf("npc sound scheme: npc_heard")
+			else
+				if xr_danger.has_danger(npc) then
+					return
+				end
+				xr_sound.set_sound_play(npc:id(), "npc_hear")
+				--printf("npc sound scheme: npc_hearf")
+				--local function hear_rel(npc)
+				--	if xr_wounded.is_wounded(npc) or xr_danger.has_danger(npc) then
+				--		return
+				--	end
+				--	if npc and npc:general_goodwill(db.actor) <= -100 then
+				--		xr_sound.set_sound_play(npc:id(), "npc_hear_relax")
+				--		printf("npc sound scheme: npc_hear_relax")
+				--	end
+				--end
+				--CreateTimeEvent(0, "hear_relax", 15, hear_rel, npc)
+			end
+		end
+	end
+end
+
+function npc_danger_on_corpse_found(npc, corpse, position)
+	npc_on_hear_callback(npc, nil, nil, nil, nil, nil, true)
+end
+
+function damage_actor_items()
+	local function damage_items(actor,itm)
+		if IsWeapon(itm) and (itm:section() ~= "wpn_binoc_inv") then
+			itm:set_condition(math.random(85,95)/100)
+		end
+	end
+	db.actor:iterate_inventory(damage_items,db.actor)
+end
+
+--Hacking PDA by Surs
+function use_soft()
+	if has_alife_info("bar_arena_fight") then return end
+	local pda = db.actor:item_in_slot(8)
+	local check = pda and pda:get_item_battery_dead() == false or false
+	if check then
+		give_info("hacking_soft_installed")
+		SetHudMsg("st_hacking_soft_inst",7)
+		game.start_tutorial("about_hacking_soft")
+	else
+		give_object_to_actor("sd_hacking_soft")
+		SetHudMsg("st_no_pda",7)
+	end
+end 
+
+--Fly sound on decayed bodies (by Nuor and Surs, modified by MAGILA)
+local delay = ini_file("plugins\\itms_manager.ltx"):r_float_ex("mutant_loot_mod","decay_time") or 1200
+local death_data = {}
+local snd = {}
+local bone_obj = {}
+local start_game = false
+function save_state(m_data)
+	m_data.fly_death = death_data or {}
+	m_data.last_used_npc = last_used_npc
+end
+
+function load_state(m_data)
+	death_data = m_data.fly_death or {}
+	last_used_npc = m_data.last_used_npc or {}
+	m_data.last_used_npc = nil
+end
+
+local function fly_snd(id)
+	ResetTimeEvent("fly_sounds_update", id, 1)
+    local st = db.storage[id]
+	if st and st.object then
+		if not death_data[id] then death_data[id] = {} end
+		if not death_data[id].time then death_data[id].time = st.death_time or game.get_game_time() end
+		
+		if death_data[id].time and ((game.get_game_time():diffSec(death_data[id].time)) > delay) then
+			if not death_data[id].bone then death_data[id].bone = bone_get(st.object) end
+			local bone_pos = alun_utils.safe_bone_pos(st.object,death_data[id].bone)
+			bone_obj[id] = bone_obj[id] or particles_object("ogsm\\ogsm_flies")
+			snd[id] = snd[id] or sound_object("nature\\new_flies1")
+   
+			if (bone_pos:distance_to_sqr(db.actor:position()) < 100) and not (device():is_paused()) and level.rain_factor() == 0 then
+                if bone_obj[id]:playing() then
+					bone_obj[id]:move_to(bone_pos, VEC_ZERO)
+				else
+					bone_obj[id]:play_at_pos(bone_pos)
+				end
+
+				if snd[id]:playing() then
+					snd[id]:set_position(bone_pos)
+				else
+					snd[id]:play_at_pos(st.object, bone_pos)
+				end
+            elseif bone_obj[id]:playing() and snd[id]:playing() then 
+				bone_obj[id]:stop()
+                snd[id]:stop()
+            end
+        end
+    else
+		death_data[id] = nil
+		snd[id] = nil
+        return true
+    end
+end
+function bone_get(object)
+	return system_ini():r_string_ex(object:section(),"bone_head",false) or system_ini():r_string_ex(object:section(),"bone_torso",false)
+end
+
+function monster_on_net_spawn(npc,se_obj)
+	if not (se_obj:alive()) then
+		CreateTimeEvent("fly_sounds_update", npc:id(), 0, fly_snd, npc:id())
+	end
+end
+
+function monster_on_death(victim,who)
+	CreateTimeEvent("fly_sounds_update", victim:id(), 0, fly_snd, victim:id())
+end
+
+function who_is_talking_with()
+	for k,v in pairs(db.storage) do
+		local oNpc = v.object
+		if oNpc ~= nil then
+			if oNpc:is_talking() and oNpc:id() ~= db.actor:id() then
+				last_used_npc = oNpc
+				return true
+			end
+		end
+	end
+	return false
+end
+
+function npc_on_before_hit(npc,shit,bone_id,flags)
+	if (level.name() == "y06_dityatki2") then
+		local comm = character_community(npc)
+		give_info("dt2_actor_started_fight_" .. comm)
+	end
+end
+
+local is_cinematic = false
+local cam_counter = 0
+local npc_head_pos = 0
+local actor_head_pos = 0
+local cam_upd_time = 0
+function check_cinematic_camera()
+	if db.actor:is_talking() then
+	
+		local tg = time_global()
+
+		if (tg > cam_upd_time) then
+			
+			if not is_cinematic and who_is_talking_with() then 
+				npc_head_pos = last_used_npc:bone_position("bip01_head")
+				actor_head_pos = db.actor:bone_position("bip01_head")
+				local new_dir = npc_head_pos:sub(actor_head_pos)
+				local distance = math.sqrt(new_dir.x*new_dir.x + new_dir.y*new_dir.y + new_dir.z*new_dir.z)
+				get_console():execute("r2_dof_kernel 10")
+				get_console():execute("r2_dof_far " .. (3*distance))
+				get_console():execute("r2_dof_sky 10000")
+				get_console():execute("r__vignette_power 0.8")
+				--db.actor:set_actor_direction(new_dir:getH())
+			end
+			--if cam_counter < 255 then
+			--	cam_counter = cam_counter + 1
+			--end
+			
+			is_cinematic = true
+			cam_upd_time = tg + 15
+			
+		end
+	elseif is_cinematic == true then
+		is_cinematic = false
+		cam_counter = 0
+		get_console():execute("r2_dof_kernel 2")
+		get_console():execute("r2_dof_far 800")
+		get_console():execute("r2_dof_sky 0")
+		get_console():execute("r__vignette_power 1.3")
+	end
+end
+
+--At the start of new game, move items to backpack, except weapons and outfit (by MAGILA).
+function items_to_backpack()
+	local box = db.actor:item_in_slot(13)
+	if not box then return true end
+	local containers = bind_container.containers[box:id()]
+
+	if containers then
+		local inv_box = level.object_by_id(containers.id)
+		if inv_box then
+			local volume = 0
+			db.actor:iterate_inventory(function(actor,itm)
+				if IsWeapon(itm) or IsOutfit(itm) or IsHeadgear(itm) then
+					return
+				end
+				for i = 1,15 do
+					local slot = db.actor:item_in_slot(i)
+					if slot then
+						if slot:id() == itm:id() then return false end
+					end
+				end
+				if inv_box:get_box_max_volume() > (volume+itm:volume()) then
+					db.actor:transfer_item(itm, inv_box)
+					volume = volume+itm:volume()
+				end
+			end,db.actor)
+			box:set_condition(volume/inv_box:get_box_max_volume())
+			get_hud():UpdateActorMenu()
+			return true
+		else
+			return false
+		end
+	else
+		return true
+	end
+end
+
+--Move items with DnD to closed backpack (by MAGILA)
+local stop_item_to_backpack = false 
+function item_to_backpack(itm_from,itm_to,section_from,section_to)
+	if stop_item_to_backpack then return end
+	local containers = bind_container.containers[itm_to:id()]
+	local containers_2 = bind_container.containers[itm_from:id()]
+	if containers_2 and containers and containers_2.id == containers.id then return end
+	if containers then
+		local inv_box = level.object_by_id(containers.id)
+		if inv_box then
+			local volume = 0 --пересчитать вес в рюкзаке
+			local absence = true --разрешить перемещение если предмет не находится там же.
+			inv_box:iterate_inventory_box(function(inv_box,itm)
+				volume = volume + itm:volume()
+				if absence and itm:id() == itm_from:id() then
+					absence = false
+				end
+			end,inv_box)
+			
+			if (volume + itm_from:volume()) < inv_box:get_box_max_volume() and absence then
+				stop_item_to_backpack = true
+				--переместить предмет в рюкзак
+				sound_object("interface\\inv_drop_bag"):play(db.actor,0,sound_object.s2d)
+				level.add_cam_effector('camera_effects\\pripyat_horror.anm', 8065, false,'')
+				CreateTimeEvent("item_to_backpack",0,1,function()
+					stop_item_to_backpack = false
+					local box = determine_where_item(itm_from)--найти контейнер в котором предмет
+					if box then
+						if box:id() ~= db.actor:id() then
+							box:transfer_item(itm_from, db.actor)
+						end
+					else
+						-- printf("~ERROR: area_utils.item_to_backpack::Can't get the object from where to move items")
+						return true
+					end
+					
+					db.actor:transfer_item(itm_from, inv_box)
+					xr_sound.set_sound_play(0, area_sounds.get_take_sound(itm_from:section(),itm_from:clsid()))
+					--обновить состояние заполнения
+					itm_to:set_condition(volume/inv_box:get_box_max_volume())
+					get_hud():UpdateActorMenu()
+					return true
+				end)
+			end
+		end
+	end
+end
+
+--Place weapon, suit or helmet in slot (by MAGILA)
+local function check_item_slot(item)
+	return system_ini():r_float_ex(item:section(), "slot", 0)+1
+end
+function items_to_slot()
+	db.actor:iterate_inventory(function(actor,itm)
+		if IsWeapon(itm) or IsOutfit(itm) or IsHeadgear(itm) then
+			local slot = check_item_slot(itm)
+			if not db.actor:item_in_slot(slot) then
+				db.actor:move_to_slot(itm,slot)
+			end
+		end
+	end,db.actor)
+	return true
+end
+
+--Accepts the object of the item, returns the object in which the item is located (by MAGILA)
+function determine_where_item(item)
+	local box
+	local id = item:id()
+	--если нету найдём в тайниках ящиках или трупах
+	for ids, se_obj in alife():objects() do
+		local IsInv = level.object_by_id(se_obj.id)
+		if IsInv then
+			if IsInvbox(IsInv) then
+				IsInv:iterate_inventory_box(function(inbox,itm)
+					--он в ящике
+					if id == itm:id() then
+						box = IsInv
+						return true
+					end
+				end,IsInv)
+			elseif IsStalker(IsInv) then
+				IsInv:iterate_inventory(function(inbox,itm)
+					--он у непися (сталкера)
+					if id == itm:id() then
+						box = IsInv
+						return true
+					end
+				end,IsInv)
+			end
+			if box then break end
+		end
+	end	
+	if box then
+		return box
+	else
+		--боксы не найдены, значит придмет на земле
+		return db.actor
+	end
+end
+
+--Smoking (by MAGILA)
+function smoking_start(itm_from,itm_to,section_from,section_to)
+	if not system_ini():r_bool_ex(section_from,"fire_item",false) or system_ini():r_bool_ex(section_from,"fire_item",false) and system_ini():r_bool_ex(section_to,"fire_item",false) then
+		return false
+	end
+
+	local cig_cnt = itm_to:get_remaining_uses()
+	local match_cnt = itm_from:get_remaining_uses()
+	if cig_cnt > 0 and match_cnt > 0 and section_to:find("cigarettes") then
+		match_cnt = match_cnt-1
+		itm_from:set_remaining_uses(match_cnt)
+		db.actor:eat(itm_to)
+
+		local timer = 0
+		local smoke = particles_object("anim_hand_particles\\cigarette\\exhale_smoke")
+
+					local function start_anim()
+						timer = time_global()
+					end
+					local function start_smoke_exhalation(direct,position)
+						local dist = 0.1
+						direct.x = direct.x*dist
+						direct.y = (direct.y*dist)-dist
+						direct.z = (direct.z-(direct.y+dist))*dist
+						if not smoke:playing() then
+							smoke:play_at_pos(position:add(direct))
+						else
+							smoke:move_to(position:add(direct), VEC_ZERO)
+						end
+					end
+
+					local time_table = {
+						{11000,17100},
+						{18200,25000},
+						{33550,39000}
+					}
+					local function stop_anim_particle()
+						if smoke:playing() then
+							smoke:stop()
+						end
+					end
+					
+					CallbackAnimHands("start_anim",start_anim)
+					CallbackAnimHands("anim_update",function()
+						local new_time = time_global() - timer
+						local function time_tables()
+							for id,value in pairs(time_table) do
+								if new_time > value[1] and new_time < value[2] then
+									return true
+								end
+							end
+							return false
+						end
+						if time_tables() then
+							if level.get_active_cam() == 0 then
+								start_smoke_exhalation(device().cam_dir, device().cam_pos)
+							else
+								start_smoke_exhalation(db.actor:direction(), db.actor:bone_position("bip01_head"))
+							end
+						else
+							stop_anim_particle()
+						end
+		end)
+	end
+
+	local next_item = system_ini():r_string_ex(section_from,"next_use_item",nil) or false
+	if match_cnt < 1 and next_item then
+		local box = remove_item_containers(itm_from)
+		alife():create(next_item, box:position(), box:level_vertex_id(), box:game_vertex_id(), box:id())
+	end
+end
+				
+-- Art damaging on pickup
+function actor_on_item_take(obj)
+	local actor_menu = ActorMenu.get_actor_menu()
+		
+		if (not db.actor) or db.actor:is_talking() or (actor_menu and actor_menu:IsShown()) then
+			return
+		end
+		
+		if not IsArtefact(obj) then
+			return
+		end
+		
+		local art_rank = system_ini():r_float_ex(obj:section(),"af_rank","") or 0
+		local art_type = system_ini():r_string_ex(obj:section(),"af_type","") or none
+
+		if ((art_rank == 0) or (art_rank == nil) or (art_type == nil) or (art_type == "none")) then
+			return
+		end
+		
+		if string.find(obj:section(),"lead_box") or string.find(obj:section(),"iam") or string.find(obj:section(),"aac") or string.find(obj:section(),"aam") then
+			return
+		end
+		
+		local powet_t = {0.15, 0.30, 0.45, 0.60}
+		local impulse_t = {0.8, 0.85, 0.90, 0.95}
+		local type_t = {["gravitational"] = "strike", ["chemical"] = "chemical_burn", ["electrical"] = "shock", ["fiery"] = "burn"}
+		local power = powet_t[art_rank]
+		
+		if db.actor:object("container_tool") then
+			power = power - (power/2)
+		end
+		
+		local outfit
+		if db.actor:item_in_slot(7) then
+			outfit = db.actor:item_in_slot(7):section()
+		else
+			outfit = "none"
+		end
+
+		if string.match(outfit,"scientific_outfit") then
+			power =  (power - (power/3))
+		elseif string.match(outfit,"ecolog_outfit") then
+			return
+		end
+		
+		area_utils.damage_obj(db.actor,power,impulse_t[art_rank],"bip01_r_hand",type_t[art_rank])
+		actor_effects.use_item(tostring(art_type .. "_hit"))
+
+end
+
+function is_actor_has_item(item)
+	if db.actor:object(item) ~= nil then
+		return true
+	end
+	return false
+end
+
+function damage_obj(obj,d_power,d_impulse,d_bone,d_type)
+	local damage = hit()
+	damage.type = damage.d_type
+	damage:bone(d_bone)
+	damage.power = d_power
+	damage.impulse = d_impulse
+	damage.direction = vector():set(0,0,0)
+	damage.draftsman = obj
+	obj:hit(damage)
+end
+
+--Binoculars damage condition
+function on_hit(obj, amount, local_direction, who, bone_index)
+	--printf("Name:%s amt:%s who:%s bone:%s", obj:name(), amount, who:name(), tostring(bone_index))
+	local active_obj = obj:active_item()
+	local active_section = active_obj and active_obj:section()
+	if (active_section and active_section:find("wpn_binoc")) then
+		if bone_index == obj:get_bone_id("bip01_r_hand") or bone_index == obj:get_bone_id("bip01_l_hand") then
+			local condition = active_obj:condition()
+			if (condition >= 0.1) then
+				condition = condition - 0.005
+				active_obj:set_condition(condition)
+			else
+				obj:drop_item(active_obj)
+				obj:transfer_item(active_obj,db.actor)
+				SetHudMsg(game.translate_string("st_bino_defected"),4)
+			end
+		end
+	end
+end
+
+
+--move sound play (by Surs)
+function move(obj,from_slot,to_slot)
+	if (to_slot == EDDListType.iDeadBodyBag or to_slot == EDDListType.iPartnerTradeBag) then
+		local item_sound = xr_sound.set_sound_play(0, area_sounds.get_take_sound(obj:section(),obj:clsid()))
+	end
+end
+
+-- body search open (by Surs)
+function sound_reloading(wpn,ammo,unload_section,unload_cnt)
+	-- body search open
+	if (wpn) then 
+		if (ActorMenu.get_menu_mode() == 4 and wpn:parent():id() ~= 0) then
+			local item_sound = xr_sound.set_sound_play(0, area_sounds.get_take_sound(unload_section))
+		else
+			hide_delay = nil
+		end
+	end
+end
+
+--add_cam_effector C4
+function weapon_fired(wpn)
+	local sect = wpn:section()
+    if system_ini():line_exist(sect,"explosive_sect") then
+		level.add_cam_effector("camera_effects\\actor_move\\go_down_4s.anm",8010,false,"")
+    end
+end
+
+--Show magazine fullness (by MAGILA)
+function check_magazine_text(wpn,hud_text)
+	if wpn and IsWeapon(wpn) then
+		local max_magazine = wpn:get_magazine_size()
+		local status_magazine = wpn:get_ammo_in_magazine()-1
+		equal_parts = max_magazine/7
+		local text_id = ""
+		if status_magazine <= 0 then
+			text_id = "st_mag_empty"
+		elseif status_magazine < (equal_parts*1.4) then
+			text_id = "st_mag_almost_empty"
+		elseif status_magazine < (equal_parts*2.8) then
+			text_id = "st_mag_less_half"
+		elseif  status_magazine < (equal_parts*4.2) then
+			text_id = "st_mag_half"
+		elseif status_magazine < (equal_parts*5.6) then
+			text_id = "st_mag_great_half"
+		elseif status_magazine < (equal_parts*6.9) then
+			text_id = "st_mag_almost_full"
+		else
+			text_id = "st_mag_full"
+		end
+		text_id = game.translate_string(text_id)
+		if hud_text then
+			SetHudMsg(text_id,3)
+		end
+		return text_id
+	else
+		return ""
+	end
+end
+
+-- Item transformation by Holodilnik
+function use_items(obj)
+	if obj == nil then return end
+	
+	if (obj:section() == "sd_hacking_soft") then
+		use_soft()
+		return
+	end
+	
+	local self_release = system_ini():r_bool_ex(obj:section(),"self_release") or true
+	local str1 = system_ini():r_string_ex(obj:section(),"transform_to") or nil
+	local str2 = system_ini():r_string_ex(obj:section(),"transform_minmax") or nil
+	if not (str1 or str2) then
+		return
+	end
+	local transform_items = alun_utils.str_explode(str1,",")
+	local transform_minmax = alun_utils.str_explode(str2,",")
+
+	for i = 1, #transform_items do
+		if not (system_ini():section_exist(transform_items[i]) or transform_minmax[i*2 - 1] or transform_minmax[i*2]) then
+			return
+		end
+		local amount = math.random(transform_minmax[i*2 - 1], transform_minmax[i*2])
+		for j = 1, amount do
+			alife():create(transform_items[i], db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+		end
+	end
+
+end
+
+-- Remove the ampoule from the injector (by Surs)
+function stimpack_novocaine(item)
+	return game.translate_string("st_remove_ampoule")
+end
+function action_stimpack_novocaine(item)
+	local ampoule_section = system_ini():r_string_ex(item:section(),"ampoule_section")
+	local box = remove_item_containers(item)
+	alife():create("stimpack_empty", box:position(), box:level_vertex_id(), box:game_vertex_id(), box:id())
+	alife():create(ampoule_section, box:position(), box:level_vertex_id(), box:game_vertex_id(), box:id())
+	actor_effects.use_item("make_something")
+end
+
+-- divide the item into equal parts (by MAGILA)
+function divid_item_parts(item)
+	local count = IsAmmo(item) and item:ammo_get_count() or item:get_remaining_uses()
+	if count >= 2 then
+		return game.translate_string("st_divide_item")
+	end
+end
+
+function action_divid_item_parts(item)
+	local count = IsAmmo(item) and item:ammo_get_count() or item:get_remaining_uses()
+	if count >= 2 then
+		local new_count = count/2
+		if new_count % 2 ~= 0 then
+			new_count = math.ceil(new_count)
+		end
+
+		if IsAmmo(item) then
+			item:ammo_set_count(new_count)
+		else
+			item:set_remaining_uses(new_count)
+		end
+
+		local box = determine_where_item(item)
+		local new_item = alife():create(item:section(), box:position(), box:level_vertex_id(), box:game_vertex_id(), box:id())
+
+		AddUniqueCall(function()
+			local obj = level.object_by_id(new_item.id)
+			if obj then
+				if IsAmmo(obj) then
+					obj:ammo_set_count(count-new_count)
+				else
+					obj:set_remaining_uses(count-new_count)
+				end
+				return true
+			end
+		end)
+	end
+	-- use1_action_functor			= area_utils.action_divid_item_parts
+	-- use1_functor					= area_utils.divid_item_parts
+end
+
+-- Sound of shifting items in the inventory (by Surs)
+function item_take_sound(item)
+	if not item then return end
+	local parent = item:parent()
+	local section = item:section()
+	local clsid = item:clsid()
+	if ActorMenu.get_menu_mode() == 4 and parent and (IsInvbox(parent) or parent:alive()) then
+		xr_sound.set_sound_play(0, area_sounds.get_take_sound(section, clsid))
+	end
+end
+
+-- Pour out the liquid (by Surs)
+function pour_out(item)
+	if item:section():find("_empty") then return end
+	return game.translate_string("st_pour_out")
+end
+function action_pour_out(item,dsds)
+	local new_sec = system_ini():r_string_ex(item:section(), "next_use_item",nil)
+	local class = system_ini():r_string_ex(item:section(),"class"):match("II_DOC")
+	if not class then
+		local box = remove_item_containers(item)
+		alife():create(new_sec, box:position(), box:level_vertex_id(), box:game_vertex_id(), box:id())
+		actor_effects.use_item("pour_water")
+	end
+end
+
+-- Delete an item in a container or inventory (by MAGILA).
+function remove_item_containers(item,id)
+	if item then
+		local function remove_item(itm)
+			if item:id() == itm:id() then
+				AddUniqueCall(function()
+					local obj = alife_object(itm:id())
+					if obj then
+						alife():release(obj,true)
+						return true
+					end
+				end)
+				UnregisterScriptCallback("actor_on_item_take", remove_item)
+			end
+		end
+
+		local function move_item_remove(IsInv)
+			if IsInv then
+				if IsInv:id() == db.actor:id() then
+					remove_item(item)
+				else
+					RegisterScriptCallback("actor_on_item_take", remove_item)
+					IsInv:transfer_item(item, db.actor)
+				end
+			end
+		end
+
+		local box
+		if not id then
+			box = determine_where_item(item)
+		else
+			box = level.object_by_id(id)
+		end
+
+		move_item_remove(box)
+		return box
+	end
+end
+
+--Get a table of upgrades for an item
+function upgrade_parameters_table(obj)
+	if obj then
+		local pac = net_packet()
+		local table_param = {}
+		local se_obj = alife_object(obj:id())
+		pac:w_begin( 0 )
+		se_obj:STATE_Write( pac )
+		pac:r_seek( 2 )
+		local game_vertex_id = pac:r_u16()
+		local distance = pac:r_float()
+		local direct_control = pac:r_s32()
+		local level_vertex_id = pac:r_s32()
+		local object_flags = pac:r_s32()
+		local custom_data = pac:r_stringZ()
+		local story_id = pac:r_s32()
+		local spawn_story_id = pac:r_s32()
+		local visual_name = pac:r_stringZ()
+		local visual_flags = pac:r_u8()
+		local condition = pac:r_float()
+		local upgrade_count = pac:r_u32()
+		if upgrade_count ~= 0 then
+			for i = 1, upgrade_count do 
+				local section = pac:r_stringZ()
+				if system_ini():section_exist(section) then
+					local upgrades_sect = system_ini():r_string_ex(section, "section")
+					for a=0,system_ini():line_count(upgrades_sect)-1 do
+						local result, id, value = system_ini():r_line_ex(upgrades_sect,a)
+						if id and value then
+							local number = tonumber(value)
+							if number or number == 0 then
+								if table_param[id] or table_param[id] == 0 then
+									table_param[id] = table_param[id]+number
+								else
+									table_param[id] = number
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		return table_param
+	end
+end
+
+-- Для вывода отношений
+local community = {
+	["stalker"] = game.translate_string("st_goodwill_stalker"),
+	["monolith"] = game.translate_string("st_goodwill_monolith"),
+	["csky"] = game.translate_string("st_goodwill_csky"),
+	["army"] = game.translate_string("st_goodwill_army"),
+	["bandit"] = game.translate_string("st_goodwill_bandit"),
+	["killer"] = game.translate_string("st_goodwill_killer"),
+	["ecolog"] = game.translate_string("st_goodwill_ecolog"),
+	["dolg"] = game.translate_string("st_goodwill_dolg"),
+	["freedom"] = game.translate_string("st_goodwill_freedom"),
+	["zombied"] = game.translate_string("st_goodwill_zombied"),
+	["trader"] = game.translate_string("st_goodwill_trader")
+}
+
+----------------------------- Faction Addictions -----------------------------
+function show_goodwill_change_msg(tsk_giver_npc_id)
+	local tsk_giver_npc = level.object_by_id(tsk_giver_npc_id)
+	if (axr_main.config:r_value("mm_options","enable_show_goodwill_msg",1,true)) and tsk_giver_npc ~= nil and tsk_giver_npc:character_community() ~= nil then
+		local gw_message = game.translate_string("st_goodwill_inc")..community[tsk_giver_npc:character_community()]..tostring(relation_registry.community_goodwill(tsk_giver_npc:character_community(), db.actor:id()))
+		local gw_message_title = game.translate_string("st_new_message")
+		db.actor:give_game_news(gw_message_title, gw_message, "ui_inGame2_PD_storonnik_ravnovesiya", 5000, 10000)
+	end
+end
+
+function is_actor_neutral()
+	if character_community(db.actor) == 'actor_stalker' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_csky()
+	if character_community(db.actor) == 'actor_csky' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_bandit()
+	if character_community(db.actor) == 'actor_bandit' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_dolg()
+	if character_community(db.actor) == 'actor_dolg' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_ecolog()
+	if character_community(db.actor) == 'actor_ecolog' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_freedom()
+	if character_community(db.actor) == 'actor_freedom' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_merc()
+  if character_community(db.actor) == 'actor_killer' then
+     return true
+   else
+     return false
+   end
+end
+
+function is_actor_army()
+	if character_community(db.actor) == 'actor_army' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_duty_or_army()
+	if ((character_community(db.actor) == 'actor_army') or (character_community(db.actor) == 'actor_dolg')) then
+		return true
+	else
+		return false
+	end
+end
+
+function is_not_actor_duty_or_army()
+	if ((character_community(db.actor) == 'actor_army') or (character_community(db.actor) == 'actor_dolg')) then
+		return false
+	else
+		return true
+	end
+end
+
+function is_actor_monolith()
+	if character_community(db.actor) == 'actor_monolith' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_not_dolg()
+	if character_community(db.actor) ~= 'actor_dolg' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_not_freedom()
+	if character_community(db.actor) ~= 'actor_freedom' then
+		return true
+	else
+		return false
+	end
+end
+
+function is_actor_not_merc()
+	if character_community(db.actor) ~= 'actor_killer' then
+		return true
+	else
+		return false
+	end
+end
+
+----------------------------- Reputation Addictions -----------------------------
+function if_actor_have_rep_for_trade(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep > -499) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_neutral_rep_for_order(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep >= 0) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_normal_rep_for_order(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep > 499) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_under_normalgood_rep_for_order(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep > 999) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_good_rep_for_order(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep > 1499) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_rep_for_trade(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep <= -499) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_normal_rep_for_order(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep <= 499) then
+		return true
+	else
+		return false
+	end
+end
+
+
+function if_actor_havent_really_good_rep(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep <= 1499) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_excellent_rep(actor, npc)
+	local rep = actor:character_reputation()
+	if (rep <= 1999) then
+		return true
+	else
+		return false
+	end
+end
+
+----------------------------- Relations Addictions -----------------------------
+function if_actor_have_neutral_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations >= 0) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_good_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations >= 200) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_really_good_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations >= 400) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_very_good_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations >= 600) then
+		return true
+	else
+	return false
+	end
+end
+
+function if_actor_have_under_excellent_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations >= 800) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_excellent_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations > 999) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_bad_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations > 0) then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_really_bad_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations < -200) then
+		return false
+	else
+		return true
+	end
+end
+
+function if_actor_havent_worst_relation(actor, npc)
+	local relations = relation_registry.community_goodwill(character_community(npc), actor)
+	if (relations < -999) then
+		return false
+	else
+		return true
+	end
+end
+
+----------------------------- Ranks Addictions -----------------------------
+function if_actor_have_trainee_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "trainee" or rank == "experienced" or rank == "professional" or rank == "veteran" or rank == "expert" or rank == "master" or rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_experienced_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "experienced" or rank == "professional" or rank == "veteran" or rank == "expert" or rank == "master" or rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_professional_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "professional" or rank == "veteran" or rank == "expert" or rank == "master" or rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_veteran_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "veteran" or rank == "expert" or rank == "master" or rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_expert_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "expert" or rank == "master" or rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_master_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "master" or rank == "legend") then
+			return true
+	else
+		return false
+	end
+end
+
+function if_actor_have_legend_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "legend") then
+		return true
+	else
+		return false
+	end
+end
+
+function if_actor_havent_high_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "trainee" or rank == "novice") then
+		return true
+	else
+		return false
+	end
+end
+
+-- FaL USE
+function if_actor_havent_low_rank(actor, npc)
+	local rank = ranks.get_obj_rank_name(db.actor)
+	if (rank == "trainee" or rank == "novice") then
+		return false
+	else
+		return true
+	end
+end
+-------------------------Other functions for trade------------------------------
+function bandit_trader_order_refused()
+	dxr_statistics.increment_reputation(-100)
+	game_relations.set_factions_community_num(bandit,actor_bandit,-200)
+end
+
+--Sakharov unradiate_items function
+function irradiate_items(first_speaker, second_speaker)
+	local function item_unradiate(actor, item)
+		local se_item = alife():object(item:section().."_radiated")
+		alife():release(se_item,true)
+		local se_item_new = alife():create(item:section(),db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id(),db.actor:id())
+	end
+	db.actor:iterate_inventory(item_unradiate, db.actor)
+	dialogs.relocate_money_from_actor(first_speaker, second_speaker, 1000)
+end
+
+function actor_has_radiated_items(first_speaker, second_speaker)
+	local rad_item = item:section().."_radiated"
+	if dialogs.actor_has_item(first_speaker, second_speaker, rad_item) ~= nil then 
+		return true
+	else
+		return false
+	end
+end
+-------------------------Quests and storylines------------------------------
+function dt2_barman_about_the_zone()
+	return not has_alife_info("dt2_barman_about_the_zone")
+end
+
+function dt2_barman_start()
+	return not has_alife_info("dt2_barman_start")
+end
+
+function dt2_after_drink()
+	return has_alife_info("dt2_after_drink")
+end
+
+function dt2_not_after_drink(first_speaker, second_speaker)
+	return (not has_alife_info("dt2_after_drink")) and (dialogs_area.actor_precond_drink(first_speaker, second_speaker))
+end
+
+function dt2_drink_effect(first_speaker, second_speaker, id)
+	first_speaker:stop_talk()
+	second_speaker:stop_talk()
+	actor_effects.use_item("drunk_effect_skip_time")
+end
+
+function dt2_spawn_guide_stash()
+	local pos = vector():set(193.41857910156,-1.820209980011,-56.7047996521)
+	local se_obj = alife():create("inv_toolkit_u_0",pos,163018,5077)
+	alife():create("af_bead", se_obj.position, 0, 0, se_obj.id)
+	alife():create("money_roubles_1000_bad", se_obj.position, 0, 0, se_obj.id)
+	alife():create("money_roubles_1000_bad", se_obj.position, 0, 0, se_obj.id)
+	alife():create("money_roubles_1000_bad", se_obj.position, 0, 0, se_obj.id)
+	alun_utils.save_var(db.actor, "dt2_spawn_guide_stash_id", se_obj.id)
+end
+
+function dt2_stalker_guide()
+	return not has_alife_info("dt2_stalker_guide")
+end
+
+function dt2_barman_guide()
+	return not has_alife_info("dt2_barman_guide") and has_alife_info("dt2_stash_searched")
+end
+
+function dt2_stash_not_robbed()
+	return db.actor:object("af_bead")
+end
+
+function dt2_stash_robbed()
+	return not db.actor:object("af_bead")
+end
+
+function dt2_barman_take_items_1(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(npc, "af_bead", "out", 1)
+end
+
+function dt2_barman_take_items_2(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(npc, "af_bead", "out", 1)
+	dialogs.relocate_item_section(npc, "money_roubles_1000_bad", "out", 1)
+end
+
+function dt2_assistant()
+	return not has_alife_info("dt2_assistant")
+end
+
+function dt2_barman_sleephouse()
+	return not has_alife_info("dt2_barman_sleephouse") and has_alife_info("dt2_barman_start")
+end
+
+function dt2_barman_sleephouse_money()
+	return db.actor:money() >= 400
+end
+
+function dt2_barman_sleephouse_key(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(db.actor, "dt2_sleephouse_key", "in", 1)
+	dialogs.relocate_money(npc, 400, "out")
+end
+
+function dt2_bus_driver()
+	return not has_alife_info("dt2_bus_driver")
+end
+
+function dt2_bus_item_barman()
+	return not has_alife_info("dt2_bus_item_barman") and has_alife_info("dt2_bus_driver")
+end
+
+function dt2_bus_driver_item()
+	return db.actor:object("car_candle") and not has_alife_info("dt2_bus_driver_item")
+end
+
+function dt2_bus_driver_item_money()
+	dialogs.relocate_item_section(db.actor, "money_hrivni_200", "in", 2)
+end
+
+function dt2_bus_driver_item_backpack()
+	alife():create("backpack_sport_frame", db.actor:position(), db.actor:level_vertex_id(), db.actor:game_vertex_id(), db.actor:id())
+end
+
+function dt2_open_main_exit()
+	transitions.enable_transition("dt2_res_to_esc")
+	transitions.enable_transition("esc_space_restrictor_to_dit")
+	game_relations.set_factions_community("army", alife():actor():community(), 0)
+end
+
+function dt2_kpp_actor_have_money()
+	return db.actor:money() >= 5000
+end
+
+function dt2_kpp_relocate_money(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_money(npc, 5000, "out")
+end
+
+function dt2_kpp_weap_done()
+	return has_alife_info("dt2_kpp_weap_done") and not has_alife_info("dt2_kpp_weap")
+end
+
+function dt2_kpp_weap_give()
+	dialogs.relocate_item_section(db.actor, "wpn_pm", "in", 1)
+	dialogs.relocate_item_section(db.actor, "magazine_9x18_cnt_8", "in", 1)
+end
+
+function dt2_actor_have_idcard()
+	return db.actor:object("pri_a15_documents")
+end
+
+function dt2_actor_havent_idcard()
+	return not db.actor:object("pri_a15_documents")
+end
+
+function dt2_kpp_car_candle()
+	return has_alife_info("dt2_kpp_car_candles")
+end
+
+function dt2_bus_driver_item_take(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(npc, "car_candle", "out", 1)
+end
+
+function dt2_bandit_trader()
+	return not has_alife_info("dt2_bandit_trader")
+end
+
+function dt2_bandit_trader_3_1()
+	dxr_statistics.increment_reputation(-50)
+end
+
+function dt2_bandit_trader_3_2()
+	game_relations.set_factions_community_num("bandit",db.actor:id(), 50)
+end
+
+function dt2_bandit_trader_3_3()
+	dxr_statistics.increment_reputation(50)
+end
+
+function dt2_bandit_trader_end()
+	db.actor:set_character_community("actor_bandit", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_bandit")
+end
+
+function dt2_kpp_guard_bribe()
+	return db.actor:object("money_hrivni_200")
+end
+
+function dt2_kpp_guard_bribe_give(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(npc, "money_hrivni_200", "out", 1)
+end
+
+function dt2_kpp_com_weap_1()
+	return not has_alife_info("dt2_bus_driver_item") or not has_alife_info("dt2_kpp_bribe")
+end
+
+function dt2_kpp_com_weap_2()
+	return has_alife_info("dt2_bus_driver_item") and has_alife_info("dt2_kpp_bribe")
+end
+
+function dt2_kpp_com_candle()
+	return has_alife_info("dt2_kpp_car_candles") and dialogs_area.actor_precond_drink() and not has_alife_info("dt2_kpp_car_candles_got")
+end
+
+function dt2_kpp_com_candle_get(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs_area.actor_transfer_drink(first_speaker, second_speaker)
+	dialogs.relocate_item_section(db.actor, "car_candle", "in", 2)
+end
+
+function actor_on_item_take_from_box_dt2(box, itm)
+	local story_id_1 = alun_utils.load_var(db.actor, "dt2_spawn_guide_stash_id", nil)
+	if story_id_1 and box:id() == story_id_1 and itm:section() == "af_bead" then
+		give_info("dt2_stash_searched")
+		local npc = get_story_object("dt2_bandit_3")
+		local pos = vector():set(189.103347778325,-1.2875833511353,-53.402236938477)
+		npc:set_npc_position(pos)
+	end
+end
+
+function dt2_guiders_package()
+	return not has_alife_info("dt2_guiders_package") and has_alife_info("dt2_barman_guide")
+end
+
+function dt2_guiders_have_money()
+	return db.actor:money() >= 2000
+end
+
+function dt2_guiders_take_money(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_money(npc, 2000, "out")
+end
+
+function dt2_guiders_guide()
+	return not has_alife_info("dt2_guiders_guide") and level.get_time_hours() >= 19 and has_alife_info("dt2_guiders_paid")
+end
+
+function dt2_guiders_open_exit()
+	transitions.enable_transition("esc_space_restrictor_to_dit_hole")
+	transitions.enable_transition("dt2_space_restrictor_to_esc_hole")
+end
+
+function dt2_guiders_tp_actor()
+	ChangeLevel(vector():set(-37.092681884766,-6.7577886581421,-129.75512695313),294750,372,VEC_ZERO,true)
+end
+
+function dt2_bandit_take()
+	return db.actor:object("af_bead") and db.actor:object("money_roubles_1000_bad") and not has_alife_info("dt2_bandit_take")
+end
+
+function dt2_csky_leader()
+	return not has_alife_info("dt2_csky_leader") and has_alife_info("dt2_assistant")
+end
+
+function dt2_csky_leader_docs()
+	return not has_alife_info("dt2_csky_leader_docs") and db.actor:object("drx_sl_quest_item_1")
+end
+
+function dt2_bandits_exit()
+	return not has_alife_info("dt2_bandits_exit") and level.get_time_hours() >= 19 and has_alife_info("dt2_bandit_take")
+end
+
+function dt2_csky_exit()
+	return not has_alife_info("dt2_csky_exit") and level.get_time_hours() >= 19 and has_alife_info("dt2_csky_leader_docs")
+end
+
+function dt2_open_transitions_csky()
+	transitions.enable_transition("dt2_space_restrictor_to_marsh")
+end
+
+function dt2_spawn_guide_stash_2()
+	local pos = vector():set(-108.82793426514,0.75548535585403,-189.67323303223)
+	local se_obj = alife():create("inv_st_box_green_steel",pos,18491,5039)
+	alife():create("maps_kit", se_obj.position, 0, 0, se_obj.id)
+	alife():create("mili_maps", se_obj.position, 0, 0, se_obj.id)
+	alife():create("mili_maps", se_obj.position, 0, 0, se_obj.id)
+	alife():create("shitpost", se_obj.position, 0, 0, se_obj.id)
+	alife():create("shitpost", se_obj.position, 0, 0, se_obj.id)
+end
+
+function dt2_bandit_found_stash()
+	return not has_alife_info("dt2_bandit_found_stash") and has_alife_info("dt2_bandit_find_stash")
+end
+
+function dt2_bandit_found_stash_1()
+	return db.actor:object("maps_kit") and db.actor:object("mili_maps")
+end
+
+function dt2_csky_leader_take_docs(first_speaker, second_speaker)
+	local npc = dialogs.who_is_npc(first_speaker, second_speaker)
+	dialogs.relocate_item_section(npc, "drx_sl_quest_item_1", "out", 1)
+	db.actor:set_character_community("actor_csky", 0, 0)
+	game_relations.set_community_goodwill_for_faction("actor_csky")
+end
+
+function dt2_barman_zone()
+	give_info("get_in_the_zone_task")
+end

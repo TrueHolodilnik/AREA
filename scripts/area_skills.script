@@ -1,0 +1,109 @@
+----------------------------------------------------------
+------------------- A.R.E.A. Skills ----------------------
+----------------------------------------------------------
+skills_table = nil
+skill_up_slowing_coeff = nil
+max_skills_level = 100
+raise_mul = 1
+marauder_mul = 1
+craft_mul = 1
+shooting_mul = 1
+local shoot_factor = 0.005
+
+function on_game_start()
+	shoot_factor = utils.clamp(shoot_factor,-0.01,0.0099)
+	local function first_update()
+		if db.actor then
+			db.actor:set_actor_inertion_factor(1.0 - shooting_mul * shoot_factor)
+		end
+	end
+	
+	if (USE_MARSHAL) then
+		RegisterScriptCallback("save_state",save_state)
+		RegisterScriptCallback("load_state",load_state)
+	end
+	RegisterScriptCallback("actor_on_first_update", first_update)
+	printf("A.R.E.A. skills: skills callbacks registered")
+end
+
+function destroy()
+	if (USE_MARSHAL) then
+		UnregisterScriptCallback("save_state",save_state)
+		UnregisterScriptCallback("load_state",load_state)
+	end
+	alife_storage_manager.get_state().area_skills = nil
+end 
+
+function save_state(m_data)
+	if not (USE_MARSHAL) then
+		return
+	end
+	m_data.area_skills_array = {}
+	m_data.area_skills_array.skills_table = skills_table
+	m_data.area_skills_array.raise_mul = raise_mul
+	m_data.area_skills_array.marauder_mul = marauder_mul
+	m_data.area_skills_array.craft_mul = craft_mul
+	m_data.area_skills_array.shooting_mul = shooting_mul
+end
+
+function load_state(m_data)
+	if not (USE_MARSHAL) then
+		return
+	end
+	local skills_array = m_data.area_skills_array
+	if skills_array and skills_array.skills_table then
+		skills_table = skills_array.skills_table
+	else
+		skills_table = {craft_skill = 1,hunting_skill = 1,shooting_skill = 1,uncraft_skill = 1,marauder_skill = 1,survival_skill = 1,repair_skill = 1}
+	end
+    -- skills_table = m_data.area_skills_array.skills_table or {craft_skill = 1,hunting_skill = 1,shooting_skill = 1,uncraft_skill = 1,marauder_skill = 1,survival_skill = 1,repair_skill = 1}
+	update_coeff()
+	if skills_array then
+		--alun_utils.print_table(skills_array,"area_skills_array")
+		raise_mul = skills_array.raise_mul 
+		marauder_mul = skills_array.marauder_mul 
+		craft_mul = skills_array.craft_mul
+		shooting_mul = skills_array.shooting_mul
+	end
+end
+
+function raise_skill(skill,multi)
+	if skills_table[skill] < max_skills_level then
+		local before = math.floor(skills_table[skill]/5)*5
+		local add = (multi*update_coeff()*raise_mul)
+		if skill == "marauder_skill" then
+			add = add*marauder_mul
+		elseif skill == "craft_skill" or skill == "uncraft_skill" then
+			add = add*craft_mul
+		elseif skill == "shooting_skill" then
+			add = add*shooting_mul
+		end
+        skills_table[skill] = skills_table[skill] + add
+        skills_table[skill] = skills_table[skill] < max_skills_level and skills_table[skill] or max_skills_level
+        local after = math.floor(skills_table[skill]/5)*5
+		if before ~= after then
+			--SetHudMsg(strformat(game.translate_string("st_"..skill.."_up"),after),8)
+		end
+		if skill == "shooting_skill" then
+			db.actor:set_actor_inertion_factor(1.0 - shooting_mul * shoot_factor)
+		end
+    end
+    --printf("A.R.E.A. skills: increased skill",skills_table[skill])
+end
+
+function update_coeff()
+	if not skills_table then return end
+	local cntr = 0
+	local tmp = 0
+	for skill, val in pairs(skills_table) do
+		cntr = cntr + 1
+		tmp = tmp + val
+	end
+	skill_up_slowing_coeff = (100 - tmp/cntr)/100
+--	skill_up_slowing_coeff = 1
+--	for skill, val in pairs(skills_table) do
+--		local tmp = 1 - val/100
+--		if skill_up_slowing_coeff > tmp then skill_up_slowing_coeff = tmp end
+--	end
+	return skill_up_slowing_coeff
+end

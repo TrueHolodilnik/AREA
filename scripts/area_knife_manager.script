@@ -1,0 +1,140 @@
+-- Area_knife_manager by Nuor and Surs
+local ini = system_ini()
+local active_item
+
+kmul = {[3] = 2.1, --stone
+		[5] = 2.8, --metal
+		[6] = 0.3, --glass
+		[7] = 1.2, --earth
+		[8] = 1.6, --gravel
+		[10] = 0.2,--sand
+		[12] = 1.9,--thin metal
+		[15] = 2.0,--bricks
+		[16] = 1.7,--wood
+		[18] = 1.8,--metal plate
+		[19] = 1.9,--thin metal
+		[20] = 0.1,--reed
+		[22] = 1.7,--tree
+		[23] = 1.2,--metal box
+		[24] = 1.9,--shyfer
+		[31] = 0.3,--cloth 
+		[34] = 0.5,--stalker 
+		[36] = 2.6,--barrel 
+		[41] = 1.7,--wooden box 
+		[46] = 1.0,--furniture
+		[49] = 0.5,--mutant
+		[51] = 0.3,--window
+		[52] = 0.1,--bushes
+		[58] = 0.1,--bushes
+		[59] = 0.0,--water
+}
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_weapon_knife_strike",knife_hit)
+end
+
+local one_hit
+function knife_hit(hit_pwr,w_id,target_material_idx,t_id,bone_index,direction,hit_type,b_id)
+	if one_hit and (one_hit == t_id or one_hit == target_material_idx) then
+		one_hit = nil
+		return
+	end
+    local act_item = db.actor:active_item()
+	local act_sect = act_item and act_item:section()
+    if act_sect and act_sect:find("wpn_knife") or act_sect:find("anm_hit_knife") or act_sect:find("wpn_axe") or act_sect:find("wpn_shovel") or act_sect:find("wpn_hammer") or act_sect:find("wpn_crowbar") then
+		local knifepower = hit_pwr or 0
+		local knifecond = act_item:condition()
+		local knifedesc = (ini:r_float_ex(act_sect, "condition_shot_dec") or 0.02) * (knifepower) * (kmul[target_material_idx] or 1)
+		--printf("knife_hit::knife power:%s type:%s", knifepower, hit_type)
+		local obj = t_id and level.object_by_id(t_id)
+		--printf("direction %s obj:%s(%s)", direction, obj and obj:section(),t_id)
+		if obj then
+			local ch_hit = hit()
+			ch_hit.direction = direction or vector():set(1,0,0)
+			ch_hit.draftsman = db.actor
+			ch_hit.impulse = ini:r_float_ex(act_sect, "hit_impulse", 1.0) or 1.0
+			ch_hit:bone(bone_index)
+			if (act_sect and (act_sect:find("wpn_knife") or act_sect:find("anm_hit_knife")) and has_alife_info("blademaster")) or ((act_sect:find("wpn_axe") or act_sect:find("wpn_shovel") or act_sect:find("wpn_hammer") or act_sect:find("wpn_crowbar")) and has_alife_info("lumberjack")) then
+				ch_hit.power = (knifepower*0.25) * (-1*(1-(knifecond^2)))
+			else
+				ch_hit.power = knifepower * (-1*(1-(knifecond^2)))
+			end
+			ch_hit.type = hit_type
+			obj:hit(ch_hit)
+		end
+		--printf("knife_hit::cond:%s bullet_id:%s weapon id:%s material idx:%s Knife damaged:%s bone_index:%s", knifecond, bullet_id, w_id, target_material_idx, knifedesc, bone_index)
+		if knifecond - knifedesc > 0 then
+			act_item:set_condition(knifecond - knifedesc)
+		else
+			--act_item:set_condition(0)
+			alife():release(alife():object(act_item:id()), true)
+		end
+		one_hit = t_id or target_material_idx
+		--news_manager.send_tip(db.actor, "knife cond:"..tostring(knifecond).." Material index:"..tostring(target_material_idx).." Knife damaged:"..tostring(knifedesc).." Bone index:"..tostring(bone_index), nil, nil, 10000)
+    end
+end
+
+function is_equipped()
+	if (db.actor) then
+		local obj = db.actor:active_item()
+		if (obj) then
+			return obj:get_state() == 0 and (string.match(tostring(obj:section()),"knife")) or (string.match(tostring(obj:section()),"axe"))
+		end
+	end
+	return false
+end
+
+function get_condition()
+	local cond = 1
+	if (is_equipped()) then
+		local obj = db.actor:active_item()
+		cond = obj and obj:condition()
+	end
+	return cond
+end
+
+function can_loot(monster)
+	if (db.actor) then
+	
+		if area_knife_manager.get_condition() < 0.15 then
+			return false
+		end
+	
+		local obj = db.actor:active_item()
+		local name = obj:section()
+		local is_chimera = string.match(tostring(monster),"chimera")
+		local is_gigant = string.match(tostring(monster),"gigant")
+
+		if (is_gigant or is_chimera) and (string.match(tostring(obj:section()),"knife")) then
+			return false
+		end
+	end
+	return true
+end
+
+function wearout()
+	local num = 0
+	if (is_equipped()) then
+		local obj = db.actor:active_item()
+		local cond = obj:condition()
+		local name = obj:section()
+		if (name == "wpn_knife_swiss") then num = 0.08 end
+		if (name == "wpn_knife") then num = 0.06 end
+		if (name == "wpn_knife2") then num = 0.05 end
+		if (name == "wpn_knife3") then num = 0.04 end
+		if (name == "wpn_knife4") then num = 0.03 end
+		if (name == "wpn_knife5") then num = 0.02 end
+		if (name == "wpn_axe") then num = 0.04 end
+		if (name == "wpn_axe2") then num = 0.03 end
+		if (name == "wpn_axe3") then num = 0.03 end
+		
+		if (cond > num) then 
+			obj:set_condition(cond-num/4) 
+		else
+			obj:set_condition(0.01)
+		end
+		if obj:condition() <= 0 then
+			alife():release(alife():object(obj:id()), true)
+		end
+	end
+end

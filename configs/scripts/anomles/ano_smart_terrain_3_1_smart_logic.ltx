@@ -1,0 +1,205 @@
+;kamping
+[meet@bench]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+
+[logic@kamp_1]
+suitable = {!surge_started} true
+prior = 60
+active = animpoint@kamp_1
+
+[animpoint@kamp_1]
+cover_name = ano_smart_terrain_3_1_kamp_1
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_2]
+suitable = {!surge_started} true
+prior = 60
+active = animpoint@kamp_2
+
+[animpoint@kamp_2]
+cover_name = ano_smart_terrain_3_1_kamp_2
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_3]
+suitable = {!surge_started} true
+prior = 60
+active = animpoint@kamp_3
+
+[animpoint@kamp_3]
+cover_name = ano_smart_terrain_3_1_kamp_3
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+[logic@kamp_4]
+suitable = {!surge_started} true
+prior = 60
+active = animpoint@kamp_4
+
+[animpoint@kamp_4]
+cover_name = ano_smart_terrain_3_1_kamp_4
+use_camp = true
+turn_on_campfire = true
+meet = meet@bench
+
+;bunker sniper
+[logic@bunker_defencer]
+suitable = {!check_npc_name(ano_ecolog_) =target_squad_name(veteran)} true ;TODO: exclusive npc?
+prior = 200
+active = camper@bunker_defencer
+
+[camper@bunker_defencer]
+path_walk = bunker_defencer_1_walk
+path_look = bunker_defencer_1_look
+radius = 50
+no_retreat = true
+on_info = {!surge_started !npc_in_zone(ano_bunker_defencer_gulag)} %=teleport_npc(ano_smart_terrain_3_1_bunker_defencer_1_walk)%
+on_info2 = {=surge_started !npc_in_zone(ano_smart_terrain_3_1_surge_hide_a1)} %=teleport_npc(ano_smart_terrain_3_1_surge_13_look)% ;костыли...
+; def_state_moving = assault
+def_state_moving_fire = assault_fire
+def_state_campering = guard
+def_state_campering_fire = guard_fire
+; scantime_free = 5000
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+
+;============================================
+[walker@general]
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {!actor_enemy} true, false
+use_camp = false
+turn_on_campfire = false
+path_walk = ready_1_walk
+path_look = ready_2_walk
+
+[logic@kymis]
+suitable = {=check_npc_name(kymis)} true
+prior = 200
+active = animpoint@kymis
+
+[animpoint@kymis]:walker@general
+cover_name = ano_smart_terrain_3_1_kymis_place_1
+meet = meet@kymis
+on_info = {=surge_started} walker@kymis_surge
+on_info2 = {!surge_started +ano_kymis_work_1_timer -ano_kymis_work_1} walker@kymis_ready
+
+[meet@kymis]:meet@bench
+meet_dialog = {+ano_kymis_work_2_timer -ano_kymis_work_2_1} ano_kymis_work_2_1, {+ano_kymis_work_1_timer -ano_kymis_work_1} ano_kymis_work_1, nil
+allow_break = false
+trade_enable = false
+
+[walker@kymis_surge]:walker@general
+path_walk = surge_4_walk
+path_look = surge_3_walk
+meet = no_meet
+on_info = {!surge_started} animpoint@kymis
+
+[logic@broker]
+suitable = {=check_npc_name(broker)} true
+prior = 200
+active = animpoint@broker
+
+[meet@broker]:meet@bench
+meet_dialog = {+ano_german_after_mil -ano_broker_2} ano_broker_2, nil
+allow_break = false
+trade_enable = false
+use = {+ano_german_after_mil -ano_broker_2 =dist_to_actor_le(10) =see_actor} self, true
+
+[animpoint@broker]:walker@general
+cover_name = ano_smart_terrain_3_1_broker_place_1
+meet = meet@broker
+on_info = {=surge_started} walker@broker_surge
+on_info2 = {!surge_started +ano_kymis_work_1_timer -ano_kymis_work_1} walker@broker_ready
+
+[walker@broker_surge]:walker@general
+path_walk = surge_3_walk
+path_look = surge_4_walk
+meet = no_meet
+on_info = {!surge_started} animpoint@broker
+
+[walker@kymis_ready]:walker@general
+path_walk = ready_1_walk
+path_look = ready_2_walk
+def_state_standing = guard
+on_info = {+ano_kymis_work_1} animpoint@kymis
+meet = meet@kymis
+
+[walker@broker_ready]:walker@general
+path_walk = ready_2_walk
+path_look = ready_1_walk
+def_state_standing = guard
+on_info = {+ano_kymis_work_1} animpoint@broker
+
+;mechanic
+[logic@ano_mechanic]
+active = animpoint@ano_mechanic
+suitable = {=check_npc_name(ano_ecolog_mechanic)} true
+prior = 100
+level_spot = mechanic
+post_combat_time = 0,0
+
+[animpoint@ano_mechanic]
+cover_name = ano_smart_terrain_3_1_animpoint_mechanic
+avail_animations = animpoint_sit_normal
+use_camp = false
+turn_on_campfire = false
+meet = meet@ano_mechanic
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+invulnerable = {=npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} true, false
+; combat_ignore_cond = {=npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} true, false
+
+[meet@ano_mechanic]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = true
+allow_break = false
+
+;guider
+[logic@ano_guider]
+active = animpoint@ano_guider
+suitable = {=surge_started} false, {=check_npc_name(sim)} true
+prior = 200
+level_spot = guider
+post_combat_time = 0,0
+
+[animpoint@ano_guider]
+cover_name = ano_smart_terrain_3_1_animpoint_guider
+avail_animations = animpoint_sit_normal
+use_camp = false
+turn_on_campfire = false
+meet = meet@ano_guider
+gather_items_enabled = false
+help_wounded_enabled = false
+corpse_detection_enabled = false
+; invulnerable = {=npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} true, false
+; combat_ignore_cond = {=npc_in_zone(ano_smart_terrain_3_1_surge_hide_a3)} true, false
+
+[meet@ano_guider]
+close_anim 		= nil
+close_victim 	= nil
+far_anim 		= nil
+far_victim 		= nil
+close_distance  = 0
+far_distance 	= 0
+use = true
+allow_break = false
+meet_dialog = global_travel
+

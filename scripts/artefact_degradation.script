@@ -1,0 +1,201 @@
+--// -----------------		Artefact Degradation for CoC	 ---------------------
+--// author	: 	Nuor
+--// version:	1.04
+--// created:	9-01-2016
+--// last edit:	07-05-2019
+--//------------------------------------------------------------------------------
+
+local sysini,_tmr
+local art_cnt, imm_mul, mul, hit_to_section
+feature_is_active = false
+art_weight_add = 0
+
+local function belt_item(item)
+	local sect = item:section()
+	local maxcnt = sysini:r_float_ex(sect,"max_count",db.actor:belt_count()) or 0
+	main_loop()
+	--printf("name:%s cnt:%s[%s]", sect, art_cnt[sect] and art_cnt[sect], maxcnt)
+	if art_cnt[sect] and art_cnt[sect] > maxcnt then
+		db.actor:transfer_item(item,db.actor)
+	end
+end
+
+function main_loop()
+	--printf("main_loop: %s", time_global())
+	ResetTimeEvent("art_degrade","art_degrade",_tmr)
+	if not (db.actor) then
+		return not feature_is_active
+	end
+	art_weight_add = 0
+	local cond_loss, val, x = 0, 0, db.actor:belt_count() or 0
+	art_cnt = {}
+	for i = 0, x - 1, 1 do
+		local arte = db.actor:item_on_belt(i)
+		if (arte) then
+			local sect = arte:section()
+			local maxcnt = sysini:r_float_ex(sect,"max_count",x)
+			if maxcnt > 0 then
+				art_cnt[sect] = art_cnt[sect] and art_cnt[sect] + 1 or 1
+			end
+			
+			cond_loss = 0
+			if (db.actor.health < 1.0) then
+				val = sysini:r_float_ex(sect,"health_restore_speed") or 0
+				if (val > 0) then
+					cond_loss = cond_loss + (val * mul["health"])
+				end
+			end
+			if (db.actor.radiation > 0) then
+				val = sysini:r_float_ex(sect,"radiation_restore_speed") or 0
+				if (val < 0) then
+					cond_loss = cond_loss + (math.abs(val) * mul["radiation"])
+				end
+			end
+			if (db.actor.satiety < 1.0) then
+				val = sysini:r_float_ex(sect,"satiety_restore_speed") or 0
+				if (val > 0) then
+					cond_loss = cond_loss + (val * mul["satiety"])
+				end
+			end
+			if (db.actor.power < 1.0) then
+				val = sysini:r_float_ex(sect,"power_restore_speed") or 0
+				if (val > 0) then
+					cond_loss = cond_loss + (val * mul["power"])
+				end
+			end
+			if (db.actor.bleeding > 0) then
+				val = sysini:r_float_ex(sect,"bleeding_restore_speed") or 0
+				if (val > 0) then
+					cond_loss = cond_loss + (val * mul["bleeding"])
+				end
+			end
+			if (db.actor.psy_health < 1.0) then
+				val = sysini:r_float_ex(sect,"psy_health_restore_speed") or 0
+				if (val > 0) then
+					cond_loss = cond_loss + (val * mul["psy_health"])
+				end
+			end
+			val = sysini:r_float_ex(sect,"additional_inventory_weight") or 0
+			if (val > 0) then
+				local suit = db.actor:item_in_slot(7)
+				local diff = db.actor:get_total_weight() - db.actor:get_actor_max_walk_weight() - (suit and suit:get_additional_max_weight() or 0)
+				if diff > 0 then
+					cond_loss = cond_loss + ((diff * mul["weight"])/val)
+				end
+			end
+			val = sysini:r_float_ex(sect,"additional_inventory_volume") or 0
+			if (val > 0) then
+				local suit = db.actor:item_in_slot(7)
+				local diff = db.actor:get_total_volume() - (suit and suit:get_additional_max_volume() or 0)
+				if diff > 0 then
+					cond_loss = cond_loss + ((diff * mul["volume"])/val)
+				end
+			end
+			if (cond_loss > 0) then
+				--printf("%s Degradation: cond_loss=%s",arte:name(),cond_loss)
+				local degrade_rate = (cond_loss*sysini:r_float_ex(sect,"degrade_rate",1))
+				if (arte:condition() - degrade_rate >= 0.01) then
+					arte:set_condition(arte:condition() - degrade_rate)
+				else
+					arte:set_condition(0.01)
+				end
+			end
+			art_weight_add = art_weight_add + (val * arte:condition())
+		end
+	end
+	return not feature_is_active
+end
+
+local function actor_on_before_hit(s_hit)
+	if (s_hit.power <= 0) then
+		return
+	end
+	local cond_loss, x = 0, db.actor:belt_count() or 0
+	local hit_absorbation_sect, imm_sect
+	for i = 0, x - 1, 1 do
+		local arte = db.actor:item_on_belt(i)
+		if (arte) then
+			cond_loss = 0
+			hit_absorbation_sect = sysini:r_string_ex(arte:section(),"hit_absorbation_sect")
+			if (hit_absorbation_sect) then
+				imm_sect = hit_to_section[s_hit.type]
+				cond_loss = imm_sect and sysini:r_float_ex(hit_absorbation_sect,imm_sect) or 0
+				if (cond_loss > 0) then
+					cond_loss = (s_hit.power * imm_mul[imm_sect] * cond_loss)
+					--printf("%s Degradation: hit_power=%s cond_loss=%s",arte:name(),s_hit.power,cond_loss)
+					local temp_cond = arte:condition() - (cond_loss*sysini:r_float_ex(arte:section(),"degrade_rate",1))
+					temp_cond = temp_cond > 0.01 and temp_cond or 0.01
+					arte:set_condition(temp_cond)
+				end
+			end
+		end
+	end
+end
+
+function activate_feature(active)
+	feature_is_active = active
+	if (feature_is_active) then
+		sysini = system_ini()
+		_tmr = 2
+		art_cnt = {}
+	--//-----------	correction factors for hit events
+		imm_mul = {
+			["light_burn_immunity"] = 1.2,
+			["burn_immunity"] = 1.2,
+			["strike_immunity"] = 1.2,
+			["shock_immunity"] = 1.2,
+			["wound_immunity"] = 1.2,
+			["radiation_immunity"] = 1.2,
+			["telepatic_immunity"] = 1.2,
+			["chemical_burn_immunity"] = 1.2,
+			["explosion_immunity"] = 1.2,
+			["fire_wound_immunity"] = 1.2
+		}
+		--//-----------	correction factors for timed checks
+		mul = {
+			["health"]		= 0.2,		-- updated often while slotted so don't set too high
+			["radiation"] 	= 0.2,
+			["satiety"] 	= 0.2,
+			["power"] 		= 0.2,		-- updated often while slotted so don't set too high
+			["bleeding"] 	= 0.2,
+			["psy_health"] 	= 0.2,
+			["weight"]		= 0.0001 	-- updated often while slotted so don't set too high
+		}
+		--//-----------	On hit immunities checks
+		hit_to_section = {
+			[hit.light_burn] = "light_burn_immunity",
+			[hit.burn] = "burn_immunity",
+			[hit.strike] = "strike_immunity",
+			[hit.shock] = "shock_immunity",
+			[hit.wound] = "wound_immunity",
+			[hit.radiation] = "radiation_immunity",
+			[hit.telepatic] = "telepatic_immunity",
+			[hit.chemical_burn] = "chemical_burn_immunity",
+			[hit.explosion] = "explosion_immunity",
+			[hit.fire_wound] = "fire_wound_immunity"
+		}
+
+		RegisterScriptCallback("actor_on_before_hit",actor_on_before_hit)
+		CreateTimeEvent("art_degrade","art_degrade",_tmr,main_loop)
+		RegisterScriptCallback("actor_item_to_belt",belt_item)
+	else
+		--RemoveUniqueCall(main_loop)
+		RemoveTimeEvent("art_degrade","art_degrade")
+		UnregisterScriptCallback("actor_on_before_hit",actor_on_before_hit)
+		UnregisterScriptCallback("actor_item_to_belt",belt_item)
+		sysini = nil
+		_tmr = nil
+		art_cnt = nil
+		imm_mul = nil
+		mul = nil
+		hit_to_section = nil
+	end
+end
+
+local function on_game_load()
+	activate_feature(axr_main.config:r_bool_ex("mm_options","enable_art_degrade",false))
+end
+
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+end
